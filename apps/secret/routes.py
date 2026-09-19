@@ -26,12 +26,18 @@ def trigger_update(room_code: str, state: dict):
 
     # 1. Policy Enacted Notification
     if 'last_enacted' in state:
-        pusher_client.trigger(channel_name, 'policy-enacted', {'type': state['last_enacted']})
+        try:
+            pusher_client.trigger(channel_name, 'policy-enacted', {'type': state['last_enacted']})
+        except Exception:
+            pass
         del state['last_enacted']
 
     # 2. Reshuffle Notification
     if state.get('deck_reshuffled'):
-        pusher_client.trigger(channel_name, 'reshuffle-notification', {})
+        try:
+            pusher_client.trigger(channel_name, 'reshuffle-notification', {})
+        except Exception:
+            pass
         state['deck_reshuffled'] = False
 
     # 3. Safe State Payload
@@ -53,7 +59,10 @@ def trigger_update(room_code: str, state: dict):
     )
 
     # 6. Broadcast
-    pusher_client.trigger(channel_name, 'state-update', payload)
+    try:
+        pusher_client.trigger(channel_name, 'state-update', payload)
+    except Exception:
+        pass
 
 
 def record_game_results_if_ended(state: dict):
@@ -254,7 +263,10 @@ def kick(room_code: str = None):
             del state[k][target_name]
 
     state = secret_logic.validate_game_integrity(state)
-    pusher_client.trigger(f'secret-{code}', 'force-kick', {'name': target_name})
+    try:
+        pusher_client.trigger(f'secret-{code}', 'force-kick', {'name': target_name})
+    except Exception:
+        pass
     trigger_update(code, state)
     return jsonify({"success": True})
 
@@ -581,8 +593,9 @@ def change_style(room_code: str = None):
 @login_required
 def toggle_setting(room_code: str = None):
     user = get_current_user()
-    code = (room_code or request.form.get('room_code') or '').upper().strip()
-    setting = request.form.get('setting')
+    data = request.get_json(silent=True) or {}
+    code = (room_code or request.form.get('room_code') or data.get('room_code') or '').upper().strip()
+    setting = request.form.get('setting') or data.get('setting')
 
     state = get_room_state('secret', code)
     if not state:
@@ -604,7 +617,8 @@ def toggle_setting(room_code: str = None):
 @login_required
 def reset_game(room_code: str = None):
     user = get_current_user()
-    code = (room_code or request.form.get('room_code') or '').upper().strip()
+    data = request.get_json(silent=True) or {}
+    code = (room_code or request.form.get('room_code') or data.get('room_code') or '').upper().strip()
 
     state = get_room_state('secret', code)
     if not state:
@@ -627,7 +641,10 @@ def reset_game(room_code: str = None):
     new_state['settings'] = saved_settings
 
     trigger_update(code, new_state)
-    pusher_client.trigger(f'secret-{code}', 'game-reset', {})
+    try:
+        pusher_client.trigger(f'secret-{code}', 'game-reset', {})
+    except Exception:
+        pass
     return jsonify({"success": True})
 
 
@@ -636,8 +653,9 @@ def reset_game(room_code: str = None):
 @login_required
 def heartbeat(room_code: str = None):
     user = get_current_user()
-    code = (room_code or request.form.get('room_code') or '').upper().strip()
-    status = request.form.get('status')
+    data = request.get_json(silent=True) or {}
+    code = (room_code or request.form.get('room_code') or data.get('room_code') or '').upper().strip()
+    status = request.form.get('status') or data.get('status')
     force_offline = (status == 'leaving')
 
     if not code:
@@ -645,7 +663,7 @@ def heartbeat(room_code: str = None):
 
     state = get_room_state('secret', code)
     if not state:
-        return jsonify({"status": "room_closed"})
+        return jsonify({"status": "room_closed", "room_closed": True})
 
     state, offline_players, kicked_players = secret_logic.handle_heartbeat(
         state, code, user['username'], force_offline=force_offline
@@ -654,8 +672,10 @@ def heartbeat(room_code: str = None):
     if kicked_players:
         trigger_update(code, state)
 
+    payload = secret_logic.get_full_state(state)
     return jsonify({
         "status": "ok",
         "offline": offline_players,
-        "kicked": kicked_players
+        "kicked": kicked_players,
+        "state": payload
     })

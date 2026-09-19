@@ -33,7 +33,10 @@ def trigger_update(room_code: str, state: dict, event_name: str = 'state-update'
         status=state.get('status', 'lobby')
     )
 
-    pusher_client.trigger(channel_name, event_name, safe_state)
+    try:
+        pusher_client.trigger(channel_name, event_name, safe_state)
+    except Exception as e:
+        pass
 
 
 def record_game_results_if_ended(state: dict):
@@ -348,7 +351,8 @@ def end_round(room_code: str = None):
 @login_required
 def update_settings(room_code: str = None):
     user = get_current_user()
-    code = (room_code or request.form.get('room_code') or '').upper().strip()
+    data = request.get_json(silent=True) or {}
+    code = (room_code or request.form.get('room_code') or data.get('room_code') or '').upper().strip()
 
     state = get_room_state('song', code)
     if not state:
@@ -357,8 +361,8 @@ def update_settings(room_code: str = None):
     if user['username'] != state.get('host'):
         return jsonify({'error': 'Nur der Host kann Einstellungen anpassen'}), 403
 
-    key = request.form.get('key')
-    val = request.form.get('value')
+    key = request.form.get('key') or data.get('key')
+    val = request.form.get('value') if request.form.get('value') is not None else data.get('value')
 
     if key == 'playlists':
         state['settings']['playlists'] = val.split(',') if val else []
@@ -397,7 +401,10 @@ def reset_game(room_code: str = None):
     new_state['scores'] = {p: 0 for p in saved_players}
 
     trigger_update(code, new_state)
-    pusher_client.trigger(f'song-{code}', 'game-reset', {})
+    try:
+        pusher_client.trigger(f'song-{code}', 'game-reset', {})
+    except Exception:
+        pass
     return jsonify({'success': True})
 
 
@@ -406,8 +413,9 @@ def reset_game(room_code: str = None):
 @login_required
 def heartbeat(room_code: str = None):
     user = get_current_user()
-    code = (room_code or request.form.get('room_code') or '').upper().strip()
-    status = request.form.get('status')
+    data = request.get_json(silent=True) or {}
+    code = (room_code or request.form.get('room_code') or data.get('room_code') or '').upper().strip()
+    status = request.form.get('status') or data.get('status')
     force_offline = (status == 'leaving')
 
     if not code:
@@ -415,7 +423,7 @@ def heartbeat(room_code: str = None):
 
     state = get_room_state('song', code)
     if not state:
-        return jsonify({'offline': []})
+        return jsonify({'offline': [], 'room_closed': True})
 
     state, offline, kicked = song_logic.handle_heartbeat(
         state, code, user['username'], force_offline=force_offline
@@ -424,4 +432,5 @@ def heartbeat(room_code: str = None):
     if kicked:
         trigger_update(code, state)
 
-    return jsonify({'offline': offline})
+    safe_state = song_logic.get_client_safe_state(state)
+    return jsonify({'offline': offline, 'state': safe_state})

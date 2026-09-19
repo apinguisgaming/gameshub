@@ -695,6 +695,8 @@
         var roundStartTime = 0;
         var nextAudio = new Audio();
 
+        var roomListTimer = null;
+
         // Inject room_code and X-Auth-Token automatically into all jQuery POST requests
         $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
             const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
@@ -705,6 +707,14 @@
                 if (typeof options.data === 'string') {
                     if (options.data.indexOf('room_code=') === -1) {
                         options.data += (options.data ? '&' : '') + 'room_code=' + encodeURIComponent(currentRoomCode);
+                    }
+                } else if (typeof FormData !== 'undefined' && options.data instanceof FormData) {
+                    if (!options.data.has('room_code')) {
+                        options.data.append('room_code', currentRoomCode);
+                    }
+                } else if (typeof options.data === 'object' && options.data !== null) {
+                    if (!options.data.room_code) {
+                        options.data.room_code = currentRoomCode;
                     }
                 } else if (!options.data) {
                     options.data = 'room_code=' + encodeURIComponent(currentRoomCode);
@@ -750,11 +760,20 @@
             window.location.hash = "";
             $('.screen').hide();
             $('#screen-room-browser').show();
-            loadRoomList();
+            loadRoomList(false);
+            if (!roomListTimer) {
+                roomListTimer = setInterval(function () {
+                    if ($('#screen-room-browser').is(':visible')) {
+                        loadRoomList(true);
+                    }
+                }, 3000);
+            }
         }
 
-        function loadRoomList() {
-            $('#song-room-list').html('<div style="text-align:center; padding:15px; color:var(--c-light-blue);">Lade Sessions...</div>');
+        function loadRoomList(silent) {
+            if (!silent) {
+                $('#song-room-list').html('<div style="text-align:center; padding:15px; color:var(--c-light-blue);">Lade Sessions...</div>');
+            }
             $.get('/song/rooms', function (res) {
                 if (!res.rooms || res.rooms.length === 0) {
                     $('#song-room-list').html('<div style="text-align:center; padding:15px; color:#888; border:2px dashed #444;">Keine aktiven Sessions.<br>Starte oben eine neue!</div>');
@@ -763,10 +782,10 @@
                 let html = '';
                 res.rooms.forEach(r => {
                     let isLobby = r.status === 'lobby';
-                    let statusText = isLobby ? '<span style="color:#51cf66;">LOBBY</span>' : '<span style="color:#ff922b;">LÄUFT</span>';
+                    let statusText = isLobby ? '<span style="color:#10b981;">LOBBY</span>' : '<span style="color:#f59e0b;">IN SPIEL</span>';
                     let btnText = isLobby ? 'BEITRETEN' : 'ZUSCHAUEN';
                     html += `
-                        <div style="display:flex; justify-content:space-between; align-items:center; background:var(--c-mid-blue); border:2px solid var(--c-light-blue); padding:10px 14px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.03); border:2px solid var(--c-royal); padding:12px 16px;">
                             <div>
                                 <span style="font-size:1.1rem; font-weight:900; letter-spacing:2px; color:var(--c-white);">${r.room_code}</span>
                                 <span style="font-size:0.8rem; color:var(--c-cyan); margin-left:8px;">Host: <strong>${r.host_username || 'Unbekannt'}</strong></span>
@@ -999,6 +1018,7 @@
     function joinRoom(code) {
             code = code.toUpperCase().trim();
             currentRoomCode = code;
+            if (roomListTimer) { clearInterval(roomListTimer); roomListTimer = null; }
             sessionStorage.setItem('song_active_room', code);
             window.location.hash = code;
             $('#song-lobby-code').text(code);
@@ -1037,7 +1057,7 @@
                 selected.push($(this).data('playlist') || $(this).text().trim());
             });
 
-            $.post('/song/update_settings', { key: 'playlists', value: selected.join(',') }, function () {
+            $.post('/song/update_settings', { key: 'playlists', value: selected.join(','), room_code: currentRoomCode }, function () {
                 $.post('/song/start_game', function (response) {
                     if (response.error) {
                         alert("⚠️ START FAILED: " + response.error);
@@ -1052,7 +1072,11 @@
 
         function updateSetting(key, val) {
             if (!isHost) return;
-            $.post('/song/update_settings', { key: key, value: val });
+            if (key === 'time_per_song') updateControlVisuals('ctrl-time', val);
+            if (key === 'total_songs') updateControlVisuals('ctrl-count', val);
+            $.post('/song/update_settings', { key: key, value: val, room_code: currentRoomCode }, function (res) {
+                if (res.error) console.warn("Update settings:", res.error);
+            });
         }
 
         function togglePlaylist(el) {
@@ -1063,7 +1087,8 @@
             $('.playlist-card.selected').each(function () {
                 selected.push($(this).data('playlist') || $(this).text().trim());
             });
-            $.post('/song/update_settings', { key: 'playlists', value: selected.join(',') });
+            $('#pl-summary').text(selected.length > 0 ? selected.length + " AUSGEWÄHLT" : "ALLE (Standard)");
+            $.post('/song/update_settings', { key: 'playlists', value: selected.join(','), room_code: currentRoomCode });
         }
 
         function togglePlaylists() {
@@ -1073,39 +1098,55 @@
             icon.style.transform = el.classList.contains('open') ? "rotate(180deg)" : "rotate(0deg)";
         }
 
-        function updateUI(data) {
-            $('.screen').hide();
+        var lastLobbySig = "";
 
-            isHost = (data.host === myName);
+        function updateUI(data) {
+            if (!data) return;
+            if (myName && data.host) {
+                isHost = (data.host === myName);
+            }
             if (isHost) $('.host-only-btn').show(); else $('.host-only-btn').hide();
 
             if (data.status === 'lobby') {
-                $('#screen-lobby').show();
+                if ($('#screen-lobby').is(':hidden')) {
+                    $('.screen').hide();
+                    $('#screen-lobby').show();
+                }
                 if (audio) { audio.pause(); }
                 renderLobby(data);
             }
             else if (data.status === 'finished') {
-                $('#screen-result').show();
+                if ($('#screen-result').is(':hidden')) {
+                    $('.screen').hide();
+                    $('#screen-result').show();
+                }
                 renderResult(data);
             }
             else {
-                $('#screen-game').show();
+                if ($('#screen-game').is(':hidden')) {
+                    $('.screen').hide();
+                    $('#screen-game').show();
+                }
                 renderGame(data);
             }
         }
 
         function renderLobby(data) {
+            let sig = JSON.stringify([data.players, data.host, data.scores, data.settings, isHost]);
+            if (sig === lastLobbySig && $('#player-list').children().length > 0) return;
+            lastLobbySig = sig;
+
             const list = $('#player-list');
             list.empty();
 
-            data.players.forEach(p => {
+            (data.players || []).forEach(p => {
                 let classes = 'player-row';
                 if (p === myName) classes += ' me';
                 if (p === data.host) classes += ' host';
 
                 list.append(`<div id="p-row-${p}" class="${classes}">
                     <span>${p}</span>
-                    <span style="font-size:0.8rem;">${data.scores[p] || 0} PTS</span>
+                    <span style="font-size:0.8rem;">${(data.scores && data.scores[p]) || 0} PTS</span>
                 </div>`);
             });
 
@@ -1210,9 +1251,28 @@
         function sendHeartbeat() {
             if (!myName || !currentRoomCode) return;
             $.post('/song/heartbeat', { status: 'active', room_code: currentRoomCode }, function (res) {
+                if (res.room_closed) {
+                    showRoomBrowser();
+                    return;
+                }
                 $('.player-row').removeClass('offline');
                 if (res.offline) {
                     res.offline.forEach(p => { $(`#p-row-${p}`).addClass('offline'); });
+                }
+                if (res.state) {
+                    if (res.state.status === 'lobby') {
+                        updateUI(res.state);
+                    } else if (res.state.status === 'finished') {
+                        if ($('#screen-result').is(':hidden')) {
+                            updateUI(res.state);
+                        }
+                    } else if (res.state.status === 'playing') {
+                        if ($('#screen-game').is(':hidden')) {
+                            updateUI(res.state);
+                        } else if (res.state.scores) {
+                            $('#my-score-display').text(res.state.scores[myName] || 0);
+                        }
+                    }
                 }
             });
         }
@@ -1220,7 +1280,7 @@
         function startHeartbeatLoop() {
             if (heartbeatTimer) return;
             sendHeartbeat();
-            heartbeatTimer = setInterval(sendHeartbeat, 3000);
+            heartbeatTimer = setInterval(sendHeartbeat, 1500);
         }
 
         function stopHeartbeatLoop() {
