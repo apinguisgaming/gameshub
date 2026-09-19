@@ -896,6 +896,9 @@
 
         channel.bind('round-start', function (data) {
             if (!myName) return;
+            if (data && data.scores) {
+                renderGameLeaderboard(data.scores, data.players || []);
+            }
 
             hasGuessed = false;
             roundStartTime = Date.now();
@@ -958,6 +961,9 @@
         }
 
         channel.bind('round-end', function (data) {
+            if (data && data.scores) {
+                renderGameLeaderboard(data.scores, data.players || []);
+            }
             let correctId = data.round.reveal_answer;
             let isLastRound = data.round.is_last_round;
 
@@ -1029,6 +1035,9 @@
         $('.btn-option').prop('disabled', true);
 
         $.post('/song/submit_guess', { guess_id: id, elapsed: elapsed }, function (res) {
+            if (res.scores) {
+                renderGameLeaderboard(res.scores);
+            }
             if (res.result === 'correct') {
                 btn.addClass('correct');
                 let pts = res.points || 0;
@@ -1252,10 +1261,49 @@
             }
         }
 
-        function renderGame(data) {
-            if (data.scores) {
-                $('#my-score-display').text(data.scores[myName] || 0);
+        function renderGameLeaderboard(scores, players) {
+            const board = $('#game-leaderboard');
+            if (board.length === 0) return;
+
+            let allNames = Array.from(new Set([...(players || []), ...Object.keys(scores || {})]));
+            if (allNames.length === 0) {
+                board.html('<div style="text-align:center; color:rgba(255,255,255,0.4); padding:12px; font-size:0.85rem;">Warte auf Punktestand...</div>');
+                return;
             }
+
+            let sorted = allNames.map(name => ({
+                name: name,
+                score: (scores && typeof scores[name] === 'number') ? scores[name] : 0
+            }));
+            sorted.sort((a, b) => b.score - a.score);
+
+            board.empty();
+            sorted.forEach((p, idx) => {
+                let rank = idx + 1;
+                let isMe = Boolean(myName && p.name.trim().toLowerCase() === myName.trim().toLowerCase());
+                let medal = rank === 1 ? '🥇 ' : (rank === 2 ? '🥈 ' : (rank === 3 ? '🥉 ' : ''));
+                let borderCol = isMe ? 'var(--c-cyan)' : 'var(--c-royal)';
+                let textCol = isMe ? 'var(--c-cyan)' : 'var(--c-white)';
+                let bgCol = isMe ? 'rgba(6, 182, 212, 0.12)' : 'rgba(255, 255, 255, 0.03)';
+                let glow = isMe ? 'box-shadow: 0 0 10px rgba(6, 182, 212, 0.25);' : '';
+
+                board.append(`
+                    <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 14px; background:${bgCol}; border:2px solid ${borderCol}; border-radius:4px; ${glow}">
+                        <div style="font-weight:800; color:${textCol}; font-size:1rem; display:flex; align-items:center; gap:8px;">
+                            <span style="width:24px; color:var(--c-royal); font-size:0.85rem;">${rank}.</span>
+                            <span>${medal}${p.name}</span>
+                            ${isMe ? '<span style="font-size:0.7rem; background:var(--c-cyan); color:var(--c-bg); padding:2px 6px; font-weight:900; border-radius:3px;">DU</span>' : ''}
+                        </div>
+                        <div style="font-family:'Space Mono', monospace; font-weight:900; color:${isMe ? 'var(--c-cyan)' : 'var(--c-white)'}; font-size:1.1rem;">
+                            ${p.score} <span style="font-size:0.75rem; color:#888;">PTS</span>
+                        </div>
+                    </div>
+                `);
+            });
+        }
+
+        function renderGame(data) {
+            renderGameLeaderboard(data.scores || {}, data.players || []);
 
             if (data.round && data.settings) {
                 let cur = data.round.number;
@@ -1350,7 +1398,7 @@
                         if ($('#screen-game').is(':hidden')) {
                             updateUI(res.state);
                         } else if (res.state.scores) {
-                            $('#my-score-display').text(res.state.scores[myName] || 0);
+                            renderGameLeaderboard(res.state.scores, res.state.players || []);
                         }
                     }
                 }

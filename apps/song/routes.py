@@ -322,12 +322,12 @@ def submit_guess(room_code: str = None):
 
     if result_status == 'correct':
         trigger_update(code, state)
-        return jsonify({'result': 'correct', 'points': points})
+        return jsonify({'result': 'correct', 'points': points, 'scores': state.get('scores')})
     elif result_status == 'wrong':
         trigger_update(code, state)
-        return jsonify({'result': 'wrong', 'points': 0})
+        return jsonify({'result': 'wrong', 'points': 0, 'scores': state.get('scores')})
 
-    return jsonify({'result': result_status})
+    return jsonify({'result': result_status, 'scores': state.get('scores')})
 
 
 @song_bp.route('/<room_code>/end_round', methods=['POST'])
