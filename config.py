@@ -42,9 +42,22 @@ def _apply_proxy():
 
 _apply_proxy()
 
+import sys
+import glob
+
+# Ensure user-level site-packages are loaded in WSGI environments
+home_local_site = Path.home() / '.local' / 'lib'
+if home_local_site.exists():
+    for p in glob.glob(str(home_local_site / 'python*' / 'site-packages')):
+        if p not in sys.path:
+            sys.path.insert(0, p)
+
 _cached_pusher = None
 
 class DummyPusher:
+    def __init__(self, error=None):
+        self.error = error
+
     def trigger(self, channel, event, data):
         return None
 
@@ -68,5 +81,6 @@ def get_pusher_client():
         return _cached_pusher
     except Exception as e:
         import logging
-        logging.warning(f"[config] Could not initialize Pusher client: {e}")
-        return DummyPusher()
+        err_msg = f"{type(e).__name__}: {e}"
+        logging.warning(f"[config] Could not initialize Pusher client: {err_msg}")
+        return DummyPusher(error=err_msg)

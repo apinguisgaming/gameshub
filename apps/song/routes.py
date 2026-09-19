@@ -32,12 +32,22 @@ def trigger_update(room_code: str, state: dict, event_name: str = 'state-update'
         status=state.get('status', 'lobby')
     )
 
+    client = get_pusher_client()
+    pusher_res = {'client_type': type(client).__name__, 'channel': channel_name, 'event': event_name}
+    if type(client).__name__ == 'DummyPusher':
+        pusher_res['error'] = getattr(client, 'error', 'Dummy client active (import failed)')
+        return pusher_res
+
     try:
-        client = get_pusher_client()
-        client.trigger(channel_name, event_name, safe_state)
+        trig = client.trigger(channel_name, event_name, safe_state)
+        pusher_res['success'] = True
+        pusher_res['result'] = str(trig)
     except Exception as e:
         import logging
         logging.error(f"[Pusher Error] Failed to trigger {channel_name}/{event_name}: {e}", exc_info=True)
+        pusher_res['error'] = f"{type(e).__name__}: {e}"
+
+    return pusher_res
 
 
 def record_game_results_if_ended(state: dict):
@@ -378,8 +388,8 @@ def update_settings(room_code: str = None):
         except (ValueError, TypeError):
             pass
 
-    trigger_update(code, state)
-    return jsonify({'success': True, 'settings': state.get('settings')})
+    pusher_status = trigger_update(code, state)
+    return jsonify({'success': True, 'settings': state.get('settings'), 'pusher': pusher_status})
 
 
 @song_bp.route('/<room_code>/reset_game', methods=['POST'])
