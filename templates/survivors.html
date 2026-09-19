@@ -5,11 +5,12 @@
 <title>Gothic Survivors</title>
 <script>
     (function() {
-        const token = sessionStorage.getItem('gamehub_token');
         const urlParams = new URLSearchParams(window.location.search);
-        if (token && !urlParams.has('token')) {
-            urlParams.set('token', token);
-            window.location.replace(window.location.pathname + '?' + urlParams.toString() + window.location.hash);
+        if (urlParams.has('token')) {
+            sessionStorage.setItem('gamehub_token', urlParams.get('token'));
+            urlParams.delete('token');
+            const cleanQuery = urlParams.toString() ? ('?' + urlParams.toString()) : '';
+            window.history.replaceState({}, document.title, window.location.pathname + cleanQuery + window.location.hash);
         }
     })();
 </script>
@@ -154,7 +155,7 @@
 <div id="main-container">
     <div style="position: absolute; top: 12px; left: 12px; z-index: 250; display: flex; align-items: center; gap: 10px; pointer-events: auto;">
         <a href="/" class="gamehub-back-btn" style="background: #151010; border: 1px solid var(--ui-border); color: var(--accent); padding: 5px 12px; text-decoration: none; font-family: var(--font-body); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">← GAMEHUB</a>
-        <span style="background: rgba(21, 16, 16, 0.85); border: 1px solid #444; color: #fff; padding: 4px 10px; font-size: 13px; font-family: monospace;">ACCOUNT: <strong style="color: var(--accent);">👤 {{ current_user.username if current_user else 'Gast' }}</strong></span>
+        <span style="background: rgba(21, 16, 16, 0.85); border: 1px solid #444; color: #fff; padding: 4px 10px; font-size: 13px; font-family: monospace;">ACCOUNT: <strong class="account-badge-username" style="color: var(--accent);">👤 {{ current_user.username if current_user else 'Gast' }}</strong></span>
     </div>
     <canvas id="gameCanvas"></canvas>
     <div id="scanlines"></div>
@@ -238,19 +239,19 @@
     {% endif %}
     window.GAMEHUB_TOKEN = sessionStorage.getItem('gamehub_token') || {{ auth_token | tojson if auth_token else 'null' }};
 
-    function syncBackLinks() {
-        const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
-        if (token) {
-            document.querySelectorAll('.gamehub-back-btn').forEach(link => {
-                try {
-                    const url = new URL(link.getAttribute('href'), window.location.origin);
-                    url.searchParams.set('token', token);
-                    link.setAttribute('href', url.pathname + url.search);
-                } catch(e) {}
-            });
+    function syncTabUser() {
+        const savedUserStr = sessionStorage.getItem('gamehub_user');
+        if (savedUserStr) {
+            try {
+                const su = JSON.parse(savedUserStr);
+                if (su && su.username) {
+                    window.GAMEHUB_USER = su;
+                    document.querySelectorAll('.account-badge-username').forEach(el => el.textContent = '👤 ' + su.username);
+                }
+            } catch(e) {}
         }
     }
-    document.addEventListener('DOMContentLoaded', syncBackLinks);
+    document.addEventListener('DOMContentLoaded', syncTabUser);
 </script>
 <script src="/static/survivors/game-visuals.js" defer></script>
 <script src="/static/survivors/game-data.js" defer></script>

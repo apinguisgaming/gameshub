@@ -6,11 +6,12 @@
     <title>GAME PORTAL - GameHub</title>
     <script>
         (function() {
-            const token = sessionStorage.getItem('gamehub_token');
             const urlParams = new URLSearchParams(window.location.search);
-            if (token && !urlParams.has('token')) {
-                urlParams.set('token', token);
-                window.location.replace(window.location.pathname + '?' + urlParams.toString() + window.location.hash);
+            if (urlParams.has('token')) {
+                sessionStorage.setItem('gamehub_token', urlParams.get('token'));
+                urlParams.delete('token');
+                const cleanQuery = urlParams.toString() ? ('?' + urlParams.toString()) : '';
+                window.history.replaceState({}, document.title, window.location.pathname + cleanQuery + window.location.hash);
             }
         })();
     </script>
@@ -397,8 +398,8 @@
         <div class="top-bar">
             {% if current_user %}
                 <div class="user-pill">
-                    <span class="user-avatar-tag">👤 {{ current_user.username }}</span>
-                    <span>Account: <strong>{{ current_user.username }}</strong></span>
+                    <span class="user-avatar-tag account-badge-avatar">👤 {{ current_user.username }}</span>
+                    <span>Account: <strong class="account-badge-name">{{ current_user.username }}</strong></span>
                 </div>
                 <button class="btn-auth btn-logout" onclick="handleLogout()">Abmelden</button>
             {% else %}
@@ -514,16 +515,16 @@
 
         let currentAuthMode = 'login';
 
-        function syncGameLinks() {
-            const token = sessionStorage.getItem('gamehub_token');
-            if (token) {
-                document.querySelectorAll('.grid a.card').forEach(link => {
-                    try {
-                        const url = new URL(link.getAttribute('href'), window.location.origin);
-                        url.searchParams.set('token', token);
-                        link.setAttribute('href', url.pathname + url.search);
-                    } catch(e) {}
-                });
+        function syncTabUser() {
+            const savedUser = sessionStorage.getItem('gamehub_user');
+            if (savedUser) {
+                try {
+                    const u = JSON.parse(savedUser);
+                    if (u && u.username) {
+                        document.querySelectorAll('.account-badge-name').forEach(el => el.textContent = u.username);
+                        document.querySelectorAll('.account-badge-avatar').forEach(el => el.textContent = '👤 ' + u.username);
+                    }
+                } catch(e) {}
             }
         }
 
@@ -603,17 +604,13 @@
                     sessionStorage.setItem('gamehub_user', JSON.stringify(data.user));
                 }
 
-                // Redirect to ?next= param if present, or reload with token
+                // Redirect to ?next= param if present, or reload cleanly without token in URL
                 const urlParams = new URLSearchParams(window.location.search);
                 const nextUrl = urlParams.get('next');
                 if (nextUrl && nextUrl.startsWith('/')) {
-                    const target = new URL(nextUrl, window.location.origin);
-                    if (data.token) target.searchParams.set('token', data.token);
-                    window.location.href = target.pathname + target.search + target.hash;
+                    window.location.href = nextUrl;
                 } else {
-                    const home = new URL('/', window.location.origin);
-                    if (data.token) home.searchParams.set('token', data.token);
-                    window.location.href = home.pathname + home.search;
+                    window.location.href = '/';
                 }
             } catch (err) {
                 showAuthError('Verbindungsfehler. Bitte erneut versuchen.');
@@ -635,7 +632,7 @@
 
         // Check if redirected with ?login=1
         document.addEventListener('DOMContentLoaded', () => {
-            syncGameLinks();
+            syncTabUser();
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('login') === '1') {
                 openAuthModal('login');

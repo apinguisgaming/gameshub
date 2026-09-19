@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <script>
     (function() {
-        const token = sessionStorage.getItem('gamehub_token');
         const urlParams = new URLSearchParams(window.location.search);
-        if (token && !urlParams.has('token')) {
-            urlParams.set('token', token);
-            window.location.replace(window.location.pathname + '?' + urlParams.toString() + window.location.hash);
+        if (urlParams.has('token')) {
+            sessionStorage.setItem('gamehub_token', urlParams.get('token'));
+            urlParams.delete('token');
+            const cleanQuery = urlParams.toString() ? ('?' + urlParams.toString()) : '';
+            window.history.replaceState({}, document.title, window.location.pathname + cleanQuery + window.location.hash);
         }
     })();
   </script>
@@ -617,7 +618,7 @@
     <a href="/" class="gamehub-back-btn button" style="padding: 4px 12px; font-size: 0.8rem; text-decoration: none; display: inline-block;">← GAMEHUB</a>
     <div style="font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; gap: 8px;">
       <span style="color: #22c55e;">☁️ CLOUD SYNC</span>
-      <span style="background: var(--bg-color); border: 2px solid var(--black); padding: 3px 8px;">ACCOUNT: <strong style="color: var(--black);">👤 {{ current_user.username if current_user else 'Gast' }}</strong></span>
+      <span style="background: var(--bg-color); border: 2px solid var(--black); padding: 3px 8px;">ACCOUNT: <strong class="account-badge-username" style="color: var(--black);">👤 {{ current_user.username if current_user else 'Gast' }}</strong></span>
     </div>
   </div>
 
@@ -1287,19 +1288,19 @@
     {% endif %}
     window.GAMEHUB_TOKEN = sessionStorage.getItem('gamehub_token') || {{ auth_token | tojson if auth_token else 'null' }};
 
-    function syncBackLinks() {
-        const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
-        if (token) {
-            document.querySelectorAll('.gamehub-back-btn').forEach(link => {
-                try {
-                    const url = new URL(link.getAttribute('href'), window.location.origin);
-                    url.searchParams.set('token', token);
-                    link.setAttribute('href', url.pathname + url.search);
-                } catch(e) {}
-            });
+    function syncTabUser() {
+        const savedUserStr = sessionStorage.getItem('gamehub_user');
+        if (savedUserStr) {
+            try {
+                const su = JSON.parse(savedUserStr);
+                if (su && su.username) {
+                    window.GAMEHUB_USER = su;
+                    document.querySelectorAll('.account-badge-username').forEach(el => el.textContent = '👤 ' + su.username);
+                }
+            } catch(e) {}
         }
     }
-    document.addEventListener('DOMContentLoaded', syncBackLinks);
+    document.addEventListener('DOMContentLoaded', syncTabUser);
   </script>
 
   <!-- Cache-Buster v=2059 -->

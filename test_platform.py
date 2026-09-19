@@ -263,6 +263,10 @@ class GameHubPlatformTests(unittest.TestCase):
         res_b = self.client.post('/api/auth/login', json={'username': 'TabUserBeta', 'password': 'Password123!'})
         token_b = res_b.get_json()['token']
 
+        # Ensure Beta starts with empty save
+        beta_client = self.app.test_client()
+        beta_client.post('/api/save/tower', headers={'X-Auth-Token': token_b}, json={'state': None})
+
         # Alpha saves Pokémon Tower progress (Wave 50)
         alpha_client = self.app.test_client()
         res = alpha_client.post('/api/save/tower',
@@ -272,7 +276,6 @@ class GameHubPlatformTests(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
 
         # Beta has NOT saved yet -> check Beta's cloud save is empty
-        beta_client = self.app.test_client()
         res_beta_empty = beta_client.get('/api/save/tower', headers={'X-Auth-Token': token_b})
         self.assertEqual(res_beta_empty.status_code, 200)
         self.assertIsNone(res_beta_empty.get_json()['state'])

@@ -7,11 +7,12 @@
     <title>SONG // GUESSER</title>
     <script>
         (function() {
-            const token = sessionStorage.getItem('gamehub_token');
             const urlParams = new URLSearchParams(window.location.search);
-            if (token && !urlParams.has('token')) {
-                urlParams.set('token', token);
-                window.location.replace(window.location.pathname + '?' + urlParams.toString() + window.location.hash);
+            if (urlParams.has('token')) {
+                sessionStorage.setItem('gamehub_token', urlParams.get('token'));
+                urlParams.delete('token');
+                const cleanQuery = urlParams.toString() ? ('?' + urlParams.toString()) : '';
+                window.history.replaceState({}, document.title, window.location.pathname + cleanQuery + window.location.hash);
             }
         })();
     </script>
@@ -518,7 +519,7 @@
                 </div>
                 <div style="font-size: 13px; font-weight:700; color:var(--c-cyan); display:flex; align-items:center; gap:8px;">
                     <span>ACCOUNT:</span>
-                    <span style="background:var(--c-box); color:var(--c-white); border:1px solid var(--c-royal); padding:3px 10px; font-weight:800;">👤 {{ current_user.username if current_user else 'Gast' }}</span>
+                    <span class="account-badge-username" style="background:var(--c-box); color:var(--c-white); border:1px solid var(--c-royal); padding:3px 10px; font-weight:800;">👤 {{ current_user.username if current_user else 'Gast' }}</span>
                 </div>
             </div>
 
@@ -552,7 +553,7 @@
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
                 <div style="font-size:1.1rem; font-weight:900; color:var(--c-cyan); display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
                     <a href="/" class="gamehub-back-btn btn-action" style="padding:4px 10px; font-size:11px; text-decoration:none;">← GAMEHUB</a>
-                    <span>ACCOUNT: <strong style="color:var(--c-white); background:rgba(255,255,255,0.1); padding:2px 8px;">👤 {{ current_user.username if current_user else 'Gast' }}</strong></span>
+                    <span>ACCOUNT: <strong class="account-badge-username" style="color:var(--c-white); background:rgba(255,255,255,0.1); padding:2px 8px;">👤 {{ current_user.username if current_user else 'Gast' }}</strong></span>
                     <span>RAUMCODE: <span id="song-lobby-code" style="background:var(--c-royal); color:white; padding:3px 10px; letter-spacing:2px;">----</span></span>
                 </div>
                 <button class="btn-action" onclick="leaveGame()" style="width:auto; padding:6px 14px; font-size:12px; margin:0; background:#ff6b6b; color:white;">RAUM VERLASSEN</button>
@@ -622,7 +623,7 @@
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; padding:6px 12px; background:var(--c-box); border:1px solid var(--c-royal);">
                 <div style="display:flex; align-items:center; gap:10px;">
                     <a href="/" class="gamehub-back-btn btn-action" style="padding:3px 8px; font-size:11px; text-decoration:none;">← GAMEHUB</a>
-                    <span style="color:var(--c-cyan); font-weight:800; font-size:12px;">👤 {{ current_user.username if current_user else 'Gast' }}</span>
+                    <span class="account-badge-username" style="color:var(--c-cyan); font-weight:800; font-size:12px;">👤 {{ current_user.username if current_user else 'Gast' }}</span>
                 </div>
                 <div style="font-size:12px; font-weight:700; color:var(--c-white);">
                     RAUM: <span class="active-room-display" style="color:var(--c-cyan); font-weight:900;"></span>
@@ -694,16 +695,17 @@
         var roundStartTime = 0;
         var nextAudio = new Audio();
 
-        function syncBackLinks() {
-            const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
-            if (token) {
-                $('.gamehub-back-btn').each(function() {
-                    try {
-                        const url = new URL($(this).attr('href'), window.location.origin);
-                        url.searchParams.set('token', token);
-                        $(this).attr('href', url.pathname + url.search);
-                    } catch(e) {}
-                });
+        function syncTabUser() {
+            const savedUserStr = sessionStorage.getItem('gamehub_user');
+            if (savedUserStr) {
+                try {
+                    const su = JSON.parse(savedUserStr);
+                    if (su && su.username) {
+                        myName = su.username;
+                        window.GAMEHUB_USER = su;
+                        $('.account-badge-username').text('👤 ' + su.username);
+                    }
+                } catch(e) {}
             }
         }
 
@@ -725,7 +727,7 @@
         });
 
         $(document).ready(function () {
-            syncBackLinks();
+            syncTabUser();
             if ($('#game-audio').length === 0) {
                 $('body').append('<audio id="game-audio" preload="auto" playsinline></audio>');
             }
@@ -964,46 +966,49 @@
         });
 
         channel.bind('game-reset', () => location.reload());
+    }
 
-        function clickOption(id) {
-            if (hasGuessed) return;
-            hasGuessed = true;
+    function clickOption(id) {
+        if (hasGuessed) return;
+        hasGuessed = true;
 
-            let elapsed = 0;
-            if (roundStartTime > 0) {
-                elapsed = (Date.now() - roundStartTime) / 1000;
-            }
-
-            let btn = $(document.getElementById('btn-' + id));
-            if (btn.length === 0) {
-                btn = $(`.btn-option[data-id="${id}"]`);
-            }
-
-            btn.css('border-color', 'var(--c-white)').css('background', 'rgba(255,255,255,0.2)');
-            $('.btn-option').prop('disabled', true);
-
-            $.post('/song/submit_guess', { guess_id: id, elapsed: elapsed }, function (res) {
-                if (res.result === 'correct') {
-                    btn.addClass('correct');
-                    let pts = res.points || 0;
-                    btn.append(`<div class="floating-points">+ ${pts}</div>`);
-                    setTimeout(() => { btn.find('.floating-points').remove(); }, 1500);
-                } else {
-                    btn.addClass('wrong');
-                }
-            });
+        let elapsed = 0;
+        if (roundStartTime > 0) {
+            elapsed = (Date.now() - roundStartTime) / 1000;
         }
 
-        function forceAudioPlay() {
-            $('#audio-overlay').hide();
-            audio.pause();
-            let playPromise = audio.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(e => {
-                    audio.load();
-                });
+        let btn = $(document.getElementById('btn-' + id));
+        if (btn.length === 0) {
+            btn = $(`.btn-option[data-id="${id}"]`);
+        }
+
+        btn.css('border-color', 'var(--c-white)').css('background', 'rgba(255,255,255,0.2)');
+        $('.btn-option').prop('disabled', true);
+
+        $.post('/song/submit_guess', { guess_id: id, elapsed: elapsed }, function (res) {
+            if (res.result === 'correct') {
+                btn.addClass('correct');
+                let pts = res.points || 0;
+                btn.append(`<div class="floating-points">+ ${pts}</div>`);
+                setTimeout(() => { btn.find('.floating-points').remove(); }, 1500);
+            } else {
+                btn.addClass('wrong');
             }
-        function joinRoom(code) {
+        });
+    }
+
+    function forceAudioPlay() {
+        $('#audio-overlay').hide();
+        audio.pause();
+        let playPromise = audio.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(e => {
+                audio.load();
+            });
+        }
+    }
+
+    function joinRoom(code) {
             code = code.toUpperCase().trim();
             currentRoomCode = code;
             sessionStorage.setItem('song_active_room', code);

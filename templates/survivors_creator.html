@@ -6,11 +6,12 @@
     <title>Gothic Survivors - Data Generator</title>
     <script>
         (function() {
-            const token = sessionStorage.getItem('gamehub_token');
             const urlParams = new URLSearchParams(window.location.search);
-            if (token && !urlParams.has('token')) {
-                urlParams.set('token', token);
-                window.location.replace(window.location.pathname + '?' + urlParams.toString() + window.location.hash);
+            if (urlParams.has('token')) {
+                sessionStorage.setItem('gamehub_token', urlParams.get('token'));
+                urlParams.delete('token');
+                const cleanQuery = urlParams.toString() ? ('?' + urlParams.toString()) : '';
+                window.history.replaceState({}, document.title, window.location.pathname + cleanQuery + window.location.hash);
             }
         })();
     </script>
@@ -334,7 +335,7 @@
                 <h1 style="margin: 0;">Gothic Survivors Data Generator</h1>
             </div>
             <div style="font-size: 13px; font-family: monospace; background: #111; border: 1px solid #444; padding: 5px 12px;">
-                ACCOUNT: <strong style="color: var(--primary-color);">👤 {{ current_user.username if current_user else 'Gast' }}</strong>
+                ACCOUNT: <strong class="account-badge-username" style="color: var(--primary-color);">👤 {{ current_user.username if current_user else 'Gast' }}</strong>
             </div>
         </header>
 
@@ -808,15 +809,14 @@
         function loadPassiveExample(id) { showTab('passive'); const data = GAME_DATA.passives.find(p => p.id === id); const form = document.getElementById('passive-form'); form.reset(); document.getElementById('mods-container').innerHTML = ''; document.getElementById('passive-handlers-container').innerHTML = ''; form.p_id.value = data.id; form.p_name.value = data.name; form.p_maxLevel.value = data.maxLevel || 5; form.p_desc.value = data.desc; form.p_svg.value = data.svg; if (data.mods) data.mods.forEach(modData => { addMod(); const newModEl = document.getElementById(`mod-${modCounter}`); newModEl.querySelector(`[data-key="stat"]`).value = modData.stat; newModEl.querySelector(`[data-key="op"]`).value = modData.op; const valueInput = newModEl.querySelector(`[data-key="value"]`); if(typeof modData.value === 'object') valueInput.value = JSON.stringify(modData.value, null, 2); else valueInput.value = modData.value; }); if (data.handlers) populateHandlersUI('passive-handlers-container', data.handlers); }
         function loadEnemyExample(key) { showTab('enemy'); const data = GAME_DATA.enemies[key]; const form = document.getElementById('enemy-form'); form.reset(); document.getElementById('enemy-handlers-container').innerHTML = ''; document.getElementById('enemy-components-container').innerHTML = ''; document.getElementById('initial-flags-container').innerHTML = ''; form.e_id.value = key; form.e_r.value = data.r; form.e_hp.value = data.hp; form.e_speed.value = data.speed; form.e_dmg.value = data.dmg; form.e_xp.value = data.xp; form.e_kbResist.value = data.kbResist || 0; form.e_visual_key.value = data.visual ? data.visual.key : ''; if (data.initialFlags) for (const flagKey in data.initialFlags) { addInitialFlag(); const newFlagEl = document.getElementById(`flag-${flagCounter}`); newFlagEl.querySelector('[data-key="key"]').value = flagKey; newFlagEl.querySelector('[data-key="value"]').value = data.initialFlags[flagKey]; } if (data.components) data.components.forEach(compData => { addComponent('enemy-components-container'); const newCompEl = document.getElementById(`comp-${componentCounter}`); const { type, ...params } = compData; const typeSelect = newCompEl.querySelector('.component-type-select'); typeSelect.value = type; typeSelect.dispatchEvent(new Event('change')); generateFieldsFromSchema(newCompEl.querySelector('.component-details'), UI_SCHEMAS.components[type], params); }); if (data.handlers) populateHandlersUI('enemy-handlers-container', data.handlers); }
         window.onload = () => {
-            const token = sessionStorage.getItem('gamehub_token');
-            if (token) {
-                document.querySelectorAll('.gamehub-back-btn').forEach(link => {
-                    try {
-                        const url = new URL(link.getAttribute('href'), window.location.origin);
-                        url.searchParams.set('token', token);
-                        link.setAttribute('href', url.pathname + url.search);
-                    } catch(e) {}
-                });
+            const savedUserStr = sessionStorage.getItem('gamehub_user');
+            if (savedUserStr) {
+                try {
+                    const su = JSON.parse(savedUserStr);
+                    if (su && su.username) {
+                        document.querySelectorAll('.account-badge-username').forEach(el => el.textContent = '👤 ' + su.username);
+                    }
+                } catch(e) {}
             }
             document.getElementById('weapon-form').insertAdjacentHTML('beforeend', '<div id="grants-component-container"></div>');
             document.getElementById('enemy-form').insertAdjacentHTML('beforeend', '<h4>Components (e.g., Movement)</h4><div id="enemy-components-container" class="dynamic-container"></div><button type="button" class="btn btn-add" onclick="addComponent(\'enemy-components-container\')">+ Add Component</button>');
