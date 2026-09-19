@@ -17,11 +17,11 @@ from . import logic as song_logic
 song_bp = Blueprint('song_bp', __name__)
 
 
-def trigger_update(room_code: str, state: dict, event_name: str = 'state-update'):
-    """Broadcasts sanitized state via room-scoped Pusher channel and persists to storage."""
+def trigger_update(room_code: str, state: dict, event_name: str = 'state-update', custom_payload: dict = None):
+    """Broadcasts sanitized state or delta update via room-scoped Pusher channel and persists to storage."""
     code = room_code.upper().strip()
     channel_name = f'song-{code}'
-    safe_state = song_logic.get_client_safe_state(state)
+    payload = custom_payload if custom_payload is not None else song_logic.get_client_safe_state(state)
 
     storage = get_storage()
     storage.save_lobby(
@@ -39,7 +39,7 @@ def trigger_update(room_code: str, state: dict, event_name: str = 'state-update'
         return pusher_res
 
     try:
-        trig = client.trigger(channel_name, event_name, safe_state)
+        trig = client.trigger(channel_name, event_name, payload)
         pusher_res['success'] = True
         pusher_res['result'] = str(trig)
     except Exception as e:
@@ -388,7 +388,12 @@ def update_settings(room_code: str = None):
         except (ValueError, TypeError):
             pass
 
-    pusher_status = trigger_update(code, state)
+    delta = {
+        'key': key,
+        'value': state['settings'].get(key),
+        'settings': state['settings']
+    }
+    pusher_status = trigger_update(code, state, event_name='settings-update', custom_payload=delta)
     return jsonify({'success': True, 'settings': state.get('settings'), 'pusher': pusher_status})
 
 

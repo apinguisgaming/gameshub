@@ -70,13 +70,19 @@ def get_pusher_client():
     _apply_proxy()
     try:
         import pusher
-        client = pusher.Pusher(
-            app_id=PUSHER_APP_ID,
-            key=PUSHER_KEY,
-            secret=PUSHER_SECRET,
-            cluster=PUSHER_CLUSTER,
-            ssl=True
-        )
+        kwargs = {
+            'app_id': PUSHER_APP_ID,
+            'key': PUSHER_KEY,
+            'secret': PUSHER_SECRET,
+            'cluster': PUSHER_CLUSTER,
+            'ssl': True
+        }
+        if IS_PYTHONANYWHERE:
+            kwargs['proxies'] = {
+                'http': 'http://proxy.server:3128',
+                'https': 'http://proxy.server:3128'
+            }
+        client = pusher.Pusher(**kwargs)
         _cached_pusher = client
         return _cached_pusher
     except Exception as e:

@@ -688,7 +688,7 @@
 
         var pusherKey = "{{ pusher_key }}";
         var pusherCluster = "{{ pusher_cluster }}";
-        Pusher.logToConsole = true;
+        Pusher.logToConsole = false;
         var pusher = new Pusher(pusherKey, { cluster: pusherCluster });
         var channel = null;
         var currentRoomCode = "";
@@ -838,8 +838,26 @@
         }
 
         function bindPusherEvents() {
+            channel.bind('settings-update', function (data) {
+                if (data && data.settings) {
+                    if (data.key === 'time_per_song' || !data.key) {
+                        updateControlVisuals('ctrl-time', data.settings.time_per_song);
+                    }
+                    if (data.key === 'total_songs' || !data.key) {
+                        updateControlVisuals('ctrl-count', data.settings.total_songs);
+                    }
+                    if (data.key === 'playlists' || !data.key) {
+                        const plNames = data.settings.playlists || [];
+                        $('.playlist-card').removeClass('selected');
+                        plNames.forEach(pl => {
+                            $(`.playlist-card[data-playlist="${pl}"]`).addClass('selected');
+                        });
+                        $('#pl-summary').text(plNames.length > 0 ? plNames.length + " AUSGEWÄHLT" : "ALLE (Standard)");
+                    }
+                }
+            });
+
             channel.bind('state-update', function (data) {
-                console.log("[Pusher: state-update received]", data);
                 updateUI(data);
             });
 

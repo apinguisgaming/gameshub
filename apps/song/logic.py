@@ -221,9 +221,15 @@ def get_client_safe_state(state: Dict[str, Any]) -> Dict[str, Any]:
     """Returns a client-safe snapshot of state with confidential answers sanitized."""
     safe = copy.deepcopy(state)
 
-    # Sanitize active answer so client cannot inspect DOM/network packets
-    if safe.get('round', {}).get('active'):
-        safe['round']['correct_answer'] = None
+    # In lobby status, omit empty round runtime fields and played songs to keep payloads tiny
+    if safe.get('status') == 'lobby':
+        safe.pop('round', None)
+        safe.pop('played_songs', None)
+        safe.pop('last_active', None)
+    else:
+        # Sanitize active answer so client cannot inspect DOM/network packets
+        if safe.get('round', {}).get('active'):
+            safe['round']['correct_answer'] = None
 
     # CRITICAL CHEAT FIX: Never leak next round song in Pusher update!
     if 'next_round_cache' in safe:
