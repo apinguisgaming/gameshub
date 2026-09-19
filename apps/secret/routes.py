@@ -665,6 +665,8 @@ def heartbeat(room_code: str = None):
     if not state:
         return jsonify({"status": "room_closed", "room_closed": True})
 
+    get_storage().touch_lobby('secret', code)
+
     state, offline_players, kicked_players = secret_logic.handle_heartbeat(
         state, code, user['username'], force_offline=force_offline
     )

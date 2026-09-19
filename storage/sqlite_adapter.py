@@ -203,6 +203,14 @@ class SQLiteStorage(BaseStorage):
         code = room_code.upper().strip()
         with self._get_conn() as conn:
             cur = conn.cursor()
+            # If room has had no activity for more than 60 seconds, delete it automatically
+            cur.execute(
+                "DELETE FROM game_lobbies WHERE game_id = ? AND room_code = ? AND updated_at < datetime('now', '-60 seconds')",
+                (game_id, code)
+            )
+            if cur.rowcount > 0:
+                return None
+
             cur.execute(
                 "SELECT state_data FROM game_lobbies WHERE game_id = ? AND room_code = ?",
                 (game_id, code)
@@ -220,7 +228,28 @@ class SQLiteStorage(BaseStorage):
                 (game_id, code)
             )
 
+    def touch_lobby(self, game_id: str, room_code: str) -> None:
+        """Refreshes updated_at timestamp so an active room is not cleaned up."""
+        code = room_code.upper().strip()
+        with self._get_conn() as conn:
+            conn.execute(
+                "UPDATE game_lobbies SET updated_at = CURRENT_TIMESTAMP WHERE game_id = ? AND room_code = ?",
+                (game_id, code)
+            )
+
+    def cleanup_inactive_lobbies(self, max_idle_seconds: int = 60) -> int:
+        """Deletes all lobbies across games with no activity for more than max_idle_seconds."""
+        with self._get_conn() as conn:
+            cur = conn.cursor()
+            cur.execute(
+                "DELETE FROM game_lobbies WHERE updated_at < datetime('now', ?)",
+                (f"-{max_idle_seconds} seconds",)
+            )
+            return cur.rowcount
+
     def list_lobbies(self, game_id: str) -> List[Dict[str, Any]]:
+        # Auto-prune lobbies inactive for 60 seconds
+        self.cleanup_inactive_lobbies(60)
         with self._get_conn() as conn:
             cur = conn.cursor()
             cur.execute("""

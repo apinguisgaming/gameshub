@@ -425,6 +425,8 @@ def heartbeat(room_code: str = None):
     if not state:
         return jsonify({'offline': [], 'room_closed': True})
 
+    get_storage().touch_lobby('song', code)
+
     state, offline, kicked = song_logic.handle_heartbeat(
         state, code, user['username'], force_offline=force_offline
     )

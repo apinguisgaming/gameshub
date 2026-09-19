@@ -54,6 +54,12 @@ class MongoStorage(BaseStorage):
     def list_lobbies(self, game_id: str) -> List[Dict[str, Any]]:
         raise NotImplementedError
 
+    def touch_lobby(self, game_id: str, room_code: str) -> None:
+        pass
+
+    def cleanup_inactive_lobbies(self, max_idle_seconds: int = 60) -> int:
+        return 0
+
     def update_stats(self, user_id: int, game_id: str, **stat_deltas: Any) -> None:
         raise NotImplementedError
 

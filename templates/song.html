@@ -620,13 +620,17 @@
 
         <!-- 3. GAME SCREEN -->
         <div id="screen-game" class="screen">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; padding:6px 12px; background:var(--c-box); border:1px solid var(--c-royal);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; padding:6px 12px; background:var(--c-box); border:1px solid var(--c-royal); flex-wrap:wrap; gap:8px;">
                 <div style="display:flex; align-items:center; gap:10px;">
                     <a href="/" class="gamehub-back-btn btn-action" style="padding:3px 8px; font-size:11px; text-decoration:none;">← GAMEHUB</a>
                     <span class="account-badge-username" style="color:var(--c-cyan); font-weight:800; font-size:12px;">👤 {{ current_user.username if current_user else 'Gast' }}</span>
+                    <span style="font-size:12px; font-weight:700; color:var(--c-white);">
+                        RAUM: <span class="active-room-display" style="color:var(--c-cyan); font-weight:900;"></span>
+                    </span>
                 </div>
-                <div style="font-size:12px; font-weight:700; color:var(--c-white);">
-                    RAUM: <span class="active-room-display" style="color:var(--c-cyan); font-weight:900;"></span>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <button class="btn-action host-only-btn" onclick="resetGame()" style="width:auto; padding:4px 10px; font-size:11px; margin:0; background:#f59e0b; color:white;">SPIEL ABBRECHEN</button>
+                    <button class="btn-action" onclick="leaveGame()" style="width:auto; padding:4px 10px; font-size:11px; margin:0; background:#ff6b6b; color:white;">RAUM VERLASSEN</button>
                 </div>
             </div>
 
@@ -663,7 +667,10 @@
                 <div id="final-leaderboard" style="display:flex; flex-direction:column; gap:10px;"></div>
             </div>
 
-            <button class="btn-action host-only-btn" onclick="resetGame()">LOBBY RESET</button>
+            <div style="display:flex; gap:10px; justify-content:center; margin-top:20px; flex-wrap:wrap;">
+                <button class="btn-action host-only-btn" onclick="resetGame()" style="margin:0; width:auto; padding:8px 18px;">LOBBY RESET</button>
+                <button class="btn-action" onclick="leaveGame()" style="background:#ff6b6b; color:white; margin:0; width:auto; padding:8px 18px;">RAUM VERLASSEN</button>
+            </div>
         </div>
     </div>
 
@@ -749,6 +756,16 @@
                         audio.pause();
                         audioUnlocked = true;
                     }).catch(e => console.log("Audio unlock"));
+                }
+            });
+
+            $(document).on('click', '.gamehub-back-btn', function () {
+                sessionStorage.removeItem('song_active_room');
+                if (currentRoomCode) {
+                    let d = new FormData();
+                    d.append('status', 'leaving');
+                    d.append('room_code', currentRoomCode);
+                    try { navigator.sendBeacon('/song/heartbeat', d); } catch(e) {}
                 }
             });
         });
@@ -912,7 +929,7 @@
                     $('.vinyl-container').removeClass('spinning');
 
                     if (isHost) {
-                        $.post('/song/end_round');
+                        $.post('/song/end_round', { room_code: currentRoomCode });
                     }
                 }
 
@@ -960,9 +977,9 @@
             if (isHost) {
                 setTimeout(() => {
                     if (isLastRound) {
-                        $.post('/song/finish_game');
+                        $.post('/song/finish_game', { room_code: currentRoomCode });
                     } else {
-                        $.post('/song/start_game');
+                        $.post('/song/start_game', { room_code: currentRoomCode });
                     }
                 }, 5000);
             }
@@ -1046,9 +1063,24 @@
         }
 
         function leaveGame() {
-            $.post('/song/leave_game', function () {
+            sessionStorage.removeItem('song_active_room');
+            window.location.hash = "";
+            let code = currentRoomCode;
+            currentRoomCode = "";
+            if (channel) {
+                try {
+                    channel.unbind_all();
+                    pusher.unsubscribe(channel.name);
+                } catch(e) {}
+                channel = null;
+            }
+            if (code) {
+                $.post('/song/leave_game', { room_code: code }).always(function () {
+                    showRoomBrowser();
+                });
+            } else {
                 showRoomBrowser();
-            });
+            }
         }
 
         function startGame() {
@@ -1058,7 +1090,7 @@
             });
 
             $.post('/song/update_settings', { key: 'playlists', value: selected.join(','), room_code: currentRoomCode }, function () {
-                $.post('/song/start_game', function (response) {
+                $.post('/song/start_game', { room_code: currentRoomCode }, function (response) {
                     if (response.error) {
                         alert("⚠️ START FAILED: " + response.error);
                     }
@@ -1067,7 +1099,17 @@
         }
 
         function resetGame() {
-            $.post('/song/reset_game');
+            if (!isHost && !confirm("Möchtest du das Spiel abbrechen und zur Lobby zurückkehren?")) return;
+            let code = currentRoomCode;
+            $.post('/song/reset_game', { room_code: code }, function () {
+                if (code) {
+                    $.post('/song/join_game', { room_code: code }, function (data) {
+                        if (data && !data.error) updateUI(data);
+                    });
+                }
+            }).fail(function () {
+                leaveGame();
+            });
         }
 
         function updateSetting(key, val) {

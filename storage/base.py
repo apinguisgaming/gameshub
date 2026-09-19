@@ -83,6 +83,14 @@ class BaseStorage(ABC):
         """List active lobbies for a game."""
         pass
 
+    def touch_lobby(self, game_id: str, room_code: str) -> None:
+        """Updates last-active timestamp of a lobby."""
+        pass
+
+    def cleanup_inactive_lobbies(self, max_idle_seconds: int = 60) -> int:
+        """Deletes lobbies inactive for more than max_idle_seconds."""
+        return 0
+
     # --- Leaderboards & Stats ---
     @abstractmethod
     def update_stats(self, user_id: int, game_id: str, **stat_deltas: Any) -> None:
