@@ -28,29 +28,45 @@ IS_PYTHONANYWHERE = bool(
     os.environ.get('PYTHONANYWHERE_DOMAIN') or 
     os.environ.get('PYTHONANYWHERE_SITE') or 
     Path('/etc/pythonanywhere').exists() or
+    Path('/home/gameshub').exists() or
     (Path('/home').exists() and Path('/var/www').exists())
 )
 
-if IS_PYTHONANYWHERE:
-    proxy_url = 'http://proxy.server:3128'
-    os.environ.setdefault('http_proxy', proxy_url)
-    os.environ.setdefault('https_proxy', proxy_url)
-    os.environ.setdefault('HTTP_PROXY', proxy_url)
-    os.environ.setdefault('HTTPS_PROXY', proxy_url)
+def _apply_proxy():
+    if IS_PYTHONANYWHERE:
+        proxy_url = 'http://proxy.server:3128'
+        os.environ['http_proxy'] = proxy_url
+        os.environ['https_proxy'] = proxy_url
+        os.environ['HTTP_PROXY'] = proxy_url
+        os.environ['HTTPS_PROXY'] = proxy_url
+
+_apply_proxy()
+
+_cached_pusher = None
+
+class DummyPusher:
+    def trigger(self, channel, event, data):
+        return None
 
 def get_pusher_client():
     """Initializes and returns a Pusher client or a safe fallback if unavailable."""
+    global _cached_pusher
+    if _cached_pusher is not None and not isinstance(_cached_pusher, DummyPusher):
+        return _cached_pusher
+
+    _apply_proxy()
     try:
         import pusher
-        return pusher.Pusher(
+        client = pusher.Pusher(
             app_id=PUSHER_APP_ID,
             key=PUSHER_KEY,
             secret=PUSHER_SECRET,
             cluster=PUSHER_CLUSTER,
             ssl=True
         )
+        _cached_pusher = client
+        return _cached_pusher
     except Exception as e:
-        class DummyPusher:
-            def trigger(self, channel, event, data):
-                pass
+        import logging
+        logging.warning(f"[config] Could not initialize Pusher client: {e}")
         return DummyPusher()

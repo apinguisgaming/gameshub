@@ -15,7 +15,6 @@ from apps.common.rooms import (
 from . import logic as secret_logic
 
 secret_bp = Blueprint('secret_bp', __name__)
-pusher_client = get_pusher_client()
 
 
 def trigger_update(room_code: str, state: dict):
@@ -24,10 +23,12 @@ def trigger_update(room_code: str, state: dict):
     channel_name = f'secret-{code}'
     state = secret_logic.validate_game_integrity(state)
 
+    client = get_pusher_client()
+
     # 1. Policy Enacted Notification
     if 'last_enacted' in state:
         try:
-            pusher_client.trigger(channel_name, 'policy-enacted', {'type': state['last_enacted']})
+            client.trigger(channel_name, 'policy-enacted', {'type': state['last_enacted']})
         except Exception:
             pass
         del state['last_enacted']
@@ -35,7 +36,7 @@ def trigger_update(room_code: str, state: dict):
     # 2. Reshuffle Notification
     if state.get('deck_reshuffled'):
         try:
-            pusher_client.trigger(channel_name, 'reshuffle-notification', {})
+            client.trigger(channel_name, 'reshuffle-notification', {})
         except Exception:
             pass
         state['deck_reshuffled'] = False
@@ -60,9 +61,10 @@ def trigger_update(room_code: str, state: dict):
 
     # 6. Broadcast
     try:
-        pusher_client.trigger(channel_name, 'state-update', payload)
+        client.trigger(channel_name, 'state-update', payload)
     except Exception as e:
-        print(f"[Pusher Error] Failed to trigger {channel_name}/state-update: {e}")
+        import logging
+        logging.error(f"[Pusher Error] Failed to trigger {channel_name}/state-update: {e}", exc_info=True)
 
 
 def record_game_results_if_ended(state: dict):

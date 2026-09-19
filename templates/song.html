@@ -839,7 +839,7 @@
 
         function bindPusherEvents() {
             channel.bind('state-update', function (data) {
-                if (!myName) return;
+                console.log("[Pusher: state-update received]", data);
                 updateUI(data);
             });
 
@@ -1114,16 +1114,29 @@
         }
 
         function updateSetting(key, val) {
-            if (!isHost) return;
+            if (!isHost) {
+                console.warn("[updateSetting] Blocked: current client is not host.", { myName: myName, currentRoomCode: currentRoomCode });
+                return;
+            }
             if (key === 'time_per_song') updateControlVisuals('ctrl-time', val);
             if (key === 'total_songs') updateControlVisuals('ctrl-count', val);
+            console.log("[updateSetting] Sending update:", key, val, "for room:", currentRoomCode);
             $.post('/song/update_settings', { key: key, value: val, room_code: currentRoomCode }, function (res) {
-                if (res.error) console.warn("Update settings:", res.error);
+                if (res.error) {
+                    console.error("[updateSetting] Server returned error:", res.error);
+                } else {
+                    console.log("[updateSetting] Server success:", res);
+                }
+            }).fail(function (xhr) {
+                console.error("[updateSetting] Request failed:", xhr.status, xhr.responseText);
             });
         }
 
         function togglePlaylist(el) {
-            if (!isHost) return;
+            if (!isHost) {
+                console.warn("[togglePlaylist] Blocked: current client is not host.");
+                return;
+            }
             $(el).toggleClass('selected');
 
             const selected = [];
@@ -1131,7 +1144,10 @@
                 selected.push($(this).data('playlist') || $(this).text().trim());
             });
             $('#pl-summary').text(selected.length > 0 ? selected.length + " AUSGEWÄHLT" : "ALLE (Standard)");
-            $.post('/song/update_settings', { key: 'playlists', value: selected.join(','), room_code: currentRoomCode });
+            $.post('/song/update_settings', { key: 'playlists', value: selected.join(','), room_code: currentRoomCode })
+                .fail(function (xhr) {
+                    console.error("[togglePlaylist] Request failed:", xhr.status, xhr.responseText);
+                });
         }
 
         function togglePlaylists() {
@@ -1145,8 +1161,11 @@
 
         function updateUI(data) {
             if (!data) return;
-            if (myName && data.host) {
-                isHost = (data.host === myName);
+            if (!myName && window.GAMEHUB_USER && window.GAMEHUB_USER.username) {
+                myName = window.GAMEHUB_USER.username;
+            }
+            if (data.host) {
+                isHost = Boolean(myName && data.host.trim().toLowerCase() === myName.trim().toLowerCase());
             }
             if (isHost) $('.host-only-btn').show(); else $('.host-only-btn').hide();
 

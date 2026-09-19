@@ -15,7 +15,6 @@ from apps.common.rooms import (
 from . import logic as song_logic
 
 song_bp = Blueprint('song_bp', __name__)
-pusher_client = get_pusher_client()
 
 
 def trigger_update(room_code: str, state: dict, event_name: str = 'state-update'):
@@ -34,9 +33,11 @@ def trigger_update(room_code: str, state: dict, event_name: str = 'state-update'
     )
 
     try:
-        pusher_client.trigger(channel_name, event_name, safe_state)
+        client = get_pusher_client()
+        client.trigger(channel_name, event_name, safe_state)
     except Exception as e:
-        print(f"[Pusher Error] Failed to trigger {channel_name}/{event_name}: {e}")
+        import logging
+        logging.error(f"[Pusher Error] Failed to trigger {channel_name}/{event_name}: {e}", exc_info=True)
 
 
 def record_game_results_if_ended(state: dict):
@@ -351,15 +352,20 @@ def end_round(room_code: str = None):
 @login_required
 def update_settings(room_code: str = None):
     user = get_current_user()
+    if not user:
+        return jsonify({'error': 'Nicht angemeldet'}), 401
+
     data = request.get_json(silent=True) or {}
     code = (room_code or request.form.get('room_code') or data.get('room_code') or '').upper().strip()
 
     state = get_room_state('song', code)
     if not state:
-        return jsonify({'error': 'Raum nicht gefunden'}), 404
+        return jsonify({'error': f"Raum '{code}' nicht gefunden"}), 404
 
-    if user['username'] != state.get('host'):
-        return jsonify({'error': 'Nur der Host kann Einstellungen anpassen'}), 403
+    host_name = (state.get('host') or '').strip().lower()
+    my_name = (user.get('username') or '').strip().lower()
+    if my_name != host_name:
+        return jsonify({'error': f"Nur der Host ({state.get('host')}) kann Einstellungen anpassen"}), 403
 
     key = request.form.get('key') or data.get('key')
     val = request.form.get('value') if request.form.get('value') is not None else data.get('value')
@@ -369,11 +375,11 @@ def update_settings(room_code: str = None):
     elif key in ['time_per_song', 'total_songs']:
         try:
             state['settings'][key] = int(val)
-        except ValueError:
+        except (ValueError, TypeError):
             pass
 
     trigger_update(code, state)
-    return jsonify({'success': True})
+    return jsonify({'success': True, 'settings': state.get('settings')})
 
 
 @song_bp.route('/<room_code>/reset_game', methods=['POST'])
