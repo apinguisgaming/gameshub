@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>IMPOSTOR // BAUHAUS</title>
+    <script>
+        (function() {
+            const token = sessionStorage.getItem('gamehub_token');
+            const urlParams = new URLSearchParams(window.location.search);
+            if (token && !urlParams.has('token')) {
+                urlParams.set('token', token);
+                window.location.replace(window.location.pathname + '?' + urlParams.toString() + window.location.hash);
+            }
+        })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700;900&display=swap" rel="stylesheet">
     
@@ -568,6 +578,15 @@
 
     <div class="app-container">
         
+        <!-- Top Auth Status Header -->
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom: var(--border-thick); padding-bottom:12px; margin-bottom: 20px;">
+            <a href="/" class="gamehub-back-btn" style="border:var(--border-thick); background:white; color:black; padding:6px 14px; font-weight:900; text-decoration:none; box-shadow:var(--shadow-small); text-transform:uppercase; font-size:0.85rem;">← GAMEHUB</a>
+            <div style="font-size: 0.9rem; font-weight:900; display:flex; align-items:center; gap:8px;">
+                <span>ACCOUNT:</span>
+                <span style="background:var(--c-yellow); border:2px solid var(--c-black); padding:2px 8px; box-shadow:2px 2px 0px var(--c-black);">👤 {{ current_user.username if current_user else 'Gast' }}</span>
+            </div>
+        </div>
+
         <header>
             <h1>Impo<span>stor</span></h1>
         </header>
@@ -699,6 +718,31 @@
     </div>
 
     <script>
+        {% if auth_token %}
+        sessionStorage.setItem('gamehub_token', {{ auth_token | tojson }});
+        {% endif %}
+        {% if current_user %}
+        sessionStorage.setItem('gamehub_user', JSON.stringify({{ current_user | tojson }}));
+        window.GAMEHUB_USER = {{ current_user | tojson }};
+        {% else %}
+        window.GAMEHUB_USER = null;
+        {% endif %}
+        window.GAMEHUB_TOKEN = sessionStorage.getItem('gamehub_token') || {{ auth_token | tojson if auth_token else 'null' }};
+
+        function syncBackLinks() {
+            const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
+            if (token) {
+                document.querySelectorAll('.gamehub-back-btn').forEach(link => {
+                    try {
+                        const url = new URL(link.getAttribute('href'), window.location.origin);
+                        url.searchParams.set('token', token);
+                        link.setAttribute('href', url.pathname + url.search);
+                    } catch(e) {}
+                });
+            }
+        }
+        document.addEventListener('DOMContentLoaded', syncBackLinks);
+
         const Game = {
             data: {},
             selectedCategories: new Set(),
@@ -856,8 +900,13 @@
                 const wrapper = document.createElement('div');
                 wrapper.className = 'player-wrapper';
                 
+                let defaultName = `Spieler ${count}`;
+                if (count === 1 && window.GAMEHUB_USER && window.GAMEHUB_USER.username) {
+                    defaultName = window.GAMEHUB_USER.username;
+                }
+                
                 wrapper.innerHTML = `
-                    <input type="text" class="player-input" placeholder="Name" value="Spieler ${count}">
+                    <input type="text" class="player-input" placeholder="Name" value="${defaultName}">
                     <button class="btn-remove-mini" onclick="this.parentElement.remove()">✕</button>
                 `;
                 container.appendChild(wrapper);
@@ -1267,6 +1316,11 @@
                 window.scrollTo(0,0);
             },
 
+            getSaveKey: function() {
+                const uname = (window.GAMEHUB_USER && window.GAMEHUB_USER.username) ? window.GAMEHUB_USER.username : 'guest';
+                return 'imposter_state_' + uname;
+            },
+
             saveState: function() {
                 const state = {
                     players: this.players,
@@ -1283,11 +1337,15 @@
                 };
 
                 try {
-                    localStorage.setItem('imposter_state', JSON.stringify(state));
+                    localStorage.setItem(this.getSaveKey(), JSON.stringify(state));
                     // Background cloud backup
+                    const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
                     fetch('/api/save/imposter', {
                         method: 'POST',
-                        headers: {'Content-Type': 'application/json'},
+                        headers: {
+                            'Content-Type': 'application/json',
+                            ...(token ? {'X-Auth-Token': token} : {})
+                        },
                         body: JSON.stringify({ state: state })
                     }).catch(() => {});
                 } catch(e) { console.error("Save failed", e); }
@@ -1296,15 +1354,24 @@
             loadState: async function() {
                 try {
                     let state = null;
-                    const local = localStorage.getItem('imposter_state');
-                    if (local) {
-                        try { state = JSON.parse(local); } catch(e) {}
-                    }
-                    if (!state) {
-                        const res = await fetch('/api/save/imposter');
+                    const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
+                    try {
+                        const res = await fetch('/api/save/imposter', {
+                            headers: token ? {'X-Auth-Token': token} : {}
+                        });
                         if (res.ok) {
                             const cloud = await res.json();
-                            state = cloud.state;
+                            if (cloud && cloud.state) {
+                                state = cloud.state;
+                                localStorage.setItem(this.getSaveKey(), JSON.stringify(state));
+                            }
+                        }
+                    } catch(e) {}
+
+                    if (!state) {
+                        const local = localStorage.getItem(this.getSaveKey());
+                        if (local) {
+                            try { state = JSON.parse(local); } catch(e) {}
                         }
                     }
                     

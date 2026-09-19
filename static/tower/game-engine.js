@@ -1508,68 +1508,112 @@ class GameEngine {
         this.addFloatingText(t.x, t.y, `+$${refund}`, "#facc15");
     }
 
+    getSaveKey() {
+        const username = (window.GAMEHUB_USER && window.GAMEHUB_USER.username) ? window.GAMEHUB_USER.username : 'guest';
+        return 'pokemonTDSave_' + username;
+    }
+
     saveGame(isQuiet = false) {
         const saveData = {
             money: this.money, lives: this.lives, waveIndex: this.waveIndex, inventory: this.inventory, randomBuyCount: this.randomBuyCount,
             bench: this.bench.map(t => ({ dataId: t.dataId, level: t.level, abilitySlot: t.abilitySlot, nature: t.nature, unlockedMoves: t.unlockedMoves, currentMoveId: t.currentMoveId })),
             towers: this.towers.map(t => ({ dataId: t.dataId, x: t.x, y: t.y, level: t.level, heldItem: t.heldItem, abilitySlot: t.abilitySlot, targetingPriority: t.targetingPriority, unlockedMoves: t.unlockedMoves, currentMoveId: t.currentMoveId, nature: t.nature }))
         };
-        localStorage.setItem('pokemonTDSave', JSON.stringify(saveData));
+        const key = this.getSaveKey();
+        localStorage.setItem(key, JSON.stringify(saveData));
+
         // Cloud Save Sync
+        const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
         try {
             fetch('/api/save/tower', {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...(token ? {'X-Auth-Token': token} : {})
+                },
                 body: JSON.stringify({ state: saveData })
             }).catch(() => {});
         } catch(e) {}
 
         if (!isQuiet) this.addFloatingText(this.canvas.width/2, this.canvas.height/2, "GAME SAVED", "#22c55e", 2.0);
         else {
-            // Very subtle indicator to prove it's working
             this.addFloatingText(this.canvas.width - 100, 20, "Auto-Saving...", "#94a3b8", 0.5);
         }
     }
 
+    applySaveData(data, isSilent = false) {
+        if (!data) return;
+        this.money = data.money; this.lives = data.lives; this.waveIndex = data.waveIndex; this.inventory = data.inventory || {}; 
+        this.randomBuyCount = data.randomBuyCount || 0;
+        
+        this.updateRandomButton();
+
+        this.bench = (data.bench || []).map(tData => new Tower(this, tData.dataId, null, null, tData.abilitySlot, tData.unlockedMoves, tData.currentMoveId, tData.nature));
+        this.towers = (data.towers || []).map(tData => {
+            const t = new Tower(this, tData.dataId, tData.x, tData.y, tData.abilitySlot, tData.unlockedMoves, tData.currentMoveId, tData.nature);
+            t.level = tData.level; t.heldItem = tData.heldItem; t.targetingPriority = tData.targetingPriority || 'first';
+            t.calculateStats(); return t;
+        });
+        this.enemies = []; this.projectiles = []; this.floatingTexts = []; this.zones = []; this.waveActive = false; this.enemiesToSpawn = 0; this.spawnTimer = 0; this.selectedTower = null; this.placementMode = null;
+        this.recalcAllStats();
+        this.updateHUD(); this.updateInspector(); this.updateTeamList(); this.updateInventoryView();
+        if (!isSilent) this.addFloatingText(this.canvas.width/2, this.canvas.height/2, "GAME LOADED", "#3b82f6", 2.0);
+    }
+
     loadSaveState(isSilent = false) {
-        const saveStr = localStorage.getItem('pokemonTDSave');
-        if (!saveStr) {
-            // If no local save, check for cloud save
-            fetch('/api/save/tower').then(r => r.json()).then(cloud => {
-                if (cloud && cloud.state) {
-                    localStorage.setItem('pokemonTDSave', JSON.stringify(cloud.state));
-                    this.loadSaveState(true);
+        const key = this.getSaveKey();
+        const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
+
+        if (!this._cloudChecked) {
+            this._cloudChecked = true;
+            fetch('/api/save/tower', {
+                headers: token ? {'X-Auth-Token': token} : {}
+            }).then(r => r.json()).then(cloud => {
+                if (cloud && cloud.state && Object.keys(cloud.state).length > 0) {
+                    localStorage.setItem(key, JSON.stringify(cloud.state));
+                    this.applySaveData(cloud.state, isSilent);
+                } else {
+                    const localStr = localStorage.getItem(key);
+                    if (localStr) {
+                        try {
+                            this.applySaveData(JSON.parse(localStr), isSilent);
+                        } catch(e) {}
+                    }
                 }
-            }).catch(() => {});
+            }).catch(() => {
+                const localStr = localStorage.getItem(key);
+                if (localStr) {
+                    try {
+                        this.applySaveData(JSON.parse(localStr), isSilent);
+                    } catch(e) {}
+                }
+            });
             return;
         }
-        try {
-            const data = JSON.parse(saveStr);
-            this.money = data.money; this.lives = data.lives; this.waveIndex = data.waveIndex; this.inventory = data.inventory || {}; 
-            this.randomBuyCount = data.randomBuyCount || 0;
-            
-            // Immediately sync the UI with loaded save data
-            this.updateRandomButton();
 
-            this.bench = (data.bench || []).map(tData => new Tower(this, tData.dataId, null, null, tData.abilitySlot, tData.unlockedMoves, tData.currentMoveId, tData.nature));
-            this.towers = data.towers.map(tData => {
-                const t = new Tower(this, tData.dataId, tData.x, tData.y, tData.abilitySlot, tData.unlockedMoves, tData.currentMoveId, tData.nature);
-                t.level = tData.level; t.heldItem = tData.heldItem; t.targetingPriority = tData.targetingPriority || 'first';
-                t.calculateStats(); return t;
-            });
-            this.enemies = []; this.projectiles = []; this.floatingTexts = []; this.zones = []; this.waveActive = false; this.enemiesToSpawn = 0; this.spawnTimer = 0; this.selectedTower = null; this.placementMode = null;
-            this.recalcAllStats();
-            this.updateHUD(); this.updateInspector(); this.updateTeamList(); this.updateInventoryView();
-            if (!isSilent) this.addFloatingText(this.canvas.width/2, this.canvas.height/2, "GAME LOADED", "#3b82f6", 2.0);
-        } catch(e) { console.error(e); if (!isSilent) alert("Save corrupted."); }
+        const saveStr = localStorage.getItem(key);
+        if (saveStr) {
+            try {
+                this.applySaveData(JSON.parse(saveStr), isSilent);
+            } catch(e) {
+                console.error(e);
+                if (!isSilent) alert("Save corrupted.");
+            }
+        }
     }
 
     wipeData() {
-        if(confirm("Wipe all save data?")) {
+        if(confirm("Wipe all save data for this account?")) {
+            const key = this.getSaveKey();
+            localStorage.removeItem(key);
             localStorage.removeItem('pokemonTDSave');
+            const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
             fetch('/api/save/tower', {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...(token ? {'X-Auth-Token': token} : {})
+                },
                 body: JSON.stringify({ state: null })
             }).catch(() => {});
             location.reload();

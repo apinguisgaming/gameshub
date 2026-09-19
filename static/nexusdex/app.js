@@ -1070,35 +1070,69 @@ let activeGameTab = 'encounters', walkthroughCache = {}, tabScrollY = { encounte
         cm.style.left = `${posX}px`; cm.style.top = `${posY}px`;
     }
 
+    function getNexusSaveKey() {
+        const uname = (window.GAMEHUB_USER && window.GAMEHUB_USER.username) ? window.GAMEHUB_USER.username : 'guest';
+        return 'nexusDexSave_' + uname;
+    }
+
     function saveData() {
         const data = { lang: currentLang, gens:[...activeGens], teamNums: team.map(p => p ? p.number : null), boxNums: pcBox.map(p => p.number), selectedVersion: selectedVersion };
-        localStorage.setItem('nexusDexSave', JSON.stringify(data));
+        const key = getNexusSaveKey();
+        localStorage.setItem(key, JSON.stringify(data));
+        const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
         try {
             fetch('/api/save/nexusdex', {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...(token ? {'X-Auth-Token': token} : {})
+                },
                 body: JSON.stringify({ state: data })
             }).catch(() => {});
         } catch (e) {}
     }
 
+    let _nexusCloudChecked = false;
+    function applyNexusSaveData(d) {
+        if (!d) return;
+        if (d.lang) currentLang = d.lang;
+        if (d.gens) activeGens = new Set(d.gens);
+        if (d.teamNums) team = d.teamNums.map(n => n ? allPokemon.find(p => p.number === n) || null : null);
+        if (d.boxNums) pcBox = d.boxNums.map(n => allPokemon.find(p => p.number === n)).filter(Boolean);
+        if (d.selectedVersion !== undefined) selectedVersion = d.selectedVersion;
+    }
+
     function loadSavedData() {
         try {
-            const raw = localStorage.getItem('nexusDexSave');
-            if (raw) {
-                const d = JSON.parse(raw);
-                if (d.lang) currentLang = d.lang;
-                if (d.gens) activeGens = new Set(d.gens);
-                if (d.teamNums) team = d.teamNums.map(n => n ? allPokemon.find(p => p.number === n) || null : null);
-                if (d.boxNums) pcBox = d.boxNums.map(n => allPokemon.find(p => p.number === n)).filter(Boolean);
-                if (d.selectedVersion !== undefined) selectedVersion = d.selectedVersion;
-            } else {
-                fetch('/api/save/nexusdex').then(r => r.json()).then(cloud => {
-                    if (cloud && cloud.state) {
-                        localStorage.setItem('nexusDexSave', JSON.stringify(cloud.state));
-                        loadSavedData();
+            const key = getNexusSaveKey();
+            const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
+
+            if (!_nexusCloudChecked) {
+                _nexusCloudChecked = true;
+                fetch('/api/save/nexusdex', {
+                    headers: token ? {'X-Auth-Token': token} : {}
+                }).then(r => r.json()).then(cloud => {
+                    if (cloud && cloud.state && Object.keys(cloud.state).length > 0) {
+                        localStorage.setItem(key, JSON.stringify(cloud.state));
+                        applyNexusSaveData(cloud.state);
+                    } else {
+                        const raw = localStorage.getItem(key);
+                        if (raw) {
+                            try { applyNexusSaveData(JSON.parse(raw)); } catch(e) {}
+                        }
                     }
-                }).catch(() => {});
+                }).catch(() => {
+                    const raw = localStorage.getItem(key);
+                    if (raw) {
+                        try { applyNexusSaveData(JSON.parse(raw)); } catch(e) {}
+                    }
+                });
+                return;
+            }
+
+            const raw = localStorage.getItem(key);
+            if (raw) {
+                applyNexusSaveData(JSON.parse(raw));
             }
         } catch (e) { console.error('Save load failed', e); }
     }

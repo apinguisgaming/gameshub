@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GAME PORTAL - GameHub</title>
+    <script>
+        (function() {
+            const token = sessionStorage.getItem('gamehub_token');
+            const urlParams = new URLSearchParams(window.location.search);
+            if (token && !urlParams.has('token')) {
+                urlParams.set('token', token);
+                window.location.replace(window.location.pathname + '?' + urlParams.toString() + window.location.hash);
+            }
+        })();
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
@@ -387,8 +397,8 @@
         <div class="top-bar">
             {% if current_user %}
                 <div class="user-pill">
-                    <span class="user-avatar-tag">ID: {{ current_user.username }}</span>
-                    <span>Hallo, {{ current_user.username }}!</span>
+                    <span class="user-avatar-tag">👤 {{ current_user.username }}</span>
+                    <span>Account: <strong>{{ current_user.username }}</strong></span>
                 </div>
                 <button class="btn-auth btn-logout" onclick="handleLogout()">Abmelden</button>
             {% else %}
@@ -422,30 +432,30 @@
             <!-- SECRET HITLER -->
             <a href="/secret/" class="card card-secret">
                 <div class="card-tag">Multiplayer</div>
-                <h2>Secret Hitler</h2>
-                <p>Enttarne die Faschisten und verhindere Hitlers Aufstieg.</p>
-                <div class="card-arrow">➜</div>
-            </a>
-            
-            <!-- SURVIVORS -->
-            <a href="/survivors/" class="card card-survivors">
-                <div class="card-tag">Game</div>
-                <h2>Gothic Survivors</h2>
-                <p>Bekriege Monster und sammle Fähigkeiten.</p>
+                <h2>Secret<br>Hitler</h2>
+                <p>Social Deduction Spiel für 5 bis 10 Personen.</p>
                 <div class="card-arrow">➜</div>
             </a>
 
-            <!-- TOWER DEFENSE -->
+            <!-- POKEMON TOWER DEFENSE -->
             <a href="/tower/" class="card card-tower">
-                <div class="card-tag">Game</div>
-                <h2>Pokémon<br>Tower</h2>
-                <p>Strategisches Pokémon Tower Defense Spiel.</p>
+                <div class="card-tag">Canvas Game</div>
+                <h2>Pokémon<br>Tower Defense</h2>
+                <p>Verteidige das Spielfeld mit deinen Pokémon.</p>
+                <div class="card-arrow">➜</div>
+            </a>
+
+            <!-- GOTHIC SURVIVORS -->
+            <a href="/survivors/" class="card card-survivors">
+                <div class="card-tag">Action RPG</div>
+                <h2>Gothic<br>Survivors</h2>
+                <p>Pixel-Art Rogue-lite & Character Creator.</p>
                 <div class="card-arrow">➜</div>
             </a>
 
             <!-- SONGSEEKER -->
             <a href="/songseeker/" class="card card-songseeker">
-                <div class="card-tag">App</div>
+                <div class="card-tag">Music Tool</div>
                 <h2>Song<br>Seeker</h2>
                 <p>Interaktives Musik-Ratespiel im Hitster-Stil.</p>
                 <div class="card-arrow">➜</div>
@@ -495,7 +505,27 @@
     </div>
 
     <script>
+        {% if auth_token %}
+        sessionStorage.setItem('gamehub_token', {{ auth_token | tojson }});
+        {% endif %}
+        {% if current_user %}
+        sessionStorage.setItem('gamehub_user', JSON.stringify({{ current_user | tojson }}));
+        {% endif %}
+
         let currentAuthMode = 'login';
+
+        function syncGameLinks() {
+            const token = sessionStorage.getItem('gamehub_token');
+            if (token) {
+                document.querySelectorAll('.grid a.card').forEach(link => {
+                    try {
+                        const url = new URL(link.getAttribute('href'), window.location.origin);
+                        url.searchParams.set('token', token);
+                        link.setAttribute('href', url.pathname + url.search);
+                    } catch(e) {}
+                });
+            }
+        }
 
         function openAuthModal(mode) {
             currentAuthMode = mode || 'login';
@@ -566,13 +596,24 @@
                     return;
                 }
 
-                // Redirect to ?next= param if present, or reload
+                if (data.token) {
+                    sessionStorage.setItem('gamehub_token', data.token);
+                }
+                if (data.user) {
+                    sessionStorage.setItem('gamehub_user', JSON.stringify(data.user));
+                }
+
+                // Redirect to ?next= param if present, or reload with token
                 const urlParams = new URLSearchParams(window.location.search);
                 const nextUrl = urlParams.get('next');
                 if (nextUrl && nextUrl.startsWith('/')) {
-                    window.location.href = nextUrl;
+                    const target = new URL(nextUrl, window.location.origin);
+                    if (data.token) target.searchParams.set('token', data.token);
+                    window.location.href = target.pathname + target.search + target.hash;
                 } else {
-                    window.location.href = '/';
+                    const home = new URL('/', window.location.origin);
+                    if (data.token) home.searchParams.set('token', data.token);
+                    window.location.href = home.pathname + home.search;
                 }
             } catch (err) {
                 showAuthError('Verbindungsfehler. Bitte erneut versuchen.');
@@ -580,16 +621,21 @@
         }
 
         async function handleLogout() {
+            const token = sessionStorage.getItem('gamehub_token');
             try {
-                await fetch('/api/auth/logout', { method: 'POST' });
-                window.location.href = '/';
-            } catch (e) {
-                window.location.reload();
-            }
+                await fetch('/api/auth/logout', {
+                    method: 'POST',
+                    headers: token ? { 'X-Auth-Token': token } : {}
+                });
+            } catch (e) {}
+            sessionStorage.removeItem('gamehub_token');
+            sessionStorage.removeItem('gamehub_user');
+            window.location.href = '/';
         }
 
         // Check if redirected with ?login=1
         document.addEventListener('DOMContentLoaded', () => {
+            syncGameLinks();
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('login') === '1') {
                 openAuthModal('login');

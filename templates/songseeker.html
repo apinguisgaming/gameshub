@@ -3,7 +3,16 @@
 <head>
   <title>SongSeeker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-
+  <script>
+    (function() {
+        const token = sessionStorage.getItem('gamehub_token');
+        const urlParams = new URLSearchParams(window.location.search);
+        if (token && !urlParams.has('token')) {
+            urlParams.set('token', token);
+            window.location.replace(window.location.pathname + '?' + urlParams.toString() + window.location.hash);
+        }
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -603,6 +612,15 @@
 </head>
 
 <body>
+  <!-- Top Auth Status Header -->
+  <div style="width: 100%; max-width: 800px; display: flex; justify-content: space-between; align-items: center; padding: 8px 14px; margin-bottom: 15px; border: var(--border-width) solid var(--black); background: var(--white); box-shadow: 4px 4px 0px var(--black);">
+    <a href="/" class="gamehub-back-btn button" style="padding: 4px 12px; font-size: 0.8rem; text-decoration: none; display: inline-block;">← GAMEHUB</a>
+    <div style="font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; gap: 8px;">
+      <span style="color: #22c55e;">☁️ CLOUD SYNC</span>
+      <span style="background: var(--bg-color); border: 2px solid var(--black); padding: 3px 8px;">ACCOUNT: <strong style="color: var(--black);">👤 {{ current_user.username if current_user else 'Gast' }}</strong></span>
+    </div>
+  </div>
+
   <h2 id="main-header">SongSeeker</h2>
 
   <div style="display: flex; gap: 0.8rem; margin-bottom: 0.8rem;">
@@ -1257,7 +1275,34 @@
     getCookies();
   </script>
 
-  <!-- Cache-Buster v=2058 -->
-  <script type="module" src="{{ url_for('static', filename='songseeker/local.js') }}?v=2058"></script>
+  <script>
+    {% if auth_token %}
+    sessionStorage.setItem('gamehub_token', {{ auth_token | tojson }});
+    {% endif %}
+    {% if current_user %}
+    sessionStorage.setItem('gamehub_user', JSON.stringify({{ current_user | tojson }}));
+    window.GAMEHUB_USER = {{ current_user | tojson }};
+    {% else %}
+    window.GAMEHUB_USER = null;
+    {% endif %}
+    window.GAMEHUB_TOKEN = sessionStorage.getItem('gamehub_token') || {{ auth_token | tojson if auth_token else 'null' }};
+
+    function syncBackLinks() {
+        const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
+        if (token) {
+            document.querySelectorAll('.gamehub-back-btn').forEach(link => {
+                try {
+                    const url = new URL(link.getAttribute('href'), window.location.origin);
+                    url.searchParams.set('token', token);
+                    link.setAttribute('href', url.pathname + url.search);
+                } catch(e) {}
+            });
+        }
+    }
+    document.addEventListener('DOMContentLoaded', syncBackLinks);
+  </script>
+
+  <!-- Cache-Buster v=2059 -->
+  <script type="module" src="{{ url_for('static', filename='songseeker/local.js') }}?v=2059"></script>
 </body>
 </html>

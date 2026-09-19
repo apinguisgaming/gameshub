@@ -1544,9 +1544,13 @@ class Game {
     gameOver(isVictory = false) {
         this.state = 'gameover';
         try {
+            const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
             fetch('/api/save/survivors', {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...(token ? {'X-Auth-Token': token} : {})
+                },
                 body: JSON.stringify({
                     state: {
                         kills: this.kills,

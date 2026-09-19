@@ -70,11 +70,13 @@ def register():
     except Exception as e:
         return jsonify({'success': False, 'error': 'Registrierung fehlgeschlagen.'}), 500
 
+    token = storage.create_session_token(user_id)
     session['user_id'] = user_id
     session.permanent = True
 
     return jsonify({
         'success': True,
+        'token': token,
         'user': {
             'id': user_id,
             'username': username,
@@ -109,11 +111,13 @@ def login():
     _clear_failed_attempts(ip)
     storage.update_user(user['id'], last_login=time.strftime('%Y-%m-%d %H:%M:%S'))
 
+    token = storage.create_session_token(user['id'])
     session['user_id'] = user['id']
     session.permanent = True
 
     return jsonify({
         'success': True,
+        'token': token,
         'user': {
             'id': user['id'],
             'username': user['username'],
@@ -124,20 +128,22 @@ def login():
 
 @auth_bp.route('/logout', methods=['POST', 'GET'])
 def logout():
+    from apps.auth.decorators import get_current_token
+    token = get_current_token() or request.headers.get('X-Auth-Token') or request.args.get('token')
+    if token:
+        try:
+            get_storage().delete_session_token(token)
+        except Exception:
+            pass
     session.clear()
     return jsonify({'success': True})
 
 
 @auth_bp.route('/me', methods=['GET'])
 def me():
-    user_id = session.get('user_id')
-    if not user_id:
-        return jsonify({'authenticated': False, 'user': None})
-
-    storage = get_storage()
-    user = storage.get_user_by_id(user_id)
+    from apps.auth.decorators import get_current_user
+    user = get_current_user()
     if not user:
-        session.clear()
         return jsonify({'authenticated': False, 'user': None})
 
     return jsonify({

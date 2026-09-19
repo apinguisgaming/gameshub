@@ -79,7 +79,41 @@ class SQLiteStorage(BaseStorage):
                     PRIMARY KEY (user_id, game_id),
                     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
                 );
+
+                CREATE TABLE IF NOT EXISTS user_sessions (
+                    token TEXT PRIMARY KEY,
+                    user_id INTEGER NOT NULL,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+                );
             """)
+
+    # --- Session Tokens ---
+    def create_session_token(self, user_id: int) -> str:
+        import secrets
+        token = secrets.token_hex(24)
+        with self._get_conn() as conn:
+            conn.execute("INSERT INTO user_sessions (token, user_id) VALUES (?, ?)", (token, user_id))
+        return token
+
+    def get_user_by_token(self, token: str) -> Optional[Dict[str, Any]]:
+        if not token:
+            return None
+        with self._get_conn() as conn:
+            cur = conn.cursor()
+            cur.execute("""
+                SELECT u.* FROM users u
+                JOIN user_sessions s ON u.id = s.user_id
+                WHERE s.token = ?
+            """, (token.strip(),))
+            row = cur.fetchone()
+            return dict(row) if row else None
+
+    def delete_session_token(self, token: str) -> None:
+        if not token:
+            return
+        with self._get_conn() as conn:
+            conn.execute("DELETE FROM user_sessions WHERE token = ?", (token.strip(),))
 
     # --- Users ---
     def create_user(self, username: str, password_hash: str, avatar: str = 'default') -> int:

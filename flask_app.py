@@ -26,22 +26,24 @@ app.register_blueprint(secret_bp, url_prefix='/secret')
 app.register_blueprint(song_bp, url_prefix='/song')
 
 # ==========================================
+#       REQUEST AUTHENTICATION HOOK
+# ==========================================
+@app.before_request
+def authenticate_request():
+    """Resolves user for the current request (session token or cookie)."""
+    from apps.auth.decorators import resolve_user_for_request
+    resolve_user_for_request()
+
+# ==========================================
 #       GLOBAL TEMPLATE CONTEXT
 # ==========================================
 @app.context_processor
 def inject_global_context():
-    """Injects user authentication profile and Pusher settings into all templates."""
-    user = None
-    user_id = session.get('user_id')
-    if user_id:
-        try:
-            storage = get_storage()
-            user = storage.get_user_by_id(user_id)
-        except Exception:
-            user = None
-
+    """Injects user authentication profile, active token, and Pusher settings into all templates."""
+    from apps.auth.decorators import get_current_user, get_current_token
     return {
-        'current_user': user,
+        'current_user': get_current_user(),
+        'auth_token': get_current_token(),
         'pusher_key': PUSHER_KEY,
         'pusher_cluster': PUSHER_CLUSTER,
     }

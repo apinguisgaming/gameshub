@@ -1,4 +1,7 @@
-const LOCAL_STORAGE_KEY = 'hitster_local_state';
+function getSongSeekerSaveKey() {
+    const uname = (window.GAMEHUB_USER && window.GAMEHUB_USER.username) ? window.GAMEHUB_USER.username : 'guest';
+    return 'hitster_local_state_' + uname;
+}
 
 let gameState = {
     deck: [],
@@ -55,46 +58,85 @@ window.showLocalError = function(msg) {
     if (revBtn) revBtn.style.display = 'none';
 };
 
+let _songseekerCloudChecked = false;
 function loadState() {
-    const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (saved) {
-        try {
-            gameState = JSON.parse(saved);
-            if (!gameState.currentTurn) gameState.currentTurn = 1;
-            
-            if (gameState.deck.length > 0 || gameState.team1.length > 0 || gameState.team2.length > 0) {
-                showGameBoard();
-                renderTimelines();
-                
-                if (gameState.currentCard) {
-                    restoreDrawnCardState(true);
+    const key = getSongSeekerSaveKey();
+    const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
+
+    if (!_songseekerCloudChecked) {
+        _songseekerCloudChecked = true;
+        fetch('/api/save/songseeker', {
+            headers: token ? {'X-Auth-Token': token} : {}
+        }).then(r => r.json()).then(cloud => {
+            if (cloud && cloud.state && Object.keys(cloud.state).length > 0) {
+                localStorage.setItem(key, JSON.stringify(cloud.state));
+                applySongSeekerState(cloud.state);
+            } else {
+                const saved = localStorage.getItem(key);
+                if (saved) {
+                    try { applySongSeekerState(JSON.parse(saved)); } catch(e) { showSetup(); }
                 } else {
-                    const cardArea = document.getElementById('current-card-area');
-                    cardArea.style.visibility = 'hidden';
-                    cardArea.style.display = 'flex';
+                    showSetup();
                 }
             }
-        } catch (e) {
-            console.error("Failed to load local state", e);
-        }
-    } else {
-        fetch('/api/save/songseeker').then(r => r.json()).then(cloud => {
-            if (cloud && cloud.state) {
-                localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(cloud.state));
-                loadState();
+        }).catch(() => {
+            const saved = localStorage.getItem(key);
+            if (saved) {
+                try { applySongSeekerState(JSON.parse(saved)); } catch(e) { showSetup(); }
             } else {
                 showSetup();
             }
-        }).catch(() => showSetup());
+        });
+        return;
+    }
+
+    const saved = localStorage.getItem(key);
+    if (saved) {
+        try {
+            applySongSeekerState(JSON.parse(saved));
+        } catch (e) {
+            console.error("Failed to load local state", e);
+            showSetup();
+        }
+    } else {
+        showSetup();
+    }
+}
+
+function applySongSeekerState(loadedState) {
+    if (!loadedState) return showSetup();
+    gameState = loadedState;
+    if (!gameState.currentTurn) gameState.currentTurn = 1;
+    
+    if ((gameState.deck && gameState.deck.length > 0) || (gameState.team1 && gameState.team1.length > 0) || (gameState.team2 && gameState.team2.length > 0)) {
+        showGameBoard();
+        renderTimelines();
+        
+        if (gameState.currentCard) {
+            restoreDrawnCardState(true);
+        } else {
+            const cardArea = document.getElementById('current-card-area');
+            if (cardArea) {
+                cardArea.style.visibility = 'hidden';
+                cardArea.style.display = 'flex';
+            }
+        }
+    } else {
+        showSetup();
     }
 }
 
 function saveState() {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(gameState));
+    const key = getSongSeekerSaveKey();
+    localStorage.setItem(key, JSON.stringify(gameState));
+    const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
     try {
         fetch('/api/save/songseeker', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: {
+                'Content-Type': 'application/json',
+                ...(token ? {'X-Auth-Token': token} : {})
+            },
             body: JSON.stringify({ state: gameState })
         }).catch(() => {});
     } catch(e) {}
@@ -210,7 +252,8 @@ function extractCardsFromCSV(csvContent) {
 
 function resetGame() {
     if (confirm("Are you sure you want to clear the game board and start over?")) {
-        localStorage.removeItem(LOCAL_STORAGE_KEY);
+        const key = getSongSeekerSaveKey();
+        localStorage.removeItem(key);
         gameState = { deck: [], team1: [], team2: [], currentCard: null, currentTurn: 1 };
         window.stopYtVideo();
         resetDraggableCard();
@@ -218,6 +261,18 @@ function resetGame() {
         const banner = document.getElementById('local-status-message');
         if (banner) banner.style.display = 'none';
         
+        const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
+        try {
+            fetch('/api/save/songseeker', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...(token ? {'X-Auth-Token': token} : {})
+                },
+                body: JSON.stringify({ state: null })
+            }).catch(e => console.error("Cloud reset failed", e));
+        } catch(e) {}
+
         showSetup();
     }
 }

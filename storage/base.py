@@ -27,6 +27,22 @@ class BaseStorage(ABC):
         """Update fields for a user."""
         pass
 
+    # --- Session Tokens (Tab Isolation) ---
+    @abstractmethod
+    def create_session_token(self, user_id: int) -> str:
+        """Generate and save a session token for tab-isolated authentication."""
+        pass
+
+    @abstractmethod
+    def get_user_by_token(self, token: str) -> Optional[Dict[str, Any]]:
+        """Look up authenticated user by session token."""
+        pass
+
+    @abstractmethod
+    def delete_session_token(self, token: str) -> None:
+        """Invalidate a session token upon logout."""
+        pass
+
     # --- Personal Game Saves (Single-Player Cloud Sync) ---
     @abstractmethod
     def save_game_state(self, user_id: int, game_id: str, state_data: Dict[str, Any]) -> None:

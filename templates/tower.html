@@ -4,10 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokémon Tower Defense Alpha</title>
+    <script>
+        (function() {
+            const token = sessionStorage.getItem('gamehub_token');
+            const urlParams = new URLSearchParams(window.location.search);
+            if (token && !urlParams.has('token')) {
+                urlParams.set('token', token);
+                window.location.replace(window.location.pathname + '?' + urlParams.toString() + window.location.hash);
+            }
+        })();
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='tower/style.css') }}">
 </head>
 <body>
+    <!-- Top Auth Status Header -->
+    <div style="width: 100%; max-width: 1300px; margin: 10px auto 5px; display: flex; justify-content: space-between; align-items: center; padding: 8px 14px; background: #1a1a24; border: 2px solid #333; font-family: 'Press Start 2P', monospace; font-size: 9px; box-sizing: border-box;">
+        <a href="/" class="gamehub-back-btn" style="color: #ffd400; text-decoration: none; border: 1px solid #ffd400; padding: 4px 8px; background: rgba(255,212,0,0.1);">← GAMEHUB</a>
+        <div style="display: flex; align-items: center; gap: 14px;">
+            <span style="color: #22c55e;">☁️ CLOUD SYNC</span>
+            <span style="color: #fff; background: #2a2a38; border: 1px solid #444; padding: 4px 8px;">ACCOUNT: <strong style="color: #ffd400;">👤 {{ current_user.username if current_user else 'Gast' }}</strong></span>
+        </div>
+    </div>
+
     <div id="game-container">
         <!-- Left Panel: Player Stats and Team -->
         <div id="left-panel" class="panel">
@@ -205,9 +224,35 @@
         </div>
     </div>
 
+    <script>
+        {% if auth_token %}
+        sessionStorage.setItem('gamehub_token', {{ auth_token | tojson }});
+        {% endif %}
+        {% if current_user %}
+        sessionStorage.setItem('gamehub_user', JSON.stringify({{ current_user | tojson }}));
+        window.GAMEHUB_USER = {{ current_user | tojson }};
+        {% else %}
+        window.GAMEHUB_USER = null;
+        {% endif %}
+        window.GAMEHUB_TOKEN = sessionStorage.getItem('gamehub_token') || {{ auth_token | tojson if auth_token else 'null' }};
+
+        function syncBackLinks() {
+            const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
+            if (token) {
+                document.querySelectorAll('.gamehub-back-btn').forEach(link => {
+                    try {
+                        const url = new URL(link.getAttribute('href'), window.location.origin);
+                        url.searchParams.set('token', token);
+                        link.setAttribute('href', url.pathname + url.search);
+                    } catch(e) {}
+                });
+            }
+        }
+        document.addEventListener('DOMContentLoaded', syncBackLinks);
+    </script>
     <script src="{{ url_for('static', filename='tower/game-data.js') }}"></script>
-<script src="{{ url_for('static', filename='tower/game-admin.js') }}"></script>
-<script src="{{ url_for('static', filename='tower/game-engine.js') }}"></script>
+    <script src="{{ url_for('static', filename='tower/game-admin.js') }}"></script>
+    <script src="{{ url_for('static', filename='tower/game-engine.js') }}"></script>
 
     <!-- Starter Selection Overlay -->
     <div id="starter-modal" class="modal-overlay hidden">

@@ -214,5 +214,87 @@ class GameHubPlatformTests(unittest.TestCase):
         print("[OK] 08: Impostor static words verified")
 
 
+    def test_09_token_authentication_and_multi_tab_isolation(self):
+        """Verify token authentication and multi-tab isolation without cookie collision."""
+        # Register two accounts
+        self.client.post('/api/auth/register', json={'username': 'TabUserAlpha', 'password': 'Password123!'})
+        self.client.post('/api/auth/register', json={'username': 'TabUserBeta', 'password': 'Password123!'})
+
+        # Login TabUserAlpha -> get token Alpha
+        res_a = self.client.post('/api/auth/login', json={'username': 'TabUserAlpha', 'password': 'Password123!'})
+        self.assertEqual(res_a.status_code, 200)
+        token_a = res_a.get_json()['token']
+        self.assertTrue(bool(token_a))
+
+        # Login TabUserBeta -> get token Beta
+        res_b = self.client.post('/api/auth/login', json={'username': 'TabUserBeta', 'password': 'Password123!'})
+        self.assertEqual(res_b.status_code, 200)
+        token_b = res_b.get_json()['token']
+        self.assertTrue(bool(token_b))
+        self.assertNotEqual(token_a, token_b)
+
+        # Tab A calls /api/auth/me using X-Auth-Token
+        clean_tab_a = self.app.test_client()
+        res_me_a = clean_tab_a.get('/api/auth/me', headers={'X-Auth-Token': token_a})
+        self.assertEqual(res_me_a.status_code, 200)
+        self.assertEqual(res_me_a.get_json()['user']['username'], 'TabUserAlpha')
+
+        # Tab B calls /api/auth/me using X-Auth-Token
+        clean_tab_b = self.app.test_client()
+        res_me_b = clean_tab_b.get('/api/auth/me', headers={'X-Auth-Token': token_b})
+        self.assertEqual(res_me_b.status_code, 200)
+        self.assertEqual(res_me_b.get_json()['user']['username'], 'TabUserBeta')
+
+        # Test query parameter token (?token=...)
+        res_param = clean_tab_a.get(f'/tower/?token={token_a}')
+        self.assertEqual(res_param.status_code, 200)
+        self.assertIn(b'TabUserAlpha', res_param.data)
+
+        res_param_b = clean_tab_b.get(f'/tower/?token={token_b}')
+        self.assertEqual(res_param_b.status_code, 200)
+        self.assertIn(b'TabUserBeta', res_param_b.data)
+
+        print("[OK] 09: Token auth & multi-tab isolation verified")
+
+    def test_10_user_scoped_cloud_save_isolation(self):
+        """Verify user-scoped cloud saves remain completely isolated between users."""
+        res_a = self.client.post('/api/auth/login', json={'username': 'TabUserAlpha', 'password': 'Password123!'})
+        token_a = res_a.get_json()['token']
+        res_b = self.client.post('/api/auth/login', json={'username': 'TabUserBeta', 'password': 'Password123!'})
+        token_b = res_b.get_json()['token']
+
+        # Alpha saves Pokémon Tower progress (Wave 50)
+        alpha_client = self.app.test_client()
+        res = alpha_client.post('/api/save/tower',
+            headers={'X-Auth-Token': token_a},
+            json={'state': {'wave': 50, 'pokes': ['Pikachu', 'Charizard']}}
+        )
+        self.assertEqual(res.status_code, 200)
+
+        # Beta has NOT saved yet -> check Beta's cloud save is empty
+        beta_client = self.app.test_client()
+        res_beta_empty = beta_client.get('/api/save/tower', headers={'X-Auth-Token': token_b})
+        self.assertEqual(res_beta_empty.status_code, 200)
+        self.assertIsNone(res_beta_empty.get_json()['state'])
+
+        # Beta saves Pokémon Tower progress (Wave 1)
+        res = beta_client.post('/api/save/tower',
+            headers={'X-Auth-Token': token_b},
+            json={'state': {'wave': 1, 'pokes': ['Bulbasaur']}}
+        )
+        self.assertEqual(res.status_code, 200)
+
+        # Alpha still has Wave 50
+        res_alpha = alpha_client.get('/api/save/tower', headers={'X-Auth-Token': token_a})
+        self.assertEqual(res_alpha.get_json()['state']['wave'], 50)
+
+        # Beta still has Wave 1
+        res_beta = beta_client.get('/api/save/tower', headers={'X-Auth-Token': token_b})
+        self.assertEqual(res_beta.get_json()['state']['wave'], 1)
+
+        print("[OK] 10: User-scoped cloud save isolation verified")
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)
+

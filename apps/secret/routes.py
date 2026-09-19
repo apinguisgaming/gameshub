@@ -3,7 +3,7 @@ import uuid
 from flask import Blueprint, jsonify, render_template, request, session
 from config import get_pusher_client
 from storage import get_storage
-from apps.auth.decorators import login_required
+from apps.auth.decorators import login_required, get_current_user
 from apps.common.rooms import (
     create_room,
     join_room,
@@ -16,15 +16,6 @@ from . import logic as secret_logic
 
 secret_bp = Blueprint('secret_bp', __name__)
 pusher_client = get_pusher_client()
-
-
-def get_current_user():
-    """Fetches user dictionary for the active session."""
-    user_id = session.get('user_id')
-    if not user_id:
-        return None
-    storage = get_storage()
-    return storage.get_user_by_id(user_id)
 
 
 def trigger_update(room_code: str, state: dict):

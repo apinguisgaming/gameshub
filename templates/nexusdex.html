@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="NexusDex – The Premium Tactile Pokémon Experience">
     <title>NexusDex – Gallery Pokédex</title>
+    <script>
+        (function() {
+            const token = sessionStorage.getItem('gamehub_token');
+            const urlParams = new URLSearchParams(window.location.search);
+            if (token && !urlParams.has('token')) {
+                urlParams.set('token', token);
+                window.location.replace(window.location.pathname + '?' + urlParams.toString() + window.location.hash);
+            }
+        })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -18,9 +28,12 @@
     <!-- ======== GLASSMORPHIC HEADER / COMMAND CENTER ======== -->
     <header id="app-header" class="glass-header">
         <div class="header-inner">
-            <div class="logo" id="logo" title="Back to Gallery">
-                <span class="logo-icon">✦</span>
-                <span class="logo-text">NexusDex</span>
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <a href="/" class="gamehub-back-btn" style="color: #fff; text-decoration: none; font-size: 11px; font-weight: 700; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 20px; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap;">← GAMEHUB</a>
+                <div class="logo" id="logo" title="Back to Gallery">
+                    <span class="logo-icon">✦</span>
+                    <span class="logo-text">NexusDex</span>
+                </div>
             </div>
 
             <div class="command-center">
@@ -51,6 +64,7 @@
                 <button class="nav-btn" data-page="typechart" id="nav-typechart">Matchups</button>
                 <button class="nav-btn" data-page="encounters" id="nav-encounters">Encounters</button>
                 <button class="nav-icon-btn" id="btn-settings" title="Settings">⚙️</button>
+                <span style="font-size: 11px; font-weight: 700; color: #a5b4fc; background: rgba(99,102,241,0.18); border: 1px solid rgba(99,102,241,0.4); padding: 4px 10px; border-radius: 20px; white-space: nowrap; display: inline-flex; align-items: center;">👤 {{ current_user.username if current_user else 'Gast' }}</span>
             </nav>
         </div>
         <div class="type-filter-bar" id="type-filter-bar"></div>
@@ -207,8 +221,32 @@
     </div>
 
     <div class="toast-container" id="toast-container"></div>
+    <script>
+        {% if auth_token %}
+        sessionStorage.setItem('gamehub_token', {{ auth_token | tojson }});
+        {% endif %}
+        {% if current_user %}
+        sessionStorage.setItem('gamehub_user', JSON.stringify({{ current_user | tojson }}));
+        window.GAMEHUB_USER = {{ current_user | tojson }};
+        {% else %}
+        window.GAMEHUB_USER = null;
+        {% endif %}
+        window.GAMEHUB_TOKEN = sessionStorage.getItem('gamehub_token') || {{ auth_token | tojson if auth_token else 'null' }};
+
+        function syncBackLinks() {
+            const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
+            if (token) {
+                document.querySelectorAll('.gamehub-back-btn').forEach(link => {
+                    try {
+                        const url = new URL(link.getAttribute('href'), window.location.origin);
+                        url.searchParams.set('token', token);
+                        link.setAttribute('href', url.pathname + url.search);
+                    } catch(e) {}
+                });
+            }
+        }
+        document.addEventListener('DOMContentLoaded', syncBackLinks);
+    </script>
     <script src="/static/nexusdex/app.js"></script>
 </body>
-</body>
-
 </html>

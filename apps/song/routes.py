@@ -3,7 +3,7 @@ import time
 from flask import Blueprint, jsonify, render_template, request, session
 from config import get_pusher_client
 from storage import get_storage
-from apps.auth.decorators import login_required
+from apps.auth.decorators import login_required, get_current_user
 from apps.common.rooms import (
     create_room,
     join_room,
@@ -16,13 +16,6 @@ from . import logic as song_logic
 
 song_bp = Blueprint('song_bp', __name__)
 pusher_client = get_pusher_client()
-
-
-def get_current_user():
-    user_id = session.get('user_id')
-    if not user_id:
-        return None
-    return get_storage().get_user_by_id(user_id)
 
 
 def trigger_update(room_code: str, state: dict, event_name: str = 'state-update'):
