@@ -1,0 +1,803 @@
+{
+    "Part_1": {
+        "In an Unfamiliar Land": {
+            "Text": [
+                "Your vision is dark. When you regain consciousness, you're greeted by the Mythical Pokémon , Arceus , who glows as bright as a blinding sun. Arceus asks for your name and your appearance, both of which you cannot change later. It explains that you are in its realm, beyond space and time, and introduces you to the strange world of Pokémon .",
+                "Thus, Arceus gives you a mission: Seek out all Pokémon, and thou shalt find me once more .",
+                "You float helplessly in an endless mist as the only thing in your pocket, your cell phone, begins to fly away. Arceus imbues its power into your cell phone, and you disappear with it, as your vision fades once again."
+            ]
+        },
+        "Prelude Beach": {
+            "Text": [
+                "You hear a voice calling out for you to wake up, and in front of you stands Professor Laventon and his three Pokémon. He ponders about who you are and where you came from, when suddenly, his Pokémon run off and he has to chase after them.",
+                "You can use the Left Stick to walk, and click into the stick to dash. Walk over to the glowing object on the ground, and press A to pick it up. You receive the Arc Phone , which repeats the same mission: Seek out all Pokémon .",
+                "Follow the path to catch up with the Professor. He asks that you help him catch his three Pokémon, and hands you fifty Poké Balls to do so."
+            ],
+            "Catch the runaway Pokémon": {
+                "Text": [
+                    "Hold down the ZR button to ready a Poké Ball, and use the Right Stick to aim. Release ZR to throw it. Additionally, you can hold down ZL to help lock-on to Pokémon, especially ones that move around or run away.",
+                    "Help catch the Professor's Pokémon: you can find Cyndaquil behind the rocks to the east, Oshawott by the pond to the west, and Rowlet on the grassy hill up north. The last one you catch breaks out, and the Professor comments on that. Go ahead and throw another Poké Ball to catch them again.",
+                    "After catching all three, you return the remaining Poké Balls. Professor Laventon realizes you have a knack for catching Pokémon, and asks you to help him fulfill his dream- to create the region's first Pokédex , an encyclopedia on all the species of Pokémon in this region called Hisui . Your objective to catch all Pokémon aligns with his dream, so you agree to work together and head off to Jubilife Village ."
+                ]
+            }
+        },
+        "Jubilife Village": {
+            "Text": [
+                "Professor Laventon takes you to Jubilife Village , the base of operations of his research. He asks the guards to allow you entrance into the village, which they cautiously do. The other residents are definitely not fond of you, having just appeared from nowhere—you can hear them whispering about you, where you came from, and your strange outfit.",
+                "Follow Professor Laventon while you overhear this. He takes you down Canala Avenue of Jubilife Village and describes its history, pointing out the Galaxy Team and Galaxy Hall , the headquarters of the operation. That's where he intended to take you, but instead he wants you to head to a nearby canteen, called The Wallflower, to wait while he reports that he recaptured the runaway Pokémon."
+            ],
+            "Head to The Wallflower": {
+                "Text": [
+                    "When he leaves, you get a notification on your phone. Your Arc Phone now shows guidance markers, which point you to where you need to go next to progress. It currently points to The Wallflower in the northwest, so walk over to it. You can also press Minus (-) to display a map on your Arc Phone.",
+                    "When you approach, you meet Beni , the owner of the establishment. He takes one look at your outfit and turns you away immediately. Someone else approaches, appearing about the same age as you, but in a kimono. They are either Rei or Akari , the opposite gender of the appearance you chose. As they question you, Laventon and Cyllene , the captain of the Survey Corps, appear. They both agree to let you join the Survey Corps and give you shelter. To celebrate, Laventon orders food and notes that the Survey Corps are too anxious to capture even one Pokémon, while you have fearlessly wrangled three, and he has hope for your potential."
+                ]
+            },
+            "The captain of the Survey Corps": {
+                "Text": [
+                    "However, when you finish eating, Rei/Akari mentions that you have a trial to pass before you can really become a member of the Survey Corps. Cyllene returns to point out that you now have a place to rest for the night, but if you don't pass the trial, you will be expelled from the village.",
+                    "Walk over to your new room, and press A to enter. Then, walk to the futon on the floor. Before you lie down, you notice something on the desk: you can press Up on the D-pad to open the menu and reread old tutorial pop-ups. You can also press ZL and ZR to scroll through the different menus, including saving and game settings .",
+                    "Walk back over to your futon and press A to rest. While you sleep, ominous lightning crashes to the ground from the Space-Time Rift that you came from, as a Pokémon's loud cry is heard. The night passes, and Rei/Akari greets you in the morning to get you ready for your trial.",
+                    "Walk to the door and press A to exit your room. Rei/Akari lets you know that you should meet with Cyllene in Galaxy Hall to begin the trial.",
+                    "Walk to Galaxy Hall and press A to enter the building. Inside, you overhear a Survey Corps member in pain from being attacked by wild Pokémon. Rei/Akari makes a note that even with a partner Pokémon, it's dangerous in the wild. They take you to Cyllene, who gives you your task for the trial: catch a Bidoof , Starly , and Shinx .",
+                    "She also gives you a Survey-Corps Satchel to hold items . You can access these items when you press Up on the D-pad .",
+                    "When you open the Arc Phone map with Minus (-), you can then press Y to display a list of missions and requests . Missions are required quests for the main storyline, while requests are optional side quests from townspeople. Your first mission is The Galaxy Team's Entry Trial : the trial to formally become a member of the Survey Corps and to be allowed to live in Jubilife Village."
+                ]
+            },
+            "A little help from the Professor": {
+                "Text": [
+                    "Professor Laventon enters the room, and asks for you to come out. He declares that you must pass this trial, and he has just the ticket to help you accomplish that: your first partner Pokémon ! He asks you to take your pick from one of the three that you helped to wrangle in the day before: Cyndaquil , Rowlet , or Oshawott .",
+                    "They all have various strengths and weaknesses, but none are outright better than the other- it's down to your personal preference.",
+                    "Walk over to one of them and press A to select them as your partner. Laventon hands you their Poké Ball and says that it's yours to keep, as well as twenty more Poké Balls for the trial. He also asks which Pokémon you were tasked with catching, and mentions that all three can be found in the Obsidian Fieldlands . Rei/Akari adds that to head to the Obsidian Fieldlands, you just need to turn left from Galaxy Hall and head to the gate."
+                ]
+            },
+            "The merchant of the Ginkgo Guild": {
+                "Text": [
+                    "Walk forward and press A to exit the door, then head west to the front gate. When you reach the gate, you find a merchant named Volo who finds it odd for a stranger to have a Pokémon, and forces you to battle him.",
+                    "In battle, the menu completely changes. It is especially different from other Pokémon games: you can press Y to view the turn order, B to run away, and you can freely move your character and the camera around.",
+                    "However, the main thing that you can currently do is press A to fight , and select one of your Pokémon's moves to attack with. Attack Volo's Pokémon to win the battle.",
+                    "After defeating Volo, your Pokémon learns a new move, and you can change moves at any point in the Satchel menu. Volo congratulates you on your win, heals both of your Pokémon, and hands you five Potions for beating him. Rei/Akari says to tell the guardsmen where you're headed off to, so that if you get hurt, someone can come for your aid.",
+                    "Walk to the front gate, and Ress the guardsman greets you. Select the Obsidian Fieldlands on the map to depart for the trial."
+                ]
+            }
+        },
+        "Obsidian Fieldlands": {
+            "Text": [
+                "You depart for the Fieldlands Camp, on the border of where the wild area begins. Rei/Akari is surprised to see Professor Laventon following the two of you, and he explains that Cyllene ordered him to take responsibility for whatever happens (although most of the responsibility is still on Rei/Akari).",
+                "Walk over to Rei/Akari, who will be overseeing your trial. They explain that all three of the trial Pokémon live here on Aspiration Hill , the area just outside of the Fieldlands Camp.",
+                "You can hold the ZL button to lock onto Pokémon, to better aim your Poké Ball against moving targets. It does not account for distance or uneven terrain, so you can still use the Right Stick for better precision."
+            ],
+            "The Galaxy Team's Entry Trial": {
+                "Text": [
+                    "The trial has now begun. Continue down the hill and catch the Bidoof .",
+                    "Afterwards, follow Rei/Akari as they run further down the hill. They find a Starly, and explain that approaching it directly will make it startled and run away (even in battle). So, your objective is to catch it while it doesn't see you. You can press the B button to crouch, which will let you hide in tall grass and make it harder for Pokémon to see you.",
+                    "Catch the Starly , using the tall grass as cover."
+                ]
+            },
+            "Using Pokémon outside of battle": {
+                "Text": [
+                    "Walk over to Rei/Akari by the tree. They explain that you can swap between throwing an item or a Pokémon by pressing X . The menu on the bottom right will swap between two lists: one for your items, and the other for the Pokémon in your party . You can throw your Pokémon at things like rocks, trees, or even items on the ground, and the Pokémon will investigate it for you and bring back anything it finds.",
+                    "If you'd like, press X to swap to the Pokémon menu and press ZR to throw your Poké Ball at the tree to receive 3 Oran Berries ."
+                ]
+            },
+            "Catching aggressive Pokémon": {
+                "Text": [
+                    "Walk over to Rei/Akari again, and they point out the last Pokémon that you need to catch: Shinx . They explain that if the Pokémon is angered and attacking, you won't be able to freely throw Poké Balls at it, so you must enter battle to have a chance at catching it. When you press ZL to target a Pokémon, an icon appears above it that displays how easy it is to catch, or if it is now hostile and you are currently unable to catch it.",
+                    "The Shinx immediately sees you, so you must press X to swap to the Pokémon menu and press ZR to send out a Pokémon to battle. To make it easier to catch, you can attack it to get its health low, but make sure to not knock it out completely. In battle, you can still use the same overworld menu to throw a Poké Ball at it (using ZR to select), or you can press Up on the D-pad to open up the Items menu and select a Poké Ball with A .",
+                    "Once you catch it, Rei/Akari sees firsthand how fearless you are with catching Pokemon, and they believe that you'll be able to help create the Pokédex. The two of you return to Professor Laventon, who congratulates you for completing the trial and takes a commemorative photograph.",
+                    "You've successfully overcome the trial! It's time for the three of you to report to Cyllene and make your way back to Jubilife Village."
+                ]
+            }
+        }
+    },
+    "Part_2": {
+        "Jubilife Village": {
+            "Text": [
+                "You return to Jubilife Village , unscathed. On the way back, Rei / Akari mentions that you can carry up to six Pokémon in your party at one time, and eventually you can keep the rest in the village pastures (the equivalent of the PC for storing Pokémon, in other Pokémon games). Professor Laventon suggests that you report to Cyllene as soon as possible.",
+                "Walk north and enter Galaxy Hall . Continue into Cyllene's office directly in front of you, and approach her desk. Upon your arrival, Cyllene is impressed. She gave you a tall order because you're an outsider, and yet you exceeded her expectations. She allows you to keep your satchel, hands you a Survey Corps Uniform and Sandals, and orders you to report to the commander once you get changed.",
+                "Go outside of Galaxy Hall, and turn west to return to your room. Once inside, head to the back corner with the futon, and press A on the mirror on the wall to change your outfit. Press L or R to navigate the menus and press A to put on your Survey Corps Uniform and your Survey Corps Sandals. Press B when you're finished.",
+                "When you finish changing, you head back to the Galaxy Hall and Rei/Akari complements how the outfit fits you. Cyllene comes downstairs, saying that you may continue to live in the same room while you work in the Survey Corps. She finally gives you a hat to tie the outfit all together, and orders you to meet with the Commander on the third floor."
+            ],
+            "Commander of the Galaxy Team": {
+                "Text": [
+                    "Head up either stairway to the second floor, and then turn around to go up another flight of stairs.",
+                    "At the top of the stairs, you meet Commander Kamado , the commander of the Galaxy Team , who introduces himself and is aware of the rift that you came from. All of a sudden, he challenges you to physically fight him! You charge at him, but he easily sumo throws you, a tiny 15-year-old child, to the floor. He warns that not everyone in the village will be kind to outsiders, but acknowledges that you completed the trial and are now a proper member of the Survey Corps and Jubilife Village. He orders you to complete the Pokédex and to stay vigilant, as Pokémon are dangerous creatures.",
+                    "You return to Cyllene's office, and she explains that you're beginning as a No Star recruit, meaning you currently have no rank. To gain a better rank, Laventon adds, you must add more information to the Pokédex. To do that, you'll need Poké Balls, so Cyllene hands you a recipe to craft your own Poké Balls and $ 3,000 to buy the materials you'll need. She orders Rei/Akari to teach you how to craft, and you receive a mission: The Basics of Crafting ."
+                ]
+            },
+            "The Basics of Crafting": {
+                "Text": [
+                    "Head outside of Galaxy Hall. Anthe , the local clothier approaches you, and says that the Professor asked her to give you a change of clothes. She hands you an Everyday Kimono and a pair of Everyday Trousers, and hopes you take a look at the village shops eventually. (You can talk to her or use the mirror in your room to equip the outfit, if you'd like.) Rei/Akari waves at you and shouts to follow them to the craftworks .",
+                    "Follow Rei/Akari to the craftworks in the east. They explain, to craft, you just need to use the workbench and have the necessary materials and recipes. They hand you the materials for a Poké Ball for free and tell you to spend the money on other things you might need.",
+                    "Walk up to the crafting bench and press A to pull up the list of recipes. Press A again to select a recipe, and use the D-pad to select how many Poké Balls you'd like to craft. When you've decided, press A to craft.",
+                    "Laventon approaches again to remind you how Poké Balls make use of a Pokémon's ability to shrink down to capture them. Then, he hands you a Pokédex. Rei/Akari explain that you need to complete research tasks to fill the Pokédex, and you receive a mission: Getting to Work on Research Tasks ."
+                ]
+            },
+            "Accepting requests": {
+                "Text": [
+                    "You walk away from the bench, ready to get back to work, but before you can leave, a guardsman in front of Galaxy Hall speaks up. He had overheard that you're heading to the Fieldlands Camp, and gives you your first request . Requests aren't required to beat the game, but you can earn various rewards for completing them. Townspeople that have requests will display a request icon above them, and this icon also shows up on the Arc Phone map.",
+                    "If you'd like, talk to guardsman Beauregard to receive Request 1: Wurmple Can Evolve .",
+                    "You also have gained access to a variety of shops and services throughout Jubilife Village: you can buy general trainer items at the general store , you just learned about the craftworks where you can buy materials to craft with, you can grow useful crops at the farm , and you can buy powerful buff charms at the folk shrine at the farthest northwest corner. All of these shops may not offer amazing items right now, but they'll provide significantly more useful items as you progress.",
+                    "When you're ready, head back to the front gate (the same one that you first departed Jubilife Village from) and head to the Obsidian Fieldlands ."
+                ]
+            }
+        },
+        "Obsidian Fieldlands": {
+            "Text": [
+                "Now that you're an actual member of the Survey Corps, it's finally time to get down to business and begin seeking out the Pokémon. When you arrive in the Obsidian Fieldlands , Laventon explains that you'll need to study the Pokémon in depth to begin writing its Pokédex entry."
+            ],
+            "The Pokédex": {
+                "Text": [
+                    "Unlike other Pokémon games, simply catching one Pokémon isn't enough complete its entry. Instead, you need to fulfill research tasks , to study the Pokémon's behaviors and habits. These include objectives like catching or battling multiple of the Pokémon, evolving the Pokémon, seeing them use certain moves, etc. There has never been an actual complete Pokédex before, so you're starting from scratch and you need as much data as you can collect.",
+                    "You can press Down on the D-pad to open up the Pokédex. Each Pokémon's entry has different research tasks to complete. To complete a Pokédex entry, you need to finish 10 research tasks (you can think of it as 10 check marks). You should focus on the ones with the red arrows next to them, as they give double points, which make completing the entry faster. You could hypothetically complete a Pokédex entry with only 5 research tasks. There's also diminishing returns: the requirements increase for the same task, so it's much faster to do many different tasks than to only stick to one."
+                ]
+            },
+            "Head to Aspiration Hill": {
+                "Text": [
+                    "Rei/Akari also gives you a tip for self-defense: how to dodge. You can dodge by pressing Y for a brief window of invincibility and movement. Also unlike other Pokémon games, the Pokémon will openly attack you , the player. If you get too hurt, you may black out and lose many of the items in your satchel. Rei/Akari reminds you that the day before, they were attacked by Shinx and had to be rescued—not just their Pokémon. You should make use of dodging and dashing to maneuver out of tough situations and to prevent the same thing from happening to you.",
+                    "Follow Rei/Akari onto Aspiration Hill . They explain that if you target a Pokémon with ZL , you can press Down on the D-pad to quickly access the Pokédex entry for that Pokémon. It's a useful shortcut that makes it so that you don't need to search for the correct Pokédex entry manually. They also begin showing you examples of common research tasks: for instance, one of Bidoof 's research tasks is to catch multiple of them.",
+                    "Follow Rei/Akari down the path and into the tall grass in the west. One of Starly 's research tasks is to catch it without being spotted."
+                ]
+            },
+            "Head to Horseshoe Plains": {
+                "Text": [
+                    "Go down the Aspiration Hill path all the way until the bridge, where you had first caught Shinx. Then, follow Rei/Akari westward to the Horseshoe Plains . They point out Buizel , who is similarly aggressive to Shinx: you must battle it to have a chance to catch it. One of its research tasks is to see it use a specific attack in battle (in this case, Aqua Jet ).",
+                    "Follow Rei/Akari deeper into Horseshoe Plains. For keeping up with them, they give you your own Crafting Kit , which lets you craft anywhere using items from your satchel. (Your satchel has limited inventory space—if you want to craft using all your items, you should use a workbench.) They also give you a crafting recipe for Potions .",
+                    "They also explain that the cover page of the Pokédex shows your current progress: how many Pokémon you've seen, how many you've caught, how many research tasks you've completed, etc. Then, they ask you to report back to Professor Laventon when you're finished. For now, don't worry about that yet and continue exploring."
+                ]
+            },
+            "Getting to Work on Research Tasks": {
+                "Text": [
+                    "If you'll notice, the mission description may read, \"Report your research tasks to Professor Laventon and earn a sufficient number of Pokémon research points .\" To progress and rank up in the Survey Corps, you must earn a total of 500 research points (you can see how many you currently have and need at the bottom of the Pokédex's cover).",
+                    "One research task gives 10 points, the research tasks with the red arrows give 20 points, and completing a Pokédex entry gives an additional 100 points. So, completing one entry gives a total of 200 points . With the sheer amount of new Pokémon around, and the research points you likely already have, it shouldn't take too long to earn enough to progress.",
+                    "Here's some tips for catching Pokémon:",
+                    "The basic red Poké Ball doesn't have a high catch rate, so don't be discouraged if they break out, even with these tips. You can always lower their HP in battle, the old-fashioned way.",
+                    "Now that much more of the map is available for you to explore, get to work on completing those research tasks in any order you'd like. You could start with the four you already have (your first partner Pokémon , Bidoof, Starly, and Shinx) or you could go around catching new species of Pokémon. This is also a good opportunity to catch a Wurmple , a large Buizel, and to fill Starly's Pokédex entry for the requests.",
+                    "You should also level your Pokémon up to at least 9 for an upcoming battle."
+                ]
+            },
+            "New areas to explore (Optional)": {
+                "Text": [
+                    "In addition to Aspiration Hill and Horseshoe Plains , you can also explore Floaro Gardens , Sandgem Flats , and part of Lake Verity , but you should definitely keep it to those first three areas for now. As you'll see in the encounter tables below, Sandgem Flats and Lake Verity have significantly higher-level Pokémon, many of which are aggressive and difficult to capture. It's extremely risky to explore those areas at your current level. There is also a guardsman on the bridge on Aspiration Hill that prevents you from crossing until you rank up, locking off your access to the rest of the Obsidian Fieldlands.",
+                    "You can always visit these areas later, when you and your Pokémon are stronger. Also, if you want to keep exploring, don't report to Professor Laventon yet . As soon as you talk to him after earning enough research points, he'll immediately take you back to Jubilife Village.",
+                    "When you're ready, return back to Professor Laventon at the Fieldlands Camp. Professor Laventon records your research tasks and caught Pokémon in a survey report to keep track of your progress. He also gives you money and research points relative to the amount of work that you do. Now that you've made significant progress on the Pokédex, Laventon suggests that you talk to Cyllene to rank up in the Survey Corps, and you head back to Jubilife Village ."
+                ]
+            }
+        }
+    },
+    "Part_3": {
+        "Jubilife Village": {
+            "Text": [
+                "Head north into Galaxy Hall , and go into Cyllene 's office. Press A to show Cyllene your Pokédex.",
+                "Gaining a higher rank grants you many benefits. For example, as a First Star recruit, you can use a new type of Poké Ball called a Heavy Ball and Pokémon up to level 20 will obey you in battle. You'll also earn more money from survey reports. Cyllene commends you for your hard work and hopes that you continue to keep at it. She hands you recipes for Heavy Balls and Revives , then suggests that you rest for the night.",
+                "You eat dinner at The Wallflower with Rei / Akari and Professor Laventon , who congratulate you on receiving your first star. Rei/Akari brings up requests and how they can come from anywhere, even outside of Jubilife Village. For example, Rei/Akari wants you to help them with a request from Mai of the Diamond Clan because it requires skill in battling."
+            ],
+            "Head to the training grounds": {
+                "Text": [
+                    "The next day, Rei/Akari shows up at your door, asking if you have time to help them out. They suggest that you head to the pastures in the east end of the village to change the Pokémon in your party.",
+                    "When you're ready, head north to the training grounds , and press A to talk to Rei/Akari. They admit to having a partner Pokémon, a Pikachu , but can't quite command it in battle as easily as you can. So, they challenge you to a Pokémon battle to train them!",
+                    "After defeating Rei/Akari in battle, they felt like they understood Pikachu for once and were in sync. They strive to be as connected as you are with your Pokémon.",
+                    "Rei/Akari also mentions that they had heard the Professor mention something called Types , which are attributes that effect what a Pokémon's strengths or weaknesses are. Types are extremely important in Pokémon, as they can double, halve, or even negate the damage of an attack, so definitely keep them in mind."
+                ]
+            },
+            "Captain of the Security Corps": {
+                "Text": [
+                    "The entire time, Zisu , the captain of the Security Corps , was watching the battle and approaches. She is the local master of Pokémon battling and she gives you some tips.",
+                    "Firstly, she mentions that in battle, you can change the properties of a move by using either agile style or strong style . Agile style makes it so that your Pokémon moves faster in the action order (and can possibly go twice in a row) but weakens the move's power. Strong style is the opposite, making your Pokémon move slower in the action order but making the attack do much more damage. Either style is a temporary one-turn buff that uses more power points .",
+                    "You can apply one of the styles by pressing L or R when selecting the move in battle.",
+                    "You may not see the option to select a style, but don't worry; a Pokémon slowly gains the ability to use styles on certain moves as they level up. (For example, the above image has the style option for Iron Head , but not for Double-Edge .) Eventually, you can also use certain items to enable your Pokémon to be able to use styles on more moves.",
+                    "Zisu also mentions that at any time, you can ask her to teach your Pokémon new moves for a small fee. Definitely make use of this, as she can give your Pokémon many of their most powerful moves.",
+                    "Rei/Akari remind you that they asked for your help with the request from Mai last night—it's about time that they meet up with her on Aspiration Hill . You receive a new mission: A Request from Mai .",
+                    "Go ahead and make any preparations you need to make, then head to the east gate to depart for the Obsidian Fieldlands ."
+                ]
+            }
+        },
+        "Obsidian Fieldlands": {
+            "Text": [
+                "You return to the Fieldlands Camp , when suddenly... you get spooked by Volo from behind! He teaches you about the back strike technique, which increases a Pokémon's catch rate (when throwing a Poké Ball) or stuns it (when sending your Pokémon out for battle). He wishes you well and heads off.",
+                "You can speak with Professor Laventon to return to Jubilife Village at any point, and when you earn enough research points, you can talk to Cyllene to increase your rank.",
+                "You should take a rest in the tent to heal your Pokémon. When you're ready, head down Aspiration Hill and talk to the guardsman on the bridge. Now that you're a First Star rank recruit, he lets you pass and tells you to not let your guard down."
+            ],
+            "Warden of the Diamond Clan": {
+                "Text": [
+                    "Continue through the bridge and approach Rei/Akari, who is currently talking to someone. She introduces herself as Mai , one of the wardens of the Diamond Clan , and the one who requested help. She asks if you're confident in your ability to lead your Pokémon in battle, and she shows you that her partner Pokémon is Munchlax .",
+                    "Then, she challenges you to a battle to see if you're capable!",
+                    "She commends you for winning the battle and heals your Pokémon. She also hands you 5 Vivichokes , which you can craft into Revives . She explains that she needs help dealing with an alpha Pokémon nearby Deertrack Heights . In response, you Arc Phone rings again, showing you the way to pursue it.",
+                    "Then, Mai asks you if you know what the almighty Sinnoh is. The Diamond Clan settled in Hisui to worship the almighty Sinnoh, the creator of time, the world, and the Pokémon that live in it. It's an old tale, and almighty Sinnoh has long since ceased direct contact with most people. However, it still has connections with a few Pokémon, and it's the warden's job to look after them. One of them is currently causing trouble at Deertrack Heights , so Mai wants you to meet her there to learn more."
+                ]
+            },
+            "New areas to explore (Optional)": {
+                "Text": [
+                    "Now that you've crossed the bridge, you have access to nearly the entire map of Obsidian Fieldlands (besides a few islands that you can't reach quite yet). The first five areas you could access before were Aspiration Hill, Horseshoe Plains, Floaro Gardens, Sandgem Flats, and part of Lake Verity. You can refer to this part of the walkthrough for the available items and Pokémon for those areas.",
+                    "After crossing the bridge, you can reach Grueling Grove , Worn Bridge , Windswept Run , Nature's Pantry , Tidewater Dam , The Heartwood , Grandtree Arena , Oreburrow Tunnel , and Obsidian Falls . If you're trying to find Oreburrow Tunnel, you can throw your Pokémon at a crack in the wall and it'll clear a path for you. You can enter either from the south end of Grueling Grove or the east side of The Heartwood.",
+                    "The next two story-related areas, Deertrack Path and Deertrack Heights , are covered in the following subsection."
+                ]
+            },
+            "Continue through Deertrack Path": {
+                "Text": [
+                    "When you're ready, continue following the path from the bridge, called Deertrack Path . You'll see torches beside you if you're going in the right direction."
+                ]
+            },
+            "Head to Deertrack Heights": {
+                "Text": [
+                    "At the top of Deertrack Path is Deertrack Heights . When you reach a fork in the road, take the east path with the stairs heading upward. You'll see Mai waiting for you at the top.",
+                    "Approach Mai at the top of the stairs. Professor Laventon arrives panting, after sprinting all the way from the Fieldlands Camp. He wanted to see the alpha Pokémon for himself, and Mai allows it. Mai explains the situation: she wanted to pay tribute to a Pokémon that is related to almighty Sinnoh, but instead, she's interrupted by the cry of an alpha Kricketune that's been causing trouble. Mai heals your Pokémon, and wishes you luck with taking it on. Laventon ponders about its size, and Mai explains that alphas are significantly larger and stronger than normal Pokémon.",
+                    "Approach the Kricketune to battle it (you don't need to throw out a Pokémon). You can catch most of the static encounters in this game, and the game will let you know if you are unable to.",
+                    "In battle, you can press Y to show the action order , which shows the order that Pokémon will be taking turns and how often. This is based on factors like their Speed , whether you're using agile or strong style , etc.",
+                    "Once you've taken out the alpha Kricketune, Mai heals your party again, as a different Pokémon cries out. Up on the cliff is the great Wyrdeer ! It jumps down to get a better look, and takes a liking to you. When it leaves, Mai explains that it lets people ride on it if it deems them worthy. Rei/Akari appears, sent by Cyllene. They explain that after subduing the alpha Pokémon, they can set up another camp site at this location. Laventon shows concern if it's okay to do this, but Mai reassures him that it's alright as long as you coexist and thrive with the Pokémon. Mai leaves to report back to her superior, and promises to give you a reward when she can.",
+                    "Later in the day, the Construction Corps appear and build the new camp site, which Laventon dubs the Heights Camp ! You can fast travel to this camp at any time, and when you depart from Jubilife Village, you can choose to start from this camp instead.",
+                    "After a long day, Rei/Akari suggests that you all return to The Wallflower at Jubilife Village ."
+                ]
+            }
+        }
+    },
+    "Part_4": {
+        "Jubilife Village": {
+            "Text": [
+                "You return to The Wallflower for the evening, and Professor Laventon orders potato mochi. When Beni returns with the food, he reports some grave news—a frenzied Kleavor has attacked many of the Survey Corps team that tried to investigate it. Laventon heard that it had been struck by powerful lightning which caused its behavior, and supposes that there's always a risk of danger for the Survey Corps. Rei/Akari add that even alpha Pokémon don't stand a chance to its power. Laventon suggests that you rest for the night.",
+                "The next day, Rei/Akari greet you in the morning, and tell you to hurry to the commander's office."
+            ],
+            "Summoned by Commander Kamado": {
+                "Text": [
+                    "Exit your room. When you're about to leave, you're interrupted by a couple of loud voices arguing about the almighty Sinnoh. One argues that it was the creator of time, while the other argues that it was the creator of space. They angrily storm off to Commander Kamado 's office. Rei/Akari explain that they were Adaman and Irida , the leader of the Diamond Clan and Pearl Clan , respectively.",
+                    "Head inside Galaxy Hall and head up to the third floor to reach Commander Kamado's office. When you approach, you overhear Adaman immediately get to the point: the Pearl clan's frenzied Kleavor is causing a lot of harm, but the Diamond clan can't step in or else they run the risk of reigniting war between the clans. Irida adds that the Pearl clan doesn't want to have to take down one of their own. Kamado acknowledges your presence, and the two leaders kindly introduce themselves, as though they weren't just arguing a few seconds ago.",
+                    "Kamado proposes a plan: he wants you, as a third party, to observe and study Kleavor before they commit to any decisions. Adaman and Irida agree reluctantly, and comment on the Galaxy Team 's use of Poké Balls. Kamado reassures them that Poké Balls are not for controlling Pokémon, but for working alongside them, and gives you your order to study Kleavor. You receive a new mission: The Frenzy of the Lord of the Woods . Adaman and Irida wish you luck on your mission and depart. Kamado explains that the Galaxy Expedition Team are the outsiders of Hisui, while the Diamond and Pearl clans are the natives—you must not do anything to ruin the relationships between them. Cyllene comes upstairs and calls you to her office to discuss the details of the mission."
+                ]
+            },
+            "Where to begin the investigation": {
+                "Text": [
+                    "Head back down to the first floor and approach Cyllene's desk. Professor Laventon also appears to explain the situation. The Survey Corps are currently unable to catch Kleavor, and has been proving to be extremely aggressive. Cyllene clarifies: the mission is extremely dangerous. She continues: the Diamond and Pearl Clans believe that there are powerful Pokémon related to almighty Sinnoh, called noble Pokémon , which they worship and give offerings to. Kleavor is one of the Pearl Clan's nobles.",
+                    "As a possible lead, Laventon begins to suggest that perhaps you could start by figuring out what their offerings are... when suddenly, Mai and Adaman burst into the office. Adaman explains that by traveling through the space-time rift, you may have met the almighty Sinnoh itself, and so he wants you to quell Kleavor's frenzy completely. He explains that the Diamond clan is facing their own similar problem, but he wants to help the Pearl clan as best as he can. Mai explains that you can find Kleavor at Grandtree Arena, and his warden is a boy named Lian . As soon as they're finished explaining, they immediately leave. Rei/Akari suggests that you set off from the Height Camp to reach Grandtree Arena, and get ready to head out.",
+                    "Approach the exit of Galaxy Hall. Before you can leave, a guardsman named Bagin interrupts you. He can give you an extra slot in your satchel for a fee—however, you'll quickly notice that his prices become significantly more expensive per slot .",
+                    "Exit Galaxy Hall, and head to the east gate. When you approach the gate to depart, Volo appears and hands you some Super Potions , then leaves to search for some ruins.",
+                    "When you're ready, prepare to leave for the Heights Camp in the Obsidian Fieldlands ."
+                ]
+            }
+        },
+        "Obsidian Fieldlands": {
+            "Text": [
+                "Depart for the Heights Camp, and make your way into the southeast corner of the map."
+            ],
+            "Head to Grandtree Arena": {
+                "Text": [
+                    "The person you're searching for is located in Grandtree Arena , the deepest part of The Heartwood . The easiest route to get there is south through Nature's Pantry , through Tidewater Dam , and then east into The Heartwood . (Refer to this part of the walkthrough for the available items and Pokémon in those areas.)",
+                    "From there, continue deeper into the woods and look for two orange signs. Approach the boy in the back of the woods."
+                ]
+            },
+            "Warden of the noble Kleavor": {
+                "Text": [
+                    "The boy introduces himself as Lian , the Pearl Clan's warden of Kleavor. He's been instructed by Irida to turn anyone away because it's much too dangerous to approach Kleavor with its current behavior.",
+                    "If you want to continue pursuing Kleavor, you'll have to get through him and his partner Pokémon, Goomy , first. Face him in battle!",
+                    "After defeating him, he still suggests that you leave because it's too dangerous. He'd normally give Kleavor an offering of his favorite food, but it's too aggressive to accept any offerings at all. Then, Irida appears, and convinces Lian that even though the Pearl Clan would rather solve this themselves, it would be best for everyone to let the outsider handle it. Irida and Lian plan to get Kleavor's favorite foods as an offering, and Irida orders you to find a way to quell its frenzy.",
+                    "You can instant travel by opening your Arc Phone with Minus (-) and pressing X . Then, select a camp to travel to. (Alternatively, you can do the same thing by moving the cursor with the Left Stick and pressing A on a camp marker.)",
+                    "Return to either camp and report back to Professor Laventon. When you approach, you let him know what occurred at Grandtree Arena and the two of you return to Jubilife Village ."
+                ]
+            }
+        },
+        "Jubilife Village (Revisited)": {
+            "Text": [
+                "You head to Professor Laventon's lab in Galaxy Hall, and he ponders on how best to use the food to calm down Kleavor. It's impossible to approach it to offer it food in its aggressive state. Laventon goes silent for a while... until it hits him: you should throw the food at him like Poké Balls ! You should return to Grandtree Arena to let Irida and Lian know about the plan.",
+                "Exit Galaxy Hall, and approach the east gate. Mai says that there's some news, and you set out for the Heights Camp in the Obsidian Fieldlands ."
+            ]
+        },
+        "Obsidian Fieldlands (Revisited)": {
+            "Text": [
+                "Mai takes you to the Heights camp to meet with Adaman... and Wyrdeer ! Adaman's been telling Wyrdeer about how much you've been working to find a way to calm down Kleavor, and it believes you are worthy! Adaman orders Mai to take out a white flute, and she plays a mysterious melody. Adaman explains that it's a Celestica Flute , which is used to call Wyrdeer to ride him. He hands you your own flute to see if you can do the same. You try to play the melody and... Wyrdeer accepts it! Wyrdeer opens its heart and hands you a Mind Plate .",
+                "You can now ride Wyrdeer! You can summon a Ride Pokémon by pressing Plus (+). On Wyrdeer, you can dash with B and jump with Y . However, you can't throw any items or Pokémon out while on Wyrdeer, so press Plus (+) again to quickly dismount."
+            ],
+            "Return to Grandtree Arena": {
+                "Text": [
+                    "Return to Grandtree Arena in the southeast corner and talk to Lian. You relay Professor Laventon's plan to throw the offerings onto Kleavor, which Lian agrees to, but Irida is hesitant. She still doesn't trust you and the way that the Galaxy Team captures Pokémon in Poké Balls. She reveals that her partner Pokémon is Glaceon , which was never caught in any Poké Ball, and she wants you to prove your worth in battle!",
+                    "After defeating Irida, she heals your Pokemon, and finally feels at ease that Poké Balls aren't inherently evil. Irida decides it's best to hear you out, and you inform her of the plan. She agrees to help and you all take some time to make some balms out of the offerings.",
+                    "When you're ready, let Lian know that you'd like to take Kleavor on."
+                ]
+            }
+        },
+        "Frenzied Kleavor": {
+            "Text": [
+                "Lian begins a prayer to call Kleavor to give it offerings. Irida suggests you make use of dodging to avoid Kleavor's attacks, but she is interrupted by a Pokémon's loud cry—the very same that you heard when the lightning first struck. You wonder where it came from, until you see a giant golden figure, running at impeccable speed for its size. It slices through a tree like butter, as you can clearly see that it has two axes for arms. It lands in front of you before the tree even finishes falling, and you finally get a good look at the creature: it is indeed the frenzied noble Kleavor ."
+            ],
+            "The Frenzy of the Lord of the Woods": {
+                "Text": [
+                    "To quell a noble Pokémon's frenzy, you must throw balms with ZR to reduce its frenzy gauge, the yellow meter at the stop of the screen. If you manage to find an opening and the screen reads, \" Send in a Pokémon, and do battle! \", you can do so and enter battle. If you defeat it, the noble becomes stunned and gives you an opportunity throw a lot of balms.",
+                    "Kleavor will stand and charge an attack, facing you. Its eye will shine when it's ready, and then it will charge you in a straight line. To get an opening, you want to dodge at the last moment and bait it into crashing into a wall.",
+                    "Once you empty its frenzy gauge completely, you throw one final balm at Kleavor. It explodes in an extremely brilliant light, much like when you first met Arceus , and the aggressive golden sheen that once covered Kleavor disappears. Now that it's relaxed, Kleavor hands you an Insect Plate and runs off.",
+                    "Lian and Irida appear, completely puzzled by the light. They ponder about the mysterious bolt of lightning that first sent Kleavor into a frenzy, and if it could have been almighty Sinnoh's power. Lian wonders whether it was even the right thing to try and stop it. However, Irida reassures him that almighty Sinnoh would not have one of its Pokémon attack the innocent people that worship it. The two of them thank you for what you've done. Irida hands you 3 Sitrus Berries and heals your Pokémon as a reward, and she wants you to keep aiding any other frenzied Pokémon that may be in a similar situation.",
+                    "Return to either camp and speak with Professor Laventon to finally return to Jubilife Village and report to commander Kamado ."
+                ]
+            }
+        }
+    },
+    "Part_5": {
+        "Jubilife Village": {
+            "Text": [
+                "You return to Jubilife Village , as Volo greets you at the front gate . He saw a light in the sky and came out, hoping that you quelled the noble Kleavor ! He gets a glimpse of the two plates you've received, the Mind Plate and the Insect Plate . A mysterious message is written on them that states, \"Where all creation was born, that is the being's place of origin.\" You explain to him that you received them from Kleavor and Wyrdeer . He wants you to continue getting more plates to read, and excitedly sets off.",
+                "Head to Galaxy Hall and go up to Kamado 's office. Kamado heard what happened with Kleavor and congratulates you on your work, as the people of Hisui have one less thing to worry about. However, there are more nobles that are similarly in a frenzy, and he orders you to continue investigating. But for now, you are dismissed and can take a rest at the Wallflower .",
+                "You return to the Wallflower. Beni brings you more potato mochi, and he mentions that word gets around the village quick: quelling Kleavor's frenzy has given you quite the reputation. Rei/Akari and Laventon praise you for making the Obsidian Fieldlands safer, and Rei/Akari gives you a recipe for Smoke Bombs . You can use them as temporary cover that you can sneak in, much like tall grass. Laventon wants you to continue filling the Pokédex, and you all dig in to the potato mochi."
+            ],
+            "Eerie Apparitions in the Night": {
+                "Text": [
+                    "After you eat, you head off to your quarters . Before you enter, a child in a brown outfit calls your name and urges you to follow her. She takes you to a bridge near the pastures and introduces herself as Vessa . A calamity that was once sealed away has started to break out, and its seal is broken. She asks you to restore the seal and she gives you an Odd Keystone . In order to restore the seal, you must collect ghostly purple wisps into the Odd Keystone. Vessa points to one that's nearby, and asks you to collect it.",
+                    "Cross the bridge and press A on the wisp by the tree to collect it into the Keystone. Vessa thanks you for helping her, and she'll give you rewards when you find a certain amount. There are 107 wisps that have been scattered across Hisui, and you can also talk to her to find out how many are remaining."
+                ]
+            },
+            "Hairdresser of the Diamond Clan": {
+                "Text": [
+                    "You return to bed. The next day, a girl in a Diamond Clan outfit shouts about how amazing the Jubilife Village hairdresser is. She recognizes you as the person who quelled Kleavor's frenzy and introduces herself as Arezu , a warden of the Diamond Clan . Her hobby is that she gives haircuts. She had intended on speaking with Kamado, so she leaves. This isn't the last time you'll see her, however, as you receive a mission: Arezu's Predicament .",
+                    "Head inside Galaxy Hall , and go up to the third floor to reach Kamado's office. When you approach, you overhear Arezu and Kamado having a conversation. An Ursaluna has gone into a frenzy, much like the noble Kleavor . Arezu turned to the Galaxy Team, because both clan leaders are busy and Ursaluna's warden is too stubborn to let her help.",
+                    "You enter into the room. Kamado orders you to head to a new area, the Crimson Mirelands , to study the Ursaluna. You nod and head down to Cyllene 's office for the details. Cyllene informs you that the Crimson Mirelands is filled with more dangerous Pokémon and a harsher landscape, so this won't be easy. You must be a Second Star to go to the Crimson Mirelands.",
+                    "If you haven't already, earn enough research points to rank up to Second Star (you need 1,800 points). You can refer to Part 2 of this walkthrough for details.",
+                    "When you earn enough research points, talk to Cyllene to show her your Pokédex.",
+                    "As a Second Star recruit, you can use a new type of Poké Ball called a Feather Ball , which flies in a straight line and is intended for certain flying encounters. In addition, Pokémon up to level 30 will obey you in battle and you'll earn more money from survey reports. Cyllene hands you the crafting recipes for Feather Balls and Super Potions .",
+                    "After reaching Second Star rank, Cyllene gives you the details of your mission. You must head to a place called the Solaceon Ruins to find Calaba , Ursaluna's warden."
+                ]
+            },
+            "Some practice before the trip": {
+                "Text": [
+                    "Head outside of Galaxy Hall and go to the front gate. Rei/Akari meets you there, and they challenge you to a battle to train them again!",
+                    "After defeating Rei/Akari, they hand you a new recipe for Stealth Sprays , which muffle the sound of your footsteps and make it harder for wild Pokémon to notice you. They also mention something called a space-time distortion , which you can get rare items from, and head off to the Mirelands Camp .",
+                    "When you're ready, head through the front gate to depart for the Crimson Mirelands ."
+                ]
+            }
+        },
+        "Space-time distortions (Optional)": {
+            "Text": [
+                "Now that you have access to space-time distortions , there's some preparation that you need in order to make the most out of them. They drop many Evolution items , items for earning money , and most importantly, exclusive rare Pokémon! They can spawn every 5 to 40 minutes, meaning it can be a very long time until another one appears.",
+                "When a space-time distortion is about to begin, you'll receive a notification that reads, \" A space-time distortion seems to be forming! \". Press Minus (-) to open your Arc Phone to see where it is on the map. If it hasn't begun, it appears as a semi-transparent hemisphere."
+            ],
+            "Preparation": {
+                "Text": [
+                    "When you first receive the notification, that means it hasn't formed yet and you have a few minutes to prepare. It won't begin until you receive a follow-up message that reads, \" A space-time distortion appeared! \", which means you should head there as soon as possible."
+                ]
+            },
+            "When it begins": {
+                "Text": [
+                    "Head to the area where the distortion is on the map. It appears as a hemisphere of thunderous dark clouds. Inside, there's a lot going on, but don't panic: there's only a few things to know."
+                ]
+            },
+            "When it's finished": {
+                "Text": [
+                    "Once the space-time distortion is over, the area returns to normal and all of the exclusive Pokémon and items disappear."
+                ]
+            },
+            "New Pokémon in the Obsidian Fieldlands": {
+                "Text": [
+                    "This is an updated list of encounters to include Pokémon in space-time distortions in the Obsidian Fieldlands . They also now include mass outbreaks , which are events where you can encounter multiple of a certain Pokémon with increased Shiny rates!",
+                    "Ramanas Island and most of Lake Verity are still inaccessible, so they will be covered later."
+                ]
+            }
+        },
+        "Crimson Mirelands": {
+            "Text": [
+                "Laventon greets you when you arrive in the Crimson Mirelands for the first time, as it's teeming with poison-type Pokémon. Rei/Akari heard about your mission to help Ursaluna, and they point you to the Solaceon Ruins up north. They set off to look for space-time distortions.",
+                "Laventon also suggests that if you ever have any trouble, have Zisu teach your Pokémon new strong moves. You can also have her use Seeds of Mastery to master those moves and enable agile/strong style. You should also use any Grit items you may have (like Grit Dust or Grit Gravel ) to increase your Pokémon's effort levels and stats . The most important stat is Speed , due its direct effect on action speed ."
+            ],
+            "New areas to explore (Optional)": {
+                "Text": [
+                    "Now that you've arrived in the Crimson Mirelands, there's tons of new Pokémon to catch! With Wyrdeer , you have access to the entire map! You can reach Golden Lowlands , Gapejaw Bog , Ursa's Ring , Sludge Mound , Scarlet Bog , Cloudpool Ridge , Shrouded Ruins , Diamond Heath , Diamond Settlement , Bolderoll Slope , Cottonsedge Prairie , Droning Meadow , Lake Valor , and even the Holm of Trials !",
+                    "To reach the Holm of Trials, you'll have to jump across a shallow part of the river near Sludge Mound. There's a few spots it looks like you can jump, but only one of them is actually thin enough to jump across."
+                ]
+            },
+            "Warden of the Pearl Clan's Ursaluna": {
+                "Text": [
+                    "Head to the Solaceon ruins and continue inside. Approach the older woman in a pink hoodie with a Bibarel . She introduces herself as warden Calaba of the Pearl Clan . She notices your Celestica Flute and recognizes you as the one who quelled noble Kleavor 's frenzy. However, she judges you for the way you handled it and the Poké Balls you use, and decides she doesn't need your or the Diamond Clan 's help. She tells you to leave, and walks off deeper in the cave.",
+                    "Volo arrives in the ruins, as he mentioned earlier. He wants you to show him the strength that quelled a frenzied noble, and challenges you to another battle!",
+                    "After defeating Volo, he complements your strength and heals your Pokémon. He asks for your help to retrieve a stolen Wall Fragment . A group of bandits called the Miss Fortunes stole a chunk of the wall engravings from Solaceon Ruins. They even stole from the Ginkgo Guild! Calaba's been trying to chase them down, but she's having trouble at her age. Volo suggests that you check out a mysterious campfire near the Mirelands Camp."
+                ]
+            },
+            "The Miss Fortunes": {
+                "Text": [
+                    "Head near the Mirelands Camp and instead head east, along the river. Approach the campsite: you hypothesize that someone must have been here, when you hear a voice—3 hostile women, who you can easily presume are the Miss Fortunes. They introduce themselves as Charm , the eldest, Clover , the middle sister, and Coin , the youngest.",
+                    "Coin is challenges you to a battle, alongside her partner Pokémon Toxicroak . Defeat her to take back the Wall Fragment!",
+                    "After defeating her, she reveals that she once was a part of the Galaxy Team , but left. She gives you the Wall Fragment for defeating her. Charm asks you why you were seeking them out, and you answer that it was for Ursaluna or Calaba. Charm explains that not everyone has the luxury to help others, as some people struggle just to survive. She also has a score to settle with the Galaxy Team, reads out the Wall Fragment, threatens you, and leaves."
+                ]
+            },
+            "Return the Wall Fragment": {
+                "Text": [
+                    "Head to Solaceon Ruins with the good news: you have secured the Wall Fragment! Approach Volo, who commends you for your effort. Volo explains that even though Calaba is stubborn, it's because she loves the Pearl Clan a lot and not because of any actual hate. Volo wishes you luck on quelling Ursaluna, and heads out.",
+                    "Approach Calaba in the back of the cave. She's as stubborn as ever, but you hand her the Wall Fragment. She puts it back into place, and it reads, \"All lives touch other lives to create something anew and alive...\" Calaba interprets the message to mean that people can help each other to reach greater heights, and she understands what it means now. She asks for your name and for your help to calm down Ursaluna. Because it's not in a full frenzy like Kleavor, he'll return to normal with some medicine."
+                ]
+            },
+            "Head to Sludge Mound": {
+                "Text": [
+                    "Calaba says to meet her on Sludge Mound when you're ready. Head to Sludge Mound and approach Calaba. After Calaba plays her Celestica Flute, Ursaluna appears! She wishes you luck with taking it on, but she won't allow you to catch it as it's important to the Pearl Clan."
+                ]
+            },
+            "Finding items with Ursaluna": {
+                "Text": [
+                    "After taking out the Ursaluna, Calaba feeds it a special medicine of the Pearl Clan, called a \"Toxi-Gone\", meant to clear poisons. Ursaluna cries out of disgust, but it has now calmed down. Strangely, it's not in a frenzy, and you can tell because it's not glowing like Kleavor.",
+                    "Calaba asks you to play your Celestica Flute. Ursaluna learns the sound of your playing and you can now ride it! It also gives you the Earth Plate . Calaba explains that it's good at digging, and suggests that you report to commander Kamado about what happened.",
+                    "You can now ride Ursaluna! As always, you can summon a Ride Pokémon by pressing Plus (+). You can also swap between your Ride Pokémon by pressing Left or Right on the D-pad. You can't throw any items or Pokémon out while on a Ride Pokémon, so press Plus (+) again to quickly dismount.",
+                    "Ursaluna acts as an alternative to the Dowsing Machine , which was used in previous games to look for hidden items. A colored radar will appear in front of Ursaluna, starting off as the color green. If it turns yellow or red, that means it's getting close to an item and it'll run faster. A red \"!\" icon will appear if you're on top of an item, and you can press Y to dig it up."
+                ]
+            },
+            "The Symbol Pokémon": {
+                "Text": [
+                    "Head to a base camp and talk to Professor Laventon. He notices something odd stuck to your back, and it turns out to be a Pokémon in the shape of the letter A: it's an Unown ! Laventon heard Volo mention that the carvings on the walls of Solaceon Ruins resembled writing, and he hypothesizes that the carvings are meant to resemble this Pokémon!",
+                    "Laventon adds a new section to your Pokédex called the Unown Research Notes ! Unown will be hidden in certain spots on the map, but they won't move or battle you. Throw empty Poké Balls at these hidden Unown, because you are unable to battle them. The Unown Research Notes also include hints on where you can find them.",
+                    "When you're ready, talk to Professor Laventon again to return to Jubilife Village ."
+                ]
+            }
+        }
+    },
+    "Part_6": {
+        "Jubilife Village": {
+            "Text": [
+                "You return to Jubilife Village . Head to Galaxy Hall and go up to Kamado 's office to report what happened.",
+                "When you approach, Adaman and Beni are urgently speaking with Kamado. The Diamond Clan 's noble Lilligant is in a frenzy: Arezu hid this information from Adaman, but she's nowhere to be found. She was last seen at the Wallflower but she has disappeared. Kamado is suspicious of her, and this information could lead the Diamond and Pearl Clans to go to war once again. Adaman asks him what the Galaxy Team would do in that situation: they would have to remain neutral and not take part in the fighting.",
+                "Commander Kamado asks you if you have any ideas, and you suggest that you could use Ursaluna to find Arezu. Adaman and Kamado agree to the plan, and wish you luck in quelling Lilligant's frenzy. Adaman heads off and will meet you in the Crimson Mirelands . Kamado explains that the Galaxy Team came to Hisui to make a new home without war or strife, so you must quell the frenzy of these important noble Pokémon.",
+                "When you're ready, head to the front gate and depart for the Crimson Mirelands ."
+            ]
+        },
+        "Crimson Mirelands": {
+            "Text": [
+                "When you arrive in the Crimson Mirelands , the guardsman at the base camp mentions that Arezu passed by earlier, and he smelled potato mochi on her. He also wonders if Calaba 's Ursaluna finds treasure using its sense of smell."
+            ],
+            "Arezu's Predicament": {
+                "Text": [
+                    "Press Plus (+) to ride Ursaluna to find Arezu. As usual, a colored radar appears to track items, but Arezu's scent is blue . Follow the blue scent to find her. Sometimes, you may need to go away from the scent to cross bridges or go around hills, but continue following the scent when you can.",
+                    "You'll find Arezu on the ground near Scarlet Bog . She asks you how calming down Ursaluna went, and you tell her that you found her using her scent of potato mochi. The reason she's on the ground is that she sprained her ankle while running away from a Pokémon. Calaba appears and apologizes to Arezu for how she treated her. Arezu explains that Ursaluna only became angry after smelling the frenzied Lilligant's perfume (which was the powder that Calaba had noticed before). She sprained her ankle while she was gathering ingredients to make balms to calm Lilligant down. Adaman appears and scolds Arezu for not asking him for help. He takes the balms and asks you to meet him at Brava Arena to quell Lilligant's frenzy, while Calaba kneels down and takes care of Arezu's injury.",
+                    "When you're ready, head to Brava Arena to tell Adaman you're ready to take on Lilligant."
+                ]
+            }
+        },
+        "Frenzied Lilligant": {
+            "Text": [
+                "Calaba and Arezu arrive after bandaging Arezu's leg with a poultice . Arezu explains that Lilligant is a dancer, and you'll have to dodge a lot to avoid its moves. You'll get an opportunity to battle when it gets tired. You enter Brava Arena as a harsh fog grows. Suddenly, the wind stirs up a tornado, and you see a figure with a golden glow, just like Kleavor: it's the frenzied noble Lilligant! It does a graceful ballet dance that makes leaves fly into the air."
+            ],
+            "The Frenzy of the Lady of the Ridge": {
+                "Text": [
+                    "Taking on the frenzied Lilligant is much like the frenzied Kleavor . You must throw balms with ZR to reduce the frenzy gauge at the top of the screen. If you get an opening and there's a message on the screen, you can throw out a Pokémon and defeat Lilligant in battle to get a big opportunity to throw a lot of balms.",
+                    "To get an opening to throw out a Pokémon, you'll have to perfectly dodge Lilligant's dance moves by pressing Y at the right time. Lilligant will first show its rhythm using music notes, and then leap into the air. Don't dodge yet—you should only dodge when it's about to hit the ground. If you mess up, don't worry, just keep throwing balms.",
+                    "Once you empty its frenzy gauge completely, you throw one final balm at Lilligant and it explodes in a brilliant light, just like with Kleavor. The golden glow on Lilligant fades away, and it hands you the Meadow Plate .",
+                    "Adaman and Arezu thank you for quelling Lillgant. Adaman scolds Arezu again, but Calaba says there's no need to apologize. Arezu's heart is in the right place, but she shouldn't do everything on her own: \"All lives touch other lives,\" after all. Calaba decides to head off for the day, and she'll let Irida know what happened. Adaman says that time is about change, and it's up to us to make sure that change is for the better and not fear it. Arezu stays to talk to Lilligant, and she apologizes for not being there to help it.",
+                    "Head to a base camp. Volo greets you after seeing the lightning, and guesses that you quelled another frenzied noble. He wonders what causes the lightning and how you're able to quell these Pokémon. You're making history, and he wants you to stay in touch with him. He heads off again.",
+                    "When you're ready, talk to Professor Laventon to return to Jubilife Village ."
+                ]
+            }
+        }
+    },
+    "Part_7": {
+        "Jubilife Village": {
+            "Text": [
+                "On your return to Jubilife Village you’ll be greeted by Beni , who has deduced that you were able to track down Arezu by the scent of the mochi she’d eaten, before he then suggests you visit the Commander to report your progress. Kamado congratulates you on your efforts, though he still feels the space-time rift requires more observation to find out if your motives really are honest.",
+                "You, Rei / Akari , and Laventon all congregate at the Wallflower for another helping of Beni’s potato mochi, where you’ll be given the recipe for crafting Scatter Bangs , a thrown item that startles Pokémon and is necessary for certain research tasks. After you finish eating it’s back to our quarters for a good night’s rest.",
+                "The next day you’ll be awoken by Arezu, who’s started working as a hairdresser, alongside her role as a warden. Kamado welcomes her to Jubilife Village, before summoning you to Prelude Beach . The beach has some new arrivals who’ll become a part of the village, just as the Galaxy Team were when they first landed here. Kamado is thankful for the efforts of the Survey Corps in making a more habitable place to live, but does issue a slightly ominous warning that if that begins to stop there will be consequences. Rei arrives to tell the Commander that Irida has arrived to talk to him, and Kamado suggests looking around the village now that it has expanded before coming to see him.",
+                "Visit Commander Kamado in his office, where he and Irida are waiting for you. Your next task, he tells you, is to survey the Cobalt Coastlands , although there are no noble Pokémon there. Irida elaborates that the previous noble passed away a few years ago, but people have been seeing strange shadows in his former home, with reports of attacks by mysterious ghosts. It’s up to us to investigate what’s really been going on, and we receive our next mission: The Lordless Island .",
+                "You’ll be sent downstairs to talk to Cyllene , and if you’re at least a Third Star Member she’ll grant you access to the Cobalt Coastlands. Don’t worry if you’re not there yet - you can head back to one of the earlier areas and complete research tasks until you reach the requisite rank.",
+                "Once you’re ready, head to the front gate where you’ll run into Lian, who’ll give some information about Evolution items , and give you two Grit Pebbles , and three bags of Grit Gravel , after which you’ll be able to visit the Coastlands."
+            ]
+        },
+        "Cobalt Coastlands": {
+            "Text": [
+                "You and Professor Laventon arrive at the Cobalt Coastlands, where Irida’s in position awaiting your arrival, but before you can go further you’ll have to face her in battle, so make sure you’re prepared before talking to her (although you don’t have to win to advance).",
+                "Winning this battle is not mandatory, as the story will progress either way.",
+                "Eevee has effort level 2 in its Defense and Sp. Defense stats.",
+                "After the battle Irida will heal up your party, before telling you about the Warden in the Coastlands, Palina . Palina has not been able to raise a new noble Pokémon yet, and Irida wants your help to raise the previous lord’s heir to take his place. Irida points you in the right direction, before she departs."
+            ],
+            "Veilstone Cape": {
+                "Text": [
+                    "Hop on Wyrdeer , and ride to the farthest point of Veilstone Cape , making sure to complete some research tasks on the way for your Pokédex so you can increase your rank. At the end of the path you’ll find Palina waiting with two Growlithe . She’ll explain how the previous lord, Arcanine , gave his life to stop his young offspring from drowning, before asking you a question - which Growlithe is the child in question? It’s actually the smaller, quieter, more skittish of the two, and although he might eventually have the potential to become a fine lord, he obviously carries scars from his father’s passing.",
+                    "Palina, much to the chagrin of the rest of the Pearl Clan , refuses to push Growlithe before it’s healed and ready. She’ll ask why you’re here - tell her it’s to go to Firespit Island to investigate the goings on, and Palina will tell you that you’ll need the help of a Pokémon called Basculegion to cross the sea. In order to do that, you’ll need to speak to a Diamond Clan warden named Iscan . You can find Iscan on Aipom Hill , on the other side of the Cobalt Coastlands, which is helpfully marked on your map; either ride all the way back, or fly back to camp to cut out half of your journey."
+                ]
+            },
+            "Iscan": {
+                "Text": [
+                    "Over at Aipom Hill you’ll be met not by Iscan, but by Volo . It turns out he’s been plate hunting, hoping to gather more information about Hisui and almighty Sinnoh’s past. He’ll bid you goodbye, leaving you free to enter Iscan’s home. Well, try to, anyway, as a rather nervous sounding Iscan will come outside to greet you. Explain that you need Basculegion’s help so that you can visit Firespit Island, and Iscan will tell you that we’ll need its favorite food, but sadly it’s nearly impossible to prepare. Iscan has the materials, but we’ll need to catch a specific Pokémon - Dusclops .",
+                    "Thankfully we’re nowhere near as afraid as Iscan is, so we can happily head to Deadwood Haunt to catch one, providing that it’s nighttime. As you head east through the hills, you’ll be stopped by a lady called Gully, who’s been looking for someone named Yorrich for the Construction Corps , and could do with your help, starting Request 46, Setting Up the Coastlands Camp. You can choose to continue with this now, or continue heading to the Deadwood Haunt to catch yourself a Dusclops.",
+                    "Once you’ve captured a Dusclops, go back to Iscan and, while he’s not particularly enthused to see you’ve succeeded, he does hold up his end of the bargain, and with Dusclops’ help you successfully prepare a ball of Basculegion Food . The next step is to feed Basculegion, so Iscan will meet you at Ginkgo Landing , which is now marked on your map.",
+                    "Meet Iscan on the beach at Ginkgo Landing, and Palina will arrive with her two Growlithe. Iscan is keen that the two of them not be seen together, but Palina wanted to meet Basculegion once more. Iscan uses his Celestica Flute to summon Basculegion, and after you feed it the ball of food, you play your own Celestica Flute for it and Basculegion gives you the Splash Plate . Palina will then reveal that Iscan and Basculegion saved her life in the incident where the previous lord perished, and that the two of them are secretly an item."
+                ]
+            },
+            "Miss Fortune Sisters": {
+                "Text": [
+                    "Before you can ride Basculegion, the Miss Fortune Sisters arrive to capture Growlithe as the lord in waiting, but as they do not know which Growlithe is which they assume the larger of the two is the one they need. They then abscond to Firespit Island where no-one can reach them. The problem is that with Basculegion we can cross the water now, and confront them on Firespit Island."
+                ]
+            },
+            "Riding Basculegion": {
+                "Text": [
+                    "You can summon Basculegion with the + button, as with the other ride Pokémon, as well as pressing A when you’re in the water. You can also jump while riding Basculegion using Y, jump a second time by pressing Y while in the air, and you’ll also still be able to throw Pokémon, items, and balls by using ZR as usual. Aiming to throw while in the air will also slow down time, allowing you to get the jump on wild Pokémon.",
+                    "With the ability to ride Basculegion, we can now access areas we weren’t able to before, so explore the area as you see fit before heading to Firespit Island."
+                ]
+            },
+            "Firespit Island": {
+                "Text": [
+                    "When you reach Firespit Island, head up the path and Iscan will meet you there, although being his useful scared self he’ll let you lead the way forward in searching for the Miss Fortune Sisters. Traverse the path around the volcano until you reach Molten Arena , where you’ll find the sisters with Gengar , trying to get Growlithe to evolve. When you approach, the three of them will challenge you in turn in order to try and drive you away.",
+                    "Best the three of them in battle, and the other Growlithe, the lord’s heir, arrives to give support, before Palina follows him to try and get him to stop. It seems Growlithe was determined to help, so swam across the sea, conquering its fears in the process. At this point a roar comes from the Volcano, which Growlithe answers, before evolving into Arcanine, embracing its destiny. At this point the space-time rift opens, striking the newly-evolved Arcanine with lightning, sending it into a frenzy."
+                ],
+                "Frenzied Arcanine": {
+                    "Text": [
+                        "The Miss Fortune Sisters wisely scarper, scared off by the frenzied Pokémon, and you, Iscan, Palina, and the other Growlithe retreat as well to safety. Irida arrives at this time, and suggests using balms to calm Arcanine down. Iscan has the necessary ingredients to hand, and quickly whips up a batch of balms. When you’re confident your Pokémon are ready, approach the arena again to take on Arcanine.",
+                        "In order to calm the Arcanine, we must follow the same pattern as before - throw balms at the frenzied noble using ZR while dodging attacks by timing presses of the Y button.",
+                        "Arcanine has two main patterns - a charge phase before attacking in a straight line through the middle of the arena, and a jumping attack that slams down in the arena’s center. The former is easier to time than the latter, especially as it covers a smaller area. Roughly halfway through Arcanine will charge five fireballs above its head, and one will disappear for each balm it is hit with, until all five disappear and it is stunned. If you are unable to do this in time, Arcanine will unleash a huge pillar of fire in the middle of the battlefield. Once you are able to break its guard, you can either continue throwing balms or send out a Pokémon to battle it.",
+                        "After the halfway point Arcanine attacks with more ferocity, leaving a ring of flames in the center after its jump attack, forcing you to the edges of the arena, and making it difficult to hit from long range. Don’t worry if you black out - you can restart as many times as you wish, or continue the battle from the last marker in the frenzy bar.",
+                        "After lowering the frenzy gauge enough and hitting Arcanine with one final Volcano Balm , a brilliant light envelopes the Pokémon, as with the previous nobles, and its frenzy fades. Arcanine hands over the Flame Plate in recognition.",
+                        "Palina wonders what could be on the other side of the rift, as the roar of a different Arcanine sounds, and Palina parts with the new lord Arcanine, who is now strong enough to carry out its duties. Iscan wonders whether the mysterious roar was that of the previous lord, and Palina, after denying it at first to play a joke on her partner, agrees that she believes it was, and it had been looking out for its child the whole time. Palina thanks you for looking after Arcanine, and asks that you do the same for Irida, as she and Iscan depart.",
+                        "Irida wonders whether she is fit to be the leader of the Pearl Clan, having taken over at a young age without a clear plan for what she would do. Now, though, she understands that she wants to protect the lands and Pokémon of Hisui, and asks that you battle her again in future to help both of you get stronger.",
+                        "With that, head back to a base camp to report your progress to Professor Laventon, and return to Jubilife Village to tell Commander Kamado about what’s happened in the Cobalt Coastlands."
+                    ]
+                }
+            }
+        }
+    },
+    "Part_8": {
+        "Jubilife Village": {
+            "Text": [
+                "Return to Jubilife Village , enter Galaxy Hall , and speak to Commander Kamado in his office. Kamado will congratulate you on completing your mission in the Cobalt Coastlands , which helped not only the Galaxy Team but the Pearl Clan as well, although he is still suspicious of the space-time rift and your coming to the land of Hisui.",
+                "You, Rei / Akari , and Laventon enjoy your customary evening meal of Beni ’s potato mochi at the Wallflower. The Professor is jealous that you were able to witness the birth of a new Lord, although he is well aware that he would not have been able to ride Basculegion across the sea as you were.",
+                "In the morning you’re greeted by someone unfamiliar, who informs you that Kamado is waiting for you in his office. The Commander tasks you with your next mission - we must go to the Coronet Highlands to quell the frenzied noble Electrode , Lord of the Hollow. Adaman , who is alongside the Commander, explains that Electrode stores electricity before unleashing it, and since it became frenzied the electrical outbursts have become giant blasts.",
+                "Kamado has enlisted the Pearl Clan’s help in giving safe passage to the Highlands, but before he can finish his thought you’re interrupted by Melli , who has taken umbrage to the fact that you’re discussing Electrode without inviting him, Electrode’s warden. Melli does not agree with your ability to quell the frenzied noble, and is not shy in voicing that opinion. Regardless Commander Kamado’s decision is made, starting our next mission: Scaling Perilous Heights.",
+                "Adaman and Melli wait for you in the foyer downstairs, and Adaman intends to prove your strength to Melli by challenging you to a battle. Adaman will wait outside Galaxy Hall for you, and you can use this time to set your party how you want, as the battle will not commence until you tell Adaman that you’re ready.",
+                "Adaman sends both Pokémon out at the same time, but the Leafeon is much more threatening than the Eevee, so focus on knocking that out first before turning your attention to his Eevee. After the battle, Melli is still unimpressed by your skills, as he and Adaman return to the Highlands.",
+                "Cyllene summons you into her office to explain more about your next mission. The Coronet Highlands will be dangerous, as they are very close to the space-time rift, and you must be at least a Fourth Star rank for her to let you go. If you have not already achieved this, head back out of the village and complete research tasks until you have 6,000 research points, then return to Cyllene to show her your progress and she will increase your rank. Reaching the rank of Fourth Star grants you the recipes for Leaden Balls and Hyper Potions , means Pokémon up to level 50 will obey you in battle, and improves the money gained for survey reports.",
+                "Before you can go to the Coronet Highlands, Cyllene tells you that you will require a particular person’s help to quell the frenzied Electrode, and that we can find them at the training grounds.",
+                "At the training grounds you’ll find Irida standing next to the person who greeted us this morning. Speak to her and she’ll introduce him as Ingo, the warden of Sneasler. Irida reveals that he, too, arrived from parts unknown one day, with little to no memory of how they arrived or where they came from. With that, you are free to head to the front gate and visit the Coronet Highlands for the first time."
+            ]
+        },
+        "Coronet Highlands": {
+            "Text": [
+                "Professor Laventon is waiting at the Coronet Highlands to welcome you, with the space-time rift swirling ominously above Mount Coronet , that dominates the area. He motions you in the direction of Ingo, who is waiting to guide you up the mountain.",
+                "Head over to the waypoint to find Ingo , who muses about the plight of the Electrode, before Melli interrupts to challenge you to a battle, which you politely decline. Melli views the frenzy of the noble Pokémon as a mark of favor from almighty Sinnoh , making them even stronger, and that it is proof of the validity of the beliefs of the Diamond Clan . He then tells you in no uncertain terms to turn around and head back to Jubilife Village, before he leaves to go back up the mountain.",
+                "Ingo disagrees with Melli, and asks if you wish to press on. Tell him you do, and he’ll tell you to meet him inside Wayward Cave once you’re ready. Make any preparations you need, then enter the cave."
+            ]
+        },
+        "Wayward Cave": {
+            "Text": [
+                "Inside the cave, the torches that normally light the way have all been extinguished, but Ingo knows the way, so as long as you follow him closely you’ll be okay. While you follow him, he’ll tell you about his previous life before he arrived in Hisui , even though his memories are cloudy at this point. Just before you reach the exit, Ingo spots the torches grouped together and unlit, adding credence to his theory that Melli removed them to slow your progress. He’ll return them to their rightful place and relight them, leaving your path to the exit clear.",
+                "Once you exit the cave, Ingo reveals that he appeared in Hisui through the rift, and was taken in by the Pearl Clan, where his previous skill in dealing with Pokémon helped him reach the rank of warden.  He’ll set another waypoint further on, and leave you to make your own way there.",
+                "Make your way back to Ingo, and you’ll find him and Melli in intense discussions. Melli is being obstructive again, and this time you’ll have no choice but to best him in battle to advance further.",
+                "Melli uses a Skuntank , a Poison / Dark-type Pokémon that is only weak to Ground-type attacks, so using those is a good way to win. If you don’t have any in your team, make the most of your numerical advantage, as you can use your full team of six, while Melli has just one Pokémon.",
+                "After you win Melli will make a ‘tactical’ retreat, and you and Ingo can press onwards through the Ancient Quarry ."
+            ]
+        },
+        "Ancient Quarry": {
+            "Text": [
+                "Inside the quarry, Ingo explains that the stones used to build the Temple of Sinnoh atop Mount Coronet were all taken from the Ancient Quarry. Volo then emerges behind you, and asks Ingo whether he thinks the space-time rift is the reason he lost his memories. Ingo doesn’t have cause to believe that to be true, but of course with his lost memories it’s difficult to be certain. Ingo suggests that you might be better placed to answer questions about the rift, having come through it more recently. Volo asks if you remember seeing anything inside, and that he thinks there is something on the other side of the rift causing the strange lightning.",
+                "Volo then reveals that a space-time rift has appeared in Hisui before, and muses about what could be on the other side, why the previous rift closed, why it has since reopened, and why you fell through. With that, Volo departs, and Ingo goes ahead to set a waypoint, leaving you to go through the quarry alone and traverse the Highlands until you meet up with him again."
+            ]
+        },
+        "Clamberclaw Cliffs": {
+            "Text": [
+                "Meet Ingo at the Clamberclaw Cliffs , a sheer rock face you are currently unable to ascend. He explains that Sneasler has the ability to climb rocks, almost like it knows a hidden move, although he can’t quite remember. This is both an allusion to the HM for Rock Climb (though that was from Generation IV games set in Sinnoh , not the games set in Ingo's original Unova region), and also a nod to Ingo's Japanese name, Nobori (ノボリ) which can be read as \"to ascend/climb\". Ingo hopes a battle with you might reignite some of his lost memories. You can enter battle right away, or make some changes before accepting his request.",
+                "Ingo leads off with Machoke , which as a Fighting-type is weak to Psychic , Fairy , and Flying-type attacks. Once Machoke is knocked out, which Pokémon he sends out next depends on if he can find a type advantage against your active Pokémon. Gliscor is much more threatening than Tangela , but with a double weakness to Ice-type attacks any Ice move should clean it up easily, and will also be super effective against the Tangela.",
+                "Once you’re victorious, Ingo will use his Celestica Flute to summon Sneasler , and then invite you to do the same so Sneasler gets used to your playing. Sneasler will then gift you the Toxic Plate . Ingo departs to return to Jubilife Village, leaving you to make your own way to Electrode using Sneasler to climb the cliffs that previously blocked your path, opening up the entirety of the Coronet Highlands."
+            ]
+        },
+        "Riding Sneasler": {
+            "Text": [
+                "Press the A button when you’re near a climbable surface to summon Sneasler, or press the + button in any other location. You can switch ride Pokémon using left and right on the d-pad. While riding Sneasler, press Y next to a climbable surface to start ascending, and press B if you need to let go."
+            ]
+        },
+        "Moonview Arena": {
+            "Text": [
+                "Melli is waiting for your arrival at Moonview Arena , and once again he’ll refuse to let you advance unless you can defeat him in battle.",
+                "Melli’s Skuntank has gained two levels from your last battle, and is now flanked by Skorupi and Zubat , with this fight being a three-on-one battle. Both Skorupi and Zubat have effort level three in their attack and special attack. Your strategy should be to handle Skuntank first, as the biggest threat of the three, before picking off the Skorupi and Zubat afterwards. Melli having all three of his Pokémon out at once may feel unfair, but this is counteracted by your ability to have a full party of six and the fact that you can use items to heal if you need.",
+                "After your victory, Melli is keen to stress that although you won, he didn’t lose, he just didn’t have time to train his Pokémon properly. Melli then claims to have completely forgotten which foods Electrode likes, so you won’t be able to make the balms you need. Adaman arrives at this point, and a small argument ensues between he and Melli about his behaviour and the strife of the frenzied Electrode, which the Diamond Clan leader wins, leading the three of you to make the Mountain Balms needed to quell lord Electrode’s frenzy. When you’re ready, talk to Melli again to begin the encounter with Electrode."
+            ],
+            "Frenzied Electrode": {
+                "Text": [
+                    "Our strategy is the same as in our other noble fights - throwing balms at the frenzied lord using the ZR button, while dodging its attacks by pressing the Y button at the right time.",
+                    "The fight will begin with Electrode firing Energy Ball attacks that track and follow you, while also causing Voltorb to drop from the tree and subsequently explode, with a small blast radius. After a while Electrode will spring into the air and crash down onto the arena, before charging an Explosion of their own with a much larger area of effect. After it explodes it drops its guard, leaving you free to send your Pokémon into battle if you wish.",
+                    "Once it is no longer stunned, the pattern will repeat, although when Electrode’s frenzy gauge is lower its Energy Balls will get larger, and thus more difficult to doge, and its explosion area will also increase.",
+                    "Hisuian Electrode is an Electric / Grass-type , meaning it is weak to Bug , Fire , Poison , and Ice-type moves, and resists Steel , Grass , and Electric-type attacks, while double resisting Water-types .",
+                    "Once you’ve hit Electrode with the final Mountain Balm required to fully lower its frenzy gauge, a brilliant light envelops it, and its frenzy finally dissipates. In recognition of your help, Electrode hands over the Zap Plate , before rolling away.",
+                    "Melli, to nobody’s surprise, bemoans that he helped you make the balm’s which quelled almighty Sinnoh’s blessing on Electrode, but Adaman sensibly thanks you for helping to stop its suffering. Ingo arrives, and it appears some more of his memories have returned. In the land where he lived before arriving in Hisui, people and Pokémon interacted frequently, and most people caught them and formed partnerships with them, including Pokémon Trainers who honed their skills in battling every chance they could. Ingo believes that people can only progress if they do not live in fear of Pokémon, but work and collaborate with them.",
+                    "Adaman asks if your world was like that as well, and if the frenzied nobles are a test for people to overcome, something that Melli seems to latch onto. Ingo returns to Jubilife Village (for real this time), and when you’re ready you can do the same to update Commander Kamado of your progress."
+                ]
+            }
+        }
+    },
+    "Part_9": {
+        "Jubilife Village": {
+            "Text": [
+                "Once you’ve returned to Jubilife Village , go to Galaxy Hall and visit Commander Kamado in his office on the top floor. He has some questions about why the noble Pokémon have been sent into frenzies, and the nature of the space-time rift, but for now you can return to the Wallflower for some of Beni ’s finest potato mochi.",
+                "Over dinner, which Kamado has kindly paid for, you, Rei / Akari , and Professor Laventon muse on the progress you’ve made in becoming a part of the Survey Corps , and how dealing with Pokémon isn’t nearly as fraught with danger as it used to be, making life in Jubilife Village easier for everyone.",
+                "When you awake in the morning, both Adaman and Irida are waiting for you, bickering between themselves, and the three of you make your way to Commander Kamado’s office. Once inside, Kamado reveals that you’ve quelled four of the five nobles, and the only one left is Avalugg , which resides in the Alabaster Icelands . Avalugg is the largest of the lords, and our new mission, The Slumbering Lord of the Tundra, is to quell him.",
+                "Before we depart, Kamado tells us that a number of people are still suspicious of us because of how we arrived in Hisui , and that we must continue to work hard to earn their trust. When we get downstairs there’s a shriek from Cyllene’s office - it turns out to just be a Wurmple that she asks her Abra to teleport away, but it does reveal why she tends to stay behind her desk. She tells us that as the Alabaster Icelands are the most dangerous area we’ll visit, we must be at least a Fifth Star rank for her to grant us access.",
+                "Once you’ve completed enough research tasks to hit Fifth Star rank (this requires 8,500 research points), show Cyllene to have her certify you, granting you the ability to control Pokémon up to level 65 in battle, improving the rewards you receive from your survey reports, and giving you the recipe for crafting Wing Balls , an improved version of the Feather Ball .",
+                "Before we can go to the Alabaster Icelands, Rei/Akari and Professor Laventon are waiting for us at the front gate. Laventon has a problem - while the other frenzied nobles have hurt people, Avalugg hasn’t done so, so is it right for us to try and subdue him, especially if we’re putting ourselves in danger. He then asks what Commander Kamado’s reasons are for wanting to quell the nobles, and hopes it is to build a future where people and Pokémon can coexist peacefully. Rei/Akari then wish to show you how they’ve improved in battle, and you won’t be able to advance to the Icelands until you face them.",
+                "Mr. Mime will always be sent out first, but the order afterwards can vary based on type matchups. Pikachu also has effort level one in all of its stats. With a full party of six at your disposal, and with Staravia and Pikachu not yet fully evolved, if you play your type advantages properly and make use of Agile Style moves to buy yourself extra turns this fight shouldn’t be too much of a hassle (and can also be used to help hit research tasks that require Pokémon to use certain moves). After your victory you can make any further preparations you desire before going to the newly unlocked Alabaster Icelands."
+            ]
+        },
+        "Alabaster Icelands": {
+            "Text": [
+                "On your arrival in the Alabaster Icelands you’ll be greeted by Professor Laventon, with Adaman and Irida arriving shortly afterwards, bickering with each other as usual. They’re going to meet Gaeric at Avalugg's Legacy , and we have to follow them to the waypoint marked on the map. As the name suggests, the landscape is filled with Ice-type Pokémon, so adding Fire , Rock , and Steel Pokémon to your party will be useful if you get into any battles.",
+                "Cross the Icelands to reach Adaman, Irida, and Avalugg’s warden and Irida’s teacher Gaeric, who is strangely shirtless given the freezing conditions. Gaeric introduces himself and asks why we’ve come to quell Lord Avalugg, what is wrong with Avalugg being frenzied, and what is our heart telling us we should do? He does not seem convinced by our answers, given that Avalugg has not harmed anyone, and challenges us to a battle to prove our strength.",
+                "Gaeric sends both of his Pokémon out at once, and the Glalie should be your priority given that it is twice the level of the Froslass , although the Froslass does have effort level three in both its attack and special attack (even if it only has special moves). The two can create a nasty combo by inflicting frostbite, thus doubling the damage you take from Hex , but all in all this fight shouldn’t be too difficult if you have a full party of six Pokémon.",
+                "Once you’re victorious Gaeric will give you his seal of approval, and tells us that if we wish to quell Avalugg we’ll have to gather some Eternal Ice , before bringing it to the lord’s seat. The problem is that for us to do that we’ll need the ability to fly, which means we’ll need the help of Braviary , our final ride Pokémon. In order to do that we’ll need to find a young lady named Sabi , who can normally be found around Snowpoint Temple . Before Adaman can finish his thought we’re interrupted by Sabi herself, who’s waiting for us atop a nearby block of ice.",
+                "Climb up the iceberg from behind (you do not need to mount a ride Pokémon for this) and speak to Sabi. She has deduced that we require Braviary’s help to quell Avalugg, and she’s happy to aid us - providing we can catch her, that is, as she disappears elsewhere in the Icelands.",
+                "Sabi sets herself up in the south, so mount Wyrdeer and follow the marker, transitioning to Sneasler at the end to climb the mountain at the end. Once you catch up with her she’ll head off again, this time to Snowpoint Temple in the far north of the Alabaster Icelands.",
+                "There are two main ways of getting to Snowpoint Temple - the first is to use Sneasler to scale the cliff face next to the Pearl Settlement in the northeast area of the Icelands. The other is to take the ascending path next to Glacier Terrace , past the alpha Sneasel, and follow it up the mountain, behind Lake Acuity , and on to the entrance of Snowpoint Temple, where Sabi is indeed waiting for you.",
+                "Speak to Sabi, who’s behaving as quixotically as ever, and she’ll enter the temple, waiting for you to find her at the other end. A Pearl Clan attendant standing guard says that you are free to enter if you have warden Sabi’s approval, but be careful, as you’ll need to solve the puzzles inside in order to get to her. The attendant’s advice is to pay attention to which direction the statues are pointing, and to the patterns on their chests."
+            ],
+            "Snowpoint Temple": {
+                "Text": [
+                    "Enter Snowpoint Temple, a large stone building filled with statues, and head to your left and up the stairs, catching, battling, or dodging the wild Pokémon as you see fit. After two flights of stairs you’ll find more mysterious statues, as the path curves round to a large stone door with three panels on it - the symbols for Ice , Rock , and Steel , the types of the three titans Regice , Regirock , and Registeel . In order to advance you have to press the panels in the correct order, which you can find from the statues you’ve passed. Follow them back to the top of the stairs, and you’ll see the correct order. At the door, press the symbols for rock, steel, and ice (in that order) and the door should open in front of you.",
+                    "Once you’re through the door you should see another statue in front of you with - continue in the direction it is facing, and you’ll see the next statue angled diagonally away from you, while the follow up points through a window in the wall. Go round the other side of the wall to this statue, make note of the symbol, then check the final statue standing directly in front of the next door. If you’ve been tracking them correctly, you should enter the pattern ice, rock, steel, rock, ice, opening the door.",
+                    "Through the door you’ll find a final statue puzzle. This time the sequence starts around the corner to your right, so follow the direction the statues are looking one more time before reaching the door, to your left when you enter this area of the temple. The pattern is steel, ice, rock, ice, steel, and rock, and this should open the door if inputted correctly. Once you’re through, continue through the temple, past the alpha Gallade , catching it if possible (this is difficult, as it is level 70, but doing so will give you a very powerful Pokémon for any upcoming battles), before finally reaching Sabi at the temple’s exit.",
+                    "As you approach Sabi she’ll tell you of another of her premonitions, that of you flying with Braviary. In order for that to happen, you’ll have to defeat her in battle. She’ll give you the opportunity to back out and heal up your party if you need to, or you can dive straight in.",
+                    "This is another battle where the opposition sends all of their Pokémon out at once, and the three do a very good job of covering each other’s weaknesses - Water-type Pokémon that do well against Rhyperior and Magmortar struggle against Electivire , for example. The exception to this is Ground-type Pokémon, who have a good matchup into all three, so using those, or Ground-type attacks, is a very good strategy. The Magmortar and Electivire are effort level four in both their defense and special defense, but the priority should be on removing the more offensively threatening Rhyperior first, before moving onto the others.",
+                    "After your victory, Sabi’s games aren’t quite done yet, as she asks you to meet her on the temple roof, so climb the stairs and exit onto the roof, where Sabi and Braviary are waiting in front of you. When you talk to Sabi, you’ll be thrown right into a battle with Braviary, so make sure your team is ready beforehand.",
+                    "There aren’t any research tasks for defeating Braviary with particular move types, giving you more freedom in which Pokémon you should optimally use. Anything with a strong super-effective move, especially if you can execute a Strong Style variant, should be enough to take it out.",
+                    "Sabi is surprised you were able to defeat Braviary, and threatens to take off, but thankfully she was only joking, and plays her Celestica Flute for Braviary, prompting you to do the same. Braviary learns the sound of your playing, opens its heart, and hands over the Sky Plate . Adaman emerges from the temple and thanks Sabi for her help, although his mind seems to be elsewhere somewhat, concerned with the space-time rift."
+                ]
+            },
+            "Riding Braviary": {
+                "Text": [
+                    "You can summon Braviary by pressing the + button, switching ride Pokémon using the left and right buttons on the d-pad, although be careful doing so when airborne as you are not impervious to fall damage. You can also press the A button when falling to summon Braviary immediately to break any potentially dangerous drop. While flying, hold the B button to glide at speed, while holding the Y button sends Braviary into a fast dive.",
+                    "Now we can ride Braviary, we have the ability to glide from the temple over to Avalugg's Legacy to get some Eternal Ice from its surface. Investigate the large spears of ice on the top of Avalugg's Legacy and your Arc Phone will start beeping, before you obtain a piece of the Eternal Ice we’ve been looking for. As we do so a noise comes from behind, and Gaeric appears on top of the iceberg, having finally been able to scale its sides unaided. Hand him the Eternal Ice, and he’ll tell you to meet him at the Icepeak Arena , before jumping off. We’re not capable of doing that, so use Braviary to meet Gaeric at the waypoint.",
+                    "When you reach Gaeric again you’ll find that he’s not alone, and that Volo is alongside him. It emerges he’s there to give Gaeric an order of Swordcaps , but he can give you some pointers for the upcoming noble fight. Avalugg will barrage you with chunks of ice, fire off massive icicles, and also cause sharp ice crystals to emerge from the ground below you. With that, Volo bids you farewell, and Gaeric heads up to the arena.",
+                    "At the Icepeak Arena, Gaeric uses the Eternal Ice we gathered to make Snow Balms we can use to quell lord Avalugg, before warning us that our dodging skills will need to be unrivalled if we are to emerge victorious, and asking us if we’re ready to take the frenzied noble. Make any changes to your party you desire, heal your Pokémon if required, and once you’re happy tell Gaeric that it’s time to take on Avalugg."
+                ]
+            },
+            "Frenzied Avalugg": {
+                "Text": [
+                    "We’re well aware of the pattern the noble fights take at this point, where we need to throw as many balms as possible at the frenzied Pokémon, dodge all the incoming attacks, and send out our Pokémon when it lets its guard down to lower the frenzy gauge further. The key difference this time around is that the Avalugg is so large we don’t have the ability to pivot around the Pokémon, and instead we’re confined to a small platform in front of it, greatly reducing our movement options.",
+                    "Avalugg starts by firing balls of ice in a wave motion from one side of the arena to the other. Time your dodges through the waves, and use the space generated to fire balms. Avalug will then cause spears of ice to rise from the ground, which surge in straight lines indicated by blue circles on the floor. Avalugg will then fire Icicle Spears in your direction, before shooting an Ice Beam , starting on one side and going across to the other, before letting its guard down, giving you the ability to bring in a Pokémon.",
+                    "Don’t worry if you take too much damage and are defeated by the Avalugg - as in the other noble battles, you are given the options to leave and come back later with a different, or improved, team, to restart the battle from the beginning, or to resume the fight from the most recent portion of the frenzy gauge you reached, at 25, 50, or 75% completion.",
+                    "As the fight progresses and Avalugg’s frenzy gauge goes down, it will sometimes launch multiple attacks at the same time, and the spears of ice that rise from the floor cover a larger area and leave small stalagmites behind, hindering your movement even further.",
+                    "Hisuian Avalugg is a dual Ice / Rock-type Pokémon, meaning it is weak to Water , Grass , Ground , and Rock-type attacks, with a double weakness to both Fighting-type and Steel-type moves. In addition, Hisuian Avalugg has a massive base defense stat at 184, but this is offset with a base special defense of just 36, so resisted special attacks will often be more effective than neutral or super effective physical moves. It is similarly lopsided on the attacking end, with a base attack stat of 127 compared to just 34 base special attack, so utilizing Pokémon with outstanding physical bulk is recommended. Avalugg’s 38 base speed also grants lots of opportunities for faster Pokémon to execute multiple moves before it can attack, especially if you can take advantage of having moves mastered, giving you the ability to use Agile Style attacks.",
+                    "Once Avalugg’s frenzy gauge is fully depleted, you’ll throw one final Snow Balm at it, and it becomes cloaked in the brilliant light that finally frees it from its frenzy, and Avalugg will give you the Icicle Plate as a reward.",
+                    "After the battle Gaeric is troubled that the enormous lord Avalugg could be quelled by a child, who fell from the sky of all things, but Irida points out that we risked our life in order to quell all of the frenzied nobles. Irida explains that Gaeric cares deeply for the Pearl Clan, and was hesitant about getting involved with both the Diamond Clan and the Galaxy Team , but that your actions have demonstrated the power people can have when they collaborate with Pokémon.",
+                    "Adaman and Sabi arrive to thank us for quelling the last noble Pokémon, and everyone hopes that this will close the space-time rift and help things settle down and return to normal, with Adaman and Irida even acquiescing slightly to the other’s point of view.",
+                    "With that, our adventures in the Alabaster Icelands are all wrapped up for now, but we are free to explore the area. With a number of high level Pokémon in the area, the Icelands are a great location for training and levelling up your party of choice, and while the powerful alpha Pokémon are very difficult to catch, doing so will give you a powerful option you can immediately add to your team, although bear in mind that only Pokémon up to level 65 will obey you in battle until you increase your rank in the Galaxy Team. Once you’re happy with the progress you’ve made advancing research for the Pokédex, check in with Professor Laventon at one of the base camps to show him your progress and receive the payout from your survey reports, before returning back to Jubilife Village."
+                ]
+            }
+        }
+    },
+    "Part_10": {
+        "Jubilife Village": {
+            "Text": [
+                "On your return to Jubilife Village, enter Galaxy Hall and head up the stairs to visit Commander Kamado in his office. The Commander is satisfied that the last of the nobles has been quelled, and when tomorrow comes the world shall have returned to normal again. In the meantime, we can head to the Wallflower for some well-earned potato mochi.",
+                "At the Wallflower that evening, Professor Laventon once again shares the reservations he held about whether we should have quelled lord Avalugg , given that it had not yet harmed anyone, but it did bring calm to people and help ease its suffering. Rei / Akari muse over what havoc may have been caused by the nobles if we hadn’t magically appeared to help quell them, but even with that the space-time rift still hasn’t closed, although if that were to happen, then we may be stuck in Hisui forever. Laventon assures us that whatever happens, we’ll always have a home and be welcome here in Jubilife Village, before it’s time to retire to our quarters for the night.",
+                "During the night we’re awoken by an almighty explosion, beginning our next mission, the ominously named Disaster Looming. Make your way outside to investigate what’s going on, and you’ll find members of the Galaxy Team looking heavenwards, with the sky having turned into all sorts of different colors and the space-time rift appearing to have expanded, rather than disappeared as we might have hoped.",
+                "Inside Galaxy Hall, Laventon explains that some sort of energy appears to be flowing from the rift, which is what has caused the color of the sky to change. Cyllene enters the room and informs us we are to report to Commander Kamado’s office immediately.",
+                "Kamado is in his office, alongside Adaman and Irida , when you and Cyllene arrive. The two Clan leaders want to know precisely why the Commander summoned them, as Kamado reveals that it’s not about the noble Pokémon. Kamado mentions that the night Kleavor was struck by lightning from the rift was also the night that we fell from the sky into Hisui, leading him to believe that the two events must be linked in some way.",
+                "Kamado’s tone suddenly becomes a lot more accusatory, as he turns to us to ask who, or what, are we really? Kamado agrees that we have done all he has asked of us, but that this does not answer the question of who we really are. Kamado’s conclusion is that we came from the rift, just like the lightning, that we are connected to the frenzies, and our plan is to gain people’s trust by quelling the frenzies that we caused in the first place.",
+                "Adaman and Irida are in agreement that nothing we’ve done would suggest that, and that it is highly unlikely a child would have the power necessary to make all of this happen. While their position is that we should be presumed innocent until proven otherwise, Kamado is of the view that it cannot be proven beyond doubt that we are not guilty. As we fell from the sky, who could possibly guarantee that we are who we claim, and that we can be trusted?",
+                "Irida astutely points out that it’s impossible to prove a negative, that you cannot prove the absence of doubt, and Adaman asks what more we would have to do to earn that sort of trust. Kamado suggests that we investigate the latest goings on, although this will have to be done without the help of the Galaxy Team, as we are still a suspect until we can clear our name. There are some in Jubilife Village, he continues, that cannot trust a stranger who fell from the sky, and thus we must leave the village and are no longer welcome in the Galaxy Team. We are, as of this point, officially banished from the village until we can explain why these calamities keep happening, and the world is restored to its natural state, with our innocence proved beyond all doubts.",
+                "Irida is outraged by Kamado’s actions, but he overrules her as Commander of the Galaxy Team, adding further that it is only because of our good work so far and our outstanding abilities that he is allowing us to walk out, rather than imprisoning us.",
+                "Outside Galaxy Hall, Rei/Akari and Professor Laventon are shocked to hear that we have been expelled from Jubilife Village, as Cyllene follows the Commander’s orders and leads us slowly to the front gate, where the Security Corps can take over. Cyllene notes that it was her decision to admit us into the Galaxy Team in the first place, and thus it is only right that she escorts us away to the Fieldlands Camp . Rei/Akari and Laventon offer to join her, which Cyllene allows, as we leave Jubilife Village for the Obsidian Fieldlands ."
+            ]
+        },
+        "Banishment": {
+            "Text": [
+                "By the time we make it to the Obsidian Fieldlands, Professor Laventon and Rei/Akari are still outraged at Commander Kamado’s decision, but Cyllene notes that it will only cause us more pain if they are also driven out of the village for defending us. Cyllene tells us that we will not be totally alone, as we have been helpful to both the Diamond Clan and the Pearl Clan , and they might provide refuge for us. Although both Adaman and Irida have returned to their respective settlements in the Crimson Mirelands and Alabaster Icelands , the wardens in the Obsidian Fieldlands might still be around if we wish to find them.",
+                "Cyllene orders us that we are not to die, and that she will ensure we have everything we need to complete the survey that Kamado asked, before offering some advice - we will meet with both admiration and abuse in life, and that you cannot choose how others wish to view you, so all that matters is whether you hold firm to your own personal values. With that, Cyllene departs, leaving us to fend for ourselves.",
+                "Our first task is to find Lian of the Pearl Clan, lord Kleavor’s warden, at Grandtree Arena . Make changes to your team and inventory at base camp as required before heading over (you still have the ability to fast travel there using the map, if you wish). When you arrive Lian is not best pleased to see us, telling us the entire Pearl Clan is in a panic because of the expansion of the space-time rift. Lian tells us that unfortunately they are not in a position to help, as it would put Irida in an awkward position, but Mai of the Diamond Clan might be able to, and that she can be found at the Worn Bridge .",
+                "As Lian suspected, Mai and her Munchlax are indeed at the Worn Bridge. Mai asks if we know why the sky has changed colors, but is not surprised that we don’t have the answers either. She has heard from Adaman that we have been banished from Jubilife Village, but unfortunately she is not in a position to help either, as she cannot risk the Diamond Clan ending up in conflict with the Galaxy Team if things do not go to plan. Mai has confidence that we’ll find a path forward, but it will not be with her.",
+                "This leaves us at a loss, with the Galaxy Team, Pearl Clan, and Diamond Clan all rejecting us, leaving us all alone on the Worn Bridge. A Shinx appears behind us, before retreating to two Luxio , exacerbating our isolation.",
+                "It is at this point that Volo of the Ginkgo Guild arrives, and it appears they have been looking for us, as one of their most valued customers. They heard of our banishment from the village, and they know a spot that will provide the perfect hideaway for us, and the two of you leave the area."
+            ]
+        },
+        "Ancient Retreat": {
+            "Text": [
+                "We arrive with Volo at a new, previously unvisited, location, a clearing with a tent and a campfire outside. Next to the campfire, a person is sitting at a table with a tea set, and Volo approaches her. They seem none too pleased with Volo bothering her, which does not appear to be an uncommon occurrence. Volo addresses her as Mistress Cogita , and normally he speaks to her to learn about the myths and legends of the region. Volo introduces us as the person who quelled all the frenzied Noble Pokémon , although evidently he has previously told Cogita about the nature of our arrival in Hisui.",
+                "Cogita says that because of us she’ll finally be able to fulfill her duty, which raises more questions than it answers. She tells us that she is to guide us, as we have the task of preventing great disaster. The space-time rift must be healed, she says, but rather than have you stand outside, everyone retires inside for further details.",
+                "In the tent, Cogita explains that the space-time rift is a portal to other dimensions, and in one of those dwells almighty Sinnoh . You have the choice of which version of Sinnoh you can ask about - the Diamond or Pearl Clan’s - but the choice is moot, as Cogita explains that both together comprise the universe, and that one does not exist without the other.",
+                "Cogita now explains our next task - at each of Hisui’s great lakes, Lake Verity , Lake Valor , and Lake Acuity , lives a Pokémon that embodies one aspect of the mind. We must find them, complete the trials each will set for us, and then bring the gifts they give to the Shrouded Ruins . Doing so will grant us the Red Chain , an artifact that will bind the world together.",
+                "Volo has further questions, but Cogita responds that this is just the story that has been passed down to her, and she does not know the veracity of them, but must pass them on regardless. Cogita asks us if we will carry out our duty - regardless of your response, the Arc Phone beeps, and marks the location of the three lakes for you to find.",
+                "Volo mentions that you can use Cogita’s workbench for any crafting you may need to do, and he can provide materials as well, but as for the pastures, or where can we rest, those questions are unanswered when the sound of an Abra comes from outside the tent. The Abra has a letter for us attached, and it turns out to be from Cyllene. The letter says that we can use Abra to access the pastures, and Cyllene has ensured that we are safe to use any of the base camps that have been set up, while repeating that she has faith in our ability to succeed.",
+                "Before we can set out for the lakes, Irida and Adaman arrive together. They understand that they cannot publicly aid us, as it would risk their relationships with the Galaxy Team and Commander Kamado in particular, and we are welcome to have their help, but we must make a choice - we can pick Adaman or Irida, but not both. Picking Adaman aligns you with the Diamond Clan and their vision of almighty Sinnoh as a being of time, while choosing Irida allies you to the Pearl Clan, and almighty Sinnoh as the ruler of space.",
+                "Whichever option you pick, it will still be possible to complete the Pokédex, but the path to get there will be different. If you pick Adaman, you will encounter Dialga first, before a final clash with Origin Forme Palkia , while picking Irida gives you the reverse result, where you will face Palkia before taking on Origin Forme Dialga later.",
+                "Depending on which leader you choose, the other will stay back and monitor Commander Kamado, while your chosen companion will accompany you and Volo to the three lakes. Obviously they cannot be seen to be traveling with you, so they will meet you at whichever lake you decide to visit first. The two leaders part ways, and you are given three new missions - The Trial of Lake Verity, The Trial of Lake Valor, and The Trial of Lake Acuity, which you are free to tackle in whichever order you see fit. This also means we have now completed mission 13, Disaster Looming.",
+                "Use your time at the Ancient Retreat to make any changes you see fit to your party and inventory, and when you’re ready talk to your chosen leader standing by the retreat’s entrance to tell them which lake you intend to visit first, so we can begin the next stage of our adventure."
+            ]
+        }
+    },
+    "Part_11": {
+        "Lake Verity": {
+            "Text": [
+                "Fly into the Fieldlands camp , and head right immediately, past Floaro Gardens , and scale the cliffs with Sneasler to reach the edge of Lake Verity, then fly down to the cavern on the island at the center. You can also run around the bottom of the lake, entering up through Sandgem Flats.",
+                "Volo and your chosen leader (either Adaman or Irida ) will be waiting for you outside. Volo tells you that Lake Verity is protected by a Pokémon called Mesprit , and that it was when Mesprit first took flight the people learned of joy and sorrow. Your Arc Phone beeps and starts glowing, and after you hold it up, an entrance to the cave appears from nowhere, allowing you to enter.",
+                "Inside the cave, you'll find a strong Pokémon - not Mesprit, but an alpha Hisuian Goodra . To advance, you'll have to defeat it in battle or capture it (it is also programmed to never be a shiny Pokémon).",
+                "Once you've dealt with the Goodra, Mesprit appears before you, waiting for you to approach it. It speaks to you using its psychic powers, urging you to share your emotions with it. Agree to do so, and answer the questions it asks you - once it's satisfied you have shared your emotions properly, it will grant you Mesprit's Plume , the first of the three items needed to forge the Red Chain , before it disappears again.",
+                "With Lake Verity and Mesprit now taken care of, once you leave the cavern, Volo suggests we go back to the Ancient Retreat to inform Cogita of our progress. Showing Cogita Mesprit's Plume confirms to her that the myths about the Red Chain are true, and after some more musing amongst the four of you, it's onwards to our next destination - the Crimson Mirelands, and Lake Valor."
+            ]
+        },
+        "Lake Valor": {
+            "Text": [
+                "Head for the Crimson Mirelands, and once you've arrived, fast travel to the Diamond Settlement (or, if you don't have that available, Brava Arena ). From there, head east, using Sneasler to climb the cliffs to Lake Valor, then use Braviary to fly or Basculegion to swim to the island in the center, where Volo and Adaman/Irida await your arrival.",
+                "Volo tells you that Lake Valor is protected by a Pokémon named Azelf , and when it took flight the will to do what needs to be done was born in people's hearts. Your Arc Phone beeps again, and a brilliant light emerges when you hold it up, creating an entrance to the cavern, just as in Lake Verity, allowing you to enter.",
+                "Inside the cavern, you'll find a fearsome alpha Overqwil that you must catch or defeat to advance, and like the alpha Goodra, it is coded to never appear shiny.",
+                "After you've taken care of the Overqwil (catching it is recommended, as this will add another entry to your Pokédex, which you'll need to complete for a later mission, and evolving Hisuian Qwilfish is a very time consuming task), Azelf, the being of willpower, emerges in front of you.",
+                "Using its psychic powers, Azelf asks you to demonstrate your unyielding will, by striking it, if you can. A basket filled with balms will appear in front of you, and like in our encounters with the frenzied nobles, we'll have to hit Azelf with the balms. This might seem simple, but whenever you throw the balms, Azelf simply disappears. Azelf will ask if you wish to give up - you must continue, but Azelf will once again disappear whenever you try to hit it. Azelf suggests it is best that you give up, but disagree once more so you can continue to throw balms. Once again Azelf will tell you that your efforts are in vain, and that you should give up. Hold firm, refuse to quit, and Azelf, recognizing your strength of will, will finally let you hit it.",
+                "Once you've successfully struck Azelf with a Marsh Balm , it will hand over Azelf's Fang , the second of the three items we need to successfully forge the Red Chain, before it disappears. Exit the cavern, and Volo, who has been waiting outside, will suggest we go back to Cogita again.",
+                "At the Ancient Retreat, Volo reveals that we need to act fast, with the residents of Jubilife Village growing increasingly restless. It appears a Pokémon has been witnessed on the other side of the space-time rift, and Commander Kamado is gathering a force to subdue it, if necessary. With no time like the present, let's go to our third destination - the Alabaster Icelands, and Lake Acuity."
+            ]
+        },
+        "Lake Acuity": {
+            "Text": [
+                "In the Alabaster Icelands, fly into your northernmost travel point (Icepeak Camp or the Pearl Settlement are best, but if you haven't unlocked them Icepeak Arena is slightly closer than the Snowfields Camp), and head up to Lake Acuity in the northern part of the map, either using the path on Glacier Terrace or by scaling the cliffs with Sneasler. Once you've reached the shores of the lake, head to the island in the middle to link up with Volo and Adaman/Irida.",
+                "Volo explains that Lake Acuity is protected by Uxie , the being of knowledge, and when it took flight people gained the knowledge to tackle problems. Your Arc Phone beeps once more, emits a glowing light, and an entrance to the cave appears. When you're ready, head inside.",
+                "In the interior of the cavern you'll face another strong Pokémon - this time it's an alpha Hisuian Zoroark , and you'll have to catch it or knock it out to advance (the Zoroark, like the Goodra and Overqwil, can not appear as a shiny Pokémon).",
+                "After you've successfully tackled the Zoroark (this can be tricky as it only has a weakness to Dark-type moves, and if it boosts its attacking prowess with Nasty Plot it can be a devastating sweeper), Uxie will appear in front of you.",
+                "Uxie, using its psychic powers to communicate, says that it will test your knowledge. It lists five Pokémon - Combee , Zubat , Unown , Magneton , and Dusclops - and asks how many eyes they have, ‘one by one yet all at once'. The answer it is looking for is 60131. Enter the number and Uxie, pleased with your demonstration of knowledge, will give you Uxie's Claw , the final piece you need to craft the Red Chain, before it disappears.",
+                "Leave the cave, and Volo will remind you that we were told to go to the Shrouded Ruins in the Coronet Highlands after completing the trials of the three Lake Guardians , and he'll take the three of you straight there."
+            ]
+        },
+        "Coronet Highlands": {
+            "Text": [
+                "You arrive at the Shrouded Ruins, and Volo wonders what we have to do now we've arrived. Cogita fortuitously arrives at this point, although she is also unaware of how we are supposed to forge the Red Chain. That question is immediately answered when the three Lake Guardians, Mesprit, Azelf, and Uxie, appear in front of you, and use their psychic powers, along with the three artefacts they gave you, to create the Red Chain. Their role now complete, the guardians disappear once again.",
+                "Cogita is relieved that the burden she has carried, the story passed down from her ancestors through the generations, is now lifted. Volo tells us he has news from other members of the Ginkgo Guild - Commander Kamado, rather than waiting for the results of our investigation, is going to climb Mount Coronet himself. In order to try and stop him before it's too late, we head straight back to Jubilife Village to tell him about the Red Chain."
+            ]
+        },
+        "Jubilife Village": {
+            "Text": [
+                "Once we enter the village, Rei/Akari are relieved to see we're back safely, and rush off to tell Professor Laventon and Captain Cyllene . Laventon is also delighted to see us, although Cyllene is stuck in her office, overwhelmed with her work, especially since Commander Kamado has gone. Laventon tells us that Kamado has indeed already set out for Mount Coronet, and plans to deal with the Pokémon on the other space-time rift himself if need be.",
+                "Inside Galaxy Hall , Cyllene congratulates you on not dying, as per her orders, although the fact that Abra teleported to you with a letter from her is conveniently brushed under the carpet. You explain to her about the Lake Guardians, and obtaining the Red Chain, and she tells you that the Commander has indeed gone to the summit of Mount Coronet, where the Temple of Sinnoh is found, to tackle the rift, unaware of the existence of the Red Chain.",
+                "Cyllene issues you with new orders: we are to take the Red Chain to Mount Coronet, make our way to the peak, and put an end to the crisis. To do this, we are officially reinstated at our previous rank, and we receive our newest mission: Atop Mount Coronet. We can use this opportunity to tweak our party and inventory in Jubilife Village, or report any progress with the Pokédex to Captain Cyllene to potentially increase our rank, and once you're satisfied it's time to head to the Coronet Highlands."
+            ]
+        }
+    },
+    "Part_12": {
+        "Jubilife Village": {
+            "Text": [
+                "Speak to your chosen leader at the front gate, and they'll set off in front to try to speak to Commander Kamado . A child, upon hearing that you still tried to help the village after your exile, hands you a Max Revive as a thank you. Cyllene reiterates your orders - to make for the Summit Camp , and from there the Temple of Sinnoh , use the Red Chain to resolve the problems there, and, most importantly, return alive."
+            ]
+        },
+        "Coronet Highlands": {
+            "Text": [
+                "Once we arrive at the Coronet Highlands at the new Summit Camp, near the entrance to the Moonview Arena , Volo arrives behind us having heard the news that you've been reinstated to the Galaxy Team , and he'll hand over three Max Potions as a congratulations. Volo will tell you that both clan leaders have already headed up to the peak, and he'll set up closer to the summit if we need to find him again.",
+                "Once Volo departs, you have the opportunity to change your party and inventory again, and once you're satisfied with your preparation ride up through Cloudcap Pass to the Stone Portal , where there's a member of the Security Corps standing guard outside. If you talk to him, he'll tell you that he doesn't really see the point any more, allowing you to enter the cave.",
+                "Inside the cave, you'll find a clearing halfway up where there's a figure waiting, staring at the far exit of the cave. It's Beni who runs the Wallflower in the village, and while he'd rather be there, Commander Kamado has given him a different task. As the commander's right hand, it's his job to ensure Kamado's plans can go through, and after a strategic Smoke Bomb he changes outfit into ninja-style garb, before challenging you to a battle!",
+                "Beni will always send out Mismagius first, but the order of subsequent Pokémon will depend on what your active Pokémon is. Three of Beni's Pokémon have a weakness to Ghost-type attacks, while the fourth, Sneasler , is doubly weak to Psychic-type moves, so if you have a strong Pokémon with those move types, like the alpha Zoroark from the lake trials or the alpha Gallade from Snowpoint Temple , you should be able to come through this fight. Don't forget that you have the ability to use items in battle if you need to heal, revive, or boost your Pokémon - Beni also has some Max Potions that he can use if you fall just short of a knockout.",
+                "After the battle, Beni shows a begrudging respect for your skills in battle, but warns you that Pokémon can be very dangerous, which is why Kamado has gone to such extremes to try and keep people safe. He asks us to save Kamado from himself, should it come to it, before allowing us to pass. Your team will be fully healed, so you can continue through the Stone Portal before exiting on the other side."
+            ]
+        },
+        "Mount Coronet": {
+            "Text": [
+                "As you exit the Stone Portal you'll see the Temple of Sinnoh in front of you, with the space-time rift looming large above you. Make your way up the slope and in a clearing you'll find Volo, as promised, waiting to the right to sell his wares, with both clan leaders standing in front of you on the way to the temple. Stock up as you need, then approach Adaman and Irida .",
+                "Irida will ask if you've brought the Red Chain, before telling you that you're the only person who can stop whatever is going on. Adaman thinks the Pokémon seen through the rift is indeed almighty Sinnoh itself, but Kamado has blocked the two of them from going closer to find out. They will encourage you up the slope to confront the commander face-to-face.",
+                "Commander Kamado is waiting in front of the steps to the Temple of Sinnoh, and he has evidently heard that you have acquired the Red Chain that is supposed to bind the world, although he is still sceptical of its efficacy. Your chosen clan leader will back up the truth of your tale, but the only way we can win over the commander is to defeat him in battle.",
+                "Kamado will always lead with his Hisuian Braviary , but the order in which subsequent Pokémon are sent out will depend on your active Pokémon. The Braviary has a number of weaknesses you can prey upon, and taking it out in one hit is always a good idea, especially with Esper Wing boasting a high critical hit rate, although a Dark-type will obviously be immune to that attack and is a strong lead choice. Using the three alphas you encountered during the lake trials, if you captured them, will give you a good matchup spread here - Overqwil has the type advantage against the Braviary (with its Dark-type moves) and the Clefable (with Poison-type attacks), with Water-type moves as coverage for Golem . Zoroark is also a strong choice to take on Braviary, although it will bait out Snorlax which it struggles to hit well, while the Goodra 's excellent natural bulk and typing make it difficult to remove, although be wary of High Horsepower on Snorlax.",
+                "After you best the commander in battle, he will concede defeat, bowing before you and apologizing for ever having doubts about you. Even though he says he has no right to at this point, he still asks you to tackle whatever is awaiting on the other side of the space-time rift, for the benefit of every person and Pokémon in Hisui . You'll be returned to the plateau where Volo is to restock as you need, and your Pokémon will be fully healed as well. Once you're satisfied you've taken all the necessary provisions, scale the slope again and enter the Temple of Sinnoh ."
+            ]
+        },
+        "Temple of Sinnoh": {
+            "Text": [
+                "Climb the steps and you'll reach the temple, a giant stone structure with a corridor leading to an altar where Kamado, Adaman, and Irida are waiting. The corridor is lined with statues on both sides, with the various noble and ride Pokémon atop them. Approach the trio, and before you can use the Red Chain your chosen leader will be possessed with a voice, asking the human with the Red Chain to catch them. The voice, presumably that of almighty Sinnoh, will speak through them again, asking to be caught for the battle to come, and Kamado will hand over ten Ultra Balls .",
+                "The space-time rift opens in front of you, and a legendary Pokémon steps through the rift - Dialga if you chose the Diamond Clan , and Palkia if you sided with the Pearl Clan . The Red Chain encircles the Pokémon, binding it into our world, but it breaks out of it, and plunges you into battle.",
+                "This battle is slightly different from the others we've had so far, in that you're required to catch the Pokémon in order to advance the plot. If you accidentally knock it out, or your party is defeated, don't worry - you'll be returned to the entrance of the temple, and given the chance to start the encounter again. Both have strong type combinations, with only two weaknesses each - Ground and Fighting for Dialga, while Palkia is weak to Dragon and Fairy types. Remember that you're not aiming for the knockout, so chip away at its health and utilize status effects like drowsiness and paralysis to increase your catch chances until you're able to successfully snag it.",
+                "Once Dialga/Palkia is secured, you'll be congratulated on your success, but the Pokémon will speak through your allied clan leader again, with an ominous warning: space-time is torn, and the frenzied one comes to fight. On cue, the space-time rift opens once more, and the opposite legend emerges from it with an almighty roar. Commander Kamado is in no mood to hang around, and orders everybody back to the Summit Camp."
+            ]
+        }
+    },
+    "Part_13": {
+        "Coronet Highlands": {
+            "Text": [
+                "Back at camp, Professor Laventon theorizes that the energy that is currently surging from the rift, causing the second Legendary Pokémon to appear, also caused the lightning that frenzied the Noble Pokémon . Commander Kamado apologizes to the clan leaders, before apologizing to you personally. The clan leaders accept his apology, understanding that his actions were borne from a desire to keep people safe.",
+                "Laventon reminds everyone that there still needs to be a plan for how we deal with the other legendary Pokémon, and the words of your captured legend are spoken through your ally. We require the Red Chain , which we have already (or what's left of it at least), a “vessel of humankind's invention”, which the professor posits is a Poké Ball , and a “stone of creation's beginning”, whatever that might be.",
+                "Laventon again has another idea, and asks you to hand over the Plates you've been collecting throughout your adventure. The professor wants us to find an ore made from the same substance as the Plates, and warden Lian might know where to find some, as he'd been investigating the matter at Volo's behest. Laventon names the new material we seek Origin Ore , and we're given a new Mission: The Counterpart.",
+                "Melli arrives looking to help, and while he rubuffs Adaman 's suggestions he does give you three Candy Truffles , before Irida arrives with Lian . Lian and Melli argue briefly, before Lian asks you to meet him at the Primeval Grotto . Use this opportunity to refresh your team and inventory, then head over."
+            ]
+        },
+        "Primeval Grotto": {
+            "Text": [
+                "Inside the Primeval Grotto, examine the wall with some strange glowing ore embedded in it. The clan leaders and Lian arrive, and Lian is confident that with the help of his Sliggoo they'll be able to extract it from the cave. Before you can start, you're ambushed by the Miss Fortune Sisters , who are demanding the deposits you're after. Adaman and Irida will take on Clover and Coin respectively, leaving you to battle against Charm .",
+                "Charm will send out Rhydon first, and its dual weakness to Water and Grass-type moves gives you an easy avenue of attack, especially to its weaker special defense stat . Her Gengar has the opposite issue, and is very frail on the physical side, so a powerful physical Dark , Psychic , or Ghost-type move should knock it out no problem, especially if you utilize Strong Style , provided you've mastered your chosen move. Be careful of Hypnosis , which can really slow the fight down if it connects and you're unable to fight through the drowsiness.",
+                "After your victory, the Miss Fortune Sisters all leave in a cloud of smoke, and your Pokémon are healed by the clan leaders. Lian and his Sliggoo are able to extract some of the necessary Origin Ore, meaning it's time for us to return to Professor Laventon. You can choose to make your own way to the Summit Camp , or simply fast travel using the map. Once you're back at camp, talk to the professor, and everyone will head back to Jubilife Village ."
+            ]
+        },
+        "Jubilife Village": {
+            "Text": [
+                "At Galaxy Hall, the group uses the materials described - the fractured pieces of the Red Chain salvaged from the Temple of Sinnoh, the Origin Ore mined from the Primeval Grotto, and a simple Poké Ball, and Rei / Akari will work on crafting them together. Eventually their work is complete, and Professor Laventon will excitedly hand you the Origin Ball , a one of a kind ball used solely to capture the frenzied Pokémon at the Temple of Sinnoh, and unable to be selected in any other scenario.",
+                "Your nominated leader will receive another message from their deity, agreeing to lend their strength for the battle ahead. You now have the opportunity to make any further changes to your party and inventory, before heading to the front gates to leave for the Coronet Highlands . Cogita is waiting for you before you depart the village, and she will tell you about the legendary Pokémon you are about to face, and remind you that you need to have your captured legend in your party so you can restore balance to time and space - you cannot advance unless you do this, so add it into your team if necessary before heading to the Summit Camp."
+            ]
+        },
+        "Coronet Highlands (Visit 2)": {
+            "Text": [
+                "From the Summit Camp, head up Cloudcap Pass , and in the Stone Portal you'll see that Volo has been waiting for your return, partly to be on hand to sell you anything you need, but also to see first-hand the legendary Pokémon. Continue through the Stone Portal, and exit to the Temple of Sinnoh ."
+            ]
+        },
+        "Temple of Sinnoh": {
+            "Text": [
+                "Commander Kamado, Adaman, and Irida are waiting for you at the temple steps. Kamado acknowledges his errors in trying to eliminate any external forces that may have posed a threat, and asks if you are ready for this challenge. Tell him you're ready, and you'll enter the temple where Dialga or Palkia awaits.",
+                "As you approach it, there's an almighty explosion of light that renders the temple in two, and your chosen legend emerges from its Poké Ball to try and take down its opponent, but all is not as it seems, with the uncaptured Pokémon having morphed into its Origin Forme , before you are plunged into one last frenzied fight.",
+                "At this point we're familiar with the pattern these battles will take, where you must dodge incoming attacks while hitting your opponent with Space Balms / Time Balms , lowering the frenzy gauge until it is defeated. This will test all of the skills you've honed during the five noble battles, dodging a variety of attacks while finding small windows to target and throw balms, all while trying to maneuver around any arriving hazards, paying close attention to the arena to make sure you're out of the area of effect. Unlike the frenzied nobles, Dialga or Palkia's guard is never broken, so you won't get the chance to send your Pokémon into battle against it, and must whittle the entire gauge down with the Space Balms/Time Balms.",
+                "There are a number of attack patterns to be wary of - the first is a series meteors that fall on the arena, one after the other, allowing you to circle the Pokémon and continue to fire balms. After this, it will shoot three rings across the floor, which you can avoid by rolling forward through them. Once the gauge is low enough, the area of effect from the meteors will increase, making them harder to avoid, and it can use a new attack where it causes a line of meteors to fall all away across the battlefield. Continue finding opportunities when you're in a safe space, and throw as many balms as you can in that time.",
+                "Once the frenzy gauge is fully depleted, you'll throw the Origin Ball, catching the Origin Forme Pokémon, returning the sky to normal, and closing the space-time rift. The group congratulates you on your success, and Commander Kamado even sheds a tear, before ordering that the village will host the greatest festival that Hisui has ever seen, with the Galaxy Team and both clans in attendance. You take one last look back at the Temple as you leave, and the credits roll, with the main part of your adventure completed.",
+                "After the credits finish, your Arc Phone beeps, with a simple message - “Seek out all Pokémon.”"
+            ]
+        }
+    }
+}

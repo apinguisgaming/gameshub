@@ -1,0 +1,307 @@
+{
+    "Part_1": {
+        "Introduction": {
+            "Text": [
+                "When you first turn on the game, Professor Rowan introduces himself, welcoming you to the world of Pokémon. Then, he throws a Poké Ball to demonstrate what a Pokémon is. A Munchlax then appears from the Poké Ball and Rowan goes on to speak about human relationships with Pokémon as friends. He then states that his job as a professor is to conduct research on these Pokémon.",
+                "You are then asked to choose your appearance, so choose wisely as you will be unable to change your basic appearance once you have started your adventure. You then must choose a name, which will also stay with you for the remainder of the game. You are than asked what your friend's name is. He will be your rival. His official name is Barry, so from now on, he is referred as \"Barry\" in this walkthrough.",
+                "Your adventure has begun, so it's time to jump into the world of Pokémon!"
+            ]
+        },
+        "Twinleaf Town": {
+            "Text": [
+                "The journey begins at your home in Twinleaf Town . You are watching the television special report titled \"Search for the Red Gyarados!\" in which a news broadcast describes a team searching for a red Gyarados in a far-off lake (which is presumably the Lake of Rage in Johto ). The broadcast states that the team has not observed the Pokémon in question.",
+                "On your way out of the house, your mother will tell you that your rival wishes to see you as it is an emergency. She also warns you to stay out the tall grass as wild Pokémon may attack. Just as you enter his house, Barry bumps into you. He tells you to come with him to Lake Verity and says that he will fine $ 1 million if you aren't there. As he is about to leave, Barry notices that he has forgotten something and runs back inside the house. Head inside and upstairs, where Barry is deciding what to bring. He then notices you, threatens to fine you $ 10 million (which is 10 times of the original amount) and rushes out of the house. He will now be waiting for you on Route 201 . Now head north to reach the route."
+            ]
+        },
+        "Route 201": {
+            "Text": [
+                "Barry sees you and follows you. If you turn east and try to go through the tall grass, your Mom's words will suddenly pop out of nowhere and prevent you from entering tall grass. Head west and go to Verity Lakefront ."
+            ]
+        },
+        "Verity Lakefront": {
+            "Text": [
+                "This is a short path that leads you to the lake. Follow the path and head into Lake Verity. Once you can go to Route 201, you can get a hidden Potion here that is accessed from the route."
+            ]
+        },
+        "Lake Verity": {
+            "Text": [
+                "After you reach Route 201, Barry tells you about the news report on TV about the Red Gyarados. He wants to go to the local lake to see if there is a similar Pokémon, and he will now follow you. Walk to Lake Verity . Upon your arrival, you see Professor Rowan , and either Lucas or Dawn (whoever is the opposite gender of your selected player character). The two are searching the lake for something and discuss Rowan's return to Sinnoh after four years. They push past you, and Lucas/Dawn apologizes. Barry goes to investigate the briefcase Rowan left behind, but when you enter the long grass you are each attacked by a wild Starly . You then open the briefcase to find three Poké Balls , containing Turtwig , Chimchar and Piplup .",
+                "When you choose one, that Pokémon will become your first partner Pokémon , so choose wisely. Barry will automatically select the one with a type advantage over yours.",
+                "All of the first partners are good choices and it is down to your personal preference to make a decision. In any case, it's time to move on.",
+                "Battle the Level 2 Starly, and defeat it to give your new Pokémon experience points. Suddenly, Lucas/Dawn returns and remarks that Rowan would be very angry if he/she forgot the briefcase. When Lucas/Dawn realizes that you have used the Pokémon from the briefcase, he/she takes the briefcase and hurries off. Barry suggests heading back to Twinleaf Town.",
+                "On your way back to Twinleaf Town, you meet Lucas/Dawn and Professor Rowan , who takes a look at the Pokémon you and Barry had taken and returns to his lab. Rowan's assistant mentions that you should stop by Rowan's lab and then hurries off."
+            ]
+        },
+        "Twinleaf Town (Visit 2)": {
+            "Text": [
+                "After that, you will automatically return to your house in Twinleaf Town. You explain the situation that occurred at the lake, and Mom gives you a pair of Running Shoes and asks you to visit Professor Rowan in Sandgem Town ."
+            ]
+        },
+        "Route 201 (Visit 2)": {
+            "Text": [
+                "Head north to reach Route 201. This time, head east through the tall grass. Two Pokémon, Bidoof and Starly , can be found here, but they cannot be captured yet.",
+                "Head north through another patch until you reach a woman. She works for the Poké Mart and will give you ten Potions for free. Continue east until you reach Sandgem Town."
+            ]
+        },
+        "Sandgem Town": {
+            "Text": [
+                "Upon reaching Sandgem Town, Professor Rowan's assistant will stop you and have you go with him/her. You are then shown the Pokémon Research Lab , the largest building in town. As you are about to enter, Barry zooms out and says that Rowan isn't as intimidating as he first seemed, and then departs for Jubilife City . After entering the lab, Professor Rowan examines the Pokémon you chose at the lake and lets you keep it as a gift. You will then be given the option to give it a nickname . The professor formally introduces himself, and entrusts you with a Pokédex to record the data of all the Pokémon that are found throughout the Sinnoh region. Lucas/Dawn also says that he/she is on a Pokédex quest.",
+                "Upon leaving the lab, Lucas/Dawn will give you a tour and show you the Pokémon Center and Poké Mart . He/she then insists that you tell your mom that you are leaving on a journey and leaves to Route 202 , where he/she won't let you pass until you complete your mission in Twinleaf Town."
+            ]
+        },
+        "Twinleaf Town (Visit 3)": {
+            "Text": [
+                "Backtrack on Route 201 and head to your house. After you get some rest, your mother is happy to hear the news and will give you the Guidebook , and she tells you to make sure to come back to visit. Barry's mother then stops by and admits that Barry left so fast that he forgot the Parcel , but your mother suggests that you can delivery this to Barry personally. Barry's mom mentions that Barry should be in Jubilife City right now.",
+                "Leave Twinleaf and return to Sandgem Town. You can head south to Route 219 to pick up an Antidote , but you cannot explore the rest of this route until you gain access to Surf . Head north of Sandgem Town to reach Route 202."
+            ]
+        }
+    },
+    "Part_2": {
+        "Route 202": {
+            "Text": [
+                "When you first reach Route 202 , Professor Rowan 's assistant ( Lucas / Dawn ) will give a demonstration on how to catch Pokémon by catching a wild Bidoof . The assistant then gives you twenty Poké Balls . The Pokémon that Lucas/Dawn has is the first partner Pokémon that neither you nor Barry choose earlier. Before departing, Lucas/Dawn will mention that it is easier to capture a wild Pokémon if you lower the Pokémon's Hit Points more, and even easier if you inflict a status condition . Now that you can capture Pokémon, you can also trade between games through the Pokémon Center 's Union Room .",
+                "Now that you can now use Poké Balls, it is recommended that you start catching a few Pokémon, such as Starly or Shinx . You will be facing Barry soon and his first partner Pokémon will be at the point where it will have a move of its own type in its arsenal, so your first partner Pokémon may need the extra backup.",
+                "After this point, you are off having some of your first Pokémon battles in the game. This is the first route where you can battle Trainers . There are three Trainers here, none of which have a Pokémon stronger than level 5."
+            ],
+            "Pokémon": {
+                "Text": [
+                    "If you catch a Bidoof and evolve it into a Bibarel , it will become a Normal / Water -type Pokémon. Its stats are relatively mediocre, but it has a decent movepool via level up and TM . Shinx is a good pickup as a solid choice that evolves into Luxio and then Luxray . Shinx helps against Flying-type and Water-type Pokémon if you picked Turtwig or Chimchar respectively, and helps Piplup out as well, but Shinx's evolutionary line focuses on Attack instead of Special Attack , so Special-based moves such as Discharge that it learns quite late and Thunderbolt will not deal as much damage. Shinx and its Evolutions can learn some Physical-based Electric-type moves such as Spark , Wild Charge and Thunder Fang , as well as two Dark-type moves, Bite and Crunch . These moves don't come early, though. Kricketot is hard to use even when it evolves into Kricketune , mostly due to the fact that Bug-type moves have few advantages, while being resisted by many other types. Starly is one of the best Flying-type Pokémon in the game, especially when it evolves into Staravia and then Staraptor , getting Close Combat and Brave Bird . It has very high Attack to back these moves up, too."
+                ]
+            },
+            "Items": {
+                "Text": [
+                    "Once you've defeated the Trainers on the route and caught all the Pokémon you want, head north to Jubilife City ."
+                ]
+            }
+        },
+        "Jubilife City": {
+            "Text": [
+                "As you are about to enter Jubilife City , Lucas / Dawn approaches to tell you that your rival Barry is at the Trainers' School . Until you complete your missions here you cannot go east to Route 203 . However, you can go north to Route 204 to face more wild Pokémon and catch a Budew , which can help a little with your first Gym match, especially if you chose Chimchar ."
+            ],
+            "Trainers' School": {
+                "Text": [
+                    "The building west of the Pokémon Center is the Trainers' School . Here, you meet Barry and give him the Parcel , which contains two Town Maps . Barry gives you one of them then leaves for Oreburgh City . There are two Pokémon Trainers that can be fought here, in the northeast corner of the school. After you beat them, you will receive 3 copies of TM10 ( Work Up )."
+                ]
+            },
+            "Pokétch Company": {
+                "Text": [
+                    "The Pokétch Company makes a new appliance called the Pokémon Watch, or Pokétch for short. After you receive the Town Map , the owner of the company, who is in the center of town, will approach you. He tells you to bring him three Coupons from the clowns around the city, and he will give you a Pokétch. The clowns ask simple yes/no-questions about Pokémon (and the answer is always \"Yes\"). When you get the question correct, you receive the Coupon. After you get all three Coupons, return to the man to receive the Pokétch. You can get the three Coupons in any order because you can talk to the clowns in any order you like. Now you can access the Pokétch whenever you want, which is a good thing, since you can install the necessary Hidden Moves onto it to reach areas you couldn't before, once you obtain the necessary Gym Badges .",
+                    "The Pokétch building is the northwest corner of the city. If you return after you receive an odd-numbered Badge (i.e., the Coal Badge , Cobble Badge , Relic Badge , and Icicle Badge ), you can talk to the owner inside the building to receive a new apps for your Pokétch. Out of those you can receive from him, the Marking Map is one of the most useful apps because it can be used to track Roaming Pokémon .",
+                    "Inside the building west of Jubilife City that leads to Route 218 , you can receive the Old Rod from a Fisherman , who also offers to teach you how to fish . You can't do anything on Route 218 but fish until you get Surf , but you can catch a Magikarp here with your Old Rod. This is a useful Pokémon if you have enough patience, because while Magikarp is considered the weakest Pokémon ever, it evolves into the brutally powerful Gyarados , which is a great addition to a team and can learn many good moves, such as Waterfall , Crunch and the powerful setup move Dragon Dance . It can also get Earthquake , Stone Edge and Avalanche through TM for coverage.",
+                    "Back in Jubilife City, the apartment east of the TV station has a blond-haired girl on the first floor that will give you a Quick Claw .",
+                    "The following items are available in Jubilife City:",
+                    "Once you have the Town Map and Pokétch , you can head east to Route 203 , though you may want to head north to Route 204 and catch some more Pokémon first. There are other places in Jubilife City, such as the Jubilife TV station and the Global Wonder Station , but you won't be able to access these places until you've obtained the Coal Badge, so it's best to move on."
+                ]
+            }
+        },
+        "Route 204": {
+            "Text": [
+                "Here, you can catch some Pokémon and battle some Trainers, but you can't continue through the Ravaged Path until you get Rock Smash and the Coal Badge. You'll come back here eventually, though, and once you do, you'll be able to explore the northern portion of this route."
+            ],
+            "Pokémon": {
+                "Text": [
+                    "Budew is a Grass / Poison -type Pokémon. It evolves into Roselia if leveled up during the day when its friendship is high, and will evolve again into the new final form Roserade when a Shiny Stone is used. The Roselia evolutionary line has very high Special Attack and can learn the whole line of Absorb . Budew starts of with Absorb, picks up Mega Drain and eventually Giga Drain if evolved. Be sure to evolve it because Budew doesn't learn any good moves after picking up Mega Drain, unless it evolves. Try to let Budew evolve at or before Level 19 because that's when Roselia learns Magical Leaf . Afterwards, Roselia can learn Petal Dance . When Roselia evolves into Roserade, it doesn't learn any more moves, but its Special Attack will skyrocket. Roselia's evolutionary line can also learn SolarBeam and Sludge Bomb through TMs , making use of their high Sp. Atk.",
+                    "You can encounter Zubat at night, or if you head into Ravaged Path."
+                ]
+            }
+        },
+        "Ravaged Path": {
+            "Text": [
+                "You cannot proceed very far into the Ravaged Path because of the rugged rocks, but there are still Pokémon you can catch: Zubat, Geodude and Psyduck (the latter being the rarest in this location for now."
+            ],
+            "Pokémon": {
+                "Text": [
+                    "Zubat is a Poison / Flying -type Pokémon. Zubat will evolve into Golbat starting at Level 22, then into Crobat when Golbat has high friendship. Zubat starts off with only Astonish as a physical attacking option and is stuck with just that until it gets Poison Fang . Golbat will pick up Bite . Crobat has the same moveset as Golbat, except that it can relearn Cross Poison and learn Fly via TM . Zubat will struggle a lot early on, but it will be more useful when it evolves into Golbat. You should know that the Zubat evolutionary line has high Speed. When Golbat evolves again into Crobat, it be able to will outspeed most of the Pokémon you'll fight.",
+                    "Geodude is a Rock / Ground -type Pokémon. Geodude will evolve into Graveler starting at Level 25, then into Golem when traded. Geodude evolutionary line has high Attack and very high Defense, but low Special Attack, Special Defense and Speed. It can learn good Rock-type and Ground-type moves, such as Stone Edge and Earthquake by leveling up, as well as Rock Slide through TM80 . It can also launch suicide attacks with Selfdestruct and Explosion . However, it has two major weaknesses: Water-type and Grass-type attacks.",
+                    "Psyduck is a Water-type Pokémon that focuses on Special attacks. It evolves into Golduck at Level 33. If you decide to use this Pokémon, keep in mind that the only Special Water-type moves you'll get through levelling up are Water Pulse and Hydro Pump . It can use two different Ice-type attacks via TM, but all in all, this Pokémon's movepool is pretty limited. If you want to use a Water-type on your team, there are certainly other options in the Sinnoh region even if you didn't pick Piplup , though if you're a fan of the Psyduck line and are willing to put in the time and effort of first finding, and then catching this Pokémon, you can still make it do well in battle."
+                ]
+            }
+        },
+        "Route 203": {
+            "Text": [
+                "Make sure that you heal your Pokémon before proceeding, because you will have an important fight very soon. It is also recommended that you do not proceed unless your Pokémon are trained to Level 7 or above."
+            ],
+            "Rival Battle": {
+                "Text": [
+                    "After the battle, return to the Pokémon Center to heal your Pokémon, then continue, going along the path and battling the Trainers along it. Head east to reach the Oreburgh Gate ."
+                ]
+            },
+            "Pokémon": {
+                "Text": [
+                    "The only new find is Abra , which is a Psychic-type Pokémon. Abra will struggle a lot at first (even more troublesome than Zubat) due to knowing only Teleport . However, Abra will be powerful if you evolve it into Kadabra starting from Level 16, and then into Alakazam by trading it . Kadabra and Alakazam are able to pick up Psychic , Psyshock and Future Sight by leveling up and Dream Eater through TM. It can also be taught a variety of coverage moves via TM. The Abra evolutionary line has high Special Attack and Speed, but low Defense. Abra is difficult to catch because it will always use Teleport unless you use Taunt , which Chimchar will learn at level 9 (be careful that Abra will Struggle then). If you didn't pick Chimchar, your best bet at this point is to throw a Poké Ball right away and hope to get lucky. If you are unable or too impatient to catch Abra, a woman in Oreburgh City will trade you one for a Machop .",
+                    "To avoid wild Pokémon, you can use the Repel found on the north bank of the pond. In the future, you will be able to buy Repels from Poké Marts ."
+                ]
+            }
+        },
+        "Oreburgh Gate": {
+            "Text": [
+                "Enter the cave on the east and you will find yourself in Oreburgh Gate . The Hiker at the entrance stops you and gives you three TMs for Rock Smash . He will also register the move to your Pokétch by giving you the Hidden Moves app , but you can't use it until you get the Coal Badge . Then fight the two Trainers inside the cave. There is nothing to do here until except fight the two Trainers and catch wild Pokémon until you have your first Badge. Head east to Oreburgh City ."
+            ]
+        }
+    },
+    "Part_3": {
+        "Oreburgh City": {
+            "Text": [
+                "When you enter the city, a Youngster shows you to the Oreburgh Gym . You meet your rival Barry , but he tells you that you are too late to battle Gym Leader Roark . He mentions that Roark has left for the Oreburgh Mine .",
+                "If you explore around town, you can find a woman in a condominium west of the Poké Mart who will trade you an Abra for a Machop . If you wanted an Abra, but were unable to catch one on Rt. 203, you can find a Machop on Route 207 (directly north of Oreburgh City) to trade. You can also find different types of Poké Balls from different people around town. One of these, a Heal Ball , can be obtained in the same building as the woman who wants a Machop by showing the man on the second floor a Zubat ."
+            ],
+            "Oreburgh Mining Museum": {
+                "Text": [
+                    "Other than the usual Pokemon Center and the currently inaccessible Gym, the only important building in Oreburgh City is the Oreburgh Mining Museum . When you retrieve a Fossil from the Underground later on, you can talk to the man at the counter in the building to revive the Fossil and retrieve whichever Pokémon is associated with that Fossil. Each version determines what kind of Fossil is commonly found, aside from the Old Amber .",
+                    "From here, you can either head north to Route 207 to catch a Machop , or just continue south to the Oreburgh Mine ."
+                ]
+            }
+        },
+        "Route 207": {
+            "Text": [
+                "While there is not much that can be done here until you obtain the Bicycle , you can find a Machop here to help in the upcoming Gym match, especially if you started with Chimchar . Catching a Machop here is also required to complete the trade for Abra in Oreburgh City.",
+                "The Machop line is a pure Fighting-type Pokémon evolutionary family focused on physical attacks. It has Low Kick to begin with, inflicting more damage against heavier Pokémon. Train it for a few levels and it learns Revenge at Lv. 8, which will come in handy for the upcoming Gym battle. Machop's movepool consists of mainly Fighting-type moves, including Low Sweep (which has the secondary effect of slowing down the opponent) and Vital Throw (a sure-hit attack). That said, it also has a few good coverage options, such as the Dark-type -type Knock Off and the Dragon-type Dual Chop . Some good TM coverage options include Poison Jab and Rock Slide to deal with its Fairy-type and Flying-type weaknesses. Machop evolves into Machoke at Lv. 28 or above, then evolves again into Machamp upon being traded. While Machop family's Speed is poor, its power and Abilities are not to be underestimated. Machop may have the Guts Ability, which further increases its Attack if it is affected by a status ailment (even ignoring the Attack reduction from being burned ), or the No Guard Ability, which means that all of its moves, even inaccurate moves like Cross Chop or Dynamic Punch , will become sure-hit attacks. The Ability even bypasses invulnerable phases such as the first turn of Dig or Fly . The drawback of this is that it will also be hit by whatever the move the foe may use, regardless of accuracy."
+            ]
+        },
+        "Oreburgh Mine": {
+            "Text": [
+                "In order to battle the Gym Leader , Roark , you need to speak to him in the Oreburgh Mine . He can be found in the basement. After he demonstrates how to use Rock Smash on the field, he returns to the Gym and will wait there for you to challenge him. There are two Workers for you to battle here and a few items to pick up.",
+                "You can also find wild Onix here. It can be a good addition to your team, especially if you find a Metal Coat , give it to your Onix, and evolve it into Steelix through trading . Onix's type and Abilities are the same as Geodude family. While Onix is faster and boasts a more impressive Defense stat, its horrific Sp. Def pretty much means that most Water-type -type and Grass-type -type special moves will take Onix out swiftly, although if it has the Sturdy Ability, it can guarantee itself at least one turn in battle even while at a disadvantage. Its low offensive stats will also make Onix struggle early on, but it gains access to Rock Slide at Lv. 20 for a decent Rock-type -Type offensive option. Onix eventually acquires Dig at Lv. 44 and Stone Edge at Lv. 55, but these moves are available as TMs if you want to get these moves earlier. If evolved into Steelix, it becomes Steel / Ground , eliminating its weakness to Grass-type attacks and further enhancing its Defense. Water-type moves are still super effective on it, albeit less so than before. Steelix learns Iron Tail at Lv. 48 for considerable damage and a chance of cutting the opponent's Defense, but its accuracy is an issue. Steelix also has its Attack significantly increased, but unfortunately, Steelix loses Onix's Speed as a trade-off, but this can be taken advantage of once you get your hands on TM74 ( Gyro Ball ).",
+                "Once you're done with Oreburgh Mine, return to Oreburgh City, then heal up at the Pokémon Center and get ready for your Gym match."
+            ]
+        },
+        "Oreburgh Gym": {
+            "Text": [
+                "Heal your Pokémon before entering the Gym. The Gym battle can be tough. It is recommended that you train your Pokémon until they are at least Level 13.",
+                "It's now time for your first Gym battle. The Oreburgh Gym is pretty straightforward and has no puzzles, though it is possible to take the raised path and avoid the two Trainers present. However, the Trainers are pretty easy to beat, and it's always good to gain some extra money and experience .",
+                "Roark leads with a Level 12 Geodude which is easily knocked out by any move that is super effective against Rock (e.g. Water , Grass , or Fighting ; you should definitely have a move of one of those types). If you don't bring it down, it can use Stealth Rock , which damages Pokémon you switch into battle. His Level 12 Onix has high Defense and the Sturdy Ability, so it will take at least two hits to knock out. Onix has the same moves as Geodude, plus Screech , which makes your Defense plummet. Level 14 Cranidos can be a huge problem if you don't outspeed and knock it out quickly. It has an extremely high Physical Attack , plus Headbutt for massive damage (plus a chance of flinching if your Pokémon withstands the hit) and Leer to drop your Defense , making its attacks do more damage. Bulldoze is a solid Ground-type -type move that can slow your Pokémon down. However, Cranidos is very fragile, so one or two super-effective hits will bring it down before it can completely destroy your team. Moves like Razor Leaf , Mega Drain , Power-Up Punch , Revenge and Water Gun can work well here.",
+                "After the battle, Roark gives you the Coal Badge and five copies of TM76 ( Stealth Rock ). Rock Smash can now be used as a Hidden Move through the Pokétch, and Poké Marts will start carrying more items, such as Super Potions , Repels , and Escape Ropes . Now head back to Oreburgh Gate , where you meet Barry , who tells you to go back to Jubilife City and head north to Eterna City ."
+            ]
+        },
+        "Oreburgh Gate (Basement)": {
+            "Text": [
+                "Now that you have the ability to use Rock Smash , you can destroy the rocks to reach Oreburgh Gate 's basement. This is the first place in the game to acquire TM70 ( Flash ). This former HM can be used later in the game to light up dark caves, and extra copies can be bought in the Veilstone Department Store . Wild Psyduck will also show up in here significantly more frequently than in Ravaged Path , so if you had any trouble finding one there, you may try catching Psyduck here instead."
+            ],
+            "Later...": {
+                "Text": [
+                    "Come back after receiving the Bicycle to hop over the dirt mounds to receive TM31 ( Brick Break ). Then after beating the seventh Gym, you can use Surf and Strength to pick up the Earth Plate and TM01 ( Focus Punch )."
+                ]
+            }
+        },
+        "Jubilife City": {
+            "First Team Galactic Encounter": {
+                "Text": [
+                    "Heal your Pokémon before proceeding.",
+                    "Once in Jubilife City , head to the north exit. You will see Professor Rowan and his assistant Lucas / Dawn with two male Galactic Grunts , who will engage you in your first Multi Battle .",
+                    "This battle shouldn't be too hard, especially as you receive help from Lucas/Dawn's first partner Pokémon . Nevertheless, Wurmple is capable of poisoning your Pokémon with Poison Sting , while Zubat may make things annoying with the confusion induced by Supersonic . Punish the opponents by defeating them as quickly as possible.",
+                    "After the battle, the Grunts run off. Professor Rowan explains that they are part of Team Galactic , a villainous group that seeks power from Pokémon Evolution for some nefarious purpose. Rowan explains that Pokémon release some type of energy when they evolve, but he believes it is a \"mystic power\" beyond human control. After he and Lucas/Dawn leave, the TV station and the Global Wonder Station will be open to visit."
+                ]
+            },
+            "Jubilife TV": {
+                "Text": [
+                    "There are numerous things you can do at Jubilife TV. First, there is always a Trainer in the ground floor lobby that you can battle once per day, but the Trainer that appears depends on the day of the week .",
+                    "Another point of interest is the Pokémon Lottery Corner. It is located on the ground floor of the Jubilife TV building, where it is conducted by a receptionist named Felicity . The winning ID number changes daily, and the game looks for matches by examining the IDs of all Pokémon in the player's party and in all PC boxes (but not Pokémon in the Day Care ). You can only check for one match a day.",
+                    "Ascend to the second floor. Here, a man will give you some Stickers that correspond with your first partner's type.",
+                    "On the third floor, you can go inside the Ranking Rooms to access your game records. You can also talk to a man who asks what  your favourite TV show is. By answering EVERYONE HAPPY WI-FI CONNECTION, you can unlock Mystery Gift . You can answer again every day to get some more Stickers. There are also some people that you can talk to on the highest floor, but there is nothing there otherwise."
+                ]
+            },
+            "Global Wonder Station (GWS)": {
+                "Text": [
+                    "Now that you have the Coal Badge , you can access the GWS, where, if you have an active Nintendo Switch Online subscription, you can take part in Wonder Trades . These are surprise trades where you can trade away any of your Pokémon and receive a surprise Pokémon from another player using the feature."
+                ]
+            },
+            "Pokétch Company": {
+                "Text": [
+                    "Go to the Pokétch Company and talk to the owner. He will give you the Memo Pad App for your Pokétch . When you have 3 Gym Badges , he will have another app ready for you, so try to remember to visit the company again later.",
+                    "Now heal your Pokémon and proceed to Route 204 ."
+                ]
+            }
+        },
+        "Route 204 (South)": {
+            "Text": [
+                "You were able to access the southern part of Route 204 before going to Oreburgh City , but if you haven't already, pick up the bottle of Parlyz Heal and battle the Trainers here. Now that you can use Rock Smash , you can get through the Ravaged Path , which connects the southern and northern parts of the route."
+            ]
+        },
+        "Ravaged Path": {
+            "Text": [
+                "There still isn't much you can do here, except pick up the Antidote (if you haven't done so earlier) and use Rock Smash to find TM39 ( Rock Tomb ) to the west. Without Surf , you can't go any deeper, so go through the cave to the east and exit towards the northern part of Rt. 204."
+            ]
+        },
+        "Route 204 (North)": {
+            "Text": [
+                "The wild Pokémon available here are the same as in the south, though their levels are higher. Battle more trainers, picking up the Awakening and TM09 along the way, then go north to Floaroma Town ."
+            ]
+        }
+    },
+    "Part_4": {
+        "Floaroma Town": {
+            "Text": [
+                "As you enter Floaroma Town the first thing you'll notice is the amount of flowers covering the 'vivid & scented' town.",
+                "In the southwest flower patch you'll find an elderly couple with some special gifts.",
+                "Talking to the elderly woman on the right will get you the Mythical Pokémon Mew if you've got save data from Pokémon Let's Go Pikachu or Eevee on your Switch. Talking to the elderly man on the left will get you Jirachi if you've got save data from Pokémon Sword or Shield on your Switch.",
+                "Enter the house to the left of then flower shop and speak to the girl playing with her Clefairy , if you agree with her she'll give you 3 copies of TM88 ( Pluck ).",
+                "The main attraction of Floaroma Town is the Pick a Peck of Colors Flower Shop , either side of the entrance are berry plants, on the left you can pick 2 Oran Berries , and on the right are 2 Cheri Berries .",
+                "The northwest exit from the town is blocked by two Team Galactic Grunts so check out what you want in the town and head east out of town to Route 205 ."
+            ],
+            "Pick a Peck of Colors Flower Shop": {
+                "Text": [
+                    "Speak to the girl on the left side of the shop to get the Sprayduck which will let you water your berry plants. If you speak to the brunette lady on the right she'll give you a random berry each day.",
+                    "The blonde woman behind the counter will trade your berries for stickers."
+                ]
+            }
+        },
+        "Route 205": {
+            "Text": [
+                "Walking along the route you'll come across two berry plants the plant on the left has 2 Chesto Berries and the one on the right holds 2 Pecha Berries . Keep going and eventually you'll be stopped by a young girl who asks for help as the 'people dressed like space aliens' took her papa and won't let her in the Valley Windworks to see him.",
+                "You can't head north because there's two more Team Galactic Grunts standing guard, so keep heading right until you reach the Valley Windworks."
+            ]
+        },
+        "Valley Windworks": {
+            "Text": [
+                "There's a large grass patch here where you can add some new Pokémon to your team, including a Drifloon that only appears on fridays, but it won't appear at all until Team Galactic is gone. On the right side of the area, next to the wind turbine, you can find a Potion .",
+                "Unfortunately, the building itself is blocked by a Team Galactic Grunt, so challenge him to a battle!",
+                "After defeating the grunt he will run inside and lock the door, but not before mentioning his colleagues in the 'flower patch' have the other key, time to head back to Floaroma Town."
+            ]
+        },
+        "Floaroma Town (Visit 2)": {
+            "Text": [
+                "back in town, make sure to heal up and then head to the northwest area of town where the two Team Galactic Grunts were earlier. They're now gone, so head through the trees to get to Floaroma Meadow ."
+            ],
+            "Floaroma Meadow": {
+                "Text": [
+                    "When you enter the beautiful meadow you'll see two more Team Galactic Grunts at the top of some stairs. Walk up to them to watch as they try and mug someone for their Honey , they'll eventually notice you and start a gauntlet-style battle (one after the other with no breaks).",
+                    "When you win the grunts will run away and the man they were harrassing will pick up the Works Key that they dropped and give it to you.",
+                    "The man will also give you a jar of Honey which can be used on those yellow/golden trees you might have noticed (there's one next to the entrance of the Valley Windworks and one right here in the meadow further to the right). You can learn more about honey trees and the special Munchlax trees here if you're interested.",
+                    "You can buy some more Honey from this man anytime for $ 100. Once you're done, it's time to head back to the Valley Windworks to face the rest of Team Galactic."
+                ]
+            }
+        },
+        "Valley Windworks (Visit 2)": {
+            "Text": [
+                "Make sure to heal your Pokémon in Floaroma Town first if they need it before you come back here. Once you're ready unlock the door to the building the grunt was guarding (you'll need to interact with the door for it to unlock) and then head inside.",
+                "The grunt you defeated will panic when he sees you and runs away to tell 'the commander,' leaving you free to progress through the building.",
+                "There will be a couple of grunts inside, as well as the Team Galactic Commander Mars — one of the three Commanders of Team Galactic. Her Zubat can be defeated easily, but her Level 16 Purugly may be more troublesome with its high Attack stat. Due to its weak defenses, a Monferno , or Machop should be able to defeat it by using some Fighting-type moves like Mach Punch or Karate Chop . Pokémon with the Ability Intimidate like Staravia or possibly Shinx and Luxio can help to lower Purugly's Attack stat. Purugly will likely use Fake Out on its first turn out, which always goes first and instantly forces your Pokémon to flinch out of your attack, so try to anticipate that.",
+                "After the battle, Mars leaves, furious over her loss, but confident that Team Galactic collected enough data. You will talk to the scientist a little bit about how Team Galactic were using the windworks for something, just as his daughter — the little girl on Route 205, arrives and reunites with him. She also says that \"the Balloon Pokemon\" will come again.",
+                "The Balloon Pokémon in question is Drifloon , and it will be just outside the Windworks every Friday from now on. (If Team Galactic is expelled on a Friday, Drifloon will not appear until the next Friday.) Drifloon is encountered at Lv. 22, which is probably a few levels higher than your team at this point, and it knows the move Shadow Ball , one of the best Ghost-type moves in the game. Drifloon is a Ghost / Flying -type Pokémon, evolving into Drifblim at Lv. 28 or higher.",
+                "Afterwards, return to Route 205 and the Galactic Grunts should be gone. Head back to Floaroma Town and heal up in the Pokémon Center, then press on."
+            ]
+        },
+        "Route 205 (Part 2)": {
+            "Text": [
+                "Heal your Pokémon before proceeding. Proceed north across the bridge. The wild Pokémon found here are the same as those in the grass patches outside Valley Windworks, albeit with different encounter rates.The stairs lead to an elevated path with a few enemy Trainers and a house that you can use to heal your team if necessary. Then go down the stairs and follow the one-way road. Fight a few more Trainers and grab 2 plants of Berries. The river leads to Fuego Ironworks and another part of Floaroma Meadow, but you cannot cross the stream yet. You can come back when you receive your fifth Gym Badge.",
+                "Now head back to the house and heal, then go north. There are 2 ledges on the northwest, which indicate the exit from Fuego Ironworks. Ignore them and head further north. You'll find the entrance to Eterna Forest and a path blocked by 2 trees. Since you can't use the Hidden Move Cut yet, your only choice is to head into Eterna Forest to reach the other side of Route 205."
+            ]
+        },
+        "Eterna Forest": {
+            "Text": [
+                "When you first enters the forest, you will find a Trainer named Cheryl waiting by the entrance. She will ask you to accompany her through the forest, as she fears an encounter with Team Galactic . She will fully heal your Pokémon after every battle.",
+                "During your travels through the Eterna Forest, you will mostly have to deal with Trainers who, if lined up correctly, will challenge you to Multi Battles , with Cheryl as your partner. Note that all wild battles here will be Double Battles as well, provided Cheryl is still accompanying you. To catch one Pokémon, you must knock out the other one first. With Cheryl around, this might also be a good time to train weaker Pokémon, because your party will be healed after each battle. But remember that once Cheryl leaves you at the end of the forest, this will no longer happen. The forest is home to the Moss Rock that can evolve Eevee into Leafeon , though you're still a long way from obtaining Eevee without trading. At the end of Eterna Forest, the Old Chateau can be found. It can only be accessed by using the move Cut, so return here after you've cleared the next Gym.",
+                "Once Cheryl is escorted through, wild battles will revert into the usual Single Battles , allowing you to catch Pokémon with less interference. Eterna Forest provides a decent selection of Pokémon, but 3 of the available species you will find in your version belong to the Wurmple family, which you might come across through Honey Trees too. Being a Bug-type Pokémon, Wurmple evolves pretty quickly, either into Silcoon or Cascoon at Lv. 7 or above — that means you can immediately evolve your freshly-caught Wurmple right away, but which one Wurmple evolves into is completely random. Silcoon and Cascoon then evolve again into the Bug / Flying Beautifly and the Bug / Poison Dustox respectively starting at Lv. 10. All wild Wurmple here are already at or above the threshold for its final form.",
+                "The Rabbit Pokémon Buneary is a new addition which evolves into Lopunny when levelled up with sufficient friendship . Both Buneary and Lopunny are pure Normal-type Pokémon, similar to the aforementioned Aipom family. Unfortunately, among all Pokémon evolving via friendship, Buneary is the hardest to evolve because its base friendship is 0. You may consider postponing the catch until you obtain Luxury Balls , but the only reliable means of obtaining these comes in the late game.",
+                "The last Pokémon species is only available at night. Depending on your game version, you may rarely come across either the Dark / Flying Murkrow BD , or the Ghost-type Misdreavus SP . Both of them are very hard to capture, with their catch rates close to those of Legendary and Mythical Pokémon (more so for Murkrow). The Dusk Ball that you received back in Oreburgh City may come in handy here. Just like Aipom, both of these Johto-native Pokémon have gained new Evolutions, evolving into Honchkrow and Mismagius respectively through the use of a Dusk Stone , though you won't come across this item anytime soon.",
+                "Exit the forest and continue east along Route 205."
+            ]
+        },
+        "Route 205 (east)": {
+            "Text": [
+                "Once you exit Eterna Forest , you will come along a short path where there will be a bridge and a few Fishermen fishing. They will only battle if you talk to them. There is also large patch of tall grass, though there are no new Pokémon to catch here, as this is still the same Route you were on before you entered the forest. When you get through the grass, there are Berries to pick. There is also another Honey Tree and some Honey hidden behind it. You will reach Eterna City by going further east.",
+                "There is also a cuttable tree in this Route portion that can serve as a way to the southern segment of the Route, bypassing Eterna Forest. For now, however, continue east to Eterna City ."
+            ]
+        }
+    }
+}

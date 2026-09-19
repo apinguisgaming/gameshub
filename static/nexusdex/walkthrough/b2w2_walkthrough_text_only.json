@@ -1,0 +1,1962 @@
+{
+    "Part_1": {
+        "Intro": {
+            "Text": [
+                "After selecting New Game you are asked to choose your character's gender. This cannot be changed after selecting. The resident researcher of the Unova region, Professor Juniper , appears and introduces new Trainers to the Pokémon world. Her lecture is important for new players, though it's nothing new to veterans of the series. She also introduces the player's rival, Hugh . Once she is done talking, you are asked to enter your character's and your rival's names. The name cannot be changed, so double-check that you have what you want. Press OK and you are ready for your adventure!"
+            ]
+        },
+        "Aspertia City": {
+            "Text": [
+                "Your journey begins in Aspertia City , on the western edge of Unova . The Aspertia Outlook on the north side of the city offers a fantastic view of the region, spreading out to the north. The Aspertia Gym is located in the backyard of the Trainers' School, but the school is closed at the moment, so your challenge will have to wait."
+            ],
+            "Home": {
+                "Text": [
+                    "Mom starts talking to you as you try to leave home. She asks if you want a Pokémon and a Pokédex , so choose the obvious answer to show your determination to go on an adventure. She tells you that Professor Juniper 's assistant, Bianca , is outside looking for you. The girl with the big green hat is not from around here, and may have gotten lost.",
+                    "Outside, you meet your rival, Hugh . He already has a Pokémon, one he raised from an Egg, but wants someone to be his travelling partner. He offers to help you track down Bianca ."
+                ]
+            },
+            "Aspertia Outlook": {
+                "Text": [
+                    "As you climb the stairway to the platform, Hugh is sure that Bianca is up there. Sure enough, she is here enjoying the view. She asks if you will help complete the Pokédex , so accept the task. Talk to her again and she shows you a container with three Poké Balls inside, giving you a chance to choose your new partner Pokémon.",
+                    "After choosing a Pokémon, Bianca asks if you would like to give it a nickname. After that, she hands over your very own Pokédex !  When you try to leave, Hugh walks up and asks Bianca for his own Pokédex; luckily for him, she has an extra one. Then he challenges you to a battle.",
+                    "There is very little strategy to this battle. Regardless of which two Pokémon battle, they each have a similar moveset, so neither has an advantage. The fight will be over in three turns, barring a critical hit. If you win, you earn $ 500 and your Pokémon gains enough experience to reach level 6. If you lose, it's not the end of the world at all and nothing bad happens, other than you missing out on the money. Don't feel bad if you do lose, though."
+                ]
+            },
+            "Pokémon Center": {
+                "Text": [
+                    "Hugh leaves, and Bianca leads you off for a tour of the local Pokémon Center . These hospitals restore your Pokémon to full health and eliminate any status ailments that may afflict them. She gives you a brief description of the PC , which has not changed much. Finally, she leads you to the Poké Mart counter, where you can buy and sell items. Before she leaves, she gives you ten Poké Balls to start you on your journey. Nice!",
+                    "When you step outside, your Mom and Hugh's sister will show up. Mom gives you a pair of Running Shoes , which let you run by holding down the B Button. Hugh's sister gives you a Town Map , a map of the Unova region. She also gives you an extra map to take to her brother, who has already ventured out to Route 19 . Next, Bianca tells you that she will demonstrate how to catch a Pokémon, so follow her north through the gate. The attendant inside gives you a free Potion on your way through."
+                ]
+            }
+        },
+        "Route 19": {
+            "Text": [
+                "Route 19 is a short road that connects Aspertia City and Floccesy Town . It is located at the base of a mountain, so the north side of the route is lined with cliffs.",
+                "Bianca is waiting just outside the gate. She demonstrates how to catch wild Pokémon by catching a wild Purrloin in the tall grass, and explains a bit more about registering the data in the Pokédex. Once she leaves, follow the path eastward where a man named Alder calls down to you from atop the cliff. This powerful Trainer offers to help train your Pokémon a little before jumping down and leading you to his home in Floccesy Town ."
+            ]
+        },
+        "Floccesy Town": {
+            "Text": [
+                "In the center of Floccesy Town is a clock tower for which the town is famous. To the north is Pledge Grove , a tiny forest that is said to have a connection to a mythical Pokémon . When you meet Alder on the north side of town, he asks why you have two Town Maps , and after hearing your explanation, tells you that Hugh has been seen on Route 20 ."
+            ]
+        }
+    },
+    "Part_2": {
+        "Route 20": {
+            "Text": [
+                "Route 20 is a road that connects Floccesy Town and Virbank City . A river runs from the south all the way to Floccesy Ranch in the north. In autumn, the fallen leaves change the scenery dramatically. Hiker Jerome blocks the stairway to the east side of the route for now, and Hugh is nowhere to be found on the west side. He must have gone to Floccesy Ranch , so cross the bridge and head north."
+            ],
+            "Floccesy Ranch": {
+                "Text": [
+                    "Floccesy Ranch came about naturally as Pokémon and people gathered in the area. The ranch is owned and operated by a husband and wife. A rich forest lies just beyond the ranch's northern boundary.",
+                    "When you try to enter the pastures to the west, Hugh runs up to challenge you to another battle.",
+                    "After the battle, you deliver the extra Town Map to him. Just then, the ranch owner and his wife appear. She hands you a Potion , and he asks if either of you have seen their missing Herdier . Hugh gets angry at him for his careless attitude, and runs off to search for the dog. It's not in the pastures, so check the forest to the north. Hugh catches up to you near Janitor Orville to give you a Paralyze Heal . Go east to reach a grass patch with another Potion, then turn south to reach a clearing, where Herdier is cornered by a Team Plasma Grunt . Hugh dashes off to notify the owner, and the thug throws TM21 ( Frustration ) at you as a distraction while he escapes.",
+                    "Now that you have delivered the extra Town Map and found the lost Herdier, you can return to Floccesy Town to have Alder help train your Pokémon."
+                ]
+            }
+        },
+        "Floccesy Town": {
+            "Alder's house": {
+                "Text": [
+                    "After returning from Floccesy Ranch , Alder will ask you to battle his two students. Their Pokémon change depending on which first partner Pokémon you chose, so keep type match-ups in mind.",
+                    "When you step outside, you meet a man named Mr. Medal. He gives you a Medal Box , which lets you participate in the Medal Rally competition. You can earn a variety of Medals during your adventure by meeting various conditions, like finding hidden items or evolving a Pokémon. Talk to Mr. Medal in any Pokémon Center to receive them. There are 255 different Medals to collect. Once he leaves, Alder steps outside to inform you that the Aspertia Gym has reopened."
+                ]
+            },
+            "Pledge Grove": {
+                "Text": [
+                    "The path behind Alder 's house leads to Pledge Grove , a tiny clearing shrouded by trees. Bring Keldeo to inspect the deep cut marks on the boulder and it will learn Secret Sword , its signature move. As long as it knows this move, Keldeo will remain in its Resolute Form."
+                ]
+            }
+        },
+        "Aspertia City": {
+            "Trainers' School": {
+                "Text": [
+                    "The boy blocking the entrance moves out of the way, so you can finally visit the Trainers' School . The large blackboard describes the various status conditions , like Poison or Paralysis , that can affect a Pokémon. Talk to the boy nearby to get an X Defend . In the back of the building, a girl teaches you how to cancel a Pokémon's Evolution . Step through the back door to reach the Aspertia Gym . The man near the door, Clyde , will be waiting at every Gym to give you a Fresh Water ."
+                ],
+                "Aspertia Gym": {
+                    "Text": [
+                        "The Aspertia Gym specializes in Normal-type Pokémon. Cheren 's Pokémon all know the move Work Up , so defeat them quickly before getting hit by a powered-up attack. If you caught a Riolu in Floccesy Ranch , its Fighting-type attacks can inflict serious damage. If you're playing on Challenge Mode, then Riolu's Fighting-type attacks only inflict normal damage on Pidove so make use of Mareep 's Electric-type attacks if you caught one in Floccesy Ranch . If you have a Pidove or Purrloin , you can use Growl to counter Work Up .",
+                        "Defeated, Cheren awards you the Basic Badge , which makes all Pokémon up to level 20 obey, even those obtained in a trade. He also gives you TM83 ( Work Up ) as a prize.",
+                        "Bianca is waiting for you outside the Gym. Impressed with your victory, she gives you TM27 ( Return ) as well as the C-Gear . Cheren exits the Gym, and the three of you register each other's numbers in the Xtransceiver . Bianca also registers Professor Juniper 's number for you. Just then, Hugh shows up to challenge the Gym, and Cheren leads him to the battlefield. Bianca informs you that the next Gym is in Virbank City , east of Floccesy Ranch ."
+                    ]
+                }
+            }
+        },
+        "Floccesy Town (Visit 2)": {
+            "Text": [
+                "On your way back through Floccesy Town , Bianca shows up again to upgrade your Pokédex with the Habitat List, which shows every Pokémon seen and caught in an area. She also reminds you that Pokémon can sometimes be found in rustling grass before heading off again."
+            ]
+        },
+        "Route 20 (Visit 2)": {
+            "Text": [
+                "Cheren and Hugh catch up to you at the bottom of the stairway. Cheren explains that stronger Pokémon, sometimes even two at once, can be found in patches of dark grass . He gives you a few Pecha Berries to help with Virbank Gym , then leaves. Hugh stays here to train in the dark grass for now."
+            ]
+        }
+    },
+    "Part_3": {
+        "Virbank City": {
+            "Text": [
+                "Virbank City is an industrial port city often covered by clouds and smoke. The multi-level city uses bridges and stairways to allow residents to move about, and valuable items can be found in these passageways. Upon arriving in the city, Mom calls on the Xtransceiver to check in, and suggests that you visit the Virbank Complex at night for a nice view.",
+                "When you approach the Pokémon Center, you see the local Gym Leader, Roxie , arguing with her father. Pop Roxie usually ferries people to Castelia City and back with his ship docked at the pier, but has decided to become an actor at Pokéstar Studios . This is the only link from here to Castelia, and Roxie tells him that his selfishness will keep people from getting where they need to go. He won't listen, and leaves for the studios; Roxie heads for the Gym in a huff."
+            ],
+            "Virbank Complex": {
+                "Text": [
+                    "Virbank Complex is an industrial zone with a large crane and many storage tanks. The raised walkways allow the workers to avoid the tall grass below. The tanks and towers are lit up beautifully at night. If you catch a Magnemite here, its metal body will prevent it from getting poisoned at the Gym.",
+                    "There is an X Accuracy in the outer grass patch, and the Roughneck down the stairway to the east will offer to swap his Great Ball for your Poké Ball once a day. Follow the path behind him to find a Silk Scarf .",
+                    "Just inside the complex itself, the man near the tree has a favor to ask. He needs to get his three new Workers fired up, so you need to battle each of them. Follow the path southward and climb the stairway to the left. Take the raised walkways to the southeast to find Worker Isaac, and TM46 ( Thief ) nearby. Turn around and go north to meet Worker Mitchell, then head west. Jump down from the northwest walkway to reach Worker Nathan. With the three defeated, talk to their boss again to get TM94 ( Rock Smash ) as thanks.",
+                    "There is a Scientist talking to himself near the tower in the northeast. Speak to him, and he runs off to the smokestack in the southwest. Talk to him again and he moves to the clearing in the south. Speak to him here to get an Ether ."
+                ]
+            },
+            "Virbank Gym": {
+                "Text": [
+                    "The interior of the Virbank Gym is designed like a rock club. Roxie and her bandmates specialize in Poison-type Pokémon, so be sure to bring some Antidotes ! Psychic - and Ground-type attacks are the most useful, but Fire - and Flying-type moves are also effective against Venipede and Whirlipede . The band is playing so loud that Roxie can't hear you challenge her, so defeat Nicky and Billy Jo to stop the music.",
+                    "Roxie 's Whirlipede has the Poison Point Ability, which poisons your Pokémon after launching a direct attack. Use an Antidote quickly, because its Venoshock attack inflicts serious damage to poisoned opponents!",
+                    "Defeated, Roxie awards you the Toxic Badge , which makes Pokémon up to level 30 obey. She also gives you TM09 ( Venoshock ) as a prize.",
+                    "Stepping down from the stage, you are approached by a man who turns out to be a scout from Pokéstar Studios on the north side of town. Roxie overhears your conversation, and heads off to find her father."
+                ]
+            }
+        },
+        "Pokéstar Studios": {
+            "Text": [
+                "Pokéstar Studios is a facility where you and your Pokémon can become movie stars!  The movies are produced in the high-tech studio to the left, and the theater to the right can show up to eight movies at a time. The plaza holds some unique items, like a mini model of the Royal Unova and a model of Skyarrow Bridge in 1/144 scale. There's even a Harlequin who sells portraits of high-ranking stars.",
+                "Outside the gate, the scout introduces you to the boss of the studios, a man named Stu Deeoh. Then he gives a quick tour of the facilities. Pop Roxie is inside the theater, having just filmed his first movie. The scout asks you to see his movie to get a feel for how things work, but the movie isn't very good and the audience is not impressed. Disappointed, the captain returns to Virbank City . The scout invites you to the studio, where you costar with famous actor and former Icirrus Gym Leader, Brycen . Follow the scenario to complete the movie and you may unlock new scenarios."
+            ],
+            "Shooting a Movie": {
+                "Text": [
+                    "To act in a movie, talk to the assistant director in the Studio lobby to select a script. Your costar is usually a rental Pokémon, but after achieving a happy ending you can costar with your own Pokémon. Follow the script for a successful shoot. The words and Pokémon attacks that you choose determine the movie's plot. Completed movies are screened right away inside the Theater, and there is nothing else to do at this point, so just sit back and enjoy. After watching a movie once, you can stop it on later viewings with the B Button. Pay attention to reviews on the Theater's monitor; as your movies become more successful, your Star Rank will rise and you'll earn more fans, who may give you items. You'll get better items with a higher Star Rank.",
+                    "Each of your Pokémon have their own Star Rank, as well. As their Star Rank goes up, so does the Box Office Gross for that movie. Star Pokémon will display their own special effects in battle.",
+                    "Completing all 40 movies with happy endings will earn you a bronze statue in the plaza and access to the Studio's VIP Room, but this may not be so easy. Achieving a good ending requires the correct lines, but seemingly good lines are often wrong. Each of the five directors (Sergeo, Takashi, John, Sydney, and David) has their own preferences, so try to act out what they would like best. There are nearly two dozen Medals to earn here, as well."
+                ]
+            }
+        },
+        "Virbank City (Visit 2)": {
+            "Team Plasma Appears": {
+                "Text": [
+                    "With the Virbank Gym defeated, your next stop is Castelia City . Head southeast to the pier to find Roxie and Hugh confronting a few members of Team Plasma . Your friends take on the other Grunts, so talk to the one in the center to begin the battle.",
+                    "After suffering a sound defeat, the three Plasma Grunts run away as fast as they can. Before running off in pursuit, Roxie gives you HM01 ( Cut ) as thanks for your help. She asks the two of you to search Route 20 , and Hugh runs off.",
+                    "The Team Plasma grunt is waiting by the tall grass in Route 20."
+                ]
+            }
+        },
+        "Route 20": {
+            "Text": [
+                "Climb up the stairway in the center of the route and go south. The Plasma Grunt is hiding out in a small clearing just off the main path.",
+                "Before running off, she asks aloud why she ran inland, as she needs to get to the coast. Just then Hugh shows up, with news that Team Plasma is traveling in some kind of ship. Return to Virbank and head for the pier."
+            ]
+        },
+        "Virbank City (Visit 3)": {
+            "Text": [
+                "Pop Roxie has returned to the docks after his movie didn't do very well. He is feeling discouraged, but Roxie cheers him up, and he decides to return to his job as captain. Enter the building to find Hugh standing at the counter. He asks if you are headed to Castelia too, and the two of you board the ship for the big city."
+            ]
+        }
+    },
+    "Part_4": {
+        "Castelia City": {
+            "Text": [
+                "Castelia City is home to many towering skyscrapers, and is the largest city in Unova . The elegant cruise ship, the Royal Unova , docks near the Pokémon Center, and other ships provide transportation to Virbank City and Liberty Garden . The Castelia Sewers connect the city to otherwise-inaccessible areas.",
+                "When you and Hugh leave the ship, he asks that you register each other in the Xtransceiver . If you call him up, he will give you advice about where to go next on your journey. Pop Roxie will be waiting here, so you can return to Virbank City anytime."
+            ],
+            "Oceanfront Road": {
+                "Harlequin Hunt": {
+                    "Text": [
+                        "When you step onto Oceanfront Road, you are stopped by a Harlequin , who is advertising the Castelia Harlequin Hunt. To complete the hunt, you need to speak to three other Harlequins scattered across the city; one is waiting in the Medal Office, another is in Passerby Analytics HQ, and the third is hiding out in the Battle Company building. This Harlequin gives you a Bicycle to help you travel around the city faster. After you meet the three others, you can talk to this clown again to receive a Rare Candy ."
+                    ]
+                },
+                "Bridge Gate": {
+                    "Text": [
+                        "The gate on the city's east side leads to Skyarrow Bridge . Talk to the dark-haired woman inside to get a Quick Claw . A Worker blocks the way to the bridge; his team is busy inspecting the bridge, so it may be a while until it is open to the public again."
+                    ]
+                },
+                "The Royal Unova": {
+                    "Text": [
+                        "At the Cruise Ship Dock, the Royal Unova can be boarded in the evening for a fare of $ 1,000. Defeating a certain number of Trainers earns you a prize, but both of these change depending on the day. The ship returns to port after a certain amount of time has passed."
+                    ]
+                },
+                "Battle Company": {
+                    "Text": [
+                        "The Battle Company stands to the left of the Harlequin. Inside, a Janitor near the entrance gives you an Exp. Share , which lets a Pokémon earn experience even if it does not battle. To the right, a female Ace Trainer asks which Pokémon that you took on your journey, and gives you a special item for it; a Miracle Seed for Snivy , a Charcoal for Tepig , or a Mystic Water for Oshawott . The first of the three Hunted Harlequins is seated at the other table.",
+                        "Battle the Clerk♂ near the elevator to get a couple of Quick Balls , then fight the Clerk♂ in the center of the room to receive 5 Timer Balls . There is a Guard Spec. near the female Clerk, and the Scientist gives you a Scope Lens .",
+                        "Grab the Ether to the left, then go right to meet the Janitor from the entrance. The elderly man used to be the Battle Company's President, a title that now rests with his grandson. When you defeat him, he claims that his dream as president is to release a device that lets people talk to Pokémon."
+                    ]
+                },
+                "Unity Pier": {
+                    "Text": [
+                        "Unity Pier is across from Narrow Street, in the center-west part of the city. The blue ship here ferries people to Unity Tower , which is only accessible after completing an international trade. If you talk to the girl she will give you one Destiny Knot ."
+                    ]
+                },
+                "Liberty Pier": {
+                    "Text": [
+                        "The ship at the westernmost pier travels to Liberty Garden . Unlike Black and White , the Liberty Pass is not required to reach the island.",
+                        "Liberty Garden is an island that was bought 200 years ago by a wealthy person who wished for a world where humans and Pokémon could live freely. The lighthouse in the center of the island has a small room with evidence that a small Pokémon once lived here alone."
+                    ]
+                },
+                "Passerby Analytics HQ": {
+                    "Text": [
+                        "When you enter the Passerby Analytics HQ across from Liberty Pier and talk to the lead researcher, he will appoint you to a job as a statistician. This title lets you receive Passerby Survey requests, and interact with other players. Complete the questionnaires to receive a variety of items. He will reward you with a Soda Pop when you complete all the surveys."
+                    ]
+                }
+            },
+            "Castelia Street": {
+                "Castelia Street building": {
+                    "Text": [
+                        "In the building on the left side of the street, a female Guitarist on the eleventh floor will give you TM44 ( Rest )."
+                    ]
+                },
+                "Game Freak": {
+                    "Text": [
+                        "Across the street, you can visit with Game Freak , the people who made Black 2 and White 2 . You can battle Morimoto and Nishino each once per day. There is also a Revive lying nearby. If you meet with the Game Director at the desk in the corner after completing the Pokédex , he will reward you with a certificate that will be posted on the wall of your bedroom."
+                    ]
+                }
+            },
+            "Mode Street": {
+                "Casteliacone": {
+                    "Text": [
+                        "This ice cream shop offers its famous soft-serve treat to customers only once per day. These tasty treats eliminate any status problems a Pokémon might have. They can be bought individually or by the dozen for $ 100 apiece, except in winter."
+                    ]
+                },
+                "Studio Castelia": {
+                    "Text": [
+                        "Across from Casteliacone is Studio Castelia, which displays many paintings from local artists. The man near the sculptures wants to see a different type of Pokémon every day. If you show him a Pokémon of the correct type, he will reward you with either a Cheri , Chesto , Pecha , Rawst , or Aspear Berry ."
+                    ]
+                }
+            },
+            "Narrow Street": {
+                "Text": [
+                    "When you pass by the dumpsters outside Café Sonata, you are stopped by a man looking for his sunglasses, who gives you TM70 ( Flash )."
+                ],
+                "Café Sonata": {
+                    "Text": [
+                        "In the center-left part of the city is Café Sonata. Many people stop to relax here after a long day of work. A Meloetta can learn Relic Song from the Musician, and the manager gives you a Moomoo Milk on your first visit."
+                    ]
+                }
+            },
+            "Gym Street": {
+                "Western building": {
+                    "Text": [
+                        "On the first floor are three people; the Name Rater , the girl at the table is a Pokémon groomer , and woman is the Feeling Checker . The Medal Office is located on the second floor; here you can check your Medal rank and number of Medals. Visit after collecting 50 Medals for your first rank-up ceremony. Fennel 's Lab is on the third floor; she and her assistant explain the Game Sync , while Amanita explains the PC Boxes and Pal Pad ."
+                    ]
+                },
+                "Burgh is away": {
+                    "Text": [
+                        "Clyde is blocking the entrance to Castelia Gym , and claims that Burgh is not here. Just then a girl named Iris , who used to be the Opelucid Gym Leader, shows up. The two of you talk about Team Plasma , and she says that she may know a place where suspicious people would go to hide. Follow her east along Oceanfront Road to Thumb Pier, where you can enter the Castelia Sewers . Hugh arrives suddenly and enters the tunnels without a blink, so follow him inside."
+                    ]
+                }
+            },
+            "Castelia Sewers": {
+                "Text": [
+                    "The water level inside the Castelia Sewers changes depending on the season. As the waters rise in spring and summer, and recede in autumn and winter, new areas become accessible while others are closed off. Traveling through the Sewers is the only way to reach Back Street and the Empty Lot.",
+                    "Inside the Sewers, your rival suggests that the two of you team up. He will help you battle wild Pokémon, but not against other Trainers. He heals your Pokémon after every battle, so take advantage of this to train your team. With him around, wild Pokémon will appear in pairs, so knock one out before trying to catch the other.",
+                    "Head west and climb the north stairway.  At the end of the walkway is a TwistedSpoon and a pair of Team Plasma Grunts . Once you and your rival beat them in a Double Battle, they run off claiming that they got the Pokémon they needed. Hugh is anxious to look for more Plasma members, but the Gym Leader, Burgh , arrives and claims that he did not see any other suspicious people. Hugh gives you HM04 ( Strength ) as thanks for your help, then leaves. Just then, a mysterious man in a white coat exits the cave, and it seems that he was watching your battle. He praises the way you battled and leaves. Burgh leaves as well, leaving you free to explore the sewers.",
+                    "Not far to the south is a stairway leading up to the Empty Lot. This tiny park has a ring of tall and dark grass, a Miracle Seed , and a man who claims that this is where it all started for Castelia.",
+                    "Go south from the stairway, and check the island west of Janitor Felix for an X Sp. Def . Continue west to the next island to reach Doctor Heath and some Leftovers . In the nearby room, a female Scientist is trying to turn poison into medicine, and will give either a Potion , Super Potion , or Revive once per day, depending on her experiment's results. Now head east to the exit; you've got another Gym to challenge!"
+                ]
+            },
+            "Castelia Gym": {
+                "Text": [
+                    "The Castelia Gym specializes in Bug-type Pokémon, and the building's theme is based on cocoons. Some of the cocoons are connected by strands of silk, and when you approach them, they pull you in and transport you to another one. Some of them have more than one entrance, and the direction they take you depends on which way you are facing. Battle Harlequin Gary and enter the east cocoon from the right side, then fight Harlequin Anders and enter the next cocoon from the left side to reach Burgh .",
+                    "Burgh's Swadloon and Leavanny have a double weakness to Fire - and Flying-type attacks, his Shelmet and Karrablast are weak to Fire-, Flying- and Rock-type moves while his Dwebble is vulnerable to Water - and Rock-type moves. If you can't exploit these weaknesses, an alternative tactic is to use TM70 ( Flash ) to lower his Pokémon's accuracy.",
+                    "After the battle, Burgh awards you the Insect Badge , which makes all Pokémon of level 40 or less obey you. He also gives you TM76 ( Struggle Bug ) as a prize."
+                ]
+            },
+            "Central Plaza": {
+                "Text": [
+                    "Talk to the old man near the fountain to add the Entralink Funfest Mission, Train with Martial Artists . Nearby, the man in the white coat identifies himself as Colress and asks to battle you for research purposes. He will wait for you on Route 4 ."
+                ]
+            },
+            "Street to Route 4": {
+                "Text": [
+                    "In the building on the left, an old man gives you an Amulet Coin on the first floor. There are two buildings on the right. On 47F of the south building, a girl will give you TM45 ( Attract ). In the north building, a Scientist on the first floor gives you an Eviolite if you've seen at least 40 different Pokémon, and a Charcoal lies on 47F."
+                ]
+            }
+        }
+    },
+    "Part_5": {
+        "Desert Resort": {
+            "Text": [
+                "The Desert Resort is a large desert with an ever-raging sandstorm. Two years ago, there were two entrances to the ruined Relic Castle in the north, but the tower in the west has been buried since then. There are many items hidden in the sand to put your Dowsing MCHN to good use."
+            ],
+            "The Nurse Heals Your Pokémon": {
+                "Text": [
+                    "Nurse Mariah stands in the southeast part of the desert, not far from the gate. Once you defeat her, talk to her again and she will heal your Pokémon to full health every time. Be sure to visit her when your Pokémon get worn down from the sandstorm."
+                ]
+            },
+            "Add a Funfest Mission": {
+                "Text": [
+                    "In the northwest part of the desert, a Pokémon Ranger will unlock another Funfest Mission , either Get Rich Quick! B2 or Treasure Hunt! W2 ."
+                ]
+            },
+            "Relic Castle": {
+                "Text": [
+                    "The Relic Castle is made up of ruins with a glorious history that have since become buried by the sands. Quicksand falls from the ground floor, pulling any unsuspecting tourists to the floor below. Only the top two floors are accessible from the desert.",
+                    "After exploring the ruins, head east from the desert and turn north to reach Join Avenue ."
+                ]
+            }
+        },
+        "Join Avenue": {
+            "Text": [
+                "Join Avenue is a shopping center that was built north of Route 4 . The place is still new and has not yet acquired any vendors, but will likely be a popular attraction soon. Come back here daily to expand it into a valuable resource for training and evolving your Pokémon later on."
+            ],
+            "Become a Manager": {
+                "Text": [
+                    "Inside, you meet the Avenue's owner and his assistants. He is too busy with other Avenues to manage this one, and asks that you take his place as manager. After accepting his request, he asks about your favorite phrase, and what you say when you are moved. Each answer can be up to eight characters long, and will be communicated to others through Tag Mode, so choose words that make people happy. The owner thanks you and leaves, but his assistants Jacci and Future stay behind to help out. They can always be found at the office if you need to change your title or favorite phrase."
+                ]
+            },
+            "Development": {
+                "Text": [
+                    "The avenue develops as you communicate with more people. First, you need to invite visitors to be residents of the avenue, so they set up shop here. Recommending these shops to visitors raises not only the shops' popularity, but that of the avenue as well. More popular shops will have a wider selection of products."
+                ],
+                "Communication": {
+                    "Text": [
+                        "There are several ways to attract visitors. Not only passersby using Tag Mode will visit, but people you interact with through the C-Gear , meet in the Union Room , or trade with over the GTS will also appear. Even if you do not communicate with others, a few visitors will pass through the avenue every day, so you can still develop the area."
+                    ]
+                },
+                "Building a Shop": {
+                    "Text": [
+                        "Speak to a visitor to hear what kind of dream they have. After being invited to be a resident, he or she will build one of eight kinds of shop. Nurseries cannot be built until you enter the Hall of Fame and the avenue rank is 15 or more."
+                    ]
+                },
+                "Rise in Popularity": {
+                    "Text": [
+                        "As you recommend shops to visitors, the popularity of the shops and the avenue rises, and the shops' rank goes up. Recommend shops that visitors will like; if others are recommended, the visitors will leave. As a shop's rank rises, it will have more products available. A shop's rank goes up to 10. As the avenue's rank rises, you will earn various rewards. The avenue's rank goes up to 100."
+                    ]
+                }
+            }
+        }
+    },
+    "Part_6": {
+        "Nimbasa City": {
+            "Text": [
+                "Nimbasa City is a city of leisure, with facilities like the Battle Subway , Pokémon Musical , and even an amusement park. Two sports arenas, Big Stadium and Small Court , are also located here. The Nimbasa Gym was originally located where the Shining Roller Coaster stands, but has since moved to a new building east of the Rondez-View Ferris wheel."
+            ],
+            "Pair up against the Subway Bosses": {
+                "Text": [
+                    "When you enter the city, Subway Bosses Ingo and Emmet are standing outside of Gear Station . Talk to the Pokémon Trainer in front of them to team up against the conductors. Male players will team up with Rosa, while female players will team up with Nate. Your partner's Pokémon changes depending on which starter Pokémon you chose; Dewott if you chose Snivy , Servine if you chose Tepig , or Pignite if you chose Oshawott .",
+                    "Afterwards, the Subway Bosses return to the Subway and your partner thanks you with a Vs. Recorder . This item lets you record a video of a battle in the Subway, or a Link Battle with a friend."
+                ]
+            },
+            "Gear Station": {
+                "Text": [
+                    "From Gear Station , you can board any one of the eight railway lines. The seven others lead to their respective challenges, but the Brown Line is different. Rather than have you battle another group of Trainers, this line is the only way to reach Anville Town far to the northwest."
+                ],
+                "The Battle Subway": {
+                    "Text": [
+                        "In the Battle Subway , you earn Battle Points for every seven Trainers you defeat. These points can be redeemed at the Exchange Service Corner for rare items .",
+                        "Each train uses its own battle format. The Single Train uses Single Battles, while the Double Train uses Double Battles. The Multi Train pairs you up with another Trainer, with each using two Pokémon. The Super Single, Super Double, and Super Multi Trains become available after reaching 21 consecutive wins on each of the three other lines. Lastly, the Wi-Fi Train allows you to battle Trainers from around the world.",
+                        "There are seven Battle Medals to be earned here, and three of them can only be obtained by defeating the Subway Bosses. Also, one of three trophies will be displayed at home in Aspertia after reaching 49 straight wins on any of the Super Trains."
+                    ]
+                }
+            },
+            "Big Stadium and Small Court": {
+                "Text": [
+                    "Big Stadium and Small Court are the major sports venues of the Unova region. The stadium hosts baseball, soccer, and football games, while the court hosts tennis and basketball games. The players double as Trainers and can be battled daily, unless a game is in progress. The number of Trainers and the levels of their Pokémon increase as you earn more Badges. Keep yourself fighting fit by visiting every day."
+                ]
+            },
+            "Musical Theater": {
+                "Text": [
+                    "The Musical Theater on the north side of the city is where the Pokémon Musical is held. When you step inside, the owner gives you a Prop Case so you can participate. A girl near the PC gives you TM49 ( Echoed Voice ) as well."
+                ]
+            },
+            "Amusement Park": {
+                "Text": [
+                    "The amusement park is located on the east side of the city. South of the entrance is the Dropped Item , a lost Xtransceiver . The owner soon calls, and the two of you gradually become friends. Male players will meet Yancy , while female players will meet Curtis . Eventually, you will be able to trade Pokémon."
+                ],
+                "Shining Roller Coaster": {
+                    "Text": [
+                        "Two years ago, the Nimbasa Gym was located in this building. There are still Ladies and Rich Boys looking to battle here. Proceed by pressing switches to change the coaster's path. Talk to the woman at the back of the building to get a Parlyz Heal to help out at the new Gym."
+                    ]
+                },
+                "Rondez-View Ferris Wheel": {
+                    "Text": [
+                        "There is a Pokémon Trainer in front of the Ferris wheel. The Trainer varies depending on the season and the player's gender. After defeating the Trainer, you can ride the Ferris wheel together."
+                    ]
+                },
+                "Nimbasa Gym": {
+                    "Text": [
+                        "Elesa has moved the Electric-type -specialist Nimbasa Gym to a new building east of the Ferris wheel. The supermodel has designed her Gym with a large runway through the center. A new section is lit up as you approach each Gym Trainer, until you reach Elesa singing on the stage. Her Pokémon frequently use Volt Switch to shuffle in and out of battle. Flaaffy and Zebstrika are vulnerable to Ground-type attacks, while Emolga fears Rock-type moves. Pokémon from the desert, like Sandile or Sandshrew , are immune to electrical attacks and should have little trouble here.",
+                        "After the battle, Elesa awards you the Bolt Badge , which ensures that all Pokémon up to level 50 will obey you. She also gives you TM72 ( Volt Switch ) as a prize."
+                    ]
+                }
+            },
+            "Hugh and Team Plasma face off": {
+                "Text": [
+                    "Hugh is arguing with four Plasma Grunts outside Big Stadium . He is clearly angry with them, and the Grunts are also itching for a fight.",
+                    "Before running off, they brag about searching for a power source for their secret weapon. Afterwards, Hugh explains that Team Plasma stole his little sister's Purrloin five years ago. He restores your Pokémon's health before chasing after Team Plasma."
+                ]
+            }
+        },
+        "Anville Town": {
+            "Text": [
+                "The only way to reach Anville Town in Unova 's far northwest is by taking the Brown Line from Nimbasa 's Gear Station. A large turntable for changing a train's direction sits in the center of town. On weekends, the town is bustling with tourists that visit to watch the trains come and go. Some tourists may even want to trade items."
+            ],
+            "The Missing Pansage": {
+                "Text": [
+                    "Talk to the girl on the platform to learn that her Pansage has gotten lost somewhere in Nimbasa City . Luckily it has been found by a Depot Agent, who is waiting outside the Musical Theater. Talk to him about the girl, then tell her where Pansage turned up. As thanks for finding it, she gives you a BrightPowder . She also remarks that a green-haired man told her that Pansage wants to be a railroad conductor."
+                ]
+            },
+            "Funfest Mission": {
+                "Text": [
+                    "When you trade an item with the Backpacker, a new Funfest Mission is added. The mission is either named Exciting Trading B2 or Exhilirating Trading W2 ."
+                ]
+            },
+            "Lost & Found": {
+                "Text": [
+                    "A Depot Agent in the southeast house will give you a lost Rare Candy the first time you talk to him. After seven consecutive battles on the Battle Subway , he will give out a number of Vitamins , Full Restores , Revives , or Elixirs for each set of seven victories at the Battle Subway that day, capping at ten per day."
+                ]
+            },
+            "The turntable": {
+                "Text": [
+                    "Anville Town is known for its connection with locomotives. Every day, a different train engine can be found on the turntable, most of them a part of the Battle Subway. A Worker on the bridge explains a bit about each one."
+                ]
+            }
+        },
+        "Route 16": {
+            "Text": [
+                "Route 16 is a short route that connects Nimbasa City and Marvelous Bridge . The elevator to the bridge is out-of-order, so eastward travel is blocked for now. On the north side of the route, a small grove of trees leads to Lostlorn Forest . When you are finished here, cross westward through the city to reach Route 5 ."
+            ],
+            "Bridge Gate": {
+                "Text": [
+                    "No one can cross the bridge yet, but you can still visit the Bridge Gate. Talk to the Roughneck near the vending machine, and he gives you an extra Fresh Water that the machine dispensed to him."
+                ]
+            },
+            "Lostlorn Forest": {
+                "Text": [
+                    "Two years ago, Lostlorn Forest was a grove thick with trees. But this was only an illusion created by a Zoroark , and the real forest looked like it does now."
+                ],
+                "Battle with the Pokémon Breeder": {
+                    "Text": [
+                        "Like Irene on Route 4 , Pokémon Breeder Galen will rebattle you with the same team whenever you revisit the forest."
+                    ]
+                },
+                "The Rangers' Reward": {
+                    "Text": [
+                        "The two Pokémon Rangers here, Serenity and Forrest, each give you a different Berry when you defeat them. Serenity, hiding in the tall grass, rewards you with a Pecha Berry . To the northeast, Forrest rewards you with a Cheri Berry ."
+                    ]
+                },
+                "A Rare TM": {
+                    "Text": [
+                        "Talk to the odd Backpacker in the northwest part of the forest to hear about Zoroark 's visit two years ago. He gives you TM95 ( Snarl ), and transforms into a Zoroark as he runs off."
+                    ]
+                }
+            }
+        }
+    },
+    "Part_7": {
+        "Route 5": {
+            "Text": [
+                "Route 5 is a short path that leads from Nimbasa City to the Driftveil Drawbridge in the west. It is usually a lively place because many Pokémon Trainers like to gather here."
+            ],
+            "Bianca's HM": {
+                "Text": [
+                    "As you leave Nimbasa , Bianca catches up to you. She gives you HM02 ( Fly ), which lets you instantly return to any familiar city or town. Use it on something like Pidove or Sigilyph ."
+                ]
+            },
+            "Hidden Grottoes Revealed": {
+                "Text": [
+                    "After handing over the HM, Bianca claims that she hears something. She leads you north, where she hears a rustling in the trees. She explains that this must be a Hidden Grotto , one of many scattered across the region. These grottoes are hard to find, they simply look like a large shadow under a group of trees. Inside, you can meet a Pokémon with its Hidden Ability , a visible item, or a hidden item. After a while, another Pokémon may show up, or another item may appear. This grotto happens to have a Minccino inside, which has its Hidden Ability Skill Link . Bianca leaves you to catch it, or not, on your own."
+                ]
+            },
+            "The Berry Seller": {
+                "Text": [
+                    "A woman near the gate sells a bunch of five Berries every day for $ 200. These bunches may be Pomeg , Kelpsy , Qualot , Hondew , or Grepa Berries . She only sells one bunch per day."
+                ]
+            },
+            "The Hungry Maid": {
+                "Text": [
+                    "The Maid inside the trailer is trying to cook a meal, but is looking for more ingredients. If you give her any edible item , like Berry Juice or Casteliacone , she will pay for your generosity. The items she receives are worth anywhere from $ 20 to $ 30,000."
+                ]
+            },
+            "Battle the Musician": {
+                "Text": [
+                    "Defeat Musician Preston to receive a new Prop for the Pokémon Musical , an Electric Guitar."
+                ]
+            },
+            "Roadblock": {
+                "Text": [
+                    "A large crowd is gathered on the west side of the route. The drawbridge is blocked by a Motorcyclist, his name... Charles. A male Ace Trainer asks for help, so get ready to battle. Charles challenges you to a Rotation Battle B2 or a Triple Battle W2 , so check the order of your party members.",
+                    "The crowd disperses when Charles is defeated, and you can proceed west over the drawbridge."
+                ]
+            }
+        },
+        "Driftveil Drawbridge": {
+            "Text": [
+                "The Driftveil Drawbridge is managed by the Driftveil Gym Leader, and is raised and lowered to accommodate the city's shipping schedule. Bird Pokémon frequently fly over the bridge, and may drop a few feathers . All but one of the seven varieties can be used to raise a Pokémon's Effort values . Most of these can also be sold for $ 1500, making them a handy source of quick cash. Sometimes Ducklett may rest on the bridge, as well."
+            ],
+            "Funfest Mission": {
+                "Text": [
+                    "By talking to the man on the east end of the bridge, the Funfest Mission Wings Falling on the Drawbridge will be added."
+                ]
+            },
+            "The Youngster's Wish": {
+                "Text": [
+                    "In the center of the bridge stands a Youngster. He would like to see a Charizard , for which the bridge is nicknamed. If you speak to him with one in your party, he hands over a Heal Powder as thanks."
+                ]
+            }
+        },
+        "Driftveil City": {
+            "Text": [
+                "Driftveil City is a major port city that distributes a large variety of goods. The Driftveil Market sells items found nowhere else in Unova . The city was developed considerably over the last two years, and is now filled with many hotels. In the northwest, construction has begun on Clay Tunnel , a shortcut to Twist Mountain , which is still ongoing."
+            ],
+            "Team Plasma, Old & New": {
+                "Text": [
+                    "On your way into the city, you meet a former member of Team Plasma arguing with a current member, who is trying to convince his friend to rejoin the group. He refuses, saying that it will make his lord N sad. The current member laughs, calling the team's former \"king\" a traitor who disappeared when they needed him. Hugh arrives suddenly and the current member runs off, with Hugh not far behind. The former member invites you to hear more of their history at their old base, west of the Gym."
+                ]
+            },
+            "Grand Hotel": {
+                "Text": [
+                    "Grand Hotel Driftveil stands near the stone bridge. Speak to the old man on the first floor; if you have seen at least 70 different Pokémon, he rewards you with a Shell Bell . After that, take the elevator to 19F and play with the Axew to receive the Haban Berry it was holding."
+                ]
+            },
+            "Luxury Suites": {
+                "Text": [
+                    "Driftveil Luxury Suites sits in the southwest. On the first floor, a Lady asks to see a Pokémon with a certain move; fulfill her request to receive a Heart Scale . She asks to see a new move every day. On 23F, a Waiter gives you an Everstone ."
+                ]
+            },
+            "Continental Hotel": {
+                "Text": [
+                    "The Driftveil Continental Hotel is located in the northeast part of the city. Talk to the Veteran on 25F to receive a Big Root ."
+                ]
+            },
+            "Chateau Hotel": {
+                "Text": [
+                    "The Chateau Hotel can be found north of the Market. On the first floor, you meet a master Move Tutor who is interested in Red Shards . Give him a certain number of them to have him teach a Pokémon a new move. On 25F, a Gentleman gives you an Air Balloon ."
+                ]
+            },
+            "Move Tutor": {
+                "Text": [
+                    "The house next to the Chateau Hotel belongs to the local Move Tutor. He is obsessed with Red Shards , and will teach a variety of moves for the right number of Shards. The Driftveil Gym's weaknesses include Ice - and Grass-type attacks, so you may want to have him teach Ice Punch or Seed Bomb ."
+                ]
+            },
+            "Former Plasma Base": {
+                "Text": [
+                    "When you visit the former Plasma base on the hill near the Gym, you meet an old man named Rood standing outside. He wishes to have a battle to determine what kind of person you are.",
+                    "Afterwards, Hugh shows up and Rood leads you both into the building. Rood explains how he and the other former Plasma members are repenting for their misdeeds from two years ago. Hugh asks where is his sister's missing purrloin but Rood suggests that Team Plasma is still using it. Hugh now leaves to defeat the Pokemon Gym. Rood then asks you to look after a Pokémon for him, a Zorua that once traveled with N ."
+                ]
+            },
+            "Driftveil Gym": {
+                "Text": [
+                    "The Driftveil Gym specializes in Ground-type Pokémon. In keeping with his Miner King title, Clay has established his Gym in a large underground cavern littered with green crystals. To reach the Gym Leader in the northeast, challengers must navigate a series of conveyor belts through the shadowy chamber. A spotlight snaps on over each platform you visit, and there are four platforms that function as lifts so you can get a better view of your surroundings.",
+                    "Clay 's favorite move, Bulldoze , lowers his opponent's Speed when it hits. To counter this, give your fighters a Quick Claw to let them sometimes attack first. As for his team, all three (or four, if you're playing Challenge Mode) of Clay's Pokémon are weakened by Water-type attacks. As an alternative, his Krokorok and Sandslash are both vulnerable to Grass-type moves- while Krokorok, Onix and Excadrill are afraid of Fighting-type moves.",
+                    "For defeating him, Clay awards you the Quake Badge , which ensures that all Pokémon of level 60 or less obey. He also gives you TM78 ( Bulldoze ) as a prize.",
+                    "Clay then leads you out of the Gym, where you meet up with Hugh again. Clay invites the two of you to the Pokémon World Tournament located south of the city. Hugh rages against Clay for letting former members of Team Plasma live in his city; while Clay tries to calm him down, Hugh does not seem convinced and runs off to the south. Follow him to the World Tournament area."
+                ]
+            }
+        }
+    },
+    "Part_8": {
+        "Pokémon World Tournament": {
+            "Text": [
+                "The Pokémon World Tournament is a facility south of Driftveil City that stands on the former Cold Storage site. Famous Pokémon Trainers from around the world gather here to compete against one another. Outside the building, several vendors stand ready to teach new moves to the competitors' Pokémon. To the west, the north side of the Relic Passage can be found."
+            ],
+            "Hidden Power Guy": {
+                "Text": [
+                    "The man in the northwest booth is able to see what type of Hidden Power a Pokémon will have. If you plan to teach the move, be sure to see what he has to say."
+                ]
+            },
+            "Move Reminder": {
+                "Text": [
+                    "The girl in the southwest booth is the Move Reminder. For the price of one Heart Scale per transaction, she will re-teach an old move that your Pokémon has forgotten."
+                ]
+            },
+            "Move Deleter": {
+                "Text": [
+                    "East of the Move Reminder is the Move Deleter. This old man can help a Pokémon forget one of its moves, even HM moves that can't normally be forgotten."
+                ]
+            },
+            "Ultimate Move Tutor": {
+                "Text": [
+                    "The old man at the southeast booth can teach an ultimate move to any fully-evolved starter Pokémon. However, it must share a strong bond with its Trainer. The quiet Grass Pokémon like Serperior can learn Frenzy Plant , the blazing Fire Pokémon like Emboar can learn Blast Burn , and the restless Water Pokémon like Samurott can learn Hydro Cannon ."
+                ]
+            },
+            "Battle-Combo Move Tutor": {
+                "Text": [
+                    "The man in the easternmost booth teaches a special move to any members of the starter Pokémon families. Grass-type Pokémon like the Snivy family can learn Grass Pledge , Fire-type Pokémon like the Tepig family can learn Fire Pledge , and Water-type Pokémon like the Oshawott family can learn Water Pledge . Using these moves on the same turn in a Double or Triple Battle will raise their power to 150, and activate additional effects."
+                ]
+            },
+            "World Tournament building": {
+                "Text": [
+                    "Hugh and Clay are waiting outside the PWT building. When you approach, the Gym Leader proudly guides the two of you into the elaborate tournament hall. Inside is Cheren , who was busy investigating something when he was strong-armed by Clay into participating. Follow him and Hugh north to register in the tournament."
+                ],
+                "Driftveil Tournament": {
+                    "Text": [
+                        "Three consecutive victories are needed to win the Driftveil Tournament . The use of items is prohibited during the tournament, so hand out items to your Pokémon before registering. Opponents are not usually decided ahead of time, but for your first tournament, you will need to defeat Hugh , Cheren , and Colress .",
+                        "After earning 1 BP for winning the tournament, Roxie comes and tells that she will join the tournament. Clay thanks us for making Driftveil City popular and then leaves. Now head outside to see Team Plasma members passing by the building. Colress tries to stop Hugh from chasing them, but he doesn't listen, and follows them south to the pier. Rest up before following him."
+                    ]
+                }
+            }
+        },
+        "Plasma Frigate": {
+            "Text": [
+                "A large ship is moored at the pier. Go with Hugh and Cheren to storm the ship, which turns out to be Team Plasma's base of operations . The three of you are immediately surrounded by a crowd of Grunts. Defeat the first two on your own, then team up with Cheren then Hugh to take out the others.",
+                "Zinzolin , one of the Seven Sages , emerges from the ship and declares that Team Plasma will rule Unova . He calls the Shadow Triad to appear, and they whisk the three of you off of the ship. Hugh runs off in a huff, and Cheren sets out for Route 6 ."
+            ]
+        },
+        "Relic Passage": {
+            "Text": [
+                "The Relic Passage is a large underground cave that was only recently discovered. It connects the Pokémon World Tournament and the Castelia Sewers . One of the tunnels leads to the lowest floor of the Relic Castle , buried deep under the desert sands. The dust clouds that randomly pop up not only give you a chance of encountering a wild Drilbur or Onix , but it also gives you a chance of acquiring a random colored shard . This can help with collecting the shards you need to trade in to a Move Tutor for your Pokémon to learn any compatible move they offer."
+            ],
+            "North chamber": {
+                "Text": [
+                    "Speak to the Worker near the entrance to add a new Funfest Mission, Find Treasure! , to the Entralink . Follow the tunnel eastward, then north to reach a Protein near Backpacker Randall. Battle Hiker Keith in the southeast, and step through the opening in the wall to reach the middle chamber."
+                ]
+            },
+            "Middle chamber": {
+                "Text": [
+                    "Go south to reach a small lake. A Big Pearl lies on the lake's west side, while a Blue Shard is hidden in a rock to the south, and a Max Repel hides in the dead-end path to the southeast. Continue eastward to fight Psychic Tully, and check the nearby rock for a Green Shard . Head northeast to battle Psychic Ena, then check the rock here for a Red Shard . Move the boulder out of the way, and walk through the northeast opening to reach the Relic Castle ."
+                ]
+            }
+        },
+        "Relic Castle": {
+            "Text": [
+                "The lowest floor of the Relic Castle consists of five rooms connected in a row, plus a sixth room north of the middle room. Visit the easternmost room to get an Ultra Ball , and check the center room for a hidden Sun Stone . The north room is home to the Bug / Fire Pokémon Volcarona . If you defeat Volcarona, it will respawn when you enter the Hall of Fame again."
+            ]
+        },
+        "Relic Passage (Visit 2)": {
+            "Middle chamber": {
+                "Text": [
+                    "Head southwest to fight Backpacker Annie, and check the rock near her to find a Yellow Shard . Turn east and climb the stairway to reach the south chamber."
+                ]
+            },
+            "South chamber": {
+                "Text": [
+                    "Go southeast and move the boulder over to the hole in the ground. Head north through the long tunnel to reach a small room in the middle chamber, where an Ultra Ball , Rocky Helmet , Rare Candy , and hidden Rock Gem can be found. Return to the boulder and jump the first ledge to the west to reach a Max Repel . Jump the last ledge and head east; this part of the passage was accessible when you first reached the Castelia Sewers . An Escape Rope lies north of Scientist Terrance, and a Hard Stone sits to the west of Scientist Lumina. Head south to exit through the sewers.",
+                    "Fly back to Driftveil City , and go west to reach Route 6 ."
+                ]
+            }
+        }
+    },
+    "Part_9": {
+        "Route 6": {
+            "Text": [
+                "Route 6 is a road surrounded by rich nature.  The path crosses back and forth over the river and continues on past the Season Research Lab. Chargestone Cave lies further north, and Mistralton Cave stands to the east."
+            ],
+            "Meet up with Cheren": {
+                "Text": [
+                    "Cheren is continuing with his investigation outside the Season Research Lab.  The data he has collected shows sudden drops in temperature near Lacunosa Town , Castelia City , and Driftveil City , with some areas dropping as low as -58°F.  He gives you HM03 ( Surf ) to help you travel around and assist the investigation."
+                ]
+            },
+            "Season Research Lab": {
+                "Text": [
+                    "The Scientists at the Season Research Lab are conducting research on Deerling , and the reason it changes forms with the season .  If you have an open party slot, one of the Scientists will ask you to raise a rare Deerling that they found, one with its hidden Serene Grace ability.",
+                    "When you have a traveling partner that has a move or ability that can change the weather , the Parasol Lady will describe the respective condition in detail."
+                ]
+            },
+            "A Legendary Pokémon Appears": {
+                "Text": [
+                    "When you reach the westernmost bridge, the legendary Cobalion jumps down from the nearby cliff and lands directly in front of you.  However, it runs off as quickly as it appeared.  Immediately after, Rood of the Seven Sages appears and claims that Cobalion will be a great asset if you can befriend it.",
+                    "East of the bridge is a second building.  Speak to the woman inside to have her heal your Pokémon.  Surf east along the river from here to reach Mistralton Cave."
+                ]
+            },
+            "Mistralton Cave": {
+                "Text": [
+                    "Two years ago, Mistralton Cave was home to Cobalion , one of the Swords of Justice .  But ever since Cobalion left, the cave has mostly been forgotten by people nearby."
+                ],
+                "1F": {
+                    "Text": [
+                        "The darkness makes it difficult to see, so use Flash to light the way.  Go south and push the boulder onto the hole in the floor.  Follow the tunnel past Hiker Shelby and move the second boulder into place.  The southeast corner connects to Clay Tunnel , which is still under construction.  Head north to get a Dusk Ball in the northeast corner and a Yellow Shard north of the entrance.  Move the third boulder into place to create a shortcut, then go south to reach the stairs to 2F."
+                    ]
+                },
+                "2F": {
+                    "Text": [
+                        "Head southeast and push the next boulder into place.  Walk east along the rock platform, then loop around to the southwest to reach a Hyper Potion .  Head up along the east wall to the northeast corner, then walk west along the rock platform to get a Blue Shard . Backtrack to Ace Trainer Belle, push the next two boulders into place, and climb the stairs to the Guidance Chamber."
+                    ]
+                },
+                "Guidance Chamber": {
+                    "Text": [
+                        "Go east then north to find TM80 ( Rock Slide ) in the northeast corner.  Turn around, climb onto the southeast rock platform, grab the Escape Rope , and continue north.  Go down the stairway, turn south, and move the next boulder into position.  To the west is an old man who has been searching for Cobalion for decades.  Long ago, Cobalion, Terrakion , and Virizion rescued Pokémon from a fire caused by a war between humans.  From that point on, the three have refused to associate with people.  The old man wonders aloud if Cobalion's hatred has lessened...",
+                        "When you're done in Mistralton Cave, continue north on Route 6 to reach Chargestone Cave."
+                    ]
+                }
+            }
+        },
+        "Chargestone Cave": {
+            "Text": [
+                "Chargestone Cave connects Route 6 to Mistralton City .  The cave is filled with electrically-charged stones that seem to wait around every corner.",
+                "Go north to meet Bianca , who tells you that the floating stones can be moved out of the way.  North of her is the first floating stone; push it to the left so that it sticks to the blue boulder.  Pick up the Full Heal , and push the next stone to the right.  Turn east to get a Max Repel to the south of Scientist Ronald, then backtrack and go north.  Check the ledge north of Guitarist Anna for a hidden Yellow Shard , then grab the Hyper Potion in the alcove to the east.  Move the next two floating stones and continue eastward.  At the T-intersection, go north for a hidden Hyper Potion before heading south to the bridge.",
+                "Crossing the bridge, you hear someone's voice.  The voice says, \"I have to go in order to save Pokémon and protect the very friend that I have to stop!\" The person leaves before you have a chance to learn their identity.",
+                "Fight Ace Trainer Corky in a Triple Battle , then loop around to the west to get a Magnet .  Climb down the stairs to B1F.",
+                "Head west to meet the Nugget Man and the Nugget Boy, who give you both a Nugget and a Big Nugget .  Continue west and climb the stairs; talk to the Lady to receive a new Funfest Mission , Find Mysterious Ores! B2 or Find Shining Ores! W2 .  Go back downstairs and head north.  Check the passage to the north of the Nugget Man and the Nugget Boy to find a hidden Ultra Ball , and pick up the Iron to the east.  Defeat Doctor Kit to have him heal your team, and continue north.  Pass by Scientist Lumi, and navigate around the blue boulders to the west to get a Revive .  Here you meet Bianca again, who is researching the local Tynamo at Professor Juniper 's request.  Go down the western stairs to B2F.",
+                "Go south of Guitarist Beverly to reach an Escape Rope . Grab the Thunderstone to the north of Ace Trainer Shaye, then head south. Fight Ace Trainer Vicki in a Rotation Battle , then climb down to the lower level. Pick up the Metal Coat , then check the dead-end path for a hidden Electric Gem . Backtrack to the stairs to return to B1F.",
+                "Walk east past Bianca and climb up the stairs to 1F.",
+                "Head south to reach a Carbos near Hiker Otto, then go east to reach the exit to Mistralton City .  Your sixth Gym battle awaits!"
+            ]
+        }
+    },
+    "Part_10": {
+        "Mistralton City": {
+            "Text": [
+                "Half of Mistralton City is occupied by a large runway, with the Mistralton Gym at the north end. Vegetables harvested from around this runway are transported all over the world. To the north is Route 7 , which leads to the Celestial Tower ."
+            ],
+            "The TM Collector": {
+                "Text": [
+                    "Visit the house to the east of the Pokémon Center, and talk to the woman inside. She will give you an HP Up when the number of TMs you have collected reaches 10, 20, 35, 50, and 70, and one more when you collect all 95."
+                ]
+            },
+            "Meet Professor Juniper and Skyla": {
+                "Text": [
+                    "Professor Juniper appears when you walk north past the Pokémon Center. She thanks you for accepting the Pokédex , then evaluates your progress. She rewards you with a Master Ball , the ultimate Poké Ball which will never fail. It cannot be purchased, but can be won as the top prize in Join Avenue 's Raffle Shop.",
+                    "Mistralton Gym Leader Skyla approaches as Juniper is talking to you. The professor had asked to be flown somewhere in her plane, but leaves to visit Celestial Tower first."
+                ]
+            },
+            "Mistralton Cargo Service": {
+                "Text": [
+                    "The Maid in Mistralton Cargo Service gives you a Heart Scale in exchange for 10 Sweet Hearts . But from February 14 to March 14, you only need to trade five Sweet Hearts to get a Heart Scale.",
+                    "Talk to the Worker at the east side of the counter when you have a Flying - or Psychic-type Pokémon in your party. He gives you five Net Balls as thanks for helping him load the cargo onto a plane."
+                ]
+            },
+            "The Runway": {
+                "Text": [
+                    "Talk to the Backpacker on the southwest part of the runway to add a new Funfest Mission , Big Harvest of Berries .",
+                    "On the southeast part of the runway, a Pokémon Breeder will pay $ 1,000 for any of the four types of Mulch . Mulch can be found in Hidden Grottoes , or purchased at Join Avenue 's Flower Shop."
+                ]
+            }
+        },
+        "Route 7": {
+            "Text": [
+                "Route 7 is thick with patches of tall grass. There are raised walkways everywhere, which can be used to avoid the local wildlife. Celestial Tower is located directly to the north, while Twist Mountain stands off to the northeast."
+            ],
+            "Trade with a Hiker": {
+                "Text": [
+                    "In the western house, a Hiker would like to trade. If you have an extra Emolga , he would gladly trade his Gigalith for it. Emolga can be found in the rustling grass on Routes 5 , 6 , and 7 . The traded Gigalith arrives holding a Leppa Berry ."
+                ]
+            },
+            "Celestial Tower": {
+                "Text": [
+                    "Celestial Tower is a five-floor tower that was built as a memorial to departed Pokémon. On the rooftop is a large bell whose tones are said to comfort the spirits."
+                ],
+                "Catch up with Juniper": {
+                    "Text": [
+                        "When you catch up to Professor Juniper on the first floor, she suggests that you try using different items. She hands you a Lucky Egg , which earns 50% more experience points for its holder than normal."
+                    ]
+                },
+                "The Nurse": {
+                    "Text": [
+                        "With all the wild Litwick around, your Pokémon could get burned by their Flame Body Ability. Talk to Nurse Dixie on the third floor after defeating her in battle, and she will heal your team to full health."
+                    ]
+                },
+                "Ring the Bell": {
+                    "Text": [
+                        "Climb up onto the rooftop platform and ring the bell. The pure tone soothes and comforts the departed spirits. Before you leave, check the west side of the roof to find a hidden Ghost Gem ."
+                    ]
+                }
+            },
+            "The Eastern House": {
+                "Text": [
+                    "A second house stands halfway through Route 7 . The girl in front of the TV will heal your Pokémon to full health, while the old man at the table adds a few entries to your Pokédex. He claims that he has seen Tornadus , Thundurus , and Landorus , but that they looked completely different."
+                ]
+            },
+            "Mom Checks In": {
+                "Text": [
+                    "When you head east from the house, Mom calls on the Xtransceiver . During the conversation, she tells you that she used to work in the reception area at several different Pokémon Centers. She ends the call by reminding you to visit one right away if your Pokémon are hurt."
+                ]
+            },
+            "Twist Mountain": {
+                "Text": [
+                    "As you continue northeast through Route 7 , you will soon reach the foot of Twist Mountain . When you climb the stairway to the entrance, you find a burly man blocking the way. He claims that part of the mountain has collapsed, and it's not safe to venture inside right now. Instead, return to Mistralton City to challenge the Gym."
+                ]
+            }
+        },
+        "Mistralton City (Visit 2)": {
+            "Mistralton Gym": {
+                "Text": [
+                    "The Mistralton Gym is housed in an aircraft hangar, and specializes in Flying-type Pokémon. These birds are typically vulnerable to Electric -, Ice -, and Rock-type attacks. There are three massive turbines in the back of the building, and an occasional gust of wind can knock you back to the entrance. Move when the wind stops, and hide behind one of the walls when it kicks up again.",
+                    "Skyla 's Pokémon are all vulnerable to Electric-type attacks. Her Swoobat and Swanna are also weak against Rock-type moves, while her Skarmory fears Fire-type attacks.",
+                    "Defeated, Skyla awards you the Jet Badge , which ensures that all Pokémon of level 70 or less will obey you. She also gives you TM55 ( Acrobatics ) as a prize."
+                ]
+            },
+            "Juniper returns from Celestial Tower": {
+                "Text": [
+                    "As you emerge victorious from the Gym, Professor Juniper returns from Route 7 . The professor is headed to Mistralton Cargo Service so Skyla can fly her somewhere."
+                ]
+            },
+            "The Kids' Treasure": {
+                "Text": [
+                    "Visit the house north of the Pokémon Center, and talk to the Youngster inside. Then visit the south end of the runway to find TM40 ( Aerial Ace ), a treasure that the two kids hid for safekeeping."
+                ]
+            },
+            "Mistralton Cargo Service": {
+                "Text": [
+                    "Professor Juniper and Skyla are waiting when you enter the Cargo Service building. Talk to Skyla, and Bianca comes rushing in to catch a ride just as the group is about to board the plane. The professor's destination is Opelucid City , but the unstable Twist Mountain prevents anyone from reaching the city by foot from that direction. Instead, Skyla flies the group to Lentimas Town , a tiny mountain village in the eastern part of the region."
+                ]
+            }
+        }
+    },
+    "Part_11": {
+        "Lentimas Town": {
+            "Text": [
+                "Lentimas Town is a tiny, isolated town known for its porcelain and pottery made from volcanic clay. A Move Tutor who is obsessed with Blue Shards resides here. The expansive Reversal Mountain lies to the east."
+            ],
+            "Juniper Tells a Story": {
+                "Text": [
+                    "When the group gets off of the plane, Professor Juniper explains why she brought you along. Two years ago, the legendary dragons Reshiram and Zekrom each recognized a different Trainer as the hero, and followed its chosen Trainer. Juniper believes that there is no way Team Plasma can use them in their plans. She wants you to visit Opelucid City and ask Drayden , the mayor, about the legendary dragons. To reach Opelucid, you need to first travel east through Reversal Mountain , where Bianca is headed to do some research on Heatran ."
+                ]
+            },
+            "Move Tutor": {
+                "Text": [
+                    "A Move Tutor lives in the western house. He is obsessed with Blue Shards , and will teach a variety of moves for the right number of Shards. The next Gym's weaknesses include Ice - and Dragon-type attacks, so you may want to have him teach Icy Wind and Dragon Pulse now."
+                ]
+            }
+        },
+        "Strange House": {
+            "Text": [
+                "East of Lentimas Town is a rugged canyon. Hidden away in the eastern part of the canyon is the Strange House , an old building that is known for a sad incident that occurred here. A ghost sometimes appears inside, and pieces of furniture move around on their own."
+            ],
+            "Entrance Hall": {
+                "Text": [
+                    "When you enter the building, all areas except one are blocked off by furniture. Go left and take the stairs to the basement."
+                ]
+            },
+            "B1F": {
+                "Text": [
+                    "The basement houses a library. Books on the six freestanding bookcases all talk about Pokémon or moves that involve sleep or dreams. Pick up the Spell Tag and climb the eastern stairs."
+                ]
+            },
+            "Entrance Hall (Visit 2)": {
+                "Text": [
+                    "Backpacker Boone is waiting to battle in the nearest room. Climb the staircase to the upper level and go west. A ghost girl appears, and calls out to her family before disappearing. Loop around to reach the lower-west room, and pick up the Full Heal inside. Take the western stairs to return to the basement."
+                ]
+            },
+            "B1F (Visit 2)": {
+                "Text": [
+                    "Make your way along the new route through the library, and grab the Dusk Stone on your way eastward."
+                ]
+            },
+            "Entrance Hall (Visit 3)": {
+                "Text": [
+                    "Climb the eastern staircase to reach a Rare Candy in the upper-east room. You can battle Psychic Lynette in the upper-west room, then climb the center staircase. The ghost girl appears again, and talks about hearing her father in the dark dream. Enter the room to find the Lunar Wing . When you pick it up, the ghost girl appears one last time. She asks you to return the feather someday to the Pokémon that lost it, before fading away."
+                ]
+            }
+        },
+        "Undella Town": {
+            "Text": [
+                "Undella Town is a popular summer retreat, and is currently undergoing an expansion project. The beachfront town stands between Route 13 to the north and Route 14 to the south. Undella Bay lies to the east."
+            ],
+            "The Billionaire": {
+                "Text": [
+                    "The billionaire father of The Riches lives alone in the northwest villa, after his family moved to another town. He buys rare items, and pays a high price for any Flutes you bring him. After you get HM06 ( Dive ), you can also sell him the ancient items found in the Abyssal Ruins ."
+                ]
+            },
+            "Marine Tube": {
+                "Text": [
+                    "The Marine Tube runs underneath Undella Bay and connects the town to Humilau City . Janitors are working hard to clean the tube, which has not yet opened for visitors."
+                ]
+            },
+            "Caitlin's villa": {
+                "Text": [
+                    "The eastern villa belongs to Caitlin , one of the Elite Four. Once you defeat the Pokémon League, you can meet Cynthia , the Sinnoh Champion, here for a battle."
+                ]
+            },
+            "Funfest Mission": {
+                "Text": [
+                    "Talk to the man in sunglasses in the Pokémon Center. A new Funfest Mission, Shocking Shopping! is added to the Entralink ."
+                ]
+            },
+            "Rival battle": {
+                "Text": [
+                    "When you approach the gate, Hugh catches up to you. Prepare for battle!"
+                ]
+            }
+        },
+        "Undella Bay": {
+            "Text": [
+                "Undella Bay is a stretch of ocean where vacationers often visit to sunbathe. The Abyssal Ruins lie on the ocean floor far below, and are inaccessible without HM06 ( Dive )."
+            ],
+            "Jellicent": {
+                "Text": [
+                    "Once per week, a special Jellicent will float into the bay. A male appears on Mondays B2 , while a female appears on Thursdays W2 . Both have their hidden Ability, Damp ."
+                ]
+            }
+        }
+    },
+    "Part_12": {
+        "Route 13": {
+            "Text": [
+                "The water and plant life of Route 13 give the area a lot of natural beauty. The mysterious Giant Chasm lies to the north, and Lacunosa Town lies off to the northwest."
+            ],
+            "The Treasure Hunter": {
+                "Text": [
+                    "When you reach the sandbar near Parasol Lady Laura, take the western path first. The man further down the beach is a treasure hunter, and will give you some of his extra items. Speak to him every day to get one of the five kinds of Flute , which can be sold to the billionaire in Undella Town for a high price."
+                ]
+            },
+            "Cobalion is waiting": {
+                "Text": [
+                    "Farther north, the beach gives way to the forested high ground. Climb the stairway and approach the cuttable trees to find Cobalion standing in the clearing beyond. Now's your chance to catch it!  Start off with Fire -, Fighting -, or Ground-type attacks to wear it down fast, then follow up with Normal , Grass , Ice , or Steel moves to weaken it further. Avoid using Dark-type attacks, as its Justified Ability raises its Attack when it is damaged by those moves. If you happen to defeat it, Cobalion will reappear after entering the Hall of Fame at level 65. So you may want to consider capturing Cobalion at a later time if you don't plan on adding it to your team right away.",
+                    "Go north from the clearing to reach Lacunosa Town ."
+                ]
+            }
+        },
+        "Lacunosa Town": {
+            "Text": [
+                "The people of Lacunosa Town believe in an old legend that tells of a monster that attacks at night. Even now, they never leave their homes after dark."
+            ],
+            "The Old Legend": {
+                "Text": [
+                    "Enter the town and head south, and Professor Juniper and Bianca will call out to you. The professor leads you both to a house on the north side of town. She asks the old woman here to tell the legend of the Giant Chasm . The old woman claims that the area was formed when a meteorite that contained a Pokémon crashed into the planet. At night, that Pokémon would attack humans and Pokémon alike, and always appeared with a frigid wind that could freeze someone to the bone. Juniper believes that the walls built around the town may have earned it the name Lacunosa, as lacunosus clouds resemble a fence.",
+                    "After listening to the old woman's tale, Professor Juniper tells you about the legendary dragon , Zekrom B2 / Reshiram W2 . She thinks there is a link between it and the monster in the legend, as minerals found in Dragonspiral Tower were also found in the Giant Chasm ."
+                ]
+            },
+            "The Businessman": {
+                "Text": [
+                    "Visit the northeast house at night or late night. Talk to the businessman inside to get a Pecha Berry , Bluk Berry , Lum Berry , or Leppa Berry once per day."
+                ]
+            },
+            "Zinzolin": {
+                "Text": [
+                    "Head west from the Pokémon Center to meet up with Hugh again. He's here because he heard rumors of Team Plasma in the city. Suddenly, Zinzolin and a Grunt appear, After hearing Team Plasma's plans, your rival snaps and asks for your help in battle. Combine your strength to take out the two criminals.",
+                    "Defeated, Zinzolin and the Grunt flee the town. Hugh takes off after them. Head west to Route 12 ."
+                ]
+            }
+        },
+        "Route 12": {
+            "Text": [
+                "Route 12 is a short route made of grassy fields and rolling hills. The area connects Lacunosa Town in the east to Village Bridge in the west."
+            ],
+            "Hunt for Bug Pokémon": {
+                "Text": [
+                    "The Bug-type Pokémon Pinsir , Heracross , Combee , and Vespiquen are seldom seen, and can only be found here and in Lostlorn Forest . Don't pass up the chance to add to your Pokédex."
+                ]
+            }
+        },
+        "Village Bridge": {
+            "Text": [
+                "Village Bridge spans a wide river, and is lined with homes on either side. Like its name implies, it is indeed a village built on a bridge. It connects Route 12 with Route 11 to the west."
+            ],
+            "Rest Stop": {
+                "Text": [
+                    "Visit the easternmost house, and talk to the woman inside. She heals your Pokémon back to full health. There is no Pokémon Center nearby, so visit her when your Pokémon need a break."
+                ]
+            },
+            "Stonewall's Winning Streak": {
+                "Text": [
+                    "Head up over the bridge, and a Gentleman suddenly stops you. He is trying to set a record for most consecutive wins, and only needs one more to reach 1,000. Even though you defeat him, he can't wait to begin again."
+                ]
+            },
+            "The Voice": {
+                "Text": [
+                    "Enter the room under the west side of the bridge to find a woman practicing her singing. She chases you out, and when that happens, talk to the girl directly above on the bridge. For clearing up the mystery of the voice she heard, she gives you five Sitrus Berries as thanks."
+                ]
+            }
+        },
+        "Route 11": {
+            "Text": [
+                "Route 11 is a short, paved road that passes over a river flowing out from a waterfall. The gate on the west side leads to Opelucid City , home of the next Gym."
+            ],
+            "Virizion is waiting": {
+                "Text": [
+                    "When you reach the west side of Route 11 , the legendary Virizion suddenly leaps down from the cliff. It seems that it, like Cobalion , was also waiting for you. Start off with Fire -, Ice -, or Flying-type attacks to wear it down fast, then follow up with Water -, Rock -, or Ground-type moves to weaken it further. Avoid using Dark-type attacks, as its Justified Ability raises its Attack when it is damaged by those moves. If you happen to defeat it, Virizion will reappear after entering the Hall of Fame at level 65. So you may want to consider capturing Virizion at a later time if you don't plan on adding it to your team right away.",
+                    "Continue west to reach Opelucid City ."
+                ]
+            }
+        }
+    },
+    "Part_13": {
+        "Opelucid City": {
+            "Text": [
+                "Opelucid City is a convenient city of rapid change that shows no traces of the past. The Opelucid Gym is managed only by the city's mayor, Drayden , as Iris has given up her Gym Leader position."
+            ],
+            "Reunite with Iris": {
+                "Text": [
+                    "Iris calls out to you upon entering the city. She points you toward the Gym, but recommends training on Route 9 before challenging her \"grandfather\" Drayden ."
+                ]
+            },
+            "Get Props from the old man": {
+                "Text": [
+                    "Visit the westernmost house, and speak to the old man inside. He is a big fan of Musicals , and will hand out one Prop every day for a total of four. Stop by again to get a Big Bag, Fluffy Beard, Gift Box, and Scarlet Hat."
+                ]
+            },
+            "The Tympole Choir": {
+                "Text": [
+                    "There are five Tympole in the house to the north of the Pokémon Center. If you visit with a Tympole in your party, you will have an amazing opportunity to hear six Tympole singing in harmony."
+                ]
+            }
+        },
+        "Route 9": {
+            "Text": [
+                "Route 9 is a paved road that runs through a wooded area. To the north is Shopping Mall Nine , which offers the greatest variety of goods in the region."
+            ],
+            "Shopping Mall Nine": {
+                "Text": [
+                    "This convenient mall has a great selection of items, including some not found in any Poké Mart, so be sure to spend, spend, spend!  Don't miss out on special evening deals; talk to the Waitress on the east side of the ground floor to buy items like Poké Balls at a discount. The stockroom is packed with boxes of appliances; bringing a Rotom here will allow it to change its form."
+                ],
+                "A Request": {
+                    "Text": [
+                        "Talk to the Lady on the ground floor, and she gives you $ 1200 to buy her a Hyper Potion . Bring her one that same day, and she rewards you with an Energy Root . If you wait and bring it to her the next day, you'll get an EnergyPowder instead."
+                    ]
+                }
+            }
+        },
+        "Opelucid City (Visit 2)": {
+            "Opelucid Gym": {
+                "Text": [
+                    "The Opelucid Gym specializes in Dragon-type Pokémon, which are only vulnerable to Ice - and Dragon-type attacks. The Gym consists of two large dragon statues, one near the entrance and the other at the rear wall. Challengers must defeat at least one Trainer from each level to advance. First off, defeat Veteran Lucius to activate the switch on the first dragon's neck; this elevates you to the level of the next two Trainers. On the left, Veteran Rhona prefers fighting defensively, while Veteran Jerry on the right favors offense. Defeat at least one to reach the next level. On the left, Veteran Denae fights in a Rotation Battle , while Veteran Ron on the right fights in a Triple Battle . Once they fall, your statue rises to Drayden 's level and the two statues butt heads, allowing you to reach the Gym Leader.",
+                    "Consider having a Move Tutor teach some new moves; Dual Chop and Ice Punch are available in Driftveil , while Icy Wind and Dragon Pulse can be taught in Lentimas . Avoid using Grass -, Fire -, Water -, or Electric-type attacks, as dragons are resistant to such moves. Druddigon 's Revenge makes its opponent pay for not knocking it out in one hit, while Crunch deals extra damage from its Sheer Force Ability. Flygon 's Rock Slide nails any Ice-type opponent aiming for its double-weakness, and Earth Power can also inflict serious damage. Lastly, his Haxorus starts with high Attack and can boost it (and Speed ) even further with Dragon Dance , so knock it out as soon as possible!  All three dragons share the Dragon Tail attack, which forces the damaged opponent to switch out.",
+                    "Defeated, Drayden awards you the Legend Badge , which ensures that all Pokémon of level 80 or less will obey you. He also gives you TM82 ( Dragon Tail ) as a prize."
+                ]
+            },
+            "Drayden's Story": {
+                "Text": [
+                    "Drayden shows you to his home, where he tells the story of the two dragons, the legend of Kyurem , and the history of his family heirloom.",
+                    "Let me tell you the story. It's a long story, but listen closely. It was two years ago when the two dragon Pokémon were awakened. The black dragon Pokémon, Zekrom , pursued what is ideal, with the desire to usher in a new world of hope. And the white dragon Pokémon, Reshiram , sought what is true, with the desire to usher in a new world of goodness. Zekrom and Reshiram were once a single Pokémon. You may wonder why it split in two. The single dragon Pokémon had helped the twin heroes bring a new region into being. But the twin heroes--the older brother who sought the truth and the younger brother who sought ideals--sundered the region in two as they fought to see which of them was right. In that desperate hour, the single dragon Pokémon split its body into a black Pokémon and a white Pokémon, even though ideals and truth don't need to be in opposition!  As the story goes, a third dragon Pokémon, Kyurem , also came into existence in that era. And there may be proof of this to be found in a treasure passed down in my family for generations: the DNA Splicers . Professor Juniper 's research determined that the materials in the splicers date back to the same era as the materials used in building the Dragonspiral Tower . Oh, the DNA Splicers are stored very safely. I guard them because I don't know what kind of power might lie within them. But here's what's been bothering me... Could there be one more dragon Pokémon?  Even if Kyurem really exists, we don't know what kind of Pokémon it is. For starters, the two Pokémon the ancient Pokémon split into are both overwhelmingly powerful. So if Kyurem exists, could it be just a husk--a shell that was left over?"
+                ]
+            },
+            "Team Plasma Attacks!": {
+                "Text": [
+                    "The building is rocked by a sudden tremor. Outside, the Plasma Frigate approaches from the sky. It readies its cannon and fires a few shots of ice at the city. Every shot freezes a part of the city, leaving the area difficult to navigate. Drayden doesn't appreciate this and sends his Haxorus to smash the nearest ice crystal, but it doesn't work. Zinzolin appears and demands that Drayden hand over the DNA Splicers . He refuses, but the Sage won't give up so easily. He sends his Grunts to search for the splicers, and the Gym Leader asks that you track them down.",
+                    "Slide south over the ice to catch up with Drayden, and fight the first Grunt just east of the Pokémon Center. Next, slide north to find the second Grunt outside the former Battle House. After that, track down the third Grunt to the south of the Gym. When all three are defeated, return to the Gym to take on Zinzolin . Use Fire - and Fighting-type moves to bring the battle to a quick end.",
+                    "Zinzolin runs off and Drayden heals your Pokémon. He steps inside the Gym briefly to retrieve the DNA Splicers , which he shows to you. Just then, one of the Shadow Triad appears and steals the splicers. The two others appears as well, and the three run off. Head south toward the Route 11 gate to find one of them waiting for you. Attack with Fighting-type moves for a decisive victory.",
+                    "Unfortunately, this Shadow did not have the splicers. He vanishes, and Drayden runs over to see if you are alright. Just then, Hugh and Cheren call on the Xtransceiver . They saw the ship attack the city, and Cheren is headed there now. He says that Humilau City has the lowest temperature readings in the region right now, so Team Plasma must be nearby. Return to Undella Town and enter the Marine Tube ."
+                ]
+            }
+        },
+        "Marine Tube": {
+            "Text": [
+                "The Marine Tube is an undersea tunnel built with cutting-edge technology. Known as The Walk-Through Aquarium , the path features a transparent dome so that visitors can see the various ocean-dwelling Pokémon. Wailord appears every day from 3pm to 4pm; seeing it swim over and under the tunnel earns you the Wailord Watcher Medal ."
+            ]
+        },
+        "Humilau City": {
+            "Text": [
+                "Humilau City is a resort town with a tropical atmosphere. Surrounded by the ocean, the homes here are built on wooden bridges. In addition to the Marine Tube , the city connects to Route 21 in the south and Route 22 in the west."
+            ],
+            "Meet up with Hugh": {
+                "Text": [
+                    "Hugh is waiting near the Marine Tube exit. When you approach him, he suggests taking on the final Gym Leader. But first, you will need to track him down. Marlon is a man of the sea, and as you walk north, he leaps out of the water and onto the pier. After meeting him here, he will return to the Gym."
+                ]
+            },
+            "Move Tutor": {
+                "Text": [
+                    "The local Move Tutor lives in the southeast house, directly north of the Marine Tube . This individual is obsessed with Yellow Shards , and will teach a variety of moves for the right number. Giga Drain will be useful at the final Gym, and Seed Bomb and ThunderPunch can be learned in Driftveil City ."
+                ]
+            },
+            "Time for a Trade": {
+                "Text": [
+                    "In the house just north of the Gym, a Roughneck offers to trade Pokémon. He offers a Tangrowth in exchange for a Mantine . Mantine can be found in Undella Bay , except during the winter."
+                ]
+            },
+            "A New Funfest Mission": {
+                "Text": [
+                    "Outside the Roughneck's house is an old man. Talking to him will add a new Funfest Mission , Memory Training ."
+                ]
+            },
+            "Mienfoo's Daily Walk": {
+                "Text": [
+                    "In the northwest house lives a Socialite and her Mienfoo . Once a day, she will ask that you take Mienfoo on a walk. Lead it around the house for a while, and the old woman rewards you with a Pearl ."
+                ]
+            },
+            "Home is Where the Heart Scales Are": {
+                "Text": [
+                    "A Nurse with a Stunfisk lives in the northeast house. She likes flat Pokémon, and will give out five Heart Scales if you speak to her with a Luvdisc in your party. Luvdisc can only be caught by fishing, but the Super Rod is not obtained until later."
+                ]
+            },
+            "Humilau Gym": {
+                "Text": [
+                    "The marshy Humilau Gym specializes in Water-type Pokémon, so Grass - and Electric-type attacks will work best. To reach the Gym Leader, challengers must move from dock to dock by floating on large lily pads. When stepped on, they move in the same direction until they hit an obstacle. When they hit each other, the first stops and the second moves on. Jump on the first lily pad to reach the southwest dock, and ride the second one eastward. Climb onto the dock and go east to fight Ace Trainer Melina. Float south to the next dock and loop around to reach the bridge. To reach Ace Trainer Santino, ride the nearby pad south then east; this moves another pad into place, letting you continue along the east wall. Take on Ace Trainer Jeanne and cross the water to reach the northwest dock. Float north to reach Ace Trainer Sable, then south to reach Ace Trainer Enzio. Repeat the same clockwise loop to reach Marlon .",
+                    "Marlon 's Carracosta tends to start things off with Shell Smash , which cuts its defenses but raises its Attack , Special Attack , and Speed . In addition, its Sturdy Ability prevents it from being taken out in one shot. Wailord can hit opposing Grass-type Pokémon with Bounce , but otherwise its low defenses make it a big target. His Jellicent can be difficult to take down, especially with Recover . Keep your Pokémon's health above 50% to avoid its powered-up Brine attack. All three of Marlon's Pokémon know the move Scald , so watch out for burns !",
+                    "Upon his defeat, Marlon awards you the Wave Badge , which ensures that all Pokémon will obey without question. He also hands over TM55 ( Scald ) as a prize before swimming off.",
+                    "Outside, Hugh congratulates you on winning your eighth Badge, and reminds you that Team Plasma is still up to no good. Marlon stops by, asking if Team Plasma is actually bad or not. He follows a policy of \"the ocean accepts all rivers\", and as a result does not seem bothered by the group's wrongdoings. He refuses to help track them down, and just walks away. Hugh asks that you investigate Route 22 to the west. Stock up on Ultra Balls before you go, as another legendary is found nearby!"
+                ]
+            }
+        },
+        "Route 22": {
+            "Text": [
+                "The uneven terrain of Route 22 makes the scenery almost maze-like. Raised walkways connect some elevated areas, while most of the tall grass lies below. The route stretches between Humilau City to the east and the Giant Chasm to the west."
+            ],
+            "Terrakion is waiting": {
+                "Text": [
+                    "The third member of the Swords of Justice is found in the center of Route 22 . It seems that it, like Cobalion and Virizion , was also waiting for you. Upon approaching it, you are interrupted by Colress . He says that you will need the strength to protect your Pokémon in order to fight Team Plasma . He gives you the Colress MCHN , and before he leaves mentions that something he saw in Seaside Cave reminded him of meeting you on Route 4 .",
+                    "Start off with Grass -, Water -, or Ground-type attacks to wear Terrakion down fast, then follow up with Fire -, Poison -, or Bug-type moves to weaken it further. Avoid using Dark-type attacks, as its Justified Ability raises its Attack when it is damaged by those moves. If you happen to defeat it, Terrakion will reappear after entering the Hall of Fame ."
+                ]
+            },
+            "Return to Humilau": {
+                "Text": [
+                    "The Giant Chasm is accessible at this point, but cannot be fully explored. Instead, follow the raised walkways southeastward to reach a large boulder, and use Strength to create a shortcut for later. Take Colress ' advice and head for Seaside Cave on Route 21 , south of Humilau City ."
+                ]
+            }
+        }
+    },
+    "Part_14": {
+        "Route 21": {
+            "Text": [
+                "Route 21 is a short ocean route that leads south from Humilau City . A large island that houses Seaside Cave sits off to the south."
+            ],
+            "Seaside Cave": {
+                "Text": [
+                    "Seaside Cave passes through a large cliff that rises up out of the ocean. The cavern was opened up by erosion from wind, waves, and Pokémon. The southern exit leads to Undella Bay ."
+                ],
+                "1F": {
+                    "Text": [
+                        "Head south over a series of ledges to fight Pokémon Rangers Mikiko and Johan, and pick up the Dive Ball between them. Defeat Black Belt Rocky to clear the south exit to Undella Bay , then cross the bridge to return to the north side. Grab the Full Restore near Battle Girl Tia, and jump the northernmost ledge again. Turn east this time, and go down the stairway to reach the water's edge. Nab the Heart Scale from the bit of dry land, then swim northward. Take the stairway to the lower level."
+                    ]
+                },
+                "B1F": {
+                    "Text": [
+                        "Go south to the smaller of the two raised platforms. Pick up the Max Repel to the south, then drop the boulder into the hole. Continue east to reach Battle Girl Maki and the larger raised platform. Use Strength to move the first five boulders into position, and pick up the Rare Candy on the way past. Move the sixth boulder and head northwest to return to the first floor."
+                    ]
+                },
+                "1F (Visit 2)": {
+                    "Text": [
+                        "Head west to find TM06 ( Toxic ) sitting atop the cliff, then jump the lower ledge near the water. Climb the opposite stairway to find an unusual boulder blocking the east exit. Activate the Colress MCHN to wake the rock, which turns out to be a Crustle . The delicate instrument breaks after the battle. Step outside to reach a secluded part of Route 21 's ocean."
+                    ]
+                }
+            }
+        },
+        "Route 21 (east)": {
+            "Text": [
+                "Outside, the Plasma Frigate is anchored at the water's edge. As you approach it, Hugh emerges from Seaside Cave and wonders aloud how to board the ship. Just then, the gangplank falls with a heavy thud, and Marlon disembarks the ship. He still hasn't changed his mind about Team Plasma , but wanted to help the two of you. He leaves, and Hugh runs up onto the ship."
+            ]
+        },
+        "Plasma Frigate": {
+            "Text": [
+                "Two Plasma Grunts block the way; defeat one and the pair runs off. Follow Hugh north in search of Zinzolin ."
+            ],
+            "North Entrance": {
+                "Text": [
+                    "Just inside the North Entrance, you pair up with Hugh to take on a couple of Grunts. He leads with his first partner Pokémon at level 50, which is great against the four Poison-type Pokémon unless it happens to be a Serperior . Hand the pair a quick defeat and they hurry off. Before he leaves, Hugh claims that the barrier can be deactivated by either flipping a few switches B2 , or using a password W2 . Leave this room, and take either the northern B2 or southern W2 stairway to reach the basement."
+                ]
+            },
+            "Command Center": {
+                "Text": [
+                    "Zinzolin is waiting here, and shows off the source of the ship's power, Kyurem . Hugh appears, and joins you in a Multi Battle against Zinzolin and the Plasma Grunt. All but one of their Pokémon are susceptible to Fighting-type attacks, while Weavile is especially vulnerable.",
+                    "Defeated, Zinzolin orders the Shadow Triad to appear and teleport the two of you off the ship. The Plasma Frigate rises into air and flies off. Cheren shows up on the beach to tell you that he saw the ship headed toward the Giant Chasm to the northwest. Fly back to Humilau and use the shortcut on Route 22 to reach the cave."
+                ]
+            }
+        },
+        "Giant Chasm": {
+            "Text": [
+                "The Giant Chasm is a crater-shaped cave, with a small forest covering the crater floor. The residents of nearby Lacunosa Town fear the monster that is said to hide here. The west side of the cave opens up to Route 23 ."
+            ],
+            "Outer Cave": {
+                "Text": [
+                    "Go south from the entrance to encounter a pair of Plasma Grunts. Hugh shows up and attempts to battle them, but a former Plasma member, acting as a spy for Rood , uses his wits to chase them off. Continue south to reach a boulder; use Strength to clear the way, then Surf north to get TM13 ( Ice Beam ). Head southwest to reach the Route 13 entrance.",
+                    "Duck outside to pick up a Yellow Shard and two hidden items, a Moon Stone and a Max Potion . The path to the south leads back to Route 13 , so push the boulder into place to open the shortcut. To the east, a Hyper Potion lies in plain sight on the beach, while a Heart Scale lies hidden on a nearby rock.",
+                    "Re-enter the cave and turn west. Inspect the nearest rock for a hidden Star Piece , then move the boulder in the southwest corner to reach a Max Repel . A pair of Plasma Grunts blocks the west exit to Route 23 for now. In the northwest corner, a hidden Ultra Ball lies on the west side, while a second Star Piece lies behind a boulder on the north side. Turn east and move the last boulder to find a hidden Ice Gem . Jump the ledge and head southwest to reach the Crater Forest."
+                ]
+            },
+            "Crater Forest": {
+                "Text": [
+                    "Inside the crater, Rood and a pair of Grunts from the old Team Plasma are trying to convince a group of current members that what they are doing is wrong. Hugh breaks up the fight, drawing the Grunts' attention, and drawing the two of you into battle. Rood gives you three Max Revives as thanks for your help. His group will keep the others busy while you and Hugh track down the Shadow Triad aboard the Plasma Frigate . Check the surroundings for a Razor Claw and a Moon Stone , then follow Hugh up onto the mound of ice and into the ship."
+                ]
+            },
+            "Plasma Frigate": {
+                "Text": [
+                    "Hugh is already holding off a group of Plasma Grunts, leaving you free to advance. The front of the ship has already been cleared, so head to the stern this time."
+                ],
+                "South Entrance": {
+                    "Text": [
+                        "As soon as you set foot inside, a pair of Plasma Grunts attacks. Knock them around a bit before taking the teleporter into the belly of the ship."
+                    ]
+                },
+                "Kyurem's Location": {
+                    "Text": [
+                        "Deactivate the barrier and proceed. Kyurem is stuck in a cage to the north. When you approach it, Zinzolin appears and tries one last time to stop you. His Pokémon have only grown by one level since your last encounter, so the strategy to defeating him is the same.",
+                        "Ignore Zinzolin 's vague threats and proceed. The warp tile to the left is blocked, so take the one to the right to reach the Control Room."
+                    ]
+                },
+                "Control Room": {
+                    "Text": [
+                        "Colress is waiting inside the Control Room. He joined Team Plasma at the request of an old friend, in order to research how to bring out the full power of Pokémon. It does not matter to him which method does the job. One last battle with you will apparently show him which is right. Four of his Pokémon are vulnerable to Fire - and Ground-type attacks, while his Beheeyem fears Ghost - and Dark-type moves.",
+                        "Defeated, Colress recognizes your strengths. Which method is better, Team Plasma 's science or the bond between Trainers and Pokémon?  He suggests that you find out for yourself by taking the warp panel on the west side of Kyurem 's prison."
+                    ]
+                },
+                "Ghetsis' Quarters": {
+                    "Text": [
+                        "Meet Ghetsis , the man who has been behind Team Plasma 's schemes from the beginning. He is furious that Colress lost to you, but his ambitious plans are still in motion. He intends to use Kyurem to freeze Unova and force people and Pokémon to submit to his reign. Before exiting the ship, he summons the Shadow Triad to take care of you. The Shadows only attack when challenged, so you will have a chance to heal your Pokémon between battles.",
+                        "Defeated, the Shadow Triad finally returns the Pokémon that belonged to Hugh 's sister. Purrloin has evolved into Liepard and only listens to the Triad, but Hugh finally got what he wanted. Leave the ship, descend the mountain of ice, and enter the cave to the north."
+                    ]
+                }
+            },
+            "Inner Cave": {
+                "Text": [
+                    "Proceed to the deepest part of the cave to find Ghetsis . He proclaims that he will freeze the region from here, where Kyurem 's power is strongest. He summons the dragon and commands it to attack you with Glaciate , but something interferes. It's N , flying in on Zekrom B2 or Reshiram W2 . His dragon told him that Kyurem is suffering, and he is here to help. But Ghetsis planned on that, and uses the DNA Splicers to fuse Kyurem with the other dragon, resulting in Black Kyurem B2 or White Kyurem W2 . Disrupting signals from Ghetsis' cane prevent capture, so there is no choice but to defeat the new dragon, which is vulnerable to Dragon -, Fighting -, Rock -, and Steel-type attacks.",
+                    "The defeated dragon separates back into two, and Kyurem vanishes. Enraged about having his plans suddenly thwarted, Ghetsis aims to take you out himself. His Pokémon have few weaknesses, so switch out as needed to use the most damaging moves possible. Take out Cofagrigus with Ghost - or Dark-type moves, and Seismitoad with Grass-type attacks. Drapion fears only Ground-type attacks, while Toxicroak is vulnerable to Flying and Psychic moves. Use Ice - or Fighting-type attacks to take care of Hydreigon , which is a greater threat than normal thanks to its Life Orb .",
+                    "Utterly defeated, Ghetsis appears to have lost his senses, and the Shadow Triad takes the old man away. Without a leader, Team Plasma is left in ruin. N suggests visiting the Pokémon League before climbing onto his dragon and flying off. Hugh enters to make sure that Team Plasma is truly finished, and after a few words of encouragement, informs you that Route 23 can be reached from the west side of the outer cave."
+                ]
+            }
+        }
+    },
+    "Part_15": {
+        "Route 23": {
+            "Text": [
+                "Route 23 is a long mountain road that stretches off to the northwest. On the east side, the path meanders along the river that lies beneath the cliff face. On the west side, small trails wind through the labyrinthine grove of trees. To the north lies Victory Road , a proving ground for Trainers headed to the Pokémon League ."
+            ],
+            "East side": {
+                "Text": [
+                    "North of the cave exit is a house with a female Ace Trainer inside. Talk to her to have your Pokémon restored to full health. This is especially useful immediately after the events that occurred in the Giant Chasm .",
+                    "Southwest of the rest house is a small tree near the river. Cut it down or Surf around it to reach the Heart Scale",
+                    "Head north through the river valley to a large stairway. Wade across the river to a second house; the old man inside will give out TM35 ( Flamethrower ). Climb the stairway, pick up the hidden Rare Candy to the east, then detour across the bridge to the south. Grab TM05 ( Roar ) across the next bridge, then head south from Black Belt Luke. Check the rock for a hidden Star Piece , then pick up the Iron to the south and cross the next bridge. A second Star Piece is sitting on the ledge here, and there is a Hidden Grotto off to the south. Once you have collected all the items, return to the top of the large stairway and head west."
+                ]
+            },
+            "West side": {
+                "Text": [
+                    "A short way down the path is Pokémon Ranger Lena, who gives you a Sitrus Berry when you defeat her. Head west, chop down the tree, and continue on to reach a raised platform to the southwest. Pick up the Full Heal and move the boulder south into the hole. Backtrack a bit and head west to reach Hiker Doug; cut down the nearby tree and move the second boulder southward. Return to the east side of the forest, and chop down the tree here. Head northeast to find an Ultra Ball hidden in the trees, then go west to reach a Repeat Ball . Wander westward through the forest to have Black Belt Benjamin challenge you, which clears the path he was blocking. Cross the platform in the northwest to get an HP Up , then loop around to take the path where Benjamin was standing. Chop down another tree and head south to find a Calcium , then jump either ledge to the east."
+                ],
+                "Strength puzzle": {
+                    "Text": [
+                        "Go east and move the third boulder one space to the left. Surf across the water and move the fourth boulder into the hole for easier access. Jump the ledge and push the boulder all the way to the north for later. The fifth boulder sits to the northeast; push it one space to the right so it lines up with the hole to the south. Now go south then west to find a Yellow Shard hidden in a rock. Surf west, then go back east and push the third boulder two spaces right, then one space up to the hole. This gives you an opening to move the final three boulders into place. Shove the second boulder east, the fifth boulder south, and the sixth boulder east.",
+                        "Climb the stairway and go east to get a Max Potion . Continue east, then go north over the bridge. Inspect the grass patch to reveal a hidden PP Up , then grab TM12 ( Taunt ) to the west. Climb back down the stairway and go north. Ignore the first \"item\", and grab the second one, a Green Shard . Jump the ledge and head north towards Victory Road ."
+                    ]
+                }
+            }
+        },
+        "Victory Road": {
+            "Text": [
+                "Victory Road is the last hurdle before the Pokémon League. Only those who have earned all eight Gym Badges may pass through here. There are as many as 25 Trainers scattered across the intricate landscape."
+            ],
+            "Entrance": {
+                "Text": [
+                    "N is waiting at the area's entrance, and gives you HM05 ( Waterfall ) to help navigate the rough terrain. Once he leaves, follow the path to be scanned for each of the eight Badges, and the Badge Check Gate lowers into the ground. A Pokémon Center stands to the northeast, and some old ruins lie to the east. Go east from the Center to find TM01 ( Hone Claws ), then enter the ruins to get a PP Up to the south and a Star Piece to the north. Bring a party with Cut , Surf , Strength , Waterfall , and Flash , and step inside the first cave.",
+                    "Although Victory Road is nearly identical in both versions, the route to the mountaintop and Trainer locations will vary."
+                ]
+            },
+            "Northern path": {
+                "Text": [
+                    "Battle past Veterans Portia and Sterling, and enter the tunnel. Hugh catches up to you here, and challenges you to a battle.",
+                    "As thanks for helping him return his sister's Pokémon, he gives you TM24 ( Thunderbolt ). Once he leaves, exit the tunnel and pass under the gate to reach the Pokémon League !"
+                ]
+            }
+        },
+        "Pokémon League": {
+            "Text": [
+                "The Pokémon League is the greatest trial for any Trainer. By defeating the Elite Four , you will earn the chance to battle the region's new Champion . Stop by the Pokémon Center in the structure to the west. When preparing a team, it is recommended to bring Pokémon with levels in the 60s, if not higher. Consider using TMs to create a more diverse movepool. The Poké Mart offers a wide assortment of items, so be sure to stock up on medicine.",
+                "The 17 Medals earned by using one party Pokémon and Pokémon of a specific type can be earned during this initial challenge. As the entire Elite Four and the Champion use significantly stronger Pokémon in all rematches, using a single Pokémon in the mid-70s can make obtaining the Lonely Champ Medal much easier than trying to earn it later on.",
+                "Unlike most of their foreign counterparts, the Elite Four of Unova can be battled in any order. The elite Trainers are waiting in their separate rooms, each accessible from the central plaza. From left to right, they are Shauntal , Grimsley , Caitlin , and Marshal . After defeating each Trainer, you will be warped back to the plaza, where a blue light shines from the floor. Once all four tiles are lit up, you can challenge the Champion."
+            ],
+            "Left room: Shauntal": {
+                "Text": [
+                    "Will-o-wisps line the stairway, and others disappear from Shauntal 's library when you approach. Her ghosts are all vulnerable to Ghost - and Dark-type attacks, while Golurk and Chandelure also take heavy damage from Water moves. Cofagrigus tends to lead off with Will-O-Wisp , and may be difficult to take out thanks to its strong defenses. Drifblim 's high HP helps to balance out its low defenses, and its Acrobatics move hits hardest due to its lack of held item. The biggest threat from Golurk is Earthquake , but Dark Pokémon should also look out for its Brick Break move. Lastly, Chandelure 's Fire Blast and Shadow Ball attacks pack quite a punch because of its Special Attack , rated fifth-highest among all Pokémon."
+                ]
+            },
+            "Center-left room: Grimsley": {
+                "Text": [
+                    "Giant metal claws open to allow access to the elevated battlefield, then snap shut behind you. All of Grimsley 's Pokémon have a weakness to Fighting-type attacks. Liepard tends to start things off with Fake Out , and can distract your male Pokémon with Attract . Scrafty compensates for its low Speed with high defenses, and can mix things up with Poison Jab and Rock Tomb . Krookodile 's Intimidate Ability lowers its foe's Attack, but moves like Surf and Focus Blast are unaffected. Finally, Bisharp is doubly vulnerable to Fighting attacks, but Fighting Pokémon should look out for its Aerial Ace ."
+                ]
+            },
+            "Center-right room: Caitlin": {
+                "Text": [
+                    "The falling stardust reveals the stairway to Caitlin , who emerges from a large white flower. Her Pokémon belong to the Psychic type, and take heavy damage from Ghost -, Dark -, and Bug-type attacks. Musharna 's Charge Beam can boost its Special Attack, making Dream Eater even more potent. Sigilyph is the fastest yet frailest of the group, and can harass its opponent with Psychic , Air Slash , and oddly enough, Ice Beam . Reuniclus can use Focus Blast to thwart its Dark opponents, and can linger on with Recover . Lastly, Gothitelle loves to boost its stats with Calm Mind before launching an attack, so take it out quickly with a physical move like Crunch ."
+                ]
+            },
+            "Right room: Marshal": {
+                "Text": [
+                    "The cage bursts open, the stairway extends, and the floodlights snap on. Marshal 's team consists of pure- Fighting-type Pokémon, which are only vulnerable to Psychic - and Flying-type attacks. Throh can score a critical hit with Storm Throw , and lash out with Rock Tomb and Payback . Sawk is faster and stronger, and its Sturdy Ability prevents a one-hit knockout. Mienshao can inflict massive damage with Hi Jump Kick , unless it backfires. Finally, his Conkeldurr can boost its already-high stats with Bulk Up , and Stone Edge is dangerous for any Flying Pokémon."
+                ]
+            },
+            "The Champion's Temple": {
+                "Text": [
+                    "After defeating each member of the Elite Four, visit the statue in the center of the plaza. Check the plaque, and the statue descends to the large chamber below. Go north and climb up the three flights of stairs to reach the Champion's temple. Iris used to be a Dragon-type specialist, but her current team is more well-rounded. Ice attacks will have the most success against her, but Dragon -, Fighting -, and Electric-type moves will also help. First up is Hydreigon ; its Dragon Pulse is already a big threat, but even more so after a Special Attack boost with Charge Beam . Her Aggron 's sky-high Defense lets it brush off most physical attacks, but it takes massive damage from Fighting moves like Aura Sphere , or Ground type moves such as Earthquake . Lapras ' Ice Beam can wreak havoc on your own dragons; use Electric or Fighting moves to take it out. Her Druddigon 's attacks hit hard thanks to Sheer Force and its Life Orb, but a Water Pokémon with an Ice attack can take care of it quickly. Archeops ' undoing lies in its Defeatist Ability; wear its health halfway down, and its impressive offenses are cut in half. Her Haxorus excels in Attack and Speed, but Dragon Dance raises them to levels that could rip your team apart, and its Focus Sash prevents a one-hit knockout.",
+                    "Congratulations, defeating Iris marks you as the new Pokémon League Champion!  She shows you into the Hall of Fame room, where your victorious team is recorded and your progress is saved. Reaching this point unlocks Challenge Mode B2 or Easy Mode W2 , which increase or decrease the difficulty of opposing Trainers, respectively. These modes can be selected under Unova Link at the title screen's main menu. The credits roll, and the new Champion heads for home."
+                ]
+            }
+        }
+    },
+    "Part_16": {
+        "Aspertia City": {
+            "Home Again": {
+                "Text": [
+                    "After defeating the Pokémon League, you'll find yourself back where your adventure began: Aspertia City . As you leave your bedroom, Mom says that she is expecting a visitor. A moment later, a man stops by and introduces himself as Professor Juniper! Cedric Juniper , father to the other Professor Juniper . He then upgrades your Pokédex, enabling National Dex mode. This switches the numbering system from the Unova Dex listing to the international listing, though you are free to switch it back. Cedric leaves, and Mom gives you two Max Revives as a gift.",
+                    "Step outside to meet Hugh and his little sister, who thank you for helping return her former Purrloin . They also tell you of a dream she has been having, of a Zoroark calling out to you from Victory Road . As they leave, Hugh congratulates you on becoming the new Champion ."
+                ]
+            },
+            "Mass Outbreaks": {
+                "Text": [
+                    "Mass outbreaks of Pokémon will now appear in certain parts of the region. These locations change daily, and are broadcast on the electric bulletin boards in every gate."
+                ]
+            }
+        },
+        "Floccesy Town": {
+            "New Wallpapers": {
+                "Text": [
+                    "Visit the Pokémon Center and access Amanita's PC to receive a new wallpaper commemorating your entrance into the Hall of Fame. It can be accessed under Special on the menu."
+                ]
+            },
+            "Alder's Challenge": {
+                "Text": [
+                    "Return to Alder 's house in the northwest part of town to battle the former Champion. His Pokémon are a little tougher than those of the current Champion , but thankfully not by much, so he's a good opponent to fight right away as a warmup for some of the upcoming fights.",
+                    "Half of his team is Bug-type Pokémon. Fire attacks will roast his Accelgor and Escavalier , and his Bouffalant takes double the damage from Fighting moves. Flying - and Psychic-type attacks work well against his Conkeldurr , while his Braviary is vulnerable to Electric - and Ice-type moves. The star of the show, Volcarona , takes massive damage from Rock-type attacks, though Flying- and Water-type moves are also effective. Don't hesitate to use healing items, as his attacks provide a lot of type coverage.",
+                    "After the battle, his grandson Benga runs in. He excitedly tells his grandfather that he made it through the Black Tower B2 / White Treehollow W2 . He leaves, and Alder suggests that you challenge him in Black City B2 / White Forest W2 ."
+                ]
+            }
+        },
+        "Route 20": {
+            "Cave of Being": {
+                "Text": [
+                    "The Cave of Being is a small cave that can be reached by climbing the waterfall on the south side of Route 20 . It is said that the deepest part of the cave connects to the distant Sinnoh region. Professor Juniper is inside investigating the area. Suddenly, a mysterious presence can be felt, and the three lake guardians — Uxie , Mesprit , and Azelf — appear. They float here for a moment before wandering off. To find them, you must step on a certain spot when they are nearby so that they reveal themselves.",
+                    "Mesprit can be found on the Celestial Tower 's rooftop. Stand at the foot of the bell platform to detect its presence.",
+                    "Azelf can be found on Route 23 . Travel to the forest on the west side, and stand on the platform near the Strength puzzle to detect its presence.",
+                    "Uxie can be found in Nacrene City in the southeast area of Unova. Stand outside the Nacrene Museum to detect its presence."
+                ]
+            }
+        },
+        "Castelia City": {
+            "Game Freak": {
+                "Text": [
+                    "On 22F of the Game Freak building, you can battle both Morimoto and Nishino once per day. Visit every day for challenging battles!"
+                ]
+            },
+            "Amanita's Gift": {
+                "Text": [
+                    "Visit Amanita 's lab on the third floor of the building across the street from the Gym. Speak to her with no more than five Pokémon in your party to receive an Eevee . This Eevee is apparently one of several sent to her from her friend in the far-off Kanto region. Not only does it have its Hidden Ability, Anticipation , but when it evolves it will receive the Hidden Ability for whichever form it takes."
+                ]
+            },
+            "The Royal Unova": {
+                "Text": [
+                    "The rules for battling aboard the Royal Unova have not changed, but the Trainers have gotten much stronger. Expect a real workout to win those items!"
+                ]
+            }
+        },
+        "Nimbasa City": {
+            "Battle Institute": {
+                "Text": [
+                    "Becoming the Champion means that you can now take the Battle Institute 's Battle Test. Fight against five Trainers to earn a rank based on your results. Bring your strongest Pokémon and give it a try!"
+                ]
+            },
+            "Big Stadium and Small Court": {
+                "Text": [
+                    "Now that you have entered the Hall of Fame, the Trainers in Big Stadium and Small Court are more numerous and their Pokémon are much tougher. Visit every day to make your Pokémon stronger!"
+                ]
+            },
+            "Battle Subway": {
+                "Text": [
+                    "The Judge can now be found in the Gear Station building. Speak to him, and he will size up the potential of one of your party members. Seek his help when deciding which Pokémon to train."
+                ]
+            }
+        }
+    },
+    "Part_17": {
+        "Pokémon World Tournament": {
+            "Text": [
+                "Entering the Hall of Fame unlocks the Unova Leaders Tournament , the first of the specialty tournaments. This lets you battle against the local Gym Leaders, both current and former. After winning there, you can challenge the Gym Leaders of Kanto , Johto , Hoenn , and Sinnoh in their own tournaments. Winning each of these unlocks the World Leaders Tournament , and after ten victories here, the Champions Tournament is unlocked."
+            ]
+        },
+        "Clay Tunnel": {
+            "Text": [
+                "Clay Tunnel was created by the local Gym Leader 's constant mining. Stretching out beneath the region's western peninsula, it connects Driftveil City , Mistralton Cave , and Twist Mountain . The deepest area houses the mysterious Underground Ruins , which contains Regirock and either Registeel (if playing Black 2) or Regice (if playing White 2). In order to fully explore Clay Tunnel, you will need to have Strength and Surf available, and it may be a good idea to stock up on Dusk Balls for the Regis in the Underground Ruins."
+            ],
+            "Southern Cave": {
+                "Text": [
+                    "Go north past Hiker Teppei, and check the rock to the left for a Blue Shard . There is also a Full Heal hidden on the ground near the Strength boulder. Further north, a group of Workers is trying to clear a path to the next cave; if you have access to Rock Smash , you can help clear the way. If not, go east from Hiker Teppei and ride the mine cart to the next cave instead."
+                ]
+            },
+            "Western Cave": {
+                "Text": [
+                    "Move the northeast boulder into place, then go south to get a Red Shard . Head west past Hiker Manuel to reach a second boulder; moving this one into place lets you reach an HP Up and a Nugget . Inspect the rock on the southwest side of the pond to find a Water Stone , then wade out to the island to reach a hidden Steel Gem . Continue north to reach a fork in the road; the western path leads to Mistralton Cave , while the northern path leads to the next cave."
+                ]
+            },
+            "Northern Cave": {
+                "Text": [
+                    "Defeat Pokémon Ranger Maxwell to receive a Lum Berry , then follow the dead-end path to the west to get a Metal Coat . Head north past Worker Leo, and pick up the Max Revive on the north side of the pond. Continue north past Worker Brand and defeat Pokémon Ranger Katie for another Lum Berry . If you head north from here, you can get to Twist Mountain. Instead, go east and then jump into the mine cart."
+                ]
+            },
+            "Southern Cave (Visit 2)": {
+                "Text": [
+                    "Head south and move the boulder into place, creating a shortcut to the entrance and allowing you to reach a Rare Bone to the southeast. Turn around, pick up the Green Shard , and talk to the Worker to ride the next mine cart."
+                ]
+            },
+            "Eastern Cave": {
+                "Text": [
+                    "Talk to the Worker to continue your ride through the tunnel."
+                ]
+            },
+            "Northern Cave (Visit 2)": {
+                "Text": [
+                    "Surf north across the pond, inspect the small rocks to find an Iron , and step through the doorway."
+                ]
+            },
+            "Eastern Cave (Visit 2)": {
+                "Text": [
+                    "Shove the boulder into place, then take the next mine cart."
+                ]
+            },
+            "Northern Cave (Visit 3)": {
+                "Text": [
+                    "Go north and check the rock to find a Big Nugget , then step through the doorway to the east."
+                ]
+            },
+            "Underground Ruins": {
+                "Text": [
+                    "The first chamber of the Underground Ruins has little more than a circular pattern on the floor. Go through the double-doors to find four statues, and examine the second from the right for a hint. The hint shown depends on the time of day, and differs between the morning and evening hours. Stand on the center of the eye pattern, then take six steps south and nine steps east. Check the ground to find a hidden switch; once pressed, the north part of the cave becomes the Rock Peak Chamber. Head north to the back of the cave to find Regirock , one of Hoenn 's legendary giants !  Wear it down quickly with Grass - and Water-type moves, then weaken it further with Fire - and Flying-type attacks.",
+                    "Once it is caught, a special key will be unlocked for the Key System , either the Iron Key B2 or the Iceberg Key W2 . These keys can also be swapped between versions. By using the Key System to change the Mystery Door setting, you can change which ruins appear in place of the Rock Peak Chamber. The Iron Key unlocks Registeel 's Iron Chamber, while the Iceberg Key unlocks Regice 's Iceberg Chamber.",
+                    "When battling Registeel, start off with Fire - or Fighting-type attacks to wear it down quickly, then follow up with Grass - or Ice-type move to weaken it further. When battling Regice, start off with Fire- or Fighting-type move to weaken it fast, then wear it down even more with Ice attacks.",
+                    "With the giant(s) caught, exit the ruins and head west. Move the boulder into place, then head north to enter the deepest part of Twist Mountain ."
+                ]
+            }
+        },
+        "Twist Mountain": {
+            "Text": [
+                "Twist Mountain is a mountain rich in valuable minerals, and the multitude of tunnels make it easy for Workers to extract them from the surrounding rock. The area is prone to heavy snow in the winter months, blocking some tunnels and revealing others."
+            ],
+            "B1F": {
+                "Text": [
+                    "This damp cave houses a large ice-covered rock , and TM71 ( Stone Edge ) to the northeast. Head north through the hole in the wall to reach a chamber that was just recently discovered.",
+                    "Three boulders block the way to the north side. First, move the western boulder to the right. Next, move the middle boulder to the south. Third, move the eastern boulder to the left. Go north to find a \"statue\" of Regigigas . If the three legendary giants are in your party, the \"statue\" awakens and attacks!  For the first five turns, its Attack and Speed are halved due to its Slow Start Ability. Wear down its health with Fighting moves before throwing Dusk Balls .",
+                    "Once it is caught, head back through the icy chamber to the tunnel in the southwest. Talk to the Worker to receive one of nine Fossils , which can be revived into an ancient Pokémon at the far-off Nacrene City Museum. Continue on west to reach the mountain's open-air interior."
+                ]
+            },
+            "1F": {
+                "Text": [
+                    "Climb up past the two bulldozers and enter the east tunnel.",
+                    "Here you meet the Heavy Machinery Pro . This Worker will ask one of five questions per day, and will reward your fifth correct answer with a Medal . Exit the tunnel and head west.",
+                    "Check the trash can for a Full Restore , and enter the west tunnel.",
+                    "Go north then west to collect the Dusk Ball and the hidden Rare Bone . Head east past Worker Victor and climb the stairway."
+                ]
+            },
+            "2F": {
+                "Text": [
+                    "Fight Hiker Hunter and continue south to either doorway.",
+                    "Follow the walkway to the west, and fight Worker Cliff before entering the next doorway.",
+                    "Go west to battle Veteran Chloris and grab TM90 ( Substitute ) lying nearby. Jump the ledge to reach a Rare Bone , and inspect the southwest corner to find an Ultra Ball . Exit through the southeast doorway.",
+                    "Pick up TM91 ( Flash Cannon ) to the north, then follow the walkway eastward. Grab the Full Restore near Nurse Carol and enter the next doorway.",
+                    "Head east, then south from Worker Patton. Check the small rock to find a Yellow Shard , then go north to the next room."
+                ]
+            },
+            "3F": {
+                "Text": [
+                    "Climb the stairway to fight Worker Gus. Go east to reach a Dusk Stone , then exit through the western doorway.",
+                    "Go south past Hiker Wade to reach the next doorway.",
+                    "Battle Veteran Julia and continue south, then turn west. The first doorway leads outside to Veteran Carter. Continue west past Worker Cairn to the next doorway.",
+                    "Grab the Float Stone to the east, then follow the walkway to the northwest for a Red Shard . Enter the southwest doorway.",
+                    "Follow the tunnel south to reach the mountain's Route 7 entrance. Outside you meet Marshal , who invites you to challenge the Elite Four again before leaving."
+                ]
+            }
+        },
+        "Undella Town": {
+            "Text": [
+                "Upon returning to Undella Town , you find Hugh standing near the gate. He thanks you again for rescuing his sister's Pokémon, and gives you HM06 ( Dive ) as a token of his gratitude. Then he asks for another battle. After fighting him here, you can battle him once per day at the former Team Plasma base in Driftveil City .",
+                "When the battle concludes, Zinzolin approaches from the south. To atone for his misdeeds, he gives you a few of Ghetsis 's research documents. He claims they can help decipher the ancient script found in the underwater ruins. The script uses coded language, which uses different rules for encryption on each floor. Talk to Zinzolin every time you reach a new floor to receive clues to help crack the code. Fully exploring the ruins requires the use of Flash and Strength ."
+            ],
+            "Cynthia, Champion of Sinnoh": {
+                "Text": [
+                    "Step inside the easternmost villa to meet Cynthia , Champion of the Sinnoh region. When you first meet her, she will battle you regardless of the season. After that, you can battle her once per day during the spring. Her Pokémon are very high-leveled, so train against her team while you can. Her Pokémon will aim for your weaknesses, so be sure to do the same to them. Just remember that her Spiritomb has no weaknesses ( Normal -, Fighting -, and Psychic-type attacks have no effect on Spiritomb)."
+                ]
+            }
+        },
+        "Undella Bay": {
+            "Abyssal Ruins": {
+                "Text": [
+                    "The Abyssal Ruins are believed to be the remains of an ancient temple, the tomb of an ancient king that sank beneath the waves. No one knows who built it or why, but an explanation may lie with the odd symbols etched into the walls. When you dive down to the ruins, hold down the Control Pad as you descend or the currents will wash you back to the surface."
+                ],
+                "1F": {
+                    "Text": [
+                        "Each of the four dive points connect to the same large room on the first floor. All items can be reached from any entrance. Upon entering the rubble, the sound of a switch can be heard. You will only be able to travel 500 steps before the currents rush you back to the surface. To reach the second floor, you must reach the center of the room in 190 steps or less. Inspect the purple pillar there and it slides out of the way. Behind it is a spot where you can float up to the second floor."
+                    ]
+                },
+                "2F": {
+                    "Text": [
+                        "The second floor is a lot smaller than the first. Swim to the south and take the second right. Work your way up to the northeast corner, and swim along the north wall. Head south then west to reach a purple pillar; use Flash directly beside it and it will move out of the way. Go either north or south to reach the third floor."
+                    ]
+                },
+                "3F": {
+                    "Text": [
+                        "Behind you to the west is a Relic Vase . To the north is a Relic Statue ; to the south, a Relic Gold . A Relic Band lies in the center of the room, and a Relic Silver is off to the south. Two more Relic Bands and a Relic Vase lie to the east. To ascend to the final floor, stand at the purple pillar in the center of the east wall and use Strength ."
+                    ]
+                },
+                "4F": {
+                    "Text": [
+                        "There's almost nothing here, except for a few more purple pillars and a single item in the middle of the room — the Relic Crown . This is the last of the ruins' treasures, so just wander around a bit until the currents wash you to the surface. All totaled, the relics housed here can be sold to the collector in the western villa for a combined $ 1,706,000!"
+                    ]
+                }
+            }
+        },
+        "Daily Battles against Hugh": {
+            "Text": [
+                "Once you've defeated Hugh at Undella Town , he will stay at the former Team Plasma base in Driftveil City for the rest of the game, where you can challenge him for a rematch once per day. His Pokémon are at their highest levels here."
+            ]
+        }
+    },
+    "Part_18": {
+        "Route 14": {
+            "Text": [
+                "Route 14 runs east to west alongside gentle rivers and thundering waterfalls. The spray kicked up from these waterfalls bathes the area in a thick mist, which can make it tough to see. Above the waterfalls and far to the west lies the Abundant Shrine , the only remaining sign that there was once a village here.",
+                "Pick up the Big Pearl on the beach and head south. Surf west from the northernmost bridge and climb the waterfall to reach a Heart Scale . Climb the next waterfall and check the north side of the river to find a Nugget . Surf west again to battle Black Belt Jay, and grab the nearby item, another Nugget . Ride down the waterfall and go west to reach the Abundant Shrine ."
+            ],
+            "Abundant Shrine": {
+                "Text": [
+                    "Go west to find a Calcium hidden near the pond, then head north to reach Youngster Wes and the Shiny Stone northeast of him. Turn southwest and battle Twins Rae & Ula, then grab the Max Revive near Lass Lurleen. TM92 ( Trick Room ) lies to the east of Youngster Jaye.",
+                    "The shrine to Landorus stands on a hill to the north. If you visit with a Landorus that was caught elsewhere , an old man will appear. He gives a brief history lesson about the forces of nature before handing over a Reveal Glass . This mirror is said to show the truth, and can be used to switch any of the three Pokémon between their Incarnate and Therian Formes .",
+                    "Cross the pond to the east of the shrine to get a Heal Ball , then head to the northeastern plot of soil. A Rare Candy lies on the west end of the fence, while a hidden PP Max lies on the east end.",
+                    "Back on Route 14 , follow the river and jump the ledge to reach a Max Potion . Head southwest to enter Black City or White Forest ."
+                ]
+            }
+        },
+        "The Southeast": {
+            "Text": [
+                "The southeast locale on Unova 's main landmass differs between versions, either Black City or White Forest , respectively."
+            ],
+            "Black City": {
+                "Text": [
+                    "Black City is a modern metropolis filled with skyscrapers. On the north side of the city stands the Black Tower ."
+                ],
+                "Market": {
+                    "Text": [
+                        "The Market is located on the south side of the city, but is initially empty. The stores will open one by one as you progress through Black Tower. Only one item may be purchased per day from each store."
+                    ]
+                },
+                "Black Tower": {
+                    "Text": [
+                        "The Black Tower is a battle arena that was just recently constructed. The Trainers found inside change every time you enter it. Battle these Trainers on your way through the various Areas. Defeat the Boss Trainer at the end of each Area to advance. There are ten Areas in all, each more challenging than the last.",
+                        "Unlike other battle facilities, you will earn prize money and Experience Points by defeating the Trainers here. However, using the Bag is not allowed, so you will be unable to use items besides held items to restore health or cure status conditions. Each Area's Doctor will, upon defeat, offer a one-time-only courtesy; if you do not need it at that time, you can return to heal up later. The opposing Pokémon you encounter will not be registered in the Pokédex. It is possible to save your progress during the challenge, and you can quit midway by leaving via the elevator.",
+                        "Defeat Trainers in the Area to receive hints about where to find the Gate Trainer, who controls the door to the Boss Trainer's room. Defeat the Gate Trainer to open the door to the Boss Trainer's room. Defeat the Boss Trainer to clear the Area. A full list of Trainers can be found here . Alder 's grandson Benga waits in Area 10's final room; defeat him here then meet him back in Floccesy Town to receive a shiny Gible . If you are accessing Black Tower from White 2, a trainer named Janna will serve as the Boss Trainer for Area 10 instead.",
+                        "After clearing each Area, you will be returned to the entrance to receive your reward. The item obtained is random, and those obtained for clearing Areas 4, 5, 8, and 9 will be doubled. Once Area 5 is cleared you will receive the Tower Key that will allow you to use the Key System to swap it into White 2, allowing Black City to be accessed in White 2."
+                    ]
+                }
+            },
+            "White Forest": {
+                "Text": [
+                    "White Forest is an ancient grove filled with giant trees. On the north side of the forest stands the White Treehollow ."
+                ],
+                "Market": {
+                    "Text": [
+                        "The Market is located on the south side of the forest, but is initially empty. The stores will open one by one as you progress through White Treehollow. Only one item may be purchased per day from each store."
+                    ]
+                },
+                "White Treehollow": {
+                    "Text": [
+                        "The White Treehollow is a battle arena that was just recently established. The Trainers found inside change every time you enter it. Battle these Trainers on your way through the various Areas. Defeat the Boss Trainer at the end of each Area to advance. There are ten Areas in all, each more challenging than the last.",
+                        "Unlike other battle facilities, you will earn prize money and Experience Points by defeating the Trainers here. However, using the Bag is not allowed, so you will be unable to use items besides held items to restore health or cure status conditions. Each Area's Nurse will, upon defeat, offer a one-time-only courtesy; if you do not need it at that time, you can return to heal up later. The opposing Pokémon you encounter will not be registered in the Pokédex. It is possible to save your progress during the challenge, and you can quit midway by leaving via the elevator.",
+                        "Defeat Trainers in the Area to receive hints about where to find the Gate Trainer, who controls the door to the Boss Trainer's room. Defeat the Gate Trainer to open the door to the Boss Trainer's room. Defeat the Boss Trainer to clear the Area. A full list of Trainers can be found here . Alder 's grandson Benga waits in Area 10's final room; defeat him here then meet him back in Floccesy Town to receive a shiny Dratini . If you are accessing White Treehollow from Black 2, a trainer named Jariel will serve as the Boss Trainer for Area 10 instead.",
+                        "After clearing each Area, you will be returned to the entrance to receive your reward. The item obtained is random, and those obtained for clearing Areas 4, 5, 8, and 9 will be doubled. Once Area 5 is cleared you will receive the Treehollow Key that will allow you to use the Key System to swap it into Black 2, allowing White Forest to be accessed in Black 2."
+                    ]
+                }
+            }
+        },
+        "Route 15": {
+            "Text": [
+                "Route 15 is characterized by its sheer cliffs, which may scare some people away. In the center of the route is the Poké Transfer Lab , where you can migrate Pokémon to Unova from other regions.",
+                "Go south from the gate and move the boulder at the foot of the stairs to get TM26 ( Earthquake ). Move the other boulder into place and climb the stairs to reach a Max Potion . Work your way to the west side of the cliff to find a trailer parked here; the woman inside is offering to trade her Rotom for a Ditto , which can be caught in the Giant Chasm 's Crater Forest. Take Rotom to Shopping Mall Nine 's warehouse to change its forms. Check out the Transfer Lab before reaching Marvelous Bridge ."
+            ],
+            "Poké Transfer Lab": {
+                "Text": [
+                    "The Poké Transfer Lab is the building that houses the Poké Transfer itself, the machinery that can transfer Pokémon from a Generation IV game. When you first enter, a Scientist leads you to Professor Andrew Park, who is very excited to see that you have all eight badges. After his rambling speech, you can participate at any time. The minigame itself involves two DS systems, a Poké Ball-flinging crossbow, and a few clouds of pink sleeping gas. Pokémon that are transferred from Sinnoh or Johto cannot be returned. They also are not allowed to have any items, or know any HM moves."
+                ]
+            }
+        },
+        "Marvelous Bridge": {
+            "Text": [
+                "Marvelous Bridge is a beautiful futuristic bridge that stretches over the ocean between Route 15 and Route 16 . Like Driftveil Drawbridge , flying Pokémon sometimes drop their feathers on the bridge."
+            ],
+            "Cresselia": {
+                "Text": [
+                    "When you pass under the eastern archway, the Lunar Wing begins to shine. Hold it up high, and Cresselia swoops down. Start the battle with Bug -, Ghost -, or Dark-type moves to reduce its health quickly, then follow up with Fighting or Psychic moves."
+                ]
+            },
+            "The Magikarp Salesman": {
+                "Text": [
+                    "On the bridge's west end is a man who will sell you a Magikarp for $ 500. After enough training, it grows into the formidable Gyarados . The fish is foreign to Unova , so you won't find it normally; however, you will soon be able to hunt them for free. If you decide to take him up on his offer, return here with an empty slot in your party."
+                ]
+            }
+        }
+    },
+    "Part_19": {
+        "Victory Road": {
+            "Text": [
+                "Fly back to the Pokémon League and head down the mountainside to investigate the dream that Hugh 's sister had. Go down the stairway south of the two Veterans to find a Zoroark , the same one from your first visit to the area. It leads you back to the cave it had been guarding, and once inside, runs off down a tall stairway that connects to a ruined building."
+            ]
+        },
+        "N's Castle": {
+            "Text": [
+                "N's Castle is the former base of Team Plasma that suddenly appeared two years ago. It was built in secret in the lands surrounding the Pokémon League , but fell into disrepair after the great battle, and eventually collapsed back into the ground."
+            ],
+            "1F": {
+                "Text": [
+                    "Upon entering the ruined castle, you find N waiting at the bottom of the stairway. He asks that you lead him to the deepest chamber, a place that holds a special meaning to him. Only here will he face you in battle.",
+                    "North of the entrance is N 's old room. He tells you the sad tale of his childhood, then leaves the room in silence. Grab the Luxury Ball before following him.",
+                    "A fallen column blocks the walkway, so climb down the rubble to the lower level. Pick up the Protein to the west before heading east. Before heading upstairs, be sure to grab TM50 ( Overheat ) to the southeast."
+                ]
+            },
+            "2F": {
+                "Text": [
+                    "Go west until you reach the large crack in the floor, where N stops you. He says simply, \"This is our destination... Go inside.\"",
+                    "Enter the throne room and head north, where he catches up to you. He tells you about losing to a certain Trainer two years ago, and having to accept new ideas. He wants to know if you are a Trainer whose heart is strong enough to do that. He summons his friend Zekrom B2 / Reshiram W2 to his side, and asks if you are ready to battle. Despite having only one Pokémon, it can put up a serious fight. Defensively, you may want to use a high-level Ground-type Pokémon against Zekrom, or a high-level Rock-type Pokémon against Reshiram. Offensively, Ground moves like Earthquake and Ice moves like Ice Beam will be a big help.",
+                    "After N says his goodbyes, his dragon is transformed into its dormant state, the Dark Stone B2 / Light Stone W2 . He instructs you to take the stone to Dragonspiral Tower . Exit the castle to Victory Road , then fly to Opelucid City ."
+                ]
+            },
+            "Season battles": {
+                "Text": [
+                    "Once you catch his dragon, N appears near Nimbasa 's Ferris Wheel every Friday. After riding with him and catching Kyurem in the Giant Chasm , he returns to his castle for a once-per-month rematch with a team that changes with the seasons."
+                ]
+            }
+        },
+        "Opelucid City": {
+            "Text": [
+                "While you are here, you can visit with Drayden in his home. He can teach the strongest Dragon attack, Draco Meteor , to any of your Dragon-type Pokémon as long as they share a strong bond with you. Head west through Route 9 to reach Tubeline Bridge ."
+            ]
+        },
+        "Tubeline Bridge": {
+            "Text": [
+                "Tubeline Bridge is a steel bridge that connects Route 9 to Route 8 . It is so sturdy that subway trains running beneath it will not cause it to budge an inch. A recent study reveals that it can support up to 4,934 people at once!"
+            ],
+            "So Loud!": {
+                "Text": [
+                    "The woman on the east end of the bridge is very frustrated about all the loud noises. The noise level will increase every time you talk to her, from 70 decibels, to 80, 100, and finally 120 decibels. Talk to her when you are traveling with a Pokémon that has the Soundproof Ability, and she will notice something interesting about her surroundings."
+                ]
+            },
+            "Charge Ahead": {
+                "Text": [
+                    "Talk to the Battle Girl near the middle of the bridge. She was trying to outrun the trains, but got overheated. She gives you TM43 ( Flame Charge ), a low-power move that raises Speed, before running off again."
+                ]
+            }
+        },
+        "Route 8": {
+            "Text": [
+                "Route 8 is covered with marshes and water. Constant rain means that the route is always mucky, except in winter when the puddles mostly freeze over. To the north is the Moor of Icirrus , and to the south, Icirrus City ."
+            ],
+            "Moor of Icirrus": {
+                "Text": [
+                    "The Moor of Icirrus is a large marsh that formed when water collected on the uneven ground. The area was once destroyed by an intense wildfire, and the Pokémon Rangers monitor the area to prevent the same from happening again. Fully exploring the area requires the use of Strength to move the boulder on the west side.",
+                    "Go west from the entrance to find a hidden TinyMushroom in the line of trees. To the north, an old man tells you about the marsh's history and the fire that once raged here. Move the boulder into place to reach the southwest lake; defeat Pokémon Ranger Elaine to get a Lum Berry , and continue south to find TM84 ( Poison Jab ). Further north, a hidden Big Mushroom and a Green Shard lie on opposite sides of Fisherman Arnold. Head to the northeast area for a Heart Scale , then jump the ledge. A hidden Dawn Stone and a Rare Candy can be found in the middle of the southeast lake. South of that, Pokémon Ranger Parker gives up another Lum Berry , and a Full Heal sits nearby.",
+                    "Return to Route 8 and head southwest to reach Icirrus City ."
+                ]
+            }
+        },
+        "Icirrus City": {
+            "Text": [
+                "Icirrus City 's wetlands occupy the area to the south, while the buildings are situated on higher, stable ground. The Pokémon Fan Club is located here, and you can win prizes for answering Aha's quizzes. Brycen , who served as the local Gym Leader two years ago, now works as an actor at PokéStar Studios ."
+            ],
+            "The Ore Collector": {
+                "Text": [
+                    "The Gentleman in the Pokémon Center is interested in collecting any stones, gems, and minerals you might have, and is willing to pay double the normal price for them. He is the only person in the region who will buy Pearl Strings and Comet Shards ."
+                ]
+            },
+            "Pokémon Fan Club": {
+                "Text": [
+                    "Talk to the chairman and show him a well-trained Pokémon to get an item. Depending on the number of levels it gained since meeting you, he will hand over up to three different items. A Pokémon that has grown 25-49 levels will earn you an Exp. Share ; 50-98 levels will get you a Cleanse Tag ; and a Pokémon that's grown 99 levels will earn you a King's Rock .",
+                    "The girl in the Fan Club will offer to check your Pokémon's mood. Choose a Pokémon to show her, and she will tell you how friendly it is toward you."
+                ]
+            },
+            "Aha's Pep Quiz": {
+                "Text": [
+                    "The home of Aha, Wye, and Ditoh is east of the former Gym. The mother, Wye, pulls you into the game the moment you step inside. The father, Aha, will ask you a question, while Wye gives hints to the answer. A correct answer will earn you an Antidote , while an incorrect one will get you a Parlyz Heal instead. You can take the quiz once per day."
+                ]
+            },
+            "The Shadows Reappear": {
+                "Text": [
+                    "Head east from the Pokémon Center and cross the bridge. When you reach the end of the path, the Shadow Triad suddenly appears. The Triad challenges you to three individual battles; a Single Battle, a Triple Battle, then a Rotation Battle. They also give you a chance to quit between battles. When the battles end, the Triad disappears without a word; however, they will reappear for a rematch once every season."
+                ]
+            },
+            "Dragonspiral Tower": {
+                "Text": [
+                    "Dragonspiral Tower is said to be the oldest structure in the Unova region. No one knows its history, but it is said to have a deep connection with the legendary dragons Zekrom and Reshiram ."
+                ],
+                "1F": {
+                    "Text": [
+                        "The first floor is pretty straightforward. Just follow the path to the stairs."
+                    ]
+                },
+                "2F": {
+                    "Text": [
+                        "The second floor is littered with broken columns; these act as a bridge if you don't have a Pokémon with Strength . There's an Elixir under a column to the northeast, and an Ultra Ball on a broken column to the west. Don't miss the Red Shard hiding in the rubble!"
+                    ]
+                },
+                "3F": {
+                    "Text": [
+                        "The third floor is covered with one-way ramps. Jump to the south, then take the middle ramp west then north to reach a Shiny Stone . Grab the Protein in the northeast before taking the southernmost ramp west to the winding staircase."
+                    ]
+                },
+                "4F": {
+                    "Text": [
+                        "Another straightforward floor. Climb the several stairways to reach the north side. To the east, a trio of items lie neatly in a row. These are the Adamant , Lustrous , and Griseous Orbs , which boost the powers of Dialga , Palkia , and Giratina . These Pokémon do not appear in Unova , but can still be found through other means ."
+                    ]
+                },
+                "5F": {
+                    "Text": [
+                        "The fifth floor is made up of four large circular paths around the central column. Head to the right to find a PP Max on the outer ring, then go left to reach TM02 ( Dragon Claw ) on the second ring from the center. Walk around the column to get a Max Revive , then go left to reach the stairs."
+                    ]
+                },
+                "6F": {
+                    "Text": [
+                        "Another simple floor. Follow the path to find a Comet Shard , which can be sold to the Ore Collector in Icirrus for a whopping $ 60,000!  Continue on to the stairs in the southwest."
+                    ]
+                },
+                "7F": {
+                    "Text": [
+                        "Head on up through the narrow path, and the room begins to shake. Suddenly, the Dark Stone B2 / Light Stone W2 begins to tremble inside your Bag. The stone floats in the air for a moment, slowly absorbing the aura from its surroundings before reawakening as Zekrom B2 / Reshiram W2 . In a show of force, it sends out a shock wave of crackling electricity B2 /blazing fire W2 as it descends to the ground.",
+                        "First, exploit its weaknesses to quickly drop its health. Both dragons are vulnerable to Dragon - and Ground-type attacks; in addition, Zekrom fears Ice moves and Reshiram fears Rock moves. Next, wear it down gradually with Grass , Fire , or Electric moves. If you happen to defeat it, it will reappear once you defeat the Elite Four and Champion again.",
+                        "After the battle, N appears and tells you to go to the Giant Chasm . According to his friend, Kyurem has returned!  Once he leaves, be sure to track down that hidden Comet Shard . It is possible to Fly out of here, so take off for Lacunosa Town again and head east."
+                    ]
+                }
+            }
+        },
+        "Giant Chasm": {
+            "Text": [
+                "The Crater Forest has mostly recovered from the Plasma Frigate 's impact, except for the sandy depression in the center. Enter the cave to the northeast and head to the back chamber to find Kyurem waiting for you. Save the game before starting the battle, as it will be much tougher to catch than the previous dragon. Dragon , Fighting , Rock , and Steel attacks will reduce its health the fastest, then weaken it further with Grass , Water , and Electric moves.",
+                "When the battle is over, Cheren and Bianca enter the cave. Cheren is impressed at the sight of Kyurem , while Bianca suggests showing your Pokédex to Professor Juniper . They run off, giving you the chance to grab the DNA Splicers that Kyurem dropped. When used, these let you fuse Kyurem with either Zekrom or Reshiram to create Black Kyurem or White Kyurem , respectively. The new Pokémon draws its level and other details from Kyurem. The next time you use the PC, you will receive some new Kyurem-themed wallpapers."
+            ]
+        }
+    },
+    "Part_20": {
+        "Skyarrow Bridge": {
+            "Text": [
+                "The Skyarrow Bridge is the longest bridge in Unova , connecting Castelia City to Pinwheel Forest . Pedestrians travel across the elevated walkway, while trucks rumble by on the lower level. As you leave the city, the Castelia skyline appears in the background."
+            ],
+            "The Salesman, The Runner": {
+                "Text": [
+                    "Midway across the bridge, a man is trying to sell bottles of Fresh Water for $ 300 apiece. He claims that he will be in trouble if he can't sell them — his reasons suspiciously change with each meeting — but if you accept, he thanks you for your generosity. If not, you'll need to decline his offer twice; he's a persistent salesman!",
+                    "Farther along, you will encounter a thirsty man running across the bridge. Give him a Fresh Water to slake his thrist, and he dashes off. Repeat the process at the Driftveil Drawbridge , Tubeline Bridge , Village Bridge , Marvelous Bridge , and the Marine Tube in that order, and he will return to the Skyarrow Bridge . Meet up with him here again to receive a dozen bottles of Moomoo Milk in gratitude."
+                ]
+            }
+        },
+        "Pinwheel Forest": {
+            "Text": [
+                "Pinwheel Forest is a lush forest where the trees have grown so densely that little sunlight gets in. The road leads to the southeast, where the brighter edge of the forest connects to Nacrene City ."
+            ],
+            "Interior": {
+                "Text": [
+                    "Cross the double bridges to find a trail leading deep into the forest, with Cheren standing nearby. He heard that Team Plasma was seen in the forest, and asks you to help him search."
+                ],
+                "West side": {
+                    "Text": [
+                        "Pokémon Ranger Hillary gives you a Sitrus Berry when defeated, and there is a Max Repel sitting nearby. A large moss-covered rock sits in the tall grass to the north, and an Ultra Ball can be found in the tall grass to the southwest. Inspect the ground near Youngster Keita to find a second Ultra Ball , and collect the Max Revive from the nearby tree stump. Continue north to find Pokémon Ranger Ralph, who gives out a Lum Berry when defeated. Climb through the fallen logs to face off against Veterans Rosaline and Sinan, then grab the Net Ball to the northeast. Detour to the south to track down a hidden BalmMushroom near Youngster Henley and Lass Helia. Head north through the log to meet Gorm of the Seven Sages . The former villain reminisces about the past for a moment before wandering off. His investigation complete, Cheren thanks you with an Up-Grade . Fight the camouflaged Pokémon Ranger Melita to get another Lum Berry and pick up TM86 ( Grass Knot ) before leaving the clearing."
+                    ]
+                },
+                "East side": {
+                    "Text": [
+                        "Pass through the break in the fence and head south. Check the bare spot to the west to get a Green Shard , and continue east. Youngster Nicholas stands near a fork in the road; take the northern path first to get a Sun Stone and a hidden Bug Gem . Head southeast to find TM22 ( SolarBeam ), then go west to track down a Rare Candy . Surf across the pond to reach a PP Max . Return to the road and head south. Talk with the Scientist, who asks to see your Habitat List. If you have seen all the local land-dwelling Pokémon, she rewards you with five Nest Balls ."
+                    ]
+                }
+            },
+            "Exterior": {
+                "Text": [
+                    "Fight School Kid Millie and follow the fence eastward to get a Full Heal . Head south to meet a Battle Girl, then east to find a Protein on the railroad tracks. Keep going south to find a few big puddles. To the west is Ace Trainer Kelsey; to his north is a Nugget , and to his southeast is an HP Up . Check the largest puddle to find a hidden Max Elixir and go east. Climb the stairway to get a PP Max near Battle Girl Lee, then go north to reach the challenge rock. Have a Fighting Pokémon chip away at it to receive a Stardust once per day. Go down the northern stairway to find a hidden Fighting Gem near the ledge. Head back north to the road and turn east to reach Nacrene City . Step behind the fence to find an Ultra Ball before exploring the city."
+                ]
+            }
+        },
+        "Nacrene City": {
+            "Text": [
+                "Formerly the site of abandoned warehouses, Nacrene City began to take shape when young people started renovating the century-old buildings to create art studios. Unique locations include the Nacrene Museum and the home of Loblolly , the furniture artisan."
+            ],
+            "Café Warehouse": {
+                "Text": [
+                    "The Café Warehouse stands just east of Pinwheel Forest . The café runs two different specials during the week. Speak to the Waitress on Wednesdays to receive a Soda Pop , and again on Saturdays to get a Lemonade .",
+                    "Visit Café Warehouse on a Sunday and talk to the Waitress on the lower level, and she will entrust you with the Grubby Hanky . Visit again on Thursday to return it to the customer who lost it. Return on Sunday to tell the Waitress, and she gives you a Fluffy Tail ."
+                ]
+            },
+            "Nacrene Museum": {
+                "Text": [
+                    "Having visited the Cave of Being on Route 20 , you can encounter Uxie outside the Nacrene Museum on the north side of town. Stand in the center of the circular walkway to detect the creature, which appears at level 65.",
+                    "Enter the museum and the assistant director, Hawes , will greet you. As he shows you around, Lenora , the director and former Gym Leader, hurries over. She asks which Fossil you prefer — the Cover Fossil or the Plume Fossil — and hands it over. When restored at the front desk, these turn back into Tirtouga or Archen , respectively. Any Fossils obtained in Twist Mountain can be restored here as well. Exhibits include a meteorite believed to have a connection with a space virus and a replica of the Dark Stone B2 / Light Stone W2 ."
+                ]
+            },
+            "Move Tutor": {
+                "Text": [
+                    "The local Move Tutor lives in one of the buildings to the south of the Café Warehouse. He is obsessed with Green Shards , and will teach a variety of moves for the right number of Shards."
+                ]
+            },
+            "Loblolly's Studio": {
+                "Text": [
+                    "Loblolly's studio is located in the southeast part of the city. She designs the Décor items that can be placed in your home in the Dream World . Use Game Sync after choosing Décor to have new items added to the Dream Catalogue."
+                ]
+            },
+            "Get a Pokémon Egg": {
+                "Text": [
+                    "Talk to the Pokémon Breeder in the east gate when you have space in your party to receive a Pokémon Egg. This Egg was found at the Pokémon Day Care on Route 3 , and will eventually hatch into a Happiny . It cannot be found in the wild, so don't miss it!"
+                ]
+            }
+        },
+        "Route 3": {
+            "Text": [
+                "Route 3 is a long and winding road that connects Nacrene City to Striaton City . Wellspring Cave is located to the northwest, while the Pokémon Day Care can be found to the northeast.",
+                "Grab the Quick Ball near School Kid Marsha and follow the path to the bridge. There is a Hidden Grotto on the north side of the pond, and a Calcium , a Full Restore , and a hidden Ultra Ball can be found on the west side. The trail on the south side of the pond leads to Fisherman Bruce and a Zinc . Follow the path eastward to a patch of dark grass; a Big Nugget and a second Hidden Grotto can be found here. Further north, the path splits at a T-intersection; the School Kid here will give you five Dive Balls for completing the local Habitat List. Grab the Ultra Ball from the tall grass, head west to find a hidden Nugget on the ledge, and enter Wellspring Cave ."
+            ],
+            "Wellspring Cave": {
+                "Text": [
+                    "Wellspring Cave is a small cave on the west side of Route 3 . Rainwater that has soaked into the ground wells up to form large pools of water. Surf is required to reach the lower level, where the low light requires the use of Flash , as well."
+                ],
+                "1F": {
+                    "Text": [
+                        "Climb up onto the rock platform to fight Hiker Zaiem and get the Max Repel from the ledge. Surf to the west side to pick up the Escape Rope near Battle Girl Maggie. Follow the path southeastward to reach the stairs to the basement."
+                    ]
+                },
+                "B1F": {
+                    "Text": [
+                        "Head northeast to battle Black Belt Thomas, then cross the nearest pool of water to get a Max Revive from the ledge to the southeast. Go back north past Battle Girl Xiao to reach an intersection. Go left to collect TM47 ( Low Sweep ), then go right. Head south at the next turn to find a hidden Carbos , then go down the nearby stairway to get a Protector . Continue north past Black Belt Edward and cross the water to fight Veteran Shaun. Inspect the path to the east to find another Max Revive , then climb the stairway to get TM52 ( Focus Blast ). Check the ground to the west of Veteran Shaun to find a hidden Ultra Ball ."
+                    ]
+                }
+            },
+            "Preschool": {
+                "Text": [
+                    "Go east from the T-intersection to reach the grounds of a preschool. Step inside and talk to the woman in charge to have her heal your Pokémon. A Pansage , Pansear , and Panpour are playing with the children; according to a little girl, they were a gift from the former Striaton Gym Leaders . Pick up the Rare Candy in the back then head outside to the playground, where another Rare Candy can be found in the sandbox."
+                ]
+            },
+            "Pokémon Day Care": {
+                "Text": [
+                    "The Pokémon Day Care is located just east of the preschool. The facility specializes in raising Pokémon for busy Trainers. The level of a Pokémon left here will rise over time, and it may even learn a new move as well. If two Pokémon are left here, sometimes a Pokémon Egg may be found!"
+                ]
+            }
+        },
+        "Striaton City": {
+            "Text": [
+                "The west side of Striaton City is made up of a large garden with a fountain, where a school of Stunfisk gather to dance on summer nights. The Trainers' School and a few apartment buildings stand on the east side, and the former Gym is now the Striaton Restaurant."
+            ],
+            "Trainers' School": {
+                "Text": [
+                    "Talk to the School Kid near the west wall to take a short quiz about status conditions. If you answer both of his questions correctly, he will give you a Persim Berry .",
+                    "On the other side of the classroom, an Ace Trainer is trying to figure out how a Ground attack could hit a Pokémon with the Levitate Ability. Give him some advice, and he will ask you to battle."
+                ]
+            },
+            "Pokémon Center": {
+                "Text": [
+                    "Talk to the woman near the front desk to learn about the Gracidea flower . If you have a Shaymin in your party but don't yet have the flower, she will give you one on the spot.",
+                    "At the Poké Mart counter, the TM Department offers both TM04 ( Calm Mind ) and TM08 ( Bulk Up ) for $ 80,000 apiece."
+                ]
+            },
+            "Striaton Restaurant": {
+                "Battle with the Brothers": {
+                    "Text": [
+                        "The Gym Leaders Cilan , Chili , and Cress have retired, and recently turned their Gym into a restaurant. Talk to one of the three brothers, and he will team up with you in a Multi Battle against the other two. This can be done once per day."
+                    ]
+                },
+                "The Guessing Game": {
+                    "Text": [
+                        "Talk to the woman on the stage to participate in the show. If you correctly guess which Pokémon is holding the Big Mushroom , you win the item!  Pansage, Pansear, or Panpour can appear in the show; the one that appears changes each time you play."
+                    ]
+                }
+            },
+            "Funfest Mission": {
+                "Text": [
+                    "Enter the apartment building south of the Trainers' School, and talk to the girl on the first floor. The Funfest Mission Rock-Paper-Scissors Competition! will be added."
+                ]
+            },
+            "Hints of a Legend": {
+                "Text": [
+                    "Visit the apartment building south of the Pokémon Center to learn that people have recently been feeling a mysterious Pokémon's presence in the Dreamyard , a small wooded location east of the city."
+                ]
+            },
+            "The Dreamyard": {
+                "Text": [
+                    "The Dreamyard occupies the grounds of an abandoned factory that eventually collapsed. The area is now used as a playground for children and Pokémon.",
+                    "Upon entering the grounds, the mysterious Pokémon appears! Latios B2 / Latias W2 growls at you before quickly flying off to the east. Enter the gate to see it zip off to the west. Go back and Cut down the tree to enter the remains of the old factory, and it buzzes by again. Head west for a Rare Candy , then grab TM85 ( Dream Eater ) at the foot of the stairway. Atop the stairway, it passes by for a fourth time. Go southwest to reach an Ultra Ball , where the dragon stops to examine you for a moment. Finally, follow the walkway to its easternmost point, where the legendary Pokémon attacks!  Use a Dark-type Pokémon to avoid their only offensive move, but take care not to knock it out with a powered-up Dark move. Psycho Shift lets it bounce any status ailment back to its attacker, so be prepared.",
+                    "Once it is captured, be sure to collect the dropped Soul Dew , which raises either dragon's Special stats by 50%. Go down the stairway and turn east for a Moon Stone , and head down to the basement.",
+                    "Visit the east side to get an HP Up and continue south. Grab the Dawn Stone in the southwest corner, then climb the stairs in the southeast.",
+                    "To the northwest is School Kid William and a PP Up , hidden near the furnace. Fight Youngster Keita as you head west, and collect the Reaper Cloth near School Kid Rita. Move the boulder into place and go down the stairway.",
+                    "Go north to get an Iron , and check the northeast grass patch to find the last item, a Psychic Gem . Return to Striaton and head south to Route 2 ."
+                ]
+            }
+        }
+    },
+    "Part_21": {
+        "Route 2": {
+            "Text": [
+                "Route 2 is a short tree-lined road that connects Striaton City and Accumula Town . The three brothers of Striaton Restaurant often visit the route to help train Pokémon Trainers.",
+                "The Lady on the hill wants to see a Pokémon with the Solid Rock Ability; fulfill her request to get a Dawn Stone . A Repeat Ball and a Full Heal can also be obtained on the hill. To the west, a Carbos and a hidden PP Max can be found in the small clearing behind the cuttable tree. To the south, a hidden Max Revive can be found between the two ledges, and an Ultra Ball sits in the tall grass near the two Youngsters. Go west to discover a Hidden Grotto near Lass Mali, and grab the second Max Revive near Veteran Oriana. A Calcium can be found behind the boulder."
+            ]
+        },
+        "Accumula Town": {
+            "Text": [
+                "Accumula is a small town between Route 2 and Route 1 . Because of its many hills, the town offers some great views."
+            ],
+            "The Northwest Building": {
+                "Text": [
+                    "Visit the northwest building and climb to the second floor. Talk to the man near the stairs to receive 10 Poké Balls . The little girl wants someone to play a game of rock-paper-scissors using the Grass , Fire , and Water types. The dark-haired girl quizzes you about your first partner Pokémon 's height and weight; answer correctly to get either a Grass Gem , Fire Gem , or Water Gem , depending on your first partner's type."
+                ]
+            },
+            "The Northern Building": {
+                "Text": [
+                    "Stop by the building next door, and climb to the second floor. Talk to the young man to get a BalmMushroom ."
+                ]
+            },
+            "The House on the Hill": {
+                "Text": [
+                    "The Lass at the top of the stairway wants to see a Pokémon that is 17' (5 m) or taller. Show her a towering Pokémon like Onix or Gyarados to receive a Fluffy Tail . This can be done once per day.",
+                    "The Lady inside is stuck in a slump. She hopes that a Pokémon with a cry like an instrument could cheer her up. Show her a Kricketot and her mood improves somewhat. After that, show her a Whismur to finally knock her out of her slump. She thanks you with a Metronome ."
+                ]
+            },
+            "The Southwest Building": {
+                "Text": [
+                    "The Youngster at the bottom of the stairway wants to see a Pokémon that is 8\" (20 cm) or shorter. Show him a tiny Pokémon like Joltik or Foongus to receive a Poké Doll . This can be done once per day.",
+                    "The Lass on the first floor would like to trade her Ambipom for your Excadrill . After doing so, she asks you to battle in order to show how it has grown. After that she asks for another trade, this time, your Hippowdon for her Alakazam . She then asks for another battle against her old Pokémon."
+                ]
+            }
+        },
+        "Route 1": {
+            "Text": [
+                "Route 1 stretches between Accumula Town and Nuvema Town . The change in seasons is quite evident here, as flower petals ride the spring breeze and dead leaves flutter in the autumn wind.",
+                "South of the two Backpackers is a dark-haired girl in the middle grass patch; talk to her to get a Potion , then check the grass for an Ultra Ball . Surf west across the water to reach a Full Restore , then turn south. Ace Trainer Cheyenne is running laps around a grass patch; in the center lies a hidden Protein . Defeat the Pokémon Rangers to get a Lum Berry from each, then grab the Prism Scale from the south side. Enter the gate to arrive on Route 17 ."
+            ]
+        },
+        "Route 17 (south)": {
+            "Text": [
+                "Route 17 leads westward across the sea from Route 1 . The swift ocean currents can make travel difficult, so proceed carefully.",
+                "Surf to the first spot of shallow water to find a hidden Blue Shard , then go north to reach another. Ride the northern westbound current to reach the Dive Ball near Fisherman Bucky, then sail west to Route 18 ."
+            ]
+        },
+        "Route 18": {
+            "Text": [
+                "Route 18 consists almost entirely of a single large island at the end of Route 17 . The crescent-shaped island forces travelers from Route 1 into a large U-turn, directing them towards the P2 Laboratory in the northeast.",
+                "Climb up the stairway and head north past Veteran Gina to reach the prefab house. The female Ace Trainer inside will restore your team's health, while the man in sunglasses will buy any Rare Bones you have for $ 10,000 apiece. Cross the bridge to the south and move the boulder into place to reach a Zinc and a hidden Rare Candy . Double-back and go down the stairway, then move the second boulder to enter the valley, where you can find Veteran Vincent and a Star Piece . Head west to fight Hiker Stephen, then go south past Veteran Maya to get TM19 ( Telekinesis ). Climb the stairway to the northeast to meet Crasher Wake . The Gym Leader from Sinnoh stares out to sea, singing to himself, before rushing off to participate in the Pokémon World Tournament . Cross the next bridge to collect the Magma Stone , which causes Heatran to appear in the deeper part of Reversal Mountain that Bianca was investigating. Go down the stairway and surf east to the P2 Laboratory ."
+            ]
+        },
+        "Route 17 (north)": {
+            "P2 Laboratory, Plasma Frigate": {
+                "Text": [
+                    "The P2 Laboratory was built on a quiet island as a secret base for Team Plasma to conduct certain research experiments. With Ghetsis defeated, the Plasma Frigate is anchored here from now on.",
+                    "A handful of Plasma Grunts can still be found on the ship. Colress apparently allowed them to stay as long as they bring out their Pokémon's potential by treating them well. Enter the back of the ship and take the warp panel to the room where Kyurem was imprisoned. Take the warp to the east to reach the Control Room, where you meet Colress again. He has continued with his research after Team Plasma 's defeat, and wishes to measure your Pokémon's strength in battle. His Magneton , Magnezone , Metagross , and Klinklang are all vulnerable to Fire - and Ground-type attacks, Rotom is immune to Ground-type attacks due to Levitate , but it can't stand Grass-type moves, and Beheeyem fears Ghost - and Dark-type attacks. Aim for their weaknesses to score massive damage!",
+                    "If you win the battle, he rewards you with a Master Ball , the best Poké Ball variety that is guaranteed to catch any creature!  After this battle, you can challenge Colress once per day.",
+                    "Leave the ship and the island behind, and surf southwest past Swimmer♀ Dara to reach the bay on Route 18 . A PP Max and a hidden Prism Scale can be found to the south, while an Iron and a hidden PP Max are located in the tall grass north of Battle Girl Wendy. After collecting the items, return to Route 1 and continue south to Nuvema Town ."
+                ]
+            }
+        },
+        "Nuvema Town": {
+            "Text": [
+                "The easternmost town in Unova , Nuvema is home to the Juniper Pokémon Lab, where Professor Juniper researches Pokémon origins. Cheren and Bianca are originally from Nuvema Town."
+            ],
+            "The Hero's House": {
+                "Text": [
+                    "The middle house is the home of the hero from two years ago. Inside you can meet their mother, who mistakes you for her child, who is off looking for a friend named N . Visit her anytime to get your Pokémon healed up. Before you leave, venture upstairs to the hero's bedroom to find an old King's Rock ."
+                ]
+            },
+            "Cheren and Bianca's Homes": {
+                "Text": [
+                    "Bianca 's house stands to the southwest, while Cheren 's house stands to the southeast. Talk to their parents to hear stories about the two. Cheren's father gives you a Berry Juice , a thank-you gift for being his son's first Gym challenger."
+                ]
+            },
+            "Juniper Pokémon Lab": {
+                "Text": [
+                    "Cedric Juniper can be found in the lab. Talk to him to receive the Super Rod , which he meant to give you back in Aspertia . Use this high-tech fishing rod to hunt for Pokémon that live beneath the water's surface!",
+                    "Professor Juniper is here as well, hard at work. Visit her often to have her evaluate the progress of your Pokédex . After making substantial progress on the Pokédex, you can receive a few special items.",
+                    "Be aware that there are four Pokémon that cannot be seen during your adventure. These include either Rufflet B2 or Vullaby W2 , either Skitty B2 or Buneary W2 and both the first and final forms of the first partner Pokémon that was not chosen by either you or Hugh (the second form is used by Rosa or Nate in Nimbasa against Ingo and Emmet)."
+                ]
+            }
+        }
+    },
+    "Part_22": {
+        "Reversal Mountain": {
+            "Text": [
+                "Locate the trainer Doctor Derek first and use the stairway near him to reach the section of BF1 where Heatran's chamber is located. Once you are ready, save and then use the Magma Stone to unveil Heatran then interact with it to face it in battle. Once in battle, paralyze it and then weaken it as best you can with moves that do neutral damage to Heatran. Then swap in a good Water-type to help take the damage from the Fire and Steel-type moves as you try to catch Heatran."
+            ]
+        },
+        "Nature Preserve": {
+            "Text": [
+                "The Nature Preserve was established as a secret haven for Pokémon, so far away from Unova that the only way to reach it is by airplane from Mistralton City . The grove is home to many kinds of Pokémon that cannot be found anywhere else, including some that have reached level 100!",
+                "Go south from the plane and head east through the trees. Soon you reach a clearing, and in the middle of it, a Shiny Haxorus !  Its body may be colored differently, but its stats are the same as those of a normal-colored one. Catch it if you can!"
+            ]
+        },
+        "Pokémon League: Round 2": {
+            "Text": [
+                "The Elite Four and Champion have grown even stronger since you first battled them. They now have more Pokémon, and their levels have increased significantly. Gather a team of superior Pokémon before challenging them again!  By fulfilling certain requirements , you can earn up to 19 Medal battling these same five people, so get going!"
+            ],
+            "Shauntal": {
+                "Text": [
+                    "Shauntal has added Mismagius * and Froslass to her lineup. All six of her Pokémon have trouble against Ghost - and Dark-type attacks, and Gengar is vulnerable to Psychic due to its Poison typing, but watch out. By using your own Ghosts, she could strike their weak points, as well."
+                ]
+            },
+            "Grimsley": {
+                "Text": [
+                    "Grimsley 's new additions include Houndoom and Honchkrow , or replaces Liepard with Tyranitar in Challenge Mode. Aside from his bird, the other members of his party are all vulnerable to Fighting-type attacks. Use hard-hitting moves like Focus Blast or Brick Break . As for Honchkrow, take it down with Electric , Rock , or Ice moves."
+                ]
+            },
+            "Caitlin": {
+                "Text": [
+                    "Caitlin has added Metagross and Gallade to her lineup, or if playing in Challenge Mode, her Sigilyph is replaced by Alakazam . Her Pokémon all share a weakness to Ghost moves like Shadow Ball , except for Metagross, which can be struck down with Fire - and Ground-type attacks."
+                ]
+            },
+            "Marshal": {
+                "Text": [
+                    "Marshal 's new additions include Medicham * and Lucario * . Except for Lucario, his team has a common weakness to Flying-type attacks. A Pokémon that lacks an item can inflict massive damage with Acrobatics . Take out Lucario with Fire , Fighting , or Ground moves."
+                ]
+            },
+            "Champion Iris": {
+                "Text": [
+                    "Iris ' Pokémon are nearly 20 levels higher than they were during your first battle. Take out her three powerful dragons quickly with Ice moves like Ice Beam and Blizzard . Her Archeops is also vulnerable to Ice attacks. Switch Pokémon when Lapras and Aggron appear in order to strike with super-effective moves. Aside from their individual weaknesses, the two share a weakness to Fighting-type attacks."
+                ]
+            }
+        }
+    }
+}

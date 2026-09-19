@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gothic Survivors - Data Generator</title>
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --surface-color: #2c2c2c;
+            --primary-color: #cfa538;
+            --text-color: #e0e0e0;
+            --text-muted-color: #888;
+            --border-color: #444;
+            --input-bg: #111;
+            --success-color: #4CAF50;
+            --danger-color: #f44336;
+            --info-color: #2196F3;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* --- Layout --- */
+        .sidebar {
+            width: 250px;
+            background-color: var(--surface-color);
+            border-right: 1px solid var(--border-color);
+            overflow-y: auto;
+            padding: 15px;
+            flex-shrink: 0;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .generator-area {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        header {
+            padding: 15px 20px;
+            background-color: var(--surface-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h1, h2, h3, h4 {
+            margin: 0;
+            padding: 0;
+            color: var(--primary-color);
+            font-weight: 300;
+        }
+        h1 { font-size: 1.8em; }
+        h2 { font-size: 1.5em; margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        h3 { font-size: 1.2em; margin-bottom: 15px; color: var(--text-color); }
+        h4 { font-size: 1.1em; margin: 15px 0 10px; color: var(--text-muted-color); border-bottom: 1px dotted var(--border-color); padding-bottom: 5px;}
+
+        /* --- Tabs --- */
+        .tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        .tab-button {
+            padding: 10px 20px;
+            border: 1px solid var(--border-color);
+            background-color: var(--surface-color);
+            color: var(--text-muted-color);
+            cursor: pointer;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            transition: all 0.2s ease;
+        }
+        .tab-button.active {
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            border-bottom: 1px solid var(--bg-color);
+            transform: translateY(1px);
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* --- Sidebar Examples --- */
+        .sidebar h3 { margin-top: 20px; font-size: 1.1em; }
+        .sidebar h3:first-child { margin-top: 0; }
+        .example-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .example-list li {
+            padding: 8px 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            font-size: 0.9em;
+        }
+        .example-list li:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- Form Elements --- */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            position: relative;
+        }
+        label {
+            font-size: 0.9em;
+            color: var(--text-muted-color);
+        }
+        input[type="text"], input[type="number"], select, textarea {
+            width: 100%;
+            background-color: var(--input-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 8px;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+            font-family: var(--font-mono);
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        /* --- Tooltips --- */
+        .tooltip {
+            position: absolute;
+            top: -2px;
+            right: 0;
+            background-color: var(--info-color);
+            color: white;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 16px;
+            cursor: help;
+            user-select: none;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 250px;
+            background-color: #333;
+            color: #fff;
+            text-align: left;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -125px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.85em;
+            line-height: 1.4;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* --- Dynamic Sections --- */
+        .dynamic-container {
+            border: 1px dashed var(--border-color);
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            background-color: rgba(0,0,0,0.2);
+        }
+        .dynamic-item {
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            position: relative;
+        }
+        .remove-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: var(--danger-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            line-height: 20px;
+            text-align: center;
+        }
+        
+        /* --- Buttons --- */
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: opacity 0.2s;
+        }
+        .btn:hover { opacity: 0.9; }
+        .btn-add { background-color: var(--info-color); color: white; }
+        .btn-generate {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2em;
+            background-color: var(--success-color);
+            color: white;
+            margin-top: 30px;
+        }
+
+        /* --- Code Output Modal --- */
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        .modal-content {
+            background-color: var(--surface-color);
+            padding: 20px;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 900px;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .modal-header h2 { margin: 0; border: none; }
+        .modal-close {
+            font-size: 2em;
+            font-weight: bold;
+            cursor: pointer;
+            color: var(--text-muted-color);
+        }
+        .code-wrapper {
+            flex-grow: 1; /* Let the wrapper fill the available vertical space */
+            overflow: auto; /* The wrapper will handle all scrolling */
+            background-color: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 15px;
+        }
+
+        #generatedCode {
+            font-family: var(--font-mono);
+            white-space: pre; /* This is the only layout rule it needs */
+            font-size: 0.9em;
+            color: var(--text-color);
+            margin: 0; /* Remove default browser margin from the <pre> tag */
+        }
+        .modal-footer {
+            margin-top: 15px;
+            text-align: right;
+        }
+        .btn-copy {
+            background-color: var(--primary-color);
+            color: var(--input-bg);
+        }
+
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <h2>Examples</h2>
+        <div id="examples-container">
+            <!-- Examples will be populated by JS -->
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header>
+            <h1>Gothic Survivors Data Generator</h1>
+        </header>
+
+        <div class="generator-area">
+            <nav class="tabs">
+                <button class="tab-button active" onclick="showTab('weapon')">Weapon</button>
+                <button class="tab-button" onclick="showTab('passive')">Passive</button>
+                <button class="tab-button" onclick="showTab('enemy')">Enemy</button>
+            </nav>
+
+            <!-- ======================= WEAPON GENERATOR ======================= -->
+            <div id="weapon-generator" class="tab-content active">
+                <h2>Weapon Generator</h2>
+                <form id="weapon-form">
+                    <h4>Basic Info</h4>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="w_id">ID (Key)</label>
+                            <input type="text" id="w_id" name="id" required>
+                            <div class="tooltip">?
+                                <span class="tooltiptext">The unique key for this weapon in the `GAME_DATA.weapons` object. Use snake_case. E.g., 'magic_wand'.</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="w_name">Display Name</label>
+                            <input type="text" id="w_name" name="name">
+                             <div class="tooltip">?<span class="tooltiptext">The user-friendly name displayed in-game. E.g., 'Magic Wand'.</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="w_type">Weapon Type</label>
+                            <select id="w_type" name="type">
+                                <option value="projectile">Projectile</option>
+                                <option value="physical">Physical</option>
+                                <option value="aura">Aura</option>
+                                <option value="elemental">Elemental</option>
+                                <option value="summon">Summon</option>
+                                <option value="holy">Holy</option>
+                            </select>
+                             <div class="tooltip">?<span class="tooltiptext">Used for passives like 'Elemental Focus'. Determines which damage bonuses apply.</span></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="w_description">Description</label>
+                        <textarea id="w_description" name="description"></textarea>
+                        <div class="tooltip">?<span class="tooltiptext">The text shown on the level-up screen.</span></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="w_svg">SVG Icon</label>
+                        <textarea id="w_svg" name="svg"></textarea>
+                        <div class="tooltip">?<span class="tooltiptext">Paste the SVG code for the weapon's icon here.</span></div>
+                    </div>
+
+                    <h4>Attacks</h4>
+                    <div id="attacks-container" class="dynamic-container">
+                        <!-- Attacks will be added here dynamically -->
+                    </div>
+                    <button type="button" class="btn btn-add" onclick="addAttack()">+ Add Attack</button>
+                </form>
+                 <button class="btn btn-generate" onclick="generateWeaponCode()">Generate Weapon Code</button>
+            </div>
+
+            <!-- ======================= PASSIVE GENERATOR ======================= -->
+            <div id="passive-generator" class="tab-content">
+                <h2>Passive Generator</h2>
+                 <p style="color: var(--text-muted-color);">Passive generation is highly complex due to custom functions (`onSelect`) and unique data structures (`mods`). This generator helps build the basic structure. You may need to manually add complex logic like `onSelect` functions after generating.</p>
+                <form id="passive-form">
+                    <h4>Basic Info</h4>
+                    <div class="form-grid">
+                         <div class="form-group">
+                            <label for="p_id">ID (Key)</label>
+                            <input type="text" id="p_id" name="id" required>
+                            <div class="tooltip">?<span class="tooltiptext">Unique ID for the passive. Used for tracking player levels. E.g., 'might'.</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="p_name">Display Name</label>
+                            <input type="text" id="p_name" name="name">
+                            <div class="tooltip">?<span class="tooltiptext">The user-friendly name. E.g., 'Gauntlet'.</span></div>
+                        </div>
+                         <div class="form-group">
+                            <label for="p_maxLevel">Max Level</label>
+                            <input type="number" id="p_maxLevel" name="maxLevel" value="5" min="1">
+                            <div class="tooltip">?<span class="tooltiptext">The maximum number of times this passive can be upgraded. Defaults to 5 if left empty.</span></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="p_desc">Description</label>
+                        <textarea id="p_desc" name="desc"></textarea>
+                        <div class="tooltip">?<span class="tooltiptext">Text shown on the level-up screen.</span></div>
+                    </div>
+                     <div class="form-group">
+                        <label for="p_svg">SVG Icon</label>
+                        <textarea id="p_svg" name="svg"></textarea>
+                        <div class="tooltip">?<span class="tooltiptext">Paste the SVG code for the icon.</span></div>
+                    </div>
+
+                    <h4>Stat Modifiers (`mods`)</h4>
+                    <div id="mods-container" class="dynamic-container">
+                        <!-- Mods will be added here dynamically -->
+                    </div>
+                    <button type="button" class="btn btn-add" onclick="addMod()">+ Add Stat Modifier</button>
+                    
+                    <h4>Event Handlers (`handlers`)</h4>
+                     <div id="passive-handlers-container" class="dynamic-container">
+                        <!-- Handlers will be added here dynamically -->
+                    </div>
+                    <button type="button" class="btn btn-add" onclick="addHandler('passive-handlers-container')">+ Add Handler</button>
+
+                </form>
+                <button class="btn btn-generate" onclick="generatePassiveCode()">Generate Passive Code</button>
+            </div>
+
+            <!-- ======================= ENEMY GENERATOR ======================= -->
+            <div id="enemy-generator" class="tab-content">
+                 <h2>Enemy Generator</h2>
+                 <form id="enemy-form">
+                     <h4>Basic Info & Stats</h4>
+                     <div class="form-grid">
+                          <div class="form-group">
+                            <label for="e_id">ID (Key)</label>
+                            <input type="text" id="e_id" name="id" required>
+                            <div class="tooltip">?<span class="tooltiptext">Unique key for the enemy in `GAME_DATA.enemies`. E.g., 'bat'.</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="e_r">Radius (r)</label>
+                            <input type="number" id="e_r" name="r" value="10">
+                            <div class="tooltip">?<span class="tooltiptext">Collision radius of the enemy in pixels.</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="e_hp">Base HP</label>
+                            <input type="number" id="e_hp" name="hp" value="10">
+                             <div class="tooltip">?<span class="tooltiptext">Base health. Automatically scales up with game time.</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="e_speed">Speed</label>
+                            <input type="number" id="e_speed" name="speed" value="100">
+                             <div class="tooltip">?<span class="tooltiptext">Movement speed in pixels per second.</span></div>
+                        </div>
+                         <div class="form-group">
+                            <label for="e_dmg">Damage</label>
+                            <input type="number" id="e_dmg" name="dmg" value="5">
+                             <div class="tooltip">?<span class="tooltiptext">Damage dealt on contact with the player.</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="e_xp">XP Value</label>
+                            <input type="number" id="e_xp" name="xp" value="1">
+                             <div class="tooltip">?<span class="tooltiptext">Amount of XP dropped on death.</span></div>
+                        </div>
+                         <div class="form-group">
+                            <label for="e_kbResist">Knockback Resist</label>
+                            <input type="number" id="e_kbResist" name="kbResist" value="0">
+                             <div class="tooltip">?<span class="tooltiptext">Flat reduction to incoming knockback force.</span></div>
+                        </div>
+                         <div class="form-group">
+                            <label for="e_visual_key">Visual Key</label>
+                            <input type="text" id="e_visual_key" name="visual_key">
+                            <div class="tooltip">?<span class="tooltiptext">The key of the drawing function in `GAME_GRAPHICS`. E.g., 'bat_draw'.</span></div>
+                        </div>
+                     </div>
+                     <h4>Event Handlers (`handlers`)</h4>
+                     <div id="enemy-handlers-container" class="dynamic-container">
+                        <!-- Handlers will be added here dynamically -->
+                    </div>
+                    <button type="button" class="btn btn-add" onclick="addHandler('enemy-handlers-container')">+ Add Handler</button>
+                 </form>
+                 <button class="btn btn-generate" onclick="generateEnemyCode()">Generate Enemy Code</button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Code Generation Modal -->
+    <div id="code-modal" class="modal-backdrop">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Generated Code</h2>
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="code-wrapper">
+                <pre id="generatedCode"></pre>
+            </div>
+            <div class="modal-footer">
+                 <button class="btn btn-copy" onclick="copyCode()">Copy to Clipboard</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- This script tag contains the game data, making it available to the generator -->
+    <script id="game-data-script">
+        // --- PASTE THE CONTENT OF YOUR game-data.js FILE HERE ---
+        // I will use a placeholder for now. Replace it with your actual file content.
+        const GAME_GRAPHICS = {}; // Placeholder
+        const WEAPON_LEVEL_UP_SCALING = { flatDmg: 2, cooldown: 0.03, speed: 0.1, area: 0.15, amountInterval: 2, pierceInterval: 3 };
+        const SOUL_CONDUCTOR_RATES = { killsPerStack: 100, damagePerStack: [0.005, 0.008, 0.010, 0.0115, 0.0125] };
+        const GAME_DATA = {
+            weapons: {
+                'wand': {
+            name: 'Magic Wand', type: 'projectile',
+            svg: `<svg viewBox="0 0 24 24"><path d="M7.5 5.6L10 7 8.6 4.5 10 2 7.5 3.4 5 2l1.4 2.5L5 7zm12 9.8L17 14l1.4 2.5L17 19l2.5-1.4L22 19l-1.4-2.5L22 14zM21 3l-1.5.8L18 2l.8 1.5L18 5l1.5-.8L21 5l-.8-1.5zm-8 9.5L5 20.5 3.5 19 11.5 11 13 12.5z" fill="#4da6ff"/></svg>`,
+            description: "Fires magic missiles at the nearest enemies.",
+            attacks: [{
+                id: 'main_shot',
+                stats: { baseDmg: 1, baseCd: 1.0, baseSpd: 500, baseRange: 1600, basePierce: 0, kb: 150 },
+                targeting: 'nearest',
+                actions: [{
+                    type: 'fireProjectile', sound: 'wand', delayBetweenShots: 100,
+                    projectile: {
+                        r: 8,
+                        visual: { type: 'procedural', key: 'wand_missile' },
+                        movement: { type: 'linear' },
+                        destroyOnHit: true,
+                        handlers: [{
+                            trigger: { conditions: [{ type: 'onHit' }] },
+                            effects: [
+                                { type: 'dealDamage', damages: 'enemy' },
+                                { type: 'applyStatus', status: 'bleed' },
+                            ]
+                        }, {
+                            trigger: { conditions: [{ type: 'onTargetKill' }] },
+                            effects: [
+                                {
+                                    type: 'spawnEffect',
+                                    position: 'target',
+                                    visual: { key: 'electric_nova_draw', duration: 0.6, animation: { type: 'scaleIn', duration: 0.15 } },
+                                    behavior: { type: 'instantArea', excludeInitialTarget: true, radius: 60, onHitEffects: [{ type: 'dealDamage', damages: 'enemy' }] }
+                                }
+                            ]
+                        }
+                        ]
+                    }
+                }]
+            }]
+        },
+                'axe': {
+            name: 'Heavy Axe', type: 'physical',
+            svg: `<svg viewBox="0 0 24 24"><path d="M12 2L4 10h3v12h10V10h3L12 2zm-3 8l3-3 3 3H9z" fill="#cc4444"/></svg>`,
+            description: "Throws axes in a high arc. High Damage.",
+            attacks: [{
+                id: 'main_throw',
+                stats: { baseDmg: 40, baseCd: 2.5, baseSpd: -500, baseDur: 3, basePierce: 99, baseArea: 1.5, kb: 400 },
+                targeting: 'directional', angle: -Math.PI / 2,
+                actions: [{
+                    type: 'lobProjectile', sound: 'axe', lobType: 'directional', spreadVelocity: 200,
+                    projectile: {
+                        r: 15,
+                        clearHitListPeriodically: 0.1,
+                        visual: { type: 'procedural', key: 'axe' },
+                        movement: { type: 'arc', gravity: 1400 },
+                        components: [{ type: 'rotation', speed: 10 }],
+                        handlers: [{ trigger: { conditions: [{ type: 'onHit' }] }, effects: [{ type: 'dealDamage', damages: 'enemy' }, { type: 'applyStatus', status: 'bleed' }] }]
+                    }
+                }]
+            }]
+        }
+            },
+            passives: [
+                { id: 'might', name: 'Gauntlet', desc: '+10% Damage', mods: [{ stat: 'might', op: 'add', value: 0.1 }], svg: `<svg/>` },
+                { id: 'cd', name: 'Empty Tome', desc: '-8% Cooldown', mods: [{ stat: 'cooldown', op: 'mul', value: 0.92 }], svg: `<svg/>` }
+            ],
+            enemies: {
+                'bat': { r: 10, hp: 5, speed: 120, dmg: 5, xp: 1, visual: { key: 'bat_draw' }, handlers: [ { trigger: { conditions: [{ type: 'onDeath' }] }, effects: [{ type: 'spawnEffect', behavior: { type: 'particleEmitter' } }] } ] },
+                'zombie': { r: 12, hp: 15, speed: 80, dmg: 8, xp: 2, visual: { key: 'zombie_draw' } }
+            },
+        };
+    </script>
+
+    <script>
+        // --- GENERATOR LOGIC ---
+
+        // =========================================================================
+        // 1. UI SCHEMAS - The "Brain" of the Generator
+        // =========================================================================
+        const UI_SCHEMAS = {
+            effects: {
+                dealDamage: [ { key: 'damages', label: 'Target Faction', type: 'select', options: ['enemy', 'player'] }, { key: 'multiplier', label: 'Damage Multiplier', type: 'number', placeholder: '1.0', step: 0.1 } ],
+                applyStatus: [ { key: 'status', label: 'Status to Apply', type: 'select', options: ['bleed', 'chill', 'curse'] }, { key: 'amount', label: 'Amount (for Chill)', type: 'number', placeholder: '0.1', step: 0.1 }, { key: 'duration', label: 'Duration (s)', type: 'number', placeholder: '3', step: 0.1 } ],
+                spawnEffect: [ { key: 'position', label: 'Position', type: 'select', options: ['target', 'source', 'player'] } ],
+                spawnEnemy: [ { key: 'key', label: 'Enemy Key', type: 'text', placeholder: 'miniSlime' }, { key: 'count', label: 'Count', type: 'number', placeholder: '2' }, { key: 'spread', label: 'Spread Radius', type: 'number', placeholder: '5' } ],
+                pullTarget: [ { key: 'force', label: 'Force', type: 'number', placeholder: '500', tooltip: "Strength of the pull. Negative numbers push away." } ],
+                heal: [ { key: 'on', label: 'Heal Target', type: 'select', options: ['player', 'source', 'target'] }, { key: 'amount', label: 'Flat Heal Amount', type: 'number', placeholder: '10' }, { key: 'percent', label: 'Percent Heal Amount', type: 'number', placeholder: '0.3', step: 0.1 } ],
+                costPlayerHealth: [ { key: 'amount', label: 'HP Cost', type: 'number', placeholder: '1' } ],
+                setFlag: [ { key: 'key', label: 'Flag Key', type: 'text', placeholder: 'isInvulnerable' }, { key: 'value', label: 'Flag Value', type: 'select', options: [true, false] }, { key: 'duration', label: 'Duration (s)', type: 'number', placeholder: '0.35', step: 0.1 } ],
+                dash: [ { key: 'speed', label: 'Dash Speed', type: 'number', placeholder: '500' }, { key: 'duration', label: 'Dash Duration (s)', type: 'number', placeholder: '0.35', step: 0.1 } ],
+                shieldAlliesInRange: [ { key: 'range', label: 'Range', type: 'number', placeholder: '200' }, { key: 'duration', label: 'Shield Duration (s)', type: 'number', placeholder: '5', step: 0.1 } ],
+                fireProjectiles: [ { key: 'pattern', label: 'Pattern', type: 'select', options: ['radial'] }, { key: 'count', label: 'Count', type: 'number', placeholder: '12' }, { key: 'projectileStats', label: 'Projectile Stats (JSON)', type: 'textarea', placeholder: `{ "speed": 150, "duration": 8 }` }, { key: 'projectile', label: 'Projectile Definition (JSON)', type: 'textarea', placeholder: `{ "r": 8, ... }` } ]
+            },
+            effectBehaviors: {
+                instantArea: [ { key: 'radius', label: 'Radius', type: 'number', placeholder: '60' }, { key: 'excludeInitialTarget', label: 'Exclude Initial Target', type: 'boolean' } ],
+                chain: [ { key: 'damageFalloff', label: 'Damage Falloff', type: 'number', placeholder: '0.3', step: 0.1 }, { key: 'searchRadius', label: 'Search Radius', type: 'number', placeholder: '250' } ],
+                groundEffect: [ { key: 'radius', label: 'Radius', type: 'number', placeholder: '60' }, { key: 'duration', label: 'Duration (s)', type: 'number', placeholder: '3.0', step: 0.1 }, { key: 'tickRate', label: 'Tick Rate (s)', type: 'number', placeholder: '0.5', step: 0.1 } ],
+                particleEmitter: [ { key: 'particle', label: 'Particle Config (JSON)', type: 'textarea', placeholder: `{ "count": 8, "color": "#555", ... }` } ],
+                visualOnly: [ { key: 'radius', label: 'Radius', type: 'number', placeholder: '80' }, { key: 'duration', label: 'Duration (s)', type: 'number', placeholder: '0.4', step: 0.1 } ]
+            },
+            effectVisuals: {
+                animation: [ { key: 'type', label: 'Animation Type', type: 'select', options: ['scaleIn'] }, { key: 'duration', label: 'Animation Duration (s)', type: 'number', placeholder: '0.15', step: 0.1 } ],
+                lightning: [ { key: 'duration', label: 'Duration (s)', type: 'number', placeholder: '0.3', step: 0.1 } ]
+            },
+            components: {
+                rotation: [ { key: 'speed', label: 'Rotation Speed', type: 'number', placeholder: '10' } ],
+                movement: [ { key: 'pattern', label: 'Pattern', type: 'select', options: ['weave'] }, { key: 'strength', label: 'Weave Strength', type: 'number', placeholder: '80' }, { key: 'frequency', label: 'Weave Frequency', type: 'number', placeholder: '20' } ]
+            },
+            conditions: {
+                onHit: [], onExpire: [], onDeath: [], onUpdate: [], onPlayerHit: [], onKill: [], onFire: [], onTargetKill: [], onDealtDamage: [], onShieldBreak: [], onHeal: [],
+                cooldown: [ { key: 'id', label: 'Cooldown ID', type: 'text', placeholder: 'shield_ability' }, { key: 'time', label: 'Time (s)', type: 'text', placeholder: '10 or [5, 8]' } ],
+                distanceToPlayer: [ { key: 'lessThan', label: 'Less Than', type: 'number', placeholder: '250' }, { key: 'greaterThan', label: 'Greater Than', type: 'number' } ],
+                checkFlag: [ { key: 'key', label: 'Flag Key', type: 'text', placeholder: 'isInvisible' }, { key: 'value', label: 'Required Value', type: 'select', options: [true, false, ''] } ],
+                contextualCheck: [ { key: 'on', label: 'Check On', type: 'select', options: ['target', 'source'] }, { key: 'property', label: 'Property Name', type: 'text', placeholder: 'faction' }, { key: 'value', label: 'Required Value', type: 'text', placeholder: 'player' } ]
+            }
+        };
+
+        // =========================================================================
+        // 2. Core UI & Helper Functions
+        // =========================================================================
+        function showTab(tabName) { document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active')); document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active')); document.getElementById(`${tabName}-generator`).classList.add('active'); event.currentTarget.classList.add('active'); }
+        function showModal(code) { document.getElementById('generatedCode').textContent = code; document.getElementById('code-modal').style.display = 'flex'; }
+        function closeModal() { document.getElementById('code-modal').style.display = 'none'; }
+        function copyCode() { navigator.clipboard.writeText(document.getElementById('generatedCode').textContent).then(() => alert('Code copied!'), () => alert('Copy failed.')); }
+        function tryParseJSON(str) { try { return JSON.parse(str); } catch (e) { if (!isNaN(parseFloat(str)) && isFinite(str)) return parseFloat(str); if (str === 'true') return true; if (str === 'false') return false; return str; } }
+        let attackCounter = 0, actionCounter = 0, handlerCounter = 0, effectCounter = 0;
+        let conditionCounter = 0, modCounter = 0, componentCounter = 0, flagCounter = 0;
+
+        // =========================================================================
+        // 3. Schema-Driven UI Generation
+        // =========================================================================
+        function generateFieldsFromSchema(container, schema, data) {
+            container.innerHTML = ''; if (!schema) return;
+            const grid = document.createElement('div'); grid.className = 'form-grid';
+            schema.forEach(field => {
+                const group = document.createElement('div'); group.className = 'form-group'; let inputHtml = '';
+                const value = data && data[field.key] !== undefined ? data[field.key] : (field.default || '');
+                switch (field.type) {
+                    case 'select': const options = field.options.map(opt => `<option value="${opt}" ${String(opt) === String(value) ? 'selected' : ''}>${String(opt)}</option>`).join(''); inputHtml = `<select class="param-prop" data-key="${field.key}">${options}</select>`; break;
+                    case 'boolean': inputHtml = `<select class="param-prop" data-key="${field.key}"><option value="true" ${value === true ? 'selected' : ''}>True</option><option value="false" ${value === false || value === '' ? 'selected' : ''}>False</option></select>`; break;
+                    case 'textarea': const textValue = typeof value === 'object' ? JSON.stringify(value, null, 2) : value; inputHtml = `<textarea class="param-prop" data-key="${field.key}" placeholder="${field.placeholder || ''}">${textValue}</textarea>`; break;
+                    default: inputHtml = `<input type="${field.type}" class="param-prop" data-key="${field.key}" value="${value}" placeholder="${field.placeholder || ''}" ${field.step ? `step="${field.step}"` : ''}>`;
+                }
+                group.innerHTML = `<label>${field.label}</label>${inputHtml}${field.tooltip ? `<div class="tooltip">?<span class="tooltiptext">${field.tooltip}</span></div>` : ''}`;
+                grid.appendChild(group);
+            });
+            container.appendChild(grid);
+        }
+
+        function showDetails(selectElement, schemaType, detailsContainerClass) {
+            const type = selectElement.value;
+            const schema = UI_SCHEMAS[schemaType][type];
+            const parent = selectElement.closest('.dynamic-item');
+            const detailsContainer = parent.querySelector(detailsContainerClass);
+            
+            // Generate the fields for the specific type (e.g., 'dealDamage' fields into '.effect-details').
+            // This no longer clears sibling containers, which was the source of the bug.
+            generateFieldsFromSchema(detailsContainer, schema);
+
+            // If we are changing the behavior type, we need to specifically handle the UI for nested effects.
+            if (schemaType === 'effectBehaviors') {
+                const nestedEffectsContainer = parent.querySelector('.nested-effects-container');
+                // Clear any previous nested effects UI to prevent it from lingering when switching behaviors.
+                nestedEffectsContainer.innerHTML = ''; 
+                
+                const effectsKeyMap = { instantArea: 'onHitEffects', chain: 'onChainEffects', groundEffect: 'onTickEffects' };
+                const effectsKey = effectsKeyMap[type];
+                if (effectsKey) {
+                    // If the new behavior type has nested effects, create the container for them.
+                    const newContainerId = `nested-effects-${effectCounter}-${Math.random().toString(36).substr(2, 5)}`;
+                    nestedEffectsContainer.innerHTML = `<h4>${effectsKey.replace(/([A-Z])/g, ' $1').replace('on ', 'On ')}</h4><div class="dynamic-container" id="${newContainerId}"></div><button type="button" class="btn btn-add" onclick="addEffect('${newContainerId}')">+ Add Effect</button>`;
+                }
+            }
+        }
+
+        // =========================================================================
+        // 4. Dynamic Element Creation (add... functions)
+        // =========================================================================
+        function addEffect(containerId) {
+            effectCounter++;
+            const container = document.getElementById(containerId);
+            const effectTypes = Object.keys(UI_SCHEMAS.effects);
+            const behaviorTypes = Object.keys(UI_SCHEMAS.effectBehaviors);
+            const visualAnimationTypes = Object.keys(UI_SCHEMAS.effectVisuals);
+            const effectHTML = `<div class="dynamic-item" id="effect-${effectCounter}"><button type="button" class="remove-btn" onclick="this.parentElement.remove()">X</button><div class="form-group"><label>Effect Type</label><select class="effect-type-select" onchange="showDetails(this, 'effects', '.effect-details'); this.closest('.dynamic-item').querySelector('.spawn-effect-container').style.display = this.value === 'spawnEffect' ? 'block' : 'none';">${effectTypes.map(k => `<option>${k}</option>`).join('')}</select></div><div class="effect-details"></div><div class="spawn-effect-container" style="display: none;"><hr style="border-color: var(--border-color); margin: 15px 0;"><h4>SpawnEffect Details</h4><div class="form-group"><label>Behavior Type</label><select class="behavior-type-select" onchange="showDetails(this, 'effectBehaviors', '.behavior-details')"><option value="">None</option>${behaviorTypes.map(k => `<option>${k}</option>`).join('')}</select></div><div class="behavior-details"></div><div class="nested-effects-container"></div><div class="form-group"><label>Visual Key</label><input type="text" class="visual-prop" data-key="key" placeholder="electric_nova_draw"></div><div class="form-group"><label>Visual Duration (s)</label><input type="number" step="0.1" class="visual-prop" data-key="duration" placeholder="0.6"></div><div class="form-group"><label>Animation Type</label><select class="animation-type-select" onchange="showDetails(this, 'effectVisuals', '.animation-details')"><option value="">None</option>${visualAnimationTypes.map(k => `<option>${k}</option>`).join('')}</select></div><div class="animation-details"></div></div></div>`;
+            container.insertAdjacentHTML('beforeend', effectHTML);
+        }
+        function addCondition(handlerId) { conditionCounter++; document.getElementById(`conditions-${handlerId}`).insertAdjacentHTML('beforeend', `<div class="dynamic-item" id="condition-${conditionCounter}"><button type="button" class="remove-btn" onclick="this.parentElement.remove()">X</button><div class="form-group"><label>Condition Type</label><select class="condition-type-select" onchange="showDetails(this, 'conditions', '.condition-details')">${Object.keys(UI_SCHEMAS.conditions).map(k => `<option>${k}</option>`).join('')}</select></div><div class="condition-details"></div></div>`); }
+        function addHandler(containerId) { handlerCounter++; document.getElementById(containerId).insertAdjacentHTML('beforeend', `<div class="dynamic-item" id="handler-${handlerCounter}"><button type="button" class="remove-btn" onclick="this.parentElement.remove()">X</button><h4>Trigger</h4><div class="conditions-container dynamic-container" id="conditions-${handlerCounter}"></div><button type="button" class="btn btn-add" onclick="addCondition(${handlerCounter})">+ Add Condition</button><h4>Effects</h4><div class="effects-container dynamic-container" id="effects-${handlerCounter}"></div><button type="button" class="btn btn-add" onclick="addEffect('effects-${handlerCounter}')">+ Add Effect</button></div>`); }
+        function addAttack() { attackCounter++; document.getElementById('attacks-container').insertAdjacentHTML('beforeend', `<div class="dynamic-item" id="attack-${attackCounter}"><button type="button" class="remove-btn" onclick="this.parentElement.remove()">X</button><h4>Attack #${attackCounter}</h4><div class="form-grid"><div class="form-group"><label>Attack ID</label><input type="text" class="attack-prop" data-key="id"></div><div class="form-group"><label>Targeting</label><select class="attack-prop" data-key="targeting"><option>nearest</option><option>random</option><option>moveDirection</option><option>horizontal</option><option>directional</option><option>none</option></select></div></div><h4>Stats</h4><div class="stats-container form-grid"><div class="form-group"><label>Base Dmg</label><input type="number" class="stat-prop" data-key="baseDmg" value="10"></div><div class="form-group"><label>Base Cooldown</label><input type="number" step="0.1" class="stat-prop" data-key="baseCd" value="1.0"></div><div class="form-group"><label>Base Proj Speed</label><input type="number" class="stat-prop" data-key="baseSpd" value="500"></div><div class="form-group"><label>Base Duration</label><input type="number" step="0.1" class="stat-prop" data-key="baseDur"></div><div class="form-group"><label>Base Range</label><input type="number" class="stat-prop" data-key="baseRange"></div><div class="form-group"><label>Base Area</label><input type="number" step="0.1" class="stat-prop" data-key="baseArea" value="1.0"></div><div class="form-group"><label>Base Pierce</label><input type="number" class="stat-prop" data-key="basePierce" value="0"></div><div class="form-group"><label>Base Amount</label><input type="number" class="stat-prop" data-key="baseAmount" value="1"></div><div class="form-group"><label>Knockback</label><input type="number" class="stat-prop" data-key="kb" value="100"></div></div><h4>Actions</h4><div class="actions-container dynamic-container" id="actions-container-${attackCounter}"></div><button type="button" class="btn btn-add" onclick="addAction(${attackCounter})">+ Add Action</button></div>`); }
+        function addAction(attackId) { actionCounter++; document.getElementById(`actions-container-${attackId}`).insertAdjacentHTML('beforeend', `<div class="dynamic-item" id="action-${actionCounter}"><button type="button" class="remove-btn" onclick="this.parentElement.remove()">X</button><div class="form-group"><label>Action Type</label><select class="action-prop" data-key="type" onchange="showActionDetails(this)"><option>fireProjectile</option><option>lobProjectile</option><option>spawnEffect</option><option>spawnBeam</option><option>summonAlly</option><option>leaveTrail</option></select></div><div class="action-details"></div></div>`); }
+        function showActionDetails(selectElement) { const detailsContainer = selectElement.closest('.dynamic-item').querySelector('.action-details'); const actionType = selectElement.value; let html = `<div class="form-group"><label>Sound</label><input type="text" class="action-prop" data-key="sound"></div>`; if (actionType === 'fireProjectile' || actionType === 'lobProjectile') { html += `<div class="form-group"><label>Delay Between Shots (ms)</label><input type="number" class="action-prop" data-key="delayBetweenShots"></div><h4>Projectile Definition</h4><div class="projectile-container dynamic-container"><div class="form-grid"><div class="form-group"><label>Radius (r)</label><input type="number" class="proj-prop" data-key="r" value="8"></div><div class="form-group"><label>Destroy on Hit</label><select class="proj-prop" data-key="destroyOnHit"><option value="">Default (Pierce)</option><option value="true">True</option><option value="false">False</option></select></div><div class="form-group"><label>Visual Type</label><input type="text" class="proj-prop" data-key="visual.type" placeholder="procedural"></div><div class="form-group"><label>Visual Key</label><input type="text" class="proj-prop" data-key="visual.key" placeholder="wand_missile"></div><div class="form-group"><label>Movement Type</label><select class="proj-prop" data-key="movement.type"><option>linear</option><option>arc</option><option>boomerang</option><option>homing</option></select></div></div><h4>Handlers (onHit, onExpire, etc)</h4><div class="handlers-container dynamic-container" id="proj-handlers-${actionCounter}"></div><button type="button" class="btn btn-add" onclick="addHandler('proj-handlers-${actionCounter}')">+ Add Handler</button></div>`; } detailsContainer.innerHTML = html; }
+        function addMod() { modCounter++; document.getElementById('mods-container').insertAdjacentHTML('beforeend', `<div class="dynamic-item" id="mod-${modCounter}"><button type="button" class="remove-btn" onclick="this.parentElement.remove()">X</button><div class="form-grid"><div class="form-group"><label>Stat</label><input type="text" class="mod-prop" data-key="stat" placeholder="might"></div><div class="form-group"><label>Operation</label><select class="mod-prop" data-key="op"><option value="add">Add</option><option value="mul">Multiply</option><option value="set">Set</option></select></div></div><div class="form-group"><label>Value (Can be JSON)</label><textarea class="mod-prop" data-key="value" placeholder="0.1"></textarea></div></div>`); }
+        function addInitialFlag() { flagCounter++; document.getElementById('initial-flags-container').insertAdjacentHTML('beforeend', `<div class="dynamic-item" id="flag-${flagCounter}"><button type="button" class="remove-btn" onclick="this.parentElement.remove()">X</button><div class="form-grid"><div class="form-group"><label>Flag Key</label><input type="text" class="flag-prop" data-key="key" placeholder="isInvisible"></div><div class="form-group"><label>Flag Value</label><input type="text" class="flag-prop" data-key="value" placeholder="true"></div></div></div>`); }
+        function addComponent(containerId) { componentCounter++; document.getElementById(containerId).insertAdjacentHTML('beforeend', `<div class="dynamic-item" id="comp-${componentCounter}"><button type="button" class="remove-btn" onclick="this.parentElement.remove()">X</button><div class="form-group"><label>Component Type</label><select class="component-type-select" onchange="showDetails(this, 'components', '.component-details')">${Object.keys(UI_SCHEMAS.components).map(k => `<option>${k}</option>`).join('')}</select></div><div class="component-details"></div></div>`); }
+
+        // =========================================================================
+        // 5. Code Generation & Parsing
+        // =========================================================================
+        function objectToString(obj, indent = '  ', key = null) { if (obj === null) return 'null'; if (typeof obj !== 'object') { if (typeof obj === 'string') { if (key === 'description') return `"${obj.replace(/"/g, '\\"')}"`; if (key === 'svg') return `\`${obj.replace(/`/g, "\\`")}\``; if (obj.startsWith('Math.') || obj.startsWith('-Math.')) return obj; return `'${obj.replace(/'/g, "\\'")}'`; } return obj; } if (Array.isArray(obj)) { if (obj.length === 0) return '[]'; const arrItems = obj.map(item => `\n${indent}  ${objectToString(item, indent + '  ')}`).join(','); return `[${arrItems}\n${indent}]`; } const props = Object.keys(obj).map(k => { const value = obj[k]; if (value === null || value === undefined || value === '' || (Array.isArray(value) && value.length === 0) || (typeof value === 'object' && !Array.isArray(value) && Object.keys(value).length === 0)) return null; const keyStr = k.includes('-') || k.includes(' ') ? `'${k}'` : k; return `\n${indent}  ${keyStr}: ${objectToString(value, indent + '  ', k)}`; }).filter(Boolean); if (props.length === 0) return '{}'; return `{${props.join(',')}\n${indent}}`; }
+        function parseAndSet(target, input) { if (!input.value && input.type !== 'checkbox') return; const keys = input.dataset.key.split('.'); let current = target; for (let i = 0; i < keys.length - 1; i++) current = current[keys[i]] = current[keys[i]] || {}; let value = input.type === 'checkbox' ? input.checked : input.value; if (input.type === 'number' && value) value = parseFloat(value); if (value === 'true') value = true; if (value === 'false') value = false; if (input.tagName === 'TEXTAREA') value = tryParseJSON(value); current[keys[keys.length - 1]] = value; }
+        function parseEffects(container) { const effects = []; if (!container) return effects; container.querySelectorAll(':scope > .dynamic-item').forEach(effectEl => { const effect = { type: effectEl.querySelector('.effect-type-select').value }; effectEl.querySelector(':scope > .effect-details').querySelectorAll('.param-prop').forEach(input => parseAndSet(effect, input)); if (effect.type === 'spawnEffect') { const behaviorSelect = effectEl.querySelector('.behavior-type-select'); if (behaviorSelect && behaviorSelect.value) { effect.behavior = { type: behaviorSelect.value }; effectEl.querySelector('.behavior-details').querySelectorAll('.param-prop').forEach(input => parseAndSet(effect.behavior, input)); const effectsKeyMap = { instantArea: 'onHitEffects', chain: 'onChainEffects', groundEffect: 'onTickEffects' }; const effectsKey = effectsKeyMap[effect.behavior.type]; if (effectsKey) { const nestedContainer = effectEl.querySelector('.nested-effects-container > .dynamic-container'); if (nestedContainer) effect.behavior[effectsKey] = parseEffects(nestedContainer); } } const animationSelect = effectEl.querySelector('.animation-type-select'); if (animationSelect && animationSelect.value) { effect.visual = effect.visual || {}; effect.visual.animation = { type: animationSelect.value }; effectEl.querySelector('.animation-details').querySelectorAll('.param-prop').forEach(input => parseAndSet(effect.visual.animation, input)); } effectEl.querySelectorAll('.visual-prop').forEach(input => { if(input.value) { effect.visual = effect.visual || {}; parseAndSet(effect.visual, input); } }); } effects.push(effect); }); return effects; }
+        function parseHandlers(container) { const handlers = []; if (!container) return handlers; container.querySelectorAll(':scope > .dynamic-item').forEach(handlerEl => { const handler = { trigger: { conditions: [] } }; handlerEl.querySelector('.conditions-container').querySelectorAll('.dynamic-item').forEach(condEl => { const condition = { type: condEl.querySelector('.condition-type-select').value }; condEl.querySelectorAll('.param-prop').forEach(input => parseAndSet(condition, input)); handler.trigger.conditions.push(condition); }); handler.effects = parseEffects(handlerEl.querySelector('.effects-container')); handlers.push(handler); }); return handlers; }
+        function generateWeaponCode() { const form = document.getElementById('weapon-form'); const data = {}; data.name = form.w_name.value; data.type = form.w_type.value; data.description = form.w_description.value; data.svg = form.w_svg.value; data.attacks = []; document.querySelectorAll('#attacks-container > .dynamic-item').forEach(attackEl => { const attack = {}; attackEl.querySelectorAll('.attack-prop').forEach(input => parseAndSet(attack, input)); attack.stats = {}; attackEl.querySelectorAll('.stat-prop').forEach(input => parseAndSet(attack.stats, input)); attack.actions = []; attackEl.querySelectorAll('.actions-container > .dynamic-item').forEach(actionEl => { const action = {}; actionEl.querySelectorAll('.action-prop').forEach(input => parseAndSet(action, input)); const projContainer = actionEl.querySelector('.projectile-container'); if (projContainer) { action.projectile = {}; projContainer.querySelectorAll('.proj-prop').forEach(input => parseAndSet(action.projectile, input)); action.projectile.handlers = parseHandlers(projContainer.querySelector('.handlers-container')); } attack.actions.push(action); }); data.attacks.push(attack); }); let codeString = `'${form.w_id.value}': ${objectToString(data)}`; codeString = codeString.replace(/"([^"]+)":/g, '$1:'); showModal(codeString); }
+        function generateEnemyCode() { const form = document.getElementById('enemy-form'); const data = { r: parseInt(form.e_r.value), hp: parseInt(form.e_hp.value), speed: parseInt(form.e_speed.value), dmg: parseInt(form.e_dmg.value), xp: parseInt(form.e_xp.value) }; if (form.e_kbResist.value && form.e_kbResist.value !== '0') data.kbResist = parseInt(form.e_kbResist.value); if (form.e_visual_key.value) data.visual = { key: form.e_visual_key.value }; data.components = []; document.querySelectorAll('#enemy-components-container > .dynamic-item').forEach(compEl => { const component = { type: compEl.querySelector('.component-type-select').value }; compEl.querySelectorAll('.param-prop').forEach(input => parseAndSet(component, input)); data.components.push(component); }); data.initialFlags = {}; document.querySelectorAll('#initial-flags-container > .dynamic-item').forEach(flagEl => { const keyInput = flagEl.querySelector('[data-key="key"]'); const valueInput = flagEl.querySelector('[data-key="value"]'); if (keyInput.value) data.initialFlags[keyInput.value] = tryParseJSON(valueInput.value); }); data.handlers = parseHandlers(document.getElementById('enemy-handlers-container')); let codeString = `'${form.e_id.value}': ${objectToString(data)}`; codeString = codeString.replace(/"([^"]+)":/g, '$1:'); showModal(codeString); }
+        function generatePassiveCode() { const form = document.getElementById('passive-form'); const data = { id: form.p_id.value, name: form.p_name.value, desc: form.p_desc.value, svg: form.p_svg.value }; if (form.p_maxLevel.value && form.p_maxLevel.value !== '5') data.maxLevel = parseInt(form.p_maxLevel.value); data.mods = []; document.querySelectorAll('#mods-container .dynamic-item').forEach(modEl => { const mod = {}; modEl.querySelectorAll('.mod-prop').forEach(input => parseAndSet(mod, input)); data.mods.push(mod); }); data.handlers = parseHandlers(document.getElementById('passive-handlers-container')); let codeString = objectToString(data) + ','; codeString = codeString.replace(/"([^"]+)":/g, '$1:'); showModal(codeString); }
+
+        // =========================================================================
+        // 6. Example Population
+        // =========================================================================
+        function populateEffectsUI(containerId, effectsData) {
+    if (!effectsData || !effectsData.length) return;
+
+    effectsData.forEach(effectData => {
+        // 1. Create the base HTML for the effect
+        addEffect(containerId);
+        const newEffectEl = document.getElementById(`effect-${effectCounter}`);
+
+        // 2. Set the main effect type (e.g., 'spawnEffect') and trigger its UI change
+        const typeSelect = newEffectEl.querySelector(`.effect-type-select`);
+        typeSelect.value = effectData.type;
+        typeSelect.dispatchEvent(new Event('change')); // This makes the 'spawnEffect' container visible
+
+        // 3. Populate the main effect's parameters (e.g., 'position')
+        const { type, ...params } = effectData;
+        generateFieldsFromSchema(newEffectEl.querySelector(':scope > .effect-details'), UI_SCHEMAS.effects[type], params);
+
+        // 4. If it's a spawnEffect, handle its complex nested data
+        if (effectData.type === 'spawnEffect') {
+
+            // Handle the BEHAVIOR section
+            if (effectData.behavior) {
+                const behaviorSelect = newEffectEl.querySelector('.behavior-type-select');
+                // Set dropdown value (e.g., 'instantArea')
+                behaviorSelect.value = effectData.behavior.type;
+                // CRUCIAL: Trigger the change event to build the UI for 'instantArea'
+                behaviorSelect.dispatchEvent(new Event('change'));
+                // Now that the UI exists, populate its fields (e.g., 'radius')
+                const { type: bType, ...bParams } = effectData.behavior;
+                generateFieldsFromSchema(newEffectEl.querySelector('.behavior-details'), UI_SCHEMAS.effectBehaviors[bType], bParams);
+                
+                // Recursively populate any nested effects (like onHitEffects)
+                const effectsKeyMap = { instantArea: 'onHitEffects', chain: 'onChainEffects', groundEffect: 'onTickEffects' };
+                const effectsKey = effectsKeyMap[bType];
+                if (effectsKey && effectData.behavior[effectsKey]) {
+                    const nestedContainerId = newEffectEl.querySelector('.nested-effects-container > .dynamic-container').id;
+                    populateEffectsUI(nestedContainerId, effectData.behavior[effectsKey]);
+                }
+            }
+
+            // Handle the VISUAL section
+            if (effectData.visual) {
+                // Populate simple visual fields first (key, duration)
+                newEffectEl.querySelectorAll('.visual-prop').forEach(input => {
+                    const key = input.dataset.key;
+                    if(effectData.visual[key] !== undefined) {
+                        input.value = effectData.visual[key];
+                    }
+                });
+
+                // Handle the nested ANIMATION object
+                if (effectData.visual.animation) {
+                    const animSelect = newEffectEl.querySelector('.animation-type-select');
+                    // Set dropdown value (e.g., 'scaleIn')
+                    animSelect.value = effectData.visual.animation.type;
+                    // CRUCIAL: Trigger the change event to build the UI for 'scaleIn'
+                    animSelect.dispatchEvent(new Event('change'));
+                    // Now that the UI exists, populate its fields (e.g., 'duration')
+                    const { type: aType, ...aParams } = effectData.visual.animation;
+                    generateFieldsFromSchema(newEffectEl.querySelector('.animation-details'), UI_SCHEMAS.effectVisuals[aType], aParams);
+                }
+            }
+        }
+    });
+}
+        function populateHandlersUI(targetContainerId, handlersData) { if (!handlersData || !handlersData.length) return; handlersData.forEach(handlerData => { addHandler(targetContainerId); const newHandlerEl = document.getElementById(`handler-${handlerCounter}`); if (handlerData.trigger && handlerData.trigger.conditions) { handlerData.trigger.conditions.forEach(conditionData => { addCondition(handlerCounter); const newConditionEl = document.getElementById(`condition-${conditionCounter}`); const typeSelect = newConditionEl.querySelector(`.condition-type-select`); typeSelect.value = conditionData.type; typeSelect.dispatchEvent(new Event('change')); const { type, ...params } = conditionData; generateFieldsFromSchema(newConditionEl.querySelector('.condition-details'), UI_SCHEMAS.conditions[type], params); }); } if (handlerData.effects) { populateEffectsUI(`effects-${handlerCounter}`, handlerData.effects); } }); }
+        function populateExamples() { const container = document.getElementById('examples-container'); let html = `<h3>Weapons</h3><ul class="example-list">`; for (const key in GAME_DATA.weapons) html += `<li onclick="loadWeaponExample('${key}')">${GAME_DATA.weapons[key].name}</li>`; html += `</ul><h3>Passives</h3><ul class="example-list">`; GAME_DATA.passives.forEach(p => html += `<li onclick="loadPassiveExample('${p.id}')">${p.name}</li>`); html += `</ul><h3>Enemies</h3><ul class="example-list">`; for (const key in GAME_DATA.enemies) html += `<li onclick="loadEnemyExample('${key}')">${key.charAt(0).toUpperCase() + key.slice(1)}</li>`; html += `</ul>`; container.innerHTML = html; }
+        function loadWeaponExample(key) { showTab('weapon'); const data = GAME_DATA.weapons[key]; const form = document.getElementById('weapon-form'); form.reset(); document.getElementById('attacks-container').innerHTML = ''; form.w_id.value = key; form.w_name.value = data.name || ''; form.w_type.value = data.type || 'projectile'; form.w_description.value = data.description || ''; form.w_svg.value = data.svg || ''; if (!data.attacks) return; data.attacks.forEach(attackData => { addAttack(); const newAttackEl = document.getElementById(`attack-${attackCounter}`); for(const prop in attackData) { const input = newAttackEl.querySelector(`.attack-prop[data-key="${prop}"]`); if(input) input.value = attackData[prop]; } if(attackData.stats) for(const statKey in attackData.stats) { const statInput = newAttackEl.querySelector(`.stat-prop[data-key="${statKey}"]`); if(statInput) statInput.value = attackData.stats[statKey]; } if (attackData.actions) attackData.actions.forEach(actionData => { addAction(attackCounter); const newActionEl = document.getElementById(`action-${actionCounter}`); const typeSelect = newActionEl.querySelector(`[data-key="type"]`); typeSelect.value = actionData.type; typeSelect.dispatchEvent(new Event('change')); for(const prop in actionData) { const input = newActionEl.querySelector(`.action-prop[data-key="${prop}"]`); if(input) input.value = actionData[prop]; } if(actionData.projectile) { const proj = actionData.projectile; const projContainer = newActionEl.querySelector('.projectile-container'); for(const prop in proj) { const input = projContainer.querySelector(`.proj-prop[data-key="${prop}"]`); if(input) input.value = proj[prop]; else if (typeof proj[prop] === 'object') for (const subProp in proj[prop]) { const subInput = projContainer.querySelector(`.proj-prop[data-key="${prop}.${subProp}"]`); if(subInput) subInput.value = proj[prop][subProp]; } } if (proj.handlers) populateHandlersUI(projContainer.querySelector('.handlers-container').id, proj.handlers); } }); }); }
+        function loadPassiveExample(id) { showTab('passive'); const data = GAME_DATA.passives.find(p => p.id === id); const form = document.getElementById('passive-form'); form.reset(); document.getElementById('mods-container').innerHTML = ''; document.getElementById('passive-handlers-container').innerHTML = ''; form.p_id.value = data.id; form.p_name.value = data.name; form.p_maxLevel.value = data.maxLevel || 5; form.p_desc.value = data.desc; form.p_svg.value = data.svg; if (data.mods) data.mods.forEach(modData => { addMod(); const newModEl = document.getElementById(`mod-${modCounter}`); newModEl.querySelector(`[data-key="stat"]`).value = modData.stat; newModEl.querySelector(`[data-key="op"]`).value = modData.op; const valueInput = newModEl.querySelector(`[data-key="value"]`); if(typeof modData.value === 'object') valueInput.value = JSON.stringify(modData.value, null, 2); else valueInput.value = modData.value; }); if (data.handlers) populateHandlersUI('passive-handlers-container', data.handlers); }
+        function loadEnemyExample(key) { showTab('enemy'); const data = GAME_DATA.enemies[key]; const form = document.getElementById('enemy-form'); form.reset(); document.getElementById('enemy-handlers-container').innerHTML = ''; document.getElementById('enemy-components-container').innerHTML = ''; document.getElementById('initial-flags-container').innerHTML = ''; form.e_id.value = key; form.e_r.value = data.r; form.e_hp.value = data.hp; form.e_speed.value = data.speed; form.e_dmg.value = data.dmg; form.e_xp.value = data.xp; form.e_kbResist.value = data.kbResist || 0; form.e_visual_key.value = data.visual ? data.visual.key : ''; if (data.initialFlags) for (const flagKey in data.initialFlags) { addInitialFlag(); const newFlagEl = document.getElementById(`flag-${flagCounter}`); newFlagEl.querySelector('[data-key="key"]').value = flagKey; newFlagEl.querySelector('[data-key="value"]').value = data.initialFlags[flagKey]; } if (data.components) data.components.forEach(compData => { addComponent('enemy-components-container'); const newCompEl = document.getElementById(`comp-${componentCounter}`); const { type, ...params } = compData; const typeSelect = newCompEl.querySelector('.component-type-select'); typeSelect.value = type; typeSelect.dispatchEvent(new Event('change')); generateFieldsFromSchema(newCompEl.querySelector('.component-details'), UI_SCHEMAS.components[type], params); }); if (data.handlers) populateHandlersUI('enemy-handlers-container', data.handlers); }
+        window.onload = () => { document.getElementById('weapon-form').insertAdjacentHTML('beforeend', '<div id="grants-component-container"></div>'); document.getElementById('enemy-form').insertAdjacentHTML('beforeend', '<h4>Components (e.g., Movement)</h4><div id="enemy-components-container" class="dynamic-container"></div><button type="button" class="btn btn-add" onclick="addComponent(\'enemy-components-container\')">+ Add Component</button>'); document.getElementById('enemy-form').insertAdjacentHTML('beforeend', '<h4>Initial Flags (e.g., isInvisible)</h4><div id="initial-flags-container" class="dynamic-container"></div><button type="button" class="btn btn-add" onclick="addInitialFlag()">+ Add Initial Flag</button>'); populateExamples(); };
+    </script>
+</body>
+</html>

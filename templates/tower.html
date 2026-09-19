@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Tower Defense Alpha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='tower/style.css') }}">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Left Panel: Player Stats and Team -->
+        <div id="left-panel" class="panel">
+            <h2>Stats</h2>
+            <div class="stat-box">Health: <span id="lives-display">20</span></div>
+            <div class="stat-box">Money: $<span id="money-display">100</span></div>
+            <div class="stat-box">Wave: <span id="wave-display">1</span></div>
+            
+            <h2 style="margin-top: 24px;">My Team</h2>
+            <div id="my-team-list" style="margin-bottom: 24px;">
+                <p class="empty-msg">No Pokémon placed.</p>
+            </div>
+
+            <h2>Inventory</h2>
+            <div id="inventory-list">
+                <p class="empty-msg">No items.</p>
+            </div>
+        </div>
+
+        <!-- Center: Game Area -->
+        <div id="main-area">
+            <canvas id="game-canvas" width="800" height="600"></canvas>
+        </div>
+
+        <!-- Right Panel: Tabs for Inspect/Wave, Shop, Settings -->
+        <div id="right-panel" class="panel">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="tab-inspect">Pokémon</button>
+                <button class="tab-btn" data-tab="tab-wave">Wave</button>
+                <button class="tab-btn" data-tab="tab-shop">Shop</button>
+                <button class="tab-btn" data-tab="tab-settings">Config</button>
+            </div>
+
+            <!-- Pokémon Tab -->
+            <div id="tab-inspect" class="tab-content active">
+                <div id="inspect-empty-msg" class="empty-msg-centered">
+                    <p>No Pokémon selected.</p>
+                    <p style="font-size: 6px; margin-top: 8px;">Click a Pokémon on the field or in the team list.</p>
+                </div>
+
+                <div id="inspection-panel" class="hidden">
+                    <div class="inspection-header">
+                        <!-- Override overflow so item box can break out -->
+                        <div class="portrait-box" style="overflow: visible; position: relative;">
+                            <img id="inspect-portrait" src="" style="width: 100%; height: 100%; object-fit: contain; transform: scale(0.95);" />
+                            <!-- Item Slot positioned as a mini-button on the portrait -->
+                            <div id="item-slot-display" style="position: absolute; bottom: -4px; right: -4px; width: 24px; height: 24px; background: #222; border: 2px solid #444; display: flex; justify-content: center; align-items: center; z-index: 10;">
+                                <span id="item-abbr-text" style="font-size: 8px; color: #fff;">+</span>
+                                <select id="inspect-item-select" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;"></select>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 id="inspect-name">Name</h3>
+                            <p>Lv.<span id="inspect-level">1</span> <span id="inspect-nature" style="color: #fbbf24; font-size: 6px; text-transform: capitalize;"></span></p>
+                            <div id="inspect-tags" style="display:flex; gap:4px; margin-top:4px;"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Core Base Stats (Affected by Nature) -->
+                    <div class="stats-grid core-stats-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+                        <div style="display:flex; flex-direction:column; align-items:center; border-right: 1px solid #444;">
+                            <span style="color: #94a3b8; font-size:6px; margin-bottom:4px;">ATK</span>
+                            <span id="inspect-base-atk" style="font-size:8px;">0</span>
+                        </div>
+                        <div style="display:flex; flex-direction:column; align-items:center; border-right: 1px solid #444;">
+                            <span style="color: #94a3b8; font-size:6px; margin-bottom:4px;">SpATK</span>
+                            <span id="inspect-base-spatk" style="font-size:8px;">0</span>
+                        </div>
+                        <div style="display:flex; flex-direction:column; align-items:center;">
+                            <span style="color: #94a3b8; font-size:6px; margin-bottom:4px;">SPEED</span>
+                            <span id="inspect-base-spd" style="font-size:8px;">0</span>
+                        </div>
+                    </div>
+
+                    <!-- Combat Output Stats -->
+                    <div class="stats-grid sec-stats-grid">
+                        <div>Dmg:<span id="inspect-dmg">0</span></div>
+                        <div>Rate:<span id="inspect-rate" title="Attacks per second">0</span></div>
+                        <div>Rng:<span id="inspect-range">0</span></div>
+                        <div>Crit:<span id="inspect-crit">0</span></div>
+                    </div>
+
+                    <div class="targeting-control">
+                        <label>Target:</label>
+                        <select id="inspect-target">
+                            <option value="first">First</option>
+                            <option value="last">Last</option>
+                            <option value="strongest">Strong</option>
+                            <option value="weakest">Weak</option>
+                        </select>
+                    </div>
+
+                    <!-- Move Card Display -->
+                    <div style="margin-bottom: 12px; background: #111; border: 2px solid #333; padding: 4px;">
+                        <label style="font-size: 6px; color: #64748b; margin-bottom: 4px; display: block;">EQUIPPED MOVE:</label>
+                        <div id="move-card-ui" style="background: #000; border: 1px solid #444; padding: 8px; margin-bottom: 4px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                <span id="move-name-display" style="font-size: 8px; color: #fff;">-</span>
+                                <span id="move-type-display" class="type-tag normal" style="font-size: 6px; padding: 2px 4px;">NORMAL</span>
+                            </div>
+                            <div style="font-size: 6px; color: #94a3b8;">
+                                <span id="move-cat-display" style="color: #fff;">-</span> • POW: <span id="move-pow-display" style="color: #fff;">-</span>
+                            </div>
+                        </div>
+                        <select id="inspect-move-select"></select>
+                    </div>
+
+                    <div id="inspect-abilities-container" style="margin-top: 12px; font-size: 7px; color: #fbbf24; line-height: 1.4;">
+                        <!-- Ability info here -->
+                    </div>
+
+                    <button id="level-up-btn" class="big-btn" style="margin-top: 12px;">Lvl Up ($<span>0</span>)</button>
+                    <button id="sell-btn" class="big-btn" style="background-color: #ef4444; border-color: #991b1b; margin-top: 8px;">Sell ($<span>0</span>)</button>
+                </div>
+            </div>
+
+            <!-- Wave Tab -->
+            <div id="tab-wave" class="tab-content hidden">
+                <div style="display: flex; gap: 8px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid #333;">
+                    <button id="start-wave-btn" class="big-btn" style="margin-bottom: 0;">Start Wave</button>
+                    <div style="display: flex; flex-direction: column; justify-content: space-between;">
+                        <div class="time-controls" style="display: flex; gap: 2px;">
+                            <button id="btn-pause" class="small-btn">||</button>
+                            <button id="btn-1x" class="small-btn active">1x</button>
+                            <button id="btn-2x" class="small-btn">2x</button>
+                            <button id="btn-4x" class="small-btn">4x</button>
+                        </div>
+                        <label style="font-size: 6px; display: flex; align-items: center; gap: 4px; color: #94a3b8; margin-top: 4px; cursor: pointer;">
+                            <input type="checkbox" id="auto-wave-toggle"> Auto-Wave
+                        </label>
+                    </div>
+                </div>
+
+                <div id="wave-info-panel">
+                    <h2>Next Wave Info</h2>
+                    <div id="wave-details-content">
+                        <!-- Dynamic Wave Info -->
+                    </div>
+
+                    <div id="enemy-scout-empty-msg" class="empty-msg-centered" style="margin-top: 24px; border-top: 2px solid #333;">
+                        <p>No enemy selected.</p>
+                        <p style="font-size: 6px; margin-top: 8px;">Click an enemy icon above to scout its stats.</p>
+                    </div>
+
+                    <div id="enemy-stat-preview" class="hidden" style="margin-top: 24px; border-top: 2px solid #444; padding-top: 16px;">
+                        <h2>Enemy Stats</h2>
+                        <div class="inspection-header">
+                            <div class="portrait-box"><img id="enemy-inspect-portrait" src="" /></div>
+                            <div>
+                                <h3 id="enemy-inspect-name">NAME</h3>
+                                <p id="enemy-inspect-hp">HP: 100</p>
+                            </div>
+                        </div>
+                        <div class="stats-grid core-stats-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+                            <div style="display:flex; flex-direction:column; align-items:center; border-right: 1px solid #444;">
+                                <span style="color: #94a3b8; font-size:6px; margin-bottom:4px;">MOVE SPD</span>
+                                <span id="enemy-inspect-spd" style="font-size:8px;">0</span>
+                            </div>
+                            <div style="display:flex; flex-direction:column; align-items:center; border-right: 1px solid #444;">
+                                <span style="color: #94a3b8; font-size:6px; margin-bottom:4px;">DEF</span>
+                                <span id="enemy-inspect-def" style="font-size:8px;">0</span>
+                            </div>
+                            <div style="display:flex; flex-direction:column; align-items:center;">
+                                <span style="color: #94a3b8; font-size:6px; margin-bottom:4px;">SpDEF</span>
+                                <span id="enemy-inspect-spdef" style="font-size:8px;">0</span>
+                            </div>
+                        </div>
+                        <div id="enemy-inspect-abilities" style="margin-top: 12px; font-size: 7px; color: #fbbf24; line-height: 1.4;">
+                            <!-- Enemy ability info here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shop Tab -->
+            <div id="tab-shop" class="tab-content hidden">
+                <div class="shop-section">
+                    <h2>Buy Pokémon</h2>
+                    <div id="tower-list"></div>
+                </div>
+                <div class="shop-section" style="margin-top: 24px;">
+                    <h2>Items</h2>
+                    <div id="item-list"></div>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div id="tab-settings" class="tab-content hidden">
+                <h2>Settings</h2>
+                <div style="margin-top: 20px;">
+                    <button id="wipe-btn" class="big-btn" style="background-color: #ef4444; border-color: #991b1b; margin-top: 10px;">Wipe Data</button>
+                </div>
+                <p class="empty-msg" style="margin-top: 20px; font-size: 8px;">Admin: Press '0' to toggle map editor.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='tower/game-data.js') }}"></script>
+<script src="{{ url_for('static', filename='tower/game-admin.js') }}"></script>
+<script src="{{ url_for('static', filename='tower/game-engine.js') }}"></script>
+
+    <!-- Starter Selection Overlay -->
+    <div id="starter-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2>CHOOSE YOUR STARTER</h2>
+            <p style="margin-bottom: 20px;">Choose a companion for your journey!</p>
+            <div id="starter-options" class="starter-grid"></div>
+        </div>
+    </div>
+</body>
+</html>

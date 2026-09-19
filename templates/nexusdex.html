@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NexusDex – The Premium Tactile Pokémon Experience">
+    <title>NexusDex – Gallery Pokédex</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800;900&family=JetBrains+Mono:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/nexusdex/styles.css">
+</head>
+
+<body>
+    <!-- ======== GLASSMORPHIC HEADER / COMMAND CENTER ======== -->
+    <header id="app-header" class="glass-header">
+        <div class="header-inner">
+            <div class="logo" id="logo" title="Back to Gallery">
+                <span class="logo-icon">✦</span>
+                <span class="logo-text">NexusDex</span>
+            </div>
+
+            <div class="command-center">
+                <div class="search-container" id="search-container">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="search-input" placeholder="Search the Gallery..." autocomplete="off">
+                    <button class="search-clear" id="search-clear">✕</button>
+                </div>
+
+                <div class="global-filters">
+                    <div class="filter-dropdown-wrap" id="version-filter-wrap">
+                        <button class="pill-btn" id="version-filter-btn">
+                            <span id="version-filter-label">All Versions</span> <span class="arrow">▾</span>
+                        </button>
+                        <div class="dropdown-menu" id="version-filter-dropdown"></div>
+                    </div>
+                    <div class="filter-dropdown-wrap" id="gen-filter-wrap">
+                        <button class="pill-btn" id="gen-filter-btn">
+                            <span>Gen Filter</span> <span class="arrow">▾</span>
+                        </button>
+                        <div class="dropdown-menu" id="gen-filter-dropdown"></div>
+                    </div>
+                </div>
+            </div>
+
+            <nav id="main-nav">
+                <button class="nav-btn active" data-page="pokedex" id="nav-pokedex">Gallery</button>
+                <button class="nav-btn" data-page="typechart" id="nav-typechart">Matchups</button>
+                <button class="nav-btn" data-page="encounters" id="nav-encounters">Encounters</button>
+                <button class="nav-icon-btn" id="btn-settings" title="Settings">⚙️</button>
+            </nav>
+        </div>
+        <div class="type-filter-bar" id="type-filter-bar"></div>
+        <div class="game-hub-tabs" id="game-hub-tabs" style="display:none;">
+            <button class="gh-tab active" data-tab="encounters">Encounters</button>
+            <button class="gh-tab" data-tab="walkthrough">Walkthrough</button>
+        </div>
+    </header>
+
+    <!-- ======== MAIN CONTENT ======== -->
+    <main id="app-main">
+        <section class="page active" id="page-pokedex">
+            <div class="pokedex-gallery" id="pokedex-grid"></div>
+            <div class="loading-indicator" id="loading-indicator">
+                <div class="spinner"></div>
+            </div>
+        </section>
+
+        <section class="page" id="page-typechart">
+            <div class="typechart-header">
+                <h1>Battle Matchups</h1>
+                <p>Click a type to analyze strengths and weaknesses.</p>
+            </div>
+            <div class="typechart-container" id="typechart-container">
+                <div class="typechart-wrapper" id="typechart-wrapper"></div>
+            </div>
+        </section>
+
+        <section class="page" id="page-encounters">
+            <div class="game-hub-header" id="game-hub-header">
+                <h1 class="game-hub-title" id="game-hub-title">Encounters</h1>
+            </div>
+            <div id="encounters-container" class="gh-content active"></div>
+            <div id="walkthrough-container" class="gh-content"></div>
+        </section>
+    </main>
+
+    <!-- ======== FLOATING PARTY DOCK ======== -->
+    <div id="party-dock" class="party-dock">
+        <div class="party-dock-inner">
+            <div class="team-slots" id="team-slots"></div>
+            <div class="dock-controls">
+                <button class="pc-btn" id="btn-pc-box">
+                    <span class="pc-icon">📦</span>
+                    <span class="pc-count" id="pc-box-count">0</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======== PC BOX DRAWER ======== -->
+    <div class="pc-drawer-overlay" id="pc-drawer-overlay">
+        <div class="pc-drawer" id="pc-drawer">
+            <div class="drawer-header">
+                <h2>The Collection</h2>
+                <button class="drawer-close" id="drawer-close">✕</button>
+            </div>
+            <div class="pc-bento-grid" id="pc-box-grid">
+                <!-- Large icons of boxed pokemon go here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ======== THE STAGE (Immersive Modal) ======== -->
+    <div class="stage-overlay" id="the-stage">
+        <button class="stage-close" id="stage-close">✕</button>
+        <div class="stage-content" id="stage-content">
+            <!-- Left: Hero Presenter -->
+            <div class="stage-hero">
+                <div class="hero-backdrop" id="hero-backdrop"></div>
+                <div class="hero-info">
+                    <div class="hero-number" id="stage-number"></div>
+                    <h1 class="hero-name" id="stage-name"></h1>
+                    <div class="hero-types" id="stage-types"></div>
+                </div>
+                <img class="hero-image" id="stage-image" src="" alt="">
+                <button class="hero-add-team" id="stage-add-team">+ Add to Party</button>
+            </div>
+
+            <!-- Right: Bento Data Grid -->
+            <div class="stage-bento-scroll">
+                <div class="bento-grid">
+                    <!-- Bento Box: Base Stats (Large Progress Rings/Bars) -->
+                    <div class="bento-box stats-box">
+                        <h3>Combat Stats</h3>
+                        <div id="bento-stats" class="bento-stats-container"></div>
+                    </div>
+
+                    <!-- Bento Box: Abilities -->
+                    <div class="bento-box abilities-box">
+                        <h3>Abilities</h3>
+                        <div id="bento-abilities" class="bento-abilities-container"></div>
+                    </div>
+
+                    <!-- Bento Box: Battle Prep (Effectiveness) -->
+                    <div class="bento-box prep-box">
+                        <h3>Battle Prep</h3>
+                        <div id="bento-prep" class="bento-prep-container"></div>
+                    </div>
+
+                    <!-- Bento Box: Evolution Flow -->
+                    <div class="bento-box evo-box">
+                        <h3>Evolution Journey</h3>
+                        <div id="bento-evo" class="bento-evo-container"></div>
+                    </div>
+
+                    <!-- Bento Box: Encounters Guide -->
+                    <div class="bento-box encounters-box">
+                        <h3>Travel Guide</h3>
+                        <div id="bento-encounters" class="bento-encounters-container"></div>
+                    </div>
+
+                    <!-- Bento Box: Move Library -->
+                    <div class="bento-box moves-box">
+                        <h3>Move Library</h3>
+                        <div id="bento-moves" class="bento-moves-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======== SETTINGS DRAWER ======== -->
+    <div class="pc-drawer-overlay" id="settings-overlay">
+        <div class="pc-drawer" id="settings-drawer" style="height: auto; min-height: 25vh;">
+            <div class="drawer-header">
+                <h2>Settings</h2>
+                <button class="drawer-close" id="settings-close">✕</button>
+            </div>
+            <div class="settings-content">
+                <div class="setting-group">
+                    <label for="lang-select">Language</label>
+                    <select id="lang-select" class="settings-select">
+                        <option value="en">English</option>
+                        <option value="fr">Français</option>
+                        <option value="de">Deutsch</option>
+                        <option value="es">Español</option>
+                        <option value="it">Italiano</option>
+                        <option value="ja">日本語</option>
+                        <option value="ko">한국어</option>
+                        <option value="zh-Hans">简体中文</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======== CONTEXT MENU ======== -->
+    <div id="context-menu" class="context-menu">
+        <button id="cm-add-team" class="cm-btn">Add to Party</button>
+        <button id="cm-add-box" class="cm-btn">Send to PC Box</button>
+        <button id="cm-remove-team" class="cm-btn">Remove</button>
+        <div id="cm-evo-options"></div>
+    </div>
+
+    <div class="toast-container" id="toast-container"></div>
+    <script src="/static/nexusdex/app.js"></script>
+</body>
+</body>
+
+</html>

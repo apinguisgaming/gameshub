@@ -1,0 +1,1981 @@
+{
+    "Part_1": {
+        "Introduction": {
+            "Text": [
+                "After a brief cutscene, press the A Button or Start on the title screen to reach the main menu. Option may be used to change settings like Text Speed. Select New Game and press the A Button. The resident researcher of the Hoenn region, Professor Birch , appears and introduces new Trainers to the Pokémon world. Next, the player is prompted to select their avatar's gender. The opposite-gender counterpart becomes Birch's child and the player's rival , May or Brendan . Finally, a name must be assigned from a list of preset options, which differs between versions.",
+                "To use a different name, move the cursor to New Name and press the A Button. On this screen, pressing the A Button will select a letter while pressing the B Button or selecting Back will delete the previous one. A custom name may be up to seven characters long. Pressing Select cycles through three pages of alphanumeric text and symbols. When ready, select OK in the bottom-right corner. With that done, the player is transported into the world of Pokémon to begin their adventure!"
+            ]
+        },
+        "Littleroot Town": {
+            "Text": [
+                "The journey begins in Littleroot Town , in the southwest part of the Hoenn mainland. It is a rather small, sleepy town with only three buildings; your home, Professor Birch 's home, and the professor's Pokémon Laboratory, where he conducts research on Pokémon distribution, in the south. The north end of town leads to Route 101 ."
+            ],
+            "A New Beginning": {
+                "Text": [
+                    "The game begins in the back of a moving truck , as your family has just moved here from the far-off Johto region. Now that you can control your character, the various buttons and their effects are as follows:",
+                    "Hop out of the truck to meet Mom and step inside your new home."
+                ]
+            },
+            "Home": {
+                "2F": {
+                    "Text": [
+                        "Head upstairs to check out your room and set the clock. After doing so, Mom tells you that the movers have finished their work, and to make sure that everything for your desk is here. The desk holds a notebook with adventure rules, and a PC in the corner.",
+                        "The PC acts as your item storage . Since each pocket on your Bag can only hold 20 different items , it would be necessary to use or discard some before obtaining anything new. The PC can hold up to 50 different items. Withdraw Item and Deposit Item allow for moving items between inventory and storage, while Toss Item discards an item permanently. There is also a Mailbox function to store pieces of Mail , as well as a Decoration option.",
+                        "To save the game, press Start to open the main menu, select Save , and then Yes . When the menu disappears, your progress is saved and it is safe to exit the game."
+                    ]
+                },
+                "1F": {
+                    "Text": [
+                        "Return to the first floor and Mom excitedly calls you over to the TV, as the current program just aired a segment about the Petalburg Gym , where your father is the new Gym Leader . She then suggests visiting his friend, your new neighbor, Professor Birch ."
+                    ]
+                }
+            },
+            "Birch's house": {
+                "Text": [
+                    "Visit the house next door to meet Professor Birch 's wife, then go upstairs to meet their child, May / Brendan . The young Pokémon Trainer is happy to meet you, but leaves suddenly a moment later after remembering that Birch asked for help in catching a Pokémon."
+                ]
+            }
+        },
+        "Route 101": {
+            "Text": [
+                "Route 101 is a short path that connects Littleroot Town to Oldale Town in the north. The route features several patches of tall grass , a favorite hiding place of wild Pokémon."
+            ],
+            "Save the Professor!": {
+                "Text": [
+                    "When you first reach the area, you find Professor Birch being chased around by a wild Poochyena ! His Bag has fallen out of his reach, and he pleads with you for help. Choose one of the three Pokémon from the Poké Balls inside the professor's Bag, and use it to scare off his attacker.",
+                    "Once the wild Poochyena is defeated, Birch invites you back to the Lab."
+                ]
+            }
+        },
+        "Littleroot Town (Visit 2)": {
+            "Birch's Lab": {
+                "Text": [
+                    "As thanks for rescuing him, Birch happily lets you keep the young Pokémon. He gives you a chance to nickname your first partner Pokémon , then encourages you to visit May / Brendan on Route 103 for tips on how to be a Pokémon Trainer. When your Pokémon needs a rest, head back home and speak to Mom at any time to have her restore it to full health."
+                ]
+            }
+        },
+        "Oldale Town": {
+            "Text": [
+                "Oldale Town is a small town located between Route 101 to the south, Route 102 to the west, and Route 103 to the north. It is where the contrast between colorful flowers and deep, verdant forests is most beautiful."
+            ],
+            "Pokémon Center": {
+                "Text": [
+                    "The first building you will see is the Pokémon Center . This Pokémon hospital will heal your team to full health and eliminate any status ailments they may have. Each facility also has a PC for Trainers to use, where they can access their Pokémon storage and item storage. As Trainers may only carry six Pokémon with them at once, any others are immediately transferred to storage upon capture. It is a good idea to heal up and save your progress whenever you find a Pokémon Center."
+                ]
+            },
+            "Poké Mart": {
+                "Text": [
+                    "Speak to the clerk wearing an apron near the southeast house. He leads you to the local Poké Mart in the northeast part of town, and explains everything that these shops have to offer. These stores offer a variety of Poké Balls, Potions, and other items. It is helpful to stock up on supplies whenever possible, as there is no telling what you may run into on your journey. He even gives out a Potion as a free sample."
+                ]
+            },
+            "Rare Footprints?!": {
+                "Text": [
+                    "The western exit is currently blocked off by a Super Nerd who believes that he may have found some rare Pokémon tracks. Afraid of someone carelessly damaging them, he refuses to let anyone pass by until he has made a sketch of his discovery."
+                ]
+            }
+        },
+        "Route 103 (West)": {
+            "Text": [
+                "Route 103 connects Oldale Town in the southwest and Route 110 in the east. Seawater divides the route, restricting travel to the western side for now."
+            ],
+            "Rival Battle 1": {
+                "Text": [
+                    "Cross through the tall grass to meet up with May / Brendan , who challenges you to a friendly battle after spotting your new Pokémon.",
+                    "When battling, each Trainer sends out at least one Pokémon at a time; both of these particular Pokémon are on Level 5, indicated by the Lv:5 aside each Pokémon. Below that is the health bar, which shows the Pokémon's remaining HP . A battle is won or lost when either side has no remaining Pokémon with the strength to continue.",
+                    "Choosing Fight will allow you to launch an attack against the target. Each of these first partner Pokémon have two moves. The first will damage the opponent, and the other will lower one of its stats. If your Pokémon's HP runs low, be sure to use a healing item, like a Potion. Go to Bag to select the medicine and apply it to the Pokémon.",
+                    "Having witnessed your ability as a Trainer, May / Brendan is not surprised that Professor Birch has taken an interest in you. She/He then turns to leave, jumping down the ledges on the way southward to Birch's lab."
+                ]
+            }
+        },
+        "Oldale Town (Visit 2)": {
+            "Heading Home": {
+                "Text": [
+                    "May / Brendan is waiting for you near Oldale Town 's south exit. When you approach, she/he excitedly sets off again toward Littleroot Town ."
+                ]
+            }
+        },
+        "Littleroot Town (Visit 3)": {
+            "Birch's Lab": {
+                "Text": [
+                    "When you return to Birch's lab, he congratulates you on defeating May / Brendan on your first try. He explains that his child has been helping with his research for a long time, and she/he already has an extensive history as a Trainer. Birch then reveals a device that he had ordered for his research, but decides to give to you instead: the Pokédex . This handheld device is a high-tech encyclopedia that records data on every Pokémon you encounter, and will be complete when you catch a member of every species. May/Brendan is thrilled to see you get your own Pokédex just like her/him, and gives you five Poké Balls to start you on your journey."
+                ]
+            },
+            "Run Like the Wind": {
+                "Text": [
+                    "As you go to leave Littleroot Town again, Mom is waiting outside for you. Realizing that you are headed out on an adventure, she suggests wearing the pair of Running Shoes that she brought for you. With these Running Shoes on, holding the B Button allows you to move at twice the speed as walking. Mom says that Dad will be overjoyed that you have your very own Pokémon, but asks that you be careful. She reminds you that you can come home to visit anytime before heading back inside, leaving you free to begin your journey."
+                ]
+            }
+        },
+        "Oldale Town (Visit 3)": {
+            "“Rare” Footprints": {
+                "Text": [
+                    "By the time you return to Oldale Town , the west exit is no longer blocked. The Super Nerd who was sketching what he believed to be rare Pokémon footprints can be found in the center of town, and sheepishly admits that they were his own."
+                ]
+            }
+        }
+    },
+    "Part_2": {
+        "Route 102": {
+            "Text": [
+                "Route 102 stretches between Oldale Town in the east and Petalburg City in the west. Several different Pokémon species live in the area, and many Trainers gather here in the hope of encountering them."
+            ],
+            "Soft Soil": {
+                "Text": [
+                    "A soft soil patch can be found on the route's north side. On your first visit, two Berry trees can be found growing here. Collect the fruit and the trees disappear, allowing you to plant another Berry to continue the cycle. The amount of time needed for the new tree to fully mature and produce fruit varies based on the kind of Berry. After obtaining a watering can , you may water the young plants at certain times to increase the Berry yield. Berries can have several useful effects, from curing status conditions to restoring health. They can even be turned into candy !"
+                ]
+            }
+        },
+        "Petalburg City": {
+            "Text": [
+                "Petalburg City stands between Route 102 to the east and Route 104 to the west. Situated near the ocean, a salty scent wafts through the city. It is the first settlement to feature a Pokémon Gym , where your father serves as the local Gym Leader ."
+            ],
+            "Petalburg Gym": {
+                "Text": [
+                    "Visit the Petalburg Gym and speak to your father, Norman . He is surprised that you have made it this far from home, but is excited for you to become a Pokémon Trainer like him.",
+                    "A sickly boy named Wally soon enters, and explains that he will be staying with relatives in nearby Verdanturf Town in the hopes that the clean air will do him good. But he is afraid of becoming lonely there, and asks for help in catching a Pokémon to take along. Norman asks that you go with him, and loans the boy his Zigzagoon and a Poké Ball . Wally leads you back to Route 102 , where he successfully catches a Ralts .",
+                    "Back at the Gym, Wally returns Norman 's Zigzagoon and thanks the two of you for helping him catch his very own Pokémon. He promises to take good care of it, then hurries off as his mother is waiting for him. Norman then gives you some advice: to become a strong Trainer, challenge Gym Leader Roxanne in Rustboro City before moving on to the other Gym Leaders. Though Norman is also a Gym Leader, he will not accept your challenge until you have earned four other Badges ."
+                ]
+            }
+        },
+        "Route 104": {
+            "Text": [
+                "Route 104 connects Petalburg City with Rustboro City to the north and Route 105 to the south. The Petalburg Woods occupy the central part of the area. A cottage belonging to Mr. Briney is located on the south side, and the Pretty Petal flower shop stands on the north side."
+            ],
+            "Petalburg Woods": {
+                "Text": [
+                    "The tall trees of Petalburg Woods block much of the sun's rays, leaving the interior cool and dark. Smaller trees restrict travel to the western side for now."
+                ],
+                "Ambush!": {
+                    "Text": [
+                        "In the middle of the woods, you come across a researcher from Devon Corporation , a tech company based in Rustboro City . After explaining that he is looking for a Shroomish , he is suddenly confronted by a member of Team Magma R / Team Aqua S . The Grunt had planned to ambush the worker and steal important documents when he left the woods, but grew too impatient for that. Defeat him in battle and he flees the scene, but not before hinting that his friends are up to something in Rustboro. The grateful researcher gives you a Great Ball as thanks. He then rushes off to Rustboro after realizing what his attacker wanted."
+                    ]
+                }
+            },
+            "Pretty Petal flower shop": {
+                "Text": [
+                    "The Pretty Petal flower shop is run by three sisters. The eldest sister, near the entrance, teaches visitors how to grow Berries. The middle sister, near the rear wall, hands out the Wailmer Pail when you first speak to her. The youngest sister, near the front wall, hands out one random Berry from a group of eight possible varieties every day.",
+                    "After obtaining the Dynamo Badge , the sisters will also offer decorative plants for sale."
+                ]
+            }
+        }
+    },
+    "Part_3": {
+        "Rustboro City": {
+            "Text": [
+                "Rustboro City links Route 104 to the south, Route 116 to the east, and Route 115 to the north. Every building is constructed from stone, giving the city an old-fashioned appearance. It is the main hub of manufacturing in the Hoenn region, with the Devon Corporation as its beating heart."
+            ],
+            "Cutter's house": {
+                "Text": [
+                    "The house to the west of the Pokémon Center belongs to a man known as the Cutter. When the city was expanding, he taught his Pokémon a move to help clear the surrounding land of trees. He no longer needs his HM01 ( Cut ), and, recognizing you as a skilled Trainer, decides to pass it on to you. When used in the field, this move allows the user to remove small trees in order to reach new areas."
+                ]
+            },
+            "Pokémon Trainer's School": {
+                "Text": [
+                    "The Pokémon Trainer's School stands to the northeast of the Pokémon Center. Speak to the teacher to receive a Quick Claw , and brush up on the basics by reading the notes on the blackboard."
+                ]
+            },
+            "Devon Corporation": {
+                "Text": [
+                    "Devon Corporation is headquartered in a large stone building in the northwest part of town. The company is responsible for manufacturing many of the items Trainers rely on every day, including several variations of Poké Ball and medicine. Only authorized personnel are allowed past the first floor."
+                ]
+            },
+            "Time for a Trade": {
+                "Text": [
+                    "Visit the house in the northeast part of town to find a boy who would like to trade Pokémon. He is willing to part with his Makuhita in exchange for a Slakoth . Slakoth can be found nearby in Petalburg Woods . Makuhita arrives holding an X Attack ."
+                ]
+            },
+            "Rustboro Gym": {
+                "Text": [
+                    "The Rustboro Gym specializes in Rock-type Pokémon. Rock-type moves are super effective against Bug -, Fire -, Flying -, and Ice-type Pokémon, while Rock-type Pokémon are weak to Fighting -, Grass -, Ground -, Steel -, and Water-type moves.",
+                    "The Gym features a layout that presents Trainers with a choice: take the main path and defeat the two Gym Trainers, or forgo the prize money and experience rewards to challenge the Gym Leader directly.",
+                    "Like most Rock-type Pokémon, both Roxanne 's Geodude and Nosepass have high physical Defense . As special moves , Grass and Water attacks will target her Pokémon's weaker Special Defense instead, making for an easier battle. Fire-type Pokémon may struggle on their own, so Trainers who chose Torchic would be well-advised to bring the traded Makuhita , a Fighting-type Pokémon. Roxanne's Nosepass has the Sturdy Ability , which protects it from being knocked out with one hit. Chip away at its health with weaker moves before striking with super effective attacks.",
+                    "After the battle, Roxanne awards you the Stone Badge , which boosts a Pokémon’s physical Attack by 10% during battle and enables the use of Cut in the field. She also gives you TM39 ( Rock Tomb ) as a prize."
+                ]
+            },
+            "Stop, Thief!": {
+                "Text": [
+                    "When you leave the Gym, you witness a Grunt from Team Magma R / Team Aqua S escaping from the Devon Corporation building. That same Devon researcher from earlier is close behind, and chases the thief northward. He loses track of him in the northeast, where the city connects to Route 116 . Recognizing you from Petalburg Woods , he explains that the Grunt just robbed him of some valuable Devon Goods , and begs for your help."
+                ]
+            }
+        },
+        "Route 116": {
+            "Text": [
+                "Route 116 runs east from Rustboro City . It is a path that many workers take on their daily commute to Rusturf Tunnel and back."
+            ],
+            "Kidnapped!": {
+                "Text": [
+                    "When you reach the entrance to Rusturf Tunnel , you find an elderly man standing there. It seems that the thief has added kidnapping to his list of charges, as he has also made off with the man's beloved Wingull , Peeko !"
+                ]
+            }
+        },
+        "Rusturf Tunnel": {
+            "Text": [
+                "Rusturf Tunnel was a construction project by Devon Corporation that aimed to link Rustboro City and western Hoenn to the rest of the region. The tunnel was nearly complete when Devon's president, Mr. Stone , realized that the work was disturbing the local Whismur population. The project was canceled, though only a small bit of debris, easily cleared , remained to hinder travel."
+            ],
+            "The Take Down": {
+                "Text": [
+                    "The tunnel is fairly small, so you will find the thief and his hostage shortly after you step inside. Unfortunately for him, his escape route is blocked by rocky debris. Defeat him, and he gives up the Devon Goods before fleeing. The old man rushes in to check on Peeko , and introduces himself as Mr. Briney before the pair leaves for his home near Petalburg Woods ."
+                ]
+            }
+        },
+        "Rustboro City (Visit 2)": {
+            "The Returning Hero": {
+                "Text": [
+                    "With the Devon Goods reclaimed, return to the Devon researcher in the northeast part of the city. As thanks for your help, he gives you a Great Ball before accompanying you to Devon Corporation to meet his boss."
+                ]
+            },
+            "Devon Corporation": {
+                "A New Task": {
+                    "Text": [
+                        "The man leads you to the president's office on the third floor. He asks if you would deliver the Devon Goods to Slateport City 's shipyard, as he is afraid of the thief returning. He leaves you for a moment, and soon returns to say that the president would like to speak with you."
+                    ]
+                },
+                "Devon's President, Mr. Stone": {
+                    "Text": [
+                        "The company president introduces himself as Mr. Stone , and thanks you for reclaiming the stolen goods. Having heard that you will be delivering the package to Slateport City , he wonders if you could stop off in Dewford Town on the way. He gives you a Letter addressed to a man named Steven , and hopes that you could deliver it for him. He does not expect you to work for free, of course, and rewards you with a PokéNav . This high-tech device has several different functions.",
+                        "In order to reach Dewford Town to the south, you must first find a way to cross the sea."
+                    ]
+                }
+            },
+            "Meet Up with May/Brendan": {
+                "Text": [
+                    "As you reach the southern entrance to the city, you run into May / Brendan . Speak to your friend, and she/he mentions passing Mr. Briney in Petalburg Woods ."
+                ]
+            }
+        }
+    },
+    "Part_4": {
+        "Route 104 (South)": {
+            "Mr. Briney's house": {
+                "Text": [
+                    "Return to the south side of Route 104 and visit Mr. Briney 's cottage. Inside, you find the elderly man happily chasing his Wingull around the house. Speak to him, and he thanks you again for saving Peeko . After hearing of your deliveries to be made in Dewford Town and Slateport City , Mr. Briney is happy to assist you. He is prepared to set sail for Dewford Town right away, but gives you a moment to prepare if necessary. When ready, you follow him and Peeko onto his ship and the trio sets off across the waves."
+                ]
+            }
+        },
+        "Routes 105 and 106": {
+            "Text": [
+                "As Mr. Briney sails directly to Dewford Town , there is no chance to fully explore the waters of Routes 105 and 106 on the first visit."
+            ]
+        },
+        "Dewford Town": {
+            "Text": [
+                "Dewford Town is a tiny island town in the southern ocean. New trends are always the rage among its residents. Despite its isolation, many Trainers travel to the area to challenge the Dewford Gym ."
+            ],
+            "Dewford Hall": {
+                "Text": [
+                    "Located to the north of the Pokémon Center, Dewford Hall is known as \"Everyone's Information Exchange!\" . Though Dewford is a tiny island community, when someone comes up with a trendy new phrase here, it quickly spreads throughout the region. Speak to the boy in front of the building to learn the coolest thing in cool right now; if you disagree, he offers a chance to change the current phrase, which the residents inside will quickly adopt."
+                ]
+            },
+            "Cast the Line": {
+                "Text": [
+                    "Speak to the Fisherman to the east of the Gym, and he asks if you are getting the itch to fish. Agree, and he gives you an Old Rod . With this fishing rod, you can now cast your line at any body of water to reel in Water-type Pokémon. The Old Rod is a low-end model, and is often only able to hook Magikarp ."
+                ]
+            },
+            "Dewford Gym": {
+                "Text": [
+                    "The Dewford Gym specializes in Fighting-type Pokémon. Fighting-type moves are super effective against Dark -, Ice -, Normal -, Rock -, and Steel-type Pokémon, while Fighting-type Pokémon are weak to Flying - and Psychic-type moves.",
+                    "The Gym is a maze of poorly-lit hallways. The buff Trainers inside hone their skills by training in total darkness. The visible area lights up more and more with each Gym Trainer that is defeated. When the Gym Leader is defeated, the lights are turned on and the building interior is fully visible.",
+                    "Even with only two Pokémon, Brawly can still be a tough opponent. His Machop can deal increased damage by first using Leer to cut the target's Defense . In addition, its Guts Ability boosts its physical Attack by 50% when afflicted with a status condition. Both Machop and Makuhita can use Bulk Up to raise their Attack and Defense power. As both Pokémon have relatively low Special Defense , Psychic-type attacks will have the greatest effect.",
+                    "After the battle, Brawly awards you the Knuckle Badge , which ensures obedience of all Pokémon up to level 30 and enables the use of Flash in the field. He also hands out TM08 ( Bulk Up ) as a prize."
+                ]
+            }
+        },
+        "Route 106": {
+            "Text": [
+                "Route 106 connects Route 105 to Dewford Town . It is the site of serious battles between Fishermen of the seaside area and the wild Pokémon of the seas. The entrance to Granite Cave is located here."
+            ],
+            "Granite Cave": {
+                "Text": [
+                    "Granite Cave is famous for its rare stones and cave art, which depicts events from thousands of years ago. While the ground floor is well-lit from the natural light outside, it can be difficult to explore the underground portion without the use of Flash ."
+                ],
+                "1F (Lower)": {
+                    "Text": [
+                        "Speak to the Hiker near the entrance, and he warns that it will be difficult to navigate the darker parts of the cave. He mentions how he saw a man named Steven earlier who was able to use Flash , and should be alright on his own. As you are unable to do so, the Hiker gives you your own copy of HM05 ( Flash ).",
+                        "Continue westward through the chamber to reach an Escape Rope , then climb down the nearby ladder."
+                    ]
+                },
+                "B1F": {
+                    "Text": [
+                        "Head north from the ladder, then turn eastward. Pick up the Poké Ball in the first dead-end path to the south, then climb down the ladder to the southeast."
+                    ]
+                },
+                "B2F": {
+                    "Text": [
+                        "Go west and climb the stairway to reach the upper level. Turn eastward and climb up the northeast ladder."
+                    ]
+                },
+                "B1F (Visit 2)": {
+                    "Text": [
+                        "Climb up the next ladder to return to 1F."
+                    ]
+                },
+                "1F (Upper)": {
+                    "Text": [
+                        "Follow the path westward and enter the chamber at its end."
+                    ]
+                },
+                "1F (Back)": {
+                    "Text": [
+                        "Speak to the man in the rear chamber, and he introduces himself as Steven . He is interested in rare stones, and travels all around looking for more to add to his collection. Steven soon realizes that you have a Letter for him, and accepts the delivery. As thanks, he gives you a TM that contains his favorite move, TM47 ( Steel Wing ). Seeing your capable-looking Pokémon, he encourages you to keep up your training so that you might become the Pokémon Champion one day. He then exits the chamber."
+                    ]
+                }
+            }
+        },
+        "Dewford Town (Visit 2)": {
+            "Text": [
+                "Speak to Mr. Briney at the pier. There is still another delivery to be made, so it is time to set sail for Slateport City ."
+            ]
+        },
+        "Routes 107 and 108": {
+            "Text": [
+                "As Mr. Briney again sails directly to the next destination, there is no chance to fully explore the waters of Routes 107 and 108 on the first visit. There is little of interest on Route 107, but Route 108 holds the remains of a half-sunken Abandoned Ship ."
+            ]
+        }
+    },
+    "Part_5": {
+        "Route 109": {
+            "Text": [
+                "The sprawling beach of Route 109 is a great place to work on a tan, while people and Pokémon alike enjoy ocean swims in this water route. Refreshments are available at the Seashore House."
+            ],
+            "Seashore House": {
+                "Text": [
+                    "The hut on the beach's west side is known as the Seashore House, where refreshments are sold to thirsty beachgoers. Defeat all three Trainers inside, then speak to the owner, Mr. Sea. He rewards your effort with a free six-pack of Soda Pop ! From this point on, you can also buy individual bottles for $ 300 each."
+                ]
+            }
+        },
+        "Slateport City": {
+            "Text": [
+                "Slateport City is located between Route 109 to the south, Route 110 to the north, and Route 134 to the east. An abundant food supply fueled the growth of the local market. People from many different regions gather and mingle in this bustling port city."
+            ],
+            "Slateport Market": {
+                "Text": [
+                    "The open-air Slateport Market in the southwest part of town hosts numerous vendors peddling rare goods."
+                ],
+                "Doll shop": {
+                    "Text": [
+                        "The shopkeeper in the southwest stall offers several different Pokémon dolls for sale."
+                    ]
+                },
+                "Vitamin shop": {
+                    "Text": [
+                        "In the west-central stall, permanent stat-enhancing Vitamins may be purchased from a man known as the Energy Guru .",
+                        "In addition, the woman standing next to the Energy Guru will award an Effort Ribbon to a Trainer's lead Pokémon, if the Pokémon has been fully trained ."
+                    ]
+                },
+                "Secret shop": {
+                    "Text": [
+                        "A man on the north side runs a secret shop. He belongs to a group of Secret Power enthusiasts, and will only do business with his fellow members. He tells you that one of these other members will give you a TM containing the move, and advises you to return and show it to him afterward. Do so to prove your connection to the group, and the man will then offer Secret Base decorations for sale."
+                    ]
+                }
+            },
+            "Pokémon Fan Club": {
+                "Text": [
+                    "The Pokémon Fan Club can be found just north of the Market.",
+                    "A TV reporter named Gabby can be seen talking to another Trainer. If you speak to her, she notices how close you are with your lead Pokémon and asks for an interview about it. Use the easy chat system to give her a great interview and you may see yourself on TV!",
+                    "If your lead Pokémon is friendly enough, you can receive a Soothe Bell by speaking to the woman near the back wall.",
+                    "Speak to the club's chairman to have him examine your lead Pokémon. If any of its five Contest conditions are high enough, he will reward you with a Scarf in a corresponding color. When held during a Pokémon Contest , a Pokémon earns bonus points if the Scarf it wears matches the type of Contest— Cool , Beauty , Cute , Smart , or Tough —in which it is competing."
+                ]
+            },
+            "Name Rater": {
+                "Text": [
+                    "The house to the north of the Fan Club building is home to the Name Rater . This elderly man has the power to evaluate and change your Pokémon's nicknames as often as you would like. However, he cannot change a Pokémon's nickname if it first belonged to someone else."
+                ]
+            },
+            "Contest Hall": {
+                "Text": [
+                    "The northwestern-most building is the local Contest Hall . There are four of these buildings scattered across Hoenn , and aspiring Pokémon Contest winners must visit each in order to progress. The circuit begins at the Normal Rank Contest Hall, where Trainers may register themselves and participate in Normal Rank competitions. Normal Rank winners may then participate in increasingly prestigious Contests, moving up to Super Rank, then Hyper Rank, and finally Master Rank competitions. The Slateport City location happens to be the Hyper Rank Contest Hall, so it is impossible to enter a Contest here without first winning at the Normal and Super Ranks first."
+                ],
+                "Lobby": {
+                    "Text": [
+                        "Speak to the little girl to the left of the entrance. She happens to have a second Pokéblock Case , and gives you the spare. This case holds up to 40 Pokéblocks , which are pieces of candy that improve a Pokémon's condition for Pokémon Contests . Pokéblocks are made by using a Berry Blender ; there are two of these devices in each of the four Contest Halls . By working with others, users aim to mix up high-quality candy for their Pokémon."
+                    ]
+                }
+            },
+            "Slateport Harbor": {
+                "Text": [
+                    "Slateport Harbor is located in the city's northeast district. A sign outside informs visitors that a new ferry, the S.S. Tidal , is under construction in the local shipyard , and that service is scheduled to begin soon."
+                ]
+            },
+            "Standing Room Only": {
+                "Text": [
+                    "The Oceanic Museum stands in the east-central part of the city. It is impossible to enter at first, due to a line of Grunts from Team Magma R / Team Aqua S waiting to get in."
+                ]
+            },
+            "Stern's Shipyard": {
+                "1F": {
+                    "Text": [
+                        "Stern's Shipyard is located in the southeast part of the city. Inside, you find Captain Stern 's assistant, Dock , looking over plans for the new ferry that is under construction here. He notices that you have the Devon Goods , but says that Stern had work to do and went off somewhere. He asks if you could find the captain and deliver the Goods to him."
+                    ]
+                }
+            },
+            "Oceanic Museum": {
+                "Text": [
+                    "By the time you visit the shipyard, the group of Grunts has made its way into the building. Pay the $ 50 entrance fee to follow them inside. Those that cannot afford it will be mistaken as part of \"the group that came in earlier\", and allowed in for free."
+                ],
+                "1F": {
+                    "Text": [
+                        "The Oceanic Museum features many maritime exhibits. The first floor displays samples of soil and beach sand, and simulations of whirlpools and waterfalls. The Grunts are more interested in the exhibits than battling with you, so speak to them in an effort to gauge their intentions. Talk to the Grunt near the entrance to give him a shock; it is the same guy you fought back in Rusturf Tunnel ! He has learned not to mess with you, and begs forgiveness with TM46 ( Thief ) before fleeing the building."
+                    ]
+                },
+                "2F": {
+                    "Text": [
+                        "The second floor displays submarine and ferry models, a diaroma of the Hoenn region, and water samples of the distant Kanto and Johto regions. Speak to Captain Stern , who is glad to see the parts for his new ferry that he ordered from Mr. Stone . But before you can hand over the Devon Goods , you are attacked by two Grunts! They are here to steal the parts for their boss, so defeat one after the other to thwart their objective. Shocked at their failure, the two begin to plan their next move when a stranger appears. It is their group's leader, Maxie R / Archie S ! He asks why you insist on meddling in their plans, and explains what he calls his group's noble cause. He lets you off easy this time, but warns against interfering with their future plans.",
+                        "Once the boss and his subordinates flee, Captain Stern thanks you for your help and accepts delivery of the Devon Goods . He explains that a planned expedition to the ocean floor is rapidly approaching, and hurries off to prepare."
+                    ]
+                }
+            }
+        },
+        "Route 110": {
+            "Text": [
+                "The lengthy Route 110 runs northward from Slateport City to Mauville City , and also links back to Route 103 . All pedestrians are restricted to the lower path, which features the mysterious Trick House . The elevated Seaside Cycling Road stretches out overhead."
+            ],
+            "Trick House": {
+                "Text": [
+                    "The Trick House is located near the path to Route 103 . The building's owner, the Trick Master , is a good-natured prankster. Traveling through the lengthy Route 110 can become tedious, so he enjoys decorating his home as a funhouse in order to entertain visitors. After clearing the current puzzle, he will soon begin planning the next one. He will eventually dream up a total of eight different puzzles ."
+                ],
+                "Finding the Trick Master": {
+                    "Text": [
+                        "When you step inside the first room, you get the feeling that someone is watching you. The mischievous Trick Master is hiding somewhere! Search the room until you find him, when he accepts your challenge and disappears. Certain field moves are required for most of the mazes, so you will need to return later to complete the rest."
+                    ]
+                },
+                "Inside the Maze": {
+                    "Text": [
+                        "Once he leaves, examine the scroll on the wall to find a secret passage that leads to a sprawling maze. Navigate through the maze, collecting items and battling Trainers along the way, as you search for a rolled-up scroll with a secret code. Examine the door on the far side of the maze to write the code on it, which unlocks the way forward. There is no going back, so be sure to find everything the maze has to offer before entering the next room!"
+                    ]
+                },
+                "Back room": {
+                    "Text": [
+                        "The Trick Master waits here for all challengers. Speak to him to receive an item as your reward, then leave through the exit in the north wall."
+                    ]
+                }
+            },
+            "Rival Battle 2": {
+                "Text": [
+                    "Go east from the Trick House and pass beneath Cycling Road. Turn north and continue on until you meet May / Brendan again. It seems like ages since you last met, and your friend wants to see how far you have come as a Trainer.",
+                    "After the battle, May/Brendan gives you an Itemfinder , a device that detects hidden items in the vicinity. When used, it emits a chime that draws the user's attention in the direction of the item."
+                ]
+            }
+        },
+        "Route 103 (East)": {
+            "Text": [
+                "Despite Route 103 being first accessible from Oldale Town , a large inlet flowing through the area left the eastern side blocked off. Approaching from Route 110 allows you to battle several Trainers and collect a handful of items on this side of the water."
+            ]
+        }
+    },
+    "Part_6": {
+        "Mauville City": {
+            "Text": [
+                "Mauville City is located in central Hoenn , at the intersection of Routes 110 to the south, 111 to the north, 117 to the west, and 118 to the east. A bicycle shop in the northeast offers several different models for weary travelers. At the Mauville Game Corner , patrons try their luck in the hopes of winning big. The Mauville Gym stands in the northwest part of the city."
+            ],
+            "Lady Luck": {
+                "Text": [
+                    "Visit the south-central house and speak to the woman inside. She would like to visit Slateport City to purchase some Harbor Mail , but has no bicycle for the long trip. Buy a piece of Mail from the Poké Mart there, then deliver it to her to receive a Coin Case as thanks. This case allows the holder to try their luck in the Mauville Game Corner and can hold up to 9,999 Coins , which may be redeemed for valuable prizes."
+                ]
+            },
+            "A Smash Hit": {
+                "Text": [
+                    "Visit the southeast house and speak to the Scientist inside to receive HM06 ( Rock Smash ). When used in the field, this move allows you to remove breakable rocks , often clearing the way to new areas in the process. Wild Pokémon may even appear when their hiding place is removed! To use it, Trainers must first earn the Badge from the local Gym."
+                ]
+            },
+            "Rydel's Cycles": {
+                "Text": [
+                    "A bicycle shop known as Rydel's Cycles is located in the northeast part of the city. The owner notices how dirty your Running Shoes have become, and is shocked to learn that you have traveled all the way from Littleroot Town on foot. He decides to give you one of his bicycles, and explains that there are two different models available. The Mach Bike can reach speeds high enough to ride up muddy slopes and over cracked tiles . The Acro Bike can perform tricks, like wheelies and bunny hops. Each model allows the rider to reach areas that are otherwise inaccessible. Handbooks that explain each model's abilities are located in the store's backroom. Whichever model is selected may be exchanged for the other at any time by speaking to Rydel."
+                ]
+            },
+            "Mauville Game Corner": {
+                "Text": [
+                    "The Mauville Game Corner is located in the southwest part of the city. The venue features two roulette wheels and sixteen slot machines. Coins can be purchased at the counter from the woman on the left in bundles of 50 for $ 1,000 or 500 for $ 10,000."
+                ],
+                "Share the Wealth": {
+                    "Text": [
+                        "Speak to the girl to the left of the service counter. It turns out that she accidentally got two of the same Doll, and offers you the spare. The type of Doll received matches your first partner Pokémon : either a Treecko Doll , Torchic Doll , or Mudkip Doll ."
+                    ]
+                },
+                "Prize Corner": {
+                    "Text": [
+                        "Coins can be exchanged for prizes at the counter from the two women on the right."
+                    ]
+                }
+            },
+            "A Familiar Face": {
+                "Text": [
+                    "As you approach the Mauville Gym , you find Wally and his uncle in front of the building. Wally wants to challenge the Gym to see how much stronger he has become. His uncle admits that he has grown stronger, but is afraid that challenging a Gym may be too much for him. Wally notices you at this point, and asks if you would battle him to help convince his uncle."
+                ],
+                "VS Wally": {
+                    "Text": [
+                        "Wally has not yet captured any other Pokémon, so he has only his Ralts . Its only damaging move is Confusion , a weaker move that may confuse the target. Bug -, Ghost -, and Dark-type moves are most effective, but are not necessary as both its physical Defense and Special Defense are fairly low.",
+                        "Afterward, Wally gives in and tells his uncle that he will return to Verdanturf Town . He thanks you for the battle, and his uncle tries to cheer him up by telling him that there is no limit to how strong he can become. The two begin to leave, but then his uncle turns back to you. He has just realized that you were likely the person to help Wally catch his first Pokémon, and invites you to visit them in Verdanturf Town."
+                    ]
+                }
+            },
+            "Mauville Gym": {
+                "Text": [
+                    "The Mauville Gym specializes in Electric-type Pokémon. Electric-type moves are super effective against Flying - and Water-type Pokémon , while Electric-type Pokémon are weak to Ground-type moves.",
+                    "The Gym features two sets of electrical barriers, one red and one blue, that can be toggled by stepping on floor switches that are shaped like a lightning bolt. Step on the switch nearest the door to disable the blue barriers and enable the red ones, then go east and fight Battle Girl Vivian. Step on the switch next to her to reactivate the blue barriers, then move southwest toward Youngster Ben. Go north and step on the final switch to reactivate the red barriers, then battle Guitarist Kirk to clear the way to the Gym Leader .",
+                    "Wattson 's Magnemite has a high Special Attack rating, which lets it deal a good bit of damage with ThunderShock . Supersonic and Thunder Wave allow it to further harass the target with confusion and paralysis , respectively. Voltorb 's high Speed can be problematic, especially if the volatile Pokémon decides to use Selfdestruct ! His Magneton is similar to Magnemite, but Shock Wave is stronger than ThunderShock and never misses its target. Ground-type moves are effective against all three of Wattson's Pokémon, while Magnemite and Magneton are also vulnerable to Fire and Fighting attacks.",
+                    "After the battle, Wattson awards you the Dynamo Badge , which boosts a Pokémon's Speed by 10% during battle and enables the use of Rock Smash in the field. He also gives you TM34 ( Shock Wave ) as a prize."
+                ]
+            }
+        },
+        "Route 117": {
+            "Text": [
+                "Route 117 leads west from Mauville City to Verdanturf Town . The path serves as a shortcut back to western Hoenn , by way of Rusturf Tunnel . A Pokémon Day Care stands at the east end of the route."
+            ],
+            "Pokémon Day Care": {
+                "Text": [
+                    "The Pokémon Day Care is a facility that raises Pokémon for busy Trainers. For a small fee, up to two Pokémon can be left here to be raised by the Day Care staff. During their stay, Pokémon will gradually level up and learn new moves. When two compatible Pokémon are left at the same time, their Trainer may return to find an Egg ! The two Pokémon must be of opposite genders, and the resulting Egg will hatch into the unevolved form of the female parent. The Day-Care Man watches over the Pokémon in their care from a gap in the fence, and hints at the odds of finding one .",
+                    "Whenever an Egg is found, the Day-Care Man will be facing the road, eager to talk to you. Speak to him to receive the Egg, and carry it with you on your journey. The more you travel with an Egg, the faster the Pokémon inside will hatch."
+                ]
+            }
+        },
+        "Verdanturf Town": {
+            "Text": [
+                "Verdanturf Town is a small town at the west end of Route 117 . Due to the prevailing wind pattern, the area is always kept clear of falling volcanic ash. The local Contest Hall holds Normal Rank competitions, the first step for every aspiring Pokémon Coordinator ."
+            ],
+            "Wanda's house": {
+                "Text": [
+                    "The south-central house is home to Wally 's aunt and uncle, and his cousin, Wanda .",
+                    "According to her mother, Wanda is concerned about her boyfriend, who has lately been working non-stop to complete the construction of Rusturf Tunnel . She often goes there to visit him.",
+                    "Wally is visiting with his uncle's family in the hopes that the fresh, clean air will improve his health. He may have lost to you in Mauville City , but vows to continue his training and challenge the region's Gyms . He promises to challenge you to another battle once he has grown stronger."
+                ]
+            },
+            "Friendship checker": {
+                "Text": [
+                    "The southwest house belongs to a woman and her Pikachu . Speak to her, and she will evaluate the friendliness of the first Pokémon in your party. There are certain Pokémon that can only be acquired when a Pokémon is happy with its Trainer. There are many things that can be done in order to deepen a Pokémon's friendship with its Trainer, like feeding it vitamins and raising it to a new level ."
+                ]
+            },
+            "Contest Hall": {
+                "Text": [
+                    "The local Contest Hall accepts registrations for Normal Rank competitions. Each new entrant is issued a Contest Pass in order to participate. A Pokémon Contest involves four Trainers entering one Pokémon each in competitive judging. A Contest has two stages of judging, primary and secondary. Primary judging is a popularity poll involving the audience. Secondary judging features appeals by the Pokémon using their moves. Trainers must plan their appeals carefully to earn the most attention of the Judge and excite the audience. The primary and secondary scores are added at the end, with the highest-scoring Pokémon declared the winner."
+                ]
+            }
+        },
+        "Rusturf Tunnel": {
+            "In Search of Sight": {
+                "Text": [
+                    "From the east end of the tunnel, take the path on the left first. This leads to a secluded part of Route 116 that was inaccessible on the previous visit. A PokéManiac here has lost his glasses, so dig out the Itemfinder to start searching. A pair of BlackGlasses can be found a few steps west of him, but after inspection, he determines that they are not the pair that he lost. He wonders aloud if he even lost them in the area and wanders off to continue his search, leaving the BlackGlasses with you.",
+                    "Before moving on, be sure to grab the HP Up from the mountainside."
+                ]
+            },
+            "A Long-Awaited Reunion": {
+                "Text": [
+                    "Follow the tunnel northward to find Wanda standing next to a pair of cracked rocks. Use Rock Smash to clear the debris, reuniting her with her hardworking boyfriend. He gives you HM04 ( Strength ) as thanks, and the pair leave for her home so that he can rest. With the debris removed, the tunnel can now be used as a shortcut between western and central Hoenn ."
+                ]
+            }
+        },
+        "Route 116": {
+            "The Researcher's Reward": {
+                "Text": [
+                    "Continue through Rusturf Tunnel to its western exit to return to Route 116 . The same Devon researcher from earlier can be found just outside the tunnel. As thanks for delivering the Devon Goods to Captain Stern , he wishes to reward you with one of Devon's newest products: a Repeat Ball . From this point onward, Repeat Balls and Timer Balls are available for purchase in Rustboro City ."
+                ]
+            }
+        }
+    },
+    "Part_7": {
+        "Route 111 (South)": {
+            "Text": [
+                "Leading north from Mauville City , the lengthy Route 111 is a unique path divided into three parts by the large desert in its center. An unrelenting sandstorm forces unprepared travelers to detour around the area. The deepest part of the desert is said to hide mysterious ruins ."
+            ],
+            "The Winstrates": {
+                "Text": [
+                    "The Winstrate family loves challenging visitors to battle. The head of the family, Victor, can be found outside the front door. Speak to him, and he asks if you would like to take his family on in four back-to-back battles. Defeat them one by one, then enter the house afterward and speak to Victoria to receive a Macho Brace as a reward."
+                ]
+            },
+            "Gabby and Ty": {
+                "Text": [
+                    "North of the Winstrate house, the path narrows into a deep ravine with many rocks strewn about. Use Rock Smash to clear a way forward and reach the dirt road. It is here that you find Gabby and Ty , the reporter and cameraman team that you met back in Slateport City . Accept their challenge to demonstrate your battle prowess, and they will ask for an interview afterwards. Find a TV at a later point for a chance to hear about yourself on the news!"
+                ]
+            }
+        },
+        "Route 112 (South)": {
+            "Text": [
+                "Route 112 lies at the foot of Mt. Chimney , a large volcano that can only be reached by cable car. A tunnel known as Fiery Path cuts through the mountain, connecting the south and north ends of the route. Jagged Pass and Lavaridge Town are located to the west."
+            ],
+            "Summit Access Denied": {
+                "Text": [
+                    "Team Magma R / Team Aqua S has dispatched a pair of Grunts to block access to the Cable Car Base Station, halting all traffic to the summit of Mt. Chimney . In addition, the elevated terrain makes westward travel impossible, so the only other way forward is a sweltering tunnel through the mountainside."
+                ]
+            },
+            "Fiery Path": {
+                "Text": [
+                    "Fiery Path leads through the base of Mt. Chimney , linking the southern and northern areas of Route 112 . The main tunnel simply serves as a shortcut, while several boulders block off the smaller western passages for now."
+                ]
+            }
+        },
+        "Route 112 (North)": {
+            "Text": [
+                "After exiting Fiery Path , continue eastward to return to Route 111 ."
+            ]
+        },
+        "Route 111 (North)": {
+            "Text": [
+                "Detouring through Route 112 and Fiery Path allows travelers to avoid the sandstorm raging to the south. Weary Pokémon can be healed at a rest stop run by an elderly woman."
+            ],
+            "A Secret Power": {
+                "Text": [
+                    "As you proceed northward, you find a boy staring at a large tree. Speak to him, and he explains that he is considering using a certain move to create a room for himself inside the tree. He gives you TM43 ( Secret Power ) so that you can establish your own Secret Base in any of the suspicious-looking trees, wall markings, and clumps of grass scattered throughout the region. A Trainer can decorate their Secret Base as they wish, and can display up to 16 decorations ."
+                ]
+            }
+        },
+        "Route 113": {
+            "Text": [
+                "Located between Route 111 to the east and Fallarbor Town to the west, Route 113 is constantly covered in volcanic ash by the same wind patterns that keep Verdanturf Town 's air clear and fresh. This abundant resource is used by the Glass Workshop to craft unique items."
+            ],
+            "Glass Workshop": {
+                "Text": [
+                    "The Glass Workshop is located in the northwest part of the route. Speak to the owner to receive a Soot Sack in order to begin collecting ash. The powder is then obtained by walking through ash-covered grass in the area. After gathering enough units, it can then be exchanged for glass items and furniture."
+                ]
+            }
+        }
+    },
+    "Part_8": {
+        "Fallarbor Town": {
+            "Text": [
+                "The small town of Fallarbor is located between Routes 113 and 114 , and features rich soil perfect for gardening. A third Contest Hall, where Trainers compete in Super Rank Contests, can be found here. The town is also home to a Move Maniac and a researcher named Professor Cozmo ."
+            ],
+            "Meet Lanette": {
+                "Text": [
+                    "Inside the Pokémon Center, you find the PC in use by a woman named Lanette . She upgraded the previous version of the Pokémon Storage System , adding a user-friendly graphical interface, the ability to store over 400 Pokémon, and the ability to change the wallpaper of each Box. As she leaves, she invites you to visit her at her home on Route 114 ."
+                ]
+            },
+            "Move Maniac": {
+                "Text": [
+                    "The northwest house belongs to the Move Maniac . This man knows every move a Pokémon can learn as it grows and can teach forgotten moves to any Pokémon, for a price. He charges a single Heart Scale for each move relearned."
+                ]
+            }
+        },
+        "Route 114": {
+            "Text": [
+                "The lengthy Route 114 leads southwest from Fallarbor Town to the mountainside that houses Meteor Falls . The Fossil Maniac lives up north, while Lanette 's home stands on the water's edge."
+            ],
+            "Fossil Maniac's house": {
+                "Text": [
+                    "The Fossil Maniac 's house stands on the outskirts of Fallarbor Town . Head inside and talk to his younger brother, who kindly gives you TM28 ( Dig ). When used in a cave, this field move returns the user to the entrance. If you follow the tunnel at the back of the house, you will find the Fossil Maniac hard at work. He won't give up any Fossils , but mentions that others may be uncovered by Route 111 's raging sandstorm."
+                ]
+            },
+            "Lanette's house": {
+                "Text": [
+                    "Go south across the bridge to reach Lanette 's house. Inside, you find the woman struggling to organize her clutter. She is happy that you stopped by, but embarrassed by the state of her home. If you promise to keep her messiness a secret, she gives you a Seedot Doll R / Lotad Doll S as thanks."
+                ]
+            },
+            "A Berry A Day": {
+                "Text": [
+                    "Speak to the boy outside Lanette's house to receive a single Berry every day. Possible varieties include Razz Berry , Bluk Berry , Nanab Berry , Wepear Berry , and Pinap Berry , and are determined randomly."
+                ]
+            }
+        },
+        "Meteor Falls": {
+            "Text": [
+                "Nestled in the mountains between Routes 114 and 115 , Meteor Falls is said to have been the site of a meteor shower in the distant past. The cavern's rushing rapids prevent most travelers from fully exploring the area, as doing so requires certain field moves ."
+            ],
+            "1F (Front)": {
+                "Cozmo's Folly": {
+                    "Text": [
+                        "Go west over the bridge to find two Grunts from Team Magma R / Team Aqua S , who have just stolen a Meteorite from Professor Cozmo . A moment later, the leader of the opposing team enters, flanked by two of his subordinates. The thieves don't seem to care much, and leave with the Meteorite bound for Mt. Chimney . The team leader introduces himself as Archie R / Maxie S , and tells you that his group intends to thwart the villainous team's plans at any cost, as they have committed many destructive acts in their bid to enlarge the landmass R /sea S . He and his attendants then leave in pursuit of the thieves.",
+                        "Once the others leave, speak to Professor Cozmo to learn that the villainous team convinced him to guide them to Meteor Falls with the promise that they would excavate Meteorites, his topic of study, for him. He regrets his mistake, and wonders aloud what they could be planning at Mt. Chimney ."
+                    ]
+                }
+            }
+        },
+        "Route 115": {
+            "Text": [
+                "The western exit of Meteor Falls opens up to Route 115 , a seaside path that leads back to Rustboro City . The rugged terrain hinders overland movement, forcing Trainers to travel by sea to fully explore the area."
+            ],
+            "Treasure Hunting": {
+                "Text": [
+                    "Though it was possible to reach Route 115 on the first visit to Rustboro City , the route can be more thoroughly explored when approaching from Meteor Falls . It is not possible to reach the northernmost area without the use of Surf , but there are still Trainers to battle and items to collect. The route's only patch of tall grass lies deep in the trees to the north, so the only Pokémon available at the moment are those that can be hooked with the Old Rod ."
+                ]
+            }
+        }
+    },
+    "Part_9": {
+        "Mauville City": {
+            "Text": [
+                "After passing through Meteor Falls , turn eastward and follow Rusturf Tunnel back to Mauville City . If you don't have it already, it is a good idea to visit Rydel's Cycles and swap out the Mach Bike for the Acro Bike . The upcoming terrain is harsh, and while the Mach Bike can reach some areas, the Acro Bike allows you to fully explore the rough landscape without making multiple visits."
+            ]
+        },
+        "Route 112 (South)": {
+            "Text": [
+                "Team Magma R / Team Aqua S has taken Professor Cozmo 's Meteorite to Mt. Chimney , and the only way to follow is by cable car. When you return to Route 112 , you find that the two Grunts are no longer blocking the base station. Enter the building and speak to the attendant to ride the cable car to the summit."
+            ]
+        },
+        "Mt. Chimney": {
+            "Text": [
+                "Mt. Chimney is a massive volcano located in the heart of Hoenn 's largest landmass. Although their intentions are not yet clear, Team Magma R / Team Aqua S is determined to use Professor Cozmo 's Meteorite here in the next stage of their campaign."
+            ],
+            "Steer Clear of the Skirmishes": {
+                "Text": [
+                    "Under normal circumstances, visitors would be able to travel southward through Jagged Pass , down the mountainside to Lavaridge Town . At the moment, however, Grunts from Team Magma and Team Aqua are locked in battle all over the summit, including at the entrance to the mountain pass. Let the fighting continue as you climb northward to the crater.",
+                    "On the uppermost level, you find Archie R / Maxie S fighting off a group of opposing Grunts. If you speak to him, he begs you to stop the villainous team, explaining that they intend to use the Meteorite's power to cause the volcano's eruption R /extinction S !"
+                ]
+            },
+            "Continue to the Crater": {
+                "Text": [
+                    "To the northwest, there is a single Grunt standing guard. Defeat him and continue north to face off against an Admin, who isn't about to let you pass by so easily!"
+                ]
+            },
+            "Battle with the Boss": {
+                "Text": [
+                    "The Admin is defeated, but the real threat is still ahead. Turn east toward the crater to find the villainous team's leader standing next to a machine fitted with the stolen Meteorite. Speak to him to learn more about his group's plans."
+                ],
+                "VS MaxieR": {
+                    "Text": [
+                        "Maxie reveals Team Magma 's goal of expanding the landmass for the good of all Pokémon. He intends to use the machine to amplify the Meteorite's power, causing the volcanic activity to intensify. In time, the expelled lava will cool and harden, creating new lands for Pokémon to evolve and people to advance. He can't allow a child to get in the way, and draws you into battle."
+                    ]
+                },
+                "VS ArchieS": {
+                    "Text": [
+                        "Archie reveals Team Aqua 's goal of expanding the sea for the good of all Pokémon. He intends to use the machine to amplify the Meteorite's power, causing all volcanic activity to end. In time, the crater will cool and fill with rainwater, forming a new habitat in which future Pokémon species can evolve. He can't allow a child to get in the way, and draws you into battle."
+                    ]
+                }
+            },
+            "The Escape": {
+                "Text": [
+                    "Defeated, Maxie R / Archie S reluctantly gives up on his plans for Mt. Chimney , but declares that his group will still prevail. He and his subordinates make their escape, and Archie R /Maxie S catches up to you a moment later. He thanks you for your help, and vows that his group will continue fighting against the other's destructive plans. After he leaves, examine the machine to retrieve the Meteorite for Professor Cozmo ."
+                ]
+            }
+        },
+        "Jagged Pass": {
+            "Text": [
+                "Jagged Pass was formed as the result of an ancient volcanic eruption. When the lava cooled, it proved to be suitable as an alternate route to the summit. Southbound travel involves simply jumping down from one level to the next, but traveling northward over the rough terrain requires the Acro Bike ."
+            ]
+        },
+        "Lavaridge Town": {
+            "Text": [
+                "Nestled at the foot of Mt. Chimney , Lavaridge Town is well-known throughout Hoenn for its hot springs, and is a popular destination for elderly people because of it. The Herb Shop offers bitter yet beneficial medicines for Pokémon. The Lavaridge Gym , fourth in the Hoenn League , stands in the southwest part of town."
+            ],
+            "Pokémon Center": {
+                "Text": [
+                    "A back door to the Pokémon Center leads to a small pool. Magma from the nearby volcano heats underground veins of water, causing them to appear at the surface as these hot springs. The locals believe that these waters calm tension, relieve muscle ache, solve romantic problems, and attract money.",
+                    "In front of the hot springs, there is an area for sand bathing, where visitors can cover themselves in mineral-rich sand heated by the nearby volcano. The heat and weight of this sand makes for a sauna-like experience. An elderly woman can be found standing nearby. She recently found a Pokémon Egg and has been keeping it covered in the warm sands to help it hatch, but it doesn't seem to be working. Speak to her with no more than five Pokémon in your party, and she offers the Egg to you in the hopes that you will have better luck."
+                ]
+            },
+            "Herb Shop": {
+                "Text": [
+                    "An Herb Shop on the south side of town offers several different types of herbal medicine . These natural remedies have the same effects as traditional medicines for a less expensive price. However, they are also very bitter and will cause a Pokémon's friendship to decrease when consumed.",
+                    "Speak to the elderly man near the counter to receive a piece of Charcoal , which boosts the power of Fire-type moves by 10%."
+                ]
+            },
+            "Lavaridge Gym": {
+                "Text": [
+                    "The Lavaridge Gym specializes in Fire-type Pokémon. Fire-type moves are super effective against Bug -, Grass -, Ice -, and Steel-type Pokémon, while Fire-type Pokémon are weak to Ground -, Rock -, and Water-type moves.",
+                    "The multi-level Gym is modeled on a bathhouse, with many puddles of water formed by the dense steam. Challengers must navigate by falling through puddles found on 1F to reach the lower floor, and by triggering hidden geysers to be launched back to the upper floor.",
+                    "Flannery has only recently begun serving as Gym Leader , and is determined to prove her worth. Given the chance, her Pokémon can unleash powerful moves that can reduce a challenger's party to cinders. Sunny Day gives a 50% power boost to all Fire moves, which makes her Pokémon's strongest attack, Overheat , even more devastating. Its only drawback is that it harshly lowers the user's Special Attack after each use, but once is usually enough! In addition, the harsh sunlight temporarily cuts the power of Water attacks in half.",
+                    "After the battle, Flannery awards you the Heat Badge , which ensures the obedience of all Pokémon up to level 50 and enables the use of Strength in the field. She also gives you TM50 ( Overheat ) as a prize."
+                ]
+            },
+            "Destination: Desert!": {
+                "Text": [
+                    "Outside, May / Brendan is impressed with your victory over the Lavaridge Gym . Since you are clearly a capable Trainer, she/he hands you the Go-Goggles , a piece of protective eyewear that allows the wearer to explore the desert of Route 111 despite the raging sandstorm. The young Trainer then heads off to challenge your father, Norman , at the Petalburg Gym ."
+                ]
+            }
+        }
+    },
+    "Part_10": {
+        "Route 111 (Desert)": {
+            "Text": [
+                "With the Go-Goggles , this latest visit to Route 111 is the first in which you are able to venture into the windswept desert. The powerful sandstorm deters most would-be explorers, so there are many treasures yet to be discovered among the dunes."
+            ],
+            "Relic Recovery": {
+                "Text": [
+                    "In the desert's northeast corner, the unending sandstorm has uncovered two treasures from the ancient past: the Root Fossil and the Claw Fossil , left behind by Pokémon that once lived in the primordial ocean. It is only possible to claim one of them, as the other will then sink into the sands, so choose wisely!"
+                ]
+            },
+            "Desert Ruins": {
+                "Text": [
+                    "An unusual arrangement of large stones can be found on the south side of the desert. It is rumored to mark the resting place of a certain Pokémon , but there seems to be no way inside."
+                ]
+            },
+            "Get Going to Gym 5!": {
+                "Text": [
+                    "With the Lavaridge Gym defeated and the desert scoured for treasure, the next destination is Petalburg City . The city lies far to the southwest, but the easiest way to return by foot is to travel west through Verdanturf Town and Rustboro City ."
+                ]
+            }
+        },
+        "Rustboro City": {
+            "Devon Corporation": {
+                "2F": {
+                    "Text": [
+                        "Visit Devon Corporation on the way, and climb to the second floor. Speak to the Scientist near the south wall to learn that he has successfully developed a device that resurrects Pokémon from fossils. He notices the fossil in your Bag, and asks if you would like to bring that Pokémon back to life with his Fossil Regenerator. Hand the relic over to him, and he starts up his device. It takes a moment to complete, so leave the room and return a short time later to receive the ancient Pokémon! The Root Fossil becomes Lileep , a Rock / Grass Pokémon. The Claw Fossil becomes Anorith , a Rock / Bug Pokémon. Both creatures return to life at level 20."
+                    ]
+                }
+            }
+        },
+        "Petalburg City": {
+            "Petalburg Gym": {
+                "Text": [
+                    "The Petalburg Gym specializes in Normal-type Pokémon. Normal-type moves are not super effective against any Pokémon, while Normal-type Pokémon are weak to Fighting-type moves.",
+                    "The Gym features several rooms, each with a single Trainer who uses a certain type of item to gain the upper hand in battle. The sign on each door gives a clue to the strategy of the Trainer in the room behind it. The first two rooms beyond the lobby are labeled \"Speed Room\" and \"Accuracy Room\". The next three rooms are labeled \"Zero Reduction Room\", \"Defense Room\", and \"Recovery Room\". The final two rooms are labeled \"Strength Room\" and \"One-Hit KO Room\". A minimum of three Gym Trainers must be defeated to reach the Gym Leader .",
+                    "Norman has been waiting for you in the final room. Realizing that you have already earned four other Badges, he accepts that you are capable enough to battle him. He is happy to finally have a real battle with his child, but promises to hold nothing back! He leads with the first of his two Slaking , a species with high physical Attack . This advantage is mitigated somewhat by its Ability, Truant ; the Pokémon would rather loaf around, and only acts every other turn. In the meantime, attack with your strongest special attacks to overwhelm its impressive HP rating. His Vigoroth is much more energetic, and its Vital Spirit Ability prevents sleep . His second Slaking can restore its health with Slack Off ; use your strongest attacks to knock it out quickly, before it can use Focus Punch ! Avoid using status-inflicting moves; each of Norman's Pokémon knows Facade , which doubles in power when the user is poisoned , paralyzed , or burned .",
+                    "After the battle, Norman awards you the Balance Badge , which boosts a Pokémon's Defense by 10% during battle and enables the use of Surf in the field. He also gives you TM42 ( Facade ) as a prize. A moment later, he remembers that Wally 's parents visited a short time ago, and said that they have a gift for you."
+                ]
+            },
+            "Wally's house": {
+                "Text": [
+                    "Visit Wally 's house next door to the Gym, and speak to his father. He informs you that Wally's health has greatly improved since traveling to Verdanturf Town , and the family owes it all to you. He thanks you for helping Wally catch his first Pokémon, and for being a great friend, and gives you HM03 ( Surf ) to show his appreciation. When used in the field, this move allows the user to cross bodies of water. Be sure to revisit previous locations so as not to miss out on any treasures!"
+                ]
+            },
+            "Eastward Expansion": {
+                "Text": [
+                    "Having now explored the western part of the Hoenn region, the next step is to turn eastward. Return to Oldale Town , then use Surf on Route 103 to reach Route 110 , and continue northward to Mauville City ."
+                ]
+            }
+        },
+        "Mauville City": {
+            "Wattson's Worry": {
+                "Text": [
+                    "Upon returning to Mauville City , you find Wattson outside the Pokémon Center. Speak to him, and he asks for a favor. He explains that the city has an underground sector called New Mauville , but the generator there has been running a bit erratically lately. He asks that you go and turn off the generator there, as it is becoming unsafe. He gives you the Basement Key to access the area, and directs you toward Route 110 . The entrance to the facility is located in the northeast part of the route; Surf eastward from the north end of Seaside Cycling Road to reach it."
+                ]
+            }
+        },
+        "Route 110": {
+            "New Mauville": {
+                "Text": [
+                    "New Mauville is a power plant located underneath Mauville City . It was originally intended to be an underground city, before it was discovered that it already served as a habitat for wild Pokémon."
+                ],
+                "Entrance": {
+                    "Text": [
+                        "The entrance is a single small chamber. Approach the door and use the Basement Key to enter the southeast room."
+                    ]
+                },
+                "B1F": {
+                    "Text": [
+                        "The lower floor uses a series of floor switches in different colors as a security measure; when stepped on, all doors of the same color open while all others close.",
+                        "Step on the blue switch in the southeast room, then go west. Press the green switch in the south-central room and continue on. Pass by the third switch in the south-southwest room. Move through the large central room to reach an Ultra Ball in the east-central room. Return to the larger room to reach an Escape Rope ; collect the item, then step on the blue switch beneath it. Go northwest to reach a small room with two switches; pick up the Parlyz Heal from the green switch to the left, and continue northward. Follow the hallway to the north-central room; grab the Full Heal to the right, then press the green switch beneath it. This opens the door to the northeast room, which houses the generator. Collect the Thunderstone to the east, then step on the red switch to shut down the machine."
+                    ]
+                }
+            }
+        },
+        "Mauville City (Visit 2)": {
+            "Crisis Contained": {
+                "Text": [
+                    "With your task complete, return to Wattson outside the Pokémon Center. Inform him of your success, and he rewards you with TM24 ( Thunderbolt )."
+                ]
+            }
+        },
+        "Route 118": {
+            "Text": [
+                "Route 118 is a seaside route that connects the Mauville City to the west with Route 118 to the north and Route 123 to the east. A river feeds into the ocean here, acting as a natural barrier to anyone unable to cross the waves ."
+            ],
+            "Get Good with a Good Rod": {
+                "Text": [
+                    "Speak to the Fisherman on the eastern shore to receive a Good Rod . This mid-level fishing rod can reel in a greater variety of water-dwelling Pokémon than the Old Rod . Be sure to revisit previous locations to look for new Pokémon!"
+                ]
+            },
+            "Gabby and Ty": {
+                "Text": [
+                    "After your first interview on the south side of Route 111 , the intrepid news team can be found searching for their next story on the eastern bank of Route 118 's river. Accept their challenge to another Double Battle and be sure to give them a great interview when the dust settles!"
+                ]
+            },
+            "Meet up with Steven": {
+                "Text": [
+                    "As you leave the beach, you are approached by Steven . He hasn't seen you since your first meeting in Granite Cave , and is pleased to see how much you have grown as a Trainer. He wonders if you will raise Pokémon of all types, or only a certain one. He expresses his wish that the two of you meet again, and leaves to the east."
+                ]
+            }
+        }
+    },
+    "Part_11": {
+        "Route 119": {
+            "Text": [
+                "The lengthy Route 119 runs north from Route 118 to Fortree City . The area is filled with patches of long grass , which hide Trainer and Pokémon alike. The tropical heat and frequent rainfall make for an ideal setting for the Weather Institute ."
+            ],
+            "The Mimic Circle": {
+                "Text": [
+                    "The south end of the route holds a large field of long grass . Hidden within are six Trainers who call themselves the Mimic Circle. When a traveler passes by, these Trainers like to make fun by copying the traveler's movements."
+                ]
+            },
+            "Weather Institute": {
+                "Text": [
+                    "Located on the north end of the route, the Weather Institute is a research facility used to study the weather patterns of the Hoenn region. This data seems to have drawn the attention of Team Magma R / Team Aqua S , as a pair of Grunts has been stationed at the bridge outside."
+                ],
+                "1F": {
+                    "Text": [
+                        "Inside, you find another pair of Grunts searching the back room. Before taking them on, you can visit the break room to the northwest; the comfy bed can be used to rest your Pokémon, and the PC can be used to organize your party. Defeat the Grunts and climb up the stairs."
+                    ]
+                },
+                "2F": {
+                    "Text": [
+                        "On the second floor, you find another pair of Grunts. Battle past them to find that the researchers are being held captive by Courtney R / Shelly S , the second of the villainous team's Admins. The group is here looking for information on extreme weather conditions, and to steal a Pokémon rumored to have been created by the Institute that can control the weather. She can't allow you to meddle in their plans, and draws you into battle."
+                    ]
+                },
+                "The Threat Continues": {
+                    "Text": [
+                        "Courtney R / Shelly S simply shrugs off her defeat, declaring that the team has other plans to advance before she and her subordinates flee the building. As thanks for their rescue, one of the Scientists rewards you with a Castform , a Pokémon created by the Weather Institute that changes its form based on the current weather conditions."
+                    ]
+                }
+            },
+            "Meet up with May/Brendan": {
+                "Text": [
+                    "Leave the Weather Institute and go east to cross the northern bridge. As you go to climb up the nearest stairway, May / Brendan catches up to you. Your friend wants to see how much stronger you've become, and wastes no time challenging you to a battle!"
+                ]
+            },
+            "Fly Like a Bird": {
+                "Text": [
+                    "May / Brendan was worried that you may not have been keeping up with your training, but your victory proves these fears unfounded. As a reward, she/he presents you with HM02 ( Fly ). This field move allows a Trainer to quickly return to any familiar location—but to use it, you will need to earn the Gym Badge from nearby Fortree City first. The young Trainer suggests flying home to visit Mom in Littleroot Town , before biking northward up the hill."
+                ]
+            }
+        },
+        "Fortree City": {
+            "Text": [
+                "Located between Routes 119 and 120 , Fortree City was built in an old-growth forest with dense plant life. The ancient trees found here are so large that the residents were able to build cozy homes among their branches. The Fortree Gym stands in the heart of the city, and a shop offering Secret Base decorations can be found in the southeast part of town."
+            ],
+            "Time for a Trade": {
+                "Text": [
+                    "Visit the northwest treehouse to find a girl who would like to trade Pokémon. She is willing to part with her Skitty in exchange for a Pikachu . Skitty arrives holding a piece of Glitter Mail ."
+                ]
+            },
+            "Reveal Your Hidden Power": {
+                "Text": [
+                    "The north-northwest house belongs to an elderly woman. Speak to her to play her guessing game: she holds a coin in her hand, and asks in which one you believe it to be hidden. Guess correctly three times (Right, Right, Left) to win the game and receive TM10 ( Hidden Power ). This unique attack changes its type and power based on the Pokémon using it."
+                ]
+            },
+            "An Invisible Barrier": {
+                "Text": [
+                    "Something invisible blocks the way to the clearing that holds the Fortree Gym . Earning the sixth Badge will need to wait!"
+                ]
+            },
+            "Running Errands": {
+                "Text": [
+                    "Visit the northeast treehouse and speak to the young man inside. As you do, he directs his Wingull to run an errand for him, and the Seagull Pokémon exits the building. Return later to find out if it was successful!"
+                ]
+            },
+            "Secret Base shop": {
+                "Text": [
+                    "The southeast treehouse holds a shop with a variety of Secret Base decorations for sale. Desks can be purchased at the counter to the left, while chairs can be purchased at the counter to the right."
+                ]
+            }
+        },
+        "Route 120": {
+            "Reveal the Unseen": {
+                "Text": [
+                    "With an invisible force blocking the Fortree Gym , there is no choice but to continue eastward to Route 120 . Proceed to the northernmost bridge, where you happen to run into Steven again. He informs you that there is another invisible force here, blocking travel to the bridge's west end. Fortunately, he has a way to solve this mystery, and asks if your Pokémon are ready for battle. When ready, Steven slips on the Devon Scope , a high-tech piece of eyewear that reveals invisible objects. Sure enough, they expose a wild Kecleon standing in front of you, and the startled Pokémon attacks! Catch or defeat the Pokémon to clear the bridge. Pleased with your actions, Steven allows you to keep the device. This allows you to chase the other Kecleon away from the Gym, so head back into town to win your next Badge!"
+                ]
+            }
+        },
+        "Fortree City (Visit 2)": {
+            "Fortree Gym": {
+                "Text": [
+                    "The Fortree Gym specializes in Flying-type Pokémon. Flying-type moves are super effective against Bug -, Fighting -, and Grass-type Pokémon, while Flying-type Pokémon are weak to Electric -, Ice -, and Rock-type moves.",
+                    "The Gym features a series of turnstiles. These barriers must be rotated and approached from alternate directions in order to progress. Pass through the first turnstile and battle Bird Keeper Jared. Push the second turnstile counter-clockwise to battle Picnicker Kylee, then clockwise to its starting position. In the east-central area, push the L-shaped turnstile counter-clockwise. Rotate the T-shaped one counter-clockwise. Loop around and move the L-shaped turnstile two places clockwise. Loop back around and move the T-shaped one clockwise. Go west to battle Camper Terrell, then continue north. In the northeast area, move the southern turnstile clockwise. Turn the eastern one counter-clockwise, then back to its starting position. Battle Bird Keeper Will. Move the western one clockwise, the southern one counter-clockwise, and the eastern one counter-clockwise. Pass by Bird Keeper Will a second time and go west to reach the Gym Leader .",
+                    "Winona leads with her Swellow , a speedy Normal / Flying Pokémon. Avoid inflicting status ailments, as its Guts Ability boosts its physical Attack by 50% under such conditions. Her Pelipper is more defensive, and can hinder the its target with status moves . As a Water / Flying Pokémon, it is most vulnerable to Electric attacks. Like most Steel-type Pokémon, Skarmory has high physical Defense , and its Steel Wing attack can boost it further. It takes serious damage from Fire - and Electric-type attacks, which fortunately target its weaker Special Defense instead. Finally, her Altaria is naturally a more defensive Pokémon, but Dragon Dance increases both its Attack and Speed by one stage each. It sustains massive damage from Ice attacks, but Rock - and Dragon-type moves are effective, as well. Avoid using a Rock-type Pokémon against it, as Altaria can fight back with Earthquake !",
+                    "After the battle, Winona awards you the Feather Badge , which ensures obedience from all Pokémon up to level 70 and enables the use of Fly in the field. She also gives you TM40 ( Aerial Ace ) as a prize."
+                ]
+            }
+        }
+    },
+    "Part_12": {
+        "Route 120": {
+            "Text": [
+                "Route 120 is a lengthy path that runs southeastward from Fortree City to Route 121 . The path meanders past several small ponds and lush vegetation, where Pokémon that can camouflage themselves tend to hide. A small cave named Scorched Slab and a mysterious set of ruins called the Ancient Tomb are both located here."
+            ],
+            "Gabby and Ty": {
+                "Text": [
+                    "After defeating Gabby and Ty on Route 118 , the news team can now be found in the northeast corner of the route. Accept their challenge and give them another great interview afterwards!"
+                ]
+            },
+            "Scorched Slab": {
+                "Text": [
+                    "Scorched Slab is a small cave jutting up out of the northern pond. The entrance lies at water level, so the single chamber inside is mostly flooded. The rest of the cave is made up of a single slab of rock that gives the cave its name."
+                ]
+            },
+            "A Berry A Day": {
+                "Text": [
+                    "The route splits near its south end, with the western trail leading up to a plateau. Speak to the Beauty near the stairway each day to receive a certain Berry. This Berry is one of five rare varieties, which is determined by the last digit of a Trainer's ID number ."
+                ]
+            },
+            "Ancient Tomb": {
+                "Text": [
+                    "An unusual arrangement of large stones can be found on the western plateau. It is rumored to mark the resting place of a certain Pokémon , but there seems to be no way inside."
+                ]
+            }
+        },
+        "Route 121": {
+            "Text": [
+                "Route 121 runs eastward from Route 120 to Lilycove City . The entrance to the Safari Zone can be found on the north side. To the south, a pier leads to the waters of Route 122 ."
+            ],
+            "Trouble on the Move": {
+                "Text": [
+                    "Several Grunts from Team Magma R / Team Aqua S can be seen gathered at the top of the large stairway. One of them mentions orders about moving out to Mt. Pyre , and the group leaves toward the south."
+                ]
+            },
+            "Safari Zone": {
+                "Text": [
+                    "The Safari Zone is a special nature preserve, with a rich environment houses many different kinds of Pokémon. It is only open to Trainers participating in the Safari Game . Its varied terrain means that some areas are only accessible by Mach Bike or Acro Bike ."
+                ],
+                "Safari Game": {
+                    "Text": [
+                        "The cost to participate in the Safari Game is $ 500. Participants are loaned 30 Safari Balls and encouraged to catch any Pokémon they may find, but there is a catch. Rather than weaken wild Pokémon in battle, Trainers must use unconventional tactics in order to attempt capture. Selecting Pokéblock throws a piece of the candy, distracting the Pokémon and making it less likely to run. Select Go Near , and the closer proximity makes the Pokémon easier to catch but more likely to run. Select Ball to throw a Safari Ball and attempt capture! The game ends when all 30 Safari Balls have been used or 500 steps have been taken.",
+                        "The preserve is divided into four sections. Area 1, in the southeast, includes the front gate . Area 2, in the southwest, holds two large ponds. Area 3, in the northwest, has several sandy areas and may only be reached with the Mach Bike . Area 4, in the northeast, is a rugged environment that may only be reached with the Acro Bike .",
+                        "There are a total of seven feeding stations scattered throughout the preserve. Each of these feeders can be used to display a single Pokéblock at a time. While the effect is active, all Pokémon found within its 5-step range will have a Nature where its preferred flavor matches that of the Pokéblock. This effect wears off after 100 steps have been taken."
+                    ]
+                }
+            }
+        },
+        "Route 122": {
+            "Text": [
+                "Route 122 is a simple ocean route stretching between Route 121 to the north and Route 123 to the south. A large mountain known as Mt. Pyre juts up from the water's surface."
+            ],
+            "Mt. Pyre": {
+                "Text": [
+                    "Mt. Pyre is a large mountain that houses the graves of departed Pokémon. Many grieving Trainers visit to pay their respects, while other thrill-seeking Trainers can be found hunting for Ghost-type Pokémon."
+                ],
+                "Interior": {
+                    "Text": [
+                        "Speak to the elderly woman in the northeast corner. She warns that all sorts of beings wander the mountain's slopes, and gives you a Cleanse Tag to protect yourself. When held by the lead Pokémon, it decreases the encounter rate of wild Pokémon by 33%.",
+                        "Battle PokéManiac Mark near the center of the room. Pick up the Ultra Ball in the southwest corner, then climb the northeast stairs.",
+                        "Pick up the Super Repel in the northwest part of the room. Battle Psychic William and climb the northwest stairs.",
+                        "Battle Black Belt Atsushi, then climb the northeast stairs.",
+                        "Battle Hex Maniac Tasha, then climb the northwest stairs.",
+                        "Battle Hex Maniac Valerie on the upper level. Walk down the stairway and pick up TM30 ( Shadow Ball ), then jump down through the hole to the west.",
+                        "Pick up the Lax Incense , then jump down through the southernmost hole to the east.",
+                        "Collect the Sea Incense , then jump down through the western hole.",
+                        "Go east and drop down through the final hole. Return to 1F and take the western exit."
+                    ]
+                },
+                "Exterior": {
+                    "Text": [
+                        "Collect TM48 ( Skill Swap ) and a Max Potion on the way up the mountainside. As you climb higher, a dense layer of fog sets in. Climb the northernmost stairway to reach the summit."
+                    ]
+                },
+                "Summit": {
+                    "Text": [
+                        "Defeat the three Grunts guarding the path to the peak to advance. To the north, you find Maxie R / Archie S confronting the elderly caretaker couple. He is less than thrilled to see you again, but says that you are too late to interfere this time. He steals the Blue Orb R / Red Orb S and orders his subordinates to Slateport City , and the group flees. Once they are gone, the elderly woman explains that the two orbs must never be separated, or something terrible will happen. She entrusts the remaining Red Orb R / Blue Orb S to you, and pleads with you to retrieve the stolen one.",
+                        "If spoken to, the elderly man recounts an ancient legend of the Hoenn region.",
+                        "The fastest way back to Slateport City is by using Fly . Otherwise, move southwestward through Routes 123 and 118 , then go south from Mauville City ."
+                    ]
+                }
+            }
+        },
+        "Route 123": {
+            "Text": [
+                "Route 123 slopes downhill as it runs westward, from Route 122 back to Route 118 . The uneven terrain makes it difficult to reach every area in one visit. The Berry Master 's home, and his large garden, can be found on the west end."
+            ],
+            "Berry Master's house": {
+                "Berry Master": {
+                    "Text": [
+                        "An elderly man known as the Berry Master lives with his wife in the house on the west side. Speak to him every day to receive two rare Berries. Possible varieties include Pomeg , Kelpsy , Qualot , Hondew , Grepa , Tamato , Cornn , Magost , Rabuta , and Nomel . The type of Berry received is determined randomly."
+                    ]
+                },
+                "Berry Master's wife": {
+                    "Text": [
+                        "Speak to the Berry Master's wife each day, and she asks if you have heard a good saying lately. Use the easy chat system to tell her a two-word phrase, and she rewards you with a Berry. Possible varieties include Cheri , Chesto , Pecha , Rawst , Aspear , Leppa , Oran , Persim , Lum , and Sitrus .",
+                        "There are also five special phrases that each result in a rare variety of Berry. However, four of these phrases each involve an unlockable word, and cannot be used until certain requirements are met. Each phrase may only be used once this way; any further subsequent use results in a random, common variety from the previous list."
+                    ]
+                }
+            }
+        }
+    },
+    "Part_13": {
+        "Slateport City": {
+            "A Huge Discovery!": {
+                "Text": [
+                    "When you return to Slateport City , head to the northeast part of town. Outside the Slateport Harbor building, you find Captain Stern filming an interview with Gabby and Ty in front of a small crowd. Once they leave, he informs you that the most recent seafloor expedition made a huge discovery: an underwater cavern on Route 128 ! Stern believes it to be the habitat of a Pokémon said to have long been extinct. Just then, a voice addresses Captain Stern through a megaphone. It's Maxie R / Archie S , announcing how his team will be taking control of Stern's submarine!"
+                ]
+            },
+            "Slateport Harbor": {
+                "Text": [
+                    "Follow Stern into the building to find the boss and one of his subordinates. He sympathizes with you for the effort it took to follow him here from Mt. Pyre , but declares that no one can stop them. He wonders aloud if you will follow them back to their hideout in Lilycove City , then the two men board the submarine and make their escape. Stern asks why they would steal the submarine, believing that they can't possibly be after the slumbering Pokémon at the bottom of the sea..."
+                ]
+            }
+        },
+        "Lilycove City": {
+            "Text": [
+                "Lilycove City is located between Route 121 to the west and Route 124 to the east. The Lilycove Department Store and Lilycove Museum stand on a hill on the city's north side. The Cove Lily Motel , Master Rank Contest Hall , and Lilycove Harbor are found to the south. A large rock formation houses a cave just offshore."
+            ],
+            "City Under Siege": {
+                "Text": [
+                    "Several Grunts from Team Magma R / Team Aqua S can be seen loitering around the city. One of them even orders you not to go near the cave in the cove. Another blocks the waterway leading to Route 124 as he trains a group of Pokémon."
+                ]
+            },
+            "Pokémon Trainer Fan Club": {
+                "Text": [
+                    "The Pokémon Trainer Fan Club is located to the east of the Pokémon Center. Inside, members meet to discuss popular Pokémon Trainers and Gym Leaders . After you have entered the Hall of Fame , several members then announce themselves as fans of yours, as well."
+                ]
+            },
+            "Cove Lily Motel": {
+                "Text": [
+                    "The Cove Lily Motel can be found in the southeast part of town. With the presence of Team Magma R / Team Aqua S , most tourists have decided to stay away. The man who runs the motel can be seen on the first floor, watching a TV program. He wonders aloud if finding a cute Pokémon to use as a mascot will help draw in more patrons.",
+                    "After entering the Hall of Fame , return to find the staff of Game Freak on the second floor. The group is touring the Hoenn region, and has just recently checked into the motel. Speak to the Game Designer after completing the Hoenn Pokédex to receive a Diploma celebrating the achievement!"
+                ]
+            },
+            "Pokéblock Master's house": {
+                "Text": [
+                    "The house to the west of the motel belongs to a couple and their four children. The woman calls herself a master of Pokéblocks , and offers to teach you how to make the best candy."
+                ]
+            },
+            "Rival Battle 4": {
+                "Text": [
+                    "May / Brendan can be found outside the Department Store building. The young Trainer offers a battle to determine which of you has been doing a better job of raising their Pokémon.",
+                    "After the battle, you learn that your friend has been making good progress on the Pokédex, and plans to visit Littleroot Town again soon in order to show Professor Birch . She/He asks if you will be taking the Pokémon League challenge, and promises to complete the Pokédex while you're busy collecting Badges. The Trainer then uses Fly to leave the city."
+                ]
+            },
+            "Lilycove Department Store": {
+                "Text": [
+                    "The Lilycove Department Store is the largest shop in Hoenn . Nearly any item a Trainer could want can be found here."
+                ],
+                "1F: Service Counter": {
+                    "Text": [
+                        "The first floor holds the service counter. There are two receptionists: the one on the left greets visitors, while the one on the right runs the Pokémon Lottery Corner .",
+                        "All visitors may draw a single Pokémon Loto Ticket per day. If the Loto Ticket's number matches the full ID number of any of their Pokémon, they win the grand prize. The five-digit number is generated randomly. Other prizes are awarded for partial matches."
+                    ]
+                },
+                "2F: Trainers' Zone": {
+                    "Text": [
+                        "The Trainers' Zone is found on the second floor. Everyday items like Great Balls and Super Potions are offered here."
+                    ]
+                },
+                "3F: Battle Collection": {
+                    "Text": [
+                        "The Battle Collection occupies the third floor. The clerk on the left offers permanent stat-enhancing items . The clerk on the right offers temporary stat-enhancing items ."
+                    ]
+                },
+                "4F: TM Corner": {
+                    "Text": [
+                        "The TM Corner can be found on the fourth floor. Several valuable Technical Machines are offered here."
+                    ]
+                },
+                "5F: Decoration Floor": {
+                    "Text": [
+                        "The Decoration Floor is located on the fifth floor. A wide variety of Secret Base decorations can be purchased here."
+                    ]
+                },
+                "Rooftop Plaza": {
+                    "Text": [
+                        "The Rooftop Plaza houses a pair of vending machines ."
+                    ]
+                }
+            },
+            "Lilycove Museum": {
+                "Text": [
+                    "The Lilycove Museum stands in the northwest part of town. It holds a collection of statues and sculptures, and a wide array of paintings. There is no charge for admission. The first floor houses the main exhibit hall. A special gallery is located on the second floor.",
+                    "The curator can be found in front of the stairs to the upper floor. He is happy to see someone as young as you visiting the museum, and asks if you have viewed their collection of paintings yet. Agree, and he recognizes you as a Trainer, and asks if you are interested in paintings, as well. Agree again, and he escorts you to the second floor.",
+                    "The man points out the empty spaces on the walls. He would like to display something different here than the classical works on the lower floor, and decides to look for modern and vibrant paintings instead. Seeing that you are young and well-traveled, he points out that you will likely encounter such artwork, and asks that you obtain the artist's permission to display it here. If you win a Master Rank Pokémon Contest with a score of at least 800 points, you will be approached by an artist. He explains that he has just completed a painting that may even look good in a museum, at which point you will direct him here. Collect one painting for each of the five Contest categories, and the curator will reward you with a Glass Ornament for your Secret Base ."
+                ]
+            },
+            "Move Deleter's house": {
+                "Text": [
+                    "The first house to the east of the Department Store belongs to a man known as the Move Deleter . Using his free service allows a Pokémon to forget one of its moves. This is especially useful for removing moves taught by HM , as they would normally be permanent."
+                ]
+            },
+            "A Berry A Day": {
+                "Text": [
+                    "A Gentleman can be found taking a stroll in the northeast part of the city. Speak to him each day to receive a Berry. Possible varieties include Cheri , Chesto , Pecha , Rawst , Aspear , Leppa , Oran , Persim , Lum , and Sitrus . The type received is determined randomly."
+                ]
+            }
+        }
+    },
+    "Part_14": {
+        "Team Magma HideoutR": {
+            "Text": [
+                "Team Magma has been working hard to build a impressive hideout in this spacious cave near Lilycove City . Storming this base won't be easy, but you must push onward to prevent Maxie 's misguided vision from becoming reality!"
+            ],
+            "1F": {
+                "Text": [
+                    "Climb out of the water and up the three stairways. At the top, a single Grunt patrols around the hill. Battle him and climb up the stairs to the north."
+                ]
+            },
+            "2F (West side; Northwest)": {
+                "Text": [
+                    "There are two warp panels in the northwestern-most room. Step on the southern panel first to reach the southwest room and a Max Elixir , then warp back. Step on the other panel to reach the north-northwest room. Go down the stairs to the north."
+                ]
+            },
+            "Submarine level (Northwest)": {
+                "Text": [
+                    "Defeat the Grunt in the northwest room, then climb the northeast stairs back to 2F."
+                ]
+            },
+            "2F (West side; North-central)": {
+                "Text": [
+                    "In the north-central room, step on the single warp panel to reach the northwest panel in the southeast room."
+                ]
+            },
+            "2F (West side; Southeast)": {
+                "Text": [
+                    "Pass by two more Grunts and take the warp panel in the southwest corner."
+                ]
+            },
+            "2F (West side; East-central)": {
+                "Text": [
+                    "Step on the single warp panel to reach the easternmost part of 2F."
+                ]
+            },
+            "2F (East side)": {
+                "Text": [
+                    "The previous warp panel leads to the north side of a small room with several more. Follow them in the correct order—left, center, right, right—to reach the interior room on 2F."
+                ]
+            },
+            "2F (West side; Central)": {
+                "Text": [
+                    "In Maxie 's office, there are four items near the western wall. The two nearest items are actually Electrode , waiting to attack unsuspecting intruders. The item to the southwest is a Nugget , and the final item is a Master Ball ! This improved kind of Poké Ball has a 100% success rate, so be sure to save it for a hard-to-catch Pokémon!",
+                    "Backtrack through the warp-filled hallway to return to the southeast room on 2F. Step on the southeast warp panel to reach the northeast room. Take the stairs down to 1F."
+                ]
+            },
+            "Submarine level (Northeast)": {
+                "Text": [
+                    "Go east and step on the warp panel there to be transported a short distance to the south; collect the Nest Ball from this enclosed area before warping back. Head southwest past another patrolling Grunt and take the warp panel there to the southwest room. Go west to find one of the Magma Admins, Tabitha , standing at the water's edge. A large shadow can be seen under the surface. Defeat him to stop Maxie 's escape!",
+                    "The battle lasted just long enough for Maxie to escape in his powered-up submarine. It is imperative that you give chase, but you have no way to follow him underwater. Instead, you are restricted to the water's surface for now. Take the western warp panel for a shortcut to the cave entrance. Outside, the Grunt and his Wailmer have disappeared from the beach, clearing the way to the eastern ocean."
+                ]
+            }
+        },
+        "Team Aqua HideoutS": {
+            "Text": [
+                "Team Aqua has been working hard to build an impressive hideout in this spacious cave near Lilycove City . Storming this base won't be easy, but you must push onward to prevent Archie 's misguided vision from becoming reality!"
+            ],
+            "1F": {
+                "Text": [
+                    "Climb out of the water and up the stairway. At the top, a single Grunt patrols around the pool of water. Battle him and head down the stairs to the northeast."
+                ]
+            },
+            "B1F (West side; Northeast)": {
+                "Text": [
+                    "There are two warp panels in the northeast room. Step on the eastern panel first to reach the east-central room and a Max Elixir , then warp back. Step on the other panel to reach the northwest panel in the southern room. Pass by two more Grunts and take the warp panel in the southwest corner."
+                ]
+            },
+            "B1F (East side)": {
+                "Text": [
+                    "The previous warp panel leads to the north side of a small room with several more. Follow them in the correct order—left, center, left, left—to reach the central room on B1F."
+                ]
+            },
+            "B1F (West side; Central)": {
+                "Text": [
+                    "In Archie 's office, there are four items near the western wall. The two nearest items are actually Electrode , waiting to attack unsuspecting intruders. The item to the southwest is a Nugget , and the final item is a Master Ball . This improved kind of Poké Ball has a 100% success rate, so be sure to save it for a hard-to-catch Pokémon!",
+                    "Backtrack through the warp-filled hallway to return to the southernmost room on B1F. Step on the southeast warp panel to reach the north-central room. Take the stairs down to B2F."
+                ]
+            },
+            "B2F (Northeast)": {
+                "Text": [
+                    "Go south and step on the warp panel there to be transported a short distance to the west; collect the Nest Ball from this enclosed area before warping back. Head northeast past another patrolling Grunt and take the warp panel there to the northwest room. Climb the stairs back to B1F."
+                ]
+            },
+            "B1F (West side; Northwest)": {
+                "Text": [
+                    "Battle past the single Grunt and climb down the stairs to the northeast."
+                ]
+            },
+            "B2F (North-northwest)": {
+                "Text": [
+                    "Battle the female Grunt and step on the warp panel to the southwest. This leads to the southeast part of B2F."
+                ]
+            },
+            "B2F (Southeast)": {
+                "Text": [
+                    "Go west to find one of the Aqua Admins, Matt , standing at the water's edge. A large shadow can be seen under the surface. Defeat him to stop Archie 's escape!",
+                    "The battle lasted just long enough for Archie to escape in his powered-up submarine. It is imperative that you give chase, but you have no way to follow him underwater. Instead, you are restricted to the water's surface for now. Take the southeast warp panel for a shortcut to the cave entrance. Outside, the Grunt and his Wailmer have disappeared from the beach, clearing the way to the eastern ocean."
+                ]
+            }
+        },
+        "Route 124": {
+            "Text": [
+                "Route 124 is a large stretch of ocean that connects Lilycove City to the northwest, Mossdeep City to the southeast, and Route 126 to the south. The deep waters hold the promise of forgotten treasure, but these valuables are out of reach without a certain field move ."
+            ],
+            "Treasure Hunter's house": {
+                "Text": [
+                    "The single house in the area belongs to a man known as the Diving Treasure Hunter . He enjoys making deep-sea dives to collect Shards resting at the bottom. He asks that you bring him any Shards that you may find, and trades an Evolution stone in exchange for each one."
+                ]
+            }
+        }
+    },
+    "Part_15": {
+        "Mossdeep City": {
+            "Text": [
+                "Mossdeep City sits on an island near Hoenn 's eastern limits, between Route 124 to the west, Route 125 to the north, and Route 127 to the south. Weather conditions here are consistently clear and stable, making it the perfect place for the Mossdeep Space Center . The Mossdeep Gym , run by twin Gym Leaders , is located on the north side of the island. Steven 's home can be found in the northwest."
+            ],
+            "A Rock Fit for a King": {
+                "Text": [
+                    "Speak to the boy to the west of the Pokémon Center, and he talks about some odd-looking rock that he got from Steven . Unsure how to use it, he asks if you would like to have it. Agree to receive the King's Rock ."
+                ]
+            },
+            "Secret Base hunter": {
+                "Text": [
+                    "The house to the west of the Pokémon Center is home to a brother and sister. The young boy likes to visit other people's Secret Bases , and will tell you where your Secret Base is located."
+                ]
+            },
+            "Steven's house": {
+                "Text": [
+                    "The northwestern-most house belongs to Steven . When you enter, he greets you and gives you HM08 ( Dive ). He explains that in certain bodies of water, there are darker patches where the water is especially deep. Using Dive over one of these spots lets you descend to the ocean floor far below. On the seabed, swim to a lighter patch where the sunlight filters down from above and use Dive again to return to the surface. This move gives you a way to chase after Maxie R / Archie S in his submarine, but you will need the Badge from the Mossdeep Gym first!"
+                ]
+            },
+            "Pokéblock specialist": {
+                "Text": [
+                    "The house to the north of the Pokémon Center belongs to a couple. The Black Belt is able to discern your lead Pokémon's preferred color of Pokéblock ."
+                ]
+            },
+            "Running Errands": {
+                "Text": [
+                    "Visit the easternmost house, at the foot of the stairs to the Space Center. Inside, there is a young woman who uses a Wingull to send letters back and forth to her friend in Fortree City . Speak to Wingull and it will leave, setting off to deliver another note. If you return to Fortree City and speak to the young man in the northeast treehouse, he gives you a Mental Herb that the Seagull Pokémon found in its travels."
+                ]
+            },
+            "Score the Super Rod": {
+                "Text": [
+                    "Visit the northeast house and speak to the Fisherman inside to receive a Super Rod . This high-end fishing rod is the best model available and can reel in some of the strongest sea creatures."
+                ]
+            },
+            "Mossdeep Space Center": {
+                "Text": [
+                    "The Mossdeep Space Center stands on a large hill in the northeast. Speak to the Sailor near the viewing area on 1F to receive a Sun Stone that he recently found on the beach."
+                ]
+            },
+            "Mossdeep Gym": {
+                "Text": [
+                    "The Mossdeep Gym specializes in Psychic-type Pokémon. Psychic-type moves are super effective against Fighting - and Poison-type Pokémon, while Psychic-type Pokémon are weak to Bug -, Dark -, and Ghost-type moves.",
+                    "The Gym features a maze of white floor tiles, each with an arrow design. When stepped on, these tiles launch the challenger along the track in the direction of each arrow until they reach a normal floor tile. The direction of the several red floor tiles can be changed by flipping the corresponding switch. Go northwest from the entrance and flip the switch; this redirects the red tile to the west. Walk northward onto the arrow tiles to battle Psychic Preston. Step on this first red tile to move northeastward to the second, and battle Psychic Maura. Follow the nearby white tiles northward to battle Psychic Samantha, then flip the switch to the west; this redirects the second red tile. Go south, then south again to return to the entrance. Follow the white tiles around the southeast corner to battle Psychic Fritz. Flip the switch to redirect the third red tile, then go northeast to reach a single spot of normal flooring near Psychic Maura. Move southward to reach the northwest part of the Gym, and flip the fourth switch near Psychic Virgil. Go southward to return to the entrance again, and follow the white tiles around the southwest corner to reach the twin Gym Leaders .",
+                    "Twins Tate and Liza send out both of their Pokémon at once, drawing challengers into a Double Battle . While Lunatone makes better use of special moves , Solrock is better suited to physical moves . Lunatone 's Calm Mind raises both its Special Attack and Special Defense . This lets it deal increased damage with Psychic , and tends to make it the more threatening of the two Pokémon. Solrock has no physical moves to make use of its higher physical Attack , but Flamethrower and SolarBeam let it fight back against Grass - and Water-type Pokémon. As Lunatone can raise the team's Special Defense with Light Screen , physical moves tend to be more effective than special moves.",
+                    "After the battle, Liza and Tate award you the Mind Badge , which boosts a Pokémon's Special Attack and Special Defense by 10% during battle and enables the use of Dive in the field. The twins also give you TM04 ( Calm Mind ) as a prize. Afterward, you can step on the warp panel to the east for a shortcut to the entrance."
+                ]
+            }
+        },
+        "Route 125": {
+            "Text": [
+                "Located to the north of Mossdeep City , Route 125 is a small patch of ocean with a large rock formation at its center. Shoal Cave can be found inside."
+            ],
+            "Shoal Cave": {
+                "Text": [
+                    "Shoal Cave 's appearance changes with the tides . Seawater floods the cave during high tide, closing off some areas and bringing others within reach. It then drains away during low tide, revealing new areas for exploration. The tides change every six hours, at 3:00 and 9:00."
+                ]
+            }
+        },
+        "Route 127": {
+            "Text": [
+                "Route 127 connects Mossdeep City to the north, Route 126 to the west, and Route 128 to the south. With little more than wide open ocean, it is very difficult for a Swimmer to make it across this route."
+            ]
+        }
+    },
+    "Part_16": {
+        "Route 128": {
+            "Text": [
+                "Route 128 lies between Route 127 to the north, Route 129 to the south, and Ever Grande City to the east. It is here where Captain Stern discovered an ancient cavern hidden deep beneath the waves."
+            ],
+            "Down to the Depths": {
+                "Text": [
+                    "Team Magma R / Team Aqua S has stolen Captain Stern 's submarine, and there's not a moment to lose! Surf to the south side of the ring of shallow water, then Dive into the deep water to find a cave entrance. Swim inside to enter the Seafloor Cavern and find Captain Stern 's stolen submarine. Use Dive again to surface and enter the main part of the cave."
+                ]
+            },
+            "Seafloor Cavern": {
+                "Text": [
+                    "The Seafloor Cavern is an ancient cave system hidden deep beneath the waves of Route 128 . Maxie R / Archie S has gone to great lengths to breach the seal that has protected this place for ages, in the hope of awakening the super-ancient Pokémon rumored to dwell here. He believes this Pokémon has the power to bring about the great future he desires, but the risks seem far too great."
+                ],
+                "Chamber 1": {
+                    "Text": [
+                        "Climb out of the water and pass through the doorway to the north."
+                    ]
+                },
+                "Chamber 2": {
+                    "Text": [
+                        "Go north and use Rock Smash to clear the cracked rock, then use Strength to push the nearby boulder southward. Move east and push the second boulder eastward. Turn north and battle the first Grunt near the stairway. At this point, the paths diverge:"
+                    ]
+                },
+                "Chamber 3": {
+                    "Text": [
+                        "Move southward to find two branching tunnels, each with rocky debris that requires Strength and Rock Smash to clear. The eastern path leads to the northwest part of Chamber 4; the western path leads to the center of Chamber 4."
+                    ]
+                },
+                "Chamber 4": {
+                    "Text": [
+                        "The paths converge at this point, leading to the northeast doorway."
+                    ]
+                },
+                "Chamber 6": {
+                    "Text": [
+                        "A large pool of water occupies most of this chamber. Use Surf to ride the currents to a calm spot a short distance to the northeast. Move eastward to reach another calm spot, then continue northeastward to be whisked around the rock outcropping. Move westward and follow the current to the north doorway. This leads to the southwest part of Chamber 8."
+                    ]
+                },
+                "Chamber 7": {
+                    "Text": [
+                        "A large pool of water occupies most of this chamber. Surf eastward along the south wall to reach the second current, which leads to a calm spot a short distance to the north. Move northward to reach the west side of the chamber, then north again to be whisked back and forth toward the northwest part of the chamber. Climb onto shore and pass through the north doorway to the southeast part of Chamber 8."
+                    ]
+                },
+                "Chamber 8": {
+                    "Text": [
+                        "This chamber is initially filled with a grid of boulders that hinder any movement.",
+                        "Next, push the west-southwest boulder westward, then the north-central boulder northward. Finally, push the northeast boulder eastward.",
+                        "After clearing the maze, turn northward to run into Courtney R / Shelly S , the same Admin from the Weather Institute . She's looking for payback, and draws you into battle!"
+                    ]
+                },
+                "Chamber 9": {
+                    "Text": [
+                        "A dozen boulders lie scattered ahead. Begin by using Strength to move the south-central boulder one step northward, then the other two southernmost boulders farther apart. Move the first boulder to either side, then the middle boulder behind it one step northward. This creates a row of five boulders on the north side of the puzzle. Push the center-north pair of boulders farther apart, then move both the north-northwest and north-northeast boulders to the north wall. Finally, push the north-central boulder to either side to reach the north doorway."
+                    ]
+                },
+                "Chamber 10": {
+                    "Text": [
+                        "Go east to find TM26 ( Earthquake ) on the uppermost level, then turn south and follow the downward-sloping tunnel. At its end, you stumble across the super-ancient Pokémon in its long-dormant state. Just then, you are approached by Maxie R / Archie S . Having waited so long for this moment, he is awestruck by the powerful Pokémon. He is surprised that you managed to chase him here, but isn't worried. In order to see his dream realized, he intends to finally defeat you once and for all!",
+                        "Despite his defeat, Maxie R / Archie S refuses to back down. He still intends to awaken the super-ancient Pokémon, and holds the Blue Orb R / Red Orb S high. However, the legendary artifact begins shining by itself, and the Pokémon awakens prematurely. It escapes the cavern and emerges somewhere on the ocean's surface above. Maxie R /Archie S is left dumbfounded as he did not activate the orb, and quickly receives a call from his subordinates on the surface. The energy generated by the creature's presence has altered Hoenn 's normal weather conditions as expected, but to dangerous and unforeseen intensity. This dramatic shift now influences any battles conducted in and around the eastern ocean. Groudon R triggers harsh sunlight , which boosts the power of Fire-type moves by 50% and weakens Water-type attacks by 50%. Kyogre S generates torrential rain , which strengthens Water moves by 50% and cuts the power of Fire attacks by 50%. He ends the call by ordering his subordinates to hold position and monitor the situation. While he is still unsure what went wrong, Archie R /Maxie S and a pair of his Grunts enter a moment later. He condemns the villainous team's actions and tries to reason with its leader, who seems unwilling to accept that his plans are falling apart. Archie R /Maxie S orders his counterpart outside to show him what he has done, and tells you to evacuate, as well."
+                    ]
+                }
+            }
+        },
+        "Route 128 (Visit 2)": {
+            "Text": [
+                "Back on the surface, the group witnesses the extreme weather firsthand. The power of the super-ancient Pokémon has surpassed expectations, forcing Maxie R / Archie S to grudgingly work with his rival to make things right. Archie R /Maxie S appreciates your help but fears the worst, and tells you to escape while you still can. The rivals leave northward a moment later.",
+                "Just then, Steven swoops down from the sky to assess the situation. He informs you that the cause of this extreme weather, the blazing sun R /a massive stormcloud S , hangs in the sky above Sootopolis City to the northwest. He wonders aloud what could be happening there and advises you not to do anything reckless, then takes off for the city."
+            ]
+        }
+    },
+    "Part_17": {
+        "Route 126": {
+            "Text": [
+                "Route 126 is located near Route 124 to the north and Route 127 to the east. Much of the area is occupied by a massive crater, inside of which lies Sootopolis City ."
+            ],
+            "Dive, Dive!": {
+                "Text": [
+                    "There seems to be no way to reach Sootopolis from the surface, so there must be an entrance elsewhere. Surf to the south side of the crater and use Dive . Deep beneath the waves, a hidden cave entrance leads into the city. Use Dive again once inside to surface inside the crater."
+                ]
+            },
+            "Sootopolis City": {
+                "Text": [
+                    "Known as \"the mystical city where history slumbers\", Sootopolis City was built inside the crater from an ancient volcanic eruption and can only be reached by sea or sky. The difficult terrain forces residents to regularly climb many flights of stairs and dive underwater, causing many to be in good physical shape. The final Gym in the Hoenn League is located here, as is the Cave of Origin , a sacred place few are permitted to enter."
+                ],
+                "Nature's Madness": {
+                    "Text": [
+                        "The sudden and dramatic shift in weather conditions has frightened the residents into their homes. Most buildings are locked tight at the moment, including the Sootopolis Gym on an island in the middle of the crater. The Pokémon Center and Poké Mart are still open to visitors, so take the opportunity to prepare for the trial ahead."
+                    ]
+                },
+                "A High-Stakes Meeting": {
+                    "Text": [
+                        "Cross the water to reach a small bit of grassy shore on the west side. Continue northeastward from the Poké Mart to the uppermost stairway in the north-central area, where you find Steven speaking with another man. Steven is glad to see you, and asks that you listen to what his friend has to say. The man introduces himself as Wallace , the city's Gym Leader and guardian of the Cave of Origin . He points to a power emanating from the Cave of Origin as the source of the intense sunlight R /downpour S . Noticing the Red Orb R / Blue Orb S in your possession, he asks that you follow him. He leads you and Steven southward down the cliffside to the cave entrance. The two men offer words of encouragement, believing that the Orb you hold and the Pokémon by your side will help to calm the forces of nature."
+                    ]
+                },
+                "Cave of Origin": {
+                    "Text": [
+                        "The Cave of Origin is located deep beneath the north side of Sootopolis City . A sacred site, it has long been said to be the place where life begins. A great natural energy emanates from deep inside the earth, and has drawn the super-ancient Pokémon here in the hopes of its primal powers.",
+                        "There's not a moment to lose! Sprint down the first tunnel to reach the cave's interior. The darkness ahead makes Flash useful, but not required.",
+                        "As you advance, the cave is rocked by occasional tremors. Move in a clockwise direction and climb down the ladder in the northeast.",
+                        "Follow the tunnel south and west to reach the next ladder.",
+                        "Tremors continue to rattle the cave with increasing frequency, and a heavy mist sets in. Race to the south side to find the next ladder.",
+                        "Collect HM07 ( Waterfall ) from the northwest corner, then climb down the northeast ladder.",
+                        "The super-ancient Pokémon can be seen in a small pool to the south, where it cries out as you approach. Upon reaching the south side of the pool, the Red Orb R / Blue Orb S suddenly begins to glow. Its power dispels the mist, and causes the Pokémon to attack!",
+                        "Groudon 's Drought Ability immediately summons harsh sunlight , which increases the power of Fire attacks by 50% and cuts the power of Water moves by 50%. This behemoth excels in physical Attack and Defense , and is able to boost these stats further with Bulk Up . Begin with Grass - and Ice-type moves to wear its health down quickly, then follow up with Rock - and Poison-type moves to wear it down further before attempting capture. Bring it down before all of Hoenn goes up in flames!",
+                        "Kyogre 's Drizzle Ability immediately summons a rainstorm , which increases the power of Water attacks by 50% and cuts the power of Fire moves by 50%. This leviathan excels in Special Attack and Special Defense , and is able to boost these stats further with Calm Mind . Begin with Grass - and Electric-type moves to wear its health down quickly, then follow up with Ice - and Steel-type moves to wear it down further before attempting capture. Bring it down before all of Hoenn slips beneath the waves!"
+                    ]
+                },
+                "Madness Calmed": {
+                    "Text": [
+                        "With the super-ancient Pokémon calmed, the skies clear and the wild weather returns to normal. It is now possible to visit with the residents, and to challenge the Sootopolis Gym ."
+                    ]
+                },
+                "The Big-Hearted Berry Girl": {
+                    "Text": [
+                        "A young girl named Kiri can be found on the larger western shore. Speak to her each day to receive two Berries, determined randomly. The first is chosen from a group of ten; the second, from a group of two."
+                    ]
+                },
+                "A Token of Appreciation": {
+                    "Text": [
+                        "Visit the house to the east of the Pokémon Center, and speak to the young woman inside. The city has not had many visitors lately, so she gives you a Wailmer Doll to show her gratitude."
+                    ]
+                },
+                "Brother VS Brother": {
+                    "Text": [
+                        "The house to the northeast of the Pokémon Center belongs to a pair of brothers who cannot agree. The younger brother is a Fisherman, and the older brother is a Hiker. The Fisherman says that Barboach is larger, but the Hiker believes that Shroomish is the bigger Pokémon. If shown a Pokémon of his preferred species, each brother calculates its size , and hands out an Elixir if it breaks the current record."
+                    ]
+                },
+                "Words of Encouragement": {
+                    "Text": [
+                        "Upon reaching the island, you find Steven waiting for you outside the Gym. With the skies cleared, he thanks you for all you have done. He also thanks you on behalf of Wallace , who has now returned to his Gym. Steven warns that Wallace is strong, but that everything you have been through should leave the two of you on equal footing. He encourages you to challenge his friend, then leaves on the back of his flying Pokémon."
+                    ]
+                },
+                "Sootopolis Gym": {
+                    "Text": [
+                        "The Sootopolis Gym specializes in Water-type Pokémon. Water-type moves are super effective against Fire -, Ground -, and Rock-type Pokémon, while Water-type Pokémon are weak to Electric - and Grass-type moves.",
+                        "The Gym features two levels. The upper level is filled with ice tiles; stepping on them once cracks them. Stepping on them a second time shatters them, leaving a challenger to fall to the snowy area below where several Gym Trainers await. There are three sections of icy floor; each icy tile must be passed over in order to clear the current puzzle and reveal the stairway to the next area.",
+                        "Wallace leads with his Luvdisc ; a speedy Pokémon, but its offenses are lacking. However, it can still trigger confusion with Sweet Kiss , and further hinder any opposite-gender opponents with Attract . As a Water / Ground Pokémon, his Whiscash takes massive damage from Grass-type attacks, but is immune to Electric moves. Rain Dance temporarily boosts the power of Water-type attacks, and Earthquake helps deter Electric-type opponents. Most of Sealeo 's moves deal damage, but Encore locks the target into using its previous move again. Its Water / Ice typing gives it additional weaknesses to Fighting and Rock moves. His Seaking is better suited to physical moves , but Fury Attack is not very strong. However, using Rain Dance has a two-pronged effect: Its Swift Swim Ability doubles its Speed during rain , and powers up its Water Pulse attack. Lower-leveled Pokémon should beware of its Horn Drill ! Finally, his Milotic can deal a good deal of damage with Water Pulse and fight back against Grass Pokémon with Ice Beam . High Special Defense means that physical moves are more useful, but avoid causing status ailments: its Marvel Scale Ability gives it a 50% Defense boost when suffering!",
+                        "After the battle, Wallace awards you the Rain Badge , which ensures the obedience of all Pokémon and enables the use of Waterfall in the field. He also gives you TM03 ( Water Pulse ) as a prize.",
+                        "If spoken to again, Wallace mentions that any Trainer who has gathered all eight Hoenn League Gym Badges should make their way to the Pokémon League. This ultimate destination is located in the region's easternmost reaches, on the island that houses Ever Grande City . It is possible to travel there right away, but there are several areas that have yet to be explored."
+                    ]
+                }
+            }
+        }
+    },
+    "Part_18": {
+        "Route 129": {
+            "Text": [
+                "Route 129 is located in the southeast part of the ocean, near Route 128 to the north and Route 130 to the west. Many Trainers visit this route to train their Pokémon before challenging the Pokémon League."
+            ]
+        },
+        "Route 130": {
+            "Text": [
+                "Route 130 is a simple route that leads westward from Route 129 to Route 131 . The area is a favorite topic of conversation due to a strange island that seems to appear and disappear ."
+            ],
+            "Mirage Island": {
+                "Text": [
+                    "While Route 130 usually appears as an empty stretch of ocean, under very rare circumstances, Mirage Island may appear in the middle of the route. This island is home only to Wynaut , and a soft soil patch grows a single Liechi Berry . If held by a Pokémon during battle, this Berry increases a Pokémon's physical Attack in a pinch."
+                ]
+            }
+        },
+        "Route 131": {
+            "Text": [
+                "Route 131 runs between Route 130 to the east and Pacifidlog Town to the west. A large, inaccessible island lies to the north. It is the custom in Pacifidlog Town to swim a lap around this route before breakfast."
+            ]
+        },
+        "Pacifidlog Town": {
+            "Text": [
+                "Located between Route 131 to the east and Route 132 to the west, Pacifidlog Town is a small town built on wooden rafts and logs that float atop a colony of Corsola ."
+            ],
+            "Hidden Legends": {
+                "Text": [
+                    "Visit the northeast house and speak to the residents inside. The young man recounts a story he heard as a child, that there are three Pokémon that represent the power of rock , ice , and steel hidden away across Hoenn . The young woman tells of a riddle passed down by her grandfather: \"Six dots open three doors.\" It seems that Hoenn still has some secrets to discover!"
+                ]
+            },
+            "In Search of a Mirage": {
+                "Text": [
+                    "The southeast house is home to an elderly man who spends his time watching the eastern seas in the hopes of spotting the mysterious Mirage Island . Speak to him each day, and he reports whether or not the island has appeared. When it does, the man will shout out in excitement.",
+                    "Every day, the game generates a random number between 0 and 65535. If this number matches the personality value of any of the Pokémon in the party, Mirage Island will appear that day."
+                ]
+            },
+            "Time for a Trade": {
+                "Text": [
+                    "Visit the south-central house to find a young woman who would like to trade Pokémon. Living in the ocean, she is only able to catch certain kinds of Pokémon, and is hoping for something new. She is willing to part with her Corsola in exchange for a Bellossom . Corsola arrives holding a piece of Tropic Mail ."
+                ]
+            },
+            "Play Nice, Play Rough": {
+                "Text": [
+                    "The southwest house belongs to the younger brother of the Pokémon Fan Club chairman. He is enjoying his vacation here with his Pokémon, and hands out one TM per week to each visitor. If the lead Pokémon's friendship is high, he gives out TM27 ( Return ); if its friendship is low, he gives out TM21 ( Frustration ) instead."
+                ]
+            },
+            "A Sky-High Mystery": {
+                "Text": [
+                    "The northwest house is home to a woman and her children. The woman mentions a rumor circulating through the town, of people witnessing a Pokémon flying high above the region. She wonders aloud if it is flying around all the time, and if it wouldn't need to rest somewhere ."
+                ]
+            }
+        }
+    },
+    "Part_19": {
+        "Route 132": {
+            "Text": [
+                "Located in the south-central part of Hoenn 's ocean, Route 132 leads west from Pacifidlog Town to Route 133 . The route is dominated by a rapid, westward-flowing current that prohibits any controlled movement while Surfing . Ancient ruins are rumored to lie submerged nearby, but reaching them will require careful planning to reach them."
+            ],
+            "Northern path, Part 1": {
+                "Text": [
+                    "Follow the central currents to the calm waters in the middle of the route. Continue westward to reach the patch of shallow water in the northwest, and collect the Rare Candy from its northern half. Surf westward from here to pass through the northeast shallows on Route 133 ."
+                ]
+            },
+            "Central path, Part 1": {
+                "Text": [
+                    "Ride the southernmost currents to the southeast island. Jump into the current off the north side of the island to reach the shallow waters in the northwest. Sail westward from here to reach the southernmost of the northeast shallows on Route 133 ."
+                ]
+            },
+            "Down to the Depths, Part 1": {
+                "Text": [
+                    "Ride the southernmost currents to the southeast island. Continue westward to reach a patch of calm water surrounded by shallows. Sail westward again to be whisked past a circular patch of deep water on the way to Route 133 ."
+                ]
+            }
+        },
+        "Route 133": {
+            "Text": [
+                "Continuing westward, Route 133 runs between Route 132 to the east and Route 134 to the west. Trainers gather in this stretch of sea in search of something beyond its fierce currents."
+            ],
+            "Northern path, Part 2": {
+                "Text": [
+                    "After passing between the northeastern shallows, you come to rest in the calm waters in the northwest part of Route 133 . Collect the Star Piece from the north side of the nearby rock outcropping. Surf westward again to reach the calm waters on the north side of Route 134 ."
+                ]
+            },
+            "Central path, Part 2": {
+                "Text": [
+                    "Pick up the Big Pearl from the southernmost of the northeast shallows. Continue westward to reach the south side of the northwest island. Sail westward again to reach Route 134 ."
+                ]
+            },
+            "Down to the Depths, Part 2": {
+                "Text": [
+                    "Sail westward from the calm waters to reach the south-central patch of shallow water. Go west again to the patch of shallow water that borders Route 134 ."
+                ]
+            }
+        },
+        "Route 134": {
+            "Text": [
+                "Route 134 leads westward from Route 133 back to Slateport City . The area is a rather famous diving spot among those who love exploring ancient ruins."
+            ],
+            "Northern path, Part 3": {
+                "Text": [
+                    "From the calm waters in the north, sail westward again to reach the western-most point of the long, narrow sandbar. Continue westward to the calm waters outside Slateport City ."
+                ]
+            },
+            "Central path, Part 3": {
+                "Text": [
+                    "From the shallow water to the east of the narrow sandbar, follow the current to the patch of shallow water in the northwest, and the calm waters outside Slateport City beyond."
+                ]
+            },
+            "Down to the Depths, Part 3": {
+                "Text": [
+                    "Sail westward from the middle of the shallow water to reach a circular spot of deep water surrounded by a ring of six stones. Use Dive to find an underwater cave, then swim southward through a long trench to a large rock. Examine the south side of the rock to find a Braille inscription.",
+                    "Use Dive to emerge in an underwater cave."
+                ]
+            },
+            "Sealed Chamber": {
+                "Text": [
+                    "The Sealed Chamber is a long-forgotten submarine cave hidden deep beneath the waters of Route 134 . It has now passed into legend, and no one alive today has seen it."
+                ],
+                "Chamber 1": {
+                    "Text": [
+                        "The first chamber holds ten rock formations, each marked with several Braille characters. When viewed as a whole, these characters display the Braille alphabet.",
+                        "There is an inscription on the north wall, as well.",
+                        "Use Dig at this spot, and part of the wall crumbles away, revealing a doorway."
+                    ]
+                },
+                "Chamber 2": {
+                    "Text": [
+                        "In the second chamber, there are six large rock formations that each bear their own inscriptions. When viewed together, they reveal a bit of information about the people who created this place.",
+                        "A seventh rock formation stands at the north side of the chamber, and bears its own inscription.",
+                        "Reorganize your party so that a Relicanth occupies the lead position, and a Wailord takes the sixth slot. Examine the inscription, and the earth begins to shake. It ends with the sound of doors opening somewhere far away, as quickly as it begin."
+                    ]
+                }
+            }
+        }
+    },
+    "Part_20": {
+        "Route 105": {
+            "Text": [
+                "Route 105 leads south from Route 104 to Route 106 . Though it was first accessible on the voyage with Mr. Briney , it was impossible to explore the area."
+            ],
+            "Island Cave": {
+                "Text": [
+                    "The Island Cave is housed in a mysterious rock formation encircled by six large stones, located on an isolated island."
+                ],
+                "Chamber 1": {
+                    "Text": [
+                        "Inside, the first chamber bears an inscription on the north wall.",
+                        "Stand motionless in the same spot for two minutes. This causes part of the wall to crumble away, revealing a doorway."
+                    ]
+                },
+                "Chamber 2": {
+                    "Text": [
+                        "In the middle of the second chamber sits Regice , one of the legendary giants .",
+                        "Begin with Fighting -, Rock -, and Steel-type attacks to wear its health down quickly, then follow up with Ice-type moves to weaken it further. Its Special Defense is incredibly high, so special moves will have little effect."
+                    ]
+                }
+            }
+        },
+        "Route 107": {
+            "Text": [
+                "Route 107 runs eastward from Dewford Town to Route 108 . The children of Dewford Town practice long-distance swimming in these waters. Though it was first accessible on the voyage with Mr. Briney , it was impossible to explore the area."
+            ]
+        },
+        "Route 108": {
+            "Text": [
+                "Route 108 runs eastward from Route 107 and Route 109 . An Abandoned Ship can be seen run aground in the northern shallows. Though the route was first accessible on the voyage with Mr. Briney , it was impossible to explore the area."
+            ],
+            "Abandoned Ship": {
+                "Text": [
+                    "The Abandoned Ship was originally known as the S.S. Cactus. The aging vessel has many broken doors and crumbling floors. Once slated for demolition, the half-sunken vessel now exists as a refuge for water-dwelling Pokémon."
+                ],
+                "Exterior": {
+                    "Text": [
+                        "Climb the stairway and enter the eastern doorway on the lower level."
+                    ]
+                },
+                "1F (East)": {
+                    "Text": [
+                        "Three of the four cabins here are connected. Visit the isolated northwest cabin to find a Harbor Mail , then go down the stairs in the northeast corner."
+                    ]
+                },
+                "B1F (East)": {
+                    "Text": [
+                        "Visit the north-central cabin to collect a Dive Ball , and the southwest cabin for an Escape Rope . Climb up the stairs in the northwest corner."
+                    ]
+                },
+                "1F (West)": {
+                    "Text": [
+                        "Enter the north cabin to grab a Revive . Exit the cabin, then use the floormat to the south to reach the exterior of the ship."
+                    ]
+                },
+                "Exterior (Visit 2)": {
+                    "Text": [
+                        "Climb up the upper stairway and enter the Captain's office."
+                    ]
+                },
+                "Captain's office": {
+                    "Text": [
+                        "There is a Scientist here examining blueprints of the ship, investigating the wreckage on behalf of Captain Stern . The captain has asked him to find a special Scanner, but he has so far been unsuccessful. Collect the Storage Key from the southwest corner, then return to the basement level."
+                    ]
+                },
+                "B1F (East) (Visit 2)": {
+                    "Text": [
+                        "Examine the locked door to the northeast cabin to insert the Storage Key. The door opens, but the key becomes stuck in the lock and is left behind. Pick up TM13 ( Ice Beam ) from inside, then visit the south-central cabin. Seawater has flooded a large part of the room, so use Dive to explore below."
+                    ]
+                },
+                "Underwater": {
+                    "Text": [
+                        "Swim westward and enter a small room to the north, then use Dive again to surface in an isolated area near the front of the ship."
+                    ]
+                },
+                "B1F (West)": {
+                    "Text": [
+                        "This area houses six cabins. From left to right, Rooms 1 to 3 are located on the south side, and Rooms 4 to 6 are located on the north side. Rooms 1, 2, 4, and 6 are locked, and debris in Room 5 blocks the doorway.",
+                        "Begin by visiting Room 3. Immediately upon entering, something sparkling catches your eye; this signifies a hidden item. Examine the northeast corner to find the source: the Rm. 1 Key . Collect the Water Stone and exit the cabin.",
+                        "Examine the door to insert the Rm. 1 Key. Like before, the key becomes stuck and remains in the lock. Another sparkling item can be found near the west wall: the Rm. 4 Key . The other sparkling item is only a bit of trash. Pick up TM18 ( Rain Dance ) from the middle of the room, and exit the cabin.",
+                        "Three sparkling items can be found here. The two to the east are only trash, but examine the trash can in the northwest corner to find the Rm. 6 Key .",
+                        "Enter the cabin and pick up the Luxury Ball , then follow the narrow hallway to reach the adjoining cabin.",
+                        "Room 5 holds three sparkling bits of trash, but a fourth item, the Rm. 2 Key , lies three steps south of the left-hand trash can.",
+                        "Visit Room 2 and collect the Scanner for Captain Stern 's assistant. Return to the Captain's office and show it to him, and he asks if you would deliver it to Stern in Slateport Harbor for him, as he must continue his investigation of the ship."
+                    ]
+                }
+            }
+        },
+        "Slateport City": {
+            "Slateport Harbor": {
+                "Text": [
+                    "Visit the harbor building and speak to Captain Stern . He notices the Scanner right away and asks if you would trade something for it, as it would be useful for his deep-sea research. He offers the choice between two items: the DeepSeaTooth and DeepSeaScale .",
+                    "Both items are associated with Clamperl ; the DeepSeaTooth doubles its Special Attack when held, while the DeepSeaScale does the same for its Special Defense .",
+                    "In addition, when held by Clamperl and the Pokémon is traded away, each item induces a separate Evolution . The DeepSeaTooth triggers Clamperl's Evolution into Huntail , while the DeepSeaScale causes it to evolve into Gorebyss instead."
+                ]
+            }
+        },
+        "Route 111 (Desert)": {
+            "Desert Ruins": {
+                "Text": [
+                    "The Desert Ruins are housed in a mysterious rock formation encircled by six large stones, located in the southernmost part of Route 111 's desert."
+                ],
+                "Chamber 1": {
+                    "Text": [
+                        "Inside, the first chamber bears an inscription on the north wall.",
+                        "Take two steps eastward and two steps southward, then use Strength . This causes part of the wall to crumble away, revealing a doorway."
+                    ]
+                },
+                "Chamber 2": {
+                    "Text": [
+                        "In the middle of the second chamber sits Regirock , one of the legendary giants .",
+                        "Begin with Grass - and Water-type attacks to wear its health down quickly, then follow up with Flying-type moves to weaken it further. Its physical Defense is incredibly high, so avoid using physical moves ."
+                    ]
+                }
+            }
+        },
+        "Route 120": {
+            "Ancient Tomb": {
+                "Text": [
+                    "The Ancient Tomb is housed in a mysterious rock formation encircled by six large stones, located on Route 120 's southwestern plateau."
+                ],
+                "Chamber 1": {
+                    "Text": [
+                        "Inside, the first chamber bears an inscription on the north wall.",
+                        "Move to the center of the chamber, then use Fly . This causes part of the wall to crumble away, revealing a doorway."
+                    ]
+                },
+                "Chamber 2": {
+                    "Text": [
+                        "In the middle of the second chamber sits Registeel , one of the legendary giants .",
+                        "Both its physical Defense and Special Defense are very high, so begin by using Fighting -, Fire -, and Ground-type attacks to wear its health down quickly. After that, follow up with moves of types that it resists, like Grass and Rock , to weaken it further."
+                    ]
+                }
+            }
+        }
+    },
+    "Part_21": {
+        "Route 128": {
+            "Text": [
+                "With all eight Hoenn League Gym Badges in hand, it's finally time to challenge the Pokémon League! Wallace directed you to an island in the east that holds the city of Ever Grande . To get there, leave Sootopolis City behind and use Surf to travel southeastward. Return to the ring of shallow water that marks the location of the Seafloor Cavern , then turn eastward."
+            ]
+        },
+        "Ever Grande City (South)": {
+            "Text": [
+                "Perched high above the ocean, Ever Grande City is lush with flowers. The island is divided by a large mountain that houses Victory Road ."
+            ],
+            "The Tallest Hurdle": {
+                "Text": [
+                    "A massive waterfall keeps all but the strongest Trainers from reaching the city. Use the HM move to climb the wall of water and reach the nearby Pokémon Center. Take a moment to make any final preparations before venturing into the gauntlet known as Victory Road ."
+                ]
+            },
+            "Victory Road": {
+                "Text": [
+                    "Victory Road , the long and grueling tunnel through the mountainside, is the final challenge on the road to the Pokémon League . Like the waterfall outside, it helps ensure that only the strongest and most determined Trainers make it through to the other side. The field moves Surf , Strength , Rock Smash , and Waterfall are required to reach the exit, and dimly-lit areas make Flash optional, as well."
+                ],
+                "1F (Central)": {
+                    "Text": [
+                        "Wind your way under the first two bridges, then climb up the northwestern-most stairway. Turn eastward and cross over the next two bridges to reach a Max Elixir above the eastern ledge. Jump the ledge and battle Cooltrainer Albert near where the paths diverge. Take either path, then climb the first stairway north of the entrance. Cross the bridge and battle Cooltrainer Hope in the northwest area, then climb down the nearby ladder."
+                    ]
+                },
+                "B1F": {
+                    "Text": [
+                        "Deeper underground, the area is shrouded in darkness. There are two boulders a short distance to the south; use Strength to move the nearest boulder westward and the farther one eastward. Turn eastward, then take the northern path to the north-central area. Use Rock Smash to clear the cracked rocks first, then use Strength to move the first boulder southward and the second one northward. Follow the tunnel southward under the bridge to battle Cooltrainer Shannon. Climb the next stairway and cross over the eastern bridge to reach the ladder in the southeast corner."
+                    ]
+                },
+                "1F (Southeast)": {
+                    "Text": [
+                        "Pick up the PP Up to the west, then return to B1F."
+                    ]
+                },
+                "B1F (Visit 2)": {
+                    "Text": [
+                        "Jump the ledge and head north past Cooltrainer Samuel. Move the nearest boulder one step north and one step west, then move the farther one a single step westward. Collect the Full Restore beyond, then return to the southeast ledge and climb down the ladder to the west."
+                    ]
+                },
+                "B2F": {
+                    "Text": [
+                        "Go north to fight Cooltrainer Julie under the nearby bridge, then use Surf to cross northward over the water. Climb up the stairway here, then take the northeast ladder up to B1F."
+                    ]
+                },
+                "B1F (Northeast)": {
+                    "Text": [
+                        "Pick up TM29 ( Psychic ) to the south, then return to B2F."
+                    ]
+                },
+                "B2F (Visit 2)": {
+                    "Text": [
+                        "Go south past Cooltrainer Owen and cross over the two bridges to the west. Battle Cooltrainer Caroline in the west-central area. Move northward to reach the top of the western waterfall, and surf eastward. Battle Cooltrainer Vito of the Winstrate family between the two waterfalls, and grab the Full Heal nearby. Sail down the western waterfall and head east to reach the next ladder."
+                    ]
+                },
+                "B1F (Visit 3)": {
+                    "Text": [
+                        "Move south, then east to find more rocky debris. Use Rock Smash first, then Strength to move the first boulder southward. Use Rock Smash a second time to continue on and climb up the ladder."
+                    ]
+                },
+                "1F (Northeast)": {
+                    "Text": [
+                        "Climb up the stairway and cross over the final bridge. Move northward and battle Cooltrainer Edgar. Continue north and turn the corner and the exit comes into view, just as Wally catches up to you. The sickly child you met back in Petalburg City is no more. In his place stands a confident Trainer, ready to demonstrate how much training he has done!",
+                        "Wally admits defeat, but promises to continue his training and catch up to you one day. Continue northward and cross the bridge to reach the exit."
+                    ]
+                }
+            }
+        },
+        "Ever Grande City (North)": {
+            "Text": [
+                "With Victory Road behind you, only a long, stone walkway separates you from the Pokémon League , where the Elite Four and Champion await your challenge. Follow the walkway to the large building at its end, and prepare for your final test!"
+            ]
+        }
+    },
+    "Part_22": {
+        "Ever Grande City (North)": {
+            "The Pokémon League": {
+                "Text": [
+                    "The Pokémon League building holds the traditional amenities, with a Pokémon Center and PC to the left, and a Poké Mart to the right. It's a good idea to stock up on items that restore health and status ailments for the gauntlet ahead.",
+                    "With your preparations complete, speak to the two Cooltrainers guarding the doorway in the room's center. They verify that you've earned all eight Hoenn League Badges before stepping aside, allowing you to enter the depths of the Pokémon League. Challengers must face the Elite Four and Champion in quick succession, with no outside help."
+                ],
+                "Elite Four": {
+                    "Text": [
+                        "The first member of the Elite Four is Sidney , a master of Dark-type Pokémon. Dark-type moves are super effective against Ghost - and Psychic-type Pokémon, while Dark-type Pokémon are weak to Bug - and Fighting-type moves, and immune to Psychic-type moves.",
+                        "Sidney leads with his Mightyena , which immediately cuts the opponent's physical Attack with its Intimidate Ability. Use special moves to bypass this stat drop. Cacturne 's Leech Seed steals the target's health for its own, and Cotton Spore cuts the target's Speed . As a Grass / Dark Pokémon, it takes massive damage from Bug-type moves. His Shiftry can Extrasensory to retaliate against Fighting-type Pokémon, but it falters against Fire , Ice , and Flying moves. Sharpedo can be dangerous due to its high physical Attack and Speed, but it is rather fragile and cannot sustain much damage. Beware of its Rough Skin Ability! Finally, his Absol 's high physical Attack lets it hit hard with any attack, and Swords Dance lets it deal even more damage. Aerial Ace is a sure-hit move meant to deter Fighting Pokémon. Its defenses are mediocre, so use your strongest moves to keep up the pressure and take it down.",
+                        "The second member of the Elite Four is Phoebe , a master of Ghost-type Pokémon. Ghost-type moves are super effective against Ghost- and Psychic-type Pokémon, while Ghost-type Pokémon are weak to Dark - and Ghost-type moves, and immune to Normal - and Fighting-type moves.",
+                        "Phoebe leads with the first of her two Dusclops . A defensive-oriented Pokémon, it is more interested in causing status ailments than attacking. Weaken its defenses, or boost your Pokémon's offenses, before attacking with super effective moves. Next up are her two Banette ; the first can trigger a burn with Will-O-Wisp , and the second can induce poisoning with Toxic . Both can use Shadow Ball as well, which may cut the target's Special Defense . Due to its unique Dark / Ghost typing, her Sableye has no weaknesses under normal conditions; however, using Foresight exposes its Dark-type vulnerability to Fighting moves. Most of its moves deal damage, while Attract hinders male targets. Finally, her second Dusclops has a more varied moveset, which lets it deal serious damage to a wider variety of targets. Use the same strategies as before to defeat this one, as well.",
+                        "The third member of the Elite Four is Glacia , a master of Ice-type Pokémon. Ice-type moves are super effective against Dragon -, Flying -, Grass -, and Ground-type Pokémon, while Ice-type Pokémon are weak to Fighting -, Fire -, Rock -, and Steel-type moves.",
+                        "Glacia leads with the first of her two Glalie . Hail inflicts residual damage to all non- Ice Pokémon for five turns, and increases Blizzard 's accuracy to 100%. Light Screen temporarily reduces the damage her team takes from special moves , so attacks like Flamethrower are less effective. Use Rock and Fighting moves to bring it down. Next, the first of her two Sealeo . Like Glalie, it can also trigger a hailstorm , and has Water and Ice attacks to back it up. Avoid using Fire attacks, as its Thick Fat Ability weakens such moves. Her second Sealeo is much the same as the first, but carries the powerful Blizzard attack, and can disrupt male targets with Attract . Her second Glalie has a more varied moveset, which lets it deal serious damage to a wider variety of targets. Finally, her Walrein has powerful attacks in Blizzard and Surf , and is especially dangerous to lower-leveled opponents because of Sheer Cold .",
+                        "The final member of the Elite Four is Drake , a master of Dragon-type Pokémon. Dragon-type moves are super effective against Dragon-type Pokémon, while Dragon-type Pokémon are weak to Dragon- and Ice-type moves.",
+                        "Drake leads with his Shelgon . Its strongest move is Dragon Claw . Rock Tomb helps the sluggish Pokémon even the playing field by cutting the target's Speed ; it also lets it retaliate against Ice-type Pokémon. Next up, his Altaria can boost its physical Attack and Speed with Dragon Dance , which pairs well with Take Down . Avoid inflicting status ailments, as both Refresh and its Natural Cure Ability allow it to restore itself. Drake's team includes a pair of Flygon ; the first uses special moves , and the second relies on physical moves . Both are vulnerable to Water moves, and take massive damage from Ice attacks. Finally, his Salamence has high offenses and Speed, and Intimidate cuts the target's physical Attack. Use special moves, like Ice Beam , to bring it down.",
+                        "With the Elite Four defeated, you have earned the right to challenge the reigning Champion of the Hoenn region. Be sure to make any preparations before entering the final room, as you will be drawn into battle almost immediately."
+                    ]
+                },
+                "Champion": {
+                    "Text": [
+                        "Inside the Champion's hall, you find your mentor Steven waiting for you. He is curious to know how much you've learned in your travels, and asks that you battle him with all your might. He promises to do the same with his Pokémon, as well. The stage is set for a legendary showdown! His Pokémon are of many different types, and don't share as many weaknesses as the Elite Four's teams. However, he still prefers his beloved Steel Pokémon, and most of his Pokémon belong to either the Rock or Ground types as well—no surprise from this well-known stone collector. With such a varied team, be sure to switch out your Pokémon as needed to capitalize on his Pokémon's weaknesses. Use your best strategies and your strongest attacks to bring down the Champion!",
+                        "With the battle concluded, Steven congratulates you on your impressive victory. Just as he is about to crown you the new Hoenn League Champion, May / Brendan rushes in with some advice—only to find that you've already won. Professor Birch arrives a moment later, impressed that you have defeated not only your father , but the Champion as well. He rates your Pokédex progress before congratulating you as well."
+                    ]
+                },
+                "Hall of Fame": {
+                    "Text": [
+                        "Steven leads you into the Hall of Fame room, where all victorious Pokémon and thier Champions are honored. Once you set your Pokémon on the machine here, the details of both you and your party members are recorded. During the process, a shot of each Pokémon appears briefly on-screen. The screen fades to black, and the game is saved."
+                    ]
+                }
+            }
+        }
+    },
+    "Part_23": {
+        "Littleroot Town": {
+            "Home": {
+                "To New Horizons": {
+                    "Text": [
+                        "When the game resumes, you find yourself back home in Littleroot Town . Walk downstairs to find your mother and father. It's been a while since Norman has seen you, and he mentions how you're looking stronger now. But he promises not to give up on his own training! He hands you a piece of mail from Mr. Briney , which holds an S.S. Ticket . This ticket allows the holder to board a ferry called the S.S. Tidal . Norman mentions that there are ferry ports in Slateport City and Lilycove City , and encourages you to visit the Battle Tower to continue your training. He says goodbye to you and Mom for now before returning to the Petalburg Gym ."
+                    ]
+                },
+                "The Flying Pokémon": {
+                    "Text": [
+                        "Once Norman leaves, be sure to examine the TV to watch a special news bulletin. It highlights recent reports of a mysterious flying Pokémon spotted in various locations across Hoenn . According to this bulletin, the Pokémon's identity is unknown, but it does mention that it is colored blue R /red S . After viewing this report, the Legendary Pokémon Latios R / Latias S can now be encountered as it roams across Hoenn .",
+                        "The Pokémon is a speedy creature, and moves to a new area each time that you do. It will attempt to flee as soon as you encounter it, but fortunately the Pokédex then tracks its movements. It is best to begin searching for it from a city connected to several routes, like Mauville City or Rustboro City . Exit and re-enter the city enough times, and the Pokédex will eventually show its location within walking distance. Use Repels to avoid other Pokémon and go searching in the tall grass. A faster Pokémon in the lead position can use a trapping move, like Mean Look , to prevent escape; a Wobbuffet with the Shadow Tag Ability will have the same effect."
+                    ]
+                }
+            }
+        },
+        "Slateport City/Lilycove City": {
+            "Harbor": {
+                "Text": [
+                    "Fly back to either Slateport City or Lilycove City , then visit the harbor building. Speak to the attendant to present your ticket, and she asks where you would like to go. The ferry also travels between the two cities, but it's time to set sail for the Battle Tower !"
+                ]
+            }
+        },
+        "S.S. Tidal": {
+            "Text": [
+                "Captain Stern 's ferry, the S.S. Tidal , usually carries passengers on its main route between Slateport City and Lilycove City , but it also travels to other locations. When moving between the two cities, there are many Trainers onboard who are ready to battle!"
+            ],
+            "1F": {
+                "Text": [
+                    "There are eight cabins on the upper level, with four on each side of the ship. The S.S. Ticket has reserved Cabin 2, with the blue bedding, for you. This bed can be used to rest your Pokémon. In the time it takes to do so, the ship will have arrived at its destination.",
+                    "Mr. Briney and Peeko can be found near the row of cabins opposite the entrance. The two are happy to be back out on the seas, and even more so now that Mr. Briney has been made the ship's honorary captain!"
+                ]
+            },
+            "B1F": {
+                "Text": [
+                    "The lower level holds a storage area. There is plenty of room to hold a battle or two, and the hardworking Sailors here will happily oblige."
+                ]
+            }
+        },
+        "Battle Tower": {
+            "Text": [
+                "The Battle Tower is a battle facility located in the southeastern sea, far to the south of Sootopolis City . It was built to provide a challenge to all those able to defeat the Pokémon League, with the best and brightest Trainers from across the region competing to determine who among them is the strongest. Challengers push on through seven battles in a row, with three Pokémon per side, and levels of either 50 or 100 depending on the chosen mode. No two Pokémon used by the same Trainer can be holding the same item."
+            ],
+            "Restrictions": {
+                "Text": [
+                    "Nearly all Pokémon are available to participate, however there are certain restrictions ."
+                ]
+            },
+            "Prizes": {
+                "Text": [
+                    "Prizes are earned after each seventh victory. A single, random item is awarded based on the length of the challenger's winning streak."
+                ]
+            },
+            "Awards": {
+                "Text": [
+                    "After reaching a winning streak of a certain length, special prizes are awarded. At 50 consecutive wins, you receive a Silver Shield ; at 100, you receive a Gold Shield . Both are decorations for use in your Secret Base . Upon reaching 56 straight wins in Level 50 mode, a Winning Ribbon is awarded to all participating Pokémon. Finally, upon reaching 56 straight wins in Level 100 mode, a Victory Ribbon is awarded to all participants."
+                ]
+            }
+        },
+        "Route 131": {
+            "Sky Pillar": {
+                "Text": [
+                    "Sky Pillar is the name of a tower located on an island in Route 131 , built ages ago for the veneration of a Legendary Pokémon that lives far above in the heavens. The age of the building has left several ares of flooring unstable , which makes the Mach Bike necessary to reach the apex."
+                ],
+                "Entrance, Exterior": {
+                    "Text": [
+                        "Enter the cave opening on the side of the island and follow the tunnel to reach the top. Go north to reach the tower itself."
+                    ]
+                },
+                "1F": {
+                    "Text": [
+                        "Rocky debris blocks the tower's east side, so take the west side instead to reach the stairs."
+                    ]
+                },
+                "2F": {
+                    "Text": [
+                        "The second floor is the first with unstable flooring. Use the Mach Bike to speed over these areas in a clockwise direction to continue on."
+                    ]
+                },
+                "3F": {
+                    "Text": [
+                        "Move in a counter-clockwise direction and climb up the northeast stairs."
+                    ]
+                },
+                "4F": {
+                    "Text": [
+                        "Things get tricky on the fourth floor, where you must stop cycling on either of the two cracked tiles on the north side of the area. This causes you to fall back down to the previously-inaccessible north-central part of 3F."
+                    ]
+                },
+                "3F (North-Central)": {
+                    "Text": [
+                        "Climb the stairs to the north."
+                    ]
+                },
+                "4F (Northwest)": {
+                    "Text": [
+                        "Go west and climb the stairs to 5F."
+                    ]
+                },
+                "5F": {
+                    "Text": [
+                        "Move in a counter-clockwise direction and climb the northeast stairs to reach the apex."
+                    ]
+                },
+                "Apex": {
+                    "Text": [
+                        "Atop the tower, you find the Legendary Pokémon beyond one final stairway. Be sure to save the game, as there is only once chance to catch it!",
+                        "At level 70, the Legendary Rayquaza is the highest-leveled Pokémon to be found, and easily warrants the use of a Master Ball . Otherwise, it would be best to bring your own Pokémon of a similar level with high physical Defense to counter it. Begin with Ice -, Rock -, and Dragon-type attacks to wear its health down quickly, and consider lulling it to sleep so that it cannot restore its HP with Rest . Follow up with Grass , Fire , and Water moves to weaken it further. Beware of its strongest attack, Outrage : after rampaging for several turns, it causes the Pokémon to become confused from fatigue. Although it can deal heavy damage to its target, in its confusion it could end up attacking itself!",
+                        "Having tied up all loose ends, the final remaining task is to complete the Pokédex. Pokémon Ruby and Sapphire brought the total number of Pokémon up to 386, so there is plenty of training left to do!"
+                    ]
+                }
+            }
+        }
+    }
+}

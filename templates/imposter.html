@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>IMPOSTOR // BAUHAUS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Bauhaus Palette */
+            --c-red: #D02028;
+            --c-blue: #0052A5;
+            --c-yellow: #FFD400;
+            --c-white: #F4F4F4;
+            --c-black: #111111;
+            
+            --border-thick: 4px solid var(--c-black);
+            --shadow-hard: 6px 6px 0px var(--c-black);
+            --shadow-small: 3px 3px 0px var(--c-black);
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            background-color: var(--c-white);
+            color: var(--c-black);
+            font-family: 'Jost', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* --- 1. HINTERGRUND FORMEN (Wieder da!) --- */
+        .bg-shape { position: fixed; z-index: -1; opacity: 0.15; pointer-events: none; }
+        .s-circle { width: 40vh; height: 40vh; background: var(--c-red); border-radius: 50%; top: -10vh; right: -10vh; }
+        .s-rect { width: 20vh; height: 60vh; background: var(--c-blue); bottom: 0; left: 5%; }
+        .s-tri { 
+            width: 0; height: 0; 
+            border-left: 15vh solid transparent;
+            border-right: 15vh solid transparent;
+            border-bottom: 30vh solid var(--c-yellow);
+            top: 40%; left: 50%; transform: translate(-50%, -50%);
+        }
+
+        /* --- Layout --- */
+        .app-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 10px; 
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            padding-bottom: 80px;
+        }
+
+        header { padding: 20px 0; text-align: center; }
+        h1 { font-size: 3rem; margin: 0; text-transform: uppercase; letter-spacing: -2px; line-height: 0.9; font-weight: 900; }
+        h1 span { color: var(--c-red); }
+
+        /* Container Card Style */
+        .card {
+            background: #fff;
+            border: var(--border-thick);
+            box-shadow: var(--shadow-hard);
+            padding: 20px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        /* --- 3. NEUES SPIELER GRID --- */
+        .card-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 4px solid var(--c-black);
+            padding-bottom: 10px;
+        }
+
+        h2.section-title {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            margin: 0;
+            background: var(--c-yellow);
+            padding: 5px 10px;
+            font-weight: 900;
+            display: inline-block;
+        }
+
+        .btn-add-mini {
+            background: var(--c-black);
+            color: var(--c-white);
+            border: none;
+            width: 35px;
+            height: 35px;
+            font-size: 1.5rem;
+            line-height: 1;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-add-mini:active { background: var(--c-blue); }
+
+        .player-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; /* 2 Spalten */
+            gap: 10px; 
+        }
+
+        .player-wrapper {
+            display: flex;
+            position: relative;
+        }
+
+        /* CSS-Magie: Wenn ungerade Anzahl von Kindern, spannt das letzte über 2 Spalten */
+        .player-wrapper:last-child:nth-child(odd) {
+            grid-column: span 2;
+        }
+
+        .player-input {
+            width: 100%;
+            border: var(--border-thick);
+            padding: 12px;
+            padding-right: 35px; /* Platz für X Button */
+            font-family: 'Jost', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 0;
+            background: var(--c-white);
+        }
+
+        .btn-remove-mini {
+            position: absolute;
+            right: 4px;
+            top: 4px;
+            bottom: 4px;
+            width: 30px;
+            background: transparent;
+            color: var(--c-red);
+            border: none;
+            font-weight: 900;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- Category Styles (Unverändert) --- */
+        .cat-toggle-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--c-white);
+            border: var(--border-thick);
+            padding: 15px;
+            cursor: pointer;
+            transition: background 0.1s;
+        }
+        .cat-toggle-bar:active { background: #ddd; }
+
+        .cat-label { font-weight: 900; text-transform: uppercase; }
+        
+        .cat-status { 
+            background: var(--c-blue); 
+            color: white; 
+            padding: 5px 10px; 
+            font-size: 0.9rem; 
+            font-weight: 700;
+            border: 2px solid black;
+        }
+
+        .cat-content {
+            display: none;
+            border: var(--border-thick);
+            border-top: none; 
+            padding: 15px;
+            background: #fff;
+        }
+        .cat-content.open { display: block; animation: slideDown 0.2s; }
+
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Zwingend 50% pro Spalte */
+            gap: 8px; /* Etwas kleinerer Abstand */
+            margin-top: 10px;
+            width: 100%; /* Verhindert Überlauf */
+        }
+
+        .cat-btn {
+            background: white;
+            border: var(--border-thick);
+            padding: 8px 4px; /* Weniger Padding seitlich */
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.8rem; /* Kleinere Schrift für Handys */
+            cursor: pointer;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            color: #aaa; 
+            border-color: #ccc;
+            word-wrap: break-word; /* Lange Wörter umbrechen, aber sauber */
+            line-height: 1.1;
+        }
+
+        .cat-btn.selected {
+            background: var(--c-blue); color: white; border-color: var(--c-black);
+            box-shadow: 2px 2px 0px var(--c-black); transform: translate(-1px, -1px);
+        }
+        .btn-select-all {
+            width: 100%; background: var(--c-black); color: var(--c-yellow);
+            border: var(--border-thick); padding: 12px; font-weight: 900;
+            text-transform: uppercase; cursor: pointer; margin-bottom: 10px;
+        }
+
+        /* --- 2. SETUP / IMPOSTOR COUNT (Custom Control) --- */
+        /* Wir nutzen eine Klasse, die genauso aussieht wie .cat-toggle-bar, aber ohne Pointer Events auf dem Container */
+        .control-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--c-white);
+            border: var(--border-thick);
+            padding: 10px; /* Etwas weniger Padding damit die Buttons passen */
+            margin-top: 25px;
+            box-shadow: var(--shadow-hard);
+            background: white;
+        }
+
+        .imp-selector {
+            display: flex;
+            border: 2px solid black;
+        }
+
+        .imp-opt {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.2rem;
+            cursor: pointer;
+            background: white;
+            transition: all 0.1s;
+        }
+        
+        .imp-opt:not(:last-child) { border-right: 2px solid black; }
+
+        .imp-opt.active {
+            background: var(--c-red);
+            color: white;
+        }
+
+        /* --- General UI --- */
+        .btn-action {
+            background: var(--c-black);
+            color: var(--c-white);
+            border: none;
+            padding: 20px;
+            font-size: 1.4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            width: 100%;
+            border: var(--border-thick);
+            cursor: pointer;
+            margin-top: 25px;
+        }
+        .btn-action:active { transform: translateY(2px); }
+
+        .screen { display: none; }
+        .screen.active { display: block; animation: fadeIn 0.3s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .pass-card { text-align: center; background: var(--c-yellow); padding: 40px 20px; }
+        .role-text { font-size: 2.5rem; font-weight: 900; padding: 20px; border: 2px dashed black; margin: 20px 0; background: white; }
+        .impostor { color: var(--c-red); border-color: var(--c-red); }
+        .citizen { color: var(--c-blue); border-color: var(--c-blue); }
+
+        /* --- NEU: Custom Error Popup (Bauhaus Stil) --- */
+        #error-popup {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-150%); /* Startet außerhalb des Bildes */
+            background: var(--c-red);
+            color: white;
+            padding: 20px;
+            width: 90%;
+            max-width: 400px;
+            border: var(--border-thick);
+            box-shadow: 8px 8px 0px black;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: center;
+            z-index: 9999;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy Effekt */
+        }
+        #error-popup.show { transform: translateX(-50%) translateY(0); }
+
+        /* --- NEU: Swipe/Hold Reveal Animation --- */
+        /* Container für die geheime Karte */
+        /* --- DRAG & DROP REVEAL --- */
+        .reveal-container {
+            position: relative;
+            width: 100%;
+            height: 300px; /* Etwas höher für besseres Ziehen */
+            border: var(--border-thick);
+            background: var(--c-black); 
+            margin: 20px 0;
+            overflow: hidden;
+            box-shadow: var(--shadow-small);
+            /* WICHTIG: Verhindert Scrollen beim Ziehen auf Handy */
+            touch-action: none; 
+            user-select: none;
+        }
+
+        .secret-layer {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        .cover-layer {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--c-yellow);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end; /* Inhalt unten */
+            padding-bottom: 30px;
+            border-bottom: var(--border-thick);
+            cursor: grab;
+            /* Wir steuern Transition via JS, damit es beim Ziehen direkt folgt */
+        }
+        .cover-layer:active { cursor: grabbing; }
+
+        /* Das "Griff" Element */
+        .drag-handle {
+            width: 60px;
+            height: 8px;
+            background: var(--c-black);
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .drag-arrow {
+            font-size: 2rem;
+            color: var(--c-black);
+            margin-bottom: 5px;
+            animation: bounceUp 1.5s infinite;
+        }
+
+        @keyframes bounceUp {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Bestätigen Button */
+        #btn-confirm-role {
+            display: none;
+            width: 100%;
+            background: white;
+            border: 2px dashed black;
+            padding: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        #btn-confirm-role.visible { display: block; animation: fadeIn 0.5s; }
+
+        #error-popup {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-150%);
+            background: var(--c-red); color: white; padding: 20px; width: 90%; max-width: 400px;
+            border: var(--border-thick); box-shadow: 8px 8px 0px black; font-weight: 700;
+            text-align: center; z-index: 9999; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        #error-popup.show { transform: translateX(-50%) translateY(0); }
+        
+        /* Visuelle Griffe auf dem Deckel */
+        .grip-lines {
+            width: 50px;
+            height: 4px;
+            background: black;
+            margin-bottom: 6px;
+            border-radius: 2px;
+        }
+
+        /* Der Halte-Button */
+        .btn-hold {
+            background: var(--c-black);
+            color: white;
+            border: var(--border-thick);
+            padding: 25px;
+            width: 100%;
+            font-size: 1.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            user-select: none; /* Text nicht markierbar machen */
+            cursor: grabbing;
+            margin-bottom: 10px;
+            /* Animation für "Drück mich" */
+            animation: pulse-border 2s infinite;
+        }
+        .btn-hold:active {
+            transform: scale(0.98);
+            background: var(--c-blue);
+        }
+
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(0,0,0, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(0,0,0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0,0,0, 0); }
+        }
+
+        /* Button "Verstanden", der erst später kommt */
+        #btn-confirm-role {
+            display: none; /* Erst unsichtbar */
+            background: var(--c-white);
+            color: var(--c-black);
+            border: 2px dashed black;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        #btn-confirm-role.visible {
+            display: block;
+            opacity: 1;
+        }
+
+        /* --- ANIMATIONEN: KARTEN ÜBERGANG --- */
+        .anim-slide-out {
+            animation: slideOutLeft 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+        }
+
+        .anim-slide-in {
+            animation: slideInRight 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        @keyframes slideOutLeft {
+            0% { opacity: 1; transform: translateX(0) scale(1); }
+            100% { opacity: 0; transform: translateX(-100px) scale(0.95); }
+        }
+
+        @keyframes slideInRight {
+            0% { opacity: 0; transform: translateX(100px) scale(0.95); }
+            100% { opacity: 1; transform: translateX(0) scale(1); }
+        }
+
+        /* --- GAME & VOTING STYLES --- */
+        .timer-display {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-align: center;
+            font-variant-numeric: tabular-nums; /* Verhindert Wackeln der Zahlen */
+            margin: 10px 0;
+            color: var(--c-black);
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+        }
+
+        /* Voting Karte (Basiert auf Bauhaus Card) */
+       /* --- LIST LAYOUT (Voting Phase) --- */
+        
+        /* 1. Container als Liste untereinander */
+        #voting-grid {
+            display: flex;       /* Statt Grid */
+            flex-direction: column;
+            gap: 10px;           /* Abstand zwischen den Zeilen */
+            width: 100%;
+        }
+
+        /* 2. Karte als Zeile (Horizontal) */
+        .vote-card {
+            background: white;
+            border: var(--border-thick);
+            padding: 15px 15px; /* Angenehme Höhe */
+            cursor: pointer;
+            transition: all 0.1s;
+            
+            /* WICHTIG: Flex Row für Links-Rechts Layout */
+            display: flex;
+            flex-direction: row; 
+            justify-content: space-between; /* Schiebt Name nach Links, Status nach Rechts */
+            align-items: center; /* Vertikal zentriert */
+            
+            width: 100%;
+            min-height: 60px;
+        }
+
+        /* Der Name (Links) */
+        .vote-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-align: left;
+            /* Falls Namen sehr lang sind: */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 60%; /* Damit für den Status Platz bleibt */
+        }
+
+        /* Der Status/Checkbox (Rechts) */
+        .vote-status {
+            font-size: 1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-align: right;
+            white-space: nowrap; /* Kein Umbruch im Status */
+            margin-top: 0; /* Reset vom alten CSS */
+        }
+
+        /* Checkbox Größe anpassen */
+        .vote-icon {
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        /* Farben bleiben gleich, nur zur Sicherheit hier nochmal definiert */
+        .vote-card.selected {
+            background: var(--c-black); color: var(--c-yellow);
+            box-shadow: 4px 4px 0px var(--c-blue); transform: translate(-2px, -2px);
+        }
+        .vote-card.res-correct { background: #2ecc71; color: white; border-color: black; }
+        .vote-card.res-wrong { background: var(--c-red); color: white; }
+        .vote-card.res-missed { border: 4px dashed var(--c-red); background: #fff0f0; color: var(--c-black); }
+        /* Fix für Textfarbe bei Missed im neuen Layout */
+        .vote-card.res-missed .vote-status { color: var(--c-red); }
+
+        /* --- Helper für breitere Knöpfe (Zeit) --- */
+        .imp-opt.wide {
+            width: 50px; /* Etwas breiter als die Zahlen */
+            font-size: 1rem;
+        }
+
+        
+
+
+    </style>
+</head>
+<body>
+    <div id="error-popup">Fehler Nachricht</div>
+    <!-- 1. HINTERGRUND FORMEN -->
+    <div class="bg-shape s-circle"></div>
+    <div class="bg-shape s-rect"></div>
+    <div class="bg-shape s-tri"></div>
+
+    <div class="app-container">
+        
+        <header>
+            <h1>Impo<span>stor</span></h1>
+        </header>
+
+        <!-- SETUP SCREEN -->
+        <div id="screen-setup" class="screen active">
+            
+            <!-- 3. SPIELER GRID -->
+            <div class="card">
+                <div class="card-header-row">
+                    <h2 class="section-title">Spieler</h2>
+                    <button class="btn-add-mini" onclick="Game.addPlayerInput()">+</button>
+                </div>
+                
+                <div id="player-grid" class="player-grid">
+                    <!-- JS generiert hier Felder -->
+                </div>
+            </div>
+
+            <!-- KATEGORIEN (Akkordeon) -->
+            <!-- Container ohne eigenen Schatten/Rahmen, da die Leiste den Style hat -->
+            <div style="margin-bottom: 0;">
+                <div class="cat-toggle-bar" onclick="Game.toggleCategoryMenu()">
+                    <span class="cat-label">Kategorien</span>
+                    <span id="cat-status-text" class="cat-status">LADE...</span>
+                </div>
+
+                <div id="cat-content-area" class="cat-content">
+                    <button id="btn-toggle-all" class="btn-select-all" onclick="Game.toggleAllCategories()">
+                        Alles abwählen
+                    </button>
+                    <div class="category-grid" id="category-grid">
+                        <!-- Kategorien kommen hier rein -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. SETUP BUTTON / IMPOSTOR COUNT -->
+            <div class="control-bar">
+                <span class="cat-label">Verräter Anzahl</span>
+                <div class="imp-selector">
+                    <div class="imp-opt active" onclick="Game.setImpostors(1)" id="imp-1">1</div>
+                    <div class="imp-opt" onclick="Game.setImpostors(2)" id="imp-2">2</div>
+                    <div class="imp-opt" onclick="Game.setImpostors(3)" id="imp-3">3</div>
+                </div>
+            </div>
+            <!-- NEU: ZEIT EINSTELLUNG -->
+            <div class="control-bar" style="margin-top: 10px;">
+                <span class="cat-label">Diskussion</span>
+                <div class="imp-selector">
+                    <div class="imp-opt wide" onclick="Game.setDuration(3)" id="time-3">3m</div>
+                    <div class="imp-opt wide active" onclick="Game.setDuration(5)" id="time-5">5m</div>
+                    <div class="imp-opt wide" onclick="Game.setDuration(0)" id="time-0">∞</div>
+                </div>
+            </div>
+
+            <div class="control-bar" style="margin-top: 10px;">
+                <span class="cat-label">Verräter-Info</span>
+                <div class="imp-selector">
+                    <div class="imp-opt wide" onclick="Game.setHintMode('none')" id="hint-none">Ø</div>
+                    <div class="imp-opt wide active" onclick="Game.setHintMode('word')" id="hint-word">WORT</div>
+                    <div class="imp-opt wide" onclick="Game.setHintMode('cat')" id="hint-cat">KAT</div>
+                </div>
+            </div>
+
+            <button class="btn-action" onclick="Game.start()">Spiel Starten</button>
+        </div>
+
+        <!-- SCREEN: PASS & DRAG -->
+        <div id="screen-pass" class="screen">
+            <div class="card" style="text-align: center; border: none; box-shadow: none; background: transparent; padding: 0;">
+                
+                <!-- Info Header -->
+                <div style="background: white; border: var(--border-thick); padding: 15px; margin-bottom: 15px; box-shadow: var(--shadow-small);">
+                    <h2 style="text-transform: uppercase; margin: 0; font-size: 1rem;">Diese Karte ist für:</h2>
+                    <h1 id="pass-player-name" style="font-size: 2rem; margin: 5px 0 0 0; color: var(--c-blue);">NAME</h1>
+                </div>
+
+                <!-- DRAGGABLE CONTAINER -->
+                <!-- Die Events hängen direkt am Container -->
+                <div class="reveal-container" id="drag-container">
+                    
+                    <!-- UNTEN: Das Geheimnis -->
+                    <div class="secret-layer" id="secret-layer-content">
+                        <!-- Inhalt via JS -->
+                    </div>
+
+                    <!-- OBEN: Der Deckel zum Ziehen -->
+                    <div class="cover-layer" id="drag-cover">
+                        <div class="drag-arrow">▲</div>
+                        <div class="drag-handle"></div>
+                        <p style="font-weight: 900; text-transform: uppercase; font-size: 0.9rem;">Nach oben ziehen</p>
+                    </div>
+                </div>
+
+                <!-- Weiter Button (Kommt später) -->
+                <button id="btn-confirm-role" onclick="Game.next()">
+                    Habe Rolle gesehen
+                </button>
+            </div>
+        </div>
+
+        <!-- GAME RUNNING -->
+        <!-- 4. GAME RUNNING & VOTING -->
+        <div id="screen-game" class="screen">
+            <div class="card" style="border-color: var(--c-red); text-align: center; padding-bottom: 10px;">
+                <h2 style="color: var(--c-red); font-size: 2rem; margin: 0;">DISKUSSION</h2>
+                
+                <!-- TIMER -->
+                <div id="game-timer" class="timer-display">05:00</div>
+
+                <!-- INFO TEXT -->
+                <p id="vote-instruction" style="font-size: 0.9rem; margin-bottom: 10px; font-weight: 700;">
+                    Wähle <span id="vote-limit-display">1</span> Verdächtige(n):
+                </p>
+
+                <!-- VOTING GRID -->
+                <div id="voting-grid" class="player-grid">
+                    <!-- Wird via JS gefüllt -->
+                </div>
+            </div>
+
+            <!-- BUTTON: Ändert sich von "Bestätigen" zu "Neues Spiel" -->
+            <button id="btn-game-action" class="btn-action" onclick="Game.handleGameAction()">
+                Auswahl bestätigen
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        const Game = {
+            data: {},
+            selectedCategories: new Set(),
+            players: [],
+            currentPlayerIndex: 0,
+            currentCategory: '',
+            currentWord: '',
+            impostorCount: 1, // Default
+            timerInterval: null,
+            voteSelection: new Set(),
+            gamePhase: 'voting',
+            gameDuration: 300,
+            currentImpostorHint: '',
+            hintMode: 'word',
+            timerEndTimestamp: null,
+            gamePhase: 'setup', // 'setup', 'pass', 'voting', 'results'
+
+
+            init: async function() {
+                try {
+                    const response = await fetch('/static/imposter/words.json');
+                    this.data = await response.json();
+                    
+                    const grid = document.getElementById('category-grid');
+                    let allKeys = Object.keys(this.data);
+                    
+                    const defaults = [
+                        "Tiere", "Berufe", "Orte", "Essen & Trinken", "Sportarten", 
+                        "Fahrzeuge", "Länder & Regionen", "Farben", "Haushalt & Wohnen", "Weltall", "Technik", "Musikinstrumente", "Wetter", "Pflanzen"
+                    ];
+
+                    allKeys.sort((a, b) => {
+                        const isA = defaults.includes(a);
+                        const isB = defaults.includes(b);
+                        if (isA && !isB) return -1;
+                        if (!isA && isB) return 1;
+                        return 0;
+                    });
+
+                    allKeys.forEach(cat => {
+                        const btn = document.createElement('div');
+                        btn.innerText = cat;
+                        btn.dataset.cat = cat;
+                        if (defaults.includes(cat)) {
+                            this.selectedCategories.add(cat);
+                            btn.className = 'cat-btn selected';
+                        } else {
+                            btn.className = 'cat-btn';
+                        }
+                        btn.onclick = () => this.toggleCategory(cat, btn);
+                        grid.appendChild(btn);
+                    });
+
+                    this.updateCategoryUI();
+                    for(let i=0; i<4; i++) this.addPlayerInput();
+
+                    // NEU: STATE PRÜFEN
+                    await this.loadState();
+
+                } catch (e) {
+                    console.error(e);
+                    alert("Ladefehler. Bitte Seite neu laden.");
+                }
+            },
+
+            showError: function(msg) {
+                const popup = document.getElementById('error-popup');
+                popup.innerText = msg;
+                popup.classList.add('show');
+                
+                // Nach 3 Sekunden wieder ausblenden
+                setTimeout(() => {
+                    popup.classList.remove('show');
+                }, 3000);
+            },
+
+            shuffleArray: function(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]]; // Tausche Elemente
+                }
+            },
+
+            // --- IMPOSTOR SELECTOR ---
+            setImpostors: function(num) {
+                this.impostorCount = num;
+                // UI Update
+                document.querySelectorAll('.imp-opt').forEach(el => el.classList.remove('active'));
+                document.getElementById('imp-' + num).classList.add('active');
+            },
+
+            // --- UX: Accordion & Status ---
+            toggleCategoryMenu: function() {
+                document.getElementById('cat-content-area').classList.toggle('open');
+            },
+
+            updateCategoryUI: function() {
+                const total = Object.keys(this.data).length;
+                const selected = this.selectedCategories.size;
+                const statusText = document.getElementById('cat-status-text');
+                const toggleAllBtn = document.getElementById('btn-toggle-all');
+
+                if (selected === total) {
+                    statusText.innerText = "ALLE";
+                    statusText.style.background = "var(--c-blue)";
+                    statusText.style.color = "white";
+                    toggleAllBtn.innerText = "Alles abwählen";
+                } else if (selected === 0) {
+                    statusText.innerText = "KEINE";
+                    statusText.style.background = "var(--c-red)";
+                    statusText.style.color = "white";
+                    toggleAllBtn.innerText = "Alles auswählen";
+                } else {
+                    statusText.innerText = `${selected} AUSGEWÄHLT`;
+                    statusText.style.background = "var(--c-yellow)";
+                    statusText.style.color = "black";
+                    toggleAllBtn.innerText = "Alles auswählen";
+                }
+            },
+
+            toggleCategory: function(cat, btnElement) {
+                if (this.selectedCategories.has(cat)) {
+                    this.selectedCategories.delete(cat);
+                    btnElement.classList.remove('selected');
+                } else {
+                    this.selectedCategories.add(cat);
+                    btnElement.classList.add('selected');
+                }
+                this.updateCategoryUI();
+            },
+
+            toggleAllCategories: function() {
+                const allKeys = Object.keys(this.data);
+                const btns = document.querySelectorAll('.cat-btn');
+                const shouldSelectAll = this.selectedCategories.size !== allKeys.length;
+
+                this.selectedCategories.clear();
+                
+                btns.forEach(btn => {
+                    if (shouldSelectAll) {
+                        this.selectedCategories.add(btn.dataset.cat);
+                        btn.classList.add('selected');
+                    } else {
+                        btn.classList.remove('selected');
+                    }
+                });
+                this.updateCategoryUI();
+            },
+
+            // --- PLAYER GRID LOGIC ---
+            addPlayerInput: function() {
+                const container = document.getElementById('player-grid');
+                const count = container.children.length + 1;
+                
+                const wrapper = document.createElement('div');
+                wrapper.className = 'player-wrapper';
+                
+                wrapper.innerHTML = `
+                    <input type="text" class="player-input" placeholder="Name" value="Spieler ${count}">
+                    <button class="btn-remove-mini" onclick="this.parentElement.remove()">✕</button>
+                `;
+                container.appendChild(wrapper);
+            },
+
+            // --- GAME LOOP ---
+             start: function() {
+                const inputs = document.querySelectorAll('.player-input');
+                let playerNames = [];
+                inputs.forEach(input => {
+                    const name = input.value.trim();
+                    if(name) playerNames.push(name);
+                });
+
+                if (playerNames.length < 3) {
+                    this.showError("Mindestens 3 Spieler erforderlich!");
+                    return;
+                }
+                if (this.selectedCategories.size === 0) {
+                    this.showError("Wähle mindestens eine Kategorie!");
+                    document.getElementById('cat-content-area').classList.add('open');
+                    return;
+                }
+                if (this.impostorCount >= playerNames.length) {
+                    this.showError("Zu viele Verräter!");
+                    return;
+                }
+
+                const catsArray = Array.from(this.selectedCategories);
+                this.currentCategory = catsArray[Math.floor(Math.random() * catsArray.length)];
+                
+                const categoryData = this.data[this.currentCategory];
+                const allWordsObject = categoryData[0];
+                const allKeys = Object.keys(allWordsObject);
+                const wordKey = allKeys[Math.floor(Math.random() * allKeys.length)];
+                const hintsArray = allWordsObject[wordKey];
+                
+                this.currentWord = wordKey;
+                this.currentImpostorHint = hintsArray[Math.floor(Math.random() * hintsArray.length)];
+
+                this.players = playerNames.map(name => ({ name: name, role: 'citizen' }));
+                
+                let assigned = 0;
+                while (assigned < this.impostorCount) {
+                    let idx = Math.floor(Math.random() * this.players.length);
+                    if (this.players[idx].role === 'citizen') {
+                        this.players[idx].role = 'impostor';
+                        assigned++;
+                    }
+                }
+
+                this.shuffleArray(this.players);
+                this.currentPlayerIndex = 0;
+                
+                // NEU: Phase setzen & Speichern
+                this.gamePhase = 'pass';
+                this.saveState(); 
+
+                this.preparePassScreen();
+                this.switchScreen('screen-pass');
+            },
+
+            updatePassScreen: function() {
+                const player = this.players[this.currentPlayerIndex];
+                document.getElementById('pass-player-name').innerText = player.name;
+            },
+            // --- DRAG REVEAL LOGIC ---
+            
+            dragStartY: 0,
+            dragCurrentY: 0,
+            isDragging: false,
+            hasSeenRole: false, // Damit der Button nicht sofort kommt
+
+            preparePassScreen: function() {
+                const player = this.players[this.currentPlayerIndex];
+                document.getElementById('pass-player-name').innerText = player.name;
+                
+                // UI Reset
+                this.hasSeenRole = false;
+                document.getElementById('btn-confirm-role').classList.remove('visible');
+                
+                // Cover zurücksetzen
+                const cover = document.getElementById('drag-cover');
+                cover.style.transition = 'transform 0.3s ease-out';
+                cover.style.transform = 'translateY(0)';
+                
+                // Inhalt füllen
+                const secretDiv = document.getElementById('secret-layer-content');
+                
+               if (player.role === 'impostor') {
+                    
+                    // Inhalt basierend auf Einstellung berechnen
+                    let labelText = "";
+                    let valueText = "";
+                    
+                    if (this.hintMode === 'word') {
+                        labelText = "Dein Hinweis-Wort:";
+                        valueText = this.currentImpostorHint;
+                    } else if (this.hintMode === 'cat') {
+                        labelText = "Deine Kategorie:";
+                        valueText = this.currentCategory;
+                    } else {
+                        // Modus 'none'
+                        labelText = "Du weißt nichts!";
+                        valueText = "???";
+                    }
+
+                    // HTML rendern
+                    secretDiv.innerHTML = `
+                        <div style="border: 4px solid var(--c-red); padding: 15px; width: 100%;">
+                            <span style="color: var(--c-red); font-size: 2.2rem; font-weight: 900; display:block; margin-bottom: 10px;">VERRÄTER</span>
+                            <hr style="border: 1px solid black; margin: 10px 0;">
+                            <span style="font-size: 0.85rem; text-transform: uppercase; font-weight: 700;">${labelText}</span><br>
+                            <strong style="font-size: 1.6rem; color: var(--c-black);">${valueText}</strong>
+                        </div>
+                    `;
+                } else {
+                    // CITIZEN: Sieht Wort + Kategorie
+                    secretDiv.innerHTML = `
+                        <div style="border: 4px solid var(--c-blue); padding: 15px; width: 100%;">
+                            <span style="color: var(--c-blue); font-size: 2.2rem; font-weight: 900; display:block; margin-bottom: 10px;">${this.currentWord}</span>
+                            <hr style="border: 1px solid black; margin: 10px 0;">
+                            <span style="font-size: 0.85rem; text-transform: uppercase; font-weight: 700;">Kategorie:</span><br>
+                            <strong style="font-size: 1.2rem; color: var(--c-black);">${this.currentCategory}</strong>
+                        </div>
+                    `;
+                }
+
+                // Drag Events Initialisieren
+                this.initDragEvents();
+            },
+
+            initDragEvents: function() {
+                const cover = document.getElementById('drag-cover');
+                const container = document.getElementById('drag-container');
+
+                // Maus Events
+                container.onmousedown = (e) => this.dragStart(e.clientY);
+                document.onmousemove = (e) => this.dragMove(e.clientY);
+                document.onmouseup = () => this.dragEnd();
+
+                // Touch Events
+                container.ontouchstart = (e) => this.dragStart(e.touches[0].clientY);
+                document.ontouchmove = (e) => this.dragMove(e.touches[0].clientY);
+                document.ontouchend = () => this.dragEnd();
+            },
+
+            dragStart: function(y) {
+                this.isDragging = true;
+                this.dragStartY = y;
+                const cover = document.getElementById('drag-cover');
+                cover.style.transition = 'none'; // Keine Verzögerung beim Ziehen
+            },
+
+            dragMove: function(y) {
+                if (!this.isDragging) return;
+                
+                // Differenz berechnen
+                let diff = y - this.dragStartY;
+                
+                // Nur nach oben ziehen erlauben (negative Werte)
+                if (diff > 0) diff = 0;
+                // Maximal bis -250px ziehen
+                if (diff < -250) diff = -250;
+
+                this.dragCurrentY = diff;
+                
+                const cover = document.getElementById('drag-cover');
+                cover.style.transform = `translateY(${diff}px)`;
+            },
+
+            dragEnd: function() {
+                if (!this.isDragging) return;
+                this.isDragging = false;
+
+                const cover = document.getElementById('drag-cover');
+                cover.style.transition = 'transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)'; // Bouncy Snap Back
+
+                // Wenn weit genug gezogen wurde (z.B. -100px), gilt es als gesehen
+                if (this.dragCurrentY < -100) {
+                    this.hasSeenRole = true;
+                    document.getElementById('btn-confirm-role').classList.add('visible');
+                }
+
+                // Immer zurückschnappen (Sicherheit!)
+                cover.style.transform = 'translateY(0)';
+            },
+
+            // Helper für Fehler (falls du es noch nicht hast)
+            showError: function(msg) {
+                const popup = document.getElementById('error-popup');
+                popup.innerText = msg;
+                popup.classList.add('show');
+                setTimeout(() => popup.classList.remove('show'), 3000);
+            },
+            next: function() {
+                const card = document.querySelector('#screen-pass .card');
+                card.classList.add('anim-slide-out');
+
+                setTimeout(() => {
+                    this.currentPlayerIndex++;
+                    card.classList.remove('anim-slide-out');
+
+                    if (this.currentPlayerIndex < this.players.length) {
+                        this.preparePassScreen();
+                        
+                        // NEU: Speichern beim Spielerwechsel
+                        this.saveState();
+
+                        card.classList.add('anim-slide-in');
+                        setTimeout(() => {
+                            card.classList.remove('anim-slide-in');
+                        }, 400);
+
+                    } else {
+                        // Spiel Start
+                        this.setupVotingScreen();
+                        this.switchScreen('screen-game');
+                    }
+                }, 350); 
+            },
+
+            setDuration: function(minutes) {
+                if (minutes === 0) {
+                    this.gameDuration = 0; // 0 bedeutet Unendlich
+                } else {
+                    this.gameDuration = minutes * 60;
+                }
+
+                // UI Update
+                document.querySelectorAll('[id^="time-"]').forEach(el => el.classList.remove('active'));
+                document.getElementById('time-' + minutes).classList.add('active');
+            },
+
+            setHintMode: function(mode) {
+                this.hintMode = mode;
+                
+                // UI Update
+                document.querySelectorAll('[id^="hint-"]').forEach(el => el.classList.remove('active'));
+                document.getElementById('hint-' + mode).classList.add('active');
+            },
+
+            // --- TIMER LOGIC ---
+            startTimer: function() {
+                const display = document.getElementById('game-timer');
+                
+                // Fall: Unendlich
+                if (this.gameDuration === 0) {
+                    display.innerText = "∞";
+                    return; // Kein Interval starten
+                }
+
+                let seconds = this.gameDuration;
+                
+                // Sofort einmal anzeigen, damit man nicht 1 Sekunde wartet
+                const format = (s) => {
+                    const m = Math.floor(s / 60).toString().padStart(2, '0');
+                    const sec = (s % 60).toString().padStart(2, '0');
+                    return `${m}:${sec}`;
+                };
+                display.innerText = format(seconds);
+
+                clearInterval(this.timerInterval);
+                this.timerInterval = setInterval(() => {
+                    seconds--;
+                    display.innerText = format(seconds);
+
+                    if (seconds <= 0) {
+                        clearInterval(this.timerInterval);
+                        display.innerText = "00:00";
+                        // Optional: Roter Text wenn Zeit abgelaufen
+                        display.style.color = "var(--c-red)"; 
+                    }
+                }, 1000);
+            },
+
+            // --- VOTING LOGIC ---
+            setupVotingScreen: function() {
+                this.gamePhase = 'voting';
+                this.voteSelection.clear();
+                
+                document.getElementById('btn-game-action').innerText = "Auswahl bestätigen";
+                document.getElementById('btn-game-action').style.background = "var(--c-black)";
+                document.getElementById('vote-instruction').style.opacity = "1";
+                document.getElementById('vote-limit-display').innerText = this.impostorCount;
+                
+                // Timer Logic
+                document.getElementById('game-timer').innerText = "05:00";
+                if (this.gameDuration > 0) {
+                    this.timerEndTimestamp = Date.now() + (this.gameDuration * 1000);
+                } else {
+                    this.timerEndTimestamp = null;
+                }
+                this.startTimer();
+
+                const grid = document.getElementById('voting-grid');
+                grid.innerHTML = '';
+
+                this.players.forEach((player, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'vote-card';
+                    card.innerHTML = `
+                        <span class="vote-name">${player.name}</span>
+                        <div class="vote-status">◻</div>
+                    `;
+                    card.onclick = () => this.toggleVote(index, card);
+                    card.dataset.idx = index;
+                    grid.appendChild(card);
+                });
+
+                // NEU: Speichern
+                this.saveState();
+            },
+
+            toggleVote: function(index, cardEl) {
+                if (this.gamePhase !== 'voting') return; 
+
+                const icon = cardEl.querySelector('.vote-icon'); // Bleibt gleich
+
+                if (this.voteSelection.has(index)) {
+                    this.voteSelection.delete(index);
+                    cardEl.classList.remove('selected');
+                    icon.innerText = "◻"; // Leeres Quadrat
+                } else {
+                    if (this.voteSelection.size >= this.impostorCount) {
+                        this.showError(`Maximal ${this.impostorCount} wählen!`);
+                        return;
+                    }
+                    this.voteSelection.add(index);
+                    cardEl.classList.add('selected');
+                    icon.innerText = "◼"; // Volles Quadrat
+                }
+            },
+
+            handleGameAction: function() {
+                if (this.gamePhase === 'voting') {
+                    this.resolveGame();
+                } else {
+                    this.reset();
+                }
+            },
+
+            resolveGame: function() {
+                if (this.voteSelection.size === 0) {
+                    this.showError("Wähle mindestens einen Spieler!");
+                    return;
+                }
+
+                this.gamePhase = 'results';
+                clearInterval(this.timerInterval);
+
+                const grid = document.getElementById('voting-grid');
+                const cards = grid.children;
+                let foundImpostors = 0;
+
+                for (let i = 0; i < this.players.length; i++) {
+                    const player = this.players[i];
+                    const card = cards[i];
+                    const statusDiv = card.querySelector('.vote-status');
+                    const isSelected = this.voteSelection.has(i);
+
+                    if (player.role === 'impostor') {
+                        if (isSelected) {
+                            card.className = 'vote-card res-correct';
+                            statusDiv.innerHTML = "ERWISCHT";
+                            foundImpostors++;
+                        } else {
+                            card.className = 'vote-card res-missed';
+                            statusDiv.innerHTML = "VERRÄTER";
+                        }
+                    } else {
+                        if (isSelected) {
+                            card.className = 'vote-card res-wrong';
+                            statusDiv.innerHTML = "UNSCHULDIG";
+                        } else {
+                            card.style.opacity = "0.4";
+                            statusDiv.innerHTML = "";
+                        }
+                    }
+                }
+
+                const btn = document.getElementById('btn-game-action');
+                btn.innerText = "Neues Spiel starten";
+                btn.style.background = "var(--c-blue)";
+                
+                if (foundImpostors === this.impostorCount) {
+                    this.showError("SIEG! Alle Verräter gefunden!");
+                } else {
+                    this.showError("Runde vorbei. Analyse läuft...");
+                }
+
+                // NEU: Speichern
+                this.saveState();
+            },
+
+            reset: function() {
+                this.gamePhase = 'setup';
+                try {
+                    localStorage.removeItem('imposter_state');
+                } catch(e) {}
+                this.switchScreen('screen-setup');
+            },
+
+            switchScreen: function(id) {
+                document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
+                document.getElementById(id).classList.add('active');
+                window.scrollTo(0,0);
+            },
+
+            saveState: function() {
+                const state = {
+                    players: this.players,
+                    currentPlayerIndex: this.currentPlayerIndex,
+                    currentCategory: this.currentCategory,
+                    currentWord: this.currentWord,
+                    currentImpostorHint: this.currentImpostorHint,
+                    impostorCount: this.impostorCount,
+                    hintMode: this.hintMode,
+                    gameDuration: this.gameDuration,
+                    gamePhase: this.gamePhase,
+                    timerEndTimestamp: this.timerEndTimestamp,
+                    voteSelection: Array.from(this.voteSelection)
+                };
+
+                try {
+                    localStorage.setItem('imposter_state', JSON.stringify(state));
+                    // Background cloud backup
+                    fetch('/api/save/imposter', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({ state: state })
+                    }).catch(() => {});
+                } catch(e) { console.error("Save failed", e); }
+            },
+
+            loadState: async function() {
+                try {
+                    let state = null;
+                    const local = localStorage.getItem('imposter_state');
+                    if (local) {
+                        try { state = JSON.parse(local); } catch(e) {}
+                    }
+                    if (!state) {
+                        const res = await fetch('/api/save/imposter');
+                        if (res.ok) {
+                            const cloud = await res.json();
+                            state = cloud.state;
+                        }
+                    }
+                    
+                    if (state && state.gamePhase && state.gamePhase !== 'setup') {
+                        this.restoreGame(state);
+                    }
+                } catch(e) { console.error("Load failed", e); }
+            },
+
+            restoreGame: function(state) {
+                // 1. Daten wiederherstellen
+                this.players = state.players;
+                this.currentPlayerIndex = state.currentPlayerIndex;
+                this.currentCategory = state.currentCategory;
+                this.currentWord = state.currentWord;
+                this.currentImpostorHint = state.currentImpostorHint;
+                this.impostorCount = state.impostorCount;
+                this.hintMode = state.hintMode;
+                this.gameDuration = state.gameDuration;
+                this.gamePhase = state.gamePhase;
+                this.timerEndTimestamp = state.timerEndTimestamp;
+                // Array zurück zu Set
+                this.voteSelection = new Set(state.voteSelection || []);
+
+                // 2. UI wiederherstellen
+                if (this.gamePhase === 'pass') {
+                    this.preparePassScreen();
+                    this.switchScreen('screen-pass');
+                } 
+                else if (this.gamePhase === 'voting' || this.gamePhase === 'results') {
+                    // Setup UI ohne Logik-Reset
+                    document.getElementById('vote-instruction').style.opacity = "1";
+                    document.getElementById('vote-limit-display').innerText = this.impostorCount;
+                    
+                    // Timer wiederherstellen
+                    if (this.gamePhase === 'voting' && this.timerEndTimestamp) {
+                        const now = Date.now();
+                        const remaining = Math.ceil((this.timerEndTimestamp - now) / 1000);
+                        if (remaining > 0) this.resumeTimer(remaining);
+                        else document.getElementById('game-timer').innerText = "00:00";
+                    } else if (this.gameDuration === 0) {
+                        document.getElementById('game-timer').innerText = "∞";
+                    }
+
+                    // Grid bauen
+                    const grid = document.getElementById('voting-grid');
+                    grid.innerHTML = '';
+
+                    this.players.forEach((player, index) => {
+                        const card = document.createElement('div');
+                        
+                        // Style wiederherstellen (Selected / Results)
+                        if (this.gamePhase === 'results') {
+                            const isSelected = this.voteSelection.has(index);
+                            // Logik aus resolveGame simulieren für die Optik
+                            if (player.role === 'impostor') {
+                                if (isSelected) card.className = 'vote-card res-correct';
+                                else card.className = 'vote-card res-missed';
+                            } else {
+                                if (isSelected) card.className = 'vote-card res-wrong';
+                                else card.className = 'vote-card'; // Neutral
+                            }
+                        } else {
+                            // Voting Phase
+                            if (this.voteSelection.has(index)) card.className = 'vote-card selected';
+                            else card.className = 'vote-card';
+                        }
+                        
+                        // Status Text ermitteln
+                        let statusText = "◻";
+                        if (this.gamePhase === 'voting') {
+                            statusText = this.voteSelection.has(index) ? "◼" : "◻";
+                        } else {
+                            // Results Text
+                            if (player.role === 'impostor') statusText = this.voteSelection.has(index) ? "ERWISCHT" : "VERRÄTER";
+                            else statusText = this.voteSelection.has(index) ? "UNSCHULDIG" : "";
+                        }
+
+                        card.innerHTML = `
+                            <span class="vote-name">${player.name}</span>
+                            <div class="vote-status">${statusText}</div>
+                        `;
+                        
+                        if (this.gamePhase === 'voting') {
+                            card.onclick = () => this.toggleVote(index, card);
+                        }
+                        card.dataset.idx = index;
+                        grid.appendChild(card);
+                    });
+
+                    // Button Status
+                    const btn = document.getElementById('btn-game-action');
+                    if (this.gamePhase === 'results') {
+                        btn.innerText = "Neues Spiel starten";
+                        btn.style.background = "var(--c-blue)";
+                    } else {
+                        btn.innerText = "Auswahl bestätigen";
+                        btn.style.background = "var(--c-black)";
+                    }
+
+                    this.switchScreen('screen-game');
+                }
+            },
+
+            resumeTimer: function(remainingSeconds) {
+                const display = document.getElementById('game-timer');
+                let seconds = remainingSeconds;
+                
+                const format = (s) => {
+                    const m = Math.floor(s / 60).toString().padStart(2, '0');
+                    const sec = (s % 60).toString().padStart(2, '0');
+                    return `${m}:${sec}`;
+                };
+                display.innerText = format(seconds);
+
+                clearInterval(this.timerInterval);
+                this.timerInterval = setInterval(() => {
+                    seconds--;
+                    display.innerText = format(seconds);
+                    if (seconds <= 0) clearInterval(this.timerInterval);
+                }, 1000);
+            },
+        };
+
+        document.addEventListener('DOMContentLoaded', () => Game.init());
+    </script>
+</body>
+</html>

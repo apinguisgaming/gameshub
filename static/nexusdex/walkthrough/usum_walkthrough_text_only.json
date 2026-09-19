@@ -1,0 +1,69 @@
+{
+    "Part_1": {
+        "Introduction": {
+            "Text": [
+                "The player is immediately given a choice of several languages—English, Spanish, French, German, Italian, Japanese, Korean, and Simplified and Traditional Chinese—in which to play. After that, they receive a video call from the resident researcher of the Alola region, Professor Kukui . As the character, Elio / Selene , is preparing to move to the tropical region with his/her mother , the professor welcomes them and gives a brief introduction to the Pokémon world. Next, Kukui asks the player to choose one of eight photos for his/her new Trainer Passport . This allows for the choice between gender and skin tone, which cannot be changed; clothing, eye color, as well as hair length and color can be customized later on. Finally, the professor asks for the Trainer's name, which can be up to twelve characters long. Kukui then ends the call, and the character's mother calls for help with packing away their belongings.",
+                "A short cutscene shows a mysterious girl and her unidentified Pokémon trying to escape a group of security guards dressed in white, and pale skinned people in futuristic blue and white outfits. Just when it seems that there is no escape, the Pokémon uses its power to teleport the pair to safety. The scene ends with the game's title and logo appearing on-screen."
+            ]
+        },
+        "Route 1 (Hau'oli Outskirts)": {
+            "Text": [
+                "The journey begins on Route 1 , in an area known as Hau'oli Outskirts on the southeast side of Melemele Island . The player and their Mother have just recently moved to this tropical archipelago from the distant Kanto region, and could not ask for a nicer place to live!"
+            ],
+            "Home": {
+                "Text": [
+                    "Three months after Kukui's video call, Elio/Selene and his/her Mom are enjoying their first day US /night UM in their new home. Mom sends the family's pet Meowth to wake the child so they can start unpacking their belongings. Use the Circle Pad to climb out of bed, and meet with Mom in the main room of the house. After a short conversation, she'll instruct you to go spend some time exploring, but to fetch your Bag and hat from your room first. Return to your room and interact with coatrack to retrieve on your bag and hat. Afterwards, your Mom will suggest you to head up toward Iki Town . You can now head outside and begin exploring."
+                ]
+            }
+        },
+        "Route 1": {
+            "Text": [
+                "To make your way towards Iki Town, head west and up the hill along the west side of the route. Upon reaching a patch of tall grass , a Yungoos will appear and attack you! Thankfully, a Rowlet , Litten , and Popplio quickly come to your rescue and scare off the Yungoos."
+            ],
+            "Choosing a Pokémon": {
+                "Text": [
+                    "After being saved, Professor Kukui shows up and welcomes you to Alola. He introduces you to the three Pokémon who helped you, and explains that one of these Pokémon will become your first partner . You are then given the opportunity to choose which of the three Pokémon to keep.",
+                    "Once you have chosen a Pokémon, you are given the chance to nickname it. Kukui then tells you to come with him to Iki Town to meet the Island Kahuna . As it turns out, your partner Pokémon is actually a gift from the kahuna - and may not be the only gift you get! Kukui points you in the direction of Iki Town, and sends you off to give the kahuna a proper thank-you.",
+                    "Now that you have a Pokémon of your own, you can walk through the tall grass and battle wild Pokémon. Continue your way up the hill. The areas to the north and east are blocked off, so continue towards Iki Town by going west. Behind the patch of grass at the top of the hill, you can find a Potion ."
+                ]
+            },
+            "Rival Battle 1": {
+                "Text": [
+                    "As you approach the stairs to Iki Town, a boy named Hau runs towards you and excitedly asks which Pokémon you will choose as your partner. When he notices you have already received a Pokémon, Kukui will appear and apologize for letting you pick first. Hau isn't bothered by this, however, and happily chooses the Pokémon with the type weak to yours as his partner.",
+                    "Hau then asks you for a favour: to be his opponents in his first ever Pokémon battle! If you say yes, the battle will begin. If you say no, you can continue exploring the route, but you will need to face Hau before you can head into Iki Town. Kukui will heal your Pokémon before the battle starts.",
+                    "After the battle, Hau and Kukui remind you to head up to Iki Town. Grab the Paralyze Heal behind the last patch of grass to the west and head up the stairs to the north."
+                ]
+            }
+        },
+        "Iki Town": {
+            "Text": [
+                "Iki Town is a small town in the middle of the island where people worship Melemele 's guardian deity , Tapu Koko ."
+            ],
+            "The Missing Kahuna": {
+                "Text": [
+                    "Upon entering the town, the kahuna is nowhere to be found. Kakui suggests you head up Mahalo Trail to the north and visit the ruins belonging to Tapu Koko while he waits for the kahuna to return.",
+                    "Climb up the stairway in the middle of town, then head past the stage and northward to the ruins."
+                ]
+            }
+        },
+        "Mahalo Trail": {
+            "Text": [
+                "Mahalo Trail leads up the hill from Iki Town to the Ruins of Conflict . Halfway along the path, you spot the mysterious girl from earlier pleading with something in her bag to stay out of sight. Upon reaching the hilltop, a cutscene plays which shows the girl running toward Plank Bridge. A Cosmog then escapes her bag and lands in the middle of the bridge. Its happiness is short-lived, however, as it is soon under attack by three Spearow ! She begs you to save Nebby , as she is not a Trainer and thus cannot do it herself. She will also heal your Pokémon.",
+                "Upon stepping onto the bridge, one of the Spearow attacks you!",
+                "Defeating the Spearow will chase it off, but the battle will also damage the aging bridge, causing it to shake three times as you continue across it. Once you reach Nebby, a cutscene will play showing you shielding the helpless Pokémon with your body. A moment later, a panicked Nebby lets out a burst of energy that destroys the bridge and sends you two falling to the river far below. Just then, a crackling, yellow Pokémon swoops in, scaring off the flock of Spearow before diving down to save you and Nebby. It's Tapu Koko , who examines the group for a moment before flying off with a cry.",
+                "Afraid for its well-being, the girl scolds Nebby for using its power as it couldn't move for ages the last time it did so. The Pokémon finds a small rock called a Sparkling Stone and delivers it to the girl. The girl introduces herself as Lillie , and hands the sparking stone over to you. She begs you not to tell anyone about Nebby, and, fearing another attack, asks that you accompany them back to town."
+            ]
+        },
+        "Iki Town (Visit 2)": {
+            "Text": [
+                "Kukui is waiting when you return to town, and recognizes Lillie as his assistant. Just then, some of the residents announce the kahuna's return. Melemele's kahuna, Hala , asks why he spotted Tapu Koko is flying about, and Lillie recounts the events at the bridge. Hala introduces himself, and Kukui hands you two more gifts: the Pokédex , a high-tech encyclopedia that automatically records data on every Pokémon you see or catch; and your Trainer Passport , which holds all of your personal info, including your noteworthy deeds and accomplishments around the region.",
+                "Kakui suggests you head home. As you step off the stage, however, Hau stops you, and the Sparkling Stone in your Bag begins to shine. Hala asks to see it and immediately recognizes the stone. He inquires about the events at the bridge, and wonders if maybe you are meant to be in Alola. He asks to borrow the stone for the day, and invites you to the town festival tomorrow. Kukui and Lillie then accompany you on the way home."
+            ]
+        },
+        "Home": {
+            "Text": [
+                "Back home, you introduce your new partner to Mom and Meowth, who are excited to meet the young Pokémon. You and your Pokémon are both worn out from the earlier events, and turn in until tomorrow."
+            ]
+        }
+    }
+}

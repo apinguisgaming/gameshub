@@ -1,0 +1,2093 @@
+{
+    "Part_1": {
+        "Introduction": {
+            "Text": [
+                "After a brief cutscene, press the A Button or Start on the title screen to reach the main menu. Option may be used to change settings like Text Speed. Select New Game and press the A Button. Players are then prompted to enter the current time . This influences certain events based on the time of day and day of the week. The famous Pokémon researcher, Professor Oak , appears and introduces new Trainers to the Pokémon world. Next, the player is prompted to select their character's name from a list of preset options, which differs between versions.",
+                "To use a different name, move the cursor to New Name and press the A Button. On this screen, pressing the A Button will select a letter while pressing the B Button or selecting Del will delete the previous one. A custom name may be up to seven characters long. When ready, press Start or select End in the bottom-right corner. With that done, the player is transported into the world of Pokémon to begin their adventure!"
+            ]
+        },
+        "New Bark Town": {
+            "Text": [
+                "The journey begins in New Bark Town , in the southeast part of the Johto region. It is a rather small, sleepy town with only four buildings. The northeastern house belongs to you and Mom , while the southern one is home to the resident researcher of the Johto region, Professor Elm . The large building to the north is Elm's Laboratory. The west side of town leads to the tall grasses of Route 29 , and the waters to the east open up to Route 27 ."
+            ],
+            "Home": {
+                "2F": {
+                    "Text": [
+                        "The journey begins in your bedroom. Now that you can control your character, the various buttons and their effects are as follows:",
+                        "The PC in the corner acts as your item storage . Since each pocket on your Pack can only hold 20 different items , it would be necessary to use or discard some before obtaining anything new. The PC can hold up to 50 different items. Deposit Item and Withdraw Item allow for moving items between inventory and storage, while Toss Item discards an item permanently. There is also a Mailbox function to store pieces of Mail , as well as a Decoration option.",
+                        "To save the game, press Start to open the main menu, select Save , and then Yes . When the menu disappears, your progress is saved and it is safe to exit the game.",
+                        "To go downstairs, step on the stairs in the northeast corner of the room."
+                    ]
+                },
+                "1F": {
+                    "Text": [
+                        "Mom is sitting at the table, and tells you that Professor Elm has been looking for you. Before you can leave, she tells you that your Pokégear is back from the repair shop. This device initially acts as a clock, but can perform other functions with the necessary expansion cards. Mom helps you finish setting up the Clock function by asking about the day of the week and Daylight Saving Time .",
+                        "To leave the house, step on the floor mat along the south wall and press Down on the +Control Pad."
+                    ]
+                }
+            },
+            "The Spy": {
+                "Text": [
+                    "A young, red-haired man can be seen peering into Elm's Lab through a side window. If you try to speak to him, he shoves you back before returning to the window."
+                ]
+            },
+            "Professor Elm's Lab": {
+                "Text": [
+                    "Professor Elm has a favor to ask of you. A friend of his, nicknamed Mr. Pokémon , studies Pokémon as a hobby and regularly contacts the professor about his findings. Elm suggests that these discoveries are not usually as exciting as his friend makes them out to be, but believes that this time is different. However, he and his aides are busy with their research, so he asks that you go in his place. To accompany you on the trip, he lets you choose one of his rare Pokémon. Each has its advantages and disadvantages, so simply choose the one that you like the best.",
+                    "After choosing your first partner Pokémon , Professor Elm asks if you would like to give it a nickname , which may be up to ten characters long. Elm informs you that Mr. Pokémon lives a short distance from Cherrygrove City , to the west of New Bark Town . He invites you to return at any time and use his PC to heal your Pokémon, and gives you his phone number to register in your Pokégear . As you leave the building, his aide gives you a Potion ."
+                ]
+            }
+        },
+        "Route 29": {
+            "Text": [
+                "Route 29 is a hilly path that runs west from New Bark Town to Cherrygrove City . Westbound travelers must pass through patches of tall grass , while eastbound travelers can jump over a series of ledges to avoid these grasses and the wild Pokémon inside. To the north, Route 46 leads down from the mountains."
+            ],
+            "A Berry a Day": {
+                "Text": [
+                    "Examine the tree on the northwest hill to pick a Berry from it. There are several different types of Berry , each with its own restorative effect. This particular variety restores a Pokémon's HP by 10 points. Berries may be used by a Trainer, or consumed by a Pokémon during battle. Giving a natural item like this to a Pokémon to hold will let it use the item when it sees fit. Pokémon are unfamiliar with artificial items like Potions and cannot use them on their own.  Berries grow back over time, so revisit the same tree the next day to find another one."
+                ]
+            }
+        },
+        "Route 46": {
+            "Text": [
+                "Route 46 is a hilly route, located to the north of Route 29 via the northern gatehouse. As a result of the terrain, the player can for now only access the grassy lower part of the route when entering the route from the south."
+            ]
+        }
+    },
+    "Part_2": {
+        "Cherrygrove City": {
+            "Text": [
+                "Cherrygrove City is a small city between Route 29 to the east and Route 30 to the north. The air is filled with the smell of flowers and the salty sea breeze."
+            ],
+            "City Tour": {
+                "Text": [
+                    "An elderly man known by his nickname, Guide Gent, can be found on the east side of town. Speak to him to be taken on a tour of the city. He points out the Pokémon Center , the Poké Mart , the path to Route 30 , and the sea, before ending the tour outside his home. Afterward, he gives you a Map Card to add to your Pokégear. This expansion card acts as a Town Map , allowing you to view the entire region. It even displays your current location!"
+                ]
+            },
+            "Pokémon Center": {
+                "Text": [
+                    "The first building you will see is the Pokémon Center . This Pokémon hospital will heal your team to full health and eliminate any status ailments they may have. Each facility also has a PC for Trainers to use, where they can access their Pokémon storage and item storage. As Trainers may only carry six Pokémon with them at once, any others are immediately transferred to storage upon capture. It is a good idea to heal up and save your progress whenever you find a Pokémon Center."
+                ]
+            },
+            "Poké Mart": {
+                "Text": [
+                    "Another shop sits to the west of the Pokémon Center. This is the local Poké Mart ; these stores offer a variety of Poké Balls, Potions, and other items. It is helpful to stock up on supplies whenever possible, as there is no telling what you may run into on your journey."
+                ]
+            }
+        },
+        "Route 30": {
+            "Text": [
+                "Running north from Cherrygrove City , Route 30 is a grassy path where many novice Trainers like to battle. The road diverges as it moves northward; the eastern branch leads to a clearing with Mr. Pokémon 's house, while the western branch leads uphill to Route 31 . A battle between Pokémon Trainers initially blocks the western path."
+            ],
+            "Mr. Pokémon's house": {
+                "Text": [
+                    "Visit the house in the northeast clearing to meet Mr. Pokémon . He recognizes you right away as an associate of Professor Elm , and gives you the Mystery Egg . He says that he obtained the Egg from a couple who runs a Pokémon Day Care . Elm is the authority on Pokémon Evolution , which is why he contacted him about the Egg, and even Mr. Pokémon's guest agrees. The man introduces himself as Professor Oak , and notices that Elm entrusted you with your first partner Pokémon . Seeing that you are dependable, Oak decides to give you a Pokédex . This handheld device is a high-tech encyclopedia that records data on every Pokémon you encounter, and will be complete when you catch a member of every species. Oak then leaves for his radio show in Goldenrod City . Speak to Mr. Pokémon to have him heal your Pokémon before you leave."
+                ]
+            },
+            "A Terrible Tale": {
+                "Text": [
+                    "When you step back outside, Professor Elm calls in a state of panic. He is too upset to describe what has happened, so hurry back to New Bark Town to investigate!"
+                ]
+            }
+        },
+        "Cherrygrove City (Visit 2)": {
+            "Ambush!": {
+                "Text": [
+                    "When you reach the east side of Cherrygrove City , the young, red-haired man that was spying on Elm 's Lab ambushes you. He knows that you received a Pokémon from the Lab, and calls it a waste for a wimp like you to have one of Elm's rare Pokémon. It turns out that he also has a Pokémon, and draws you into battle."
+                ]
+            },
+            "Rival Battle 1": {
+                "Text": [
+                    "When battling, each Trainer sends out one Pokémon at a time; both of these particular Pokémon are on Level 5, indicated by the :L5 aside each Pokémon. Below that is the health bar, which shows the Pokémon's remaining HP . A battle is won or lost when either side has no remaining Pokémon with the strength to continue.",
+                    "Choosing Fight will allow you to launch an attack against the target. Both combatants have two moves. The first will damage the opponent, and the other will lower one of its stats. If your Pokémon's HP runs low, be sure to use a Potion. Go to Pack to select the medicine and apply it to the Pokémon. If it is holding the Berry from Route 29 , it will automatically consume the item when its HP falls below 50%.",
+                    "Once you have defeated him , you earn a cash reward of $ 300, and he will leave. The encounter earns your Pokémon valuable Experience Points , as well. Continue on to Elm's Lab."
+                ]
+            }
+        },
+        "New Bark Town": {
+            "Professor Elm's Lab": {
+                "Text": [
+                    "Back in New Bark Town , you return to the laboratory to find a police officer questioning the professor. One of his rare Pokémon was stolen by a young man with long, red hair ! Upon hearing that you battled a Trainer matching this description, the officer asks if you happened to catch his name. As with the player character , the rival 's name may be up to seven characters long. Once the officer leaves, speak to Professor Elm to deliver the Mystery Egg . He is shocked by the discovery, and is pleased to hear that Professor Oak gave you a Pokédex . He suggests taking the Pokémon Gym challenge, with the nearest one being located in Violet City . The road to becoming a Pokémon Champion will be a long one, so he advises you to stop at home before setting off.",
+                    "On your way out the door, Elm's aide hands you five Poké Balls to start you on your journey. From this point on, you are able to purchase them for yourself in most Poké Marts ."
+                ]
+            },
+            "Home": {
+                "Safeguard Your Savings": {
+                    "Text": [
+                        "Speak to Mom , who is excited to see your new Pokémon. Realizing that you are headed off on an adventure, she offers to save your money for you. If all of your Pokémon faint during battle, you will black out and lose some of your money, but anything left with Mom is safe. If you accept her offer,  25% of the prize money won from each battle will automatically be sent to her. Money can be deposited with or withdrawn from her at any time. Once enough has been saved, she will occasionally call to say that she has bought decorations or other items, then apologizes for spending the money she is saving. Each item can only be obtained once."
+                    ]
+                },
+                "Wild Pokémon & Trainer Battles": {
+                    "Text": [
+                        "Now that you have access to Poké Balls , you can now catch wild Pokemon by throwing balls at them in battle. Weakening wild Pokémon and afflicting them with status conditions makes capture more likely. Revisit Route 29 , Route 46 , and Route 30 to catch wild Pokemon to add to your team as you'd like.",
+                        "The Trainer battle that blocked Route 30 's western branch has ended, so we can now proceed to the northwest. There are trainers in this area; each will challenge you to a battle if you interact with them or enter their lines of sight.",
+                        "Continue north from Route 30 to reach Route 31 ."
+                    ]
+                }
+            }
+        }
+    },
+    "Part_3": {
+        "Route 31": {
+            "Text": [
+                "Route 31 is a short, winding path, linking Route 30 with Violet City to the west. A cave entrance on the route's east side leads to Dark Cave , but the area is difficult to navigate without certain field moves."
+            ],
+            "Dark Cave": {
+                "Text": [
+                    "Dark Cave is a pitch-black cave network that runs underneath the eastern part of the region. First accessible from Route 31 , navigation beyond the tunnel's southwest chamber is impossible without Rock Smash or Surf as well as the optional use of Flash ."
+                ]
+            }
+        },
+        "Violet City": {
+            "Text": [
+                "Violet City is an old village surrounded by trees. The city stands between Route 31 to the east, Route 32 to the south, and Route 36 to the west. It is a common destination for new Pokémon Trainers, as a Pokémon academy and the Violet Gym are both located here. A tall building known as Sprout Tower stands on the north side of town."
+            ],
+            "Time for a Trade": {
+                "Text": [
+                    "Visit the house to the southwest of the Pokémon Center to find a boy who would like to trade Pokémon. He is willing to part with his Onix in exchange for a Bellsprout . Bellsprout can be found nearby on Routes 31 and 32 ."
+                ]
+            },
+            "Earl's Pokémon Academy": {
+                "Text": [
+                    "The local Pokémon academy is run by a man named Earl Dervish , who is initially found standing between the Gym and Poké Mart. Speak to him, and he asks if you have defeated the local Gym; say no, and he leads you to the school while he twirls around at every turn along the way. The school teaches inexperienced Trainers about the basics of battle. A blackboard in the front of the room describes the five status ailments that can affect a Pokémon."
+                ]
+            },
+            "Sprout Tower": {
+                "Text": [
+                    "Sprout Tower is a large pagoda held together by a flexible pillar that sways from side to side. This flexibility protects the tower from earthquakes and symbolizes the battles occurring on the upper floors. It is inhabited by Sages who study diligently and teach that all living beings coexist through cooperation. It is said that the swaying pillar was once a 100-foot-tall Bellsprout ."
+                ],
+                "1F (Center)": {
+                    "Text": [
+                        "The tower is three stories tall. The ground floor is open to tourists, who visit to see the unique style in which the tower is built. Pass by the swaying pillar  and climb the stairs to 2F."
+                    ]
+                },
+                "2F (Northeast)": {
+                    "Text": [
+                        "Go east to battle Sage Nico and take the stairs back down to 1F."
+                    ]
+                },
+                "1F (North)": {
+                    "Text": [
+                        "Pick up the Parlyz Heal to the south. Head west to battle Sage Chow, then climb up the western stairway."
+                    ]
+                },
+                "2F (Southwest)": {
+                    "Text": [
+                        "Grab the X Defend to the north, then battle Sage Edmond in the southwest corner. Climb the southern stairway to 3F."
+                    ]
+                },
+                "3F": {
+                    "Text": [
+                        "Collect the Potion to the west. Continue northward to battle Sages Jin, Neal, and Troy.",
+                        "When you pass the swaying pillar, you find that Silver has just defeated the elder Sage, Li. He acknowledges Silver's skill as a Pokémon Trainer and hands him a Hidden Machine , but warns that he should not treat his Pokémon so harshly. Silver notices you at this point, and complains about the elder Sage being weak. He clearly has no intention of heeding the Sage's warning, as he is only interested in strong Pokémon that can win. He then uses an Escape Rope to leave the tower.",
+                        "Pick up the Escape Rope in the northeast corner, then speak to Sage Li. He welcomes you to the tower, and offers to test the bonds between you and your Pokémon.",
+                        "Li's two Bellsprout can both boost their Special Attack with Growth , which lets them deal extra damage with Vine Whip . Grass-type Pokémon like these are vulnerable to Fire - and Flying-type attacks, so Pidgey , Hoothoot , and Cyndaquil will have little trouble getting past them. His Hoothoot, a Flying-type Pokémon, takes serious damage from Rock-type attacks.",
+                        "When the battle is over, Li rewards you with HM05 ( Flash ). This field move lights up even the darkest caves, but to use it outside of battle, you must first defeat the Violet Gym ."
+                    ]
+                }
+            },
+            "Violet Gym": {
+                "Text": [
+                    "The Violet Gym specializes in Flying-type Pokémon. Flying-type moves are super effective against Bug -, Fighting -, and Grass-type Pokémon, while Flying-type Pokémon are weak to Electric -, Ice -, and Rock-type moves.",
+                    "The Gym has a simple layout, and features a winding walkway that passes over a seemingly bottomless pit. There are two Gym Trainers that must be defeated in order to reach the Gym Leader .",
+                    "Both of Falkner 's Pokémon can use Mud-Slap , a Ground-type attack that lowers the target's Accuracy . Despite its low power, it still deals increased damage to Fire Pokémon like Cyndaquil . His Pidgeotto 's Gust attack does well against Bug Pokémon, and Grass-type Pokémon like Chikorita . Flying Pokémon can do little against the high Defense of Rock-type Pokémon; if you traded for the boy's Onix , counterattack with Rock Throw for an easy victory.",
+                    "After the battle, Falkner awards you the Zephyr Badge , which gives your Pokémon a slight Attack boost during battle and enables the use of Flash in the field. He also gives you TM31 ( Mud-Slap ) as a prize."
+                ]
+            },
+            "Elm and the Egg": {
+                "Text": [
+                    "Professor Elm calls when you step outside the Gym, and says that they have discovered something about the Mystery Egg . He informs you that his aide is in the nearby Pokémon Center, and asks that you pay him a visit."
+                ]
+            },
+            "Pokémon Center": {
+                "Text": [
+                    "Elm 's aide is waiting for you near the counter. Speak to him to receive a message from the professor, asking that you take the Mystery Egg . The aide explains that in order for a Pokémon to grow and hatch from an Egg, it must spend time with other active Pokémon. He asks that you call the professor when it hatches, then leaves."
+                ]
+            }
+        }
+    },
+    "Part_4": {
+        "Route 36": {
+            "Text": [
+                "Route 36 is a densely wooded road that runs to the west from Violet City . A wiggly tree blocks the path to the west. To its south is access to the mysterious Ruins of Alph ."
+            ],
+            "An Item for Each Day of the Week": {
+                "Text": [
+                    "Only on Thursday, Arthur can be found on Route 36. Talk to him to obtain the held item Hard Stone !\nArthur is just one of seven siblings we can find around the region on specific days of the week to get held items; now that you've defeated Falkner, you can also talk to Tuscany near the center of Route 29 to obtain a Pink Bow ."
+                ]
+            }
+        },
+        "Route 32": {
+            "Text": [
+                "Route 32 is a lengthy road that runs south along the shore from Violet City to Union Cave . A path on the north end leads west to the mysterious Ruins of Alph ."
+            ],
+            "Ruins of Alph": {
+                "Text": [
+                    "The grounds where the Ruins of Alph are located can be reached from Route 32 to the east and Route 36 to the north. There are four interior chambers. Each chamber holds a puzzle in which tiles must be arranged to show the image of a specific Pokémon species. Completing each puzzle causes a series of Unown forms to begin appearing in the large hall beneath the complex. The mysterious Pokémon species appears in many different forms that all resemble letters of the alphabet.",
+                    "Unown 's encounter rate is divided among all unlocked forms. Once all forms have been unlocked, most will have an encounter rate of 3.9%. Due to the method used to determine its form, Unown Z will always be slightly less common than the others, at 2.3%."
+                ],
+                "North chamber": {
+                    "Text": [
+                        "The north chamber is the only one accessible at first. A bit of text beside the puzzle hints at the Pokémon's identity. Move the tiles to their proper place to reveal the Pokémon's image and complete the puzzle. Doing so causes the floor to fall away, dropping you into the underground hall where the first eleven forms of Unown have awakened.",
+                        "Catch at least three different forms, and a Scientist investigating the ruins will approach you upon exiting the hall. He leads you to a nearby research facility and upgrades your Pokédex with its Unown Mode , allowing it to record the limited data available on each of the Unown forms."
+                    ]
+                },
+                "Southeast chamber": {
+                    "Text": [
+                        "The southeast chamber can be accessed after obtaining HM03 ( Surf ). Move the tiles to reveal an image of Aerodactyl , and the floor falls away. Completing this puzzle causes five more Unown forms to appear in the underground hall."
+                    ]
+                },
+                "West chamber": {
+                    "Text": [
+                        "The western chamber can only be accessed through Union Cave , after obtaining HM03 ( Surf ). Move the tiles to reveal an image of Ho-Oh , and the floor falls away. Completing this puzzle causes three more Unown forms to appear."
+                    ]
+                },
+                "Southwest chamber": {
+                    "Text": [
+                        "The southwest chamber can only be accessed through Union Cave , after obtaining HM03 ( Surf ) and HM04 ( Strength ). Move the tiles to reveal an image of Omanyte , and the floor falls away. Completing this puzzle causes the final seven Unown forms to appear."
+                    ]
+                }
+            },
+            "Quick! It's Qwilfish!": {
+                "Text": [
+                    "Halfway through the route, there is a pier with three Fishermen. Once you defeat Fisher Ralph, be sure to trade phone numbers with him. He will call occasionally to alert you about a swarm of a certain Pokémon species. Qwilfish cannot ordinarily be caught without the Super Rod , but can be fished up on Route 32 during this outbreak. The swarm only lasts until midnight, so be quick!"
+                ]
+            },
+            "Scheming for SlowpokeTails": {
+                "Text": [
+                    "As you approach the southern end of the route, you are stopped by a shady man to the west of the Pokémon Center. He tries to sell you a \"tasty, nutritious SlowpokeTail \" for the special price of $ 1,000,000. When he realizes that you do not have the cash, he shooes you away."
+                ]
+            },
+            "T.G.I.F.": {
+                "Text": [
+                    "Only on Friday, Frieda can be found behind the Pokémon Center. Frieda is the next of the Week Siblings: talk to her to obtain the Poison Barb !"
+                ]
+            },
+            "Fishing Guru 1": {
+                "Text": [
+                    "Visit the Pokémon Center to rest your weary team and prepare for the upcoming cave. Speak to the Fisherman near the counter to receive an Old Rod . With this fishing rod, you can now cast your line at any body of water to reel in Water-type Pokémon. Although the Old Rod is a low-end model, you can return to previous areas with bodies of water to catch a variety of Pokémon if you'd like."
+                ]
+            }
+        },
+        "Union Cave": {
+            "Text": [
+                "Union Cave is a small cave on the southern end of Johto 's peninsula, located between Routes 32 and 33 . The ground-level tunnel simply connects the two routes together. Seawater wells up from underground in several areas, initially blocking access to the deepest parts of the cave. Exploring the lower levels at a later point reveals two more exits that lead back to the Ruins of Alph ."
+            ],
+            "1F": {
+                "Text": [
+                    "Go west to reach a Potion in the northwest corner. Battle Hiker Daniel a few steps away to the south, then move southeastward to fight Hiker Russell. Turn south to reach Firebreather Bill; defeat him and collect the Great Ball in the dead-end path to the south. Go west to pick up an X Attack , then continue southward. Walk up onto the rocky ridge with PokéManiac Larry and climb down the ladder."
+                ]
+            },
+            "B1F (North)": {
+                "Text": [
+                    "Pick up TM39 ( Swift ) to the west and an X Defend to the east. Seawater blocks the way northward for now, so climb the ladder back up to 1F."
+                ]
+            },
+            "1F (Visit 2)": {
+                "Text": [
+                    "Walk down from the ridge and head east. Pick up the Awakening in the last dead-end tunnel to the south, then battle Firebreather Ray to reach the exit."
+                ]
+            }
+        },
+        "Route 33": {
+            "Text": [
+                "Route 33 is a short path that leads west from Union Cave to Azalea Town . A single Berry tree grows in the southeast."
+            ],
+            "Don't Miss Dunsparce!": {
+                "Text": [
+                    "Defeat Hiker Anthony, then be sure to trade phone numbers with him. He will call occasionally to alert you about a swarm of a certain Pokémon species. Dunsparce are usually difficult to find, but will be more likely to appear in Dark Cave for a short time. The swarm only lasts until midnight, so be quick!"
+                ]
+            }
+        }
+    },
+    "Part_5": {
+        "Azalea Town": {
+            "Text": [
+                "Azalea is a small, isolated town on the south end of Johto 's peninsula. Due to its remote location between Union Cave and Ilex Forest , the town sees few visitors aside from those looking to challenge the Azalea Gym . A Poké Ball craftsman named Kurt lives in the northwest part of town. The Slowpoke Well is located in the east, and its resident Slowpoke freely wander around town."
+            ],
+            "Charcoal Kiln": {
+                "Text": [
+                    "The house in the southeast part of town houses a charcoal kiln. The owner uses a Farfetch'd to fell trees in Ilex Forest and obtain the necessary materials. The wood is then treated and turned into Charcoal , which is then supplied to the local Poké Mart for sale."
+                ]
+            },
+            "Save the Slowpoke!": {
+                "Text": [
+                    "Visit the northwest house and speak to Kurt . If you were looking to have some custom Poké Balls made, it will have to wait. He informs you that members of a criminal organization known as Team Rocket have been sighted in Slowpoke Well , even though the group was supposedly disbanded three years ago . The rumor around town is that they have been cutting off SlowpokeTails to sell! Kurt was just about to confront them when you stopped by, and rushes off to save the Pokémon."
+                ]
+            },
+            "Slowpoke Well": {
+                "Text": [
+                    "The Slowpoke Well is located on the east side of town, near Route 33 . The cave is home to the town's Slowpoke , which they keep as pets. Legend has it that around 400 years ago, one of the Slowpoke from the well yawned, and in doing so ended a persistent drought that plagued Azalea Town ."
+                ],
+                "B1F": {
+                    "Text": [
+                        "Kurt can be found just inside the well, in the southeast corner of B1F. The Team Rocket Grunt that was blocking the entrance was so startled when Kurt shouted at him that he fell down the well. Kurt tried to give chase but lost his footing as well, landing hard on his back. He cannot move for the moment, so you need to save the Slowpoke in his place. Go north to find and defeat that first Grunt. Climb onto the northeast ridge to battle a female Grunt and pick up the nearby Super Potion . Walk down the stairway and go west to fight a third Grunt. Head north past a couple of captive Slowpoke to battle one final Grunt , the one in charge of the operation.",
+                        "Defeated, he admits that Team Rocket continued its activities in secret after the order to disband three years ago. He taunts you, saying that now you get to watch them stir up trouble. The Grunts flee, and Kurt is on his feet again. After checking on the two Slowpoke , he takes you back to his home."
+                    ]
+                }
+            },
+            "Kurt, the Craftsman": {
+                "Text": [
+                    "Kurt would be happy to make custom Poké Balls for you anytime, but he only has one at the moment and gives you a Lure Ball as thanks for saving the Slowpoke . Kurt goes on to explain that he makes Poké Balls from Apricorns ; simply collect them from trees and bring them to him. He accepts one Apricorn at a time, and will have the Poké Ball completed the next day. There are seven varieties of Apricorn, each suited for a different type of Poké Ball."
+                ]
+            },
+            "Azalea Gym": {
+                "Text": [
+                    "The Azalea Gym specializes in Bug-type Pokémon. Bug-type moves are super effective against Dark -, Grass -, and Psychic-type Pokémon, while Bug-type Pokémon are weak to Fire -, Flying -, and Rock-type moves.",
+                    "The Gym has a simple layout, with a series of bushes arranged in two half-circles around a large tree. The gap near the front of the building is blocked by Twins Amy & May, so challengers must approach from the back of the building to reach the Gym Leader .",
+                    "Neither of Bugsy 's first two Pokémon are much of a threat, though Kakuna may poison its target with Poison Sting . His Scyther is more dangerous, due in part to its high Attack and Speed . Its Fury Cutter attack starts out weak but doubles in power with every successful hit, and deals increased damage to Grass Pokémon like Chikorita . Leer cuts the target's Defense , allowing it to deal further damage. Bug Pokémon can do little against the high Defense of Rock-type Pokémon; if you traded for the boy's Onix in Violet City , counterattack with Rock Throw for an easy victory.",
+                    "After the battle, Bugsy awards you the Hive Badge , which ensures obedience of all Pokémon up to level 30 and enables the use of Cut in the field. He also gives you TM49 ( Fury Cutter ) as a prize."
+                ]
+            },
+            "Ambush!": {
+                "Text": [
+                    "When you reach the west side of town, Silver catches up to you. He asks if it is true that Team Rocket has returned, and accuses you of lying after learning that you defeated them. He draws you into battle to force you to prove yourself."
+                ]
+            },
+            "Rival Battle 2": {
+                "Text": [
+                    "Silver has added two more Pokémon to his team since the previous battle. Gastly takes serious damage from Ghost -, Psychic -, and Dark-type attacks, but its defenses are low enough that attacks of nearly any type will be effective. Ghost Pokémon are immune to Normal-type moves, so moves like Tackle and Scratch are useless. Zubat is vulnerable to Rock -, Electric -, Psychic -, and Ice-type moves. The Pokémon that he took from Elm 's lab has evolved since then and learned a move that matches its type, which boosts its power with a same-type attack bonus . Avoid pitting your own first partner Pokémon against it or risk taking serious damage.",
+                    "Afterward, he declares his hatred for anything weak, be it human or Pokémon. Silver vows to get stronger and wipe out the weak, including Team Rocket . He warns you to stay out of his way before leaving for Ilex Forest ."
+                ]
+            }
+        },
+        "Ilex Forest": {
+            "Text": [
+                "Ilex Forest is a densely wooded area between Azalea Town and Route 34 . Trees grow so close together that most sunlight never reaches the forest floor, leaving the area in what seems like perpetual night. A shrine dedicated to the forest's protector is located a short distance from the southern entrance."
+            ],
+            "Flight of the Farfetch'd": {
+                "Text": [
+                    "The apprentice from Azalea 's Charcoal Kiln can be found a short distance from the southern entrance. He tells you that the Farfetch'd that cuts down trees to be turned into Charcoal has wandered deeper into the forest. He is too scared of the dark forest to go looking for it, so it is up to you to find Farfetch'd. The Pokémon is startled easily, and approaching it from the wrong direction will only chase it deeper into the forest.",
+                    "Go east to find the Pokémon and interact with it, causing it to run off northward. Instead of following it, go east and circle around behind it to chase it back to the apprentice. He thanks you for your help, explaining that Farfetch'd will not listen to him as he has no Badges . Speak to his boss to receive HM01 ( Cut ) as thanks for saving his business. Teach this field move to a compatible Pokémon and use it to remove the small tree nearby, clearing a path forward. If you return to the Charcoal Kiln, the apprentice will reward you with a piece of Charcoal ."
+                ]
+            },
+            "Shake, Rattle, and Roll": {
+                "Text": [
+                    "Southeast of the pond, there is a man standing atop a ledge, facing a small pine tree. He explains that he has been shaking trees with Headbutt , and invites you to try it as well before giving you TM02 ( Headbutt ). This field move allows Trainers to shake these small trees , which sometimes causes a wild Pokémon to fall out. Depending on the time of day, the Pokémon that appears may be asleep . There are several Pokémon species that can only be encountered this way."
+                ]
+            }
+        },
+        "Route 34": {
+            "Text": [
+                "Route 34 is a lush, green path that runs along the sea from Ilex Forest to Goldenrod City . Johto 's Day Care center  is located on the north side."
+            ],
+            "Pokémon Day Care": {
+                "Text": [
+                    "The Pokémon Day Care is run by an elderly couple. The center allows Trainers to leave up to two of their Pokémon to be raised by the couple. Any Pokémon left in their care earns one experience point for every step you take. It costs a flat rate of $ 100, plus another $ 100 for every level gained, to withdraw a Pokémon.",
+                    "If a compatible male and female are left here at the same time, you may return to discover that the elderly couple has found an Egg . Keep the Egg in your party, like with the Mystery Egg , and it will eventually hatch. The Pokémon that appears will be the lowest species in the evolutionary line of the mother. If either parent is unavailable, Ditto may be used as a substitute; in this case, the newly-hatched Pokémon will be the lowest species in the evolutionary line of the non-Ditto parent. This is the only way to obtain additional members of a certain species, like Eevee , and newly-discovered baby Pokémon , like Pichu ."
+                ]
+            }
+        }
+    },
+    "Part_6": {
+        "Goldenrod City": {
+            "Text": [
+                "Goldenrod City is a sprawling metropolis located in western Johto , between Routes 34 and 35 . It is the region's largest city, and a major hub of economy and telecommunications. The Goldenrod Department Store offers a wide variety of goods, and an underground shopping district has its own selection. The Radio Tower broadcasts several informative programs, while patrons aim to hit the jackpot at the local Game Corner . A bicycle shop has recently moved here from Kanto , while the high-speed Magnet Train links the two neighboring regions. The Goldenrod Gym can be found in the northeast part of the city, next to a flower shop."
+            ],
+            "Goldenrod Department Store": {
+                "Text": [
+                    "The Goldenrod Department Store is the largest shop in Johto . Nearly any item a Trainer could want can be found here."
+                ],
+                "B1F": {
+                    "Text": [
+                        "The basement is only accessible by elevator. A group of workers and a Machoke are renovating the area. Each time you visit, these boxes will be moved to different places, allowing access to new parts of the basement. On the first visit, each side room is blocked off. On the second visit, an Ultra Ball can be found in the southeast room. On the third visit, a Burn Heal and an Ether can be obtained from the western room."
+                    ]
+                },
+                "2F: Trainer's Market": {
+                    "Text": [
+                        "The Trainer's Market is found on the second floor. Everyday items like Great Balls and Super Potions are offered here."
+                    ]
+                },
+                "3F: Battle Collection": {
+                    "Text": [
+                        "The Battle Collection occupies the third floor. Temporary stat-enhancing items are sold here."
+                    ]
+                },
+                "4F: Medicine Box": {
+                    "Text": [
+                        "A pharmacy known as the Medicine Box is located on the fourth floor. Permanent stat-enhancing items can be purchased here."
+                    ]
+                },
+                "5F: TM Corner": {
+                    "Text": [
+                        "The TM Corner can be found on the fifth floor. Several valuable Technical Machines are offered here.",
+                        "A little girl dressed in green can be found near the stairs. Speaking to her unlocks the Mystery Gift function, which is used to communicate with other Mystery Gift-enabled games to obtain random room decorations or items.",
+                        "A man dressed in blue near the counter would like to trade Pokémon. He is willing to part with his Machop in exchange for a Drowzee . Drowzee can be found just outside Goldenrod City , on Routes 34 and 35 .",
+                        "On Sundays, a second vendor appears behind the counter. Speak to her, and she will assess how your lead Pokémon feels about you. If it is friendly toward you, she hands out TM27 ( Return ) as a reward. If not, she gives out TM21 ( Frustration ) instead. She hands out only one TM each week."
+                    ]
+                },
+                "6F: Rooftop Square": {
+                    "Text": [
+                        "The Rooftop Square houses a picnic area and several vending machines . Each machine offers the same selection of drinks ."
+                    ]
+                }
+            },
+            "Friendship checker": {
+                "Text": [
+                    "The house to the northeast of the department store belongs to a woman who can evaluate the friendliness of the first Pokémon in your party. There are certain Pokémon that can only be acquired when a Pokémon is happy with its Trainer. There are many things that can be done in order to deepen a Pokémon's friendship with its Trainer, like grooming it or feeding it vitamins ."
+                ]
+            },
+            "Bike Shop": {
+                "Text": [
+                    "The Bike Shop has recently moved to the city's southeast neighborhood from the Kanto region, but is having trouble attracting customers. Recognizing the great deal of traveling you will be doing as a Pokémon Trainer, the owner asks to loan you a Bicycle . His hope is that others will see you riding one of his bikes and be interested enough to visit his shop. He takes down your contact information, and soon you have a brand new Bicycle. Riding a bike is faster than traveling on foot, and the owner gains new customers—everybody wins!",
+                    "Sometime later, you receive a call from the owner. He says that business is better now that people have seen you with one of his Bikes, and lets you keep the one he lent you to show his thanks."
+                ]
+            },
+            "Magnet Train Station": {
+                "Text": [
+                    "The Magnet Train station is located in the northwest part of the city. The high-speed train links Goldenrod City to Saffron City , in the middle of the neighboring Kanto region. With a Pass , it is normally possible for visitors to board the train at any time. However, it seems to be running late and has not yet returned from its latest journey into Kanto."
+                ]
+            },
+            "Goldenrod Radio Tower": {
+                "Text": [
+                    "The Goldenrod Radio Tower stands tall in the northwest part of the city. It is the source of all Pokégear broadcasts in Johto . Visitors are allowed on the first and second floors, while the upper floors are restricted to authorized personnel only."
+                ],
+                "1F": {
+                    "Text": [
+                        "One of the radio programs produced here, the Lucky Number Show , announces a random, five-digit number every week. Speak to the man behind the counter to have him check this week's number against the ID Numbers of your Pokémon, and if any of these numbers are a full or partial match, you win a prize.",
+                        "The woman behind the counter, farthest from the entrance, is running a promotional campaign. Speak to her to take a short quiz, with a free Radio Card as a prize.",
+                        "With the Radio Card installed, Trainers can use their Pokégear to tune into several different programs."
+                    ]
+                },
+                "2F": {
+                    "Text": [
+                        "A man posted in front of the stairs to 3F reminds visitors that the upper floors are off-limits. He mentions how this was not always the case, and wonders aloud if something is wrong with the director."
+                    ]
+                }
+            },
+            "Game Corner": {
+                "Text": [
+                    "The Goldenrod Game Corner is located in the southwest part of the city, behind the Pokémon Center. The venue features slot machines and a card flip game. Anyone looking to try their luck must first obtain a Coin Case in order to play. Coins can then be purchased at the counter on the left in bundles of 50 for $ 1,000 or 500 for $ 10,000."
+                ],
+                "Prize Corner": {
+                    "Text": [
+                        "Coins can be exchanged for prizes from the two women behind the counter on the right."
+                    ]
+                }
+            },
+            "Bill's house": {
+                "Text": [
+                    "The house to the southwest of the Game Corner is home to a woman and her daughter. They are relatives of Bill , the inventor of the Pokémon Storage System . His mother reveals that he is currently away on business at the Pokémon Center in Ecruteak City . Since you are using his storage system, his sister gives you his phone number. Giving Bill a call is a convenient way to learn how many Pokémon are stored in the current PC box.",
+                    "After meeting him in Ecruteak, he returns home to Goldenrod . Stop by his house afterwards to receive a gift from him."
+                ]
+            },
+            "The Underground": {
+                "Text": [
+                    "An underground passage connects the southwest and northwest parts of the city, with a small access hallway leading to the basement of the Department Store. It contains a bargain shop that sells valuable items , a Pokémon salon , and a shop selling herbal medicine . Each has set hours of operation and all three are never open at the same time."
+                ],
+                "Herbal shop": {
+                    "Text": [
+                        "The southern booth houses a shop that offers herbal medicine . These items heal or revive Pokémon for a cheaper price than traditional medicine. However, Pokémon do not enjoy their bitter taste, so using them on a Pokémon will lessen its friendship rating. This shop is only open on weekends."
+                    ]
+                },
+                "Pokémon Salon": {
+                    "Text": [
+                        "The middle booth houses the Pokémon Salon , which is run by two brothers. Their services deepen a Pokémon's friendship with its Trainer, though at different rates. The younger and less experienced brother is available on Sundays, Wednesdays, and Fridays, and charges $ 300. The older and more experienced brother is available on Tuesdays, Thursdays, and Saturdays, and charges $ 500. Their shop is closed on Mondays."
+                    ]
+                },
+                "Bargain shop": {
+                    "Text": [
+                        "The northern booth houses a bargain shop, which is only open on Mondays from 4:00 am to 9:00 am. This merchant deals in valuable items; while having no use themselves, they can be resold elsewhere for decent profit. Only one of each item may be purchased per week."
+                    ]
+                }
+            },
+            "Name Rater": {
+                "Text": [
+                    "The house near the city's north exit belongs to the Name Rater . Here, Trainers can have the nicknames of their Pokémon rated and, if the Pokémon's ID number matches the Trainer's ID number , the nickname can be changed. If the Pokémon was caught by the Trainer that currently owns it, he says that the name could be better and offers the chance to change it. If the Pokémon was obtained via a trade , he says that the name is perfect and refuses to change it."
+                ]
+            },
+            "Goldenrod Gym": {
+                "Text": [
+                    "The Goldenrod Gym specializes in Normal-type Pokémon. Normal-type moves are not super-effective against any Pokémon, while Normal-type Pokémon are weak to Fighting-type moves.",
+                    "The Gym is filled with planters of bushes and flowers arranged in the shape of a Clefairy . Moving clockwise along the exterior wall, it is possible to bypass Beauty Victoria in the northwest corner and reach the interior area. Moving counter-clockwise instead, challengers must defeat Beauty Samantha in the northeast to continue onward. Two more Trainers must then be defeated to reach the Gym Leader .",
+                    "Whitney 's Clefairy may not be much of a problem on its own, but there is always a chance that using Metronome calls a powerful attack if luck is on its side. The more pressing threat is her Miltank . It has high Defense and Speed , and can restore its health with Milk Drink . Its most dangerous move is Rollout , which doubles in power for each consecutive hit. The easiest way to oppose the Goldenrod Gym is to bring the Machop available for trade in the Department Store. Its Fighting-type moves will deal serious damage to Whitney's Pokémon, and Miltank's Rollout is not very effective against Fighting-type Pokémon.",
+                    "After the battle, Whitney sobs uncontrollably. Unable to claim your new Badge, you turn to leave when Lass Bridget steps in. According to her, Whitney always cries when she loses, but will compose herself soon. Speak to Whitney again, and she finally awards you the Plain Badge , which gives your Pokémon a slight Speed boost during battle and enables the use of Strength in the field. She also gives out TM45 ( Attract ) as a prize."
+                ]
+            },
+            "Goldenrod Flower Shop": {
+                "Text": [
+                    "Before you leave for Route 35 , be sure to stop by the flower shop to the east-northeast of the Gym. The two women inside talk about an odd tree on Route 36 that actually squirms around to avoid contact with water. One woman gives you a SquirtBottle so that you can see for yourself."
+                ]
+            }
+        }
+    },
+    "Part_7": {
+        "Route 35": {
+            "Text": [
+                "Route 35 is a short, pleasant path that leads northward from Goldenrod City . The main road leads to the National Park , while a smaller trail acts as a shortcut to Route 36 ."
+            ],
+            "Mail Delivery": {
+                "Text": [
+                    "Speak to the guard in the southern gate, and he asks for a favor. Deliver his Spearow , named Kenya, and the piece of Mail it holds to his friend on Route 31 . It is worth noting that you can simply remove the mail and train this increased-experience Spearow for your playthrough if you'd like."
+                ]
+            },
+            "Attack of the Dragonflies!": {
+                "Text": [
+                    "Defeat Bug Catcher Arnie near the thin tree in the northeast, then be sure to trade phone numbers with him. He will call occasionally to alert you about a swarm of a certain Pokémon species. Yanma are usually difficult to find, but will be more likely to appear along Route 35 for a short time. The swarm only lasts until midnight, so be quick!"
+                ]
+            }
+        },
+        "National Park": {
+            "Text": [
+                "The National Park is a beautiful recreational space between Route 35 to the south and Route 36 to the east. A haven for Bug and Grass Pokémon, a Bug-Catching Contest is held here every Tuesday, Thursday, and Saturday .",
+                "There is no entry fee for the Bug-Catching Contest . Anyone may enter once per day, every Tuesday, Thursday, and Saturday .",
+                "To compete, Trainers must catch the single best Bug-type Pokémon they can find. To do this, Trainers are given 20 Park Balls and are only allowed to use a single Pokémon from their party. The others remain with the contest officials until the competition is over. Any Pokémon caught will be recorded in the Pokédex, but only one Pokémon may be kept to be judged. The Pokémon selected to be judged may be kept after the competition.",
+                "The competition ends when 20 minutes have passed, all Park Balls have been used, or the Trainer blacks out , leaves the park, or chooses to quit. After that, the judging will occur, in which Trainers are scored on their skills of capturing rare and powerful Pokémon."
+            ]
+        },
+        "Route 36": {
+            "Text": [
+                "Route 36 is a densely wooded path that branches off in several directions. It connects the National Park and Route 35 in the west with the Ruins of Alph to the south, Violet City to the east, and Route 37 to the north."
+            ],
+            "An Inconvenient Tree": {
+                "Text": [
+                    "The odd tree mentioned by the women in Goldenrod City 's flower shop can be found in the middle of the route, blocking travel from every direction. Despite its tree-like appearance, this oddity actually tries to avoid water. Use the SquirtBottle to splash a bit of water on it, and it attacks! It turns out to be a Sudowoodo , a rare Pokémon that is more similar to a rock than a tree."
+                ],
+                "VS Sudowoodo": {
+                    "Text": [
+                        "You can catch or defeat this Sudowoodo. Once the path is clear, speak with the man to the east to receive TM08 ( Rock Smash ) as thanks dealing with the troublesome Pokémon."
+                    ]
+                }
+            }
+        },
+        "Southeast Johto HM Goodies": {
+            "Text": [
+                "This section is optional. Taking care of Sudowoodo allows us to again access Violet City and the surrounding areas. With HM Cut and TM Rock Smash, we can now access areas that were previously inaccessible. First, TM05 ( Roar ) can be found on Route 32 behind a Cut tree."
+            ],
+            "Mail Delivery": {
+                "Text": [
+                    "Take Kenya the Spearow to Route 31 , and deliver it to the man dozing near the pond there. Complete the delivery, and he wakes up just long enough to give you TM50 ( Nightmare ). You can return to Route 35 to speak to the guard afterward to receive an HP Up as a reward."
+                ]
+            },
+            "Dark Cave and Route 46, Second Visit": {
+                "Text": [
+                    "We can now access more of the Southwest Chamber of Dark Cave .",
+                    "The southeast exit of Dark Cave at the bottom leads to Route 46 , where some items can be found and trainers can be fought. Note that battling all trainers will require one extra trip through Dark Cave thanks to one-way ledges."
+                ]
+            }
+        },
+        "Route 37": {
+            "Text": [
+                "Route 37 is a short road that leads north from Route 36 to Ecruteak City . A secluded grove of Apricorn trees stands on the east side."
+            ]
+        }
+    },
+    "Part_8": {
+        "Ecruteak City": {
+            "Text": [
+                "Ecruteak City lies in the woods of northern Johto , between Routes 37 , 38 , and 42 . The city honors its past by preserving long-held traditions, like the old-fashioned architecture of the local dance theater and the two towers that stand to the north. Several legendary Pokémon have ties to the area, giving Ecruteak an air of mystery."
+            ],
+            "Treasure Hunting": {
+                "Text": [
+                    "Visit the southwest house and speak to the man inside. He gives you an Itemfinder , a device that can detect any hidden items nearby."
+                ]
+            },
+            "Pokémon Center": {
+                "Time-Traveling Trades": {
+                    "Text": [
+                        "Enter the Pokémon Center to meet Bill , the creator of the Pokémon Storage System . He has just finished maintenance on the Time Capsule , a machine located on the second floor of every Pokémon Center that allows Trainers to \"trade with the past \". There are certain restrictions, as all Pokémon and moves that were still undiscovered then are prohibited. The Time Capsule will be operational in 24 hours. After a brief explanation, Bill leaves for his home in Goldenrod City ."
+                    ]
+                }
+            },
+            "Ecruteak Dance Theater": {
+                "Text": [
+                    "The Ecruteak Dance Theater is where the Kimono Girls practice both their dancing and their Pokémon training. Each of the five sisters specializes in one of Eevee 's Evolutions . They may be battled in any order. After they have been defeated, speak to the Gentleman in the audience. He has challenged the sisters repeatedly but has failed each time. To reward you for defeating them when he could not, he gives you HM03 ( Surf )."
+                ]
+            },
+            "Burned Tower": {
+                "Text": [
+                    "The charred ruins of the Burned Tower lie in the northwest part of the city. Formerly known as the Brass Tower, it was once as majestic as the Tin Tower to the east. When it was new, it was said to be the roost of an immense, silver-colored Pokémon . But centuries later, a heavy storm rolled in and the tower was struck by lightning, igniting a great fire that would rage for three days. The silver Pokémon and the glorious, rainbow-colored Pokémon that roosted on Tin Tower escaped to the skies unharmed, and the silver Pokémon flew away, never to return. A sudden downpour would finally douse the flames, and the rainbow Pokémon gave new life to three nameless Pokémon that perished in the blaze before it flew off as well."
+                ],
+                "1F": {
+                    "Text": [
+                        "Immediately after entering the tower, you are ambushed again by Silver . He is looking for the legendary Pokémon that are supposed to be here, and accuses you of trying to get to them first. He aims to stop you, and draws you into battle.",
+                        "Silver has added another new Pokémon to his team since the previous battle. Magnemite takes serious damage from Fire -, Ground -, and Fighting-type attacks. For Trainers who chose Cyndaquil , or traded for the Machop in Goldenrod City , it will likely be little threat. His Gastly has since evolved into Haunter , but is still vulnerable to the same Ghost -, Psychic -, and Dark-type moves. Use Rock - and Electric-type moves against his Zubat for greatest effect. The Pokémon that he took from Elm 's lab has grown a few levels but otherwise has not changed since the previous battle.",
+                        "Afterward, Silver shrugs off his loss as he moves to leave the tower, declaring that you would never be able to catch a legendary Pokémon anyway.",
+                        "As the ruined tower is littered with fallen debris, Rock Smash is required to fully explore the area. Using it on the broken rock to the east clears the way to Firebreather Ned and a Burn Heal , and jumping down through the hole in the floor leads to an HP Up . Use the move again to pass through the western side of the tower and reach the center area, then drop down through the hole in the floor."
+                    ]
+                },
+                "B1F": {
+                    "Text": [
+                        "On the lower level, you find yourself standing before three mysterious Pokémon . They do not react until approached, when they suddenly dash off in different directions and begin racing across the land . They can be encountered almost anywhere but flee from humans immediately. After seeing them in battle, the Pokédex tracks their movements."
+                    ]
+                }
+            },
+            "Tin Tower": {
+                "Text": [
+                    "The Tin Tower stands tall in the northeast part of the city. It is a sacred place, and is off-limits to all but a few people. Ecruteak's Fog Badge gets you inside, but no higher than the first floor. A special item is required to reach the rest of the tower."
+                ]
+            },
+            "Ecruteak Gym": {
+                "Text": [
+                    "The Ecruteak Gym specializes in Ghost-type Pokémon. Ghost-type moves are super effective against Ghost- and Psychic-type Pokémon, while Ghost-type Pokémon are weak to Ghost- and Dark-type moves. Normal - and Fighting-type moves will have no effect.",
+                    "The Gym features what appears to be a bottomless pit, with an invisible bridge crossing over it. Challengers who step in the wrong place are returned to the entrance. The Gym Trainers are positioned along this hidden walkway, giving the impression that they are floating in the air. The path to the Gym Leader mostly follows each Gym Trainer's line of sight.",
+                    "Morty 's Pokémon tend to use indirect attacks to harass their target. Spite and Curse drain the target's energy, while Lick and Hypnosis can inflict status ailments. Most of his Pokémon can even use Mean Look to prevent escape. Ghost-type Pokémon are vulnerable to Ghost- and Dark-type moves, but Psychic - and Ground-type attacks are an equally effective way to target their secondary Poison typing, instead.",
+                    "After the battle, Morty awards you the Fog Badge , which ensures obedience of all Pokémon up to level 50 and enables the use of Surf in the field. He also gives you TM30 ( Shadow Ball ) as a prize."
+                ]
+            }
+        },
+        "Route 38": {
+            "Text": [
+                "Route 38 leads west from Ecruteak City , weaving through the trees on its way toward Route 39 ."
+            ],
+            "Searching for Snubbull": {
+                "Text": [
+                    "After defeating Schoolboy Chad, be sure to trade phone numbers with him. He will call occasionally to alert you about a swarm of a certain Pokémon species. Snubbull are usually difficult to find, but will be more likely to appear along Route 38 for a short time. The swarm only lasts until midnight, so be quick!"
+                ]
+            }
+        },
+        "Route 39": {
+            "Text": [
+                "The peaceful plains of Route 39 lead downhill from Route 38 to Olivine City . The Moomoo Farm is located in the northwest."
+            ],
+            "Moomoo Farm": {
+                "Text": [
+                    "The Moomoo Farm depends on its herd of Miltank to produce its milk, which is popular with people and Pokémon as far away as Kanto . Speak to the farmer in the farmhouse to learn that one of their Miltank has fallen ill, and will need Berries to recover. Visit the barn to find the farmer's daughters tending to the sickly Miltank, Moomoo. In order to fully recover, she must be fed a total of seven Berries. Once her condition returns to normal, speak to the farmer again to receive TM13 ( Snore ) as a reward. Afterward, Moomoo Milk can be purchased from the farmer for $ 500 per bottle."
+                ]
+            }
+        }
+    },
+    "Part_9": {
+        "Olivine City": {
+            "Text": [
+                "Olivine City is a major port city located in northwest Johto , between Route 39 to the north and Route 40 to the west. The Olivine Gym stands in the north part of town, and the Olivine Lighthouse helps to guide ships like the S.S. Aqua into the harbor."
+            ],
+            "Beacon's Plight": {
+                "Text": [
+                    "When you approach the Gym, Silver is just leaving. He informs you that the Gym Leader is away at the lighthouse, taking care of a Pokémon that has fallen ill. He walks away, wondering aloud why she would do such a thing, as he firmly believes that any Pokémon unable to battle is worthless."
+                ]
+            },
+            "Fishing Guru 2": {
+                "Text": [
+                    "Visit the first house to the south of the Gym and speak to the Fisherman inside to receive a Good Rod . This mid-level fishing rod can reel in a greater variety of water-dwelling Pokémon than the Old Rod ."
+                ]
+            },
+            "Time for a Trade": {
+                "Text": [
+                    "There are two houses standing side-by-side in the northeast part of town. Visit the western house to find a man who would like to trade Pokémon. He is willing to part with his Voltorb in exchange for a Krabby . Krabby can be found in Olivine City and on Route 40 to the west, and is an easy catch with a Good Rod ."
+                ]
+            },
+            "Olivine Café": {
+                "Text": [
+                    "The Olivine Café is located to the west of the Pokémon Center. Speak to the Sailor inside to receive HM04 ( Strength ). This field move lets a compatible Pokémon move large boulders with ease."
+                ]
+            },
+            "Olivine Lighthouse": {
+                "Text": [
+                    "The Olivine Lighthouse is located in the southeast part of the city. A certain Pokémon usually serves as the lighthouse beacon to safely guide ships into the harbor, but has recently fallen ill."
+                ],
+                "1F-4F": {
+                    "Text": [
+                        "Battle other Trainers on the way to the fifth floor."
+                    ]
+                },
+                "5F (Outer)": {
+                    "Text": [
+                        "Go south to find TM34 ( Swagger ), then battle Bird Keeper Denis on the north side of the building. Pick up the Rare Candy on the east side and jump down through the gap in the floor."
+                    ]
+                },
+                "4F (Outer)": {
+                    "Text": [
+                        "Head northwest to battle Lass Connie, then jump down through the nearby gap."
+                    ]
+                },
+                "3F (Inner)": {
+                    "Text": [
+                        "Battle Sailor Terrell, then pick up the Ether and climb up the stairs to 4F."
+                    ]
+                },
+                "4F (Inner)": {
+                    "Text": [
+                        "Climb the stairs to a separate part of the fifth floor."
+                    ]
+                },
+                "5F (Inner)": {
+                    "Text": [
+                        "Battle Sailor Ernest, then collect the Great Ball and climb up the stairs."
+                    ]
+                },
+                "6F": {
+                    "Text": [
+                        "On the top floor, you find the local Gym Leader, Jasmine , keeping the ill Ampharos company. Amphy would normally use its tail to illuminate the harbor, but does not have the strength for it at the moment. Jasmine informs you of a pharmacy across the sea in Cianwood City , and as she cannot leave the Pokémon unattended, asks if you would bring their medicine back for Amphy."
+                    ]
+                }
+            }
+        },
+        "Route 40": {
+            "Text": [
+                "Route 40 includes a small beach outside Olivine City and a stretch of open ocean leading south to Route 41 ."
+            ]
+        },
+        "Route 41": {
+            "Text": [
+                "Route 41 is a water route that connects Route 40 to the north and Cianwood City to the west. It is a rough spot in the sea where whirlpools can block the way."
+            ],
+            "Whirl Islands": {
+                "Text": [
+                    "The Whirl Islands form an archipelago between the Johto mainland and Cianwood City . These islands are connected underwater by a sprawling network of dark caves, where seawater and boulders restrict movement in some areas. The rough seas make it impossible to reach them without a certain field move ."
+                ]
+            }
+        }
+    },
+    "Part_10": {
+        "Cianwood City": {
+            "Text": [
+                "Cianwood City is a small, seaside town on a separate landmass to the southwest of mainland Johto . Despite its distance, many Trainers still brave the waters of Routes 40 and 41 to challenge the Cianwood Gym , or to visit a centuries-old pharmacy known for its unique medicine."
+            ],
+            "Cianwood City Pharmacy": {
+                "Text": [
+                    "The Cianwood City Pharmacy is located on the south side of town, and has served as the local Poké Mart for the last 500 years. Inform the shopkeeper of the situation in Olivine Lighthouse to receive the SecretPotion , a powerful remedy only dispensed in emergencies.",
+                    "After dispensing the SecretPotion, the shopkeeper offers traditional medicine for sale."
+                ]
+            },
+            "Then There was One": {
+                "Text": [
+                    "The house in the middle of town belongs to a PokéManiac. Speak to him to learn that he was bullied by someone with \" piercing eyes and long hair \" into giving up one of his Pokémon. He still has one left, but is afraid of what will happen if the thief returns. He asks that you take his remaining Pokémon, a Shuckle , for safekeeping.",
+                    "He will eventually ask for his Shuckle back, but will decide to let you keep it if it has grown friendly enough toward you."
+                ]
+            },
+            "Cianwood Gym": {
+                "Text": [
+                    "The Cianwood Gym specializes in Fighting-type Pokémon. Fighting-type moves are super effective against Dark -, Ice -, Normal -, Rock -, and Steel-type Pokémon, while Fighting-type Pokémon are weak to Flying - and Psychic-type moves.",
+                    "There are three Gym Trainers stationed in the first part of the Gym. The first two stand facing each other from opposite sides, and must be fought in quick succession. After defeating a third, challengers must use Strength to move three boulders and clear a path. At this point, one final Gym Trainer must be defeated to reach the Gym Leader .",
+                    "Chuck 's Primeape has a high Attack stat, allowing it to deal considerable damage already. Using Leer cuts the foe's Defense , making it even more dangerous. His Poliwrath can lull the target to sleep with Hypnosis , but the combination of Mind Reader and DynamicPunch is something to be avoided at all costs. DynamicPunch is one of the strongest Fighting-type moves, and is guaranteed to cause Confusion if it hits. It has only 50% Accuracy on its own, but Mind Reader ensures the next move will connect with its target. As a Water Pokémon, it is also vulnerable to Grass - and Electric-type moves. Healing items like Awakening and Bitter Berry will be helpful, as will using moves like Reflect to boost your Pokémon's Defense .",
+                    "After the battle, Chuck awards you the Storm Badge , which ensures obedience of all Pokémon up to level 70 and enables the use of Fly in the field. He also gives you TM01 ( DynamicPunch ) as a prize."
+                ]
+            },
+            "Fly Like a Bird": {
+                "Text": [
+                    "With Chuck defeated, speak to Chuck's wife in front of the Gym. Hearing that you had to cross the sea to get here, she remarks how much easier it would be if your Pokémon knew how to fly. After noticing your new Storm Badge , the woman gives you HM02 ( Fly ). This field move allows a Trainer to quickly return to any familiar location. She comments how it is a good thing that her husband was defeated, as it gives him a reason to train."
+                ]
+            },
+            "Photo Studio": {
+                "Text": [
+                    "The Photo Studio is located on the north side of town. By speaking to the man inside, Trainers may have pictures taken of their party members, one at a time. This is meant to work with the Game Boy Printer peripheral. The player can print out their Pokédex or the stats of one specific Pokémon. Mail can also be printed."
+                ]
+            }
+        },
+        "Olivine City": {
+            "Olivine Lighthouse": {
+                "6F": {
+                    "Text": [
+                        "Return to the top floor of Olivine Lighthouse and deliver the SecretPotion to Jasmine . She administers the medicine to Amphy , and seeing it restored to full health, promises to return to the Olivine Gym ."
+                    ]
+                }
+            },
+            "Olivine Gym": {
+                "Text": [
+                    "The Olivine Gym specializes in Steel-type Pokémon. Steel-type moves are super effective against Ice - and Rock-type Pokémon, while Steel-type Pokémon are weak to Fighting -, Fire -, and Ground-type moves.",
+                    "The Gym features neither puzzles to solve nor Gym Trainers to defeat, allowing challengers to reach the Gym Leader immediately.",
+                    "Both of Jasmine 's two Magnemite can harass their target with Supersonic and Thunder Wave , though Ground-type Pokémon are immune to the latter. Her Steelix is vulnerable to Fire attacks as well, but can retaliate with Rock Throw against unsuspecting Fire Pokémon. Screech lowers the target's Defense , while Iron Tail may do the same. Its low Special Defense leaves it particularly vulnerable to Fire- and Water-type attacks.",
+                    "After the battle, Jasmine awards you the Mineral Badge , which gives your Pokémon a slight Defense boost during battle. She also gives you TM23 ( Iron Tail ) as a prize.",
+                    "Having now explored western Johto , the next destination is the region's mountainous northeast area. Fly back to Ecruteak City and head east to reach Route 42 ."
+                ]
+            }
+        },
+        "Route 42": {
+            "Text": [
+                "Route 42 connects Ecruteak City to Mahogany Town in the east. The path runs along the base of Mt. Mortar , and is divided twice over by small lakes. Crossing these waters directly requires the use of Surf , but it is possible to detour through the mountain to avoid them. A grove of Apricorn trees grows in the middle of the route."
+            ],
+            "Mt. Mortar": {
+                "Text": [
+                    "Mt. Mortar is a sprawling cave set deep into the northern mountains. It is an optional cave to enter, but contains many valuable items and Pokémon. Navigating the difficult terrain requires the use of Surf , Strength , Flash , and Waterfall . As such, it is not possible to reach every area on the first visit."
+                ],
+                "Lower level (West Entrance to East Entrance)": {
+                    "Text": [
+                        "From the western cave entrance, go north and pass through the opening to reach the Lower Cave.",
+                        "Climb up the ladder to the northwest. This leads to the upper level of the Entrance, to the western platform atop the waterfall. Collect the Ether and climb back down the ladder.",
+                        "Go east and use Strength on the boulder to clear a path northward. Near the center of the Lower Cave, there are two ledges in close proximity; a Hyper Potion can be found between them. Continue northeastward to jump another ledge. An Escape Rope sits on the next ledge to the south. The northwest area is inaccessible from this direction, so return to the boulder near the south wall. Head east to walk up onto the ridge and climb up the ladder.",
+                        "This leads to the upper level of the Entrance, to the eastern platform atop the waterfall. Collect the Guard Spec. and climb back down the ladder.",
+                        "Go south to return to the Entrance.",
+                        "Head southeast to reach the eastern cave exit and return to Route 42 ."
+                    ]
+                }
+            }
+        }
+    },
+    "Part_11": {
+        "Mahogany Town": {
+            "Text": [
+                "Mahogany Town is a quiet mountain town located at the intersection of Routes 42 , 43 , and 44 . The area once concealed an underground complex that served as a ninja hideout. There is no official Poké Mart here, but a souvenir shop offers an assortment of items for sale. The seventh Gym can be found here."
+            ],
+            "The Pushy Salesman": {
+                "Text": [
+                    "There is a man on the east side of town that stops anyone from reaching Route 44 . He states that as you are new in town, you should definitely try a RageCandyBar for the low price of $ 300. The item is a local specialty, named for the nearby Lake of Rage . Its cost, and its effect when used, are identical to that of a Potion ."
+                ]
+            },
+            "The Shady Sightseer": {
+                "Text": [
+                    "A second man blocks the entrance to the Mahogany Gym as well. He says that you should take the time for some sightseeing, and tells you to check out the Lake of Rage . The lake is located to the north, beyond Route 43 ."
+                ]
+            }
+        },
+        "Route 43": {
+            "Text": [
+                "Route 43 connects Mahogany Town to the Lake of Rage . The main road passes through a gate, while a grassy trail winds its way through the trees."
+            ],
+            "The Greedy Guards": {
+                "Text": [
+                    "Travelers who wish to take the easier path to the lake and stay on the main road are forced to pass through the gate. Team Rocket knows this, and has dispatched two Grunts here. Anyone who enters the gate is immediately confronted by the pair, and forced to pay $ 1,000 as a toll. They mention how their assignment has been very profitable, as everyone wants to see whatever is happening at the Lake of Rage ."
+                ]
+            }
+        },
+        "Lake of Rage": {
+            "Text": [
+                "The Lake of Rage , also known as Gyarados Lake, is the largest lake in Johto . According to a local Fishing Guru, the lake was created when rampaging Gyarados altered the landscape and the resulting crater eventually filled with rainwater. The lake has not been the same since the men dressed in black appeared, and there have even been sightings of a strangely-colored Gyarados ."
+            ],
+            "Peace Disturbed": {
+                "Text": [
+                    "Something has been disturbing the Pokémon living in the lake, and now the Gyarados are angry. One of them can be seen just offshore. Unlike others of its species, this individual seems to have evolved under mysterious circumstances that resulted in its unusual coloring . It will not calm itself, so it must be caught or defeated."
+                ],
+                "VS Gyarados": {
+                    "Text": [
+                        "As a Water / Flying -type Pokémon, Gyarados is vulnerable to Electric - and Rock-type attacks. Using these moves first will wear it down quickly. Follow up with Fire -, Water-, Fighting -, Bug -, or Steel-type moves to further chip away at its health.",
+                        "When the battle ends, you find a Red Scale floating on the water. Climb back onto shore and speak to the man reading the sign. He has been investigating rumors that all of the Magikarp in the lake are being forced to evolve prematurely. He introduces himself as Lance , and asks for your help. He believes that a mysterious radio signal originating in Mahogany Town is the cause, and sets off to find the source."
+                    ]
+                }
+            }
+        },
+        "Mahogany Town (Visit 2)": {
+            "Souvenir Shop": {
+                "Text": [
+                    "Upon entering the shady shop, you see Lance 's Dragonite using Hyper Beam to attack one of the workers. Lance confirms that the strange radio signal is coming from this location, and pushes past the shopkeeper to reveal a hidden stairway leading underground."
+                ]
+            },
+            "Team Rocket's Hideout": {
+                "Text": [
+                    "Team Rocket's hideout is a large complex hidden beneath Mahogany Town . Formerly the base of operations for a ninja clan, Team Rocket has put the old traps to use to thwart anyone attempting to interfere with their plans."
+                ],
+                "B1F": {
+                    "Text": [
+                        "When you step in front of the first Pokémon statue, you are forced to battle two Grunts in quick succession. It turns out that each Pokémon statue on this floor is equipped with a hidden security camera, and passing in front of one causes the same two Grunts to confront you.",
+                        "Continue west and take the first doorway to head south. Defeat Scientist Jed in the interior room, then grab the X Accuracy and examine the computer to disable the security cameras. Leave the room and head east to reach a Hyper Potion . Go south and follow the hallway westward to get a Nugget , then take the stairs in the southwest."
+                    ]
+                },
+                "B2F (South)": {
+                    "Text": [
+                        "Lance is waiting for you here, and heals your Pokémon before continuing on. The nearby door needs a password to open, so continue eastward to fight another two Rocket Grunts. Take the stairs down to the lowest floor."
+                    ]
+                },
+                "B3F (Southeast)": {
+                    "Text": [
+                        "Lance informs you that reaching the boss requires two passwords, which are only known by a few trusted Rockets. Pick up the Protein near the east wall, then battle Scientist Ross and the female Rocket Grunt in the eastern room. Defeated, she gives up the first password: \" SlowpokeTail \". Move on to the southwest room to fight Scientist Mitch, then defeat another Rocket Grunt to learn the second password: \" RaticateTail .\" Collect the Dire Hit and Full Heal near the potted plants, then head north. Pick up the Ice Heal near the north wall, then climb the northeast stairs."
+                    ]
+                },
+                "B2F (North)": {
+                    "Text": [
+                        "Head all the way to the west, where you are challenged by another Rocket Grunt. Go down the stairs to reach the boss's room."
+                    ]
+                },
+                "B3F (Northwest)": {
+                    "Text": [
+                        "When you approach the executive's room, Silver appears. He insists that he will be the one to eliminate Team Rocket , then runs off. Before opening the door, climb the southern stairs to a separate area of B2F."
+                    ]
+                },
+                "B2F (West)": {
+                    "Text": [
+                        "Pick up the item, TM46 ( Thief ), then go back downstairs."
+                    ]
+                },
+                "B3F (Northwest) (Visit 2)": {
+                    "Text": [
+                        "Examine the door to enter the two passwords, and the door opens. The Rocket Executive inside demands to know who you are and why you are in Giovanni 's office. He reveals that Giovanni disappeared after disbanding Team Rocket three years ago , but that the group has continued on since then, planning for his eventual return.",
+                        "Shocked at his defeat, he rushes off to warn the others that their plans are in danger. Speak to the Murkrow in the corner to learn the password for the final locked door: \"Hail Giovanni \". Backtrack to the southern part of B2F."
+                    ]
+                },
+                "B2F (South) (Visit 2)": {
+                    "Text": [
+                        "Examine the door to enter the password, and the door opens. When you step inside, a Rocket Executive and a Rocket Grunt ambush you in an attempt to force a 2-on-1 battle, but their plan is short-lived. Lance and his Dragonite show up just in time, and each of you battle a single Rocket instead.",
+                        "Afterward, she claims that their broadcasting experiment is a success, despite their defeat here. They are unconcerned what happens to their hideout, as they apparently have bigger plans. Team Rocket flees the building, and Lance inspects the generator. He cannot find a power switch, and determines that to shut it down, the six Electrode that power it must be removed. The two of you split the task, so catch or defeat the three on the left side to put an end to Team Rocket's plan.",
+                        "With the machine disabled, the radio signal has finally stopped. The Lake of Rage can now return to normal, and Lance thanks you with an item that he found here: HM06 ( Whirlpool ). Follow him back upstairs, then step on the nearby warp panel for a shortcut to the entrance."
+                    ]
+                }
+            },
+            "Mahogany Gym": {
+                "Text": [
+                    "The Mahogany Gym specializes in Ice-type Pokémon. Ice-type moves are super effective against Dragon -, Flying -, Grass -, and Ground-type Pokémon, while Ice-type Pokémon are weak to Fighting -, Fire -, Rock -, and Steel-type moves.",
+                    "The Gym is filled with slippery, ice-like tiles. When stepped on, the challenger is sent sliding until they reach a patch of normal flooring or some other obstacle. Begin by standing between the left Poké Ball statue and the interior wall, then move northward twice to reach Boarder Douglas. Slide to the east, then south to stop behind the Poké Ball statue on the right. Move westward, then northward again to stop next to Boarder Doulgas again. Slide eastward one last time to reach the Gym Leader .",
+                    "Pryce 's Seel is vulnerable to Grass - and Electric-type moves. Despite being a Water-type Pokémon, it can still fight back against unsuspecting Grass Pokémon with Ice attacks. His Dewgong is much the same, but also takes serious damage from Rock - and Fighting-type moves. His Piloswine can use Blizzard , the strongest Ice-type attack, but its Ice / Ground typing leaves it with the most weaknesses of Pryce's team, with five: Fighting-, Steel -, Fire -, Water -, and Grass-type moves.",
+                    "After the battle, Pryce awards you the Glacier Badge , which gives your Pokémon a slight Special Attack and Special Defense boost during battle and enables the use of Whirlpool in the field. He also gives you TM16 ( Icy Wind ) as a prize."
+                ]
+            },
+            "Desperate Times": {
+                "Text": [
+                    "Upon leaving the Gym, you receive a call from Professor Elm . He informs you of strange radio broadcasts that mention Team Rocket . It seems that the group has one more card to play, so hurry back to Goldenrod City 's Radio Tower to finally put a stop to their plans."
+                ]
+            }
+        }
+    },
+    "Part_12": {
+        "Goldenrod City": {
+            "Text": [
+                "Goldenrod City has been overrun by Team Rocket . It is up to you to liberate the Radio Tower and finally put an end to their schemes!"
+            ],
+            "Radio Tower": {
+                "1F": {
+                    "Text": [
+                        "Defeat the single Rocket Grunt and climb to the second floor."
+                    ]
+                },
+                "2F": {
+                    "Text": [
+                        "There are four Rocket Grunts patrolling the second floor. Battle past them to reach the western stairs."
+                    ]
+                },
+                "3F": {
+                    "Text": [
+                        "Battle another two Rocket Grunts and Scientist Marc. A Card Key is required to access the eastern area, so take the western stairs instead."
+                    ]
+                },
+                "4F (West)": {
+                    "Text": [
+                        "Beat the Rocket Grunt and Scientist Rich to reach the stairs to the Director's office."
+                    ]
+                },
+                "5F (West)": {
+                    "Text": [
+                        "The Director is being held captive here in his office, or at least that is how it seems at first. This man is an imposter, and is actually a Rocket Executive in disguise. Prepare for battle!",
+                        "When the battle ends, the Executive reveals that the real Director is being held in the Underground Warehouse, behind the locked door in the Underground 's access hallway. He doubts that you will even get that far, and hands over the Basement Key ."
+                    ]
+                }
+            },
+            "Goldenrod Underground": {
+                "Text": [
+                    "A Rocket Grunt guards the south alley behind the Pokémon Center, so enter the Underground from the north instead. Take the access hallway and use the Basement Key to unlock the door. Go down the stairs in the next room to reach the Underground Warehouse."
+                ],
+                "B2F": {
+                    "Text": [
+                        "Silver appears again a short distance from the entrance. He intends to be the one to finally defeat Team Rocket , and plans to defeat you to get you out of his way.",
+                        "Each of Silver 's Pokémon has grown 10 levels since the previous battle. His Zubat has since evolved into Golbat , and the Pokémon that he took from Elm 's lab—either Totodile or Chikorita —has now evolved into its final form. His team includes one new addition, a Sneasel . As a Dark / Ice Pokémon, it takes massive damage from Fighting-type moves.",
+                        "Defeated, he wonders aloud if what Lance told him about not treating his Pokémon properly is true, but refuses to give up on becoming stronger.",
+                        "After Silver leaves, there are three Rocket Grunts along the north wall. Defeat them all, then turn your attention to the three switches on the wall behind them. These switches are numbered from 1 to 3, starting with the eastern one. Each of these switches controls a different group of shutters to the south. To reset the puzzle, either flip each switch again or leave and re-enter the room.",
+                        "After exiting the maze, defeat the female Rocket Grunt and pass through the double doors."
+                    ]
+                },
+                "Warehouse": {
+                    "Text": [
+                        "Follow the winding hallway past the first Rocket Grunt to reach a Max Ether in the southeast corner. Battle a second Rocket Grunt in the northeast, then detour up the nearby stairs; this leads to a blocked-off area in the Department Store 's basement and an Amulet Coin . Continue westward to fight a third Rocket Grunt. Pick up TM35 ( Sleep Talk ) in the interior room, then speak to the Director. After hearing about Team Rocket occupying the Radio Tower , he begs for your help and gives you a Card Key . This card unlocks the shutter on the tower's third floor. Climb the northeast stairs again and take the elevator up from the basement."
+                    ]
+                }
+            },
+            "Radio Tower (Visit 2)": {
+                "Text": [
+                    "With the Card Key in hand, it is time to defeat Team Rocket once and for all!"
+                ],
+                "3F": {
+                    "Text": [
+                        "Swipe the Card Key through the slot near the shutter. Defeat the single Rocket Grunt on the other side and take the stairs to the east side of 4F."
+                    ]
+                },
+                "4F (East)": {
+                    "Text": [
+                        "Battle the female Rocket Grunt and a Rocket Executive here to reach the fifth floor."
+                    ]
+                },
+                "5F (East)": {
+                    "Text": [
+                        "Head toward the broadcasting studio to draw the attention of a female Rocket Executive . She intends to get payback for her defeat in Mahogany Town .",
+                        "Enter the studio to reach a final Rocket Executive . He reveals the details of their plan: to take over the radio station and announce their return. Their hope is that hearing this broadcast will bring their leader, Giovanni , back from his solo training so that he can lead them to regain their former glory. He refuses to let you interfere any further, and draws you into battle.",
+                        "Conceding defeat, the Rocket Executive formally disbands Team Rocket , just as Giovanni did before him. The Rockets flee the building, and the Director returns a moment later. He exclaims that your courageous actions have saved Pokémon nationwide, and rewards you with a Rainbow Wing G / Silver Wing S . He explains that there used to be a different tower at this site, but it was old and unstable. During demolition to make way for the new Radio Tower, this gleaming feather was found at the top. He then leaves for his office, leaving you free to return to Mahogany Town . As you exit the tower, speak to DJ Mary on 4F (East) for a Pink Bow , and the girl on 3F to get TM11 ( Sunny Day ).",
+                        "The next destination is Blackthorn City , to the east of Mahogany Town ."
+                    ]
+                }
+            }
+        },
+        "Mahogany Town": {
+            "Text": [
+                "With Team Rocket gone, the souvenir shop's owner and her granddaughter have returned to reopen their store. The shady salesman who blocked the way eastward to Route 44 has disappeared, as well."
+            ]
+        },
+        "Route 44": {
+            "Text": [
+                "Route 44 is a pleasant mountain path that links Mahogany Town to the Ice Path . It is filled with abundant greenery, and springs that feed into several large ponds. The only patch of tall grass lies tucked away between two of these ponds."
+            ],
+            "Reel in the Remoraid!": {
+                "Text": [
+                    "There is a Fisherman named Wilton standing on the northeast side of the eastern pond. Once you defeat him, be sure to trade phone numbers with him. He will call occasionally to alert you about a swarm of a certain Pokémon species. Remoraid are usually difficult to find, but will be more likely to appear along Route 44 for a short time."
+                ]
+            }
+        },
+        "Ice Path": {
+            "Text": [
+                "The Ice Path is a frigid cave that connects Route 44 and Blackthorn City . Travel is made difficult by large sheets of ice, and boulders that must be moved to reach new areas.",
+                "Go east to slide across the first patch of ice and continue on to the second in the northwest. Bumping into one of the rocks scattered here allows travelers to change direction.",
+                "Go east and pass by the stairway to reach the third ice patch. This one may be approached from two spaces on its west side; enter from the northern-most point for a shorter puzzle. Be sure to pick up HM07 ( Waterfall ) on the eastern edge.",
+                "Backtrack and walk across the rocky ridge to reach the northeast ladder.",
+                "There are four boulders scattered around this part of the cave, and each one must be dropped through a different hole in the floor to form a path on the ice below. Go north and loop around the northwest corner to find the first two boulders near the middle of B1F.",
+                "Of the two boulders in the southwest area, begin with the southernmost one. Use Strength to maneuver it around the scattered rocks and drop it down through the southwest hole. Backtrack a bit and move the second boulder northward, so that it sits at the gap in the wall. Leave it here for a moment and head to the southeast area to find the third boulder. Move it to the southeast hole, then continue northward. Push the fourth boulder to the north-central hole, then go west to finish moving the second boulder to the northwest hole. With all four boulders cleared, climb down the northeast ladder.",
+                "The four boulders from the floor above have fallen in a spiral shape that grants access to the ladder in the middle of the chamber. Before continuing on, there are several items that can be found nearby, including a Max Potion . To reach the middle area, begin in the northeast corner and stand on the southwestern-most point of clear ground, then slide westward across the ice. Move in a clockwise direction from here to reach the patch of clear ground in the center, and collect the Full Heal before climbing the ladder.",
+                "Use Rock Smash , or approach from the east, to reach the NeverMeltIce . Climb up the eastern ladder.",
+                "Head east, then slide southward across the smaller ice patch to reach a ledge. Move a few steps westward, then jump the ledge to slide southward. From the south wall, slide eastward to reach TM44 ( Rest ). Slide westward, then northward to backtrack and return to the ledge. Walk up onto the ridge, stand on the western stairway, then slide southward to the ladder.",
+                "Go east to reach the stairway and slide out across the ice. Pick up the Iron in the tunnel to the southwest, then climb up the ladder on the northwest ridge.",
+                "Stand next to the west wall and slide southward to reach a PP Up . Backtrack and jump the ledge to slide to the exit."
+            ]
+        }
+    },
+    "Part_13": {
+        "Blackthorn City": {
+            "Text": [
+                "Blackthorn City is located in the northeast part of Johto , between the Ice Path and Route 45 . It is a mysterious mountain village cut directly into the rock face. Many residents go on to become Dragon-type specialists, perhaps due to the proximity of the Dragon's Den , a large cave underneath the city. Only those with the Gym Leader 's permission may enter this cave, by crossing the lake behind the Gym."
+            ],
+            "Time for a Trade": {
+                "Text": [
+                    "Visit the eastern house to find a girl who would like to trade Pokémon. She is willing to part with her Rhydon in exchange for a female Dragonair . Dragonair can only be found with a high-end fishing rod , but its pre-evolved form, Dratini , can be found in the Dragon's Den and on Route 45 ."
+                ]
+            },
+            "Move Deleter": {
+                "Text": [
+                    "The southern house belongs to a man known as the Move Deleter . Using his free service allows a Pokémon to forget one of its moves. This is especially useful for removing moves taught by HM , as they would normally be permanent. This can also be used to prepare a Pokémon introduced in Generation I to be traded through the Time Capsule , as any moves introduced in Generation II would need to be removed first."
+                ]
+            },
+            "Blackthorn Gym": {
+                "Text": [
+                    "The Blackthorn Gym specializes in Dragon-type Pokémon. Dragon-type moves are super effective against Dragon-type Pokémon, while Dragon-type Pokémon are weak to Dragon- and Ice-type moves.",
+                    "The Gym is notably the only one to feature a second floor, as several boulders must be dropped into the lava pits to form a path. Battle Cooltrainer Paul and climb upstairs. Go south to fight Cooltrainer Fran and reach two more boulders in the southeast corner. Use Strength to move the right-hand boulder southward, then the left-hand boulder northward and drop it through the east-central hole. Battle Cooltrainer Cody to the north and push the final boulder to the northeast hole, then go down the eastern stairs. Fighting Cooltrainer Mike on the center platform is optional, but Cooltrainer Lola must be defeated in order to reach the Gym Leader .",
+                    "Clair 's team features three Dragonair and a Kingdra . Her three Dragonair have nearly identical movesets, except for a single attack. Having access to Ice Beam , Surf , and Thunderbolt gives Clair an advantage when facing the Pokémon that you received from Professor Elm . As a part- Water Pokémon, her Kingdra takes serious damage only from Dragon-type attacks. Bring Paralysis -healing items, and use HP -restoring items often to keep from being caught off-guard by Kingdra's Hyper Beam .",
+                    "After the battle, Clair is left in disbelief. She admits that she lost, but claims that you are still not ready for the Pokémon League, and insists that you take the \"dragon user challenge\". She informs you of the Dragon's Den , a large cave located under the city, and instructs you to bring her the Dragon Fang found inside. Doing so proves yourself as a \"true dragon user\", and only then will she give up the Rising Badge. Bring a Pokémon with Surf and Whirlpool , and cross the lake to reach the cave entrance behind the Gym."
+                ]
+            },
+            "Dragon's Den": {
+                "Text": [
+                    "The Dragon's Den is a large cavern located underneath Blackthorn City . It is a sacred home of Dragon-type Pokémon, and where the city's residents train to become Dragon-type specialists. A large shrine is located on an island to the south.",
+                    "Climb down the ladder to reach the main cavern. Surf to the southwest and use Whirlpool to calm the waters. Continue eastward along the back of the shrine and step onto the strip of land on the east side to find the Dragon Fang . Clair appears, and, seeing that you passed the test, finally awards you the Rising Badge . This Badge ensures obedience from all Pokémon and enables the use of Waterfall in the field. She also gives you TM24 ( DragonBreath ) as a prize. Now that you have earned all eight Badges in the Johto region, Clair tells you that your next step will be the Pokémon League at Indigo Plateau . She advises you to Surf east from New Bark Town , but warns that the path ahead will be tough, and if you lose at the Pokémon League then she will feel even worse for having lost to you."
+                ]
+            },
+            "Elm's Request": {
+                "Text": [
+                    "Upon leaving the cave, Professor Elm calls to ask that you visit him at the Lab, as he has something for you."
+                ]
+            }
+        },
+        "Route 45": {
+            "Text": [
+                "Route 45 is a rugged road leading down from the mountains around Blackthorn City . The path splits and recombines multiple times, and the uneven terrain makes northbound travel impossible; this also forces travelers to visit multiple times to reach every area. The eastern entrance to Dark Cave is located on the north end of the route. The path eventually turns west at a small pond, where it connects to Route 46 ."
+            ],
+            "Dark Cave": {
+                "Text": [
+                    "Dark Cave is a pitch-black cave network that runs underneath the eastern part of the region. Despite being first accessible from Route 31 , these tunnels are impossible to navigate without the field moves Surf , Strength , and Rock Smash , and difficult to do so without Flash , as well. Alternate entrances exist on Routes 45 and 46 ."
+                ],
+                "Northeast chamber": {
+                    "Text": [
+                        "Turn east and use Surf to continue southward. Pick up the Revive on the southeast ridge, then go west along the water's edge to find TM13 ( Snore ) on top of a ledge. Backtrack a bit and swim northward across the water, then walk westward along the ridge. Visit the northwest corner to find a shady man; you surprised him with your presence, and he gives you a pair of BlackGlasses to forget that you saw him here. Head south from here and jump a pair of ledges to reach the cave's western chamber."
+                    ]
+                },
+                "Southwest chamber": {
+                    "Text": [
+                        "To the west, there is a group of rocks arranged in a quarter-circle; there is a Potion in the middle, if you have not collected it by now. Use either Rock Smash or Surf to move southward, then use Rock Smash to continue to the east. Clear away another rock and loop around the northeast corner to reach a Hyper Potion . Jump the ledge and continue southward to pick up a Full Heal . The exit to Route 46 is located to the south."
+                    ]
+                }
+            },
+            "Don't Miss Marill!": {
+                "Text": [
+                    "Defeat Hiker Parry on the second ledge south of Dark Cave , then be sure to trade phone numbers with him. He will call occasionally to alert you about a swarm of a certain Pokémon species. Marill are usually difficult to find, but will be more likely to appear in Mt. Mortar for a short time. The swarm only lasts until midnight, so be quick!"
+                ]
+            }
+        },
+        "Route 46": {
+            "Text": [
+                "Route 46 connects Route 45 and Route 29 . The rugged mountain road from Blackthorn City comes to an end here, as the mountains give way to hills. A small grove of Berry trees grows in a secluded field, to the west of the Dark Cave entrance."
+            ]
+        }
+    },
+    "Part_14": {
+        "New Bark Town": {
+            "Elm's Lab": {
+                "Text": [
+                    "When you return to Elm's Lab in New Bark Town , the professor thanks you for helping with his research. To show his appreciation, he rewards you with a Master Ball , a rare model of Poké Ball that catches any Pokémon without fail! According to Elm, this type of Poké Ball is usually given only to recognized Pokémon researchers, but he thinks that you will make better use of it than he would. It is best to use it when battling a Legendary Pokémon, as they can be very difficult to capture otherwise."
+                ]
+            },
+            "Leaving Home, Again": {
+                "Text": [
+                    "Use Surf to sail eastward from New Bark Town to reach Route 27 ."
+                ]
+            }
+        },
+        "Route 27": {
+            "Text": [
+                "Route 27 is a seaside route that connects New Bark Town in the west and Route 26 in the east. The uneven terrain hinders eastbound travel, forcing Trainers to pass through Tohjo Falls ."
+            ],
+            "West side": {
+                "Welcome to Kanto!": {
+                    "Text": [
+                        "When you step out of the water, you draw the attention of a man standing nearby. He asks if you know what you have just done, and excitedly informs you that you have just taken your first step into the Kanto region."
+                    ]
+                }
+            },
+            "Tohjo Falls": {
+                "Text": [
+                    "Tohjo Falls is a small cave in southwest Kanto that serves to link the two regions together. As it cannot be cleared before obtaining HM07 ( Waterfall ) and the Rising Badge , it also acts as a natural barrier so that only the strongest Trainers continue onward to the Pokémon League at Indigo Plateau ."
+                ]
+            },
+            "East side": {
+                "A Friendly Gift": {
+                    "Text": [
+                        "Visit the house outside Tohjo Falls to meet an elderly woman. After hearing that you are headed to the Pokémon League, she asks if your Pokémon are loyal enough to you. If your lead Pokémon is friendly enough, she rewards you with TM37 ( Sandstorm )."
+                    ]
+                }
+            }
+        },
+        "Route 26": {
+            "Text": [
+                "Route 26 is one of the longest routes in Kanto , and occupies much of the western part of the region. It stretches from Route 27 in the far southwest to the Pokémon League Reception Gate that sits at the crossroads between Route 28 to the west, Route 22 to the east, and Victory Road to the north."
+            ],
+            "Rest stop": {
+                "Text": [
+                    "Visit the house on the eastern road and speak to the woman inside. Noticing how tired that your Pokémon appear to be, she lets you take a moment to rest, restoring your Pokémon to full health in the process."
+                ]
+            },
+            "Week Siblings' home": {
+                "Text": [
+                    "The house on the edge of the grass patch in the southwest belongs to the Week Siblings . No one is home, but a note on the table lists each sibling's designated location. Each sibling gives out a different type-enhancing item ."
+                ]
+            },
+            "Pokémon League Reception Gate": {
+                "VIPs Only": {
+                    "Text": [
+                        "All Trainers traveling to Indigo Plateau must present their Badges to prove their worth. The first guard looks to see if a Trainer has earned all eight Badges from the Johto region. Once he has verified that you have earned every Badge, you are free to continue on. Two other men block the way to the west and east exits. Step through the doors to the north to enter Victory Road ."
+                    ]
+                }
+            }
+        },
+        "Victory Road": {
+            "Text": [
+                "Victory Road is a difficult tunnel separating the Pokémon League Reception Gate and Indigo Plateau . It serves as a final test for aspiring Trainers to prove themselves, as only the strongest reach the other side. The cave was originally a grueling hike, but later cave-ins have left the accessible areas diminished. The are also no other Trainers to be found inside, likely due to the risk of further collapse."
+            ],
+            "1F": {
+                "Text": [
+                    "Walk up onto the rocky ridge and head northeast to pick up a Full Heal and a Max Revive . Go west and climb the northwest ladder."
+                ]
+            },
+            "2F": {
+                "Text": [
+                    "Move eastward across the ridge to collect the X Special from the ledge to the south. Head east, then turn north and climb up the ladder."
+                ]
+            },
+            "3F": {
+                "Text": [
+                    "Step up onto the ridge and follow it to the southwest. Jump the ledge to the south, then climb down the ladder in the southeast."
+                ]
+            },
+            "2F (Visit 2)": {
+                "Text": [
+                    "Grab the Full Restore , then jump the ledge. Climb the western ladder again to 3F."
+                ]
+            },
+            "3F (Visit 2)": {
+                "Text": [
+                    "Move counter-clockwise around the ridge, then go all the way to the western wall and jump down through the hole."
+                ]
+            },
+            "2F (Visit 3)": {
+                "Text": [
+                    "Pick up TM26 ( Earthquake ), then jump the ledge to the east and climb the ladder one last time."
+                ]
+            },
+            "3F (Visit 3)": {
+                "Text": [
+                    "Take a moment to tend to your Pokémon, then move northward around the ridge again. The exit is a short distance to the north."
+                ],
+                "Ambush!": {
+                    "Text": [
+                        "Before you can reach the exit, Silver appears once again. He cannot understand how you are headed to the Pokémon League, as he sees you as so much weaker than himself. He considers himself invincible, and draws you into battle to prove it."
+                    ]
+                },
+                "Rival Battle 5": {
+                    "Text": [
+                        "Each of Silver 's Pokémon has grown a few more levels since the last battle. His Magnemite has since evolved into Magneton , and the Pokémon that he took from Elm 's lab has now evolved into its final form. He has recently added a Kadabra to his team, as well; as a Psychic-type Pokémon, Kadabra has low physical Defense and takes serious damage from Bug -, Ghost -, and Dark-type attacks.",
+                        "Afterward, Silver admits that he may need some time for self-reflection to figure out why he cannot defeat you. He reaffirms his intent to keep getting stronger, and looks forward to the day when he finally beats you. He tells you to keep training until then, and leaves. Exit the cave to arrive at Indigo Plateau , the site of the Pokémon League."
+                    ]
+                }
+            }
+        }
+    },
+    "Part_15": {
+        "Indigo Plateau": {
+            "Text": [
+                "The Indigo Plateau serves as the capital for the Pokémon League in the Johto and Kanto regions. This is where the Trainers who have defeated all eight Gym Leaders in either region battle against the Elite Four and the Champion . The entrance hall houses a Pokémon Center and a Poké Mart, allowing challengers to prepare themselves and their Pokémon for the gauntlet ahead. The Elite Four is a group of talented Pokémon Trainers second only to the Champion in terms of power, and must be fought in succession with no break. These five battles will not be easy, but challengers who bring their strongest Pokémon and a healthy supply of Potions and Revives may finally find themselves in the Hall of Fame . Anyone who decides to continue their training before challenging the league may speak to the elderly man, and his Abra will teleport them away to New Bark Town ."
+            ],
+            "Elite Four": {
+                "Battle 1": {
+                    "Text": [
+                        "The first member of the Elite Four is Will , a master of Psychic-type Pokémon. Psychic-type moves are super effective against Fighting - and Poison-type Pokémon, while Psychic-type Pokémon are weak to Bug -, Dark -, and Ghost-type moves.",
+                        "Both of Will's Xatu can use Future Sight , which launches an attack that strikes two turns later. In addition to Ghost- and Dark-type moves, they both sustain serious damage from Electric-type attacks, as does his Slowbro . Its Amnesia move raises its Special Defense , so use Bug- and Ghost-type moves to target its physical Defense, instead. Bug and Fire attacks work well against both Exeggutor and Jynx .",
+                        "Defeating Will opens the door to the second room."
+                    ]
+                },
+                "Battle 2": {
+                    "Text": [
+                        "The second member of the Elite Four is Koga , a master of Poison-type Pokémon, and former Gym Leader from Kanto 's Fuchsia City . Poison-type moves are super effective against Grass-type Pokémon, while Poison-type Pokémon are weak to Ground - and Psychic-type moves.",
+                        "As Koga is a master ninja, his team makes use of poisoning and confusion to wear down their target. Psychic-type attacks will be the most useful, as they deal serious damage to four of his five Pokémon. Rock moves are useful against his Ariados , Venomoth , and Crobat , and all three of his Bug Pokémon are also vulnerable to Fire attacks. Watch out for Forretress ' Explosion , and be sure to bring healing items to cure any Pokémon that gets poisoned with Toxic .",
+                        "Defeating Koga opens the door to the third room."
+                    ]
+                },
+                "Battle 3": {
+                    "Text": [
+                        "The third member of the Elite Four is Bruno , a master of Fighting-type Pokémon. Fighting-type moves are super effective against Dark -, Ice -, Normal -, Rock -, and Steel-type Pokémon, while Fighting-type Pokémon are weak to Flying - and Psychic-type moves.",
+                        "Psychic-type attacks will do well against four of Bruno 's five Pokémon, but Psychic Pokémon should avoid Hitmontop 's Pursuit , a Dark-type move. Flying-type attacks are equally useful, but Machamp can fight back against Flying Pokémon with Rock Slide . Fire Punch , Ice Punch , and ThunderPunch may seem intimidating, but Hitmonchan 's Special Attack is too low to make effective use of them. As a Rock / Ground Pokémon, not only is Onix the only one of Bruno's team that is not Fighting type, but it is also the only one to sustain massive damage from both Water - and Grass-type attacks.",
+                        "Defeating Bruno opens the door to the fourth room."
+                    ]
+                },
+                "Battle 4": {
+                    "Text": [
+                        "The fourth member of the Elite Four is Karen , a master of Dark-type Pokémon. Dark-type moves are super effective against Ghost - and Psychic-type Pokémon, while Dark-type Pokémon are weak to Bug - and Fighting-type moves.",
+                        "With its high defenses and status moves to hinder its target, Umbreon can be difficult to take down. Mean Look prevents escape , which can lock the opponent into an unfavorable matchup; leading with a Bug or Fighting Pokémon, like Heracross , can turn this into an advantage. Ice-type moves are effective against Vileplume and Murkrow , while Murkrow and Houndoom also take serious damage from Rock attacks. Use Ghost - and Dark-type moves against Gengar before it can use Curse .",
+                        "With the Elite Four defeated, the door to the Champion's room is unlocked. Take a moment to prepare your Pokémon now, as you will be drawn into battle immediately upon entering the next room. Only one person stands between you and the title of Champion!"
+                    ]
+                }
+            },
+            "Champion": {
+                "Text": [
+                    "The final opponent turns out to be Lance , the same Dragon Pokémon master who helped defeat Team Rocket . Dragon-type moves are super effective against Dragon-type Pokémon, while Dragon-type Pokémon are weak to Dragon- and Ice-type moves.",
+                    "Lance begins with his Gyarados , which takes massive damage from Electric-type attacks. Charizard has the same problem with Rock moves, while both it and Aerodactyl take serious damage from Water attacks. His three Dragonite each have a powerful move— Blizzard , Thunder , and Fire Blast —to help cover the team's vulnerabilities. However, as Dragon / Flying Pokémon, they fare poorly in the cold and sustain massive damage from Ice-type attacks. All of his Pokémon can use Hyper Beam , so be sure to bring plenty of HP -restoring items!",
+                    "Lance congratulates you for defeating the Pokémon League, and compliments you on growing so much with your Pokémon. He is soon interrupted by DJ Mary , who rushes in for an interview. She would have been here sooner, but Professor Oak is not as quick as he was in his younger days. He applauds your victory, saying that your Pokémon won because they believed in you as a Trainer. Mary tries again for an interview, but Lance steps in and leads you to the next room."
+                ]
+            },
+            "Hall of Fame": {
+                "Text": [
+                    "The Hall of Fame is where all victorious Trainers and their dedicated Pokémon will be recorded, as a testament to their power and perseverance. Lance remarks that it has been a long time sine he was last here, and goes on to explain the large machine. He then activates it, officially recording both you and your Pokémon as the latest inductees into the Hall of Fame.",
+                    "The game is saved, a slideshow of your victorious Pokémon plays, and the credits roll."
+                ]
+            }
+        }
+    },
+    "Part_16": {
+        "New Bark Town": {
+            "Text": [
+                "After the credits end, you find yourself back in New Bark Town . Professor Elm calls a moment later, asking that you visit the lab. Pay him a visit to receive the S.S. Ticket , a boarding pass for the S.S. Aqua in Olivine City ."
+            ]
+        },
+        "Olivine City": {
+            "Olivine Harbor": {
+                "Text": [
+                    "Enter the building on the south side of town to reach the harbor. Speak to the Sailor to present the S.S. Ticket and board the ship for Kanto 's Vermilion City ."
+                ]
+            }
+        },
+        "S.S. Aqua": {
+            "Text": [
+                "The S.S. Aqua uses hydraulic power to skim across the ocean, making for a speedy voyage between Johto 's Olivine City and Kanto 's Vermilion City . It is one of the more convenient means of travel between the two regions."
+            ],
+            "1F": {
+                "Missing Child": {
+                    "Text": [
+                        "Soon after boarding the ship, a Gentleman bumps into you. The man is distraught, and apologies as he explains that his young granddaughter is missing. He asks that you let him know if she is found, and hurries off to continue his search."
+                    ]
+                },
+                "The Search Begins": {
+                    "Text": [
+                        "Professor Elm 's S.S. Ticket reserves the cabin at the far end of the first hallway, marked by a Sailor standing just outside. The room features a PC and a cozy bed, the perfect place to take a nap and restore health.",
+                        "Two of the other cabins nearest the entrance are empty, while Hiker Noland can be found in the one between them. On the opposide side of the ship, the cabin nearest the stairs belongs to the grandfather. The next cabin over belongs to PokéFan Colin and Twins Meg & Peg. The fourth cabin is empty, and the last one belongs to Firebreather Lyle. There is no unaccompanied little girl to be found here, so head downstairs to check the lower deck."
+                    ]
+                }
+            },
+            "B1F": {
+                "Text": [
+                    "A Sailor blocks the way. Speak to him, and he asks that you find another Sailor for him as he cannot leave his post."
+                ]
+            },
+            "1F (Visit 2)": {
+                "Text": [
+                    "Sailor Stanly can now be found in the cabin next to your own. He claims that he was not goofing off, but that the room was vacant, so he took a quick nap. Defeat him, and he returns to his post."
+                ]
+            },
+            "B1F (Visit 2)": {
+                "Text": [
+                    "The Sailor thanks you for finding Stanly, and mentions that he may have seen a little girl around here. In the nearest room, the seasick Juggler Fritz is hunched over a trash can. Sailor Jeff can be found in the second room, and Picnicker Debra stands in the hallway. There is still no little girl to be seen, so take the stairs up to the Captain's cabin."
+                ]
+            },
+            "1F (Visit 3)": {
+                "Captain's cabin": {
+                    "Text": [
+                        "The little girl is located here, safe but bored, and keeps trying to get the Captain to play with her. Realizing that her grandfather has been worried about her, she rushes off and you both return to the grandfather's cabin. As thanks for seeing his granddaughter returned safely, he rewards you with a Metal Coat . A moment later, the Captain announces that the ship has now arrived in Vermilion City .",
+                        "After this initial trip to Kanto , the ship sails from Kanto to Johto every Sunday and Wednesday, and from Johto to Kanto every Monday and Friday."
+                    ]
+                }
+            }
+        },
+        "Vermilion City": {
+            "Text": [
+                "Vermilion City is a popular port city located between Route 6 and Route 11 . Vermilion Harbor sees many ships coming and going, and the Pokémon Fan Club is located on the west side of town. The eastern exit, and the east end of Diglett's Cave , are currently blocked by a sleeping Snorlax . The Vermilion Gym stands in the southwest."
+            ],
+            "Pokémon Fan Club": {
+                "Text": [
+                    "The Pokémon Fan Club is located on the west side of town. Members meet here to discuss everything about their favorite Pokémon, and include a woman with her Bayleef and a man with his Clefairy —or rather, a Poké Doll that looks like a Clefairy. Speak to the Chairman to hear a long-winded story about his prized Rapidash . He eventually realizes how long he has been speaking, and gives you a Rare Candy as thanks for hearing him out."
+                ]
+            },
+            "Vermilion Gym": {
+                "Text": [
+                    "The Vermilion Gym specializes in Electric-type Pokémon. Electric-type moves are super effective against Flying - and Water-type Pokémon, while Electric-type Pokémon are weak to Ground-type moves.",
+                    "The Gym features an array of trash cans, two of which conceal a hidden switch. Normally, these two switches must be found and flipped in order to unlock the door to the Gym Leader 's room. However, they are currently inactive, so there are no puzzles to solve before reaching the Gym Leader.",
+                    "Lt. Surge 's Magneton knows the powerful Zap Cannon attack. Though guaranteed to cause paralysis , it has only 50% Accuracy ; however, using Lock-On first ensures that it connects with the target. His two Electrode are nearly identical, so be aware that either one could explode without warning. Ground-type Pokémon are immune to Electric attacks, but a good alternative would be to use Grass-type Pokémon, as they resist Electric moves. Electric Pokémon tend to have higher Speed , so consider making use of items like Quick Claw and X Speed .",
+                    "After the battle, Lt. Surge awards you the Thunder Badge ."
+                ]
+            }
+        }
+    },
+    "Part_17": {
+        "Route 6": {
+            "Text": [
+                "Route 6 consists of a road running between Vermilion City and Saffron City . The southern end of the Underground Path is located here, but according to a man standing nearby, is closed until some problem at the Kanto Power Plant is resolved."
+            ]
+        },
+        "Saffron City": {
+            "Text": [
+                "Saffron City is a sprawling metropolis located in the heart of the region between Cerulean City , Celadon City , Lavender Town , and Vermilion City . The Silph Co. headquarters dominates the city skyline, two Pokémon Gyms stand in the northeast district, and the Magnet Train station is located in the northwest. It is the most populous city in all of Kanto ."
+            ],
+            "Mr. Psychic": {
+                "Text": [
+                    "The southeast house belongs to a man known as Mr. Psychic. Speak to him, and after a moment of meditation, he hands out TM29 ( Psychic )."
+                ]
+            },
+            "Silph Co.": {
+                "Text": [
+                    "Silph Co. is open to the public, but ever since it was attacked by Team Rocket several years ago , visitors are restricted to the first floor. A security guard blocks the stairs but gives out an Up-Grade , one of the company's newest products that has not yet been released, as a souvenir."
+                ]
+            },
+            "Magnet Train Station": {
+                "Text": [
+                    "The Magnet Train station is located in the northwest part of the city. The train uses electricity and magnets to reach incredible speeds, but is also not running at the moment because of a service interruption at the Power Plant ."
+                ]
+            },
+            "Fighting Dojo": {
+                "Text": [
+                    "Saffron City is unique as the only city to have two Pokémon Gyms. The Fighting Dojo is located in the northeast neighborhood, next door to the Saffron Gym . The two clubs had once competed to determine which would become the city's one official Gym, and the Psychic Pokémon of Saffron Gym were victorious. A Black Belt informs visitors that the dojo's leader, the Karate Master , is in a cave in Johto for training. A Focus Band can be found near the rear wall."
+                ]
+            },
+            "Saffron Gym": {
+                "Text": [
+                    "The Saffron Gym specializes in Psychic-type Pokémon. Psychic-type moves are super effective against Fighting - and Poison-type Pokémon, while Psychic-type Pokémon are weak to Bug -, Dark -, and Ghost-type moves.",
+                    "The Gym uses a series of warp tiles to confuse and disorient any challengers. Step on the tile near the entrance to reach the southeast room. To reach the Gym Leader by using as few warps as possible, continue by stepping on the northwest, southwest, and southwest tiles in the following rooms. This leads to the center room, where the Gym Leader awaits anyone up to the challenge.",
+                    "Although Sabrina has only three Pokémon, they can become difficult to defeat if given the chance. She leads with her Espeon ; its Sand-Attack move cuts the target's Accuracy , while Mr. Mime and Alakazam can use Reflect to raise her team's physical Defense , a common vulnerability for Psychic Pokémon. All three can use the move Psychic , a strong attack that may also lower the target's Special Defense , letting it deal even more damage with subsequent attacks. It is especially dangerous when used by Espeon and Alakazam, due to their high Special Attack ratings.",
+                    "After the battle, Sabrina awards you the Marsh Badge .",
+                    "To reach the exit by using as few warps as possible, step on the tile in Sabrina's chamber, then continue by stepping on the northwest, northeast, and southeast tiles in the following rooms."
+                ]
+            }
+        }
+    },
+    "Part_18": {
+        "Route 8": {
+            "Text": [
+                "Route 8 connects Saffron City in the west and Lavender Town in the east. The eastern end of the second Underground Path can be found here, but the door is locked and authorities have closed the tunnel indefinitely due to rowdy behavior."
+            ]
+        },
+        "Lavender Town": {
+            "Text": [
+                "Lavender Town is a quiet, somber town. The area was once known for its common ghost sightings in Pokémon Tower , where departed Pokémon were laid to rest. In an attempt to modernize, the town converted the building in recent years into the Kanto Radio Tower. The Pokémon interred here were moved to the Soul House in the southeast part of town, where they remain under the watchful eye of Mr. Fuji ."
+            ],
+            "Kanto Radio Tower": {
+                "Text": [
+                    "The Kanto Radio Tower has been on high alert ever since Johto 's Radio Tower was taken over by Team Rocket , and visitors are now restricted to the first floor. The Pokégear can detect two of the three programs broadcasted from here on its own, but tuning into the third one requires an EXPN Card ."
+                ]
+            },
+            "Soul House": {
+                "Text": [
+                    "The Soul House was built to accommodate the departed Pokémon from the former Pokémon Tower . There are several graves on the ground floor, and many more located in underground chambers that are off-limits to all but the caretaker, Mr. Fuji ."
+                ]
+            },
+            "Lavender Volunteer Pokémon House": {
+                "Text": [
+                    "The Lavender Volunteer Pokémon House is located in the center of town. Founded by Mr. Fuji , the organization was established to care for orphaned and abandoned Pokémon. Many members of the group live here in their safe house while looking after these Pokémon."
+                ]
+            },
+            "Name Rater": {
+                "Text": [
+                    "One of the houses on the south side of town belongs to the Name Rater . This man judges a Trainer's nickname for their Pokémon, and offers the chance to change it. His service is free so nicknames may be changed repeatedly."
+                ]
+            }
+        },
+        "Route 10 (South)": {
+            "Text": [
+                "Route 10 connects Lavender Town to Route 9 in the north. Much of the route is occupied by a river and the grounds of the Kanto Power Plant . Anyone traveling through the area must venture through the dim interior of Rock Tunnel . A remote Pokémon Center is located near the north end of the cave."
+            ],
+            "Rock Tunnel": {
+                "Text": [
+                    "As it has been left in its natural state and undeveloped, Rock Tunnel is pitch-black inside. Though not required, it is useful to bring a Pokémon that can use Flash to illuminate the winding tunnels."
+                ],
+                "1F (South)": {
+                    "Text": [
+                        "Go northward to collect TM47 ( Steel Wing ) from the rocky ridge. Pick up the Elixer to the west, then turn eastward and climb down the ladder."
+                    ]
+                },
+                "B1F (Northwest)": {
+                    "Text": [
+                        "Head eastward through the first row of rocks, then collect the PP Up to the south. Go northeast to reach a Revive in the north-central area, then climb up the eastern ladder."
+                    ]
+                },
+                "1F (West)": {
+                    "Text": [
+                        "Continue to the northwest and climb down the next ladder."
+                    ]
+                },
+                "B1F (Southeast)": {
+                    "Text": [
+                        "Go southwest to reach the south-central area, where the tunnel branches off in opposite direcetions. Pick up the Iron to the west, then climb the ladder to the east."
+                    ]
+                },
+                "1F (Northeast)": {
+                    "Text": [
+                        "Follow the tunnel westward to reach the exit."
+                    ]
+                }
+            }
+        },
+        "Route 9": {
+            "Text": [
+                "Route 9 is a rocky, uneven mountain road that links Route 10 to Cerulean City ."
+            ],
+            "Calling All Trainers!": {
+                "Text": [
+                    "One of the men inside the Pokémon Center mentions how the Manager of the Power Plant is looking for strong Trainers to help retrieve something that was stolen. Go north from the building to reach a river, then use Surf to follow the water southward to the facility."
+                ]
+            }
+        },
+        "Route 10 (North)": {
+            "Kanto Power Plant": {
+                "Text": [
+                    "The Kanto Power Plant building had previously been abandoned, but was recently renovated in order to power the region more efficiently. The electricity generated here powers all sorts of things, including the Magnet Train ."
+                ],
+                "Meet with the Manager": {
+                    "Text": [
+                        "Visit the east side of the building and speak to the man near the generator. The Manager reveals that a thief has stolen an essential piece from the new generator, forcing it offline.",
+                        "As you approach the exit, the security guard is alerted to a shady character that has been seen loitering around Cerulean City , and asks that you investigate for them."
+                    ]
+                }
+            }
+        }
+    },
+    "Part_19": {
+        "Cerulean City": {
+            "Text": [
+                "Cerulean City is a beautiful city with flowing water and blooming flowers. It is located between Route 4 , Route 24 , Route 9 , and Route 5 . The local Bike Shop has moved to Goldenrod City and the mysterious cave that was located on the edge of town has collapsed, leaving little to do but challenge the Cerulean Gym ."
+            ],
+            "Cerulean Gym": {
+                "The Man in Black": {
+                    "Text": [
+                        "Upon entering the Gym, a man in a dark uniform runs into you. He stops for a moment to make sure that you are not hurt, then mentions how it would be a problem if he was seen by anyone. Suddenly realizing that he has indeed already been seen, he orders you to forget about him before rushing off."
+                    ]
+                }
+            }
+        },
+        "Route 24": {
+            "Text": [
+                "Route 24 stretches north from Cerulean City to Route 25 . Most of the area is occupied by a river and the Nugget Bridge that crosses it."
+            ],
+            "Stop, Thief!": {
+                "Text": [
+                    "The man dressed in black can be found regrouping on Nugget Bridge. He identifies himself as a member of Team Rocket , and that his secret mission was to disable the Power Plant 's generator in order to cause mass panic. He makes you a deal: defeat him in battle, and he will reveal where he hid the stolen part.",
+                    "After the battle, he reveals that he hid the Machine Part in the waters of Cerulean Gym , and tells you to search the area in the middle. He shrugs off his loss, saying that his Team Rocket friends will come from Johto to get revenge for him, but quickly flees when he realizes that no help is coming."
+                ]
+            }
+        },
+        "Cerulean City (Visit 2)": {
+            "Cerulean Gym": {
+                "Sunken Treasure": {
+                    "Text": [
+                        "The Gym Leader has stepped out for the moment and there are no Gym Trainers around. Search the waters in the enclosed part of the walkway to recover the Machine Part ."
+                    ]
+                }
+            }
+        },
+        "Route 10 (North)": {
+            "Kanto Power Plant": {
+                "Power Restored!": {
+                    "Text": [
+                        "Return to the Power Plant and speak to the Manager to deliver the Machine Part . He is grateful to see it returned, and rewards you with TM07 ( Zap Cannon ).",
+                        "With the generator restored and the Power Plant back online, there are certain sidequests that may now be completed."
+                    ]
+                }
+            }
+        },
+        "Saffron City": {
+            "Copycat's house": {
+                "Text": [
+                    "Return to Saffron City and visit the Copycat 's house in the northwest part of the city. Speak to her to learn that she has lost her favorite Poké Doll , and believes it to be located somewhere in Vermilion City ."
+                ]
+            }
+        },
+        "Vermilion City": {
+            "Pokémon Fan Club": {
+                "Text": [
+                    "Return to Vermilion City and visit the Pokémon Fan Club on the west side of town. Speak to the man with the Clefairy Poké Doll to explain the situation. He has not yet been able to catch his own Clefairy, and so brought a doll that he had found instead. When he realizes that it is missed by its owner, he gladly gives up the Lost Item ."
+                ]
+            }
+        },
+        "Saffron City (Visit 2)": {
+            "Copycat's house": {
+                "Text": [
+                    "Speak to the girl to return the Lost Item . She rewards you with a Pass , a ticket used to board the Magnet Train . Her old home was torn down to make room for the train station, and she received the item from a train company representative as compensation. Now that the Power Plant is operational again, the Magnet Train runs between Johto 's Goldenrod City and Kanto 's Saffron City twenty-four hours a day, seven days a week. As the S.S. Aqua sails only on certain days, riding the train is the most convenient means of travel between the two regions."
+                ]
+            }
+        },
+        "Lavender Town": {
+            "Radio Tower": {
+                "Text": [
+                    "Return to Lavender Town 's Radio Tower and speak to the Manager near the north wall. With the power back on and the tower broadcasting normally, he never lost his job. Realizing that it is you that he has to thank for this, he rewards you with an EXPN Card . This expansion card allows the Pokégear to tune into the remaining radio program, the Poké Flute Channel, on Channel 20.0."
+                ]
+            }
+        },
+        "Route 25": {
+            "Text": [
+                "Route 25 leads eastward from Route 24 . The path winds its way through a forest before it ends overlooking the sea. The Sea Cottage is located on the east side."
+            ],
+            "Challenge Accepted": {
+                "Text": [
+                    "The first Trainer encountered here, Schoolboy Dudley, is part of a group of six and challenges you to defeat them all. Fight each one as you move eastward, ending with Lass Shannon, to complete the challenge. Defeat Super Nerd Pat as well, then speak to Cooltrainer Kevin to receive your prize: a Nugget . After seeing how you battle, he wants to know how well he would fare, and draws you into battle."
+                ]
+            },
+            "Cerulean Cape": {
+                "Party Crashing": {
+                    "Text": [
+                        "Upon reaching the cape, you find the Cerulean Gym Leader on a date nearby. Her date runs off and she starts to yell, until she spots your Johto Badges. She states that you must be strong if you earned all eight Badges, and invites you to Cerulean Gym . She introduces herself as Misty before heading back to town."
+                    ]
+                },
+                "Bill's Cottage": {
+                    "Text": [
+                        "The Sea Cottage belongs to Bill , but his grandfather is housesitting while he is away. The elderly man enjoys hearing about all of the Pokémon that his grandson meets. Speak to him, and he describes a certain Pokémon that he would like to see. If shown a Pokémon of the correct species, he rewards you with an Evolution stone ."
+                    ]
+                }
+            }
+        },
+        "Cerulean City (Visit 3)": {
+            "Cerulean Gym": {
+                "Text": [
+                    "The Cerulean Gym specializes in Water-type Pokémon. Water-type moves are super effective against Fire -, Ground -, and Rock-type Pokémon, while Water-type Pokémon are weak to Electric - and Grass-type moves.",
+                    "The Gym features a large swimming pool, with an elevated walkway that leads to the back of the building. At least two of the three Gym Trainers must be defeated in order to reach the Gym Leader .",
+                    "Electric-type attacks are a major vulnerability for Misty 's team. Only the Ground-type Quagsire is unaffected by Electric moves, and can deal increased damage to Electric Pokémon with Earthquake . If Rain Dance takes effect, Water moves receive a power boost and Thunder has its Accuracy increased to 100%. Grass-type moves will do equally well, but both Lapras and Starmie can counter Grass Pokémon with their Ice attacks. Alternatively, Lapras takes serious damage from Fighting - and Rock-type moves, while Starmie falters against Bug -, Ghost -, and Dark-type moves.",
+                    "After the battle, Misty awards you the Cascade Badge ."
+                ]
+            }
+        },
+        "Route 5": {
+            "Text": [
+                "Route 5 is a scenic road that runs downhill from Cerulean City to Saffron City . The first of the region's two Underground Paths begins here and runs southward underneath Saffron City to re-emerge on Route 6 ."
+            ],
+            "Underground Path": {
+                "Text": [
+                    "The Underground Path was initially blocked off, as it was unsafe to use the tunnel while the power was out."
+                ]
+            }
+        }
+    },
+    "Part_20": {
+        "Route 7": {
+            "Text": [
+                "Route 7 is a short path that links Saffron City to the east and Celadon City to the west. The western end of the second Underground Path emerges here, but authorities have closed the tunnel indefinitely because of rowdy Trainers battling inside."
+            ]
+        },
+        "Celadon City": {
+            "Text": [
+                "Celadon City is located between Route 7 to the east and Route 16 to the west. The Celadon Department Store in the northwest offers all kinds of items for sale, and the Celadon Mansion acts as a hotel. Visitors can try their luck at the Game Corner in the heart of the city and redeem their winnings at the Prize Corner next door. The Celadon Gym stands on a hill in the southwest part of town."
+            ],
+            "Celadon Mansion": {
+                "Text": [
+                    "After the sun sets, follow the path behind the Pokémon Center and enter the Celadon Mansion through the back door. Speak to the man on the roof to hear a scary story, and receive TM03 ( Curse ) for listening to the entire thing."
+                ]
+            },
+            "Restaurant": {
+                "Text": [
+                    "The restaurant on the south side of town is currently hosting an eat-a-thon. Check the trash can by the counter to find some Leftovers , which restore a bit of the holder's health every turn."
+                ]
+            },
+            "Game Corner": {
+                "Text": [
+                    "The prizes offered next door are expensive, so it will require a large number of coins to receive all of them. Coins may be purchased at the counter in sets of 50 for $ 1,000 each, and sets of 500 for $ 1,000 each. Much of the building is occupied by traditional slot machines , while the first two available rows from the left feature a card flip game, instead."
+                ]
+            },
+            "Prize Corner": {
+                "Text": [
+                    "Like the Goldenrod Game Corner , this one also offers rare Pokémon and items as prizes."
+                ]
+            },
+            "Celadon Department Store": {
+                "Text": [
+                    "The Celadon Department Store is the largest shop in Kanto . Nearly any item a Trainer could want can be found here."
+                ],
+                "2F": {
+                    "Text": [
+                        "The Trainer's Market is found on the second floor. Everyday items like Great Balls and Super Potions are offered here."
+                    ]
+                },
+                "3F": {
+                    "Text": [
+                        "The third floor holds the TM Shop. Technical Machines for several rare moves can be purchased here."
+                    ]
+                },
+                "4F": {
+                    "Text": [
+                        "Wiseman Gifts is located on the fourth floor. The shop offers a few souvenir items for sale."
+                    ]
+                },
+                "5F": {
+                    "Text": [
+                        "The Drug Store can be found on the fifth floor. Battle items and vitamins are offered here."
+                    ]
+                },
+                "6F": {
+                    "Text": [
+                        "The sixth floor houses a picnic area and several vending machines ."
+                    ]
+                }
+            },
+            "Celadon Gym": {
+                "Text": [
+                    "The Celadon Gym specializes in Grass-type Pokémon. Grass-type moves are super effective against Ground -, Rock -, and Water-type Pokémon, while Grass-type Pokémon are weak to Bug -, Fire -, Flying -, Ice -, and Poison-type moves.",
+                    "The Gym is designed as a greenhouse, with many flower arrangements on display. There are no puzzles to solve, and only a few Gym Trainers to defeat in order to reach the Gym Leader .",
+                    "Erika leads with her Tangela . Its Bind move restricts the target's movement, as does Sleep Powder . Its Special Defense is low, so prioritize using Fire and Ice moves against it for greatest effect. Three of Jumpluff 's moves steal the target's HP , while the fourth sharply reduces its Speed . As a Grass / Flying Pokémon, it takes massive damage from Ice-type moves. As plants rely on the sun for nutrients, Erika's remaining two Pokémon rely on Sunny Day to prepare their combination moves. Victreebel regains more HP than normal under harsh sunlight with Synthesis , and Bellossom does the same. Under these conditions, Bellossom can launch its strongest move, SolarBeam , without first taking a turn to charge it.",
+                    "After the battle, Erika awards you the Rainbow Badge . She also hands out TM19 ( Giga Drain ) as a prize."
+                ]
+            }
+        }
+    },
+    "Part_21": {
+        "Route 16": {
+            "Text": [
+                "Route 16 links Celadon City to Route 17 . The road southward to Fuchsia City can be dangerous for pedestrians, so be sure to bring a Bicycle."
+            ]
+        },
+        "Route 17": {
+            "Text": [
+                "The bridges of Route 17 pass over the ocean on the way downhill to Route 18 . Anyone riding a Bicycle on Cycling Road who decides to stop pedaling will continue rolling southward."
+            ]
+        },
+        "Route 18": {
+            "Text": [
+                "Route 18 leads east from Route 17 to Fuchsia City ."
+            ]
+        },
+        "Fuchsia City": {
+            "Text": [
+                "Fuchsia City is the largest city in southern Kanto , located between Route 18 and Route 15 . To the south, a beach leads to the waters of Route 19 . Trainers aiming to earn their next Badge can challenge the Fuchsia Gym in the southwest."
+            ],
+            "Safari Zone Warden's house": {
+                "Text": [
+                    "The southeastern house belongs to the Safari Zone warden . According to his granddaughter, he closed the Safari Zone rather suddenly and left to vacation somewhere overseas. Many saw this as a disappointing development, as residents and tourists alike would visit the nature preserve for their chance at catching some of the rare Pokémon inside. The northern part of the city was once occupied by exhibits that housed rare Pokémon, as well, but they have since fallen into disrepair and the Pokémon have wandered off into the surrounding wilderness."
+                ]
+            },
+            "Fuchsia Gym": {
+                "Text": [
+                    "The Fuchsia Gym specializes in Poison-type Pokémon. Poison-type moves are super effective against Grass-type Pokémon, while Poison-type Pokémon are weak to Ground - and Psychic-type moves.",
+                    "The Gym Leader is trained in the skills of the ninja, and has installed a series of nearly invisible glass panels to disorient any challengers. In addition, each of the Gym Trainers has disguised themselves as the Gym Leader . Follow the east wall toward the back of the building, then loop around toward the front. The Gym Leader is located in the southwest part of the building.",
+                    "Janine 's Pokémon use poisoning and confusion to incapacitate their opponent. Her Crobat is fast, so hit it with Psychic -, Electric -, Ice -, or Rock-type attacks to take it down quickly. Both of her Weezing are dangerous, as Toxic badly poisons the target, and Explosion is a last-ditch move that deals massive damage. Their phsycial Defense is high, so use Psychic-type moves to target their lower Special Defense instead. Ariados can lower the target's Speed and steal its HP for itself, while Venomoth prefers to use poison- and confusion-inducing moves. As Bug Pokémon, both take serious damage from Fire -, Rock-, and Flying-type attacks.",
+                    "After the battle, Janine awards you the Soul Badge . She also hands out TM06 ( Toxic ) as a prize."
+                ]
+            },
+            "Road Closed": {
+                "Text": [
+                    "The ocean route leading southward is blocked by rocky debris. According to the guard in the gate, these boulders landed here as a result of Cinnabar Island 's volcano erupting. The only other way out of Fuchsia City is east to Route 15 ."
+                ]
+            }
+        }
+    },
+    "Part_22": {
+        "Route 15": {
+            "Text": [
+                "Route 15 is a hilly path that leads east from Fuchsia City to Route 14 ."
+            ]
+        },
+        "Route 14": {
+            "Text": [
+                "Route 14 is a pleasant coastal road where the salty breeze blows in from the sea. The path runs north to Route 13 ."
+            ],
+            "Time for a Trade": {
+                "Text": [
+                    "Use Cut to reach the tall grass patch and find a girl who would like to trade Pokémon. She is willing to part with her Aerodactyl in exchange for a Chansey . Chansey can be found on Routes 13 , 14 , and 15 ."
+                ]
+            }
+        },
+        "Route 13": {
+            "Text": [
+                "Route 13 is a difficult, narrow path that leads eastward toward Route 12 . Many Trainers can be found among the maze of fences."
+            ]
+        },
+        "Route 12": {
+            "Text": [
+                "Route 12 connects Route 13 , Route 11 , and Lavender Town . Also known as Silence Bridge, it is a favorite spot for Fishermen."
+            ],
+            "Fishing Guru 3": {
+                "Text": [
+                    "The house to the south of the intersection with Route 11 is home to the Fishing Guru 's younger brother. Speak to him to receive the Super Rod . This high-end fishing rod is the best model available and can reel in some of the strongest sea creatures, like Seaking and Dragonair ."
+                ]
+            }
+        }
+    },
+    "Part_23": {
+        "Route 11": {
+            "Text": [
+                "Route 11 is a grassy path between Route 12 and Vermilion City to the west."
+            ]
+        },
+        "Vermilion City": {
+            "Roadblock": {
+                "Text": [
+                    "The wild Snorlax is still sleeping on the east side of Vermilion City , blocking travel to and from Route 11 . It also happens to be blocking the western entrance to Diglett's Cave . To wake it up, tune the Pokégear 's radio to Channel 20.0, then examine the creature to place the device next to it. The Poké Flute music rouses the Pokémon from its nap, and it attacks in a grumpy rage!"
+                ]
+            },
+            "Diglett's Cave": {
+                "Text": [
+                    "Diglett's Cave is a long tunnel that spans nearly the whole region, linking Vermilion City to the east side of Route 2 . Like the name implies, the only Pokémon that can be found here are Diglett and its evolved form, Dugtrio . With the Fuchsia City beach blocked off, it is currently the only way to reach western Kanto ."
+                ]
+            }
+        },
+        "Route 2": {
+            "Text": [
+                "Route 2 runs between Viridian City and Pewter City . Much of the route's west side is occupied by a maze of trees."
+            ],
+            "A Friendly Face": {
+                "Text": [
+                    "Visit the house near Diglett's Cave and speak to the man inside. Living out in the wilderness, it has been some time since he has had a visitor. He is happy for the company, and gives out a Nugget to show his appreciation."
+                ]
+            }
+        },
+        "Pewter City": {
+            "Text": [
+                "Pewter City is a quiet city nestled in the northern mountains between Route 2 and Route 3 . The Pewter Museum of Science is currently closed for renovations, but the Pewter Gym is still accepting challengers."
+            ],
+            "Time for a Trade": {
+                "Text": [
+                    "Visit the Pokémon Center to find a man who would like to trade Pokémon. He is willing to part with his Rapidash in exchange for a Gloom . Gloom can only be found on Route 5 ."
+                ]
+            },
+            "Pewter Gym": {
+                "Text": [
+                    "The Pewter Gym specializes in Rock-type Pokémon. Rock-type moves are super effective against Bug -, Fire -, Flying -, and Ice-type Pokémon, while Rock-type Pokémon are weak to Fighting -, Grass -, Ground -, Steel -, and Water-type moves.",
+                    "The Gym features a rock garden, and has only one optional Gym Trainer battle before reaching the Gym Leader .",
+                    "Because of their dual typings, each of Brock 's five Pokémon take massive damage from Grass-type attacks. Aside from that, Water moves are effective against his Graveler , Rhyhorn , and Onix . Brock likes to dig for fossils in Mt. Moon in his spare time, and has acquired two prehistoric Pokémon in Omastar and Kabutops . Both are vulnerable to Electric attacks, but Electric Pokémon should be wary of being hit with Earthquake .",
+                    "After the battle, Brock awards you the Boulder Badge ."
+                ]
+            },
+            "The Second Feather": {
+                "Text": [
+                    "There is an elderly man strolling around the east side of town. Speak to him, and he reminisces about training in Johto as a young man. Something about you reminds him of his younger self, and he is happy to give you a treasure that he found there all those years ago: the Silver Wing G / Rainbow Wing S . This shimmering feather lets you track down the second of Johto's two legendary birds."
+                ]
+            }
+        }
+    },
+    "Part_24": {
+        "Route 3": {
+            "Text": [
+                "Route 3 is a grassy road that leads east from Pewter City into the mountains around Route 4 . Many Trainers can be found along the way as they raise their Pokémon for the upcoming cave."
+            ]
+        },
+        "Mt. Moon": {
+            "Text": [
+                "Mt. Moon is a mystical mountain that is known for its frequent meteor falls. The shards of stars that fall here are known as Moon Stones . Though it was once a large network of tunnels, the cave has since become unstable. Recent collapses have left most areas impassable except for one large chamber that links the two routes. This chamber also provides access to Mt. Moon Square ."
+            ],
+            "A Familiar Face": {
+                "Text": [
+                    "Upon entering Mt. Moon , you are immediately approached by Silver . He has been doing some self-reflection to find out what he is lacking with his Pokémon, and believes that he has found an answer."
+                ]
+            },
+            "Rival Battle 6": {
+                "Text": [
+                    "Silver 's team is nearly the same as it was in the previous battle, though his Haunter and Kadabra have since evolved into Gengar and Alakazam , respectively. Use super effective moves to target his Pokémon's weaknesses for best results.",
+                    "After the battle, Silver finally admits defeat. He still intends to be the strongest Pokémon Trainer ever, but has a newfound appreciation for his Pokémon. He promises to finally prove himself one day by defeating you, then leaves."
+                ]
+            },
+            "Mt. Moon Square": {
+                "Text": [
+                    "Mt. Moon Square is a small clearing located on top of the mountain, where few people ever venture. A small shop is located here."
+                ],
+                "Shop": {
+                    "Text": [
+                        "This shop is open from 10:00 am to 5:59 pm, and offers a variety of goods tailored to the weary traveler."
+                    ]
+                },
+                "Clefairy Dance": {
+                    "Text": [
+                        "Between 8:00 pm Monday and 4:00 am Tuesday, two Clefairy appear in the western field and begin dancing around a large rock, as a kind of ritual to honor the moon. They get startled when you approach and run away, leaving the rock behind. Use Rock Smash to clear it away and find a Moon Stone in the debris. The Clefairy repeat their dance every Monday night."
+                    ]
+                }
+            }
+        },
+        "Route 4": {
+            "Text": [
+                "Route 4 is a one-way road leading downhill from the mountains to Cerulean City ."
+            ]
+        }
+    },
+    "Part_25": {
+        "Viridian City": {
+            "Text": [
+                "Viridian City is a small, nature-loving city that is enveloped in green year-round. It is located between Route 2 to the north, Route 1 to the south, and Route 22 to the west."
+            ],
+            "Viridian Gym": {
+                "Text": [
+                    "The Viridian Gym is located on a hill on the north side of town. The building is open, but no one is around. According to an elderly man outside the entrance, the Gym did not have a Gym Leader until recently, when a young man from Pallet Town took the role. He is often away, however, so challenging the Viridian Gym will need to wait."
+                ]
+            },
+            "Trainer House": {
+                "Text": [
+                    "The Trainer House is located in the middle of the city. Built near Indigo Plateau , the ultimate destination for Pokémon Trainers, the Trainer House allows participants to battle in a controlled environment. According to visitors inside the building, only the best Trainers gather here. These Trainers turn out to be real-life friends of the player, whose own parties are submitted to the game through Mystery Gift . If the player has not used Mystery Gift, the default opponent is Cal , whose team includes the final forms of each of Professor Elm's Pokémon . Only one battle may be conducted per day."
+                ]
+            }
+        },
+        "Route 1": {
+            "Text": [
+                "Route 1 is a peaceful, country road that leads south from Viridian City to Pallet Town ."
+            ]
+        },
+        "Pallet Town": {
+            "Text": [
+                "Pallet Town is a rather small, sleepy town, located between the tall grasses of Route 1 and the waters of Route 21 . Each of the two northern houses is home to a different former Champion of the Kanto region. Professor Oak 's laboratory is located in the south."
+            ],
+            "Red's house": {
+                "Text": [
+                    "The northwest house belongs to Red and his mother , but Red is currently away. He defeated his neighbor and rival , Blue , to earn the Champion title, but gave up that role within the Pokémon League in order to continue his training. His mother is proud of him, but still worries that he is all alone somewhere."
+                ]
+            },
+            "Blue's house": {
+                "Text": [
+                    "The northeast house belongs to Blue and his sister, Daisy , but Blue is away as well. She reveals that her brother serves as the Viridian City Gym Leader , and that his frequent traveling causes problems for the Gym's challengers."
+                ],
+                "Spa Day with Daisy": {
+                    "Text": [
+                        "Speak to Daisy between 3:00 PM and 4:00 PM, and she offers to groom a single Pokémon. Grooming increases a Pokémon's friendship rating, and boosting this value is essential in order to obtain certain Pokémon . Daisy offers her grooming service once per day."
+                    ]
+                }
+            },
+            "Professor Oak's Lab": {
+                "Text": [
+                    "The large building to the south is Professor Oak 's laboratory . Speak with the professor to have him rate your Pokédex progress. He also asks that you visit again after earning all eight Kanto Gym Badges, as he will have a gift for you."
+                ]
+            }
+        }
+    },
+    "Part_26": {
+        "Route 21": {
+            "Text": [
+                "Route 21 is an ocean route that leads southward from Pallet Town to Cinnabar Island ."
+            ]
+        },
+        "Cinnabar Island": {
+            "Text": [
+                "Cinnabar is a large island to the southwest of mainland Kanto , between Routes 21 and 20 . The area once held a research facility , the broken-down former home of a famous researcher , and the Cinnabar Gym ."
+            ],
+            "Nature's Madness": {
+                "Text": [
+                    "When the island's volcano erupted, most buildings were either buried in rubble or swept into the sea, and only the Pokémon Center has since been rebuilt. According to a man inside the building, it has been a year since the eruption. A sign posted outside notifies visitors that the Cinnabar Gym has relocated to the nearby Seafoam Islands ."
+                ]
+            },
+            "The Final Gym Leader": {
+                "Text": [
+                    "Speak to the man behind the Pokémon Center, and he introduces himself as Blue . He is not in the mood to battle at the moment, as he contemplates the power of nature and the destruction around him. He invites you to challenge him at the Viridian Gym , then leaves."
+                ]
+            }
+        },
+        "Route 20": {
+            "Text": [
+                "The waves of Route 20 are a popular spot for swimming. The middle of the path is occupied by the Seafoam Islands . The waters lead east to Route 19 ."
+            ],
+            "Seafoam Islands": {
+                "Text": [
+                    "Just as the beach near Fuchsia City is littered with volcanic rocks, the Seafoam Islands were also damaged by volcanic debris. The entrance to the western island was destroyed, while subsequent collapses have reduced the eastern island to a single small chamber. It is this tiny cave that houses the relocated Cinnabar Gym ."
+                ]
+            },
+            "Cinnabar Gym": {
+                "Text": [
+                    "The Cinnabar Gym specializes in Fire-type Pokémon. Fire-type moves are super effective against Bug -, Grass -, Ice -, and Steel-type Pokémon, while Fire-type Pokémon are weak to Ground -, Rock -, and Water-type moves.",
+                    "As the Gym Leader enjoys riddles, he had equipped his Gym with machines that would display a quiz when examined. However, these machines were destroyed in Cinnabar 's eruption, so there are no puzzles to solve here. There are no Gym Trainers either, allowing challengers to reach the Gym Leader immediately.",
+                    "Blaine 's Magcargo has high Defense , so special moves will fare better against it. Due to its Fire / Rock typing, Water attacks will be especially useful. Intending to account for one of his team's weaknesses, Blaine has taught his Magmar ThunderPunch in order to fight back against Water Pokémon. Rapidash has high Speed and physical Attack , but its physical moves have low power. Fire Blast may cause a burn , so be sure to bring some Burn Heals .",
+                    "After the battle, Blaine awards you the Volcano Badge ."
+                ]
+            }
+        },
+        "Route 19": {
+            "Text": [
+                "Route 19 runs north from Route 20 back to Fuchsia City . It is a popular spot for swimming and sunbathing."
+            ],
+            "Cleanup Complete": {
+                "Text": [
+                    "In the time it took to return to the beach outside Fuchsia City , the volcanic debris has been cleared away. Travelers can now move freely between Fuchsia City and Route 19 ."
+                ]
+            }
+        }
+    },
+    "Part_27": {
+        "Viridian City": {
+            "Viridian Gym": {
+                "Text": [
+                    "The Viridian Gym has no type specialty, as Blue prefers to use the same Pokémon from his time as Champion.",
+                    "The Gym features no puzzles, and there are no Gym Trainers to battle here.",
+                    "As Blue 's team is more diverse than those of other Gym Leaders , defeating him will not be as easy. Electric attacks fare well against his Pidgeot and Gyarados , while they—and Arcanine —are also vulnerable to Rock moves. Bug -, Ghost -, and Dark-type moves are effective against his Alakazam and Exeggutor . Water-type attacks are best against both his Rhydon and Arcanine. Blue's team has access to powerful attacks, so use healing items often and switch Pokémon out as necessary to keep up the pressure.",
+                    "After the battle, Blue awards you the Earth Badge , the sixteenth and final Badge."
+                ]
+            }
+        },
+        "Pallet Town": {
+            "Oak's Lab": {
+                "To New Heights": {
+                    "Text": [
+                        "Return to Pallet Town and meet with Professor Oak to tell him of your adventure. Seeing that you have earned all eight Kanto Badges as well, he makes arrangements for you to visit Mt. Silver , a large mountain to the west of Indigo Plateau that only the strongest Trainers are allowed to reach because of the powerful wild Pokémon found inside."
+                    ]
+                }
+            }
+        },
+        "Route 22": {
+            "Text": [
+                "Route 22 is a simple route that connects Viridian City back to the Pokémon League Reception Gate in the west."
+            ],
+            "Pokémon League Reception Gate": {
+                "Text": [
+                    "Thanks to Professor Oak , it is now possible to venture westward to Mt. Silver . The guards that had blocked off the two side hallways are gone, allowing Trainers to travel between Johto and Kanto on foot, without the need for the Magnet Train or the S.S. Aqua ."
+                ]
+            }
+        },
+        "Route 28": {
+            "Text": [
+                "Route 28 is a hidden mountain road in western Kanto . The path leads westward from the Pokémon League Reception Gate and crosses into Johto at the entrance to Mt. Silver ."
+            ],
+            "The Recluse": {
+                "Text": [
+                    "The uneven terrain forces travelers to pass by the entrance to Mt. Silver in order to reach the route's northern area. Use Cut to clear a path and visit the house on the hill. The woman inside is a retired celebrity, and now lives a quiet life in order to protect her privacy. She gives you a second copy of TM47 ( Steel Wing ) in the hope that you will keep her hideaway a secret."
+                ]
+            }
+        },
+        "Mt. Silver": {
+            "Text": [
+                "The uneven road from Route 28 leads directly to a Pokémon Center at the foot of the mountain. This gives anyone attempting to scale the mountain one last opportunity to make preparations. Surf and Waterfall are required to fully explore the cave network, while the darkness of the first chamber makes Flash useful, as well."
+            ]
+        }
+    },
+    "Part_28": {
+        "Mt. Silver Cave": {
+            "Text": [
+                "Mt. Silver is a hallowed mountain that rises up between Johto and Kanto . These caves are home to powerful Pokémon, so only certain Trainers deemed up to the challenge are permitted to enter."
+            ],
+            "1F": {
+                "Text": [
+                    "The first chamber is the only part of the cave that is dark enough that Flash is usable. Grab the Protein from the southeast ridge, then jump the ledge to the west to pick up an Escape Rope . Go north and walk along the C-shaped ridge to reach the center of the chamber. The northern-most ridge becomes a three-way intersection; take the western path to get a Max Elixer , then turn east and walk through the cave opening into the next chamber."
+                ]
+            },
+            "2F": {
+                "Text": [
+                    "Surf out into the water to the west, then use Waterfall . Climb onto the ridge and enter the cave opening to find a small, dead-end chamber with a Max Revive . Back in the main chamber, climb up the three stairways and continue northward along the rocky ridge. Pass by the north-central cave opening, then climb the second waterfall to reach the northeast area. The second dead-end tunnel holds a Full Restore . Sail back westward and enter the final cave opening."
+                ]
+            },
+            "Summit": {
+                "Text": [
+                    "Cross over the rocky land bridge to finally meet Red , former Champion of the Kanto region. He and his Pokémon have been in training here since he gave up his Champion title, and that training has resulted in each of his Pokémon reaching sky-high levels. Even with a type advantage, Red's Pokémon will not go down without a fight."
+                ],
+                "VS Red": {
+                    "Text": [
+                        "Red leads with his Pikachu , which has already grown to level 81. Its powerful Electric-type attacks will inflict a great deal of damage to an unprepared target, but it is still vulnerable to Ground-type moves, like Earthquake . His Espeon is dangerous for any Pokémon with low Special Defense , so hit it with Bug -, Ghost -, or Dark-type attacks to knock it out quickly. Snorlax can restore its health with Rest , and even attack while asleep with Snore . Amnesia boosts its Special Defense, but Fighting-type attacks, its only weakness, are classified as physical moves anyway. Venusaur 's Sunny Day lets it recover even more health with Synthesis and launch SolarBeam without charging. A Grass-type Pokémon, it fares poorly in extreme heat or cold, so use Fire and Ice moves to wear it down. His Charizard takes massive damage from Rock-type attacks, but is also vulnerable to Water and Electric moves. Finally, his Blastoise falters against Grass and Electric attacks, but can retaliate against Grass Pokémon with Blizzard .",
+                        "After the battle, Red pauses for a moment in stunned silence. Then, in the blink of an eye, he disappears. He is not gone for good though, as defeating the Elite Four and Champion again will cause him to reappear here. The credits roll for the second time, and you resume your adventure in front of the Mt. Silver Pokémon Center.",
+                        "Having scaled the mountain and defeated the legendary Trainer, the final remaining task is to complete the Pokédex. Pokémon Gold and Silver brought the total number of Pokémon up to 251, so there is plenty of training left to do!"
+                    ]
+                }
+            }
+        }
+    },
+    "Part_29": {
+        "Ecruteak City": {
+            "Tin Tower": {
+                "Text": [
+                    "The Tin Tower is a sacred place, and is off-limits to all but a select few people. Ecruteak Gym 's Fog Badge gets a Trainer inside the tower, but no higher than the first floor. By the time you receive the Rainbow Wing , the glorious, rainbow-colored Pokémon has finally returned to its former roost. Bringing this feather along grants access to the rest of the tower."
+                ],
+                "3F": {
+                    "Text": [
+                        "Beginning on the third floor, the tower features a series of ramps to confound any intruders looking to use the Legendary Pokémon for nefarious deeds. Pick up the Full Heal in the southwest corner, then move around the floor in a large S-shape to reach the stairs in the northeast."
+                    ]
+                },
+                "4F": {
+                    "Text": [
+                        "Go south and jump the first ramp, then take the western path to reach an Ultra Ball . Continue southward and pick up the Super Potion in the southeast corner. Head west to reach an Escape Rope , then climb the northwest stairs."
+                    ]
+                },
+                "5F": {
+                    "Text": [
+                        "Jump over the five ramps along the north wall to reach the northeast corner, then move south and west to find a Rare Candy at the central pillar. Take the southeast path to reach the stairs in the southeast corner."
+                    ]
+                },
+                "4F (Visit 2)": {
+                    "Text": [
+                        "Move westward to the southwest area, then pass by the pillar again and climb the northwest stairs."
+                    ]
+                },
+                "5F (Visit 2)": {
+                    "Text": [
+                        "Jump eastward over the first two ramps, then jump the one to the south. Move westward over the next two ramps, then turn south to reach the south-central stairs."
+                    ]
+                },
+                "6F": {
+                    "Text": [
+                        "The sixth floor serves as a transition between the tightly-packed ramps on the lower floors and the far-flung warp panels above. Move counter-clockwise along the path to reach the western stairs."
+                    ]
+                },
+                "7F": {
+                    "Text": [
+                        "Step on the northern warp panel to reach the central area, then take the next one to reach the eastern part of 9F. There are two warp panel to the south. Take the one on the right first; this leads to the dead-end central part of 8F and a Max Elixer . The one on the left leads to the dead-end southern part of 8F and a Nugget . Backtrack to the northern warp panel on 7F, then pick up the Max Revive in the northeast corner. Head south and take the southern warp panel to the west side of 8F."
+                    ]
+                },
+                "8F": {
+                    "Text": [
+                        "Step on the southern warp panel to reach the north side of 9F. Take the western warp panel to the north side of 8F, pick up the Full Restore in the northwest corner, then step on the north-central warp panel to be transported to the central part of 9F."
+                    ]
+                },
+                "9F (Center)": {
+                    "Text": [
+                        "Climb up the final staircase to reach the rooftop."
+                    ]
+                },
+                "Rooftop": {
+                    "Text": [
+                        "The rainbow-colored Ho-Oh has returned to its perch! Begin with Water - and Electric-type attacks to wear its health down quickly, then follow up with Fighting -, Fire -, Steel -, Grass -, and Bug-type moves to chip away at it even further. As Ho-Oh can restore its HP with Recover , consider inflicting status ailments like Sleep and Paralysis to restrict its movements. Be sure to bring along some healing items as well."
+                    ]
+                }
+            }
+        },
+        "Route 41": {
+            "Whirl Islands": {
+                "Text": [
+                    "The Whirl Islands are connected underwater by a sprawling network of dark caves, where seawater and boulders restrict movement in certain areas. Despite being first seen on the initial visit to Route 41 , it was impossible to fully explore the area without the field moves Surf , Strength , and Whirlpool , and difficult to do so without Flash , as well. Visitors may enter from any of the four islands, but those looking for the immense, silver-colored Pokémon should enter from the northeast island. By the time you receive the Silver Wing , the Legendary Pokémon has appeared in the deepest chamber."
+                ],
+                "Via the Northwest Island": {
+                    "Text": [
+                        "Use Flash to illuminate the area, then climb down the ladder.",
+                        "Go south from the ladder to reach a Carbos , then climb down the ladder on the ridge to the southeast.",
+                        "Collect the two items, a Max Elixer to the west and a Full Restore to the east, from atop the waterfall and return to B1F.",
+                        "Head northwest to return to the first ladder, then go south from the rocky ridge to reach another Full Restore atop the ledge. Turn east and walk across the north-central ledge; walk down the second stairway and go left to find a Nugget . Head east and jump over the pair of ledges, then climb up the ladder.",
+                        "Pick up the Ultra Ball on the rocky ridge, then climb back down the same ladder.",
+                        "Go southwest from here, jumping over two ledges along the way. Grab the Escape Rope to the southeast of the cave opening. The nearby boulder cannot be moved from this side, so climb the ladder to the southwest instead. The entrance from the southwest island is located to the south."
+                    ]
+                },
+                "Via the Southwest Island": {
+                    "Text": [
+                        "Use Surf to move east from the entrance. Pick up the Guard Spec. and climb down the ladder.",
+                        "Go northeast, then south to reach the rocky ridge in the southeast area. Grab the Calcium here and climb up the ladder.",
+                        "The entrance from the southeast island is located to the south."
+                    ]
+                },
+                "Via the Northeast Island": {
+                    "Text": [
+                        "Jump over the first ledge, then continue eastward and jump the northern-most of the next two ledges. Climb down the ladder in the northeast corner.",
+                        "Move southwestward along the rocky ridge and climb down the next ladder.",
+                        "Collect the Max Revive to the west. Use Surf , then ride down the waterfall to the southeast. Enter the cave opening to the west to find the Legendary Pokémon.",
+                        "The silver-colored Lugia has appeared! Begin with Rock -, Electric -, Ice -, Ghost -, and Dark-type attacks to wear its health down quickly, then follow up with Grass -, Psychic -, and Fighting-type moves to chip away at it even further. As Lugia can restore its HP with Recover , consider inflicting status ailments like Sleep and Paralysis to restrict its movements. Be sure to bring along some healing items as well.",
+                        "Climbing the ladder to the south of Lugia's chamber leads through a series of tunnels to the cave opening in the middle of B1F. Using an Escape Rope will be a faster way to exit the cave."
+                    ]
+                },
+                "Via the Southeast Island": {
+                    "Text": [
+                        "Entering from the southeast island ultimately leads to the southwest island's entrance. The only items accessible from this direction are a Calcium and a Guard Spec., both of which will have been already obtained by this point."
+                    ]
+                }
+            }
+        },
+        "Route 42": {
+            "Mt. Mortar": {
+                "Text": [
+                    "Mt. Mortar is an optional cave to enter, but contains many valuable items and Pokémon. Although it could be entered on the initial visit to Route 42 , it was impossible to fully explore the area without the field moves Surf , Strength , and Waterfall , and difficult to do so without Flash , as well. Be sure to leave an empty slot in your party!"
+                ],
+                "Upper level (via Middle Entrance)": {
+                    "Text": [
+                        "Use Surf to swim northward, then use Waterfall to climb the wall of water. Pass through the opening in the north wall to reach the Upper Cave.",
+                        "Go west and use Surf ; a Rare Candy can be found to the northwest. Turn around and use Surf again to reach the southeast area. Cross the southern pool on the east side to reach a Max Potion , and continue northward. Turn west and jump over the western-most of the two ledges. Continue westward and cross the west-central pool. Go east and jump the ledge to reach a fork in the road; jump over the ledge to the south to find TM40 ( Defense Curl ) on the central platform, then circle back around to return to this point. Continue eastward and swim northward through the next pool. Pick up the Escape Rope from the northeast ridge, then jump the ledge to the east. Cross the northeast pool, then turn west. Move all the way westward and jump the western-most pair of ledges. Pick up the Elixer , then use Surf to wade into the pool to the east. Collect the Dragon Scale on the ridge to the north, then go south and retrace your steps to reach the northwest area again. Jump over only the northern-most ledge and climb the ladder down to the Lower Cave.",
+                        "Go northeastward along the ridge, then turn west and go down the stairway. Pick up the Max Revive to the southwest, then move towards the northwest corner. Turn south and climb down the ladder to the Basement.",
+                        "Head east to meet a Blackbelt nicknamed the Karate King. Kiyo is head of the Fighting Dojo in Kanto 's Saffron City . He has been in training here since the dojo lost its bid to become an official Pokémon Gym to their rivals in the Saffron Gym . Defeat him and his two Fighting-type Pokémon, and if you have space in your party, he rewards you with a Tyrogue . Depending on its stats, Tyrogue can evolve into one of three Pokémon— Hitmonlee , Hitmonchan , or Hitmontop —when it reaches level 20.",
+                        "Head south, use Strength to move the boulder, and step out into the water. Surf to the southwest corner, then cross the pool of water here to get a Full Heal . Backtrack and sail all the way up to the northeast corner, then turn south. Go west, then north to find another Hyper Potion . Swim south, climb up onto the western platform, and take the ladder back up to the Entrance. The exit is located to the south."
+                    ]
+                }
+            }
+        }
+    }
+}

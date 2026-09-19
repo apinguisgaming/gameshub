@@ -1,0 +1,1398 @@
+{
+    "Part_1": {
+        "Starting the game": {
+            "Text": [
+                "The game loads with Giratina being shown on the bottom title screen. Press Start, A, or tap the screen to go to the main menu, then start a new game. You will be greeted by Professor Rowan , who will ask if you need advice about playing the game.",
+                "Afterward, Rowan will ask you about yourself. Here, choose your gender, name, and the name of your rival . None of these can be changed later on, so be sure you're happy with each choice before continuing to the next one.",
+                "After choosing your rival's name, you will be brought to your house in Twinleaf Town ."
+            ]
+        },
+        "Twinleaf Town": {
+            "Text": [
+                "The game starts in front of the TV at your house in Twinleaf Town . You are watching the tail end of a show featuring Professor Rowan . As you try to move, you will be greeted by your rival , who will briefly be distracted by your PC , and will then tell you to meet him outside as he dashes off. Follow him downstairs, where you'll have a short conversation with your mom . Just before you leave, your mom will tell you to stay away from the tall grass .",
+                "Twinleaf Town is cold, with patches of snow on the ground. As you explore the town, be sure to visit the house in the north-west corner of the town. Here, your rival will bump into you as you try to enter. He'll head back in immediately, however, because he forgot something. Head upstairs and your rival will ask you to meet him at Route 201 . Leave his house and head north. Soon, you'll find yourself on Route 201."
+            ]
+        },
+        "Route 201": {
+            "Text": [
+                "Lake Verity is to the west of Route 201 , while Sandgem Town is to the east. As you go north, you meet up with your rival for a chat. He suggests that the two of you go to Sandgem Town to get Pokémon from Professor Rowan. When you point out you shouldn't go into the tall grass, he naively suggests running through the tall grass so fast that wild Pokémon have no chance to jump out at you (running through tall grass actually increases the chance that you'll be attacked by a wild Pokémon). Just as he's about to enter the grass, an old man shouts at him to halt.",
+                "The man is Professor Rowan, and he is not happy! He tells you two not to go to tall grass, then quizzes you about your love for Pokémon; eventually Dawn / Lucas will appear, and the professor will ask you to pick your very first Pokémon.",
+                "Turtwig has high HP, Attack, and Defense, and its final Evolution , Torterra , gains Ground as a secondary type; few moves are super effective or not very effective against this combination. Its Grass/Ground typing will be effective in more Gyms than Piplup, but in fewer than Chimchar.",
+                "Chimchar has high Attack, Special Attack, and Speed. Its first Evolution, Monferno , gains the Fighting type, a combination that is very effective against the most Gyms out of the three choices, not to mention the Pokémon League. It can also learn the powerful Fire Blast and Focus Blast relatively early, while the other two are still relying on weaker moves like Razor Leaf and Bubblebeam . However, its very low Defense and Special Defense mean it will be vulnerable even to types it resists.",
+                "Piplup is similar to Turtwig; it has high Defense and Special Attack, and its final form gains Steel as the secondary type. This combination will resist many different move types, though it gains a Ground weakness. Piplup's moves are neutrally effective against more Gyms, but its wide range of resistances combined with its high Defense allow it to take quite the pounding.",
+                "Once you made your choice, in true Rival fashion, Barry will pick the one that has the type advantage over your choice. Rowan will point out that these Pokémon are inexperienced with the world and need you to help them grow before he and Lucas/Dawn return to Sandgem Town. Barry will then challenge you to an immediate battle. You don't have to win this battle, but winning awards Experience points for your new first partner Pokémon, as well as a small amount of spending money.",
+                "After the battle you will immediately go home."
+            ]
+        },
+        "Twinleaf Town (Visit 2)": {
+            "Text": [
+                "Back at home, your mom is happy that you and Barry met Professor Rowan, since he stopped you from being attacked by wild Pokémon. She then asks for you to thank him properly in Sandgem Town and gives you the ever-useful Running Shoes ."
+            ]
+        },
+        "Route 201 (Visit 2)": {
+            "Text": [
+                "After arriving back on Route 201, you'll meet up with Barry again. He reveals that he's also planning to go to Sandgem Town , and he asks you to come with him to Lake Verity first to find and catch the rumored legendary Pokémon to show to Professor Rowan."
+            ]
+        },
+        "Lake Verity (first visit)": {
+            "Text": [
+                "Once at Lake Verity you will see Cyrus , the leader of Team Galactic . He boasts to the legendary Pokémon of the lake that he will one day take control of Time and Space, then leaves the scene. When Barry is ready to press forward, you will hear this legendary Pokémon , and he is ready to catch it only to realize that neither of you have any Poké Balls to catch it with. Barry then recalls that Professor Rowan said to come to him if they needed anything, so Barry then departs for Sandgem Town. With nothing more to do here, follow him south and then east along Route 201."
+            ]
+        },
+        "Route 201 (Visit 3)": {
+            "Text": [
+                "Once past Verity Lakefront, you are free to explore the tall grass, though you can't catch any wild Pokémon yet. Talk to the Poké Mart employee near the entrance to Sandgem Town to receive a free Potion , then head west to pick up an item or east to reach the town."
+            ]
+        },
+        "Verity Lakefront (optional)": {
+            "Text": [
+                "There isn't much to do at Verity Lakefront right now, except collecting a hidden TinyMushroom. It is accessible from Route 201."
+            ]
+        },
+        "Sandgem Town": {
+            "Text": [
+                "Once you arrive at Sandgem Town , Lucas/Dawn are waiting to escort you inside Rowan's laboratory. Just as you're about to enter, Barry comes rushing out, commenting that Rowan is not as scary as he appears to be, before he dashes off. Once inside, the Professor takes a look at your Pokémon and approvingly allows you to keep it. Seeing the growing bond between you and your Pokémon, the Professor gives you a Pokédex and requests that you travel across Sinnoh and record data on the various Pokémon you meet.",
+                "Outside the lab, Rowan gives you TM27 ( Return ). Lucas/Dawn will show you around town, then suggest that you talk with your mom about what you've so quickly agreed to do. Before you go, you may want to head south of Sandgem to Route 219 and grab the Antidote waiting there, heal up your Pokémon in the Pokémon Center , and maybe even buy some Poké Balls in the Poké Mart by speaking to the cashier.",
+                "Finally, head west out of Sandgem and use the ledges to return to Twinleaf."
+            ]
+        },
+        "Twinleaf Town (Visit 3)": {
+            "Text": [
+                "Enter your house, where your mom agrees that you should go on this adventure, and gives you a Journal to record it. Barry's mother shows up looking for her son, and asks you to give him a Parcel , suggesting that Barry is likely in Jubilife City by now.",
+                "Now, return to Sandgem."
+            ]
+        }
+    },
+    "Part_2": {
+        "Route 202": {
+            "Learning to Catch Pokémon": {
+                "Text": [
+                    "Leave Sandgem Town between the Pokémon Center and the Poké Mart to enter Route 202 , carry on along the route to meet Dawn / Lucas who will teach you how to catch a Pokémon.",
+                    "Dawn/Lucas and Player walk into grass, and you meet a wild Bidoof . Dawn/Lucas will demonstrate how to catch a Pokémon.",
+                    "After the demonstration on how to catch a Pokémon, Dawn / Lucas will give you 5 Poké Balls to get you started. Go further along the route, it's pretty straightforward. You can use the ledges to escape the grass if you need to heal, and after fighting through 3 Trainers , keep going west to find a Potion in a patch of grass. After this, head north to reach Jubilife City ."
+                ]
+            }
+        },
+        "Jubilife City": {
+            "Text": [
+                "Upon entrance to Jubilife City , you will notice that it is a much larger town than either Twinleaf or Sandgem. As soon as you walk into Jubilife City, Dawn/Lucas will come up to you and talk to you for a while. Dawn/Lucas will then take you up the main street for a while, until you see Looker hiding behind a lamp post between the Pokémon Center and the Trainer's School. Looker will then talk to you for a short time. After that he will give you the Vs. Recorder and be on his way. Head west to the Trainer's School."
+            ],
+            "Trainer's School": {
+                "Text": [
+                    "Inside the school will be your rival! Go talk to him and deliver the parcel from his mom. Your rival notices that there are two town maps, so he gives you one of them. Your rival leaves promptly after this. Inside the school, you can study the blackboard to learn about status conditions , or you can battle the two Trainers in the northeast corner of the room. There is also an X Attack hidden among some of the books on the west side."
+                ]
+            },
+            "Pokétch Campaign": {
+                "Text": [
+                    "Once you leave the Trainer's School and start heading north, a man will interrupt you and tell you about a promotion for the Pokétch . If you find the three clowns and receive all the coupons, you will be given a free Pokétch!"
+                ]
+            },
+            "Jubilife Condominiums": {
+                "Text": [
+                    "You can find the Jubilife Condominiums to the northeast. The girl on the ground floor gives you a Quick Claw . Talk to the other NPCs if you want to hear about the Pokétch, moves, and Heal Balls , which are available at the Jubilife PokéMart across the street.",
+                    "Next, it is a good idea to head west to Route 218 to obtain the Old Rod from a Fisherman . That's the only thing you'll find there for now, until you can use Surf . After you have obtained the coupons, return to the man and receive your Pokétch. After you are finished exploring Jubilife City, your next destination is Route 203 .",
+                    "Be prepared for a rival battle, though, so heal up your Pokémon at the Pokémon Center before continuing and train if necessary."
+                ]
+            }
+        },
+        "Route 203": {
+            "Text": [
+                "After leaving Jubilife City , you will quickly be challenged by your rival.",
+                "Afterwards you can travel along Route 203 , battling Trainers and picking up items. This route is notably the only place where you can catch a level 7 Bidoof before using Rock Smash . Once this Bidoof reaches level 15 and evolves , it can learn any four of the six HM moves required to reach any location in this game. You can then leave it at level 15 so that more experience goes to the Pokémon that do not need to know weak HM moves, such as Rock Smash, Cut , or Rock Climb ."
+            ]
+        },
+        "Oreburgh Gate": {
+            "Text": [
+                "A hiker greets you at the entrance of Oreburgh Gate . He gives you HM06 ( Rock Smash ), but you can't use it outside of battle until you have the Coal Badge . Proceed east and you have the option to battle a Camper and Picnicker, respectively. After getting through the tunnel, you'll arrive in Oreburgh City."
+            ]
+        },
+        "Oreburgh City": {
+            "Text": [
+                "Oreburgh City is the location of your first Gym challenge... but the Gym Leader isn't awaiting your challenge: He's in Oreburgh Mine , located south of the Pokémon Center. From this city, you also have the option of heading through the north exit to Route 207 to find some new wild Pokémon.",
+                "In one of the houses here, there is a woman, Hilary, who will trade you her Abra , nicknamed Kazza, in exchange for a Machop, which you can catch on Route 207 . Until you become able to use another move later in the game, Abra's Teleport will be very useful as transportation. Additionally, remember the Oreburgh Mining Museum , as it will be useful if you find Fossils later in the game."
+            ]
+        },
+        "Oreburgh Mine": {
+            "Text": [
+                "After walking down the steps leading to the inside of Oreburgh Mine , you will enter a rectangular room. Upon reaching the large block of coal in the center of the room, turn right, and then walk south until you reach the end of the wall, at which point you should see a red-haired man in a mining helmet a few steps to your left. Talk to him, and he will introduce himself as Roark , the town's Gym Leader, and show you how to use Rock Smash. He then tells you that he will be back at the Gym, ready to challenge you. Exit the mine and head to the Gym."
+            ]
+        }
+    },
+    "Part_3": {
+        "Oreburgh Gym": {
+            "Text": [
+                "This Gym, as you have probably figured out, specializes in Rock-type Pokémon. The toughest Pokémon you'll face is Level 14, so be prepared. Rock-type moves are supereffective against Bug -, Flying -, Ice -, and Fire -types, so obviously you don't want to use Pokémon of those types in this battle. Also, you will want Pokémon with Water -, Grass -, Fighting -, and/or Ground -type attacks. You should bring a few Potions to this battle, just in case.",
+                "After retrieving Roark from the mine, you may enter the Gym and battle the two Trainers, or you can take the first set of stairs, go across the bridge and walk up the second set of stairs to avoid battling. Then, you may challenge Gym Leader Roark.",
+                "Roark's first two Pokémon shouldn't be too much trouble. The Geodude knows Rock Throw and Stealth Rock , and its best stat is Defense . Stealth Rock will damage any Pokémon you switch into battle (Most Pokémon will lose 1/8 of their HP if hit. It will damage more if the Pokémon is weak to Rock-type moves, and less if it is resistant.). Rock Throw is just an attack, which is thankfully somewhat inaccurate. A good Grass- or Water-type attack will likely take Geodude out in one hit. Roark's Onix may be a bit more challenging, mostly because it has more Defense and Speed , and can use Screech to lower your Pokémon's Defense in addition to Rock Throw and Stealth Rock. If you get hit with Screech, you may want to switch before Roark sends out Cranidos . Cranidos is rather fast for this point of the game, and has a scary amount of Attack that will do massive damage with Headbutt or Pursuit , particularly if Onix used Screech or if Cranidos previously used Leer against you. Try switching in a Pokémon with Intimidate like Shinx to lower Cranidos's threat, but beware of Stealth Rock. It doesn't have the best defenses though, so one Water, Grass, or Fighting-type attack should send it out for the count.",
+                "After being defeated, Roark will give you the Coal Badge and TM76 ( Stealth Rock ). The Badge will give you the ability to use Rock Smash outside of battle.",
+                "Your business in Oreburgh is done for now. Next, you'll be returning to Jubilife City so you can travel north to Floaroma Town ."
+            ]
+        },
+        "Oreburgh Gate (optional)": {
+            "Text": [
+                "Now that you can use Rock Smash , you can pick up some items in Oreburgh Gate that were inaccessible before."
+            ]
+        },
+        "Jubilife City": {
+            "Text": [
+                "After you enter Jubilife City and encounter Looker , who talks about the Pal Pad , head to the North exit and you'll see Professor Rowan and Lucas / Dawn being confronted by two male Galactic Grunts who are demanding to know something from his research. After threatening to get violent you'll team up with Lucas/Dawn in a tag battle to deal with these grunts.",
+                "Afterwards, you'll learn it has to do with the Professor's study on Pokémon Evolution and the energy the Pokémon releases when it evolves. Although the Professor believes it's something beyond their control, Team Galactic seems interested in trying to harness its power. After they leave, a person from Jubilife TV will come and give you the Fashion Case as a reward for this amazing performance and tells you that the TV station is now open to visitors. Additionally, the Global Trade Station will also be open."
+            ],
+            "Jubilife TV": {
+                "Text": [
+                    "The Pokémon Lottery Corner is located on the ground floor of the Jubilife TV building, where it is conducted by a receptionist named Felicity . The winning ID number changes daily, and the game looks for matches by examining the IDs of all Pokémon in the player's party and in all PC boxes (but not Pokémon in the Day Care ). You may check for matches multiple times in one day; however, after winning a prize, you may not participate again for the rest of the day.",
+                    "On the second floor, Trainers can dress up their Pokémon using their Accessories . The saved photo of a dressed-up Pokémon is displayed in the gallery just outside the Fitting Room, along with up to ten photos from Trainers that the player has mixed records with. After dressing up a Pokémon and taking a photo, an Interviewer will appear outside of the entrance to the gallery to ask the player about the photo. In the main area, a man will give the player the mask of their first partner Pokémon .",
+                    "On the third floor there are two rooms off-shooting from the main room: the Group Ranking Room and the Global Ranking Room, which detail rankings from players in the player's group and all players, respectively. There are three machines in each room, each detailing different concepts to be ranked in. A man in the yellow-carpeted area is a TV producer who asks the player for their opinion on TV. By answering EVERYONE HAPPY for the first question and Wi-Fi CONNECTION for the second question, the player can unlock Mystery Gift . Additionally, certain phrases that vary based on game version, language, and Trainer ID number can be told to the TV producer to unlock eight special wallpapers. The passwords can be retrieved from the Daisuki Club website or Pokéwiki.de's secret phrase generator .",
+                    "Several people are on the fourth floor, but there is nothing of interest here."
+                ]
+            },
+            "Global Trade Station": {
+                "Text": [
+                    "The Global Trade Station (GTS for short) is the worldwide network over which you can trade Pokémon via the Nintendo Wi-Fi Connection. Now that you have Coal Badge, the GTS is also open. There is a large globe called the Geonet, which you can indicate their location, and on which small dots representing players you have traded with will appear. When you first logs on to Geonet, you will be asked where you live in. Talk to the woman at the counter. She will direct you into a room in which you can either put up a Pokémon to be traded or trade a Pokémon you own for one that has been put up.\nPokémon searches, after being confined to one species that has been seen by the player, can be further narrowed down to level, gender and the country where the person is trading it from is. By level, players can search for and request Pokémon Lv.9 or below, Lv.10 or above, Lv.20 or above and so on until Lv.100, or they can search for Pokémon of any level. Gender is similar, with the player being able to search for male, female or either gender of the selected Pokémon; searching for genderless species automatically sets the gender to 'either'.\nPokémon offerings are similarly governed, as the requested Pokémon in return cannot be any Pokémon that the player has not seen. Pokémon that are offered cannot be bargained, as the player has to choose one Pokémon he or she wants for it, instead of having a more flexible list. Like normal trades, a Pokémon can also hold an item when being offered or traded. Pokémon that evolve after a trade will do so in the same manner they would after a normal trade. The GTS also allows individuals to trade between two different games without having two Nintendo DS systems. It is recommended to check up on a deposited Pokémon every so often, as the Pokémon may flee if it is kept in the GTS for an extended period of time.",
+                    "Afterwards you can travel to the Pokétch Company and get an upgrade for your Pokétch from the company president. You can get three more upgrades later in the game when you get three, five, and seven Badges. Anyway, head through the north exit to Route 204 . You may want to heal up at the Pokémon Center first, as there are a lot of Trainers."
+                ]
+            }
+        },
+        "Route 204 (south)": {
+            "Text": [
+                "From the entrance of Route 204 , walk north, battling the Youngster and the two Lasses, until you reach a small cave, the Ravaged Path ."
+            ]
+        },
+        "Ravaged Path": {
+            "Text": [
+                "Enter the Ravaged Path . TM39 ( Rock Tomb ) is a short distance behind the breakable rock to your north. The exit of this cave is just on the other side of the rocks to the right of the stairs. Once out, you arrive on the upper part of the Route 204."
+            ]
+        },
+        "Route 204 (north)": {
+            "Text": [
+                "Upon entering the short, flower-filled route, turn left and take the flight of stairs. As you walk along the route, pick up an Awakening and TM09 ( Bullet Seed ). Walk through the grass patch and battle the Bug Catcher and the Twins. To battle the Twins, you must have two usable Pokémon. At the end of the route, you'll arrive in Floaroma Town ."
+            ]
+        },
+        "Floaroma Town": {
+            "Text": [
+                "Once you arrive in Floaroma Town , you may want to visit the Pick a Peck of Colors Flower Shop . In the flower shop, a woman will give you the Sprayduck watering can, and you can receive a Berry for free every day . If you have the Event Pokémon Shaymin in your party, you can show it to the young woman near the entrance to receive the Gracidea flower. Since this is the first area in which you can encounter wild Berries, you can collect and then replant some. The Sprayduck can help you collect more Berries if you water the plants correctly within their growth cycle. Tell the girl in the north-western house that you like berries and she'll hand over TM88 ( Pluck ).",
+                "After this, exit Floaroma Town to the east and continue walking to Route 205 . Near the bridge, a young girl comes up to you and asks you to rescue her papa from the Valley Windworks . In order to get inside the Windworks, you need to pick up the key from Floaroma Meadow and defeat the grunt guarding the door. You can do these two tasks in either order after talking to the girl."
+            ]
+        },
+        "Floaroma Meadow": {
+            "Text": [
+                "As you enter Floaroma Meadow , you notice that two Galactic Grunts appear to be fighting with an old man.",
+                "The two grunts will disappear, leaving behind their Valley Windworks key . The man they were trying to rob thanks you, then gives you ten units of Honey as a gift. Now that you have the Works Key, return to the Windworks and open the door."
+            ]
+        }
+    },
+    "Part_4": {
+        "Valley Windworks": {
+            "Text": [
+                "Battle the Galactic Grunt here who is guarding the door of Valley Windworks . After defeating him, he will run inside the Valley Windworks and lock the door. However, he will tell you that his comrades in Floaroma Meadow have a spare key. If you don't already have the key, return to Floaroma Town and enter the meadow to the north."
+            ],
+            "Interior": {
+                "Text": [
+                    "When you enter the Windworks, you will startle the grunt who had previously blocked the door. He quickly turns and runs away to warn the Commander . Follow him, battling the two grunts along the way. The Commander notices you and talks to you about Team Galactic, providing some information. She promptly challenges you to a battle.",
+                    "The danger here is that Mars' Level 17 Purugly is tough to beat unless if your team was well prepared beforehand. If you started with Chimchar , having it evolve into Monferno (at Lv. 14) to learn Mach Punch is useful. Intimidate users, such as Staravia or Luxio , are also helpful. Upon defeat, Mars will gather her grunts and leave the Windworks after another Commander reminds her that they've already collected enough energy from the Windworks for their plans.",
+                    "The little girl's father thanks you for rescuing him, and his daughter runs in happily, thanking you as she passes. You now may continue north on Route 205, which was previously blocked by Galactic Grunts. After leaving the Windworks, Looker shows up and mentions that he heard of the attack on the Windworks and at first is in disbelief that you drove Team Galactic away. He then mentions that Team Galactic is rumored to have a hideout in Eterna City . Before continuing north, return to Floaroma Town and heal up your team.",
+                    "Now that Team Galactic has left the Windworks, a Drifloon will appear here every Friday."
+                ]
+            }
+        },
+        "Route 205 (south)": {
+            "Text": [
+                "As stated before, the Galactic Grunts who were blocking you from entering Route 205 are now gone with Commander Mars. You can cross the small bridge and then continue heading north until you get to Eterna Forest. Ascend to the raised western side of the route, and battle your way to the house at the top, where the woman inside can heal your Pokémon. Jump down the ledges on the eastern side of the route, battling all the trainers and collecting all the items on the lower level, then head left just before the last ledge and ascend back up to the top of the route and enter Eterna Forest."
+            ]
+        },
+        "Eterna Forest": {
+            "Text": [
+                "Eterna Forest has a reputation for being a mysterious place, from the abandoned Old Chateau to the strange Moss Rock. Eterna Forest is a long and complex structure of trees that make it a natural maze, where a lot of people get lost. It's home to many Bug- and Grass-type Pokémon, and is currently the only known place in Sinnoh to find and catch Buneary .",
+                "Once inside, a woman named Cheryl will ask you to escort her through the forest, since she is worried about being attacked by Team Galactic . When traveling with her, all wild encounters will become Double Battles ! If you want to catch any of the Pokémon found here, it is recommended you do so after you've parted ways; while you're in Cheryl's company you're unable to catch wild Pokémon while there are two enemies on the field, and her Chansey will quickly finish off a single Pokémon. You also have the option of challenging pairs of Trainers as a tag team with Cheryl or by yourself by talking to them to fight individual battles. The greatest benefit of traveling with her is that after every battle, she will fully heal your team! This makes Eterna Forest a great place to train for your upcoming Gym Battle.",
+                "The most direct route from the southern exit to the northern exit is as follows: travel northeast from the entrance, through the tall grass , and then directly north, following the path between a Lass and a Bug Catcher. Then, continue east a short way to the trees and then south to a large patch of tall grass. From there, continue east until the eastern wall is reached. A considerable distance north of there is the exit, around a small rock ledge. However, you may (and should) choose to deviate from this route, as there are a lot of items and Trainers to be found in Eterna Forest. Once you reach the northern exit, Cheryl will leave. Upon leaving, Cheryl will give you the Soothe Bell as a gift."
+            ]
+        },
+        "Route 205 (east)": {
+            "Text": [
+                "When you come out of Eterna Forest and return to Route 205 , all you need to do is walk across the bridge. The Fishermen won't battle you unless you talk to them, so if you don't want the experience just go straight ahead to Eterna City."
+            ]
+        },
+        "Eterna City": {
+            "Text": [
+                "Once in Eterna City , you will see that Team Galactic has set up another Headquarters. As usual, you'll be stopping them from their evil work. The building is blocked by small trees, though, so you must first go to the Gym, and battle the Gym Leader, Gardenia . Before that, go a bit ahead and Barry will accompany you to the statue around the corner. As you walk up to the statue, you'll see Cyrus there. Once again, he will make a reference to Sinnoh's legends .",
+                "After Barry and Cyrus leave, you'll find a hidden Draco Plate just behind the statue. As you head back the way you came, you'll meet Cynthia who gives you a copy of HM01 ( Cut )! Also, talk to the lady in the Pokémon Center for a Pokétch app called Friendship Checker which allows you to tell how much the Pokémon in your Party like you. This is useful when trying to evolve Pokémon that evolve with high Friendship .",
+                "Here are some other places you can check out in Eterna City:"
+            ],
+            "Underground Man": {
+                "Text": [
+                    "Right next to the Pokémon Center is the house of the Underground Man , who will give you the Explorer Kit . You can use this daily to travel to the Sinnoh Underground , a vast expanse of tunnels where you can mine for items and create a Secret Base .",
+                    "There are two potential types of fossils that can be mined in the Underground, but only one type is available per game. It has to do with the last digit of your Trainer ID number (visible on your Trainer Card ). If the last digit is odd then you'll be able to obtain the Skull Fossil ( Cranidos ), but if it is even then you'll get the Armor Fossil ( Shieldon ). Fossils can be revived into their respective Pokémon in the Oreburgh Mining Museum . The Fossils from Generation I and III can only be obtained after getting the National Pokédex ."
+                ]
+            },
+            "Eterna Condominiums": {
+                "Text": [
+                    "On the first floor of this building, Sinnoh's Name Rater can be found, as well as a boy named Norton who will trade a Chatot for a Buizel and on the second floor, an old lady will give away TM67 ( Recycle )."
+                ]
+            },
+            "Herb Shop": {
+                "Text": [
+                    "The Herb Shop is a shop that sells herbs with effects similar to other medicines. They're relatively inexpensive, but their bitter taste lowers the Happiness of Pokémon they are used on. Revival Herbs are probably the most useful thing that can be bought here."
+                ]
+            },
+            "Bike Shop": {
+                "Text": [
+                    "Obviously, this is a store where Bicycles are sold. However, you can't purchase a bike from the store. The owner is being held captive by Team Galactic!",
+                    "You can challenge the Eterna City Gym if you want but if you need more time to train or find new Pokémon you can check out the west side of Route 211 and part of the north side of Mt. Coronet by heading through Eterna City's eastern exit. See this section for more details on Route 211 and this section for Mt. Coronet's North Area."
+                ]
+            }
+        },
+        "Eterna Gym": {
+            "Text": [
+                "This Gym specializes in Grass-types . Be aware that the highest-leveled Pokémon you'll encounter here is Level 22 and quite powerful. Gardenia 's Grass-types are weak to Fire - and Flying -type moves. Avoid bringing Ground -, Rock -, and Water -types, as these types are very weak against her Grass Pokémon. If your starter was Chimchar , this should be an easy fight. If not, the common Pokémon Starly evolves into Staravia at Level 14, and is a good Flying-type that should be considered having on any team, regardless of your starter.",
+                "Once inside the Gym, you must find and battle three Trainers before Gardenia will face you. The hands of the giant clock in the middle move every time you defeat a Trainer. When they are pointing north, south, east, or west, you can walk across them to reach other areas of the Gym.",
+                "First she will send out her Turtwig , which will use moves like Sunny Day and Reflect to help set up the rest of her Pokémon. However, Sunny Day also powers up Fire-type moves, which you can use to your advantage. Gardenia's entire team knows Grass Knot , an attack that does more damage to heavier Pokémon . If Turtwig had a chance to set up Sunny Day, Gardenia's Cherrim will have its Attack and Special Defense increase by 50% due to its Ability . Try to knock it out quickly so you don't get hit by Leech Seed , which will drain your HP to heal the opponent. Gardenia's highest-leveled Pokémon, Roserade , has an additional Poison type that makes it weak to Psychic-type attacks. Along with the strong attack Magical Leaf , Roserade also has Stun Spore , a move that can paralyze , and Poison Sting , a weak attack that can poison your Pokémon.",
+                "Once you beat her you will receive the Forest Badge , TM86 ( Grass Knot ), and the ability to use Cut outside of battle. Now, you may enter the Galactic Eterna Building."
+            ]
+        }
+    },
+    "Part_5": {
+        "Eterna City": {
+            "Team Galactic Eterna Building": {
+                "1F": {
+                    "Text": [
+                        "Once inside the Team Galactic Eterna Building , Looker will approach you again. Several staircases in this building lead to dead ends, where Galactic Grunts and items are located.The correct staircases have a poster near them. Defeat the two grunts guarding the left-hand staircase, then head upstairs. Fight the lone Grunt, collect the X Speed behind him, then head back downstairs and up the right-hand staircase."
+                    ]
+                },
+                "2F": {
+                    "Text": [
+                        "Back on the second floor, make a quick detour up the right-hand staircase, defeat the Grunt and grab the X Special that's partially hidden by the appliance behind him, then head back downstairs. Before heading up the middle-right staircase, talk to the Grunt working at a computer for another battle."
+                    ]
+                },
+                "3F": {
+                    "Text": [
+                        "Battle the Scientist, then head up the right-hand staircase that leads up to 4F; you'll find another dead end but you can also collect a Blue Shard and a Revive . Head back downstairs and up the middle-right staircase to the top floor."
+                    ]
+                },
+                "4F": {
+                    "Text": [
+                        "Collect the Up-Grade to the right of Commander Jupiter , then talk to her to begin the battle.",
+                        "The biggest danger is her Skuntank , as at this point in the game the only options to deal it super-effective damage are Geodude 's Magnitude or Shellos 's Mud Bomb . Once defeated, Jupiter will retreat, saying they no longer need this base but warns you not to meddle in Team Galactic's affairs again. The owner of Rad Rickshaw's Cycle Shop will tell you to meet him at his shop, then return to his shop - follow him back outside."
+                    ]
+                }
+            },
+            "Eterna City": {
+                "Text": [
+                    "Before heading to the shop , visit the Pokémon Center and make sure that your party has a free space - just before arriving at the Bike Shop you'll encounter Cynthia again, who will give you a Pokémon Egg that hatches into a Togepi ."
+                ]
+            },
+            "Rad Rickshaw's Cycle Shop": {
+                "Text": [
+                    "When you meet Rad Rickshaw at his shop, he will give you a bicycle . You can ask him to read you the manual for the bike here once you receive one. A unique feature of this bicycle is that the player can press the B button to switch between the third and fourth gears. Fourth gear is faster than third gear and allows the player to ride up muddy slopes and jump further from bike ramps . Third gear can jump bike ramps, but does not jump as far. Head to Eterna City's south entrance - now that you have a bicycle, you're allowed onto Route 206, the Cycling Road .",
+                    "Finally, before you leave, you might want to bring Pokémon which know Cut , TM70 ( Flash ) (which is found in the basement of the Oreburgh Gate ) and Rock Smash , as they can be used to enter and navigate a few of the upcoming areas."
+                ]
+            }
+        },
+        "Now that you can use Cut and the Bicycle (optional)": {
+            "Text": [
+                "You can pick up several items that were inaccessible before."
+            ]
+        },
+        "Old Chateau": {
+            "Text": [
+                "Now that you have Cut , you can visit the Old Chateau , which is located in the northern part of Eterna Forest , by the exit. Buy some Nest Balls from the Pokémart in Eterna City then backtrack to Eterna Forest, because the Old Chateau is home to Rotom . Since there are no in-game Trainers who use Rotom, you will need to face it here at some point for it to be counted as seen in your Pokédex . You'll find Gardenia near the entrance who, when you talk to her, appears too scared to go in due to the ghosts. Rotom aside, the Old Chateau is worth exploring to collect the items inside it. Go up the stairs to find the hallway with multiple small rooms. The only wild Pokémon you'll encounter here are Gastly , so you might want to bring some Repels to save yourself some annoyance.",
+                "From here, use the first door on your left to reach a room with a TV. During the night (8:00 PM to 3:59 AM), Rotom can be found here, hiding in the TV. Unlike in Diamond and Pearl , where you could only find it once the National Dex has been obtained, it can be found and captured right now. Save your game before trying to catch it.",
+                "Head upstairs and into the main hallway, and save the game before interacting with the TV which Rotom has possessed. Rotom is not very tough, so take care to whittle its health down with flying-, bug-, or poison-type moves. As Rotom is only level 20, Nest Balls will have the same catch rate as Ultra Balls in this encounter, so send it to sleep or paralyze it, then use your Nest Balls to catch it. If you got the Dusk Ball from Oreburgh City , then that will work even better than Nest Balls."
+            ]
+        },
+        "Route 206 (optional)": {
+            "Text": [
+                "Route 206 is made of two parts: the Cycling Road and a grassy area underneath. The Cycling Road is the only part of the route accessible from Eterna City, and you are not permitted to access it without a Bicycle . Here you will also find Dawn/Lucas's father who will give you the Exp. Share when you talk to him, as long as have seen at 35 separate Pokémon; if you haven't yet, make sure to come back and get it when you have.",
+                "There are a number of Trainers to fight on the Cycling Road - defeat them all and exit through the southern gate, speaking to the woman in the gate on your way to get an accessory item. Enter the grassy area by using Cut on the tree to the right of the gate. A lone Hiker has wandered down here - defeat him, as well as gathering all the items, on your way up north to Wayward Cave ."
+            ]
+        },
+        "Wayward Cave (optional)": {
+            "Main Area": {
+                "Text": [
+                    "All trainers in Wayward Cave are positioned such that you could face them in Double Battles . Additionally, there is a girl called Mira in the cave who will serve as your tag battle partner. If you wish, you can find Mira before facing the Trainers to make these battles easier, since, like Cheryl earlier, she'll heal your team completely after each battle.",
+                    "To get to Mira, use Flash, and, smashing your way through any rocks that pose an obstacle, go north through two 4-way intersections, west at the T-junction, north at the next turning, then east at another T-junction, and follow the passage continuing south through a 4-way intersection, following the passage to a final T-junction, where you should turn north to arrive at Mira in the north-eastern corner of the cave. Talk to Mira to have her accompany you.",
+                    "As long as you can avoid the entrance, Mira will serve as your partner for whatever double battles you wish to participate in. Once your business here is finished, head back outside and to the west, as there is another cave to explore."
+                ]
+            },
+            "Hidden Area": {
+                "Text": [
+                    "To access the hidden area of Wayward Cave, start just south of the top right pillar that supports the Cycling Road, walk 9 steps west, and then go north until you reach the entrance. You won't need Flash here, except for the very small entry area, which you can find your way through easily. Notably, this is the only place in the game to contain wild Gible . You can also find the powerful TM26 ( Earthquake ) here by traveling all the way through the path and going up the stairs to another hidden area on the 1F of Wayward Cave. You'll need your bike to jump the ramps; use 3rd gear (the slower gear) to land in the spot directly after a ramp, and 4th gear (the faster gear) to land 3 squares after a ramp.",
+                    "When you've got everything you want from this area, head south to Route 207."
+                ]
+            }
+        },
+        "Route 207": {
+            "Text": [
+                "Now that you have a Bicycle , you can enter Route 207 from Oreburgh City or Route 206 . Take the narrow path directly south of the Honey Tree to find a slew of items and trainers. As you try to enter Mt. Coronet 's south entrance, at the eastern end of the route, Dawn/Lucas will appear and give you the Vs. Seeker and the Dowsing Machine app for your Pokétch. Proceed into Mt. Coronet."
+            ]
+        }
+    },
+    "Part_6": {
+        "Mt. Coronet (south)": {
+            "Text": [
+                "In Mt. Coronet , you'll find Cyrus ranting about perfecting the world before leaving. Collect all the items you can, and simply walk to the other side of this small section of Mt. Coronet, then out of the exit to Route 208 . You won't be able to do anything important here until much later in the game."
+            ]
+        },
+        "Route 208": {
+            "Text": [
+                "There are many Trainers to battle on Route 208 , however, two of them cannot be fought until much later in the game, when you have the necessary HMs. Go across the first section of the bridge, make a quick detour north to grab a Great Ball, then continue east down the stairs, and through the tall grass, and you will be at the entrance of Hearthome City .",
+                "Also on this Route is the Berry Master's house . Each day, he will give you a fresh Berry . You may also get the Berry Searcher Pokétch app that shows where there are Berries ready to pick. His wife sells Mulch , which affects the growth of Berries."
+            ]
+        },
+        "Hearthome City": {
+            "Text": [
+                "On arriving at Hearthome City , a lost Buneary will run into you, shortly followed by its Trainer , who will thank you for catching her Buneary, and suggest that you visit the Super Contest Hall (the large building near the Hearthome Gym ). Once you get there, you'll find her talking to your mom . They will both talk to you about Super Contests and leave. Go to the front desk and talk to the woman dressed in purple. She will reveal herself as Fantina , this city's Gym Leader , and return to the Gym where you will be able to challenge her.",
+                "After that, you can take a look around the city. Next to the Pokémon Center is Bebe 's house, where Sinnoh 's administrator of the PC box system lives. If you talk to her and have a spare slot in your party, she'll hand over an Eevee . If you're into Pokémon breeding , consider saving your game before you receive the Eevee, since there is only a 12.5% chance it will be a female and otherwise, you'll have to wait until you have the National Dex to find a Ditto or another Eevee.",
+                "East of the Poké Mart is the Pokémon Fan Club . Go inside and talk to the man with the hat inside. After listening to his rambles, he will give you the Poffin Case , which is essential for making Poffins . Poffins can be made in the building west of the Poké Mart, known as the Poffin House . Near the Poffin House is Mr. Goods . Although he claims he can't remember who he is or his real name, he has dedicated himself to seeking rarities. He gives goods to Trainers once they have met certain requirements. These items can be placed in the Trainer's Secret Base located in the Underground .",
+                "Next to the Pokémon Fan Club is the Pokémon Hotel. If you go to the second floor and talk to the woman with the Clefairy , she will give you a Shell Bell , which heals the user by 1/8 of its max HP when it inflicts damage."
+            ],
+            "Amity Square": {
+                "Text": [
+                    "At the northwest and northeast of the city are the entrances to Amity Square , where you can find some Accessories , an Amulet Coin , TM43 ( Secret Power ), and TM45 ( Attract ), but you'll need to make a trip from each entrance to get all the items. Keep in mind that you'll need a \"cute\" Pokémon to enter - your first partner Pokémon in any of its evolutionary forms will work. Additionally, each hut contains three teleporters that can warp you to a different hut. To access them, enter the hut but stop on the tile just inside the entrance. Take a step forward, right, or left to access the hidden teleporters. It is the only way to access the area where you can obtain the Spooky Plate . A chubby man in overalls goes around Amity Square every day. To reach him, players must go through the east gate and use the teleporters. When found, he will give the player five Berries or one Accessory ."
+                ]
+            }
+        },
+        "Hearthome Gym": {
+            "Text": [
+                "Once you're done exploring the town, head to the Hearthome Gym , located in the northeast corner of the city. The Gym leader, Fantina , uses Ghost-type Pokémon, which are weak to Dark - and Ghost -type moves. Ghost-types are also immune to Normal - and Fighting -type moves, but Normal-type Pokémon are immune to Ghost-type moves in return. The gym's structure is two darkened rooms each with a maze of Duskull lamps. Although you're given a flashlight at the entrance, it's still easy to see everything on the screen. The goal of the puzzle is to find a blue tile, note down the shape on it, then go to the door that has the same pattern. If you pick the wrong door, you'll find yourself back at the beginning (note that if you leave the gym and reenter, the symbol on the blue tile is randomized, so it probably won't be the same). After the second maze, you'll find Fantina - challenge her to a battle to earn the Relic Badge .",
+                "Typically of Ghost-types, Fantina's Pokémon are all pain to deal with, particularly her Mismagius . If you chose Turtwig as your first partner Pokémon or have added a Shinx to your team, their jaws should be able to Bite through Fantina's team with little problem. Her Duskull has high defense stats and may take a few hits to take down. It has Will-O-Wisp to burn and halve the Attack stat of an affected Pokémon, making it lose 1/8 of its HP each turn. Apply Burn Heals right away. It also has Pursuit and Shadow Sneak , Pursuit doing more damage if you try to switch out and Shadow Sneak always going first , like Quick Attack . Future Sight will do damage to any Pokémon, regardless of type, after two turns. Do not forget Future Sight, as it could take you out just as you think you're winning and have low HP. Contrary to her Duskull, her Haunter has very high Special Attack and Speed, but has no Special based attacks, and has quite low defenses. It has Shadow Claw , a Ghost-type attack with a high critical hit ratio, and Sucker Punch , which will strike before you for 80 power, but only works if you are attacking that turn. Like Duskull, Haunter's role is annoyance, and it will disrupt you with Confuse Ray before going in for Hypnosis to set you up for Fantina's Mismagius. Mismagius comes packing the powerful move Shadow Ball , a Ghost-type attack that synergises with Mismagius' high Sp. Atk. Not good! It also has Psybeam and Magical Leaf backing it up, with Confuse Ray to disrupt as well. Staravia would do well here as it is immune to Shadow Ball and its typing halves the damage from Magical Leaf.",
+                "Once Fantina is defeated, she gives you the Relic Badge and TM65 ( Shadow Claw ). You can also use Defog outside of battle, which will come in handy later on Route 210 ."
+            ]
+        },
+        "Route 209": {
+            "Text": [
+                "Having earned your Relic Badge, you've now done everything there is to do in Hearthome. It's time to move east to Route 209 , however before leaving, consider purchasing Great Balls from the Poké Mart - they have a 50% higher catch rate than regular Poké Balls. Make sure your team is fully healed, because as you enter the Gate that separates Hearthome City from Route 209, you'll encounter Barry , who will challenge you to another battle.",
+                "This time around he'll have two new Pokémon that represent the types of the first partner Pokémon that he didn't pick at the beginning of the game. Additionally, both his first partner Pokémon and his Starly have evolved into their second forms. He shouldn't be that tough if you have a well leveled team, since your selection of Pokémon is much greater than it was last time.",
+                "From the entrance, go east, then north to travel directly to Solaceon Town , collecting any items that are of interest to you. On this route, there is the Broken Tower, which becomes the Hallowed Tower when an Odd Keystone (available from a Black Belt on Route 208 , hidden in Twinleaf Town , or mineable in the Underground ) is placed in it. After speaking to 32 people in the Underground, a level 25 Spiritomb will appear to battle you. You will pass the Lost Tower near the end of the route, but you will need to get HM05 ( Defog ) first for dealing with the fog on the higher floors. Fortunately, HM05 is available not far from here, so pass it by for now. Follow the path north to reach Solaceon Town ."
+            ]
+        }
+    },
+    "Part_7": {
+        "Solaceon Town": {
+            "Text": [
+                "When you first arrive at Solaceon Town , you'll have a quick encounter with Barry who will mention Seals and the Solaceon Ruins . A man on the left side of the path north to Route 210 will give you the Pokétch app Pokémon History .",
+                "If you travel east along the northern border of Solaceon Town, you will see three sets of ledges to jump down. Take the middle one, then jump down the next two and you will arrive at the house of the seal woman who will give you the Seal Case , and her son, who will hand over an alphabet Seal for each corresponding Unown you show him (including ? and !)."
+            ],
+            "Day Care": {
+                "Text": [
+                    "Most notably in Solaceon Town is the Pokémon Day Care in the northwest corner of the town. You can deposit up to two Pokémon that you want to be trained by talking to the Day-Care Lady. It will cost $ 100 as a starting fee and $ 100 more for each level the Pokémon gains. The Pokémon deposited gain one exp. point per step you walk, however they won't grow to be as strong as Pokémon raised to an equivalent level solely through battling. When you deposit a Pokémon into the Day Care for the first time, a man will appear at the table inside. When spoken to, he will give you the Pokétch app Day Care Checker . This is where you can breed Pokémon by depositing two of the same Egg Group ."
+                ]
+            },
+            "Pokémon News Press": {
+                "Text": [
+                    "Next to the Pokémon Center is  the Pokémon News Press . One of the men inside asks the player each day to show him a different Pokémon the player has already seen or caught (because of this the Pokémon he wants to see is often simple to obtain), awarding Poké Balls if the request is granted. A player who accomplishes this task within 24 hours will be rewarded with three of any type of Poké Ball , except for Master Balls , Premier Balls , Cherish Balls , Safari Balls , and Park Balls . He will also award a Heart Scale along with them.",
+                    "When you're done visiting Solaceon Town, head back to the three ledges and take the final set of ledges down into the Solaceon Ruins ."
+                ]
+            }
+        },
+        "Solaceon Ruins": {
+            "Text": [
+                "East of the town are the Solaceon Ruins . You will be able to catch all 28 forms of Unown here, and this is also the location of the HM for Defog . Make sure to encounter at least one wild Unown since no Trainer uses an Unown and you need it to complete your Sinnoh Pokédex.",
+                "Twenty of the Unown can be found in the dead-end rooms, and since not all of them can be randomly found in the same room, you will have to do some exploring. The remaining six forms are located in all the main hallways, excluding the entrance, and only one form can be found in each hallway.",
+                "If you have trouble reading the inscription at the north end of the entrance hallway, it says: Top right Lower left Top right Top left Top left Lower left Follow the corresponding stairways to find a room with HM05 ( Defog ), a Nugget , the Mind Plate , and the Odd Incense (for producing a Mime Jr. egg when breeding a Mr. Mime ). Once Defog is in your possession, your mission here should be complete. A Fire Stone , Water Stone , and Thunderstone are hidden in the boulders in three of the dead end rooms."
+            ]
+        },
+        "Lost Tower (optional)": {
+            "Text": [
+                "The Lost Tower is a five-floor building on Route 209 . While the first two floors are easy to navigate, on the last three you will need HM05 to remove the thick fog. If you come here during the night , you can find wild Duskull . Once you reach 5F, talk to both of the elderly ladies to receive the Cleanse Tag and Spell Tag .",
+                "Once you've left the Lost Tower, return north to Solaceon Town and heal up for the journey ahead, then go north to Route 210 ."
+            ]
+        },
+        "Route 210 (south)": {
+            "Text": [
+                "Head into the left hand patch of grass on Route 210 and up the western muddy ramp, and continue north past the Twins and jump over the ledge. Head back south along the path between the two grassy areas, east along the hill and then north to find a woman looking out over a Honey Tree and the Cafe Cabin. Speak to her, and she'll hand over TM51 ( Roost ). Backtrack to the top of the path between the grass, and enter the Café Cabin ."
+            ],
+            "Café Cabin": {
+                "Text": [
+                    "In the Café Cabin , there are a number of Trainers to battle, and you can buy one bottle of Moomoo Milk (which restores a Pokémon's HP by 100 points) for $ 500 or $ 6000 for a case of 12 (the price per individual item remains the same). Since a group of Psyduck are blocking access to the northern section of Route 210, head east to Route 215 instead."
+                ]
+            }
+        }
+    },
+    "Part_8": {
+        "Route 215": {
+            "Text": [
+                "Route 215 is packed with Trainers and items, and the constant rainfall boosts the power of Water-type moves by 50% (and decreases the power of Fire-type moves by 50%), so this is a good place to train Water-type Pokémon. Bring a Pokémon that knows Cut - it will make travel significantly easier and will allow you to collect all the items on your way to Veilstone City . Head east a short distance, then circle around anticlockwise up and across the first bridge. Follow the path until you reach the third bridge, make a detour to fight the Black Belt to its south, then Cut your way through to another Black Belt to collect the Fist Plate and jump over the ledge. Use Cut on the tree below the next hill to harvest some Berries, then head up the hill, detour south across the fourth and final bridge. Follow the path onward collecting all the items that are of interest, making sure to Cut your way through to TM34 ( Shock Wave ) just below the largest grassy patch."
+            ]
+        },
+        "Veilstone City": {
+            "Text": [
+                "Having arrived in Veilstone City , it's time to explore the place. Veilstone is the home of the Veilstone Department Store , Galactic Veilstone Building , the Veilstone Game Corner , and, of course, the Veilstone Gym .",
+                "In the house directly north of the Pokémon Center lives a man willing to hand over a Porygon . Make sure you have a free slot in your party so you're able to receive it."
+            ],
+            "Game Corner": {
+                "Text": [
+                    "The building in the southern part of the city decorated with glowing lights is the Game Corner. Here, you can collect Coins and then visit the Prize Exchange next door to get valuable items and TMs . Before you're allowed to play any games however, you'll need a Coin Case , in which your winnings are kept. Head to the next house to the west of the Game Corner. Speak to the clown inside, who'll hand over a Coin Case if you get the correct answer in his game of coin toss (you can play again whenever you get the wrong answer). In the Prize Exchange building to the east of the Game corner is a man who, if you talk to him while having a Pokémon with Hidden Power at the front of your party, will let you know what type Hidden Power 's damage will be."
+                ]
+            },
+            "Massage Lady": {
+                "Text": [
+                    "In the house next to the house where you find the Coin Case is the Massage Lady. She'll massage one of your Pokémon once per day and also find an Accessory , which also raises the Pokémon's happiness ."
+                ]
+            },
+            "Veilstone Department Store": {
+                "Text": [
+                    "Veilstone has a Department store instead of a conventional Poké Mart . Take the opportunity to stock up on supplies!",
+                    "Inside, there is a lady to the left of the entrance who will give you a mask to be put in the Fashion Case . The mask will match Lucas/Dawn's first partner Pokémon . The people at the counter on 1F sell items  found in normal Poké Marts .",
+                    "A man behind the counter on 2F will give you the Counter Pokétch app. Battle items and vitamins are sold here as well.",
+                    "On 3F, you can buy TMs . TM54 ( False Swipe ) can be useful if you plan to complete your Pokédex , as this attack will never knock out an opponent. They also sell powerful special attacks, such as TM25 ( Thunder ), TM38 ( Fire Blast ), and TM52 ( Focus Blast ), that can be huge upgrades to your current team.",
+                    "Secret Base decorations are sold on 4F.",
+                    "On 5F, a man will give you a Sticky Barb . Inexpensive healing items can be bought from the Vending Machines on this floor, too.",
+                    "The basement floor sells Poffins , Berries , and Lava Cookies ."
+                ]
+            }
+        },
+        "Veilstone Gym": {
+            "Text": [
+                "After exploring Veilstone City, it's time for you to challenge the Gym for your fourth Badge. Before you enter the Gym, you'll encounter Professor Rowan 's research assistant Lucas / Dawn , and both of you will then meet Wake , Pastoria Gym 's leader, as he leaves the Gym. The Veilstone Gym Leader, Maylene , specializes in Fighting -type Pokémon, which are weak to Psychic - and Flying -type attacks, but Maylene's Lucario is also weak to Fighting-, Fire -, and Ground -type attacks. However, many Fighting-type Pokémon can learn Rock -type moves, which cover their weakness against Flying-type Pokémon, so a team with Psychic Pokémon and Ghost Pokémon is ideal here.",
+                "The Gym is a maze consisting of many punching bags that you must push to smash barriers made up of tires in order to open up new paths. Your key goal is to aim for the punching bag in the upper left of the Gym that destroys the barrier that will get you to Maylene.",
+                "Knock the first punching bag to the right, and head up through the (now vacant) gap between the bottom right boxing ring and the support pillar. Knock the next bag north, make a quick detour into the ring to battle the First Karate Quad, then knock the bag north once more - it should end up just above and to the right of another bag. Knock this bag north, then follow it and head up and around the stack of tires at the northeast corner of the northeast boxing ring. Knock the next bag (that is just north of the northeast ring) twice to the left, then head south between the northeast ring and the benches, stopping to battle the second and third members of the Karate Quad, then head into the western portion of the Gym.",
+                "Head northwest, fight the fourth and final member of the Karate Quad, then knock the bag next to him south once, and then once east. Next, find the bag directly south of the path between the benches and north of the southwest boxing ring. Knock this bag anticlockwise (up, left, down, then right) all the way back to its original position. This should clear the way to the southwestern-most punching bag, which can now be knocked north once and east. Head up between the benches, and knock the bag above them twice to the east, finally opening up the stairs to allow you to challenge Maylene!",
+                "Maylene leads with her Meditite, which can use Fake Out on its first turn in battle to force your Pokémon to flinch and deal some damage. A quick Flying-type like Staravia using Wing Attack or Aerial Ace will take it out before it can use Rock Tomb to counter your Flying-type -type, but a Ghost-type is ideal as it will take little damage from Meditite's moves. Her Machoke is more offensive but should not be too difficult to beat though it can also counter Flying types with Rock Tomb , a Psychic or Ghost Pokémon will do will here too. Last up is Lucario, Maylene's star Pokémon. It has a variety of attacks, but nothing too rough. Its Steel-type makes it only take regular damage from Flying and Psychic but adds weaknesses to Fire , Fighting , and Ground . Two of them are conveniently exploited by attacks sold at the Department Store, but Lucario can counter Fire-types with Bone Rush . Be careful of her Gym's signature move Drain Punch , which heals her Pokémon by 50% of the damage dealt with it, so try not to get into a war of attrition. Maylene will use Hyper Potions when her Pokémon get weak, so try to finish them off without dropping their HP to below 20% (when the HP bar turns red).",
+                "After you defeat her, she'll hand over the Cobble Badge, explaining that it'll allow you use HM02 ( Fly ) outside of battle, and that traded Pokémon up to level 50 will obey you without question, along with TM60 ( Drain Punch )."
+            ]
+        },
+        "Veilstone City (Visit 2)": {
+            "Text": [
+                "As you leave the Gym, Professor Rowan 's assistant Lucas/Dawn comes up to you and tells you that their Pokédex has been stolen. Heal up at the Pokémon Center, then head over to the Galactic Warehouse to find two male Team Galactic Grunts. Challenge the two to a Multi Battle with Lucas/Dawn.",
+                "Upon defeat, the grunts give back the Pokédex and flee. Looker then shows up, having heard of the robbery, and is glad you were able to handle the situation. After your partner leaves, Looker guides you into the warehouse. Inside he finds that the door is locked and states there is nothing he can do now. He does find HM02 ( Fly ) however, which you should pick up. Before leaving, Looker mentions a rumor of Team Galactic moving something important to Pastoria City . There's nothing else of importance to do in Veilstone (for now), so it's time to head south to Pastoria, after healing up at the Pokémon Center if necessary. To get to Pastoria, you must enter the east gate through Route 214 ."
+            ]
+        }
+    },
+    "Part_9": {
+        "Route 214": {
+            "Text": [
+                "Apart from the Trainers, Route 214 is a pretty straightforward route. First head south down the eastern side of the route. At the bottom of the maze of fences, head west a short distance, then back north up the mountainous western side of Route 214 where there are more trainers to battle, and, at the top, the Maniac Tunnel . On the way, collect the Razor Fang (necessary for evolving Gligar into Gliscor when leveled up at night) hidden in the lower-right corner of the southern patch long grass near Collector Jamal, and the Magmarizer (necessary for evolving Magmar into Magmortar when traded) just north of Ruin Maniac Byran."
+            ]
+        },
+        "Maniac Tunnel (optional)": {
+            "Text": [
+                "Collect TM28 ( Dig ) just north of the Ruin Maniac. When you encounter different forms of Unown at the Solaceon Ruins (you do not need to catch them, despite his claims), the Ruin Maniac lengthens the Maniac Tunnel and also raises the chance of encountering Hippopotas . By encountering all 26 alphabetical Unown, the tunnel will be complete, and you'll be able to collect the ! and ? Unown in the top floor of the Solaceon Ruins."
+            ]
+        },
+        "Solaceon Town (optional)": {
+            "Text": [
+                "After encountering all 26 alphabet forms of Unown, you can go through the Maniac Tunnel to reach Solaceon Town and pick up a Rare Candy."
+            ]
+        },
+        "Valor Lakefront": {
+            "Text": [
+                "Valor Lakefront includes a large patch of grass and part of Hotel Grand Lake . You can't access Lake Valor proper just yet... So why not go to the Seven Stars Restaurant where you can partake in a number of Double Battles ? You will also find a lady who has lost her Suite Key , and asks you for your help finding it. Go near the entrance to the hotel and use your Pokétch's Dowsing Machine to find and return it. The key is difficult to find with the Dowsing Machine due to its small size. You can find it by facing south and standing one step down from the stairs that are near the southern exit."
+            ]
+        },
+        "Route 213": {
+            "Text": [
+                "Route 213 is a beach that connects Valor Lakefront to Pastoria City and contains the other half of Hotel Grand Lake. In one of the buildings, the hotel receptionist can heal your Pokémon. There are several items to collect along the way, especially the hidden Heart Scales in the sand that can soon be exchanged for a valuable service ."
+            ]
+        },
+        "Pastoria City": {
+            "Text": [
+                "Pastoria City is home to the Great Marsh , where many Pokémon can be found, though it will require multiple visits on separate days to see all of them. One of those Pokémon is Tropius , which can learn Fly along with four other HM moves. It will be very useful if you cannot or do not want to teach those HM moves to the Pokémon that you use in battle.",
+                "Pastoria is also home to the Scarf Guy, who lives in the house nearest to Route 213 . The Scarf Guy checks a Pokémon's condition to see if it is worthy of a Scarf . If the Pokémon's condition is at its maximum value in an area, he will give out the corresponding Scarf to that Pokémon. If not, he will tell the player to improve its condition with Poffins .",
+                "The eastern house right next to the water is the home of the Move Reminder who will teach your Pokémon a move from their level-up moveset in exchange for a Heart Scale . Heart Scales can be found in various locations in throughout Sinnoh , including the Underground , and the Pokémon News Press in Solaceon Town .",
+                "Go to the westernmost house to meet a woman who will give you a Berry once a day. These Berries will notably be the ones that reduce the damage of supereffective attacks on the Pokémon that holds it."
+            ]
+        }
+    },
+    "Part_10": {
+        "Pastoria Gym": {
+            "Text": [
+                "Before you enter the Gym , you will be challenged to a battle with your rival .",
+                "As you will quickly figure out, this Gym specializes in Water-types . Grass - and Electric -types will do well here, but you shouldn't use Fire -, Rock -, or Ground -types. The strongest Pokémon here is level 37, so make sure your team is leveled appropriately before challenging the Gym.",
+                "The puzzle of the Pastoria Gym may appear complicated at first, having to raise and lower the water level by stepping on buttons in the correct order. In reality, there is only ever a single path that you can take at any one time without going back the way you came. To reach Crasher Wake (the Gym Leader), go down the entrance stairs, turn left and go up those stairs. You will reach a yellow button. Hit it and the water level drops. Turn right, down the stairs, and go through a narrow passage. There is another narrow passage before you reach some stairs. Climb up to the top, and hit the green button. Climb down and follow the path to another set of stairs. Battle the Sailor there, and hit the blue button. Follow the platform to the first yellow button and head right, past the stairs to the Tuber . Battle him, and follow the path right to another Tuber. Battle her, and go on forward. You will eventually find a green button. Hit it, go down the nearby stairs, and hit the yellow button. Go up, then down to the lowest level. The rest is simple; follow the path to a set of stairs, climb up, and hit the blue button. The path to Wake is clear.",
+                "Wake leads the fight with Gyarados , who has Intimidate , so lead with Special -based attackers. It knows Wake's signature move, Brine . Brine does more damage if its target has less than half of its HP left, so be wary and keep your Pokémon healthy. Waterfall will do the most damage and may cause your Pokémon to flinch . However, one good Electric-type attack, such as Spark or Thunder , will take it out. Next up is Wake's Quagsire , whose Ground type makes it immune to Electric-type moves. Grass-type attacks are this Pokémon's nightmare, particularly Special attacks due to its weak Special Defense . It has Rock Tomb which can slow you down, but it doesn't know Brine. Yawn can be annoying, because a Pokémon hit by it will fall asleep on the next turn unless you switch it out. Chesto Berries as held items can be useful in this situation. Last up is his star Pokémon, Floatzel . Floatzel is very fast, and can hit pretty hard, but its defenses are quite low. It has Ice Fang to counter Grass-types, as well as Aqua Jet , a Water-type version of Quick Attack . It too is packing Brine, so stay healthy during the fight. A Pokémon with a good Electric move will do well here.",
+                "After defeating Wake, you'll receive the Fen Badge that lets you use Surf outside of battle, as well as TM55 ( Brine ).",
+                "After earning the Fen Badge, you'll meet up with Barry again. When Wake leaves the Gym, it turns out that Barry's earlier claim that he's Wake's apprentice isn't true - Wake won't take him on as he believes neither of you need any tutoring. After this exchange Barry mentions a Galactic Grunt with a bomb near the Great Marsh's Observatory Gate. When you meet Barry and Wake at the entrance to the Great Marsh you'll find that the Grunt sets off a small bomb in the Great Marsh as a field test, and you'll have to chase after him while Barry keeps people out of the Great Marsh until Wake can be sure it is safe."
+            ]
+        },
+        "Route 212 (south, optional)": {
+            "Text": [
+                "Go down the stairs and around the path past the Scientist and the two Rangers . Head up another set of stairs to grab TM62 ( Silver Wind ) across the narrow bridge. Go north on the wide bridge, Cut your way through some bushes, and collect all the items hidden on the four hills connected by the three narrow log bridges. East of the wide bridge is the house of one of the three Move Tutors who offers to tutor moves in exchange for shards ."
+            ]
+        }
+    },
+    "Part_11": {
+        "Route 210": {
+            "Text": [
+                "Now that Cynthia has given you the SecretPotion , talk to the Psyduck that have been blocking access to the north half of Route 210 . Administer the SecretPotion and the Psyduck will move off. Cynthia will appear and give you the Old Charm , asking you to deliver it to Celestic Town . Tall grass grows rampant throughout this route, preventing the use of your bicycle . This area is a popular place for Ninja Boys to hide. Further north, the grass clears to give rise to thick fog . To ease travel, HM05 ( Defog ) may be used, although this is not required.",
+                "Head north through the large patch of tall grass, but make sure you find all three members of the Ninja Trio and defeat them, as they won't challenge you unless you stand right next to them. Grandma Wilma , a Move Tutor , lives in a house on the northern, foggy stretch of Route 210 although you'll need Rock Climb to reach it. Previously, she lived in a famous city of Dragon Tamers , and is able to teach the move Draco Meteor to any Dragon-type Pokémon with high friendship . Turn west, then head up the stairs and across the first bridge. From there, carry on straight, across two narrow bridges to find the powerful TM30 ( Shadow Ball ). Backtrack, and head south over the second wide bridge and then follow the path west to Celestic Town ."
+            ]
+        },
+        "Celestic Town": {
+            "Text": [
+                "Celestic Town is a tiny town that preserves the history of Sinnoh and the old ways of life. The center of town has a small shrine that dates back to ancient times. This town is the hometown of Cynthia 's family. Although there is no Poké Mart in the town, an elderly couple run a shop out of their house. A man standing in the shop gives away three pairs of glasses to you depending on the time of day. He gives away Choice Specs in the morning, BlackGlasses during the day, and Wise Glasses at night. The Choice Specs powers up the holder's Special moves by 1.5 times, so be sure to take them if you have any special attacking Pokémon.",
+                "Next to the Pokémon Center is Cynthia's grandmother . Talk to her and she'll tell you about the Galactic Grunt guarding the entrance to the ruins , so head down the stairs and battle the Grunt at the north end of town.",
+                "After the battle, Cynthia's grandmother will thank you, and you'll give her the Old Charm . Head inside the ruins and examine the mural at the back of the room depicting Azelf , Uxie , and Mesprit . Team Galactic 's Boss Cyrus will show up, interested in the old Sinnoh legends, and after he and Cynthia's grandmother exchange their views on the current state of the world, you'll battle him.",
+                "This battle certainly shouldn't be the hardest you've yet had. Cyrus's Sneasel , although fast, has low defensive stats. A Fighting-type move is pretty much guaranteed to take it out in one hit. It's worth noting that Cyrus's entire team is weak to Rock-type moves as well.",
+                "After the battle, Cyrus will disappear in a flash and you'll be rewarded HM03 ( Surf ) by Cynthia's grandmother. Once you leave the ruins, you'll meet up with Cynthia, who heard what happened and now understands that Team Galactic is more dangerous than she initially thought. She'll mention there is a library in Canalave City with books detailing Sinnoh's history, west of Jubilife City . Since it is the location of your next Gym Battle, you will need to head there eventually."
+            ]
+        },
+        "Now that you can use Surf (optional)": {
+            "Text": [
+                "Now that have the option to Surf in the field, let's collect some items and battle some trainers around the region."
+            ]
+        },
+        "Fuego Ironworks (optional)": {
+            "Text": [
+                "Starting from the bridge near the entrance to Route 205 's south half, Surf on the river northwest and eventually you'll reach Fuego Ironworks . Get off at the northern bank of the river. It's worth noting that outside of the Ironworks, you can find wild Magnemite .",
+                "Inside Fuego Ironworks your objective is getting to the boiler in the center, where the owner Mr. Fuego is. You will need to use the spin tiles to reach him. First head into the direction of the southeastern corner of the Ironworks at your own pace, but avoid the tile near Mr. Fuego as that one will take you through another tile that will cause you to start over. After accessing the (↓) tile in the southeastern area you will see three (←) in a line that lead to a larger patch of tiles. The northernmost (←) is the correct one to use and will get you to the area just to the right of the entrance to the boiler place."
+            ],
+            "Stars for Shards": {
+                "Text": [
+                    "Mr. Fuego will give you a Star Piece when you first meet him. From now on, you can trade a Star Piece for one of all four different-colored Shards ."
+                ]
+            }
+        },
+        "Floaroma Meadow (optional)": {
+            "Text": [
+                "From Fuego Ironworks, you can access the northern section of Floaroma Meadow, which contains multiple hidden items."
+            ]
+        },
+        "Route 213 (optional)": {
+            "Text": [
+                "On Route 213 , use Surf south of Dr. Footstep's house and follow the rock wall eastward. Eventually, you will find a narrow passage to a patch of sea that contains most of the trainers and a few items. South of that is another passage leading to Swimmer Shetlin, a Big Pearl , and a Max Revive . Whenever you visit a small island, be sure to use the Dowsing Machine on your Pokétch to find more items."
+            ]
+        }
+    },
+    "Part_12": {
+        "Route 219 (optional)": {
+            "Text": [
+                "Fly to Sandgem Town and use the south exit to reach Route 219 . It is the first of a chain of routes that you can use to reach Sinnoh's Pal Park . The Pal Park will be inaccessible until you have the National Pokédex, but the training you'll get on the way there is valuable, and the Pal Park can be flown to after you visit it once. You'll want to bring Grass - and/or Electric -types for the trip since the Trainers on the upcoming Routes use mostly Water-types ."
+            ]
+        },
+        "Route 220 (optional)": {
+            "Text": [
+                "Though not as simple as Route 219, Route 220 is pretty straightforward. Head down the eastern side when the route forks in two, fight the Swimmer there, then backtrack and head down the western fork. A little further on, the way forward forks in two again, this time around a largish island. Grab the Max Repel just north of it, then head down the southern fork until you reach the island with the submerged shoreline. Continue east past the Carbos , making a quick detour into route 221 to fight the female Swimmer, then backtrack and head north where the Carbos is, head west briefly to fight the male Swimmer, then go east to Route 221 ."
+            ]
+        },
+        "Route 221 (optional)": {
+            "Text": [
+                "Continue east from Route 220. Fight the male Swimmer, and continue east until you reach land. Head east on the northern section Route 221, stopping at the Level House (see below) to pick up the Pure Incense which allows you to produce a Chingling Egg when breeding Chimecho . When you reach the Pal Park (inaccessible until after you defeat the Elite Four), head back along the southern part of the route, collecting all the items you missed when travelling on the northern part. Now that you're finished here, it's time to Fly back to Jubilife City and head northwest via Route 218 to reach Canalave City ."
+            ],
+            "Level House": {
+                "Text": [
+                    "The only house located on Route 221 belongs to an old man who will each ask for a Pokémon at a certain random level from 1 to 100 each day. The items he'll give you are the Black Belt , Expert Belt , or Focus Sash . Only one item is given to you out of that particular order when you complete his request, and after he gives you the Focus Sash, the cycle will start over.",
+                    "For days where the requirement is an extremely high-leveled Pokémon, you can try soft resetting and not much else. On some days you might get lucky and be able to use Pokémon from your regular team. For days where low-level Pokémon are needed, the quickest solution is to simply head to an earlier area with an Quick Ball or two, catch a Pokémon of the appropriate level, and bring it to him."
+                ]
+            }
+        },
+        "Route 218": {
+            "Text": [
+                "Now that you have Surf , you're able to navigate the rest of Route 218 and reach Canalave City , your next destination. There isn't much to do on this short route except for fighting the Trainers and catch Mr. Mime (this is the only location in Sinnoh where they can be found).",
+                "When you enter the guard post separating Route 218 from Canalave City, Professor Rowan 's assistant will approach and give you upgrade to your Pokédex . This will allow you to check the differences in appearance between the same Pokémon in their Pokédex entry, such as gender or form differences."
+            ]
+        },
+        "Canalave City": {
+            "Text": [
+                "When you first enter Canalave City , be sure to visit the Pokémon Center to heal and prepare your team - when you try to cross the bridge your rival Barry will show up and challenge you to test your skills.",
+                "Barry now has a Heracross on his team, but a powerful Flying-type move can easily beat it. Unless you have an especially fast one, avoid using Psychic-type -types as Heracross's Dark-type move Night Slash will counter it. Four members of Barry's team have reached their highest evolutionary form, but they shouldn't be too much of a problem as long as your party is at least at Level 35 and has good type coverage. After the battle, Barry will suggest that the player visit Iron Island before heading off towards the library.",
+                "The Move Deleter resides in the house just north of the Poké Mart . He will be able to remove any unwanted moves in your Pokémon's present moveset including HM moves. This is the only way for a Pokémon to forget a HM.",
+                "The southernmost house on the west side of town belongs to a Sailor named Eldritch , who handles the ferry in town. Nothing important will happen here until the post-game after obtaining the National Pokédex . Eldritch is waiting near his boat at the dock nearby, and he can take you to Iron Island which will be required to visit. South from the wharf is a hidden area where you can pick up the TM89 ( U-turn )."
+            ]
+        }
+    },
+    "Part_13": {
+        "Iron Island": {
+            "Outside": {
+                "Text": [
+                    "When you go to Iron Island , you might want a party that only contains five Pokémon, because you can receive a Pokémon Egg toward the end of the maze. Use the Dowsing Machine on your Pokétch to find a hidden Star Piece that you can exchange at Fuego Ironworks for colored shards . Interior Star Pieces will regenerate each day.",
+                    "At the entrance to the mine you'll meet a man named Riley , who will give you HM04 ( Strength ). He mentions he is training inside and proposes you join him. While receiving the HM is the only required part of your mission here, you'll find some good items, get valuable training, and an extremely rare Pokémon if you explore the whole mine."
+                ]
+            },
+            "1F": {
+                "Text": [
+                    "Riley will team up with you further on, but you're on your own for the first portion of Iron Island's mine. From the entrance room, first go down the stairs leading left."
+                ]
+            },
+            "B1F": {
+                "Text": [
+                    "In the west side of B1F there are just two items and a single Trainer. One of these items is the Protector which can evolve Rhydon into Rhyperior if it is held while traded. Afterwards, return to 1F and this time use the right-hand stairs to reach the east side of B1F.",
+                    "On the right-hand side of B1F, you will again face one Trainer and find some more items, including another hidden Star Piece. Make sure to keep an eye on your bearings here since it is easy to get lost in this maze. You need to stay on the correct path to find the items and get to the small elevator that will take you down to B2F. Once again, there are two pathways. Since Riley can be found by taking the left stairs, let's go right first so afterwards Riley can heal your team."
+                ]
+            },
+            "B2F": {
+                "Text": [
+                    "In B2F's east side you will face two Trainers, and also find TM23 ( Iron Tail ). If you follow the path that leads to the other side of where the TM was found and use your Dowsing Machine, you will find yet another hidden Star Piece.",
+                    "Once you reach the left side of B2F, Riley will team up with you to investigate the mystery of a disturbance here in the mine. Just like Cheryl and Mira , he will heal your team after every battle, and double battles will also occur in the wild. Therefore, you should train as much as possible while he is with you.",
+                    "Remember, like all Multi Battle situations, two wild Pokémon will appear at once and you can't catch a wild Pokémon unless you knock the other out. Since the Trainers in this room are positioned to where you could face them in a Double Battle , do not waste the opportunity to do so, if you wish.",
+                    "Just like B1F's east room, B2F's west room is also a maze so make sure to get your bearings for collecting items or facing Trainers. Your final target is the pair of Galactic Grunts in the south area of the room - be warned, Riley will leave after you face them. After defeating Workers Brendon and Quentin head southwest and follow the path to reach a ledge above them and then use the Dowsing Machine to find a fourth hidden Star Piece. Also in the southeastern area down some small stairs, the Dowsing Machine will reveal a hidden item, the Iron Plate .",
+                    "After getting past the somewhat tricky Ace Trainer duo Jonah and Brenda, you'll find the Galactic Grunts - the disturbance in the cave.",
+                    "After you defeat the grunts, Riley will thank you for your help and will give you a Pokémon Egg containing Riolu , Lucario 's pre- Evolution . As long as you remembered to only bring five Pokémon with you, there should be no problem; if not, you'll have to return to Canalave City first to empty a slot in your team and then backtrack to get the Egg.",
+                    "All that's left is taking the elevator down and entering the final room."
+                ]
+            },
+            "Final Area": {
+                "Text": [
+                    "Use the elevator here to go back up to ground level and you'll find the Shiny Stone , for evolving Togetic into Togekiss or Roselia into Roserade . Also, you'll find the entrance to the Iron Ruins , which will become a shrine to Registeel if you have an event Regigigas . If not, it will be an empty room where you can find a Metal Coat. Even if you do have the event Regigigas, you won't be able to face Registeel until you have the National Pokédex.",
+                    "Leave Iron Island and return to Canalave City to earn your Mine Badge if you haven't done so or to enter the Canalave Library if you already have the badge."
+                ]
+            }
+        },
+        "Canalave Gym": {
+            "Text": [
+                "Be aware that the toughest Pokémon you'll face here is Level 41. The layout of the Canalave Gym is a maze consisting of multiple elevator platforms. As you may already know, it specializes in Steel-types . You'll want Fire -, Ground -, and/or Fighting -type attacks on your Pokémon. Many of the Pokémon in this gym are part Ground or Rock , so Water-type attacks (such as Surf ) are also useful. Steel-types resist attacks of almost every other type, and are completely immune to Poison-type moves. Also, most of the Pokémon in this Gym have high Defense , so Special moves will do the most damage to them.",
+                "To deal with the maze, first head to the easternmost elevator out of the set of four you'll find on 1F. Then, take the elevator south of you on 2F to reach the southeast area of 1F. The next one will take you back up to 2F. Then, use the moving lift hooked up to a wire to get across the ledge. Take the regular elevator there to reach 3F, where you will find more moving lifts to take you across the wires. First, use the moving lift north of you to reach the north area of 3F with two moving lifts side-by side. Take the northern lift and then keep following the path that will take you back down to 2F. Another elevator will take you to the northern area of the 1F. There, an elevator with a red outline will take you up to 4F where Byron , the Gym Leader and the father of Oreburgh City Gym Leader Roark is.",
+                "Byron starts by sending out Magneton , whose weak Sp. Defense makes it vulnerable to moves like Fire Blast . Also, a Ground-type move like Earthquake could easily take it out in one hit due to its Steel/ Electric typing. Beware of Flash Cannon if your Earthquake user is part Rock-type . Metal Sound will harshly lower your Pokémon's Special Defense, causing Thunderbolt , Tri Attack , and Flash Cannon to do even more damage, so be careful. It's best to use Special attacks on Byron's Steelix because of its high Defense stat. It will dispose of Fire-types with Earthquake unless you have a Fire-type strong and fast enough to take it out in one hit. Ground Pokémon, on the other hand, must watch out for Ice Fang . Don't worry too much about Steelix's Flash Cannon, as its Special Attack isn't the best. The last Pokémon you'll face is Bastiodon , which is high-leveled but can easily be defeated by a powerful Fighting- or Ground-type attack due to it's type combo of Rock/Steel. Be sure to take it out in one hit (which isn't too hard), or your Pokémon will be on the receiving end of Metal Burst , which does 1.5 times the damage your previous attack did to Bastiodon. Stone Edge poses a threat to Fire-types, and Iron Defense will sharply raise Bastiodon's already high Defense stat. Taunt will only allow your Pokémon to use attacking moves, which shouldn't be much of a concern. Get Bastiodon out of your way as quickly as possible, and you'll have saved your team some pain and earned yourself the Mine Badge without too much trouble!",
+                "Once you defeat Byron, he will give you the Mine Badge, which causes all traded Pokémon up to Level 70 obey you without question and allows for Strength to be used outside of battle. He'll also give you TM91 ( Flash Cannon ), a Steel-type Special attack that occasionally lowers the enemy's Special Defense stat.",
+                "When you step out the door, your rival Barry will be there waiting for you. After congratulating you on getting the Mine Badge, he asks you to come with him to the Canalave Library. You can meet them there, but he will stop you if you haven't been to Iron Island to pick up HM04 ( Strength )."
+            ]
+        },
+        "Canalave City": {
+            "Text": [
+                "Head to Canalave Library where your rival is still waiting. Speak to him there, then head in the building and go up to the 3F. It turns out that Professor Rowan is there with his assistant Lucas / Dawn and wanted you to be part of this conversation. Rowan explains that during his exploration of Pokémon Evolution , he learned of the Lake guardians that might shed some light on the mystery of Evolution he is trying to solve. He is therefore going to investigate the lakes where these three guardians live, and while he is going with his assistant to Lake Verity , you will go to Lake Valor , and Barry is going to Lake Acuity . Just then a tremor goes off, and you'll learn there was an explosion at Lake Valor, and so the group then separates to head to each of their destinations. You can go to yours immediately, but some extra training at Iron Island , as your rival suggests, may be helpful. Additionally, since you now have six badges and can use Strength , you can backtrack for items you couldn't get before in places such as the basement at Oreburgh Gate ."
+            ]
+        },
+        "Oreburgh Gate (optional)": {
+            "Text": [
+                "Now that you can use Strength , you can pick up a few items that were not accessible before."
+            ]
+        },
+        "Lake Valor": {
+            "Text": [
+                "Turns out Team Galactic is responsible for the tremors due to using a large bomb to dry out Lake Valor to find the cavern where Azelf sleeps. You won't be able to find any wild Pokémon while the lake is in this condition. Time to face some Galactic Grunts.",
+                "Once you get past them and enter the Valor Cavern , you'll find it is too late. Azelf has been taken by Team Galactic. Instead you will have to face the leader of this unit, Commander Saturn.",
+                "Saturn's Golbat can easily be knocked out with an Electric or Rock-type move. His Bronzor should be no problem with a Fire-type special move just like in the Canalave Gym. His star Pokémon is a Toxicroak . It takes a 4× weakness to a Psychic-type . If you do use a Psychic-type make sure it is gifted in Speed , like Espeon or Kadabra , since a slower Psychic-type may have trouble with Toxicroak's Faint Attack , a Dark-type move. Toxicroak is also weak to Ground and Flying .",
+                "After the battle Saturn will gloat how pointless it is to stand up to Team Galactic and mentions that Commander Mars should have caught the guardian at Lake Verity by now before leaving. It is time to head to Lake Verity, so make sure to have your team ready before flying back to Twinleaf Town and then heading to Lake Verity."
+            ]
+        }
+    },
+    "Part_14": {
+        "Lake Verity": {
+            "Text": [
+                "When you arrive at Lake Verity , you'll find Rowan holding off one of the grunts while Lucas/Dawn is up ahead facing Mars and needs your help. After going through two Double Battles you will face off against Mars who wishes to get back at you for screwing up her previous mission at the Valley Windworks .",
+                "Her team is about the same as Saturn's team, but with the difference of Purugly instead of Toxicroak. Since your Fighting-type diversity has greatly improved since last time it shouldn't have been hard to have found a Fighting-type Pokémon or a Pokémon that can learn a powerful Fighting-type move to use against her Purugly. Be careful since it is fast and can put you asleep with Hypnosis . After the battle, despite fretting about losing again, Mars is satisfied with having captured Mesprit . She also deduces that Saturn's operation of catching Azelf it made it easier to catch Mesprit due to it sensing that Azelf is in danger and made the cave appear to head out. Mars then leaves with the warning of the power they are about to possess.",
+                "After Professor Rowan is up to speed on what happened at Lake Valor, he decides to send you to Lake Acuity in the far north where Barry is, believing that Barry may be in danger due to Team Galactic going there. It is time to head to Route 211 which is east of Eterna City or west of Celestic Town ."
+            ]
+        },
+        "Route 211": {
+            "Text": [
+                "Route 211 contains the entrance to Mt. Coronet's north area. If you wish, you can visit the west side of this route earlier in the game when you first get to Eterna City . Travel through Celestic Town if you want to go to the east side."
+            ]
+        },
+        "Mt. Coronet (north)": {
+            "1F": {
+                "Text": [
+                    "Previously you could only go a limited distance into Mt. Coronet regardless of which entrance you entered on Route 211 . Now with Strength , you can fully explore this side of Mt. Coronet. Besides Strength, you'll also need Rock Smash (and possibly want Defog or Surf ) for traveling through. Since you won't be able to change your team until you reach Snowpoint City , make sure that your team is well prepared to handle the trainers on Route 216 and Route 217 . From the entrance that leads to Route 211's east side, head north using Strength to move the boulder, and don't forget to smash the rocks to find a Rare Candy . Also don't forget to use your Dowsing Machine on your Pokétch to find some hidden items while exploring this side of Mt. Coronet. Anyway, if you follow the path downwards you'll be in B1F."
+                ]
+            },
+            "B1F": {
+                "Text": [
+                    "In B1F, you will need to use Defog to remove the fog and make it easier to fight wild Pokémon in here. You will find a very large pool of water. If you fish in four random squares you will find a Feebas here. Any rod will do, and Feebas is very easy to catch if you use a Net Ball or a Dusk Ball . It would also be a good idea to fish 2-3 times in each spot before moving again since it is not guaranteed you'll find one right away even if it is the right spot. Feebas' location is also changed around daily. You can also find some items here with the help of both Strength and Rock Smash. Anyway follow the western area north to find the exit to the other part of the 1F that leads to Route 216."
+                ]
+            },
+            "216 entrance": {
+                "Text": [
+                    "One new change here in Platinum is the entrance to the Iceberg Ruins . With a event Regigigas in your party it will become a shrine to Regice . If not, it is a regular chamber that holds the NeverMeltIce. Once you have gotten the National Pokédex and have the event Regigigas with you, then you can challenge Regice to battle and have a chance to catch it. Anyway when ready head out through the west exit to reach Route 216."
+                ]
+            }
+        },
+        "Route 216": {
+            "Text": [
+                "Route 216 is the first area of the game where you can catch your own Ice-type Pokémon. While Diamond and Pearl only had two you could find in the wild, Platinum has four in the regional Pokédex , though you won't find Swinub until the next route. Just remember like walking through the mud, you can't use your bike (and sometimes not your Running Shoes) in the snow. Also the areas where you walk will determine how fast you can move. Hail will be in effect in all snow areas and will damage all non-Ice type Pokémon, though Magic Guard , which Clefairy can use, is one of the few options to avoid weather damage. The lone cabin in this route will have a bed for you to rest so it can serve as a place to fully heal your Pokémon team."
+            ]
+        },
+        "Route 217": {
+            "Text": [
+                "Route 217 will be difficult to navigate due to both the slow movement and heavy blizzard besides having to deal with Hail conditions in battle. Also there are ninja themed trainers hiding in the snow so look for mounds in the snow to find and face them. Use your Dowsing Machine to find hidden items while you are at it. When you arrive you'll encounter the Gym Leader Maylene who is traveling to Snowpoint City not properly dressed as a form of exercise. Out of all the items you can find as you are exploring the route make sure to go to the first house in the middle of the route to find HM08 ( Rock Climb ). You will still need the next Badge to use it outside of battle.",
+                "If you enter the house after collecting the HM, the person inside who owned the HM lets you keep it and also gives you the Icicle Plate . Right by the house in the northeastern section of the Route is the Icy Rock where if you level up Eevee around it, it will evolve into a Glaceon ."
+            ]
+        }
+    },
+    "Part_15": {
+        "Acuity Lakefront": {
+            "Text": [
+                "Follow the path in Acuity Lakefront to reach the Lake Acuity 's entrance, and you'll see your rival Barry there. He tells you that to climb the slope that leads to Lake Acuity, you will need to win the Badge at the Snowpoint Gym . After he leaves, head east to Snowpoint City."
+            ]
+        },
+        "Snowpoint City": {
+            "Text": [
+                "Snowpoint City has a few attractions, the main ones of interest to you on your first visit will be the Gym and possibly the Move Tutor ."
+            ],
+            "Move Tutor": {
+                "Text": [
+                    "Located in the upper right hand corner house is the Move Tutor where much like the one on Route 212 you can trade him shards in exchange for learning new moves if that Pokémon you want to teach it to is compatible."
+                ]
+            },
+            "In-game trade": {
+                "Text": [
+                    "In the upper left hand house is a girl who will trade a Haunter named Gaspar that will hold an Everstone (which prevents it from evolving into Gengar ) in exchange for a Medicham ."
+                ]
+            }
+        },
+        "Snowpoint Gym": {
+            "Text": [
+                "The secret to the puzzle of the Gym is to smash the snowballs on the ground is to slide in from above at a fast enough speed to smash them. Your main goal is that from the entrance, head straight to reach the Gym Leader, but only after you've smashed the snowballs that were in the way. Just slide around the Gym and predict which areas you need to slide down to smash those snowballs. Of course it will take some time to experiment until all the necessary snowballs are gone. You do not have to face all of the Gym Trainers in this Gym.",
+                "Candice's Sneasel is easily handeled by Fighting-types (though Fighting Pokémon must watch out for Aerial Ace ), and her Abomasnow is easily beaten by a Fire-type . While Piloswine can hit hard, it is slow and has six different weaknesses. Her Froslass can be a bit of a problem, especially if Abomasnow's Snow Warning already activated, since Hail raises Froslass's evasion and causes Blizzard to never miss. Froslass is weak to Fire, Rock , Ghost , Dark , so take it out with one of those types (or any strong attack) before it goes out of control with Double Team or Blizzard.",
+                "Once you've beaten Candice you will receive the Icicle Badge that will will allow you to use Rock Climb outside of battle as well as TM72 ( Avalanche ) that while it causes your Pokémon to usually move last , it's power will double if that Pokémon was struck by a damaging move first."
+            ]
+        },
+        "Now that you can use Rock Climb (optional)": {
+            "Text": [
+                "Now that have access to the move Rock Climb in the field, we can gain access to some items and fight some trainers around the region."
+            ]
+        },
+        "Acuity Lakefront (Visit 2)": {
+            "Text": [
+                "Now that you have the Icicle Badge, you can climb the walls that have the bits of rock in them with Rock Climb . Pick up the Reaper Cloth before entering Lake Acuity ."
+            ]
+        },
+        "Lake Acuity": {
+            "Text": [
+                "When you arrive at Lake Acuity , Galactic Commander Jupiter has already defeated Barry and caught Uxie . She leaves while stating that Barry is a weak Trainer. Barry, though upset, states his desire to become stronger. Surf across the lake to the patch of grass in the northeastern corner, where you can pick up TM14 ( Blizzard ).",
+                "Now Fly back to Veilstone City and make sure you're ready for a lot of fighting. It's time to raid Team Galactic 's Headquarters!"
+            ]
+        },
+        "Veilstone City": {
+            "Text": [
+                "Head towards the Team Galactic HQ in the northeast corner of Veilstone City and talk to the lone grunt there, who is angry at you since his Clefairy was taken away after you defeated him before. He claims ignorance about a Storage Key and runs away. Luckily, Looker shows up and states he has the Storage Key with him. He suggests that it is best to enter the HQ through the Galactic Warehouse you were at before. Make sure to select a well-balanced team for this mission, as you are going to need it."
+            ],
+            "Galactic Warehouse": {
+                "Text": [
+                    "Head to the metal doors you saw before and Looker will arrive and open them for you. Once that is done, continue down the stairs to the basement of the warehouse. This bottom floor connects to the Team Galactic HQ. Follow the hallway east to the stairs at the end, battling the two grunts."
+                ]
+            },
+            "Team Galactic HQ": {
+                "1F": {
+                    "Text": [
+                        "Once up the stairs, you'll arrive in the very upper right-hand corner of 1F. After defeating the Galactic Grunt there, use the right warp panel to enter a closed-off area where you will find TM49 ( Snatch ). Step back onto the panel from whence you came. Afterwards, use the left warp panel to go up to 2F."
+                    ]
+                },
+                "2F": {
+                    "Text": [
+                        "From here, use the nearby warp panel to return to 1F."
+                    ]
+                },
+                "1F (Visit 2)": {
+                    "Text": [
+                        "Ignore the grunt to the right and take the panel to the left, go down the stairs and defeat the Scientist , grab the Dubious Disc , take the second set of stairs to the left and keep going west."
+                    ]
+                }
+            },
+            "Galactic Warehouse (Visit 2)": {
+                "Text": [
+                    "Grab the Galactic Key , which will allow you to open the locked steel doors, and you will meet a Galactic Grunt who mentions that Cyrus is having a meeting. You can get to it by entering the HQ's main building from Veilstone and using the Galactic Key. You can unlock the nearby door which will allow you to head back easily to the Warehouse's entrance, but let's make a little side trip by backtracking to 2F. Use the stairs to access 3F."
+                ]
+            },
+            "Team Galactic HQ (Visit 2)": {
+                "3F": {
+                    "Text": [
+                        "Defeat the Galactic Grunts and then open the locked door to find TM21 ( Frustration ). Now head back to the Galactic Warehouse and leave there to return to Veilstone City. It is now time to enter the main building."
+                    ]
+                }
+            },
+            "Team Galactic HQ (main building)": {
+                "1F": {
+                    "Text": [
+                        "Use your new Galactic Key to open the locked door and head up to 2F."
+                    ]
+                },
+                "2F": {
+                    "Text": [
+                        "You should now be in the middle area of 2F. Simply fight the grunts and then use each of the warp panels. This will earn you two items. Afterwards, use the warp panel that is located by the TVs to reach the meeting hall, where Cyrus is."
+                    ]
+                },
+                "Meeting Hall": {
+                    "Text": [
+                        "You will meet up with Looker here and listen to Cyrus giving his speech about how the world is incomplete and the fact that he now has the power to create a new one for Team Galactic's benefit. After he and the grunts leave, Looker leaves to investigate this further. Follow in the direction he went to find another warp panel that will take you to a new area of 2F."
+                    ]
+                },
+                "2F (Visit 2)": {
+                    "Text": [
+                        "You'll be in the upper-right area of 2F where there are some beds to rest your Pokémon team. Hidden in the right-hand bed is a Poké Doll . Climb the stairs to 3F."
+                    ]
+                },
+                "3F": {
+                    "Text": [
+                        "After dealing with two Galactic Grunts you'll find three warp panels here. The upper right one takes you to an area where you can find a Protein . The upper left will get you a Max Elixir , and the lower left is the one you'll need to proceed to an area with stairs up to 4F."
+                    ]
+                },
+                "4F": {
+                    "Text": [
+                        "This is where Cyrus's office is located. After you open the locked door, Cyrus will greet you and mention that the new world is actually only for him, since he feels his underlings are just as flawed as the rest of the world. Finding you interesting, he'll challenge you to a battle.",
+                        "His team is the same as the previous, except that two of his Pokémon have evolved. His first Pokémon, Sneasel , is easily vulnerable to Fighting-types . His other two Crobat and Honchkrow both are Flying-type and should be easily vulnerable to Rock , Ice and Electric-types . Just remember that Crobat is the faster of the two and may try to confuse your Pokémon with Supersonic , and Honchkrow possesses better physical attack moves that could KO your Pokémon if you are not careful.",
+                        "Afterwards, Cyrus will give you a Master Ball and then leave. He mentions that if you want to save the Lake Pokémon , you should use the nearby warp panel to get to them. Use that warp panel and you will reach a hallway. At the end is where the Lake Trio are being held. Once you reach that room, where they are, you can overhear a conversation between Charon and Saturn about how Charon is happy with the new world Cyrus will create. Talk to Saturn and he'll challenge you to a battle since, unlike Cyrus, he will not let you roam freely and interfere with their plans.",
+                        "Saturn's team is the same as before but at higher levels, so the same tactics you used at Lake Valor should work here. Once you defeat him, Saturn will let you press the switch that will set Azelf , Mesprit , and Uxie free. He mentions that Cyrus crafted a special Red Chain for capturing something on Mt. Coronet .",
+                        "Return to Cyrus's office and a new pathway will have opened up with a warp panel that will take you to the green warp panel just inside one of the main doors of the Galactic HQ. Take it, exit the building, and heal up at the Pokémon Center.",
+                        "Your biggest quest now awaits you. You will need a strong Pokémon team with the HM moves Surf , Strength , Rock Smash , and Rock Climb . You should stock up on Super Repels , Moomoo Milks , Revives , and maybe a few Lava Cookies .",
+                        "Once you are prepared, your next destination is to enter Mt. Coronet from the south entrance. You can either Fly to Oreburgh City and head north, or Hearthome City and head west, but the path from Oreburgh is faster."
+                    ]
+                }
+            }
+        }
+    },
+    "Part_16": {
+        "Mt. Coronet (south)": {
+            "Text": [
+                "Make sure you brought Pokémon with the HMs Surf , Strength , Rock Smash , and Rock Climb ."
+            ],
+            "1F": {
+                "Text": [
+                    "Enter this area of Mt. Coronet using the entrance from either Route 207 or Route 208 . Pick up a few items that were not accessible before. Surf across the northernmost pool of water to the northeastern corner of the room. Climb up the rocks, and ascend the stairs."
+                ]
+            },
+            "2F": {
+                "Text": [
+                    "From here on out, Mt. Coronet is an enormous maze. You may want to use Super Repels in some areas, but the wild Pokémon are high-leveled enough to be good for training against. It would be a good idea to keep the Dowsing Machine app on the Pokétch screen, as there will be a lot of hidden items.",
+                    "Anyway, the exit in the southwestern corner of the room leads to a dead-end ledge on Route 207 , where you can pick up a previously-unreachable Iron and Timer Ball .",
+                    "Back inside the mountain, don't forget to pick up TM80 ( Rock Slide ), as the move it contains is very useful.",
+                    "Once you reach the northern exit, Looker will show up. Knowing that both Cyrus and the Galactic Commanders are out of his league to fight, he'll let you go on ahead since you're the only one powerful enough to take them on. He will give you the Black Flute before you go. After that, go through the exit and you'll be in 3F."
+                ]
+            },
+            "3F": {
+                "Text": [
+                    "When you arrive head to the set of stairs on the right to briefly return to 2F to find a hidden Star Piece . You'll also deal with your first two Galactic Grunts , who shouldn't be that much of a challenge if you use the right Pokémon. Afterwards, take the exit to the outdoors, and you'll find yourself in the summit area of Mt. Coronet!"
+                ]
+            },
+            "Lower summit": {
+                "Text": [
+                    "You are now in the southern area of the summit. As it is constantly hailing here, non- Ice-types will receive damage in battle, though you can easily use Super Repels to prevent battles. Also, this area is full of hidden items. From where you are, head east and then north to the Rock Climb-able wall. Near the large patch of grass is the western entrance to 4F, and near another scalable wall is the eastern entrance. Climb that wall and you'll find a grassy area with some hidden items. The eastern 4F entrance serves little purpose at this point, although there are a couple of hidden items worth picking up.",
+                    "Back outside in the summit, make your way to the northwestern entrance to 4F, in the large grass patch."
+                ]
+            },
+            "4F": {
+                "Text": [
+                    "Once inside from the west entrance, use Rock Climb to ascend to the upper area of 4F and head for the exit to the east, defeating two more Galactic grunts standing in your way."
+                ]
+            },
+            "Upper summit": {
+                "Text": [
+                    "Once through the exit from 4F, follow the path and take the stairs down and you will find a narrow chasm with two more Rock Climb walls and another cave entrance that will take you to a special tunnel."
+                ]
+            },
+            "Tunnel": {
+                "Text": [
+                    "You don't have to explore this part of the cave yet if you don't want to. You can battle three Galactic Grunts and find some hidden items in here. Also, a fourth grunt is guarding the entrance to a secret passage that leads to Mt. Coronet North Side's 1F. You can't go through here until you've stopped Team Galactic for good."
+                ]
+            },
+            "Summit": {
+                "Text": [
+                    "This time, ascend using the Rock Climb wall facing west and follow that path west. This will lead you to the entrance to 5F. Once again, there are some hidden items along the way."
+                ]
+            },
+            "5F": {
+                "Text": [
+                    "There isn't much here and the path is pretty straightforward, with only one hidden item. Take the nearby stairs to 6F."
+                ]
+            },
+            "6F": {
+                "Text": [
+                    "You can find two more hidden items here as well as two more Galactic Grunts. Take the stairs to 7F."
+                ]
+            },
+            "7F": {
+                "Text": [
+                    "All you need to do is defeat one last grunt and head for the exit where, at last, you have reached Spear Pillar ! It's time to put an end to Cyrus's plans for the last time."
+                ]
+            }
+        }
+    },
+    "Part_17": {
+        "Spear Pillar": {
+            "Text": [
+                "When you first arrive at Spear Pillar , you will have to deal with two Galactic Grunts in a Double Battle . Afterwards and you'll find that both Mars and Jupiter wish to challenge you. Luckily Barry appears, making this into a Multi Battle .",
+                "Half of his team that will fight alongside you are determined by which starter he picked at the beginning of the game, but naturally all of them excluding Munchlax have evolved all the way to their final forms.",
+                "Both of the Commanders use Bronzor , Golbat , and their signature Pokémon: Purugly in Mars's case, and Skuntank in Jupiter's case. Quickly take down both Bronzor before they can use Reflect or Light Screen to reduce your attacks' damage. A powerful Fighting-type and Ground-type move will take out Purugly and Skuntank respectively, while an Electric - or Rock -type attack will take out their Golbat.",
+                "After the battle, Barry heals your Pokémon before leaving. You'll watch as Cyrus uses the Red Chain to summon both Dialga and Palkia in preparation to destroy the world, then recreate it in his image. Uxie , Mesprit , and Azelf then appear. While Cyrus says it's pointless since the Lake guardians can't match his power, the ground opens up! Another mysterious Pokémon has appeared. Cyrus finds this amusing and then all of a sudden both he and the Pokémon disappear, leaving a portal behind.",
+                "Cynthia then arrives and you'll both watch as the three Lake guardians enter the portal. She then reveals that the mysterious Pokémon is Giratina and according to legends, it lives in a mysterious Distortion World . The portal connects to it, and if it isn't closed, it will spread and consume the whole world. Once you accept Cynthia's offer, both of you will head to the Distortion World. Also, at this point both Dialga and Palkia are counted as seen in your Pokédex."
+            ]
+        },
+        "Distortion World": {
+            "Text": [
+                "You'll quickly discover that in the Distortion World , gravity works a little differently sometimes! Be careful when going through the Distortion World as it is easy to get lost, not to mention there are plenty of confusing puzzles.",
+                "Starting from 1F, follow Cynthia to a small hovering square slab where she will mention stepping on the gray markers. This will cause it to descend to B1F; apparently these square slabs serve like elevators here in the Distortion World. At B1F, follow Cynthia across the small floating platforms to find another area with a platform hanging sideways above you. Mesprit will appear before floating away. Stand on the gray marker to manipulate gravity so you can stand on this floating platform. Travel across to the other side and use the gray marker there to jump off this floating platform and then follow the path that will take you to the elevator-platform down to B2F.",
+                "On B2F, head to the first platform and stand on the gray marker located at the top to activate this platform and reach the next one. On the next platform, take the obvious marker on the left to reach another special floating platform with sideways gravity, where you will find Cynthia. After talking with her, follow the path that will take you to more moving platforms. Touch each correct marker in this order to progress: right, right, down, left (don't hop to the nearby platform in this area or you'll just find a dead end). Then, hop across the nearby platform in front of you and hit the upper marker, then the right-hand one, and lastly the center to activate the elevator-platform that leads to B3F.",
+                "On B3F, head towards the lower gray marker on the elevator to expose some hidden platforms and travel down to meet Cyrus . He reveals that the shadowy Pokémon abandoned him and went further below, and talks about DNA and how one thing cannot exist without the other. He theorizes that if someone were to defeat the shadowy Pokémon, this world should disappear and no longer interfere with his plans. For the puzzle on this floor, you must touch the gray markers on the floor to expose hidden platforms. Only one path will get you to B5F, and platforms here sometimes become visible or invisible.",
+                "First, head for the marker on the upper right and it will expose a hidden platform. Next, travel to the marker you see below you by traveling right, then down to find another hidden platform. Next travel right and you will reach the elevator that descends to B5F. On B5F, from the elevator, continue forward until you see Uxie , then use Strength to push a boulder to the platform below you on B6F. Then, head downwards to the elevator that leads to B6F, but do not take it yet. Instead, use the ledge that will take you to a platform to the left and Mesprit will appear. Here, you will have to push another boulder down to B6F. Then, take the elevator that will take you up to B4F. Continue navigating forward and carefully go through the path of trees and rocks that can turn visible or invisible to reach a new elevator. That will take you to a new area of B3F. From here, use the nearby gray marker. Then, travel left then down to find an invisible platform, then travel right, then right again to get to an elevator that leads to another area of B4F.",
+                "On your way down, you will see Cyrus again, but this time he mysteriously disappears. Surf across the water, then touch the gray markers to jump to a platform with sideways gravity. Then, use another set that leads to another platform with upside-down gravity. Now use Surf again and travel down the waterfall. This should get you back to B5F, where you can find Azelf along with another boulder to push down to B6F. Now, head to the nearby elevator and this time use it to descend to B6F. The secret to B6F's puzzle is to carefully push each of the boulders you pushed down from B5F into the special holes where each of the Lake Guardians are. If you mess up, you'll have to push them down from the various floors again. Now, go back to the elevator and travel south from it to find Cynthia and talk to her. If you've completed the puzzle correctly, a new elevator will appear that you can use to travel down to B7F.",
+                "Here, you will both encounter Cyrus again, and Cynthia asks why he is so determined to create a new world. Cyrus refuses to listen. Talk to him, and he will challenge you to a battle.",
+                "Cyrus is a lot tougher than in the last battle, since he added two Pokémon and his Sneasel has evolved. A fast Electric-type such as Jolteon is useful in this battle, since half of his team is weak to Electric-type moves. Additionally, his entire team is weak to Rock attacks. His first Pokémon, Houndoom , is quite fast and possesses Thunder Fang to counter Water-types . Will-O-Wisp will inflict a burn if it hits, halving your Pokémon's Attack stat. Take it down as quickly as you can and it won't be a problem. Be careful when Cyrus send out his Gyarados , as it can threaten Electric and Grass Pokémon with its various attacks. Giga Impact will do a lot of damage, but Gyarados must rest for one turn after using it. Crobat 's Speed is a problem, especially with its ability to use the status moves Toxic and Confuse Ray . Simply taking it out with super effective attacks and firstly paralyzing it to cut down its Speed are both valid strategies. Against Honchkrow , the same strategy as before will work; just remember it uses Heat Wave to counter Ice-types and Steel-types . His main Pokémon, Weavile , is incredibly fast and can prevent your Pokémon from moving, not just from Fake Out on its first turn, but also with Ice Punch , which has a chance of freezing your Pokémon. A powerful Fighting-type move should easily defeat it, though Rock, Steel, or Fire-type moves can also help.",
+                "After the battle, Cyrus will think it is hopeless since if Giratina is defeated, this world will disappear. However, Cynthia points out the problems are due to the Distortion World being forcibly merged with the real one, and by defeating Giratina the connection can be severed. Cynthia will then heal your team. Before going forward to face Giratina, you need to decide if you want to catch it now or later. Save your game before using the platforms to reach it. Once you move forward and see Giratina fly by, move forward again and then some invisible platforms will become visible, allowing you to reach Giratina."
+            ],
+            "Catching Giratina": {
+                "Text": [
+                    "The Dusk Ball is the best Poké Ball variant to use in this fight, just make sure your game is set anywhere between 8:00 p.m. to 3:59 a.m to make use of its 3.5× catch rate modifier. Ultra Balls and Timer Balls can also be useful. It can take 10, 20, or even 30 Poké Balls to catch Giratina, so prepare for a long battle. Since you saved beforehand, you can turn off your game if something goes wrong and get another chance. Unlike Dialga and Palkia, Giratina's catch rate remained 3 (0.4% when using Poké Ball at full health).",
+                    "One thing which makes Origin Forme Giratina a difficult opponent is that in this form, it specializes more in offense over defense. If you have a status move that inflicts paralysis or sleep , you can use them to make Giratina easier to catch. Avoid or minimize use of Ice -, Ghost -, Dragon - or Dark-type moves as they carry the risk of knocking it out. After reducing its HP bar to the red zone, a good tactic is to bring out a Steel-type that has good defenses and resistances to all of Giratina's attacks. Be sure to keep an eye on how many turns have passed, though, as Giratina only has 35 PP, and it will start to use struggle after it uses all its PP up.",
+                    "Unlike in the previous Pokémon games, you do not have to catch Giratina right away, since legendaries that you failed to catch will reappear each time you defeat the Elite Four and Pokémon Champion during your playthrough of this game. If Giratina’s attacks are too much for you to deal with right now, just defeat it. You can face it later in Turnback Cave in its Altered Forme , which is more defense-oriented stat-wise. Also, if you run out of Poké Balls or so many turns of battle elapse that Giratina is forced to Struggle , it would also be okay to either reset (assuming you saved beforehand) or knock it out and try again later on.",
+                    "After the battle, Cynthia is happy that Giratina understood your intentions and will point out a nearby portal that will take you back to your world. Cyrus then appears and is surprised that Giratina was defeated or captured and that his perfect world will never be complete. After he and Cynthia express their different views about the world, Cyrus leaves, convinced they will never understand each other. Now enter the portal, which will take you to Sendoff Spring , the fourth lake of Sinnoh ."
+                ]
+            }
+        }
+    },
+    "Part_18": {
+        "Sendoff Spring": {
+            "Text": [
+                "After returning to Sendoff Spring in the regular world, Cynthia suggests that you visit Sandgem Town since Professor Rowan was worried about you. If you don’t have Fly with you, go south to Spring Path and you'll find yourself on Route 214 where there were previously only trees. From there, head to Veilstone City to get the Pokémon you need before Flying off to Sandgem Town."
+            ]
+        },
+        "Sandgem Town": {
+            "Text": [
+                "When you arrive at Professor Rowan's lab in Sandgem Town , it turns out both he and Lucas / Dawn are relieved to see you alive, as they had been trying to find you. Professor Rowan will mention that the Lake Guardians have returned to their homes. Seeing the number of Pokémon you have, and your seven Badges, he suggests that you head to Sunyshore City where the final Gym is and eventually challenge the Elite Four to broaden your horizons.",
+                "You are now free to continue east through Valor Lakefront to access Route 222 and Sunyshore City, but let's visit the Lake Guardians first, as they need to be encountered for you to get the National Pokédex ."
+            ]
+        },
+        "Mt. Coronet (optional)": {
+            "Text": [
+                "Now that Team Galactic is gone, a few items in Mt. Coronet 's upper 1F 1 are now accessible."
+            ]
+        },
+        "Catching the Lake Guardians": {
+            "Text": [
+                "To get the National Pokédex , you only need to see the Lake Guardians. If you still want to catch them, then your Pokémon should be at reasonably high Levels, as the Lake Guardians are at Level 50. It's recommended you bring a Steel-type with you to resist the Lake Guardians' attacks, as well as False Swipe or a sleep -inducing move to make them easier to catch. To catch Azelf and Uxie , you should bring about 40 Dusk Balls or Timer Balls . (Timer Balls become more effective than Dusk Balls after 25 turns) Also, you'll need the HM Surf to get across each lake. As always, SAVING before encountering them is a good idea."
+            ],
+            "Lake Verity": {
+                "Text": [
+                    "When you arrive at Lake Verity , Surf over to the southwestern corner of the lake to find TM38 ( Fire Blast ). After that, Surf to the cavern in the center and talk to Mesprit inside. It quickly leaves, but is counted as seen in your Pokédex. Professor Rowan shows up and after you listen to him babble about his research, he mentions that Mesprit is likely playing with you and you'll need to track it with the Marking Map app on your Pokétch, which can track roaming Pokémon. If you didn't get it yet, Fly to Jubilife City and go to the Pokétch Company building. Talk to the company President inside. This is the second app you'll receive from him anytime after collecting your third Badge.",
+                    "Mesprit roams Sinnoh, moving every time you enter a different town or Route. On the first turn of battle, it will flee. This mission will take either patience or a Master Ball . As long as your lead Pokémon is at or below level 50, Repels can make it easier to find in the grass.",
+                    "Jubilife City is a good place to use for moving between Routes to draw Mesprit closer, as it has four different exits. The guardpost leading to Route 218 or the cave that leads to the upper area of Route 204 are helpful if Mesprit makes it to those places and you are in the right position, since moving through them does not count as changing locations. You can also try moving back and forth across a boundary between two routes until Mesprit appears on your route.",
+                    "One method to catch it without a Master Ball is to Paralyze Mesprit or put it to sleep with a faster Pokémon the first time you encounter it. On subsequent encounters, attack it to carefully cut down its HP and soft-reset in case you knock it out. Once you've had enough battles to cut its HP bar down to the red zone, throw Quick Balls each time you see it until you catch it.",
+                    "The second strategy is to use the escape-preventing moves Block or Mean Look , then continue into a battle similar to the one when you caught Giratina. Once you have it trapped, throw Dusk Balls (if it is nighttime) or Timer Balls to catch it.  Out of the three Lake Guardians, Mesprit is the slowest, but it has better HP and more balanced offensive and defensive stats compared to Azelf and Uxie."
+                ]
+            },
+            "Lake Valor": {
+                "Text": [
+                    "Now that Team Galactic is long gone, Lake Valor has been fully restored. Surf to the southeastern corner of this lake to find TM25 ( Thunder ). Then, enter the cave and save your game before talking to Azelf.",
+                    "Azelf is the fastest Lake Guardian and has the best offensive stats compared to the others, but it has the weakest defenses. With Nasty Plot , it can quickly become a serious threat by boosting its Special Attack. Steel-types are good Pokémon to use because they resist Azelf's attacks. Paralyze it or put it to sleep , then carefully weaken it with a not-too-powerful move. Once its HP is in the red zone, keep throwing Dusk Balls until you catch it."
+                ]
+            },
+            "Lake Acuity": {
+                "Text": [
+                    "Once you arrive at Lake Acuity , Surf to the northeastern corner of the area to find TM14 ( Blizzard ). Now, enter the cavern and prepare to battle Uxie.",
+                    "Uxie in terms of base stats is the opposite of Azelf, where it is the strongest in its defensive stats and weakest in its offensive stats. It can use Amnesia to raise its Sp. Defense stat by 2 levels. Use non-supereffective physical moves to lower its HP and then use False Swipe if necessary. Uxie may try to put your Pokémon to sleep with Yawn which can be an annoyance until Uxie's HP is in the red zone and you can focus on catching it. Just like with Azelf, Dusk Balls are the best way to go, though Timer Balls may be needed as backup.",
+                    "Now that you have dealt with the Lake Guardians, Fly back to Pastoria City , then head to Hotel Grand Lake at Valor Lakefront. Time to travel east to your final Gym battle!"
+                ]
+            }
+        },
+        "Route 222": {
+            "Text": [
+                "Route 222 is the path from Valor Lakefront to Sunyshore City . It's worth noting that it's also the only location where you can find a wild Electabuzz . The two houses on the beach are not essential to visit, but the one on the left is a Pikachu fan club. One of the Pikachu inside is actually a Poké Kid who will battle the player using two Pikachu of her own! The other house has a Fisherman inside who is looking for a giant Remoraid that is larger than 23.7 inches. If you show him one then he'll give you a Net Ball .",
+                "Also on this route is the final Honey Tree you'll find in the game. The man at the end of the cliff will give you TM56 ( Fling ). If you ever use Fling in battle, be aware that usually the user's held item will be lost forever upon use (some places where it's kept include the Battle Frontier and player-versus-player battles). Make sure to battle the Fishermen on the beach, as one of them has a Feebas , which is a hard to spot Pokémon that you will need to see to complete your Sinnoh Pokédex . Once you are done here, head through the gatehouse to reach Sunyshore City."
+            ]
+        },
+        "Sunyshore City": {
+            "Text": [
+                "When you enter Sunyshore City , you'll encounter Flint of the Elite Four , who asks if you can try to cheer up his friend, Sunyshore's Gym Leader Volkner , who has been bored lately from the lack of excitement. You can explore around the city if you want, but before you can challenge the Gym you need to find Volkner at the lighthouse. Also, on the beach in the northern area of town, you can encounter Jasmine , a Gym Leader from Johto . It's most important to talk to her after you beat Volkner, though, because she will then give you HM07 ( Waterfall )."
+            ],
+            "Sunyshore Market": {
+                "Text": [
+                    "The building that is slightly north of the Poké Mart is the Sunyshore Market . Here, you can buy Seals for decorating your Poké Balls if you have a Seal Case . There is also a woman here who will give the Effort Ribbon to your lead Pokémon if it has Effort Values that equal 510."
+                ]
+            },
+            "Pokétch developer": {
+                "Text": [
+                    "In the house on the cliff on the eastern side of town, accessible through Rock Climb , is a man that will give you three new Pokétch apps based on the Nature of your Pokémon that are in your current party .",
+                    "Also, southwest of this house is a Thunderstone ."
+                ]
+            },
+            "Julia's House": {
+                "Text": [
+                    "The right-hand house in the northeastern corner of the city belongs to a woman named Julia. Visit her daily to obtain a Ribbon . The Ribbon you receive is dependent on which day of the week it is. She does not give out a ribbon on the first visit."
+                ]
+            },
+            "Vista Lighthouse": {
+                "Text": [
+                    "The large building in the southeastern corner of the city is the Vista Lighthouse . First, use the Dowsing Machine to find a hidden Zap Plate here. Inside, talk to Volkner and you'll leave him convinced to accept your challenge at the Gym."
+                ]
+            }
+        }
+    },
+    "Part_19": {
+        "Sunyshore Gym": {
+            "Text": [
+                "At the front of the Gym, you will see Flint, who notes that Volkner seems to be excited to battle you and reminds you to help reignite Volkner's passion for battling before departing for the Pokémon League.",
+                "Before challenging, make sure that your team is healed. The highest-leveled Pokémon you'll be facing is Level 50. Volkner specializes in Electric-types , which are weak only to Ground-type moves. Ground-types are also immune to Electric attacks, so use that to your advantage! Grass - and Dragon -types resist Electric attacks, but it's not a good idea to use Water - or Flying -types here.",
+                "Being the final Gym in Sinnoh, this one has is the most complex puzzle. This one involves hitting switches on the gear-like platforms to rotate them and make the correct path through. In the first room, hit the green switch on the platform on the right once. Then head for the switch on the left and hit it once to reach the next room.",
+                "In the second room, go for the nearby blue switch to the left and hit it three times. You can then cross the drawbridge near the stairs and get to the blue switch in the upper left hand corner. Hit that switch then the nearby green switch to get the drawbridge around the right wall ready so now you can go to the third room.",
+                "For the third and final room, hit the nearby red switch once and then the one that is nearby to the left to be able to pass the drawbridge on the left wall. Then follow the path to the green switch and hit it twice then hit the blue switch once and follow the path to use the drawbridge on the right wall and return to the first part of this room. Touch the first red switch you used again and backtrack past the right drawbridge again and you'll find the red switch moved the revolving platforms to where you now can reach Volkner.",
+                "While all of Volkner's Pokémon are weak to Ground , some are equipped with moves to cover their weaknesses. Most Ground Pokémon will have no problem with Jolteon , but Raichu 's Focus Blast and Signal Beam might be threatening. Unless you can take out Luxray quickly, do not use anything that suffers a dual weakness to Ice , such as Torterra , when facing Luxray. Volkner's star Pokémon Electivire has Fire Punch to cover Grass , Ice , Bug , and Steel . It may defeat one of your Pokémon with Giga Impact , but that prevents Electivire from moving the next turn.",
+                "Once you beat Volkner, he will be so glad that he was able to have fun that he gives you the Beacon Badge , which allows you to use Waterfall outside of battle. Now that you have all eight Badges, all of your Pokémon will obey you , regardless of level. He'll also give you TM57 ( Charge Beam ), a damaging electric type move that has a 70% chance of raising the users Sp. Attack by one stage. Now head to Jasmine again and your rival will appear and tell you that he wants to get stronger. Jasmine, who is touched by this conversation, will give you HM07 ( Waterfall ). With this new HM, you can now head north to the Pokémon League ."
+            ]
+        },
+        "Now that you can use Waterfall (optional)": {
+            "Text": [
+                "You can pick up several items that were not accessible before."
+            ]
+        },
+        "Route 223": {
+            "Text": [
+                "Route 223 should be a straightforward water route since all you need are Surf , Waterfall , and maybe an Electric- and/or Grass-type Pokémon. You can catch a Mantyke here, but remember that you need a Remoraid in your party for it to evolve into Mantine . At the northern end is the Pokémon League ."
+            ]
+        },
+        "Pokémon League (south)": {
+            "Text": [
+                "Climb the waterfall to the Pokémon League and enter the Pokémon Center. Prepare for a long journey; this is the last stop before Victory Road , a long and difficult challenge."
+            ]
+        },
+        "Victory Road": {
+            "Text": [
+                "To get ready for Victory Road , make sure you include Pokémon that have the HM moves Surf , Strength , Rock Smash , Waterfall , and Rock Climb , since you will need them to help with navigating through this area. Don't forget to challenge every trainer you see since a few of their Pokémon, such as Dusknoir or Tangrowth , cannot be seen anywhere else."
+            ],
+            "1F": {
+                "Text": [
+                    "Use the first Rock Climb ledge to reach TM41 ( Torment ), then climb back up and travel further down to find another Rock Climb ledge. Use it and follow the path until you reach the western wall of the chamber. Before you go upstairs, follow the path straight ahead. Examine the rock to find a hidden nugget. Use the stairs to reach 2F."
+                ]
+            },
+            "2F": {
+                "Text": [
+                    "Using Strength and Rock Smash, carefully move the boulder and maneuver your bike carefully in fourth gear (faster speed) to jump over the bike ledge. Then switch to third gear (slower speed) and jump over the bike ledge to find a Max Elixir. Now travel to the southern part of the room while smashing rocks and moving boulders (make sure to move those boulders very carefully to be able to progress successfully).",
+                    "Use the nearby stairs to return to 1F, then quickly head back to 2F. You can now move the nearby boulder in a new direction that will allow you to access a hidden area. By going through the smashing rocks/movable boulders/bike ledges in this area you can find some more items including TM71 ( Stone Edge ). Now return to those stairs you just used to get back to 1F."
+                ]
+            },
+            "1F (Visit 2)": {
+                "Text": [
+                    "Use the nearby Rock Climb ledge and carefully follow the path to reach the stairs for B1F."
+                ]
+            },
+            "B1F": {
+                "Text": [
+                    "Using Surf head to the nearby trainer and then from the pool on the right, follow the path in the southern area to briefly return to 1F to find a Rare Candy. Now head for the north area and use Waterfall to climb the waterfall. Then head for the next waterfall and descend down it find TM59 ( Dragon Pulse ) before climbing back up.",
+                    "Once back up follow the path to the west to find some stairs to return to 1F."
+                ]
+            },
+            "1F (Visit 3)": {
+                "Text": [
+                    "From the stairs follow the path until you see the path leading down and head in that direction. Now head left to another Rock Climb ledge and from there you can briefly return to 2F to find TM79 ( Dark Pulse ). If you go up the stairs near the old man, the path leads to a blocked-off doorway that is inaccessible until after you've defeated the Elite Four.",
+                    "Near the stairs to the left is a path that leads to the Razor Claw which evolves Sneasel into Weavile . The Rock Climb ledge that is on the right hand cliff near the one you used earlier will lead you out of Victory Road and into the Pokémon League."
+                ]
+            }
+        }
+    },
+    "Part_20": {
+        "Pokémon League (north)": {
+            "Text": [
+                "Before you challenge the Pokémon League , use the Dowsing Machine app on your Pokétch near the base of the waterfall to find the Sky Plate . Now, use Surf and Waterfall to enter the building. Before going to the receptionist make sure to have a very good well-balanced team. Also make sure that all the members of your team are trained around Levels 54-58 to be able to stand a chance of succeeding. Also stock up on Hyper or Max Potions, Full Heals, Revives, and Full Restores. Just before you get to the receptionist in front of the door leading to the Elite Four, Barry will appear and challenge you to determine who among the two of you is more worthy.",
+                "The main new change is that Barry's Munchlax has evolved into a Snorlax , which should help count Snorlax as seen in the Sinnoh Pokédex. Snorlax can be easily brought down by a powerful Fighting-type attack such as Cross Chop or Close Combat . Other than that the same weaknesses as before can be used to defeat the other members of his team. Afterwards Barry will leave convinced he is not ready yet if he keeps losing like this, but vows to be the one to defeat you.",
+                "Talk to the Ace Trainer and once he confirms you have the eight Sinnoh Badges you can then face the Elite Four, but just remember that if you lose after passing through the doorway, you must start over."
+            ],
+            "Elite Four": {
+                "Aaron": {
+                    "Text": [
+                        "The first member of the Elite Four is Aaron, who specialises in Bug-types . Aaron's Yanmega can heighten its evasiveness with Double Team and its speed through its ability, Speed Boost . Take it down before it becomes a problem. Aerial Ace or Shock Wave can help if it gets too hectic. Both Heracross and Vespiquen know Rock attacks that threaten Flying-types , but a powerful Flying-type move can easily bring them down. For Scizor , a Fire-type would be best. For Drapion , his strongest Pokémon, you can use a Ground-type to target its one weakness (though it does have Ice Fang to counter Ground-types) or use a Steel-type that resists its moves."
+                    ]
+                },
+                "Bertha": {
+                    "Text": [
+                        "For dealing with Bertha's team if you have a fast Grass or Water-type , then you should have an easy time. Whiscash has a 4× weakness to Grass-types, Golem , Rhyperior have a 4× weakness to Grass and Water-types, and Gliscor has a 4× weakness to Ice-types . Exploit these weaknesses with attacks such as Ice Beam or Surf . Hit Hippowdon , her only single type Pokémon, with powerful attacks before it can hit back. While Gliscor, Golem, and Rhyperior know moves to cover several of their weaknesses, their low Special Defense can still be exploited."
+                    ]
+                },
+                "Flint": {
+                    "Text": [
+                        "Flint will thank you for helping Volkner earlier and then face you in a battle. Be careful when his Pokémon use Sunny Day , as it can raise their Fire-type moves and weaken the power of Water-type moves. His first Pokémon Houndoom should be taken down as quick as possible to help give you an early lead before Sunny Day is used. Flareon should not be much of a problem, though be careful with Overheat since it is very powerful when first used. Also, its Will-O-Wisp can induce a burn, which can easily halt sweeps. Rapidash 's speed can be a hassle, and its Solar Beam can cover its weaknesses, especially in harsh sunlight . Infernape is weak to Water , Ground , Flying , and Psychic , but it can cover Water- and Flying-types with Thunder Punch . His strongest Pokémon Magmortar has a pretty strong moveset and Special Attack , but a faster Pokémon with a strong Water, Rock, or Ground-type move could easily take it out. However, be careful not to use physical/contact moves, as Flame Body may burn your sweeper. Ground Pokémon such as Garchomp are especially useful in this fight."
+                    ]
+                },
+                "Lucian": {
+                    "Text": [
+                        "Mr. Mime can Reflect or Light Screen to halve out the power of your moves, so it's advised to take it out quickly. Espeon and Alakazam have low physical Defense , but they are fast and know attacks that are strong against Dark . Bronzong has high Defenses and is only weak to Fire . While it can use Earthquake to cover Fire-types, its slow speed makes it easy to bring down by a powerful Fire-type Attack. Gallade is weak to only Flying - and Ghost-type attacks. Be careful when using Flying-types as it can counter them with Stone Edge. A powerful Pokémon like Staraptor can easily beat it with Brave Bird ."
+                    ]
+                }
+            },
+            "Champion Cynthia": {
+                "Text": [
+                    "Cynthia will thank you for your help on Mt. Coronet and in the Distortion World earlier before facing you. Cynthia does not follow a specific type so this battle will be trouble if you don't plan ahead. Spiritomb has no direct weaknesses. However, it is weak offensively, so powerful attackers can bring it down. Roserade shouldn't be that much of a hassle if you get it down quick with Fire or Flying types. It would be recommended to use an Electric-type against Milotic since it has Ice Beam to counter Grass-types. Physical attacks, like ThunderPunch or Wood Hammer , tend to work better because they make Mirror Coat fail.",
+                    "Use Fire, Ground, or Fighting-type moves to bring down Lucario . Togekiss can be brought down by an Electric-type but be careful of its high defenses. Garchomp , the Champion's strongest Pokémon, is far more dangerous than anything you have battled. It may have a 4× weakness to Ice-types, but its high physical Attack and Speed often lets Garchomp one-shot your Pokémon before you can move. If you can get it to use Giga Impact , then exploit the free turn while you have the chance.",
+                    "After the battle Cynthia will praise you on the conviction you have with your Pokémon to become Champion. She'll then take you to the Hall of Fame where Professor Rowan will join you and all the Pokémon on your team are recorded into the Hall of Fame."
+                ]
+            }
+        }
+    },
+    "Part_21": {
+        "Twinleaf Town": {
+            "Text": [
+                "Now that the main game is over, the post-game begins. You'll find yourself in the place where the game originally began: your bedroom in Twinleaf Town . When you go downstairs, your mother will mention that Barry was just over and mentioned something about catching a ship at Snowpoint City .",
+                "By now, you should have all 210 Pokémon in your Sinnoh Pokédex sighted and in Sandgem Town you can receive the National Pokédex . If not, you may have missed some. Here is a list of regional Pokémon not owned by a Trainer in Sinnoh.",
+                "If you are ready, head to Sandgem Town."
+            ]
+        },
+        "Sandgem Town": {
+            "Text": [
+                "Once Professor Rowan confirms that you have seen all the Pokémon in the Sinnoh Pokédex, Professor Oak will appear. Having heard of your exploits, he will reveal he is bringing components for the National Pokédex and your Pokédex is automatically upgraded. Before he leaves, he'll mention that Pal Park on Route 221 is open. Now you can import Pokémon from the GBA games.",
+                "Professor Rowan will then give you the Poké Radar , which will allow you to find non-regional Pokémon in tall grass . For it to work, you need to be standing in tall grass without being mounted on your bicycle . After one use, it takes 50 steps to recharge."
+            ],
+            "Pokémon Swarms": {
+                "Text": [
+                    "Once you have the National Pokédex, a swarm of Pokémon from a different region will appear on a different Route each day. The house south of Professor Rowan's lab belongs to Lucas / Dawn . Their little sister can tell you which of the swarm Pokémon is currently present."
+                ]
+            }
+        },
+        "Dongle method": {
+            "Text": [
+                "By playing your Platinum game with a Generation III cartridge inserted in your Nintendo DS or DS Lite's GBA slot, you can make certain Pokémon appear on certain routes and areas throughout Sinnoh. Most of the Pokémon that appear depend on which GBA game is inserted, but Haunter and Gengar will appear in the Old Chateau if you insert any Generation III game."
+            ]
+        },
+        "Great Marsh": {
+            "Text": [
+                "If you want to catch a lot of rare Pokémon, you should visit the Great Marsh at the north end of Pastoria City . For $ 500 you can explore the Marsh until you throw 30 Safari Balls or walk 500 steps, whichever comes first. You won't use your Pokémon to battle here - if a wild Pokémon appears, you can throw Mud, Bait, or a Safari Ball . Bait lowers the chance of the Pokémon escaping, has a 90% chance of lowering its catch rate . The mud does just the opposite, making the Pokémon easier to catch, has a 90% probability of causing its chances of fleeing to rise.",
+                "For $ 100, you can look through the binoculars in the upstairs room of the entrance building before a Safari Game. They show wild Pokémon in the Marsh area where they can be found. This is useful for spotting the rare Pokémon that are randomly selected each day."
+            ]
+        }
+    },
+    "Part_22": {
+        "Trophy Garden": {
+            "Text": [
+                "There are many Pokémon that can be found here without any interaction with the Trophy Garden 's owner, Mr. Backlot . All of these Pokémon are in the Sinnoh Pokédex , and many can be found in other areas. After you have gotten the National Pokédex upgrade, however, you can talk to Mr. Backlot and he will mention a particular rare Pokémon in his garden. That Pokémon will be placed in the Trophy Garden by Backlot's butler to cover up for his fibs. The butler can place a different one there daily. The last two Pokémon placed in the garden at any given time will remain available until more Pokémon are placed in the garden."
+            ]
+        },
+        "Pal Park": {
+            "Text": [
+                "Fly to Sandgem Town and go back along Routes 219 , 220 , and 221 (you'll need Surf). Now you're free to go inside Pal Park! You'll meet Professor Oak who will explain that Pal Park can be used to import Pokémon from Hoenn and Kanto . He gives you the Trainer Counter app for your Pokétch and then leaves for Eterna City . You can import Pokémon from Pokémon Ruby, Sapphire , Emerald , FireRed, and LeafGreen Versions , by inserting the GBA cartridge into the front slot of your Nintendo DS or DS Lite and selecting \"Migrate\" from the opening menu.",
+                "You can get the Kitchen Timer app from a girl in Pal Park 's lobby after showing a Snorlax to her and the Color Changer app after receiving the Kitchen Timer and showing a Kecleon to her.",
+                "You will need to import Regirock , Regice , and Registeel in order to catch Regigigas in the Snowpoint Temple , unless you have an event Regigigas ."
+            ]
+        },
+        "Eterna City": {
+            "Text": [
+                "After meeting Professor Oak at Pal Park, he can be found in Eterna City in the house next to the Gym in the southern part of town. Talk to him, and he will give you an Up-Grade and mention that Kanto's Legendary birds — Zapdos , Articuno , and Moltres —are now roaming around Sinnoh."
+            ]
+        },
+        "Canalave City": {
+            "Text": [
+                "Your next destination is Canalave City . Enter Sailor Eldritch 's house in the southwestern area of town. You'll see that his son is trapped in a nightmare. Talk to his mother and you'll learn that you need to find an item called the Lunar Wing on Fullmoon Island to save him. Talk to Sailor Eldritch and he will take you to Fullmoon Island."
+            ]
+        },
+        "Fullmoon Island": {
+            "Text": [
+                "Follow the path and head into the forest clearing where Cresselia is. When you interact with her, she will flee, but she leaves the Lunar Wing behind. Return to Eldritch and have him take you back to Canalave City, then return to the house and use the Lunar Wing to heal his son. As for Cresselia, she's similar to Mesprit , Zapdos , Articuno , and Moltres — she is roaming around the Sinnoh region so you need to use the Marking Map to track her."
+            ]
+        },
+        "Snowpoint Temple": {
+            "Text": [
+                "You will need Regirock , Regice , and Registeel in your party for this mission if you want to battle and catch Regigigas . Your only option is to migrate them from Ruby, Sapphire , and Emerald through Pal Park or, with the aid of a Regigigas received from a special event , catch them before returning here. If you're planning to catch Regigigas, you will want a Pokémon with False Swipe and plenty of Nest Balls .",
+                "When you approach the temple, the guard states that you are not qualified to enter, but Candice appears and says that you are."
+            ],
+            "1F": {
+                "Text": [
+                    "Travel down the stairs to B1F."
+                ]
+            },
+            "B1F": {
+                "Text": [
+                    "Carefully slide down the ice and reach the stairs to B2F."
+                ]
+            },
+            "B2F": {
+                "Text": [
+                    "Rock Smash can help here, although you do not actually need it to get through. After following the path, take the stairs to B3F."
+                ]
+            },
+            "B3F": {
+                "Text": [
+                    "Sliding on the ice is a bit tricky. First, slide until you got to the part where there is no ice. Next slide ←, ↑, →, then ↑ to reach the stairs. You can now go to B4F."
+                ]
+            },
+            "B4F": {
+                "Text": [
+                    "While there is nothing to worry about you can use Strength and move the boulder ↑, →, → to be able to reach the item. When ready use the stairs to descend to BF5, the final floor."
+                ]
+            },
+            "BF5": {
+                "Text": [
+                    "While this new sliding puzzle looks difficult, it can be easy with the right steps. From the tile next to the first rock nearest your entry point travel ↓ to reach the unfrozen tile southwest of Regigigas. Now very carefully slide in this order: ↓, →, ↑, ←, ↓, →, ↑ to reach Regigigas. If you have the three Regis in your party, Regigigas will awaken and face you when you interact with it. Save the game before interacting with it.",
+                    "It may come as a bit of a shock that Regigigas is only Level 1! Use False Swipe to reduce its HP bar to the red zone and then throw Dusk Balls or Nest Balls until you catch it. Hopefully, it won't be too much trouble.",
+                    "Once it's captured, exit the temple and Fly to Celestic Town ."
+                ]
+            }
+        },
+        "Mt. Coronet (south)": {
+            "Text": [
+                "Before heading out, make sure that you have Pokémon with the HMs Surf , Waterfall , Strength , Rock Smash , and Rock Climb .",
+                "Backtrack your way to the area where you were first outside in the summit earlier. (See this section for a refresher on how to get there.) Then, use the eastern entrance to the part of Mt. Coronet 4F below the waterfall. Climb the waterfall and go inside the cave to find the Adamant Orb and the Lustrous Orb (as well as the hidden Stone Plate ). You will need both Orbs to catch Dialga and Palkia .",
+                "If you return to the tunnel, since Team Galactic is gone now, you can go through the door that was previously inaccessible. That will take you to Mt. Coronet's north area, where you can find TM02 ( Dragon Claw ) (as well as the hidden Nugget on the rock just north of it)."
+            ]
+        },
+        "Celestic Town": {
+            "Text": [
+                "In order to battle Dialga and Palkia , you must first talk to Cynthia's grandmother . If you got the Adamant Orb or Lustrous Orb at Mt. Coronet earlier after beating the Sunyshore Gym , Cynthia's grandmother will explain their connection to Dialga and Palkia . Now, they will appear when you return to Spear Pillar .",
+                "Fly to Oreburgh City and go north from there to Mt. Coronet's entrance. You'll need the HMs Surf , Strength , Rock Smash , and Rock Climb , as well as several Timer Balls , Net Balls , or Dusk Balls . It's time to head back to Spear Pillar! (See this section if you need a refresher on how to get there.)"
+            ]
+        },
+        "Spear Pillar": {
+            "Text": [
+                "Here, you'll see a blue dimensional rift which is another dimension where Dialga is. Save your game , then interact with it to challenge Dialga. After that, step back inside Mt. Coronet and quickly return. This time, a purple-colored rift will appear: Palkia.",
+                "When you face them, be careful as they are at Lv. 70. Make sure your team is at least Lv. 65 or higher. Weaken them with normally-effective moves and inflict either paralysis or sleep . They have Earth Power to counter Steel-types that could withstand their other moves, but certain Steel-types like Skarmory or Bronzong still work for the resistance tactic as their additional types (or ability ) prevent supereffective damage. Additionally, Shedinja is immune to all their moves.",
+                "Net Balls will make it easier to catch Palkia, as it is part Water-type. When playing at night , Dusk Balls will work great on both Legendaries."
+            ]
+        },
+        "Turnback Cave": {
+            "Text": [
+                "It's time to return to Turnback Cave and the Distortion World to catch Giratina if you didn't already. If you didn't catch Giratina yet, you'll want to take about 40 Dusk Balls with you. Either way, there is an important item to pick up. Return to Route 214 and head through Spring Path , which will take you back to Sendoff Spring. Enter Turnback Cave at the north side of the lake.",
+                "Use Defog to remove the fog . Read the pillar that says \"...Past three pillars...to the sleeping... ...before 30 is surpassed...\" . It means that to access the room with a portal to the Distortion World , you must find 3 rooms with a pillar before going through 30 rooms. This cave is highly unusual in that the layout of rooms is randomized each time you visit. Inside the maze, for a hint on which doorway to take, study the breakable rocks and go through the doorway that the odd pattern points to. The further you go, the stronger the wild Pokémon will be."
+            ],
+            "Available Pokémon": {
+                "Between second and third pillars": {
+                    "Text": [
+                        "There is a room between the second and third pillars where the rocks partly block off the left and right doors in which no Pokémon will be encountered."
+                    ]
+                },
+                "After the third pillar": {
+                    "Text": [
+                        "Once you've gotten past the three pillars and got whichever item was waiting for you, you'll find the room with the portal to the Distortion World. If you failed to catch Giratina last time, you'll find it guarding the portal. This time, it's in Altered Forme .",
+                        "One slight advantage if you decided to KO Giratina in the Distortion World earlier is that in Altered Forme, it prioritizes defenses over offense, so its attacks are not as strong. Its moveset is still the same, though. Save before facing it ; otherwise you'll have to defeat the Elite Four again to get another chance to catch it. If it does come to that, rechallenge the Elite Four before completing the mission at Stark Mountain . Otherwise, their teams' levels are increased, making it harder to defeat them.",
+                        "In this battle, use the same tactics as you did when facing Azelf and Uxie and you'll be fine.",
+                        "When ready, use the portal to return to the Distortion World."
+                    ]
+                }
+            }
+        }
+    },
+    "Part_23": {
+        "Distortion World": {
+            "Text": [
+                "This time around, you do not have to worry about getting lost. Follow the path until you find the Griseous Orb . The Griseous Orb, when held by Giratina, will allow it to maintain its Origin Forme outside of the Distortion World.",
+                "When finished in the Distortion World, use the portal to return to Turnback Cave. Any doorway from the portal room will take you back to the entrance room."
+            ]
+        },
+        "Victory Road": {
+            "Text": [
+                "You will need the HMs Surf , Waterfall , Rock Climb , Strength , and Defog . A good diverse team for this area is recommended as the Trainers use a lot of different types ."
+            ],
+            "1F": {
+                "Text": [
+                    "Fly to the Pokémon League 's upper half and, after descending the waterfall, enter Victory Road from there. Use Rock Climb to go down and head for the nearby stairs you saw earlier. Now that you are Champion and have the National Pokédex, the door in the eastern side of this area is no longer blocked off."
+                ]
+            },
+            "B1F (deep area)": {
+                "Text": [
+                    "When you arrive, clear the fog. You'll quickly encounter a girl named Marley who would like an escort through the tunnel. Just like the other Multi Battle partners , she'll completely heal your team after each battle.",
+                    "This area is a maze and as long as Marley is with you, you cannot use Surf as a means of creating a shortcut. From where you first met her, use Strength on the nearby boulder and go north. Continue traveling north, carefully moving boulders out of the way, while defeating Trainers. Getting both items in the northwestern part of the room requires two separate trips due to a boulder puzzle.",
+                    "Now, travel east and continue moving boulders. Once you reach the end of the path, travel south and follow the path east. Once you get past two more Trainers, you'll find the exit and Marley will leave you. Before leaving, Surf around to pick up the items that were inaccessible before. Also, Ace Trainers Arthur and Clarice are located in the southeastern area of the room and can only be accessed after Marley has left. When ready, follow the path to the exit to enter Route 224 ."
+                ]
+            }
+        },
+        "Route 224": {
+            "Text": [
+                "If you need to return to the Pokémon League at any time to heal your team, the good news is that you won't need Strength to navigate through Victory Road B1F again, as Surf alone will make it easy to come and go from Route 224.",
+                "The Trainers on this route, much like the ones you just dealt with in Victory Road, have diverse teams and can be tricky to defeat unless you are prepared. There are also some maze-like areas around this route that require a little navigation. You will need Surf to access the Berry patch on this route and to collect some of the items. Other than that, this should be a straightforward route.",
+                "Once you're finished here, Fly to Snowpoint City ."
+            ]
+        }
+    },
+    "Part_24": {
+        "Snowpoint City": {
+            "Text": [
+                "Once in Snowpoint City, talk to the Sailor to board the ship to the Battle Zone . Before you go, Cynthia will appear and give you a pep talk about how people must work together to help change the world so no one ends up like Cyrus . She wants you to go the Battle Zone to learn and grow. After you speak with her, the ship will depart for the Fight Area ."
+            ]
+        },
+        "Fight Area": {
+            "Text": [
+                "When you arrive, Barry will be there and drag you to the front of the Battle Frontier . It turns out that Flint and Volkner are preventing him from entering, believing he may not be strong enough. Once you accept Barry's offer for a Multi Battle , the two of you will automatically engage the Trainers in a double battle. You can still reject the offer if you need to prepare your team.",
+                "Do not underestimate Flint and Volkner's team as they can be deadly if you get careless. They have Houndoom , Luxray , the Eeveelutions Flareon and Jolteon , and their star Pokémon Magmortar and Electivire . A Rock / Ground combo like Golem can help, but their Magmortar has SolarBeam to dispose of it. As long as you plan ahead and work together with Barry, you'll be fine if your team is at the right levels.",
+                "After the two leave, you'll meet Barry's father Palmer , one of the Frontier Brains . He'll explain how each facility has its own rules before he leaves. Barry explains that his father is the reason he decided to become a Trainer. You'll then meet a boy named Buck who was impressed with your recent battle. He that mentions he usually trains at the Survival Area or Stark Mountain .",
+                "Go near the Fight Area's north exit to talk to a Fisherman who will give you the Super Rod , the best fishing rod in the game, which will help you obtain some non-regional Water-type Pokémon. After that, go north to Route 225 . (You will need the HMs Cut , Surf, and Rock Climb.)",
+                "At this point, thanks to your trip to the Battle Zone and Fullmoon Island, you can now explore any area of the Underground . Additionally, you can now mine the Fossils from Generation I and Generation III . Like the Generation IV Fossils, they need to be taken to the Oreburgh Museum to be revived."
+            ]
+        },
+        "Route 225": {
+            "Text": [
+                "For this Route it should be pretty straightforward. For getting to the Berry patch and some of the items you will need Cut , Surf , and Rock Climb . Fortunately none of the HM moves are necessary for progressing through this route to reach the Survival Area . Notably around the only house in this area is the Lax Incense , the only Incense that cannot be collected during the main game which you will need Cut to get to. Other items on this route include Evolution items , though pretty much all you them have been found earlier in the game and all you can do is get extra copies of them."
+            ]
+        },
+        "Survival Area": {
+            "Text": [
+                "The house on the west side of the Survival Area is the Battleground , a special facility which you can't access until you complete your upcoming mission to Stark Mountain . If you use the ledges near the west side or the small path on the east, you'll reach the house located in the south of town. Inside is a man that will give you TM42 ( Facade )."
+            ],
+            "Move Tutor": {
+                "Text": [
+                    "The house on the cliff has the final Move Tutor in the game. To access it go east to Route 226 and use the first Rock Climb ledge you see to go up there. Like the previous Tutors you will need colored shards to be able to teach your Pokémon moves they are compatible with."
+                ]
+            }
+        },
+        "Route 226": {
+            "Text": [
+                "For this route you will need Rock Climb and Surf. For the first part go to the Rock Climb ledge to the far right climb up it. The trick to getting to the berry patch and the items is by carefully observing which Rock Climb ledge goes to where. To make it easy go to the ledge to the right that leads down. Then go to the nearby ledge that leads up. Now go to the ledge near the two trainers that leads down (though go the ledge after facing those trainers to find TM53 ( Energy Ball ), a useful move). Now you can get to the second part where Surf is needed.",
+                "In the second area you will find a house belonging to a man called the Meister who is German in origin. He will perform an upgrade that will store Pokédex entries from Pokémon games from other countries. He will also trade you a Magikarp from Germany in exchange for Finneon . To the east of his house is a grassland area that leads to Route 227 and Route 228 . Head for the north exit that leads to Route 227 first."
+            ]
+        },
+        "Route 227": {
+            "Text": [
+                "As you notice when you arrive here is volcanic ash in the air, as you are close to Stark Mountain , which is an active volcano. Carefully jump over the two bike ledges with the bike and after the second ledge jump over the regular ledge once, but careful not to jump over the second one to a avoid backtracking. After that you will see Barry and Wake , and after Wake acknowledges your growing strength, Barry annoys Wake again by calling him master despite not being made Wake's apprentice and Barry pleads that he needs him to enter the Battlefield club. Wake will point out how prepared your team must be for dealing with Stark Mountain before he leaves with Barry right behind him.",
+                "The lady in the nearby house will let your team rest when you talk to her. Follow the path and you'll encounter Buck again. He asks you to go up to Stark Mountain to patrol it and guard the Magma Stone which keeps a certain Pokémon asleep and that a group of vandals that dress like spacemen have been plaguing the area lately. Buck mentions he can't go as his Pokémon are low on HP. Continue following the path and you will reach Stark Mountain."
+            ]
+        }
+    },
+    "Part_25": {
+        "Stark Mountain": {
+            "Outside": {
+                "Text": [
+                    "Follow the path (don't forget to use the nearby Rock Climb ledges to find the Life Orb ) and you will see two Galactic Grunts . You'll overhear their conversation that Charon has replaced Cyrus as Team Galactic 's leader, though it is doubtful if Charon will be as effective. Go through the entrance to the volcano."
+                ]
+            },
+            "Main Entrance": {
+                "Text": [
+                    "When you enter, Mars demands to know what happened to Cyrus. Not believing your story about the Distortion World , she decides to face you.",
+                    "Mars' Bronzor has evolved into a Bronzong . It can use Light Screen to halve out the damage caused by Special moves. Her Golbat and Purugly are about the same so the same tactics you used at Spear Pillar can bring them down.",
+                    "Jupiter will face you next. Her Bronzong knows Reflect to halve out the damage caused by physical attacks. Her Golbat and Skuntank are about the same as well.",
+                    "After the battle, the two decide to quit the team as it is not much fun without Cyrus. They decide to journey to find the Distortion World. Charon doesn't care and leaves with the two grunts to find the Magma Stone . Using Strength , move the boulders to the right of you carefully and go up the stairs. With the aid of Strength and Rock Smash , go through the large door to the main room."
+                ]
+            },
+            "Large Room": {
+                "Text": [
+                    "After you go north for a little bit, Buck will appear. After recognizing that Team Galactic is here, he will decide to team up with you as a tag partner . Like Marley and the other tag partners, he will also heal your team after every battle and Wild battles become double battles.",
+                    "This room is so large it is recommended to stock up on Max Repels to make traveling through it a little less annoying. It is also highly recommended to take down the Trainers in this room as while you have Buck with you, since he can heal your team and the Trainers' Pokémon are between Level 57 and Level 61. Just remember that some items are inaccessible right now since you can't use Rock Climb as long as Buck is with you.",
+                    "To make it easier to find the exit, head east past the first set of stairs until you see the path turn north. Keep going straight until you reach a dead end. Go down the nearby stairs and follow the path west, smashing a rock on the way. Continue until you climb some stairs and see two Trainers nearby. Turn left and follow the path to the northwestern part of the room. Go down some nearby stairs and move the Strength boulder. Then, you will be at the exit. Once there, Buck recognizes Team Galactic is inside and heads in."
+                ]
+            },
+            "Heatran's Room": {
+                "Text": [
+                    "Inside, Charon is unhappy that Mars and Jupiter quit and won't help him. He plans to use Heatran to control the volcanic eruption to gain millions. Noticing you and Buck, Charon quickly grabs the Magma Stone and gloats. However, a mysterious Trainer sends out a Croagunk to get the stone. This trainer is actually Looker in disguise and, as much as Charon denies it, Looker has him arrested while the two Galactic grunts with Charon run away.",
+                    "Taking both you and Buck outside, while Buck goes to return the stone, Looker mentions his investigation into Charon's activities. He also states that now that Charon was arrested, Team Galactic is no longer a threat. After Buck returns, Fly to the Survival Area ."
+                ]
+            }
+        },
+        "Survival Area": {
+            "Text": [
+                "When you arrive, you will see Buck and Barry right by the house that was locked up earlier. This house is Buck's, and it is also the Battleground , where you can rechallenge the Sinnoh Gym Leaders and all five of your previous Multi Battle partners. There are four Trainers in here each day, and they can only be battled once a day. Talk to Buck and his grandfather, who will tell you the legend about Stark Mountain. This is important— if you don't talk to both, Heatran will not appear when you go back to Stark Mountain. Besides the Gym Leaders, the Elite Four's teams have also been upgraded as well, providing a harder challenge should you revisit the Pokémon League . Barry will also remain outside the Battleground building and on weekends, you can rechallenge him to a battle once a day.",
+                "Just remember that after 20 Hall of Fame records, Barry's team will go up by 20 levels . The amount of prize money you receive is also increased by $ 2000 when Barry's team is upgraded!"
+            ]
+        }
+    },
+    "Part_26": {
+        "Stark Mountain": {
+            "Text": [
+                "When you come back, you'll want Rock Climb and plenty of Dusk Balls .",
+                "Now that you are traveling by yourself, in the large room, you can use Rock Climb to easily navigate through. Return to Heatran's room, save the game and challenge it so you can catch it."
+            ],
+            "Catching Heatran": {
+                "Text": [
+                    "Heatran is Level 50 and can be a dangerous attacker. Use a Water - or Fighting -type move to take out a chunk of its HP, then continue hitting with weaker attacks until its HP bar turns red. Then, throw Dusk Balls until you catch it. To avoid the risk of getting defeated by Heatran, heal your team often."
+                ]
+            }
+        },
+        "Route 228": {
+            "Text": [
+                "On this route, there is a constant Sandstorm , which causes minor damage to Pokémon that aren't Rock , Ground , or Steel -types on every turn. You will need both your Bicycle and the HM Rock Smash for this area. The nearby cave is the entrance to the Rock Peak Ruins where, if you have an event Regigigas in your party, you will find Regirock where you have a chance to catch it. If not, it is an ordinary cave where you will find a Hard Stone and a hidden Nugget northeast of it.",
+                "This route can be a bit of a puzzle to navigate. You'll need to use the muddy slopes and logs to access the Berry patch and all of the items. For a shortcut out of this route, from the area where you started, head for the northern area and follow the path with your bike and you'll only have to deal with a few Trainers and breakable rocks."
+            ],
+            "Move Tutor": {
+                "Text": [
+                    "The northern house on this route belongs to one of the Move Tutors . He can teach the ultimate moves of the first partner Pokémon to their final forms as long as their happiness factor is maxed out. The moves he teaches are Frenzy Plant for the Grass first partner Pokémon, Blast Burn for the Fire first partner Pokémon, and Hydro Cannon for the Water first partner Pokémon."
+                ]
+            }
+        },
+        "Route 229": {
+            "Text": [
+                "This should be a straightforward route. In the patch of long grass , a man is hiding in the trees who will give you two Nuggets if you talk with him twice. Also, one of the Trainers is hidden. You will need Cut for finding two of the items. In the southernmost area where two of the Trainers are, there are two paths. Going west will take you to Route 230 while going east takes you to the Resort Area . Let's go to the Resort Area first."
+            ]
+        },
+        "Resort Area": {
+            "Text": [
+                "There isn't much to do here. This is the only place in the game besides Twinleaf Town not to have a Poké Mart or another store."
+            ],
+            "Ribbon Syndicate": {
+                "Text": [
+                    "The Ribbon Syndicate is the large building in the northeastern part of town. This is a very hard building to get into as you must have 10 different kinds of Ribbon on your current party just to be permitted entry. You'll need to participate in a lot of different Super Contests to achieve this.",
+                    "Like with the massage therapist in Veilstone City , there is a spa treatment, receivable once per day, that will increase a Pokémon's happiness factor. One difference is that it can also be used on Pokémon Eggs , enabling the Pokémon that hatches from that Egg to already possess that increased happiness factor. Also, you can purchase rare, highly expensive Ribbons not found elsewhere."
+                ]
+            },
+            "Villa": {
+                "Text": [
+                    "Located in the southeastern area of town. Once you arrive, the previous owner will turn over the Villa to you and help you get a table . You can purchase other furniture with the booklet found on the table, allowing you to decorate in a similar way to the Underground Secret Base . The Sinnoh Gym Leaders , Professor Rowan , Lucas / Dawn , Barry , and your character's mother may come and visit."
+                ]
+            }
+        },
+        "Route 230": {
+            "Text": [
+                "For the last numbered route in the game, this is pretty easy to navigate. Surf west to reach the Fight Area . If you have a Grass - and an Electric -type with you, you should have no problems. You will need Rock Smash for the small island found on this route to reach all the items (two of which are hidden).",
+                "After arresting Charon and exploring every location, your mission in this game is mostly complete! All that's left is to work on completing the National Pokédex , which will require trading with other players. Obtaining all 481 non- event Pokémon is a big task, but it is possible! If you complete the National Pokédex, go to the Hotel Grand Lake on Valor Lakefront and talk with the Game Freak director to get your Diploma for completing your Pokédex.",
+                "Additionally, you can always challenge the Elite Four , Battleground , and Battle Frontier ."
+            ]
+        }
+    }
+}

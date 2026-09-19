@@ -1,0 +1,29 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# PythonAnywhere local configuration
+*.sublime-project
+*.sublime-workspace
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Runtime database & state files
+data/*.db
+data/*.db-wal
+data/*.db-shm
+data/*_state.json
+*.sqlite
+*.sqlite3

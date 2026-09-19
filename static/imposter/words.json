@@ -1,0 +1,7086 @@
+{
+  "Tiere": [
+    {
+      "Adler": [
+        "Fels",
+        "Blick",
+        "Weite"
+      ],
+      "Affe": [
+        "Natur",
+        "Ast",
+        "Hände"
+      ],
+      "Ameise": [
+        "Gruppe",
+        "Last",
+        "Pfad"
+      ],
+      "Axolotl": [
+        "Lächeln",
+        "Feucht",
+        "Zart"
+      ],
+      "Aye-Aye": [
+        "Wald",
+        "Lauschen",
+        "Finger"
+      ],
+      "Bär": [
+        "Ruhe",
+        "Kraft",
+        "Wald"
+      ],
+      "Biber": [
+        "Fluss",
+        "Arbeit",
+        "Damm"
+      ],
+      "Blobfisch": [
+        "Tiefe",
+        "Aussehen",
+        "Druck"
+      ],
+      "Dachs": [
+        "Erde",
+        "Graben",
+        "Nacht"
+      ],
+      "Delfin": [
+        "Intelligenz",
+        "Spiel",
+        "Sprung"
+      ],
+      "Dugong": [
+        "Grau",
+        "Weiden",
+        "Warm"
+      ],
+      "Dumbo-Oktopus": [
+        "Tief",
+        "Weich",
+        "Floskel"
+      ],
+      "Eichhörnchen": [
+        "Klettern",
+        "Versteck",
+        "Winter"
+      ],
+      "Elefant": [
+        "Grau",
+        "Schwer",
+        "Familie"
+      ],
+      "Ente": [
+        "Klein",
+        "Wasser",
+        "Brot"
+      ],
+      "Eule": [
+        "Stille",
+        "Blick",
+        "Schatten"
+      ],
+      "Faultier": [
+        "Ruhe",
+        "Grün",
+        "Ast"
+      ],
+      "Fledermaus": [
+        "Nacht",
+        "Echo",
+        "Höhle"
+      ],
+      "Flamingo": [
+        "Wasser",
+        "Gruppe",
+        "Salz"
+      ],
+      "Fossa": [
+        "Insel",
+        "Jäger",
+        "Kletterer"
+      ],
+      "Frosch": [
+        "Sprung",
+        "Entwicklung",
+        "Beobachten"
+      ],
+      "Fuchs": [
+        "List",
+        "Feld",
+        "Nacht"
+      ],
+      "Gans": [
+        "Wasser",
+        "Laut",
+        "Wache"
+      ],
+      "Gepard": [
+        "Muster",
+        "Schnell",
+        "Wild"
+      ],
+      "Giraffe": [
+        "Fleck",
+        "Hoch",
+        "Savanne"
+      ],
+      "Glaskopffisch": [
+        "Wasser",
+        "Klar",
+        "Sicht"
+      ],
+      "Grille": [
+        "Sommer",
+        "Feld",
+        "Sprung"
+      ],
+      "Gürteltier": [
+        "Schutz",
+        "Kugel",
+        "Nacht"
+      ],
+      "Hai": [
+        "Tiefe",
+        "Jäger",
+        "Schatten"
+      ],
+      "Hamster": [
+        "Rund",
+        "Vorrat",
+        "Nacht"
+      ],
+      "Hund": [
+        "Begleiter",
+        "Park",
+        "Treue"
+      ],
+      "Hyäne": [
+        "Steppe",
+        "Gruppe",
+        "Nacht"
+      ],
+      "Igel": [
+        "Garten",
+        "Kugel",
+        "Herbst"
+      ],
+      "Kakadu": [
+        "Haube",
+        "Körner",
+        "Laut"
+      ],
+      "Kakapo": [
+        "Selten",
+        "Grün",
+        "Insel"
+      ],
+      "Kaninchen": [
+        "Löffel",
+        "Feld",
+        "Klein"
+      ],
+      "Katze": [
+        "Fenster",
+        "Nacht",
+        "Leise"
+      ],
+      "Känguru": [
+        "Weite",
+        "Tasche",
+        "Sprung"
+      ],
+      "Koala": [
+        "Schlaf",
+        "Baum",
+        "Ruhe"
+      ],
+      "Kranich": [
+        "Tanz",
+        "Formation",
+        "Reise"
+      ],
+      "Krebs": [
+        "Wasser",
+        "Rückwärts",
+        "Panzer"
+      ],
+      "Krokodil": [
+        "Gefahr",
+        "Lauern",
+        "Haut"
+      ],
+      "Kröte": [
+        "Nacht",
+        "Versteck",
+        "Boden"
+      ],
+      "Libelle": [
+        "Leicht",
+        "Schimmer",
+        "Fläche"
+      ],
+      "Löwe": [
+        "Stark",
+        "Rudel",
+        "Savanne"
+      ],
+      "Marienkäfer": [
+        "Glück",
+        "Punkt",
+        "Blatt"
+      ],
+      "Maus": [
+        "Klein",
+        "Fell",
+        "Falle"
+      ],
+      "Meerschweinchen": [
+        "Pflanze",
+        "Heim",
+        "Weich"
+      ],
+      "Mücke": [
+        "Sommer",
+        "Nervig",
+        "Nacht"
+      ],
+      "Nacktmull": [
+        "Graben",
+        "Zahn",
+        "Haut"
+      ],
+      "Narwal": [
+        "Arktis",
+        "Kalt",
+        "Tief"
+      ],
+      "Nashorn": [
+        "Afrika",
+        "Schwer",
+        "Gras"
+      ],
+      "Nasenaffe": [
+        "Zinken",
+        "Ast",
+        "Wasser"
+      ],
+      "Okapi": [
+        "Wald",
+        "Streifen",
+        "Selten"
+      ],
+      "Otter": [
+        "Stein",
+        "Hand",
+        "Spielen"
+      ],
+      "Panda": [
+        "Ruhe",
+        "Berg",
+        "Selten"
+      ],
+      "Pangolin": [
+        "Nacht",
+        "Selten",
+        "Asien"
+      ],
+      "Papagei": [
+        "Bunt",
+        "Stimme",
+        "Warm"
+      ],
+      "Pfau": [
+        "Glanz",
+        "Pracht",
+        "Auge"
+      ],
+      "Pferd": [
+        "Hof",
+        "Turnier",
+        "Sprung"
+      ],
+      "Pinguin": [
+        "Kalt",
+        "Kolonie",
+        "Anzug"
+      ],
+      "Qualle": [
+        "Form",
+        "Bewegung",
+        "Durchsichtigkeit"
+      ],
+      "Quokka": [
+        "Insel",
+        "Lächeln",
+        "Foto"
+      ],
+      "Robbe": [
+        "Gleiten",
+        "Rund",
+        "Geräusch"
+      ],
+      "Saiga-Antilope": [
+        "Flucht",
+        "Herde",
+        "Nase"
+      ],
+      "Schaf": [
+        "Herde",
+        "Weide",
+        "Hirte"
+      ],
+      "Schildkrötenfrosch": [
+        "Graben",
+        "Fest",
+        "Nacht"
+      ],
+      "Schlange": [
+        "Welle",
+        "Lauer",
+        "Ast"
+      ],
+      "Schmetterling": [
+        "Farbe",
+        "Verwandlung",
+        "Blume"
+      ],
+      "Schnabeltier": [
+        "Ei",
+        "Ufer",
+        "Gift"
+      ],
+      "Seehund": [
+        "Küste",
+        "Kalt",
+        "Rund"
+      ],
+      "Seepferdchen": [
+        "Vater",
+        "Klein",
+        "Haltung"
+      ],
+      "Skorpion": [
+        "Nacht",
+        "Gefahr",
+        "Wüste"
+      ],
+      "Spatz": [
+        "Stadt",
+        "Frech",
+        "Flug"
+      ],
+      "Spinne": [
+        "Netz",
+        "Acht",
+        "Haus"
+      ],
+      "Tarsier": [
+        "Augen",
+        "Nacht",
+        "Ast"
+      ],
+      "Tiger": [
+        "Muster",
+        "Einzelgänger",
+        "Asien"
+      ],
+      "Tintenfisch": [
+        "Meer",
+        "Tinte",
+        "Intelligent"
+      ],
+      "Uhu": [
+        "Nacht",
+        "Wald",
+        "Jäger"
+      ],
+      "Wal": [
+        "Groß",
+        "Tief",
+        "Reise"
+      ],
+      "Walross": [
+        "Kalt",
+        "Zahn",
+        "Bart"
+      ],
+      "Waschbär": [
+        "Maske",
+        "Müll",
+        "Hände"
+      ],
+      "Wiesel": [
+        "Tunnel",
+        "Fell",
+        "Schnell"
+      ],
+      "Wolf": [
+        "Wald",
+        "Jäger",
+        "Fell"
+      ],
+      "Wombat": [
+        "Erde",
+        "Nacht",
+        "Kontinent"
+      ],
+      "Zebra": [
+        "Herde",
+        "Muster",
+        "Steppe"
+      ],
+      "Ziege": [
+        "Berg",
+        "Bart",
+        "Sturheit"
+      ]
+    }
+  ],
+  "Berufe": [
+    {
+      "Anwalt": [
+        "Analyse",
+        "Argument",
+        "Vertrauen"
+      ],
+      "Apotheker": [
+        "Mischen",
+        "Beraten",
+        "Regal"
+      ],
+      "Architekt": [
+        "Konzept",
+        "Detail",
+        "Licht"
+      ],
+      "Arzt": [
+        "Vertrauen",
+        "Weiss",
+        "Warten"
+      ],
+      "Bäcker": [
+        "Früh",
+        "Duft",
+        "Form"
+      ],
+      "Bankier": [
+        "Vertrag",
+        "Anzug",
+        "Entscheidung"
+      ],
+      "Bestatter": [
+        "Begleitung",
+        "Stille",
+        "Blumen"
+      ],
+      "Bibliothekar": [
+        "Ordnung",
+        "Sammeln",
+        "Suche"
+      ],
+      "Briefträger": [
+        "Weg",
+        "Runde",
+        "Tasche"
+      ],
+      "Busfahrer": [
+        "Schicht",
+        "Linie",
+        "Kunde"
+      ],
+      "Designer": [
+        "Gestalten",
+        "Lösung",
+        "Konzept"
+      ],
+      "Elektriker": [
+        "Haus",
+        "Montage",
+        "Fehler"
+      ],
+      "Erzieher": [
+        "Begleitung",
+        "Alltag",
+        "Vorbereitung"
+      ],
+      "Feuerwehrmann": [
+        "Alarm",
+        "Team",
+        "Druck"
+      ],
+      "Forscher": [
+        "Daten",
+        "Ergebnis",
+        "Frage"
+      ],
+      "Fotograf": [
+        "Licht",
+        "Moment",
+        "Blick"
+      ],
+      "Friseur": [
+        "Termin",
+        "Veränderung",
+        "Pflege"
+      ],
+      "Gärtner": [
+        "Pflege",
+        "Werkzeug",
+        "Außen"
+      ],
+      "Hebamme": [
+        "Leben",
+        "Hände",
+        "Vertrauen"
+      ],
+      "Imker": [
+        "Rauch",
+        "Garten",
+        "Schutz"
+      ],
+      "Ingenieur": [
+        "Plan",
+        "Projekt",
+        "Lösung"
+      ],
+      "Installateur": [
+        "Druck",
+        "Leitung",
+        "Wartung"
+      ],
+      "Journalist": [
+        "Reise",
+        "Fragen",
+        "Deadline"
+      ],
+      "Juwelier": [
+        "Glanz",
+        "Wert",
+        "Reparieren"
+      ],
+      "Kassierer": [
+        "Zählen",
+        "System",
+        "Umgang"
+      ],
+      "Koch": [
+        "Wärme",
+        "Handwerk",
+        "Kreation"
+      ],
+      "Krankenpfleger": [
+        "Schicht",
+        "Notiz",
+        "Beistand"
+      ],
+      "Landwirt": [
+        "Maschine",
+        "Sorge",
+        "Wachstum"
+      ],
+      "Lehrer": [
+        "Vorbereitung",
+        "Entwicklung",
+        "Struktur"
+      ],
+      "Logopäde": [
+        "Übung",
+        "Klang",
+        "Geduld"
+      ],
+      "Lokführer": [
+        "Reise",
+        "Signal",
+        "Steuerung"
+      ],
+      "Makler": [
+        "Objekt",
+        "Vertrag",
+        "Wert"
+      ],
+      "Maler": [
+        "Gestaltung",
+        "Oberfläche",
+        "Schutz"
+      ],
+      "Manager": [
+        "Aufgabe",
+        "Entscheidung",
+        "Plan"
+      ],
+      "Matrose": [
+        "Uniform",
+        "Reise",
+        "Dienst"
+      ],
+      "Maurer": [
+        "Struktur",
+        "Form",
+        "Schweiß"
+      ],
+      "Mechaniker": [
+        "Gerät",
+        "Pflege",
+        "System"
+      ],
+      "Metzger": [
+        "Schuerze",
+        "Theke",
+        "Handwerk"
+      ],
+      "Musiker": [
+        "Bühne",
+        "Klang",
+        "Probe"
+      ],
+      "Optiker": [
+        "Korrektur",
+        "Fokus",
+        "Klarheit"
+      ],
+      "Philosoph": [
+        "Buch",
+        "Gedanke",
+        "Frage"
+      ],
+      "Pilot": [
+        "Steuerung",
+        "Uniform",
+        "Reise"
+      ],
+      "Polizist": [
+        "Ordnung",
+        "Kontrolle",
+        "Uniform"
+      ],
+      "Programmierer": [
+        "Lösung",
+        "Struktur",
+        "Projekt"
+      ],
+      "Psychologe": [
+        "Gespräch",
+        "Muster",
+        "Vertrauen"
+      ],
+      "Regisseur": [
+        "Ablauf",
+        "Stimmung",
+        "Vorbereitung"
+      ],
+      "Reporter": [
+        "Fragen",
+        "Reisen",
+        "Schreiben"
+      ],
+      "Richter": [
+        "Entscheidung",
+        "Verantwortung",
+        "Wahrheit"
+      ],
+      "Schauspieler": [
+        "Gefühl",
+        "Probe",
+        "Verwandlung"
+      ],
+      "Schornsteinfeger": [
+        "Dach",
+        "Schwarz",
+        "Leiter"
+      ],
+      "Schreiner": [
+        "Messen",
+        "Form",
+        "Stück"
+      ],
+      "Soldat": [
+        "Training",
+        "Team",
+        "Mission"
+      ],
+      "Steward": [
+        "Bereitschaft",
+        "Ablauf",
+        "Umgang"
+      ],
+      "Stuntman": [
+        "Körper",
+        "Training",
+        "Szene"
+      ],
+      "Synchronsprecher": [
+        "Mikrofon",
+        "Text",
+        "Rolle"
+      ],
+      "Taxifahrer": [
+        "Kunde",
+        "Strecke",
+        "Uhr"
+      ],
+      "Tierarzt": [
+        "Praxis",
+        "Vertrauen",
+        "Hand"
+      ],
+      "Verkäufer": [
+        "Beratung",
+        "Wert",
+        "Ziel"
+      ],
+      "Winzer": [
+        "Keller",
+        "Hang",
+        "Erde"
+      ],
+      "Wissenschaftler": [
+        "Daten",
+        "Analyse",
+        "Beobachtung"
+      ],
+      "Zahnarzt": [
+        "Material",
+        "Präzision",
+        "Licht"
+      ],
+      "Zirkusartist": [
+        "Akt",
+        "Reise",
+        "Balance"
+      ]
+    }
+  ],
+  "Städte": [
+    {
+      "Aachen": [
+        "Studenten",
+        "Brunnen",
+        "Grenze"
+      ],
+      "Augsburg": [
+        "Handel",
+        "Mittelalter",
+        "Geld"
+      ],
+      "Berlin": [
+        "Teilung",
+        "Nacht",
+        "Kunst"
+      ],
+      "Bonn": [
+        "Musik",
+        "Studium",
+        "Geschichte"
+      ],
+      "Bremen": [
+        "Stein",
+        "Brücke",
+        "Handel"
+      ],
+      "Chemnitz": [
+        "Bauwerk",
+        "Flussufer",
+        "Denkmal"
+      ],
+      "Dresden": [
+        "Stein",
+        "Bühne",
+        "Ufer"
+      ],
+      "Düsseldorf": [
+        "Wasser",
+        "Grün",
+        "Glas"
+      ],
+      "Erfurt": [
+        "Fluss",
+        "Turm",
+        "Garten"
+      ],
+      "Frankfurt": [
+        "Wasser",
+        "Reise",
+        "Geschäft"
+      ],
+      "Freiburg": [
+        "Wald",
+        "Student",
+        "Bach"
+      ],
+      "Hamburg": [
+        "Backstein",
+        "Hafen",
+        "Bühne"
+      ],
+      "Hannover": [
+        "Grün",
+        "Turm",
+        "König"
+      ],
+      "Heidelberg": [
+        "Mauer",
+        "Fluss",
+        "Gasse"
+      ],
+      "Jena": [
+        "Wissen",
+        "Licht",
+        "Tal"
+      ],
+      "Karlsruhe": [
+        "Residenz",
+        "Forschung",
+        "Gericht"
+      ],
+      "Kiel": [
+        "Wasser",
+        "Schiff",
+        "Wind"
+      ],
+      "Koblenz": [
+        "Strom",
+        "Höhe",
+        "Ufer"
+      ],
+      "Köln": [
+        "Strom",
+        "Fest",
+        "Turm"
+      ],
+      "Leipzig": [
+        "Wissen",
+        "Klang",
+        "Freiheit"
+      ],
+      "Lübeck": [
+        "Wasser",
+        "Stein",
+        "Tor"
+      ],
+      "Magdeburg": [
+        "Brücke",
+        "Turm",
+        "Stein"
+      ],
+      "Mainz": [
+        "Strom",
+        "Stein",
+        "Feier"
+      ],
+      "Mannheim": [
+        "Hafen",
+        "Universität",
+        "Barock"
+      ],
+      "München": [
+        "Tradition",
+        "Fest",
+        "Süden"
+      ],
+      "Münster": [
+        "Geschichte",
+        "Straßen",
+        "Turm"
+      ],
+      "Nürnberg": [
+        "Stein",
+        "Duft",
+        "Glocke"
+      ],
+      "Paris": [
+        "Kunst",
+        "Mode",
+        "Liebe"
+      ],
+      "Potsdam": [
+        "Garten",
+        "Film",
+        "Ufer"
+      ],
+      "Regensburg": [
+        "Kaiser",
+        "Mauer",
+        "Glocke"
+      ],
+      "Rostock": [
+        "Hafen",
+        "Tor",
+        "Backstein"
+      ],
+      "Stuttgart": [
+        "Motor",
+        "Hügel",
+        "Turm"
+      ],
+      "Trier": [
+        "Alt",
+        "Mauern",
+        "Fluss"
+      ],
+      "Ulm": [
+        "Ufer",
+        "Stein",
+        "Gasse"
+      ],
+      "Weimar": [
+        "Erbe",
+        "Werk",
+        "Grün"
+      ],
+      "Wiesbaden": [
+        "Quelle",
+        "Spiel",
+        "Hügel"
+      ]
+    }
+  ],
+  "Orte": [
+    {
+      "Antiquariat": [
+        "Staub",
+        "Geruch",
+        "Papier"
+      ],
+      "Aquarium": [
+        "Ausflug",
+        "Sammlung",
+        "Beleuchtung"
+      ],
+      "Autobahn": [
+        "Fern",
+        "Grau",
+        "Linie"
+      ],
+      "Bahnhof": [
+        "Verbindung",
+        "Warten",
+        "Halle"
+      ],
+      "Baustelle": [
+        "Staub",
+        "Plan",
+        "Werkzeug"
+      ],
+      "Bäckerei": [
+        "Duft",
+        "Morgen",
+        "Handwerk"
+      ],
+      "Berg": [
+        "Luft",
+        "Blick",
+        "Weg"
+      ],
+      "Beichtstuhl": [
+        "Stille",
+        "Trennwand",
+        "Flüstern"
+      ],
+      "Bibliothek": [
+        "Sammlung",
+        "Ordnung",
+        "Information"
+      ],
+      "Büro": [
+        "Sitzung",
+        "Kaffee",
+        "Planung"
+      ],
+      "Campingplatz": [
+        "Decke",
+        "Grün",
+        "Stille"
+      ],
+      "Cockpit": [
+        "Kabine",
+        "Aussicht",
+        "Zentrale"
+      ],
+      "Dachboden": [
+        "Staub",
+        "Erinnerung",
+        "Verstecken"
+      ],
+      "Dachterrasse": [
+        "Aussicht",
+        "Möbel",
+        "Himmel"
+      ],
+      "Deich": [
+        "Grün",
+        "Weg",
+        "Aussicht"
+      ],
+      "Disco": [
+        "Licht",
+        "Abend",
+        "Menge"
+      ],
+      "Dorf": [
+        "Weg",
+        "Feld",
+        "Bach"
+      ],
+      "Einkaufszentrum": [
+        "Geld",
+        "Leute",
+        "Fenster"
+      ],
+      "Empfangshalle": [
+        "Warten",
+        "Besucher",
+        "Durchgang"
+      ],
+      "Fabrik": [
+        "Lärm",
+        "Stahl",
+        "Halle"
+      ],
+      "Farm": [
+        "Frisch",
+        "Geruch",
+        "Offen"
+      ],
+      "Fitnessstudio": [
+        "Abonnement",
+        "Spiegel",
+        "Anstrengung"
+      ],
+      "Flughafen": [
+        "Warten",
+        "Halle",
+        "Ziel"
+      ],
+      "Fluss": [
+        "Reise",
+        "Stein",
+        "Grün"
+      ],
+      "Fußballstadion": [
+        "Publikum",
+        "Licht",
+        "Fläche"
+      ],
+      "Garage": [
+        "Schlüssel",
+        "Werkzeug",
+        "Kiste"
+      ],
+      "Garten": [
+        "Grün",
+        "Wachstum",
+        "Frisch"
+      ],
+      "Gewächshaus": [
+        "Glas",
+        "Wärme",
+        "Zucht"
+      ],
+      "Insel": [
+        "Reise",
+        "Horizont",
+        "Ruhe"
+      ],
+      "Keller": [
+        "Kartoffel",
+        "Spinne",
+        "Rohre"
+      ],
+      "Kino": [
+        "Erlebnis",
+        "Reihe",
+        "Geräusch"
+      ],
+      "Kletterhalle": [
+        "Höhe",
+        "Kraft",
+        "Wand"
+      ],
+      "Kloster": [
+        "Stille",
+        "Regel",
+        "Stein"
+      ],
+      "Kneipe": [
+        "Abend",
+        "Stimme",
+        "Warten"
+      ],
+      "Krankenhaus": [
+        "Warten",
+        "Besuch",
+        "Zimmer"
+      ],
+      "Kreisverkehr": [
+        "Bewegung",
+        "Mitte",
+        "Leiten"
+      ],
+      "Labor": [
+        "Messung",
+        "Ergebnis",
+        "Vorschrift"
+      ],
+      "Leuchtturm": [
+        "Leiten",
+        "Wache",
+        "Weit"
+      ],
+      "Marktplatz": [
+        "Mitte",
+        "Begegnung",
+        "Vielfalt"
+      ],
+      "Metzgerei": [
+        "Theke",
+        "Wiegen",
+        "Kälte"
+      ],
+      "Museum": [
+        "Sammlung",
+        "Führung",
+        "Stille"
+      ],
+      "Oper": [
+        "Erlebnis",
+        "Akustik",
+        "Sitze"
+      ],
+      "Rathaus": [
+        "Stempel",
+        "Dokument",
+        "Termin"
+      ],
+      "Restaurant": [
+        "Genuss",
+        "Warten",
+        "Auswahl"
+      ],
+      "Sackgasse": [
+        "Eng",
+        "Wenden",
+        "Ruhe"
+      ],
+      "Sauna": [
+        "Holz",
+        "Dampf",
+        "Stein"
+      ],
+      "Schule": [
+        "Gang",
+        "Bank",
+        "Regel"
+      ],
+      "Schwimmbad": [
+        "Entspannung",
+        "Kacheln",
+        "Sommer"
+      ],
+      "See": [
+        "Tiefe",
+        "Fläche",
+        "Stille"
+      ],
+      "Spielplatz": [
+        "Begegnung",
+        "Bewegung",
+        "Lärm"
+      ],
+      "Stall": [
+        "Ruhe",
+        "Wärme",
+        "Geruch"
+      ],
+      "Stadt": [
+        "Leben",
+        "Struktur",
+        "Bewegung"
+      ],
+      "Strand": [
+        "Horizont",
+        "Spuren",
+        "Rauschen"
+      ],
+      "Supermarkt": [
+        "Regal",
+        "Korb",
+        "Bezahlen"
+      ],
+      "Tankstelle": [
+        "Kaffee",
+        "Pause",
+        "Zahlen"
+      ],
+      "Theater": [
+        "Spiel",
+        "Geschichte",
+        "Stimme"
+      ],
+      "U-Bahn": [
+        "Dunkel",
+        "Warten",
+        "Geräusch"
+      ],
+      "Umkleidekabine": [
+        "Spiegel",
+        "Bank",
+        "Vorbereitung"
+      ],
+      "Universität": [
+        "Zukunft",
+        "Innovation",
+        "Diskussion"
+      ],
+      "Wald": [
+        "Stille",
+        "Geruch",
+        "Schatten"
+      ],
+      "Wartezimmer": [
+        "Zeit",
+        "Reihe",
+        "Blick"
+      ],
+      "Waschsalon": [
+        "Warten",
+        "Frisch",
+        "Duft"
+      ],
+      "Weinberg": [
+        "Hang",
+        "Sonne",
+        "Reihe"
+      ],
+      "Wohnzimmer": [
+        "Licht",
+        "Decke",
+        "Gespräch"
+      ],
+      "Zoo": [
+        "Futter",
+        "Anlage",
+        "Ausflug"
+      ]
+    }
+  ],
+  "Essen & Trinken": [
+    {
+      "Apfel": [
+        "Faser",
+        "Saft",
+        "Backen"
+      ],
+      "Apfelsaft": [
+        "Durst",
+        "Glas",
+        "Süß"
+      ],
+      "Avocado": [
+        "Gesund",
+        "Cremig",
+        "Aufstrich"
+      ],
+      "Ayran": [
+        "Weiß",
+        "Kühl",
+        "Begleiter"
+      ],
+      "Berliner": [
+        "Rund",
+        "Puder",
+        "Fett"
+      ],
+      "Bier": [
+        "Erfrischung",
+        "Abend",
+        "Gespräch"
+      ],
+      "Bowl": [
+        "Mahlzeit",
+        "Mix",
+        "Bunt"
+      ],
+      "Brathähnchen": [
+        "Duft",
+        "Knusprig",
+        "Drehen"
+      ],
+      "Bratwurst": [
+        "Snack",
+        "Außen",
+        "Feuer"
+      ],
+      "Brezel": [
+        "Ring",
+        "Kruste",
+        "Braun"
+      ],
+      "Brot": [
+        "Backen",
+        "Scheibe",
+        "Aufstrich"
+      ],
+      "Buttermilch": [
+        "Flüssig",
+        "Erfrischend",
+        "Zutat"
+      ],
+      "Capri Sonne": [
+        "Tüte",
+        "Kindheit",
+        "Kühlen"
+      ],
+      "Champagner": [
+        "Feier",
+        "Glas",
+        "Knall"
+      ],
+      "Cocktail": [
+        "Mischung",
+        "Genuss",
+        "Abend"
+      ],
+      "Cola": [
+        "Kalt",
+        "Zucker",
+        "Dose"
+      ],
+      "Couscous": [
+        "Körnig",
+        "Würze",
+        "Sättigend"
+      ],
+      "Croissant": [
+        "Teig",
+        "Goldbraun",
+        "Marmelade"
+      ],
+      "Curry": [
+        "Aroma",
+        "Scharf",
+        "Küche"
+      ],
+      "Currywurst": [
+        "Schnitt",
+        "Sosse",
+        "Imbiss"
+      ],
+      "Döner": [
+        "Nacht",
+        "Spieß",
+        "Heiß"
+      ],
+      "Donut": [
+        "Zucker",
+        "Kaffee",
+        "Rund"
+      ],
+      "Eiscreme": [
+        "Milch",
+        "Lächeln",
+        "Löffel"
+      ],
+      "Eistee": [
+        "Zucker",
+        "Sommer",
+        "Glas"
+      ],
+      "Energy-Drink": [
+        "Schub",
+        "Flüssig",
+        "Süß"
+      ],
+      "Espresso": [
+        "Heiß",
+        "Kurz",
+        "Wach"
+      ],
+      "Falafel": [
+        "Knusprig",
+        "Rund",
+        "Imbiss"
+      ],
+      "Fanta": [
+        "Süß",
+        "Kalt",
+        "Bläschen"
+      ],
+      "Fisch": [
+        "Weiß",
+        "Knusprig",
+        "Soße"
+      ],
+      "Franzbrötchen": [
+        "Gebacken",
+        "Rolle",
+        "Kaffee"
+      ],
+      "Frikadelle": [
+        "Rund",
+        "Braun",
+        "Heiß"
+      ],
+      "Gin Tonic": [
+        "Bitter",
+        "Klar",
+        "Kalt"
+      ],
+      "Glühwein": [
+        "Duft",
+        "Markt",
+        "Kälte"
+      ],
+      "Gnocchi": [
+        "Weich",
+        "Topf",
+        "Sättigend"
+      ],
+      "Grießbrei": [
+        "Warm",
+        "Löffel",
+        "Kindheit"
+      ],
+      "Guacamole": [
+        "Püree",
+        "Aufstrich",
+        "Beilage"
+      ],
+      "Gulasch": [
+        "Warm",
+        "Soße",
+        "Zwiebel"
+      ],
+      "Hotdog": [
+        "Senf",
+        "Stand",
+        "Schnell"
+      ],
+      "Huhn": [
+        "Grillen",
+        "Knusprig",
+        "Sonntag"
+      ],
+      "Hummus": [
+        "Zitrone",
+        "Cremig",
+        "Schüssel"
+      ],
+      "Kaffee": [
+        "Morgen",
+        "Ritual",
+        "Energie"
+      ],
+      "Kakao": [
+        "Pulver",
+        "Cremig",
+        "Kindheit"
+      ],
+      "Kartoffel": [
+        "Stück",
+        "Weich",
+        "Gold"
+      ],
+      "Kartoffelpuffer": [
+        "Fest",
+        "Knusprig",
+        "Pfanne"
+      ],
+      "Käse": [
+        "Salzig",
+        "Weich",
+        "Scheibe"
+      ],
+      "Käsespätzle": [
+        "Teig",
+        "Schmelz",
+        "Gold"
+      ],
+      "Latte Macchiato": [
+        "Glas",
+        "Creme",
+        "Löffel"
+      ],
+      "Lasagne": [
+        "Gehaltvoll",
+        "Warm",
+        "Form"
+      ],
+      "Leitungswasser": [
+        "Durst",
+        "Glas",
+        "Heim"
+      ],
+      "Limonade": [
+        "Prickeln",
+        "Kalt",
+        "Fruchtig"
+      ],
+      "Linsensuppe": [
+        "Warm",
+        "Löffel",
+        "Satt"
+      ],
+      "Mate": [
+        "Pflanze",
+        "Warm",
+        "Kultur"
+      ],
+      "Maultasche": [
+        "Warm",
+        "Stück",
+        "Falt"
+      ],
+      "Milchreis": [
+        "Warm",
+        "Löffel",
+        "Süß"
+      ],
+      "Milchshake": [
+        "Süß",
+        "Kalt",
+        "Genuss"
+      ],
+      "Nudeln": [
+        "Gabel",
+        "Warm",
+        "Soße"
+      ],
+      "Obstsalat": [
+        "Schüssel",
+        "Schneiden",
+        "Löffel"
+      ],
+      "Orangensaft": [
+        "Flüssig",
+        "Morgen",
+        "Süß"
+      ],
+      "Paella": [
+        "Getreide",
+        "Schale",
+        "Gewürz"
+      ],
+      "Pesto": [
+        "Aromatisch",
+        "Aufstrich",
+        "Glas"
+      ],
+      "Pfannkuchen": [
+        "Guss",
+        "Eisen",
+        "Form"
+      ],
+      "Pizza": [
+        "Backen",
+        "Rand",
+        "Schicht"
+      ],
+      "Pizza Margherita": [
+        "Flach",
+        "Herzhaft",
+        "Schnitt"
+      ],
+      "Pommes": [
+        "Gold",
+        "Tüte",
+        "Öl"
+      ],
+      "Punsch": [
+        "Duft",
+        "Abend",
+        "Kälte"
+      ],
+      "Quarkbällchen": [
+        "Teig",
+        "Flauschig",
+        "Goldbraun"
+      ],
+      "Quiche": [
+        "Ofen",
+        "Mischung",
+        "Herzhaft"
+      ],
+      "Radler": [
+        "Leicht",
+        "Gelb",
+        "Durst"
+      ],
+      "Rahmschnitzel": [
+        "Sämig",
+        "Pfanne",
+        "Scheibe"
+      ],
+      "Räucherlachs": [
+        "Rosa",
+        "Scheibe",
+        "Kalt"
+      ],
+      "Reis": [
+        "Form",
+        "Dampf",
+        "Sättigung"
+      ],
+      "Risotto": [
+        "Cremig",
+        "Brühe",
+        "Löffel"
+      ],
+      "Roulade": [
+        "Füllung",
+        "Zubereitung",
+        "Schicht"
+      ],
+      "Rum": [
+        "Braun",
+        "Süß",
+        "Aroma"
+      ],
+      "Salat": [
+        "Schüssel",
+        "Roh",
+        "Frisch"
+      ],
+      "Sauerbraten": [
+        "Eingelegt",
+        "Schmoren",
+        "Sauce"
+      ],
+      "Sekt": [
+        "Prickeln",
+        "Glas",
+        "Freude"
+      ],
+      "Semmelknödel": [
+        "Weich",
+        "Soße",
+        "Satt"
+      ],
+      "Sirup": [
+        "Verfeinern",
+        "Glänzend",
+        "Tropfen"
+      ],
+      "Smoothie": [
+        "Kalt",
+        "Glatt",
+        "Mix"
+      ],
+      "Spaghetti": [
+        "Gabel",
+        "Warm",
+        "Satt"
+      ],
+      "Sprudel": [
+        "Klar",
+        "Flasche",
+        "Durst"
+      ],
+      "Steak": [
+        "Schnitt",
+        "Pfanne",
+        "Qualität"
+      ],
+      "Sushi": [
+        "Kunst",
+        "Stäbchen",
+        "Frisch"
+      ],
+      "Tapas": [
+        "Kleinigkeit",
+        "Abend",
+        "Teilen"
+      ],
+      "Tee": [
+        "Duft",
+        "Wärme",
+        "Abend"
+      ],
+      "Tiramisu": [
+        "Feucht",
+        "Aroma",
+        "Sanft"
+      ],
+      "Tofu": [
+        "Weiß",
+        "Block",
+        "Marinade"
+      ],
+      "Wasser": [
+        "Klar",
+        "Kalt",
+        "Erfrischend"
+      ],
+      "Wein": [
+        "Genuss",
+        "Aroma",
+        "Abend"
+      ],
+      "Whisky": [
+        "Korn",
+        "Reifung",
+        "Aroma"
+      ],
+      "Wiener Schnitzel": [
+        "Teller",
+        "Dünn",
+        "Gold"
+      ],
+      "Wodka": [
+        "Mischung",
+        "Abend",
+        "Stark"
+      ],
+      "Wurstsalat": [
+        "Kalt",
+        "Geschnitten",
+        "Schüssel"
+      ],
+      "Zaziki": [
+        "Erfrischend",
+        "Schärfe",
+        "Creme"
+      ],
+      "Zwiebelkuchen": [
+        "Teig",
+        "Herzhaft",
+        "Ofen"
+      ]
+    }
+  ],
+  "Sportarten": [
+    {
+      "American Football": [
+        "Kollision",
+        "Strategie",
+        "Event"
+      ],
+      "Badminton": [
+        "Treffen",
+        "Linie",
+        "Ziel"
+      ],
+      "Baseball": [
+        "Hit",
+        "Feld",
+        "Lauf"
+      ],
+      "Basketball": [
+        "Halle",
+        "Sprung",
+        "Punkte"
+      ],
+      "Biathlon": [
+        "Konzentration",
+        "Atem",
+        "Distanz"
+      ],
+      "Billard": [
+        "Präzision",
+        "Glatt",
+        "Stoß"
+      ],
+      "BMX": [
+        "Helm",
+        "Strecke",
+        "Manöver"
+      ],
+      "Bouldern": [
+        "Bewegung",
+        "Technik",
+        "Herausforderung"
+      ],
+      "Bowling": [
+        "Abend",
+        "Geräusch",
+        "Reihe"
+      ],
+      "Boxen": [
+        "Technik",
+        "Ausdauer",
+        "Taktik"
+      ],
+      "Bogenschießen": [
+        "Flug",
+        "Spannung",
+        "Haltung"
+      ],
+      "Cricket": [
+        "Tradition",
+        "Feld",
+        "Schlag"
+      ],
+      "Curling": [
+        "Taktik",
+        "Gleiten",
+        "Präzision"
+      ],
+      "Dart": [
+        "Haltung",
+        "Messung",
+        "Metall"
+      ],
+      "Discgolf": [
+        "Fliegen",
+        "Präzision",
+        "Grün"
+      ],
+      "Eishockey": [
+        "Kälte",
+        "Gleiten",
+        "Hart"
+      ],
+      "Eiskunstlauf": [
+        "Eleganz",
+        "Balance",
+        "Musik"
+      ],
+      "Fechten": [
+        "Präzision",
+        "Reaktion",
+        "Technik"
+      ],
+      "Formel 1": [
+        "Geschwindigkeit",
+        "Technik",
+        "Team"
+      ],
+      "Frisbee": [
+        "Rotation",
+        "Ziel",
+        "Wind"
+      ],
+      "Fußball": [
+        "Rasen",
+        "Emotion",
+        "Wochenende"
+      ],
+      "Golf": [
+        "Punkte",
+        "Weit",
+        "Rasen"
+      ],
+      "Handball": [
+        "Halle",
+        "Netz",
+        "Pfeife"
+      ],
+      "Judo": [
+        "Disziplin",
+        "Balance",
+        "Technik"
+      ],
+      "Klettern": [
+        "Kraft",
+        "Balance",
+        "Griff"
+      ],
+      "Laufen": [
+        "Anstrengung",
+        "Routine",
+        "Atem"
+      ],
+      "Leichtathletik": [
+        "Training",
+        "Leistung",
+        "Disziplin"
+      ],
+      "Marathon": [
+        "Anstrengung",
+        "Vorbereitung",
+        "Distanz"
+      ],
+      "Motorsport": [
+        "Grip",
+        "Adrenalin",
+        "Podium"
+      ],
+      "Mountainbiken": [
+        "Wald",
+        "Schlamm",
+        "Helm"
+      ],
+      "Nordic Walking": [
+        "Pfad",
+        "Rhythmus",
+        "Haltung"
+      ],
+      "Parkour": [
+        "Fluss",
+        "Geschicklichkeit",
+        "Überwindung"
+      ],
+      "Pilates": [
+        "Bewegung",
+        "Haltung",
+        "Atem"
+      ],
+      "Polo": [
+        "Tempo",
+        "Gruppe",
+        "Taktik"
+      ],
+      "Radfahren": [
+        "Strecke",
+        "Ausdauer",
+        "Gruppe"
+      ],
+      "Reiten": [
+        "Leder",
+        "Kopfschutz",
+        "Natur"
+      ],
+      "Rodeln": [
+        "Sitz",
+        "Bahn",
+        "Gleiten"
+      ],
+      "Rudern": [
+        "Atem",
+        "Ziel",
+        "Gleich"
+      ],
+      "Rugby": [
+        "Team",
+        "Rasen",
+        "Kraft"
+      ],
+      "Schach": [
+        "Konzentration",
+        "Gegner",
+        "Entscheidung"
+      ],
+      "Schwimmen": [
+        "Bewegung",
+        "Atem",
+        "Linie"
+      ],
+      "Segeln": [
+        "Gleiten",
+        "Richtung",
+        "Element"
+      ],
+      "Skateboarding": [
+        "Balance",
+        "Geschwindigkeit",
+        "Urban"
+      ],
+      "Skifahren": [
+        "Hang",
+        "Geschwindigkeit",
+        "Urlaub"
+      ],
+      "Skispringen": [
+        "Gleiten",
+        "Weite",
+        "Balance"
+      ],
+      "Snowboarden": [
+        "Schwerkraft",
+        "Untergrund",
+        "Schwung"
+      ],
+      "Squash": [
+        "Halle",
+        "Springen",
+        "Reflex"
+      ],
+      "Stacks": [
+        "Rhythmus",
+        "Sekunde",
+        "Griff"
+      ],
+      "Sumo-Ringen": [
+        "Kreis",
+        "Gürtel",
+        "Ritual"
+      ],
+      "Surfen": [
+        "Gleiten",
+        "Balance",
+        "Horizont"
+      ],
+      "Synchronschwimmen": [
+        "Musik",
+        "Form",
+        "Haltung"
+      ],
+      "Tanzen": [
+        "Musik",
+        "Partner",
+        "Haltung"
+      ],
+      "Tennis": [
+        "Linie",
+        "Schweiß",
+        "Konzentration"
+      ],
+      "Tischtennis": [
+        "Schnell",
+        "Präzise",
+        "Halle"
+      ],
+      "Triathlon": [
+        "Training",
+        "Effort",
+        "Route"
+      ],
+      "Turnen": [
+        "Balance",
+        "Gerät",
+        "Präzision"
+      ],
+      "Volleyball": [
+        "Halle",
+        "Springen",
+        "Taktik"
+      ],
+      "Wakeboard": [
+        "Gleichgewicht",
+        "Ziehen",
+        "Sommer"
+      ],
+      "Wasserball": [
+        "Team",
+        "Werfen",
+        "Gleiten"
+      ],
+      "Windsurfen": [
+        "Segel",
+        "Balance",
+        "Gleiten"
+      ],
+      "Yoga": [
+        "Konzentration",
+        "Spannung",
+        "Körperbeherrschung"
+      ]
+    }
+  ],
+  "Fahrzeuge": [
+    {
+      "Abschleppwagen": [
+        "Problem",
+        "Haken",
+        "Ziehen"
+      ],
+      "Auto": [
+        "Reise",
+        "Blick",
+        "Sitz"
+      ],
+      "Autobus": [
+        "Haltestelle",
+        "Linie",
+        "Sitz"
+      ],
+      "Bagger": [
+        "Gewicht",
+        "Arm",
+        "Staub"
+      ],
+      "Bobbycar": [
+        "Lenken",
+        "Rollen",
+        "Klein"
+      ],
+      "Bus": [
+        "Reise",
+        "Sitz",
+        "Warten"
+      ],
+      "Dreirad": [
+        "Sitz",
+        "Lenker",
+        "Stabilität"
+      ],
+      "Einrad": [
+        "Treten",
+        "Sattel",
+        "Rahmen"
+      ],
+      "Elektroauto": [
+        "Energie",
+        "Kabel",
+        "Modern"
+      ],
+      "Fahrrad": [
+        "Weg",
+        "Sport",
+        "Draußen"
+      ],
+      "Feuerwehrauto": [
+        "Helfen",
+        "Bereit",
+        "Gerät"
+      ],
+      "Flugzeug": [
+        "Fenster",
+        "Warten",
+        "Wolken"
+      ],
+      "Gabelstapler": [
+        "Fahrer",
+        "Halle",
+        "Antrieb"
+      ],
+      "Go-Kart": [
+        "Hobby",
+        "Kurve",
+        "Pedal"
+      ],
+      "Gondel": [
+        "Fahrt",
+        "Romantik",
+        "Brücke"
+      ],
+      "Heißluftballon": [
+        "Fahrt",
+        "Bunt",
+        "Höhe"
+      ],
+      "Hubschrauber": [
+        "Laut",
+        "Rettung",
+        "Dach"
+      ],
+      "Inliner": [
+        "Balance",
+        "Schiene",
+        "Freizeit"
+      ],
+      "Jet-Ski": [
+        "Freizeit",
+        "Gerät",
+        "Manöver"
+      ],
+      "Kabriolett": [
+        "Stoff",
+        "Blick",
+        "Fahrt"
+      ],
+      "Katamaran": [
+        "Fahrt",
+        "Fläche",
+        "Kabine"
+      ],
+      "Krankenwagen": [
+        "Licht",
+        "Einsatz",
+        "Hilfe"
+      ],
+      "Kran": [
+        "Last",
+        "Höhe",
+        "Stahl"
+      ],
+      "Kreuzfahrtschiff": [
+        "Reise",
+        "Passagier",
+        "Welle"
+      ],
+      "Kutsche": [
+        "Reise",
+        "Holz",
+        "Antrieb"
+      ],
+      "Lastwagen": [
+        "Fahrt",
+        "Gewicht",
+        "Straße"
+      ],
+      "Limousine": [
+        "Sitz",
+        "Glas",
+        "Ankunft"
+      ],
+      "Mofas": [
+        "Spiegel",
+        "Hupe",
+        "Tank"
+      ],
+      "Motorrad": [
+        "Freiheit",
+        "Leder",
+        "Kurve"
+      ],
+      "Mountainbike": [
+        "Bewegung",
+        "Abenteuer",
+        "Hobby"
+      ],
+      "Müllwagen": [
+        "Tonne",
+        "Fahrer",
+        "Morgen"
+      ],
+      "Panzer": [
+        "Schwer",
+        "Spur",
+        "Geräusch"
+      ],
+      "Pick-Up": [
+        "Gelände",
+        "Arbeit",
+        "Camping"
+      ],
+      "Planwagen": [
+        "Stoff",
+        "Zug",
+        "Staub"
+      ],
+      "Quad": [
+        "Weg",
+        "Hobby",
+        "Griff"
+      ],
+      "Rennwagen": [
+        "Geräusch",
+        "Sieg",
+        "Strecke"
+      ],
+      "Rettungswagen": [
+        "Signal",
+        "Sauerstoff",
+        "Trage"
+      ],
+      "Roller": [
+        "Motor",
+        "Stadt",
+        "Klein"
+      ],
+      "Schiff": [
+        "Reise",
+        "Struktur",
+        "Ziel"
+      ],
+      "Schneemobil": [
+        "Kalt",
+        "Motor",
+        "Gelände"
+      ],
+      "Segelboot": [
+        "Stoff",
+        "Richtung",
+        "Element"
+      ],
+      "Skateboard": [
+        "Räder",
+        "Balance",
+        "Holz"
+      ],
+      "Straßenbahn": [
+        "Strom",
+        "Linie",
+        "Sitzplatz"
+      ],
+      "Taxi": [
+        "Abholung",
+        "Ziel",
+        "Rechnung"
+      ],
+      "Traktor": [
+        "Arbeit",
+        "Schwer",
+        "Staub"
+      ],
+      "Tretboot": [
+        "Urlaub",
+        "Muskel",
+        "Nass"
+      ],
+      "U-Boot": [
+        "Druck",
+        "Hülle",
+        "Dunkel"
+      ],
+      "Wohnmobil": [
+        "Bett",
+        "Küche",
+        "Fenster"
+      ],
+      "Wohnwagen": [
+        "Natur",
+        "Kompakt",
+        "Bett"
+      ],
+      "Yacht": [
+        "Reise",
+        "Sonne",
+        "Privat"
+      ],
+      "Zeppelin": [
+        "Flug",
+        "Hülle",
+        "Langsam"
+      ],
+      "Zug": [
+        "Fahrt",
+        "Geräusch",
+        "Stahl"
+      ]
+    }
+  ],
+  "Länder & Regionen": [
+    {
+      "Ägypten": [
+        "Sonne",
+        "Fluss",
+        "Sand"
+      ],
+      "Argentinien": [
+        "Weite",
+        "Rhythmus",
+        "Kraut"
+      ],
+      "Australien": [
+        "Süd",
+        "Welle",
+        "Rot"
+      ],
+      "Belgien": [
+        "Königreich",
+        "Grenze",
+        "Union"
+      ],
+      "Brasilien": [
+        "Strand",
+        "Rhythmus",
+        "Export"
+      ],
+      "Bulgarien": [
+        "Grenze",
+        "Sauer",
+        "Buchstabe"
+      ],
+      "Chile": [
+        "Wein",
+        "Kupfer",
+        "Küste"
+      ],
+      "China": [
+        "Masse",
+        "Geschichte",
+        "Tee"
+      ],
+      "Dänemark": [
+        "Meer",
+        "Glück",
+        "Fahrrad"
+      ],
+      "Deutschland": [
+        "Mitte",
+        "Industrie",
+        "Wald"
+      ],
+      "England": [
+        "Nebel",
+        "Adel",
+        "Hügel"
+      ],
+      "Finnland": [
+        "See",
+        "Wald",
+        "Kälte"
+      ],
+      "Frankreich": [
+        "Revolution",
+        "Kathedrale",
+        "Atlantik"
+      ],
+      "Griechenland": [
+        "Geschichte",
+        "Inseln",
+        "Meer"
+      ],
+      "Indien": [
+        "Stoff",
+        "Klang",
+        "Duft"
+      ],
+      "Indonesien": [
+        "Meer",
+        "Reis",
+        "Palme"
+      ],
+      "Irland": [
+        "Insel",
+        "Regen",
+        "Musik"
+      ],
+      "Island": [
+        "Quelle",
+        "Rau",
+        "Pferd"
+      ],
+      "Italien": [
+        "Wein",
+        "Kunst",
+        "Strand"
+      ],
+      "Japan": [
+        "Ordnung",
+        "Kontrast",
+        "Präzision"
+      ],
+      "Kanada": [
+        "Nachbar",
+        "Export",
+        "Sprache"
+      ],
+      "Kenia": [
+        "Küste",
+        "Kaffee",
+        "Berge"
+      ],
+      "Kolumbien": [
+        "Berge",
+        "Blume",
+        "Küste"
+      ],
+      "Kroatien": [
+        "Olive",
+        "Mauer",
+        "Boot"
+      ],
+      "Kuba": [
+        "Rhythmus",
+        "Zucker",
+        "Palme"
+      ],
+      "Liechtenstein": [
+        "Burg",
+        "Geld",
+        "Berg"
+      ],
+      "Luxemburg": [
+        "Geld",
+        "Sprache",
+        "Mitte"
+      ],
+      "Marokko": [
+        "Küste",
+        "Palast",
+        "Gewürz"
+      ],
+      "Mexiko": [
+        "Wüste",
+        "Musik",
+        "Grenze"
+      ],
+      "Neuseeland": [
+        "Berge",
+        "Reise",
+        "Grün"
+      ],
+      "Niederlande": [
+        "Rad",
+        "Krone",
+        "Wasser"
+      ],
+      "Nigeria": [
+        "Öl",
+        "Film",
+        "Fluss"
+      ],
+      "Norwegen": [
+        "Norden",
+        "Kalt",
+        "Schiff"
+      ],
+      "Österreich": [
+        "Kaiser",
+        "See",
+        "Tanz"
+      ],
+      "Peru": [
+        "Meer",
+        "Ruine",
+        "Kolonial"
+      ],
+      "Philippinen": [
+        "Katholisch",
+        "Tropisch",
+        "Reis"
+      ],
+      "Polen": [
+        "Meer",
+        "Fluss",
+        "Nachbar"
+      ],
+      "Portugal": [
+        "Küste",
+        "Sonne",
+        "Schiff"
+      ],
+      "Rumänien": [
+        "Gebirge",
+        "Fluss",
+        "Burg"
+      ],
+      "Russland": [
+        "Kälte",
+        "Weite",
+        "Literatur"
+      ],
+      "Saudi-Arabien": [
+        "Palast",
+        "Brunnen",
+        "Tuch"
+      ],
+      "Schottland": [
+        "Regen",
+        "Moor",
+        "Küste"
+      ],
+      "Schweden": [
+        "Wald",
+        "See",
+        "Kalt"
+      ],
+      "Schweiz": [
+        "Klar",
+        "Gold",
+        "Pass"
+      ],
+      "Serbien": [
+        "Nachbar",
+        "Gebirge",
+        "Fluss"
+      ],
+      "Spanien": [
+        "Sonne",
+        "Meer",
+        "Wein"
+      ],
+      "Südafrika": [
+        "Küste",
+        "Sonne",
+        "Wein"
+      ],
+      "Südkorea": [
+        "Welle",
+        "Modell",
+        "Würze"
+      ],
+      "Thailand": [
+        "Tropisch",
+        "Inseln",
+        "Gewürz"
+      ],
+      "Tschechien": [
+        "Burg",
+        "Gebirge",
+        "Fluss"
+      ],
+      "Türkei": [
+        "Sonne",
+        "Kaffee",
+        "Brücke"
+      ],
+      "USA": [
+        "Weite",
+        "Traum",
+        "Wandel"
+      ],
+      "Ungarn": [
+        "Fluss",
+        "Pferd",
+        "Wein"
+      ],
+      "Vietnam": [
+        "Fluss",
+        "Küste",
+        "Kaffee"
+      ],
+      "Wales": [
+        "Berge",
+        "Regen",
+        "Grün"
+      ]
+    }
+  ],
+  "Farben": [
+    {
+      "Anthrazit": [
+        "Schatten",
+        "Stein",
+        "Nacht"
+      ],
+      "Apricot": [
+        "Süß",
+        "Sanft",
+        "Sommer"
+      ],
+      "Beige": [
+        "Stoff",
+        "Warm",
+        "Dezent"
+      ],
+      "Blau": [
+        "Himmel",
+        "Ruhe",
+        "Kühle"
+      ],
+      "Bordeaux": [
+        "Fest",
+        "Edel",
+        "Dunkel"
+      ],
+      "Braun": [
+        "Erde",
+        "Baum",
+        "Warm"
+      ],
+      "Cyan": [
+        "Tropisch",
+        "Helligkeit",
+        "Flüssigkeit"
+      ],
+      "Elfenbein": [
+        "Zart",
+        "Ruhig",
+        "Glatt"
+      ],
+      "Gelb": [
+        "Mischung",
+        "Helligkeit",
+        "Reif"
+      ],
+      "Gold": [
+        "Sand",
+        "Honig",
+        "Weizen"
+      ],
+      "Grau": [
+        "Neutral",
+        "Mischung",
+        "Schatten"
+      ],
+      "Grün": [
+        "Moos",
+        "Minze",
+        "Wachstum"
+      ],
+      "Khaki": [
+        "Sand",
+        "Stoff",
+        "Erde"
+      ],
+      "Koralle": [
+        "Schimmer",
+        "Nuance",
+        "Strahlend"
+      ],
+      "Lila": [
+        "König",
+        "Duft",
+        "Stein"
+      ],
+      "Limettengrün": [
+        "Sauer",
+        "Getränk",
+        "Erfrischend"
+      ],
+      "Magenta": [
+        "Blume",
+        "Druck",
+        "Saft"
+      ],
+      "Marineblau": [
+        "Welle",
+        "Dunkel",
+        "Stoff"
+      ],
+      "Mintgrün": [
+        "Blatt",
+        "Kühl",
+        "Bonbon"
+      ],
+      "Ocker": [
+        "Staub",
+        "Warm",
+        "Trocken"
+      ],
+      "Olive": [
+        "Erde",
+        "Militär",
+        "Glas"
+      ],
+      "Orange": [
+        "Herbst",
+        "Gewürz",
+        "Leuchtend"
+      ],
+      "Pink": [
+        "Süß",
+        "Blüte",
+        "Traum"
+      ],
+      "Rosa": [
+        "Zart",
+        "Süß",
+        "Himmel"
+      ],
+      "Rot": [
+        "Warn",
+        "Liebe",
+        "Kraft"
+      ],
+      "Schwarz": [
+        "Schatten",
+        "Geheimnis",
+        "Leere"
+      ],
+      "Senfgelb": [
+        "Warm",
+        "Herb",
+        "Stoff"
+      ],
+      "Silber": [
+        "Licht",
+        "Münze",
+        "Rein"
+      ],
+      "Türkis": [
+        "Schmuck",
+        "Welle",
+        "Ferien"
+      ],
+      "Violett": [
+        "Königlich",
+        "Duft",
+        "Beere"
+      ],
+      "Weiß": [
+        "Licht",
+        "Stoff",
+        "Kittel"
+      ]
+    }
+  ],
+  "Haushalt & Wohnen": [
+    {
+      "Ablage": [
+        "Platz",
+        "Fläche",
+        "Stück"
+      ],
+      "Backofen": [
+        "Wärme",
+        "Duft",
+        "Knopf"
+      ],
+      "Badeente": [
+        "Kindheit",
+        "Spiel",
+        "Schaum"
+      ],
+      "Bademantel": [
+        "Weich",
+        "Morgen",
+        "Gürtel"
+      ],
+      "Badewanne": [
+        "Glatt",
+        "Warm",
+        "Erfrischen"
+      ],
+      "Beistelltisch": [
+        "Ruhe",
+        "Ordnung",
+        "Greifbar"
+      ],
+      "Besteck": [
+        "Metall",
+        "Schublade",
+        "Polieren"
+      ],
+      "Bett": [
+        "Nacht",
+        "Kissen",
+        "Holz"
+      ],
+      "Bügeleisen": [
+        "Druck",
+        "Ebene",
+        "Pflege"
+      ],
+      "Bücherregal": [
+        "Wand",
+        "Platz",
+        "Sammeln"
+      ],
+      "Bürste": [
+        "Griff",
+        "Staub",
+        "Fasern"
+      ],
+      "Couch": [
+        "Entspannen",
+        "Abend",
+        "Stoff"
+      ],
+      "Dampfgarer": [
+        "Schonend",
+        "Aroma",
+        "Vitamine"
+      ],
+      "Dosenöffner": [
+        "Scharf",
+        "Griff",
+        "Drehen"
+      ],
+      "Dusche": [
+        "Wärme",
+        "Pflege",
+        "Klarheit"
+      ],
+      "Duschgel": [
+        "Nass",
+        "Duft",
+        "Morgen"
+      ],
+      "Eierkocher": [
+        "Dampf",
+        "Morgen",
+        "Stecker"
+      ],
+      "Esstisch": [
+        "Runde",
+        "Stütze",
+        "Gespräch"
+      ],
+      "Fernsehschrank": [
+        "Holz",
+        "Kabel",
+        "Abend"
+      ],
+      "Fön": [
+        "Wärme",
+        "Hygiene",
+        "Stecker"
+      ],
+      "Fritteuse": [
+        "Knusprig",
+        "Korb",
+        "Strom"
+      ],
+      "Gabel": [
+        "Metall",
+        "Griff",
+        "Tisch"
+      ],
+      "Garderobe": [
+        "Hängen",
+        "Ordnung",
+        "Bereit"
+      ],
+      "Gefriertruhe": [
+        "Fach",
+        "Lager",
+        "Öffnung"
+      ],
+      "Geschirrspüler": [
+        "Strom",
+        "Glanz",
+        "Trocken"
+      ],
+      "Glas": [
+        "Licht",
+        "Polieren",
+        "Klarheit"
+      ],
+      "Handmixer": [
+        "Stufe",
+        "Glatt",
+        "Masse"
+      ],
+      "Handtuch": [
+        "Trocken",
+        "Weich",
+        "Sauber"
+      ],
+      "Heizung": [
+        "Versorgung",
+        "Jahreszeit",
+        "Zimmer"
+      ],
+      "Kaffeemaschine": [
+        "Heiß",
+        "Knopf",
+        "Strom"
+      ],
+      "Kamm": [
+        "Griff",
+        "Glatt",
+        "Pflege"
+      ],
+      "Klimaanlage": [
+        "Regler",
+        "Filter",
+        "Pumpe"
+      ],
+      "Kleiderständer": [
+        "Stütze",
+        "Ordnung",
+        "Aufbewahrung"
+      ],
+      "Klopapier": [
+        "Verbrauch",
+        "Halter",
+        "Weich"
+      ],
+      "Kochlöffel": [
+        "Holz",
+        "Rühren",
+        "Griff"
+      ],
+      "Kommode": [
+        "Kleidung",
+        "Zimmer",
+        "Ablage"
+      ],
+      "Kühlschrank": [
+        "Behälter",
+        "Öffnen",
+        "Licht"
+      ],
+      "Lampe": [
+        "Abend",
+        "Schalter",
+        "Tisch"
+      ],
+      "Leiter": [
+        "Reinigung",
+        "Reparatur",
+        "Erreichen"
+      ],
+      "Löffel": [
+        "Gebogen",
+        "Portion",
+        "Glänzend"
+      ],
+      "Lockenstab": [
+        "Wärme",
+        "Form",
+        "Styling"
+      ],
+      "Luftbefeuchter": [
+        "Qualität",
+        "Filter",
+        "Raum"
+      ],
+      "Messer": [
+        "Griff",
+        "Metall",
+        "Vorbereiten"
+      ],
+      "Mikrowelle": [
+        "Schnell",
+        "Piepen",
+        "Behälter"
+      ],
+      "Mixer": [
+        "Zubereiten",
+        "Klinge",
+        "Behälter"
+      ],
+      "Möbel": [
+        "Nutzung",
+        "Struktur",
+        "Ablage"
+      ],
+      "Nachttisch": [
+        "Stauraum",
+        "Oberfläche",
+        "Ecke"
+      ],
+      "Nagelschere": [
+        "Bad",
+        "Griff",
+        "Klinge"
+      ],
+      "Nähmaschine": [
+        "Strom",
+        "Muster",
+        "Hobby"
+      ],
+      "Nudelholz": [
+        "Rolle",
+        "Glatt",
+        "Form"
+      ],
+      "Paravent": [
+        "Flügel",
+        "Blick",
+        "Stoff"
+      ],
+      "Pfanne": [
+        "Rauch",
+        "Wenden",
+        "Gar"
+      ],
+      "Pfannenwender": [
+        "Griff",
+        "Glatt",
+        "Lang"
+      ],
+      "Pinzette": [
+        "Fein",
+        "Druck",
+        "Ordnung"
+      ],
+      "Rasierer": [
+        "Pflege",
+        "Glatt",
+        "Griff"
+      ],
+      "Regal": [
+        "Fläche",
+        "Inhalt",
+        "Sammeln"
+      ],
+      "Reibe": [
+        "Metall",
+        "Loch",
+        "Druck"
+      ],
+      "Sandwichmaker": [
+        "Heizt",
+        "Platte",
+        "Verschluss"
+      ],
+      "Saugroboter": [
+        "Fläche",
+        "Programm",
+        "Bewegung"
+      ],
+      "Schäler": [
+        "Griff",
+        "Entfernen",
+        "Klinge"
+      ],
+      "Schaukelstuhl": [
+        "Wiegen",
+        "Lesen",
+        "Holz"
+      ],
+      "Schlafanzug": [
+        "Weich",
+        "Abend",
+        "Tragen"
+      ],
+      "Schneebesen": [
+        "Draht",
+        "Griff",
+        "Schlaufen"
+      ],
+      "Schneidebrett": [
+        "Unterlage",
+        "Flach",
+        "Hygiene"
+      ],
+      "Schrank": [
+        "Ordnung",
+        "Versteck",
+        "Füllung"
+      ],
+      "Schreibtisch": [
+        "Ordnung",
+        "Fokus",
+        "Hilfsmittel"
+      ],
+      "Schreibtischstuhl": [
+        "Haltung",
+        "Einstellung",
+        "Gestell"
+      ],
+      "Schüssel": [
+        "Tief",
+        "Glatt",
+        "Spülen"
+      ],
+      "Seife": [
+        "Stück",
+        "Flüssigkeit",
+        "Duft"
+      ],
+      "Sessel": [
+        "Ruhen",
+        "Stoff",
+        "Ecke"
+      ],
+      "Shampoo": [
+        "Reinigung",
+        "Pflege",
+        "Duft"
+      ],
+      "Sideboard": [
+        "Ablage",
+        "Wand",
+        "Dekor"
+      ],
+      "Sieb": [
+        "Wasser",
+        "Vorbereiten",
+        "Hand"
+      ],
+      "Sitzsack": [
+        "Füllung",
+        "Raum",
+        "Stoff"
+      ],
+      "Sofa": [
+        "Kissen",
+        "Stoff",
+        "Oberfläche"
+      ],
+      "Spiegel": [
+        "Blick",
+        "Glanz",
+        "Form"
+      ],
+      "Standmixer": [
+        "Glatt",
+        "Kabel",
+        "Behälter"
+      ],
+      "Staubsauger": [
+        "Lärm",
+        "Kabel",
+        "Bürste"
+      ],
+      "Stuhl": [
+        "Tragen",
+        "Fläche",
+        "Stütze"
+      ],
+      "Tasse": [
+        "Morgen",
+        "Griff",
+        "Henkel"
+      ],
+      "Teller": [
+        "Scheibe",
+        "Sauber",
+        "Anrichten"
+      ],
+      "Tisch": [
+        "Kante",
+        "Unterlage",
+        "Dekoration"
+      ],
+      "Toaster": [
+        "Warm",
+        "Scheibe",
+        "Kabel"
+      ],
+      "Topf": [
+        "Rund",
+        "Reinigen",
+        "Füllen"
+      ],
+      "Truhe": [
+        "Schwer",
+        "Geheimnis",
+        "Dachboden"
+      ],
+      "Ventilator": [
+        "Bewegung",
+        "Zimmer",
+        "Stand"
+      ],
+      "Vitrine": [
+        "Erinnerung",
+        "Spiegel",
+        "Staub"
+      ],
+      "Waffeleisen": [
+        "Hitze",
+        "Muster",
+        "Pressen"
+      ],
+      "Waschbecken": [
+        "Glatt",
+        "Sammeln",
+        "Feucht"
+      ],
+      "Waschmaschine": [
+        "Nass",
+        "Fleck",
+        "Lärm"
+      ],
+      "Wasserkocher": [
+        "Elektro",
+        "Knopf",
+        "Getränk"
+      ],
+      "Wattestäbchen": [
+        "Reinigen",
+        "Pflege",
+        "Klein"
+      ],
+      "Werkbank": [
+        "Holz",
+        "Messen",
+        "Späne"
+      ],
+      "Wickelkommode": [
+        "Bereich",
+        "Ablage",
+        "Ordnung"
+      ],
+      "Wohnwand": [
+        "Holz",
+        "Stauraum",
+        "Abend"
+      ],
+      "Zahnbürste": [
+        "Pflege",
+        "Gebrauch",
+        "Morgen"
+      ],
+      "Zahnpasta": [
+        "Pflege",
+        "Anwendung",
+        "Inhalt"
+      ],
+      "Zahnseide": [
+        "Pflege",
+        "Band",
+        "Routine"
+      ]
+    }
+  ],
+  "Weltall": [
+    {
+      "Andromeda": [
+        "Bewegung",
+        "Bereich",
+        "Muster"
+      ],
+      "Asteroid": [
+        "Vorbei",
+        "Zufall",
+        "Einsam"
+      ],
+      "Astronaut": [
+        "Training",
+        "Schweben",
+        "Helm"
+      ],
+      "Erde": [
+        "Kugel",
+        "Umlauf",
+        "Schicht"
+      ],
+      "Galaxie": [
+        "Licht",
+        "Weite",
+        "Masse"
+      ],
+      "Jupiter": [
+        "Sturm",
+        "König",
+        "Ring"
+      ],
+      "Komet": [
+        "Materie",
+        "Dunkelheit",
+        "Spur"
+      ],
+      "Kosmonaut": [
+        "Training",
+        "Kapsel",
+        "Held"
+      ],
+      "Lichtjahr": [
+        "Reise",
+        "Weite",
+        "Spur"
+      ],
+      "Mars": [
+        "Wüste",
+        "Stein",
+        "Spur"
+      ],
+      "Merkur": [
+        "Hitze",
+        "Krater",
+        "Stein"
+      ],
+      "Meteorit": [
+        "Fund",
+        "Objekt",
+        "Reise"
+      ],
+      "Milchstraße": [
+        "Licht",
+        "Wolke",
+        "Band"
+      ],
+      "Mond": [
+        "Zyklus",
+        "Nacht",
+        "Gezeiten"
+      ],
+      "Nebel": [
+        "Farbe",
+        "Form",
+        "Gebilde"
+      ],
+      "Neptun": [
+        "Acht",
+        "Blau",
+        "Wellen"
+      ],
+      "Planet": [
+        "Kugel",
+        "Fern",
+        "Dunkel"
+      ],
+      "Pluto": [
+        "Kalt",
+        "Klein",
+        "Entfernt"
+      ],
+      "Pulsar": [
+        "Takt",
+        "Welle",
+        "Achse"
+      ],
+      "Quasar": [
+        "Weit",
+        "Schein",
+        "Kraft"
+      ],
+      "Rakete": [
+        "Aufstieg",
+        "Stufe",
+        "Schub"
+      ],
+      "Raumschiff": [
+        "Reise",
+        "Hülle",
+        "System"
+      ],
+      "Raumsonde": [
+        "Reise",
+        "Gerät",
+        "Signal"
+      ],
+      "Satellit": [
+        "Signal",
+        "Umlauf",
+        "Antenne"
+      ],
+      "Saturn": [
+        "Wolke",
+        "Reifen",
+        "Dunkel"
+      ],
+      "Schwarzes Loch": [
+        "Dunkel",
+        "Tiefe",
+        "Sog"
+      ],
+      "Schwerelosigkeit": [
+        "Leichtigkeit",
+        "Stille",
+        "Weite"
+      ],
+      "Sonne": [
+        "Kraft",
+        "Weit",
+        "Achse"
+      ],
+      "Stern": [
+        "Fern",
+        "Wunsch",
+        "Punkt"
+      ],
+      "Supernova": [
+        "Licht",
+        "Materie",
+        "Vergehen"
+      ],
+      "UFO": [
+        "Rätsel",
+        "Licht",
+        "Phänomen"
+      ],
+      "Umlaufbahn": [
+        "Zyklus",
+        "Muster",
+        "Spur"
+      ],
+      "Universum": [
+        "Weite",
+        "Unerforscht",
+        "Ursprung"
+      ],
+      "Urknall": [
+        "Theorie",
+        "Materie",
+        "Raum"
+      ],
+      "Venus": [
+        "Wolken",
+        "Hülle",
+        "Morgen"
+      ],
+      "Wurmloch": [
+        "Reise",
+        "Theorie",
+        "Strudel"
+      ],
+      "Zwergplanet": [
+        "Gering",
+        "Rund",
+        "Umlauf"
+      ]
+    }
+  ],
+  "Technik": [
+    {
+      "Beamer": [
+        "Fläche",
+        "Optik",
+        "Vortrag"
+      ],
+      "Computer": [
+        "Arbeit",
+        "Strom",
+        "Tisch"
+      ],
+      "Discman": [
+        "Mobil",
+        "Knopf",
+        "Batterie"
+      ],
+      "Drohne": [
+        "Kamera",
+        "Akku",
+        "Steuern"
+      ],
+      "Drucker": [
+        "Kabel",
+        "Software",
+        "Wartung"
+      ],
+      "E-Reader": [
+        "Digital",
+        "Inhalt",
+        "Akku"
+      ],
+      "Fernseher": [
+        "Programm",
+        "Inhalt",
+        "Empfang"
+      ],
+      "Festplatte": [
+        "Kopf",
+        "Spur",
+        "Kapazität"
+      ],
+      "Game Boy": [
+        "Gerät",
+        "Reise",
+        "Knopf"
+      ],
+      "Grafikkarte": [
+        "Anschluss",
+        "Kühlung",
+        "Strom"
+      ],
+      "Headset": [
+        "Klang",
+        "Bügel",
+        "Sitz"
+      ],
+      "Joystick": [
+        "Knopf",
+        "Bewegen",
+        "Kabel"
+      ],
+      "Kamera": [
+        "Speicher",
+        "Akku",
+        "Display"
+      ],
+      "Kopfhörer": [
+        "Klang",
+        "Kabel",
+        "Reise"
+      ],
+      "Laptop": [
+        "Tasche",
+        "Reise",
+        "Klappe"
+      ],
+      "Lautsprecher": [
+        "Kabel",
+        "Schwingung",
+        "Quelle"
+      ],
+      "Maus": [
+        "Kabel",
+        "Drahtlos",
+        "Sensor"
+      ],
+      "Mikrofon": [
+        "Erfassung",
+        "Wandler",
+        "Schnittstelle"
+      ],
+      "Monitor": [
+        "Fläche",
+        "Kabel",
+        "Helligkeit"
+      ],
+      "Nintendo Switch": [
+        "Bildschirm",
+        "Akku",
+        "Speicher"
+      ],
+      "PlayStation": [
+        "Strom",
+        "Gehäuse",
+        "Anschluss"
+      ],
+      "Powerbank": [
+        "Speicher",
+        "Tragbar",
+        "Anschluss"
+      ],
+      "Prozessor": [
+        "Kern",
+        "Steuerung",
+        "Strom"
+      ],
+      "Router": [
+        "Signal",
+        "Verbindung",
+        "Strom"
+      ],
+      "Scanner": [
+        "Aufnahme",
+        "Prüfung",
+        "Sicht"
+      ],
+      "Smartphone": [
+        "Display",
+        "Laden",
+        "Alltag"
+      ],
+      "Smartwatch": [
+        "Band",
+        "Laden",
+        "Anzeige"
+      ],
+      "Tablet": [
+        "Mobil",
+        "Lesen",
+        "Film"
+      ],
+      "Tastatur": [
+        "Druck",
+        "Reihe",
+        "Anschluss"
+      ],
+      "USB-Stick": [
+        "Mobil",
+        "Klein",
+        "Erinnerung"
+      ],
+      "Walkman": [
+        "Knopf",
+        "Batterie",
+        "Tasche"
+      ],
+      "Webcam": [
+        "Linse",
+        "Kabel",
+        "Aufnahme"
+      ],
+      "Xbox": [
+        "Spiel",
+        "Online",
+        "Grafik"
+      ]
+    }
+  ],
+  "Werkzeuge": [
+    {
+      "Akkuschrauber": [
+        "Drehen",
+        "Handlich",
+        "Kraft"
+      ],
+      "Bohrmaschine": [
+        "Geräusch",
+        "Kabel",
+        "Drehen"
+      ],
+      "Brecheisen": [
+        "Spalt",
+        "Druck",
+        "Widerstand"
+      ],
+      "Cuttermesser": [
+        "Scharf",
+        "Griff",
+        "Trennen"
+      ],
+      "Feile": [
+        "Form",
+        "Struktur",
+        "Abtrag"
+      ],
+      "Hammer": [
+        "Kopf",
+        "Wucht",
+        "Griff"
+      ],
+      "Kneifzange": [
+        "Zug",
+        "Druck",
+        "Winkel"
+      ],
+      "Leiter": [
+        "Erreichen",
+        "Dach",
+        "Obst"
+      ],
+      "Lötkolben": [
+        "Spitze",
+        "Wärme",
+        "Verbindung"
+      ],
+      "Maulschlüssel": [
+        "Greifen",
+        "Einstellen",
+        "Form"
+      ],
+      "Meißel": [
+        "Schlag",
+        "Kante",
+        "Griff"
+      ],
+      "Multitool": [
+        "Funktion",
+        "Tasche",
+        "Klappbar"
+      ],
+      "Nageleisen": [
+        "Kraft",
+        "Lösen",
+        "Stange"
+      ],
+      "Pümpel": [
+        "Gummi",
+        "Stiel",
+        "Druck"
+      ],
+      "Ratsche": [
+        "Griff",
+        "Drehen",
+        "Metall"
+      ],
+      "Säge": [
+        "Späne",
+        "Griff",
+        "Schnitt"
+      ],
+      "Schleifmaschine": [
+        "Staub",
+        "Reiben",
+        "Rau"
+      ],
+      "Schraubenschlüssel": [
+        "Drehen",
+        "Halt",
+        "Verbindung"
+      ],
+      "Schraubenzieher": [
+        "Griff",
+        "Spitze",
+        "Fest"
+      ],
+      "Schraubstock": [
+        "Halt",
+        "Arbeit",
+        "Bank"
+      ],
+      "Schubkarre": [
+        "Last",
+        "Erde",
+        "Halten"
+      ],
+      "Spachtel": [
+        "Glatt",
+        "Masse",
+        "Ebene"
+      ],
+      "Tacker": [
+        "Punkt",
+        "Stoß",
+        "Verbinden"
+      ],
+      "Tapezierer": [
+        "Fläche",
+        "Glatt",
+        "Rolle"
+      ],
+      "Teppichmesser": [
+        "Handgriff",
+        "Linie",
+        "Untergrund"
+      ],
+      "Wasserwaage": [
+        "Flüssigkeit",
+        "Röhre",
+        "Linie"
+      ],
+      "Zange": [
+        "Metall",
+        "Hand",
+        "Spitze"
+      ],
+      "Zollstock": [
+        "Hand",
+        "Gerade",
+        "Tischler"
+      ]
+    }
+  ],
+  "Musikinstrumente": [
+    {
+      "Akkordeon": [
+        "Luft",
+        "Knöpfe",
+        "Stimmung"
+      ],
+      "Banjo": [
+        "Holz",
+        "Rund",
+        "Lagerfeuer"
+      ],
+      "Bass": [
+        "Holz",
+        "Vibration",
+        "Fundament"
+      ],
+      "Blockflöte": [
+        "Atem",
+        "Loch",
+        "Rohr"
+      ],
+      "Cello": [
+        "Holz",
+        "Klang",
+        "Kurve"
+      ],
+      "Cembalo": [
+        "Holz",
+        "Klang",
+        "Alt"
+      ],
+      "Didgeridoo": [
+        "Tief",
+        "Summen",
+        "Stamm"
+      ],
+      "Djembe": [
+        "Holz",
+        "Spannung",
+        "Hand"
+      ],
+      "Dudelsack": [
+        "Luft",
+        "Rohr",
+        "Klang"
+      ],
+      "Fagott": [
+        "Lang",
+        "Klappe",
+        "Atem"
+      ],
+      "Flöte": [
+        "Rohr",
+        "Atem",
+        "Melodie"
+      ],
+      "Geige": [
+        "Bühne",
+        "Gefühl",
+        "Handwerk"
+      ],
+      "Gitarre": [
+        "Holz",
+        "Klang",
+        "Spielen"
+      ],
+      "Gong": [
+        "Schwingung",
+        "Ritual",
+        "Nachhall"
+      ],
+      "Harfe": [
+        "Rahmen",
+        "Konzert",
+        "Stimmung"
+      ],
+      "Kastagnetten": [
+        "Holz",
+        "Hand",
+        "Paar"
+      ],
+      "Klarinette": [
+        "Atem",
+        "Klappe",
+        "Rohr"
+      ],
+      "Klavier": [
+        "Holz",
+        "Tasten",
+        "Spielen"
+      ],
+      "Kontrabass": [
+        "Tiefe",
+        "Volumen",
+        "Fundament"
+      ],
+      "Mundharmonika": [
+        "Luft",
+        "Klein",
+        "Metall"
+      ],
+      "Oboe": [
+        "Dünn",
+        "Hoch",
+        "Atem"
+      ],
+      "Orgel": [
+        "Tasten",
+        "Luft",
+        "Groß"
+      ],
+      "Panflöte": [
+        "Rohr",
+        "Atem",
+        "Wald"
+      ],
+      "Posaune": [
+        "Tief",
+        "Röhre",
+        "Glanz"
+      ],
+      "Saxophon": [
+        "Atem",
+        "Glanz",
+        "Kurve"
+      ],
+      "Schlagzeug": [
+        "Schlag",
+        "Füße",
+        "Holz"
+      ],
+      "Synthesizer": [
+        "Strom",
+        "Knopf",
+        "Signal"
+      ],
+      "Triangel": [
+        "Metall",
+        "Klang",
+        "Schlagen"
+      ],
+      "Trompete": [
+        "Mund",
+        "Druck",
+        "Schall"
+      ],
+      "Tuba": [
+        "Tief",
+        "Metall",
+        "Ventil"
+      ],
+      "Ukulele": [
+        "Handlich",
+        "Melodie",
+        "Sommer"
+      ],
+      "Xylophon": [
+        "Faser",
+        "Stab",
+        "Reihe"
+      ]
+    }
+  ],
+  "Netzkultur & Medien": [
+    {
+      "187 Strassenbande": [
+        "Block",
+        "Kette",
+        "Code"
+      ],
+      "7 vs. Wild": [
+        "Kälte",
+        "Rucksack",
+        "Ausschnitt"
+      ],
+      "Algorithmus": [
+        "Schritt",
+        "Muster",
+        "Wirkung"
+      ],
+      "AMA (Ask Me Anything)": [
+        "Interaktion",
+        "Einblick",
+        "Sitzung"
+      ],
+      "App": [
+        "Dienst",
+        "Werkzeug",
+        "Inhalt"
+      ],
+      "ApoRed": [
+        "Musik",
+        "Hype",
+        "Inhalt"
+      ],
+      "ASMR": [
+        "Ohr",
+        "Ruhe",
+        "Welle"
+      ],
+      "BeReal": [
+        "Augenblick",
+        "Inhalt",
+        "Signal"
+      ],
+      "Bio": [
+        "Text",
+        "Info",
+        "Kurz"
+      ],
+      "Blog": [
+        "Beitrag",
+        "Teilen",
+        "Meinung"
+      ],
+      "Challenge": [
+        "Versuch",
+        "Beitrag",
+        "Reaktion"
+      ],
+      "Clickbait": [
+        "Verführung",
+        "Neugier",
+        "Vorspann"
+      ],
+      "Cloud": [
+        "Online",
+        "Dienst",
+        "Zugriff"
+      ],
+      "Comment": [
+        "Reaktion",
+        "Text",
+        "Beitrag"
+      ],
+      "Creepypasta": [
+        "Gerücht",
+        "Dunkel",
+        "Teilen"
+      ],
+      "Cringe": [
+        "Reaktion",
+        "Inhalt",
+        "Moment"
+      ],
+      "CrispyRob": [
+        "Aufnahme",
+        "Geschmack",
+        "Bildschirm"
+      ],
+      "Der goldene Aluhut": [
+        "Schild",
+        "Schein",
+        "Welle"
+      ],
+      "DM": [
+        "Kanal",
+        "Austausch",
+        "Inhalt"
+      ],
+      "Drachenlord": [
+        "Bildschirm",
+        "Zuschauer",
+        "Reaktion"
+      ],
+      "Dschungelcamp": [
+        "Prüfung",
+        "Bildschirm",
+        "Bekanntheit"
+      ],
+      "Emoji": [
+        "Botschaft",
+        "Anzeige",
+        "Element"
+      ],
+      "Engagement Rate": [
+        "Publikum",
+        "Inhalt",
+        "Wachstum"
+      ],
+      "Fanfiction": [
+        "Fantasie",
+        "Leidenschaft",
+        "Kreativ"
+      ],
+      "Feed": [
+        "Sammlung",
+        "Chronik",
+        "Aktualisierung"
+      ],
+      "Filter": [
+        "Bearbeitung",
+        "Anpassung",
+        "Auswahl"
+      ],
+      "Follower": [
+        "Menge",
+        "Spur",
+        "Welle"
+      ],
+      "Friendzone": [
+        "Gefühl",
+        "Wunsch",
+        "Grenze"
+      ],
+      "Geotag": [
+        "Reise",
+        "Spur",
+        "Feld"
+      ],
+      "GIF": [
+        "Schleife",
+        "Ausschnitt",
+        "Ausdruck"
+      ],
+      "GNTM": [
+        "Herausforderung",
+        "Auftritt",
+        "Entscheidung"
+      ],
+      "Handle": [
+        "Profil",
+        "Login",
+        "Adresse"
+      ],
+      "Hashtag": [
+        "Klick",
+        "Thema",
+        "Inhalt"
+      ],
+      "heute-show": [
+        "Unterhaltung",
+        "Bericht",
+        "Bildschirm"
+      ],
+      "Influencer": [
+        "Inhalt",
+        "Reichweite",
+        "Empfehlung"
+      ],
+      "Insta": [
+        "Visuell",
+        "Teilen",
+        "Inhalt"
+      ],
+      "Joko & Klaas": [
+        "Herausforderung",
+        "Unterhaltung",
+        "Format"
+      ],
+      "Julien Bam": [
+        "Musik",
+        "Tanz",
+        "Show"
+      ],
+      "Knossi": [
+        "Bildschirm",
+        "Live",
+        "Event"
+      ],
+      "Let's Play": [
+        "Steuerung",
+        "Ausschnitt",
+        "Sequenz"
+      ],
+      "Like": [
+        "Klick",
+        "Belohnung",
+        "Symbol"
+      ],
+      "Livestream": [
+        "Augenblick",
+        "Sicht",
+        "Kanal"
+      ],
+      "Meme": [
+        "Teilen",
+        "Schnell",
+        "Reaktion"
+      ],
+      "Meme-Account": [
+        "Bild",
+        "Teilen",
+        "Lachen"
+      ],
+      "Mention": [
+        "Nachricht",
+        "Hinweis",
+        "Person"
+      ],
+      "MontanaBlack": [
+        "Kanal",
+        "Botschaft",
+        "Sendung"
+      ],
+      "Pinned Post": [
+        "Sichtbar",
+        "Eintrag",
+        "Hinweis"
+      ],
+      "Podcast": [
+        "Stimme",
+        "Thema",
+        "Folge"
+      ],
+      "Reaction": [
+        "Gefühl",
+        "Ausdruck",
+        "Echo"
+      ],
+      "Reel": [
+        "Schnipsel",
+        "Sequenz",
+        "Wiedergabe"
+      ],
+      "Repost": [
+        "Kopie",
+        "Bild",
+        "Datensatz"
+      ],
+      "Rezo": [
+        "Video",
+        "Analyse",
+        "Stimme"
+      ],
+      "Rickrolling": [
+        "Überraschung",
+        "Klick",
+        "Trend"
+      ],
+      "Selfie": [
+        "Display",
+        "Moment",
+        "Teilen"
+      ],
+      "Shitstorm": [
+        "Aufruhr",
+        "Kommentar",
+        "Echo"
+      ],
+      "Snap": [
+        "Blick",
+        "Moment",
+        "Teilen"
+      ],
+      "Snapchat": [
+        "Moment",
+        "Kanal",
+        "Blick"
+      ],
+      "Story": [
+        "Kurz",
+        "Sehen",
+        "Teilen"
+      ],
+      "Storytime": [
+        "Beitrag",
+        "Erlebnis",
+        "Zuschauer"
+      ],
+      "Stream": [
+        "Fluss",
+        "Inhalt",
+        "Ablauf"
+      ],
+      "Subscribe": [
+        "Inhalt",
+        "Zugang",
+        "Verbindung"
+      ],
+      "Swipe": [
+        "Bildschirm",
+        "Interaktion",
+        "Profil"
+      ],
+      "Thread": [
+        "Kette",
+        "Folge",
+        "Austausch"
+      ],
+      "TikTok": [
+        "Kurz",
+        "Trend",
+        "Algorithmus"
+      ],
+      "Timeline": [
+        "Verlauf",
+        "Geschehen",
+        "Entwicklung"
+      ],
+      "Tutorial": [
+        "Schritt",
+        "Reihe",
+        "Beispiel"
+      ],
+      "Tweet": [
+        "Text",
+        "Teilen",
+        "Bildschirm"
+      ],
+      "Twitch": [
+        "Verbindung",
+        "Geschehen",
+        "Reaktion"
+      ],
+      "Unboxing": [
+        "Inhalt",
+        "Gerät",
+        "Klick"
+      ],
+      "Unge": [
+        "Insel",
+        "Alltag",
+        "Kamera"
+      ],
+      "Verifizierung": [
+        "Zugang",
+        "Nachweis",
+        "Vertrauen"
+      ],
+      "Vibe": [
+        "Hauch",
+        "Echo",
+        "Nuanz"
+      ],
+      "Viral": [
+        "Welle",
+        "Schnell",
+        "Aufsehen"
+      ],
+      "Viral gehen": [
+        "Welle",
+        "Blitz",
+        "Echo"
+      ],
+      "Vlog": [
+        "Auge",
+        "Sprechen",
+        "Teilen"
+      ],
+      "Wer stiehlt mir die Show?": [
+        "Kamera",
+        "Kampf",
+        "Sprecher"
+      ],
+      "WhatsApp": [
+        "Austausch",
+        "Senden",
+        "Verbindung"
+      ],
+      "YouTube": [
+        "Klicken",
+        "Schauen",
+        "Empfehlung"
+      ],
+      "YouTuber": [
+        "Bildschirm",
+        "Thema",
+        "Ton"
+      ],
+      "ZDF Magazin Royale": [
+        "Format",
+        "Kritik",
+        "Lachen"
+      ]
+    }
+  ],
+  "Filme & Serien": [
+    {
+      "Babylon Berlin": [
+        "Rausch",
+        "Faden",
+        "Bühne"
+      ],
+      "Black Mirror": [
+        "Folgen",
+        "Reflexion",
+        "Warnung"
+      ],
+      "Breaking Bad": [
+        "Stoff",
+        "Ofen",
+        "Netzwerk"
+      ],
+      "Dark": [
+        "Geheimnis",
+        "Kreis",
+        "Wald"
+      ],
+      "Das Boot": [
+        "Tief",
+        "Stahl",
+        "Druck"
+      ],
+      "Der Herr der Ringe": [
+        "Reise",
+        "Macht",
+        "Schicksal"
+      ],
+      "Der Pate": [
+        "Angebot",
+        "Generation",
+        "Regel"
+      ],
+      "Die Simpsons": [
+        "Eltern",
+        "Schule",
+        "Problem"
+      ],
+      "Dschungelcamp": [
+        "Herausforderung",
+        "Ruhm",
+        "Fernsehn"
+      ],
+      "Forrest Gump": [
+        "Weg",
+        "Überraschung",
+        "Wind"
+      ],
+      "Friends": [
+        "Beziehung",
+        "Alltag",
+        "Stadt"
+      ],
+      "Game of Thrones": [
+        "Dynastie",
+        "Erbfolge",
+        "Bündnis"
+      ],
+      "Germanys Next Topmodel": [
+        "Kamera",
+        "Traum",
+        "Kritik"
+      ],
+      "Harry Potter": [
+        "Schule",
+        "Geheimnis",
+        "Freundschaft"
+      ],
+      "How I Met Your Mother": [
+        "Zukunft",
+        "Erinnerung",
+        "Geschichte"
+      ],
+      "Inception": [
+        "Idee",
+        "Struktur",
+        "Tief"
+      ],
+      "Indiana Jones": [
+        "Relikt",
+        "Ruine",
+        "Leder"
+      ],
+      "James Bond": [
+        "Eleganz",
+        "Auftrag",
+        "Reise"
+      ],
+      "König der Löwen": [
+        "Macht",
+        "Erbe",
+        "Singen"
+      ],
+      "Marvel": [
+        "Action",
+        "Studio",
+        "Universum"
+      ],
+      "Pirates of the Caribbean": [
+        "Insel",
+        "Reise",
+        "Geheimnis"
+      ],
+      "Pulp Fiction": [
+        "Tanz",
+        "Koffer",
+        "Uhr"
+      ],
+      "Sissi": [
+        "Schönheit",
+        "Kleid",
+        "Pferd"
+      ],
+      "Star Wars": [
+        "Imperium",
+        "Wueste",
+        "Schicksal"
+      ],
+      "Stranger Things": [
+        "Macht",
+        "Geheimnis",
+        "Zusammenhalt"
+      ],
+      "Tatort": [
+        "Spur",
+        "Motiv",
+        "Rätsel"
+      ],
+      "The Crown": [
+        "Pflicht",
+        "Erbe",
+        "Protokoll"
+      ],
+      "The Office": [
+        "Alltag",
+        "Beziehung",
+        "Kamera"
+      ],
+      "Titanic": [
+        "Reise",
+        "Herz",
+        "Klasse"
+      ]
+    }
+  ],
+  "Superhelden": [
+    {
+      "Aquaman": [
+        "Tiefe",
+        "Welle",
+        "Druck"
+      ],
+      "Batman": [
+        "Nacht",
+        "Schatten",
+        "Gerechtigkeit"
+      ],
+      "Black Panther": [
+        "Schatten",
+        "Jagd",
+        "Erbe"
+      ],
+      "Black Widow": [
+        "Schatten",
+        "Ballett",
+        "Stich"
+      ],
+      "Captain America": [
+        "Stern",
+        "Krieg",
+        "Symbol"
+      ],
+      "Catwoman": [
+        "Leder",
+        "Schatten",
+        "Beute"
+      ],
+      "Daredevil": [
+        "Sprung",
+        "Echo",
+        "Verteidigung"
+      ],
+      "Deadpool": [
+        "Regenerieren",
+        "Sarkastisch",
+        "Klingen"
+      ],
+      "Doctor Strange": [
+        "Schutz",
+        "Raum",
+        "Geist"
+      ],
+      "Flash": [
+        "Wissenschaftler",
+        "Labor",
+        "Dimension"
+      ],
+      "Green Lantern": [
+        "Energie",
+        "Form",
+        "Eid"
+      ],
+      "Hawkeye": [
+        "Scharf",
+        "Treffer",
+        "Punkt"
+      ],
+      "Hulk": [
+        "Wesen",
+        "Strahlung",
+        "Wandel"
+      ],
+      "Iron Man": [
+        "Genie",
+        "Anzug",
+        "Strahl"
+      ],
+      "Joker": [
+        "Gegner",
+        "Farbe",
+        "Unruhe"
+      ],
+      "Loki": [
+        "List",
+        "Prinz",
+        "Helm"
+      ],
+      "Magneto": [
+        "Helm",
+        "Kraft",
+        "Fliegen"
+      ],
+      "Professor X": [
+        "Verstand",
+        "Leiter",
+        "Sitz"
+      ],
+      "Punisher": [
+        "Verlust",
+        "Stahl",
+        "Schatten"
+      ],
+      "Robin": [
+        "Gefährte",
+        "Jüngling",
+        "Maske"
+      ],
+      "Spider-Man": [
+        "Kraft",
+        "Verantwortung",
+        "Maske"
+      ],
+      "Superman": [
+        "Kraft",
+        "Geheimnis",
+        "Brille"
+      ],
+      "Thanos": [
+        "Macht",
+        "Opfer",
+        "Sammeln"
+      ],
+      "Thor": [
+        "Saga",
+        "Wetter",
+        "Metall"
+      ],
+      "Wolverine": [
+        "Kämpfer",
+        "Wut",
+        "Scharf"
+      ],
+      "Wonder Woman": [
+        "Stärke",
+        "Band",
+        "Stern"
+      ]
+    }
+  ],
+  "Feste & Feiern": [
+    {
+      "Abschlussfeier": [
+        "Erinnerung",
+        "Weg",
+        "Glückwunsch"
+      ],
+      "Einweihungsparty": [
+        "Adresse",
+        "Anlass",
+        "Abend"
+      ],
+      "Empfang": [
+        "Ankunft",
+        "Einladung",
+        "Gespräch"
+      ],
+      "Gala": [
+        "Gäste",
+        "Rede",
+        "Musik"
+      ],
+      "Gartenparty": [
+        "Draußen",
+        "Stimmung",
+        "Beisammensein"
+      ],
+      "Geburtstag": [
+        "Lied",
+        "Tisch",
+        "Licht"
+      ],
+      "Grillfest": [
+        "Rauch",
+        "Abend",
+        "Duft"
+      ],
+      "Halloween": [
+        "Nacht",
+        "Verkleidung",
+        "Sammeln"
+      ],
+      "Hochzeit": [
+        "Kleid",
+        "Einladung",
+        "Versprechen"
+      ],
+      "Jubiläum": [
+        "Dauer",
+        "Anlass",
+        "Rückblick"
+      ],
+      "Junggesellenabschied": [
+        "Ausflug",
+        "Aufgabe",
+        "Gelächter"
+      ],
+      "Karneval": [
+        "Maske",
+        "Tanzen",
+        "Umzug"
+      ],
+      "Kindertag": [
+        "Glück",
+        "Sommer",
+        "Ballon"
+      ],
+      "Kommunion": [
+        "Kind",
+        "Kerze",
+        "Geschenk"
+      ],
+      "Konfirmation": [
+        "Geschenk",
+        "Ritual",
+        "Versprechen"
+      ],
+      "Martinstag": [
+        "Licht",
+        "Mantel",
+        "Umzug"
+      ],
+      "Muttertag": [
+        "Geschenk",
+        "Kuchen",
+        "Sonntag"
+      ],
+      "Neujahr": [
+        "Glocke",
+        "Hoffnung",
+        "Glas"
+      ],
+      "Nikolaus": [
+        "Sack",
+        "Dezember",
+        "Warten"
+      ],
+      "Oktoberfest": [
+        "Genuss",
+        "Menschen",
+        "Stimmung"
+      ],
+      "Ostern": [
+        "Suche",
+        "Frühling",
+        "Familie"
+      ],
+      "Richtfest": [
+        "Höhe",
+        "Arbeit",
+        "Schutz"
+      ],
+      "Silvester": [
+        "Abschluss",
+        "Wunsch",
+        "Übergang"
+      ],
+      "Tag der Deutschen Einheit": [
+        "Feiertag",
+        "Freiheit",
+        "Oktober"
+      ],
+      "Taufe": [
+        "Anlass",
+        "Hoffnung",
+        "Band"
+      ],
+      "Valentinstag": [
+        "Zuneigung",
+        "Freude",
+        "Geste"
+      ],
+      "Vatertag": [
+        "Ausflug",
+        "Freunde",
+        "Sonne"
+      ],
+      "Weihnachten": [
+        "Kerzen",
+        "Familie",
+        "Geschenk"
+      ]
+    }
+  ],
+  "Wetter": [
+    {
+      "Blitz": [
+        "Schnell",
+        "Himmel",
+        "Energie"
+      ],
+      "Dürre": [
+        "Mangel",
+        "Sonne",
+        "Ernte"
+      ],
+      "Frost": [
+        "Hauch",
+        "Stille",
+        "Klarheit"
+      ],
+      "Gewitter": [
+        "Zucken",
+        "Grollen",
+        "Spannung"
+      ],
+      "Glätte": [
+        "Vorsicht",
+        "Fallen",
+        "Winter"
+      ],
+      "Hagel": [
+        "Delle",
+        "Klopfen",
+        "Abprallen"
+      ],
+      "Hitze": [
+        "Schwäche",
+        "Trockenheit",
+        "Kreislauf"
+      ],
+      "Hitzewelle": [
+        "Anstieg",
+        "Periode",
+        "Belastung"
+      ],
+      "Hurrikan": [
+        "Drehung",
+        "Nass",
+        "Schaden"
+      ],
+      "Kälte": [
+        "Gefühl",
+        "Schutz",
+        "Körper"
+      ],
+      "Kältewelle": [
+        "Gefahr",
+        "Sturm",
+        "Heizung"
+      ],
+      "Luftdruck": [
+        "Skala",
+        "Schwankung",
+        "Einfluss"
+      ],
+      "Luftfeuchtigkeit": [
+        "Gefühl",
+        "Menge",
+        "Sicht"
+      ],
+      "Monsun": [
+        "Feucht",
+        "Stark",
+        "Zyklus"
+      ],
+      "Mondfinstornis": [
+        "Schatten",
+        "Rot",
+        "Wandel"
+      ],
+      "Nebel": [
+        "Stille",
+        "Kalt",
+        "Grau"
+      ],
+      "Orkan": [
+        "Kraft",
+        "Druck",
+        "Fluss"
+      ],
+      "Regen": [
+        "Kalt",
+        "Geruch",
+        "Glatt"
+      ],
+      "Regenbogen": [
+        "Licht",
+        "Tropfen",
+        "Moment"
+      ],
+      "Schnee": [
+        "Decke",
+        "Spuren",
+        "Formt"
+      ],
+      "Smog": [
+        "Atem",
+        "Schicht",
+        "Filter"
+      ],
+      "Sonne": [
+        "Energie",
+        "Farbe",
+        "Wachstum"
+      ],
+      "Sonnenfinsternis": [
+        "Veränderung",
+        "Moment",
+        "Dämmerung"
+      ],
+      "Sternschnuppe": [
+        "Nacht",
+        "Wunsch",
+        "Fallen"
+      ],
+      "Sturm": [
+        "Bewegung",
+        "Laut",
+        "Gefahr"
+      ],
+      "Tau": [
+        "Frisch",
+        "Boden",
+        "Glanz"
+      ],
+      "Tauwetter": [
+        "Feucht",
+        "Boden",
+        "Kleidung"
+      ],
+      "Tornado": [
+        "Bewegung",
+        "Kraft",
+        "Säule"
+      ],
+      "Wind": [
+        "Rauschen",
+        "Segel",
+        "Geruch"
+      ],
+      "Wolke": [
+        "Weich",
+        "Sicht",
+        "Schwebend"
+      ]
+    }
+  ],
+  "Pflanzen": [
+    {
+      "Ahorn": [
+        "Holz",
+        "Rot",
+        "Schatten"
+      ],
+      "Bambus": [
+        "Wachstum",
+        "Asien",
+        "Hohl"
+      ],
+      "Blatt": [
+        "Ader",
+        "Form",
+        "Schatten"
+      ],
+      "Bonsai": [
+        "Pflege",
+        "Form",
+        "Wachstum"
+      ],
+      "Brennessel": [
+        "Blatt",
+        "Wild",
+        "Tee"
+      ],
+      "Efeu": [
+        "Garten",
+        "Versteck",
+        "Haftung"
+      ],
+      "Eiche": [
+        "Kraft",
+        "Alt",
+        "Schatten"
+      ],
+      "Edelweiß": [
+        "Stern",
+        "Wolle",
+        "Fels"
+      ],
+      "Farn": [
+        "Wald",
+        "Moos",
+        "Uralt"
+      ],
+      "Fichte": [
+        "Holz",
+        "Schatten",
+        "Papier"
+      ],
+      "Flieder": [
+        "Essenz",
+        "Triebe",
+        "Töne"
+      ],
+      "Gänseblümchen": [
+        "Frühling",
+        "Kindheit",
+        "Kranz"
+      ],
+      "Ginkgo": [
+        "Fächer",
+        "Uralt",
+        "Samen"
+      ],
+      "Kaktus": [
+        "Trocken",
+        "Fenster",
+        "Topf"
+      ],
+      "Kastanie": [
+        "Sammeln",
+        "Rund",
+        "Hart"
+      ],
+      "Klee": [
+        "Wiese",
+        "Futter",
+        "Blüte"
+      ],
+      "Kornblume": [
+        "Sommer",
+        "Stiel",
+        "Land"
+      ],
+      "Lavendel": [
+        "Öl",
+        "Beruhigend",
+        "Feld"
+      ],
+      "Lilie": [
+        "Duft",
+        "Vase",
+        "Geschenk"
+      ],
+      "Löwenzahn": [
+        "Kraut",
+        "Salat",
+        "Bitter"
+      ],
+      "Mais": [
+        "Stärke",
+        "Futter",
+        "Samen"
+      ],
+      "Mohn": [
+        "Feld",
+        "Gebäck",
+        "Traum"
+      ],
+      "Moos": [
+        "Feucht",
+        "Schatten",
+        "Weich"
+      ],
+      "Orchidee": [
+        "Licht",
+        "Duft",
+        "Zierde"
+      ],
+      "Palm": [
+        "Warm",
+        "Grün",
+        "Faser"
+      ],
+      "Pilz": [
+        "Feucht",
+        "Sammeln",
+        "Braun"
+      ],
+      "Pusteblume": [
+        "Leicht",
+        "Wunsch",
+        "Weich"
+      ],
+      "Rose": [
+        "Geste",
+        "Schnitt",
+        "Stiel"
+      ],
+      "Schilf": [
+        "Hoch",
+        "Ufer",
+        "Rauschen"
+      ],
+      "Seerose": [
+        "Grün",
+        "Schönheit",
+        "Oberfläche"
+      ],
+      "Sonnenblume": [
+        "Feld",
+        "Samen",
+        "Groß"
+      ],
+      "Tanne": [
+        "Grün",
+        "Holz",
+        "Duft"
+      ],
+      "Tulpe": [
+        "Erde",
+        "Wurzel",
+        "Sonne"
+      ],
+      "Vergissmeinnicht": [
+        "Klein",
+        "Garten",
+        "Zart"
+      ],
+      "Weizen": [
+        "Nahrung",
+        "Samen",
+        "Feld"
+      ]
+    }
+  ],
+  "Mythen & Märchen": [
+    {
+      "Aschenputtel": [
+        "Glück",
+        "Wunsch",
+        "Arbeit"
+      ],
+      "Bremer Stadtmusikanten": [
+        "Lärm",
+        "Stapel",
+        "Gefährten"
+      ],
+      "Der gestiefelte Kater": [
+        "List",
+        "Schloss",
+        "Hut"
+      ],
+      "Dornröschen": [
+        "Ruhe",
+        "Warten",
+        "Allein"
+      ],
+      "Drache": [
+        "Flamme",
+        "Schatz",
+        "Legende"
+      ],
+      "Einhorn": [
+        "Magie",
+        "Selten",
+        "Traum"
+      ],
+      "Elf": [
+        "Scheu",
+        "Klang",
+        "Glanz"
+      ],
+      "Fee": [
+        "Klein",
+        "Schimmer",
+        "Wunsch"
+      ],
+      "Feuerdrache": [
+        "Hitze",
+        "Legende",
+        "Hort"
+      ],
+      "Frau Holle": [
+        "Tief",
+        "Decke",
+        "Faden"
+      ],
+      "Froschkönig": [
+        "Brunnen",
+        "Kugel",
+        "Wunsch"
+      ],
+      "Golem": [
+        "Schöpfung",
+        "Stille",
+        "Befehl"
+      ],
+      "Greif": [
+        "Wächter",
+        "Uralt",
+        "Glanz"
+      ],
+      "Gretel": [
+        "Flucht",
+        "Hunger",
+        "List"
+      ],
+      "Hexe": [
+        "Wald",
+        "Trank",
+        "Maerchen"
+      ],
+      "Hydra": [
+        "Wachsen",
+        "Sumpf",
+        "Verzweigung"
+      ],
+      "Hänsel": [
+        "Ofen",
+        "Spur",
+        "Hunger"
+      ],
+      "Kobold": [
+        "Streiche",
+        "Versteck",
+        "Glück"
+      ],
+      "König": [
+        "Burg",
+        "Gold",
+        "Schicksal"
+      ],
+      "Königin": [
+        "Glanz",
+        "Wunsch",
+        "Schatten"
+      ],
+      "Max und Moritz": [
+        "Unfug",
+        "Lehre",
+        "Dorf"
+      ],
+      "Meerjungfrau": [
+        "Stimme",
+        "Sehnsucht",
+        "Schiff"
+      ],
+      "Pegasus": [
+        "Wolke",
+        "Held",
+        "Gefährte"
+      ],
+      "Phoenix": [
+        "Zyklus",
+        "Asche",
+        "Glut"
+      ],
+      "Prinz": [
+        "Wandel",
+        "Spur",
+        "Ruf"
+      ],
+      "Prinzessin": [
+        "Schönheit",
+        "Wunsch",
+        "Glanz"
+      ],
+      "Riese": [
+        "Massiv",
+        "Urzeit",
+        "Wut"
+      ],
+      "Rotkäppchen": [
+        "Kind",
+        "Blume",
+        "Weg"
+      ],
+      "Rumpelstilzchen": [
+        "Faden",
+        "Glanz",
+        "Wichtel"
+      ],
+      "Schneewittchen": [
+        "Schlaf",
+        "Neid",
+        "Berg"
+      ],
+      "Sterntaler": [
+        "Wandern",
+        "Tuch",
+        "Licht"
+      ],
+      "Struwwelpeter": [
+        "Lehre",
+        "Angst",
+        "Unfug"
+      ],
+      "Troll": [
+        "Sonne",
+        "Brücke",
+        "Gefahr"
+      ],
+      "Vampir": [
+        "Alt",
+        "Nacht",
+        "Schatten"
+      ],
+      "Werwolf": [
+        "Angst",
+        "Wildnis",
+        "Wandel"
+      ],
+      "Wolpertinger": [
+        "Pelz",
+        "Gebastelt",
+        "Erzählung"
+      ],
+      "Zauberer": [
+        "Weise",
+        "Macht",
+        "Buch"
+      ],
+      "Zentaur": [
+        "Bogen",
+        "Weisheit",
+        "Wald"
+      ],
+      "Zwerg": [
+        "Sammeln",
+        "Handwerk",
+        "Tief"
+      ]
+    }
+  ],
+  "Kleidung": [
+    {
+      "Anzug": [
+        "Knopf",
+        "Passform",
+        "Saison"
+      ],
+      "Badehose": [
+        "Nass",
+        "Sonne",
+        "Körper"
+      ],
+      "Bademantel": [
+        "Morgen",
+        "Entspannung",
+        "Gürtel"
+      ],
+      "Bluse": [
+        "Knopf",
+        "Muster",
+        "Sommer"
+      ],
+      "Flip-Flops": [
+        "Bad",
+        "Unten",
+        "Leicht"
+      ],
+      "Fliege": [
+        "Knopf",
+        "Band",
+        "Stoff"
+      ],
+      "Gürtel": [
+        "Metall",
+        "Taille",
+        "Schnalle"
+      ],
+      "Handschuh": [
+        "Schutz",
+        "Griff",
+        "Leder"
+      ],
+      "Hemd": [
+        "Knopf",
+        "Bügeln",
+        "Business"
+      ],
+      "Hose": [
+        "Bequem",
+        "Waschen",
+        "Schnitt"
+      ],
+      "Hosenträger": [
+        "Band",
+        "Kreuz",
+        "Schulter"
+      ],
+      "Jacke": [
+        "Tragen",
+        "Stoff",
+        "Knopf"
+      ],
+      "Jeans": [
+        "Blau",
+        "Alltag",
+        "Bequem"
+      ],
+      "Jogginghose": [
+        "Baumwolle",
+        "Sofa",
+        "Weich"
+      ],
+      "Kleid": [
+        "Schnitt",
+        "Figur",
+        "Stil"
+      ],
+      "Krawatte": [
+        "Seide",
+        "Büro",
+        "Farbe"
+      ],
+      "Latzhose": [
+        "Arbeit",
+        "Tasche",
+        "Knopf"
+      ],
+      "Leggings": [
+        "Bequem",
+        "Elastisch",
+        "Bewegung"
+      ],
+      "Mütze": [
+        "Schutz",
+        "Faser",
+        "Stil"
+      ],
+      "Pullover": [
+        "Warm",
+        "Ärmel",
+        "Stoff"
+      ],
+      "Regenschirm": [
+        "Griff",
+        "Faltbar",
+        "Schatten"
+      ],
+      "Rock": [
+        "Beine",
+        "Bund",
+        "Schwingen"
+      ],
+      "Sandalen": [
+        "Riemen",
+        "Sohle",
+        "Luftig"
+      ],
+      "Schal": [
+        "Stoff",
+        "Muster",
+        "Weich"
+      ],
+      "Schlafanzug": [
+        "Erholung",
+        "Zuhause",
+        "Stoff"
+      ],
+      "Schuhe": [
+        "Schutz",
+        "Boden",
+        "Bequem"
+      ],
+      "Sneaker": [
+        "Bequem",
+        "Stoff",
+        "Freizeit"
+      ],
+      "Socken": [
+        "Stoff",
+        "Warm",
+        "Gemütlich"
+      ],
+      "Stiefel": [
+        "Warm",
+        "Schutz",
+        "Gehen"
+      ],
+      "Strumpfhose": [
+        "Warm",
+        "Dehnbar",
+        "Zieht"
+      ],
+      "T-Shirt": [
+        "Baumwolle",
+        "Ärmel",
+        "Waschen"
+      ],
+      "Turnschuhe": [
+        "Paar",
+        "Gummi",
+        "Fuß"
+      ],
+      "Unterhose": [
+        "Stoff",
+        "Körper",
+        "Schicht"
+      ],
+      "Weste": [
+        "Schicht",
+        "Knöpfe",
+        "Rücken"
+      ]
+    }
+  ],
+  "Schulfächer": [
+    {
+      "Altgriechisch": [
+        "Schrift",
+        "Mythos",
+        "Denker"
+      ],
+      "Astronomie": [
+        "Forschung",
+        "Beobachtung",
+        "Zahlen"
+      ],
+      "Biologie": [
+        "System",
+        "Prozess",
+        "Struktur"
+      ],
+      "Chemie": [
+        "Lösung",
+        "Prozess",
+        "Messung"
+      ],
+      "Darstellendes Spiel": [
+        "Rolle",
+        "Text",
+        "Körper"
+      ],
+      "Deutsch": [
+        "Buch",
+        "Regel",
+        "Text"
+      ],
+      "Englisch": [
+        "Übung",
+        "Stunde",
+        "Text"
+      ],
+      "Erdkunde": [
+        "Stunde",
+        "Muster",
+        "Entwicklung"
+      ],
+      "Französisch": [
+        "Käse",
+        "Vokabeln",
+        "Reise"
+      ],
+      "Geschichte": [
+        "Entwicklung",
+        "Erzählen",
+        "Quelle"
+      ],
+      "Handarbeit": [
+        "Arbeit",
+        "Projekt",
+        "Gestalten"
+      ],
+      "Hauswirtschaft": [
+        "Ordnung",
+        "Pflege",
+        "Gerät"
+      ],
+      "Informatik": [
+        "Daten",
+        "Struktur",
+        "Prozess"
+      ],
+      "Kunst": [
+        "Ausdruck",
+        "Form",
+        "Technik"
+      ],
+      "Latein": [
+        "Fundament",
+        "Regel",
+        "Wissen"
+      ],
+      "Mathe": [
+        "Denken",
+        "Muster",
+        "Konzept"
+      ],
+      "Musik": [
+        "Klang",
+        "Gefühl",
+        "Vortrag"
+      ],
+      "Pädagogik": [
+        "Entwicklung",
+        "Verhalten",
+        "Begleitung"
+      ],
+      "Philosophie": [
+        "Kritik",
+        "Geist",
+        "System"
+      ],
+      "Physik": [
+        "Idee",
+        "System",
+        "Wert"
+      ],
+      "Politik": [
+        "Debatte",
+        "Gesellschaft",
+        "Entwicklung"
+      ],
+      "Psychologie": [
+        "Wandel",
+        "Prozess",
+        "Zusammenhang"
+      ],
+      "Religion": [
+        "Werte",
+        "Tradition",
+        "Lehre"
+      ],
+      "Sozialkunde": [
+        "Regel",
+        "Struktur",
+        "Rolle"
+      ],
+      "Spanisch": [
+        "Regel",
+        "Zeichen",
+        "Struktur"
+      ],
+      "Sport": [
+        "Bewegung",
+        "Regeln",
+        "Halle"
+      ],
+      "Werken": [
+        "Entwurf",
+        "Stoff",
+        "Form"
+      ],
+      "Wirtschaft": [
+        "Zahlen",
+        "Prozess",
+        "Struktur"
+      ]
+    }
+  ],
+  "Prominente": [
+    {
+      "Adele": [
+        "Album",
+        "Bühne",
+        "Stimme"
+      ],
+      "Angela Merkel": [
+        "Regieren",
+        "Blazer",
+        "Ära"
+      ],
+      "Angelina Jolie": [
+        "Kinder",
+        "Tattoo",
+        "Adoption"
+      ],
+      "Anke Engelke": [
+        "Lachen",
+        "Bühne",
+        "Grimasse"
+      ],
+      "Annalena Baerbock": [
+        "Reise",
+        "Buch",
+        "Rede"
+      ],
+      "Apache 207": [
+        "Haare",
+        "Brille",
+        "Millionen"
+      ],
+      "Ariana Grande": [
+        "Stimme",
+        "Glanz",
+        "Tour"
+      ],
+      "Bad Bunny": [
+        "Mode",
+        "Bühne",
+        "Ikone"
+      ],
+      "Barack Obama": [
+        "Buch",
+        "Reise",
+        "Stimme"
+      ],
+      "Barbara Schöneberger": [
+        "Bildschirm",
+        "Applaus",
+        "Rede"
+      ],
+      "Bastian Pastewka": [
+        "Film",
+        "Serie",
+        "Scherz"
+      ],
+      "Bastian Schweinsteiger": [
+        "Meister",
+        "Herz",
+        "Kapitän"
+      ],
+      "Beyoncé": [
+        "Stimme",
+        "Bühne",
+        "Glanz"
+      ],
+      "Billie Eilish": [
+        "Grün",
+        "Stimme",
+        "Melancholie"
+      ],
+      "Brad Pitt": [
+        "Rolle",
+        "Szene",
+        "Kamera"
+      ],
+      "BTS": [
+        "Bühne",
+        "Tanzen",
+        "Millionen"
+      ],
+      "Capital Bra": [
+        "Erfolg",
+        "Kette",
+        "Straße"
+      ],
+      "Chris Hemsworth": [
+        "Held",
+        "Leinwand",
+        "Mythos"
+      ],
+      "Christoph Waltz": [
+        "Österreichisch",
+        "Tarantino",
+        "Charakter"
+      ],
+      "Cristiano Ronaldo": [
+        "Fitness",
+        "Marke",
+        "Millionär"
+      ],
+      "Cro": [
+        "Brille",
+        "Bühne",
+        "Reim"
+      ],
+      "Dieter Bohlen": [
+        "Jury",
+        "Show",
+        "Erfolg"
+      ],
+      "Drake": [
+        "Stimme",
+        "Ohrwurm",
+        "Arena"
+      ],
+      "Dua Lipa": [
+        "Stil",
+        "Bühne",
+        "Glamour"
+      ],
+      "Dwayne Johnson": [
+        "Rolle",
+        "Marke",
+        "Titan"
+      ],
+      "Ed Sheeran": [
+        "Rot",
+        "Schreiben",
+        "Stadion"
+      ],
+      "Elon Musk": [
+        "Unternehmen",
+        "Vision",
+        "Provokation"
+      ],
+      "Elyas M'Barek": [
+        "Gefängnis",
+        "Klasse",
+        "Lachen"
+      ],
+      "Eminem": [
+        "Film",
+        "Stimme",
+        "Millionen"
+      ],
+      "Florian Silbereisen": [
+        "Show",
+        "Fest",
+        "Lächeln"
+      ],
+      "Günther Jauch": [
+        "Stimme",
+        "Bildschirm",
+        "Abend"
+      ],
+      "Harry Styles": [
+        "Bühne",
+        "Anzug",
+        "Kamera"
+      ],
+      "Heidi Klum": [
+        "Show",
+        "Glamour",
+        "Karriere"
+      ],
+      "Helene Fischer": [
+        "Licht",
+        "Glitzer",
+        "Melodie"
+      ],
+      "Herbert Grönemeyer": [
+        "Bühne",
+        "Text",
+        "Stimme"
+      ],
+      "Jan Böhmermann": [
+        "Kritik",
+        "Text",
+        "Bühne"
+      ],
+      "Jay-Z": [
+        "Unternehmen",
+        "Bühne",
+        "Vertrag"
+      ],
+      "Joko Winterscheidt": [
+        "Spiel",
+        "Licht",
+        "Stimme"
+      ],
+      "Johnny Depp": [
+        "Darstellung",
+        "Verwandlung",
+        "Figur"
+      ],
+      "Joshua Kimmich": [
+        "Rasen",
+        "Taktik",
+        "Reise"
+      ],
+      "Justin Bieber": [
+        "Tattoos",
+        "Millionen",
+        "Tour"
+      ],
+      "Keanu Reeves": [
+        "Anzug",
+        "Stimme",
+        "Reise"
+      ],
+      "Kim Kardashian": [
+        "Dynastie",
+        "Einfluss",
+        "Form"
+      ],
+      "Klaas Heufer-Umlauf": [
+        "Fernsehen",
+        "Studio",
+        "Lachen"
+      ],
+      "Kylie Jenner": [
+        "Dynastie",
+        "Imperium",
+        "Glanz"
+      ],
+      "Lady Gaga": [
+        "Kostüm",
+        "Bühne",
+        "Film"
+      ],
+      "Lebron James": [
+        "Größe",
+        "Ringe",
+        "Hof"
+      ],
+      "Lena Meyer-Landrut": [
+        "Bühne",
+        "Kamera",
+        "Lächeln"
+      ],
+      "Leonardo DiCaprio": [
+        "Rolle",
+        "Projekt",
+        "Leinwand"
+      ],
+      "Lewis Hamilton": [
+        "Motor",
+        "Sieg",
+        "Glanz"
+      ],
+      "Lionel Messi": [
+        "Trophäe",
+        "Schuh",
+        "Jubel"
+      ],
+      "Manuel Neuer": [
+        "Netz",
+        "Kapitän",
+        "Sieg"
+      ],
+      "Matthias Schweighöfer": [
+        "Kamera",
+        "Drehbuch",
+        "Lied"
+      ],
+      "Meryl Streep": [
+        "Werk",
+        "Ausdruck",
+        "Wandel"
+      ],
+      "Michael Jordan": [
+        "Flug",
+        "Marke",
+        "Sterne"
+      ],
+      "Nina Hagen": [
+        "Stimme",
+        "Bühne",
+        "Rebell"
+      ],
+      "Olaf Scholz": [
+        "Ampel",
+        "Redner",
+        "Anzug"
+      ],
+      "Oliver Pocher": [
+        "Kritik",
+        "Lachen",
+        "Netz"
+      ],
+      "Olli Schulz": [
+        "Kopfhörer",
+        "Gespräch",
+        "Gitarre"
+      ],
+      "Olivia Rodrigo": [
+        "Mikrofon",
+        "Tagebuch",
+        "Kamera"
+      ],
+      "Oprah Winfrey": [
+        "Netzwerk",
+        "Glanz",
+        "Titel"
+      ],
+      "Palina Rojinski": [
+        "Kamera",
+        "Musik",
+        "Lachen"
+      ],
+      "Pietro Lombardi": [
+        "Klang",
+        "Jury",
+        "Herz"
+      ],
+      "Queen Elizabeth II": [
+        "Palast",
+        "Pflicht",
+        "Hut"
+      ],
+      "Rammstein": [
+        "Show",
+        "Effekt",
+        "Provokation"
+      ],
+      "Rihanna": [
+        "Glanz",
+        "Insel",
+        "Rhythmus"
+      ],
+      "Robert Habeck": [
+        "Wirtschaft",
+        "Buch",
+        "Denker"
+      ],
+      "Roger Federer": [
+        "Präzision",
+        "Anmut",
+        "Virtuose"
+      ],
+      "Scarlett Johansson": [
+        "Übersetzung",
+        "Stimme",
+        "Kampf"
+      ],
+      "Selena Gomez": [
+        "Talent",
+        "Glanz",
+        "Bildschirm"
+      ],
+      "Shawn Mendes": [
+        "Melodie",
+        "Reise",
+        "Studio"
+      ],
+      "Shirin David": [
+        "Mikrofon",
+        "Flakon",
+        "Glanz"
+      ],
+      "Stefan Raab": [
+        "Wettkampf",
+        "Idee",
+        "Mikrofon"
+      ],
+      "Taylor Swift": [
+        "Geschichte",
+        "Ära",
+        "Herz"
+      ],
+      "The Weeknd": [
+        "Nacht",
+        "Ruhm",
+        "Glamour"
+      ],
+      "Thomas Müller": [
+        "Rasen",
+        "Millionen",
+        "Auftritt"
+      ],
+      "Til Schweiger": [
+        "Herz",
+        "Hut",
+        "Kind"
+      ],
+      "Timothée Chalamet": [
+        "Wüste",
+        "Schokolade",
+        "Stil"
+      ],
+      "Tiger Woods": [
+        "Meister",
+        "Grün",
+        "Schlag"
+      ],
+      "Tom Cruise": [
+        "Pilot",
+        "Motorrad",
+        "Lächeln"
+      ],
+      "Tom Hanks": [
+        "Reise",
+        "Stimme",
+        "Figur"
+      ],
+      "Uli Hoeneß": [
+        "Manager",
+        "Macher",
+        "Stimme"
+      ],
+      "Usain Bolt": [
+        "Insel",
+        "Stadion",
+        "Uhr"
+      ],
+      "Will Smith": [
+        "Prinz",
+        "Vater",
+        "Rap"
+      ],
+      "Zendaya": [
+        "Glamour",
+        "Kamera",
+        "Präsenz"
+      ]
+    }
+  ],
+  "Jugendwörter": [
+    {
+      "Alman": [
+        "Ordnung",
+        "Standard",
+        "Vorschrift"
+      ],
+      "Babo": [
+        "Einfluss",
+        "Gewicht",
+        "Rolle"
+      ],
+      "Based": [
+        "Ausdruck",
+        "Haltung",
+        "Punkt"
+      ],
+      "Bro": [
+        "Vertrauen",
+        "Szene",
+        "Verbindung"
+      ],
+      "Cringe": [
+        "Fremdschämen",
+        "Reaktion",
+        "Peinlich"
+      ],
+      "Digga": [
+        "Locker",
+        "Szene",
+        "Modern"
+      ],
+      "Ehre": [
+        "Wert",
+        "Geltung",
+        "Prinzip"
+      ],
+      "Ehrenmann": [
+        "Charakter",
+        "Haltung",
+        "Wichtig"
+      ],
+      "Flexen": [
+        "Geltung",
+        "Hülle",
+        "Schein"
+      ],
+      "Fly sein": [
+        "Eindruck",
+        "Glanz",
+        "Faktor"
+      ],
+      "Geringverdiener": [
+        "Sparen",
+        "Verzicht",
+        "Kosten"
+      ],
+      "Glow Up": [
+        "Entwicklung",
+        "Veredelung",
+        "Glanz"
+      ],
+      "Gönn dir": [
+        "Spaß",
+        "Moment",
+        "Wunsch"
+      ],
+      "Gönnjamin": [
+        "Gefühl",
+        "Moment",
+        "Erlebnis"
+      ],
+      "Hustlen": [
+        "Schweiß",
+        "Drang",
+        "Einsatz"
+      ],
+      "Kappa": [
+        "Reaktion",
+        "Scherz",
+        "Netz"
+      ],
+      "Kek": [
+        "Bildschirm",
+        "Geräusch",
+        "Muster"
+      ],
+      "Läuft bei dir": [
+        "Glück",
+        "Sache",
+        "Welle"
+      ],
+      "Lit": [
+        "Stimmung",
+        "Erlebnis",
+        "Energie"
+      ],
+      "Lost": [
+        "Ratlos",
+        "Frage",
+        "Orientierung"
+      ],
+      "Mashallah": [
+        "Gefühl",
+        "Klang",
+        "Moment"
+      ],
+      "Nice": [
+        "Gefühl",
+        "Moment",
+        "Eindruck"
+      ],
+      "No Front": [
+        "Einleiten",
+        "Wortwahl",
+        "Meinung"
+      ],
+      "NPC": [
+        "Muster",
+        "Kopie",
+        "Weg"
+      ],
+      "Pass": [
+        "Aktion",
+        "Richtung",
+        "Moment"
+      ],
+      "Rizz": [
+        "Vibe",
+        "Auftreten",
+        "Anklang"
+      ],
+      "Safe": [
+        "Fakt",
+        "Stabilität",
+        "Klarheit"
+      ],
+      "Savage": [
+        "Reaktion",
+        "Spruch",
+        "Moment"
+      ],
+      "Sheesh": [
+        "Reaktion",
+        "Ausdruck",
+        "Moment"
+      ],
+      "Side Eye": [
+        "Signal",
+        "Botschaft",
+        "Andeutung"
+      ],
+      "Simp": [
+        "Wunsch",
+        "Einsatz",
+        "Peinlich"
+      ],
+      "Sis": [
+        "Vertrauen",
+        "Geheimnis",
+        "Gemeinsam"
+      ],
+      "Smash": [
+        "Chemie",
+        "Vibe",
+        "Moment"
+      ],
+      "Stabil": [
+        "Sicher",
+        "Vertrauen",
+        "Dauer"
+      ],
+      "Sus": [
+        "Kurz",
+        "Gefühl",
+        "Chat"
+      ],
+      "Wild": [
+        "Stimmung",
+        "Erlebnis",
+        "Aktion"
+      ],
+      "Yolo": [
+        "Moment",
+        "Impuls",
+        "Wagnis"
+      ]
+    }
+  ],
+  "Schulalltag": [
+    {
+      "Abiball": [
+        "Glanz",
+        "Zukunft",
+        "Planung"
+      ],
+      "Abitur": [
+        "Reife",
+        "Schwelle",
+        "Druck"
+      ],
+      "Aula": [
+        "Reihe",
+        "Klang",
+        "Licht"
+      ],
+      "Austauschschüler": [
+        "Fremd",
+        "Jahr",
+        "Erfahrung"
+      ],
+      "Blauer Brief": [
+        "Zukunft",
+        "Gespräch",
+        "Zeichen"
+      ],
+      "Bundesjugendspiele": [
+        "Kreide",
+        "Pfeife",
+        "Feld"
+      ],
+      "Coole Sprüche": [
+        "Mund",
+        "Pause",
+        "Heft"
+      ],
+      "Direktor": [
+        "Schlüssel",
+        "Ordnung",
+        "Sitzung"
+      ],
+      "Elternabend": [
+        "Thema",
+        "Austausch",
+        "Raum"
+      ],
+      "Facharbeit": [
+        "Thema",
+        "Quellen",
+        "Abgabe"
+      ],
+      "Freistunde": [
+        "Warten",
+        "Ruhe",
+        "Plan"
+      ],
+      "Hausaufgabe": [
+        "Zeit",
+        "Mühe",
+        "Blatt"
+      ],
+      "Klassenarbeit": [
+        "Anspannung",
+        "Blatt",
+        "Ruhe"
+      ],
+      "Klassenfahrt": [
+        "Planung",
+        "Erinnerung",
+        "Abwesenheit"
+      ],
+      "Klassenclown": [
+        "Streich",
+        "Pause",
+        "Blick"
+      ],
+      "Klausur": [
+        "Ergebnis",
+        "Konzentration",
+        "Vorbereitung"
+      ],
+      "Lehrerzimmer": [
+        "Kaffee",
+        "Gespräch",
+        "Stuhl"
+      ],
+      "Mensa": [
+        "Pause",
+        "Bezahlen",
+        "Geräusch"
+      ],
+      "Mobbing": [
+        "Umgang",
+        "Situation",
+        "Wort"
+      ],
+      "Mündliche Note": [
+        "Wort",
+        "Zahl",
+        "Eindruck"
+      ],
+      "Nachsitzen": [
+        "Schreiben",
+        "Tisch",
+        "Stillsein"
+      ],
+      "Noten": [
+        "Zahl",
+        "Struktur",
+        "Wert"
+      ],
+      "Pausenbrot": [
+        "Rucksack",
+        "Tauschen",
+        "Glocke"
+      ],
+      "Präsentation": [
+        "Sprechen",
+        "Zuhörer",
+        "Thema"
+      ],
+      "Referat": [
+        "Recherche",
+        "Angst",
+        "Pult"
+      ],
+      "Schulhof": [
+        "Pause",
+        "Spiel",
+        "Draußen"
+      ],
+      "Schultüte": [
+        "Beginn",
+        "Füllung",
+        "Erwartung"
+      ],
+      "Schuluniform": [
+        "Stoff",
+        "Regel",
+        "Gruppe"
+      ],
+      "Spickzettel": [
+        "Druck",
+        "Klein",
+        "Geheim"
+      ],
+      "Stundenplan": [
+        "Ablauf",
+        "Ordnung",
+        "Regel"
+      ],
+      "Turnhalle": [
+        "Regel",
+        "Energie",
+        "Leistung"
+      ],
+      "Vertretungsplan": [
+        "Wechsel",
+        "Aushang",
+        "Änderung"
+      ],
+      "Whatsapp-Gruppe": [
+        "Plauderei",
+        "Absprache",
+        "Kreis"
+      ],
+      "Zeugnis": [
+        "Papier",
+        "Unterschrift",
+        "Sommer"
+      ]
+    }
+  ],
+  "Trends": [
+    {
+      "Achtsamkeit": [
+        "Moment",
+        "Balance",
+        "Ritual"
+      ],
+      "AirPods": [
+        "Akku",
+        "Blase",
+        "Unterwegs"
+      ],
+      "Anime": [
+        "Leidenschaft",
+        "Bildschirm",
+        "Stil"
+      ],
+      "ASMR": [
+        "Klang",
+        "Gefühl",
+        "Kopfhörer"
+      ],
+      "Binge Watching": [
+        "Geschichte",
+        "Abend",
+        "Decke"
+      ],
+      "Bubble Tea": [
+        "Farbig",
+        "Textur",
+        "Genuss"
+      ],
+      "Costplay": [
+        "Hobby",
+        "Leidenschaft",
+        "Kreativität"
+      ],
+      "Dance Challenge": [
+        "Geste",
+        "Reaktion",
+        "Kopie"
+      ],
+      "DIY": [
+        "Projekt",
+        "Anleitung",
+        "Werkzeug"
+      ],
+      "Discord": [
+        "Mikrofon",
+        "Austausch",
+        "Kanal"
+      ],
+      "E-Scooter": [
+        "Rollen",
+        "Teilen",
+        "Laden"
+      ],
+      "Fidget Spinner": [
+        "Haptik",
+        "Ablenkung",
+        "Wirbel"
+      ],
+      "Gaming PC": [
+        "Leistung",
+        "Erlebnis",
+        "Wettbewerb"
+      ],
+      "Hoodie": [
+        "Bequem",
+        "Jugendlich",
+        "Urban"
+      ],
+      "Hypebeast": [
+        "Wunsch",
+        "Warten",
+        "Zeigen"
+      ],
+      "iPhone": [
+        "Tasche",
+        "Glas",
+        "App"
+      ],
+      "Lifehack": [
+        "Vereinfachung",
+        "Methode",
+        "Kniff"
+      ],
+      "Manga": [
+        "Lesen",
+        "Fiktion",
+        "Hobby"
+      ],
+      "Mukbang": [
+        "Erlebnis",
+        "Fokus",
+        "Reaktion"
+      ],
+      "Netflix": [
+        "Abo",
+        "Bildschirm",
+        "Couch"
+      ],
+      "NFT": [
+        "Sammlung",
+        "Auktion",
+        "Pixel"
+      ],
+      "Podcast": [
+        "Thema",
+        "Unterhaltung",
+        "Folge"
+      ],
+      "Prime": [
+        "Abo",
+        "Zugang",
+        "Inhalt"
+      ],
+      "Realtalk": [
+        "Vertrauen",
+        "Offenheit",
+        "Meinung"
+      ],
+      "Second Hand": [
+        "Fundstück",
+        "Stil",
+        "Geschichte"
+      ],
+      "Selbstliebe": [
+        "Priorität",
+        "Grenze",
+        "Perspektive"
+      ],
+      "Sneaker": [
+        "Bequem",
+        "Sammler",
+        "Kult"
+      ],
+      "Spotify": [
+        "Abo",
+        "Algorithmus",
+        "Empfehlung"
+      ],
+      "Squid Game": [
+        "Herausforderung",
+        "Regeln",
+        "Fesselnd"
+      ],
+      "TikTok-Tanz": [
+        "Inhalt",
+        "Aufmerksamkeit",
+        "Wiederholung"
+      ],
+      "Tiny House": [
+        "Raum",
+        "Konzept",
+        "Freiheit"
+      ],
+      "True Crime": [
+        "Spannung",
+        "Geheimnis",
+        "Fakt"
+      ],
+      "Upcycling": [
+        "Stoff",
+        "Gestalten",
+        "Neu"
+      ],
+      "Urban Gardening": [
+        "Fenster",
+        "Hobby",
+        "Wachstum"
+      ],
+      "Van Life": [
+        "Mobil",
+        "Freiheit",
+        "Erlebnis"
+      ]
+    }
+  ],
+  "Gaming": [
+    {
+      "Among Us": [
+        "Verdacht",
+        "Abstimmung",
+        "Aufgaben"
+      ],
+      "Avatar": [
+        "Gestaltung",
+        "Profil",
+        "Hülle"
+      ],
+      "Battle Pass": [
+        "Zeitlich",
+        "Erlebnis",
+        "Freischaltung"
+      ],
+      "Bosskampf": [
+        "Taktik",
+        "Muster",
+        "Belohnung"
+      ],
+      "Call of Duty": [
+        "Team",
+        "Level",
+        "Punkt"
+      ],
+      "Cheat-Code": [
+        "Eingabe",
+        "Sequenz",
+        "Geheimnis"
+      ],
+      "Controller": [
+        "Steuern",
+        "Gerät",
+        "Befehl"
+      ],
+      "Counter Strike": [
+        "Druck",
+        "Adrenalin",
+        "Kontrolle"
+      ],
+      "Crafting": [
+        "Sammeln",
+        "Zutaten",
+        "Werkzeug"
+      ],
+      "Elden Ring": [
+        "Pferd",
+        "Geheimnis",
+        "Fluch"
+      ],
+      "Farming": [
+        "Gold",
+        "Erfahrung",
+        "Wiederholung"
+      ],
+      "Fifa": [
+        "Team",
+        "Saison",
+        "Punkte"
+      ],
+      "Fortnite": [
+        "Sturm",
+        "Bauen",
+        "Sieg"
+      ],
+      "Gilde": [
+        "Aufgabe",
+        "Rang",
+        "Stärke"
+      ],
+      "GTA": [
+        "Fahrt",
+        "Figur",
+        "Funk"
+      ],
+      "Headshot": [
+        "Ziel",
+        "Treffer",
+        "Punkt"
+      ],
+      "LAN-Party": [
+        "Geruch",
+        "Laut",
+        "Stuhl"
+      ],
+      "League of Legends": [
+        "Turm",
+        "Gold",
+        "Team"
+      ],
+      "Let's Play": [
+        "Erzählung",
+        "Dauer",
+        "Ansicht"
+      ],
+      "Lootbox": [
+        "Freischalten",
+        "Glück",
+        "Sammeln"
+      ],
+      "Minecraft": [
+        "Bauen",
+        "Kreativ",
+        "Nacht"
+      ],
+      "Mod": [
+        "Eingriff",
+        "Erstellung",
+        "Element"
+      ],
+      "Multiplayer": [
+        "Team",
+        "Verbindung",
+        "Erlebnis"
+      ],
+      "Noob": [
+        "Fehler",
+        "Lernen",
+        "Hilfe"
+      ],
+      "Open World": [
+        "Weite",
+        "Terrain",
+        "Erlebnis"
+      ],
+      "Pokémon": [
+        "Begleiter",
+        "Arena",
+        "Strategie"
+      ],
+      "Pro-Gamer": [
+        "Leistung",
+        "Verbindung",
+        "Akteur"
+      ],
+      "Ragequit": [
+        "Enttäuschung",
+        "Fehler",
+        "Stopp"
+      ],
+      "Raid": [
+        "Beute",
+        "Herausforderung",
+        "Team"
+      ],
+      "Roblox": [
+        "Entwurf",
+        "Phantasie",
+        "Abenteuer"
+      ],
+      "Side-Quest": [
+        "Tätigkeit",
+        "Entdeckung",
+        "Fortschritt"
+      ],
+      "Skins": [
+        "Farbe",
+        "Muster",
+        "Stil"
+      ],
+      "Skilltree": [
+        "Entwicklung",
+        "Punkte",
+        "Wahl"
+      ],
+      "Tryhard": [
+        "Ehrgeiz",
+        "Fokus",
+        "Übung"
+      ],
+      "Tutorial": [
+        "Wissen",
+        "Start",
+        "Herausforderung"
+      ],
+      "Valorant": [
+        "Taktik",
+        "Fähigkeit",
+        "Runde"
+      ],
+      "Walkthrough": [
+        "Pfad",
+        "Schritt",
+        "Text"
+      ]
+    }
+  ],
+  "Brettspiele & Kartenspiele": [
+    {
+      "Activity": [
+        "Witz",
+        "Zeit",
+        "Geste"
+      ],
+      "Blackjack": [
+        "Wette",
+        "Tisch",
+        "Hand"
+      ],
+      "Cluedo": [
+        "Verdacht",
+        "Spur",
+        "Geheimnis"
+      ],
+      "Dame": [
+        "Bild",
+        "Zug",
+        "Krone"
+      ],
+      "Doppelkopf": [
+        "Stich",
+        "Blatt",
+        "Fuchs"
+      ],
+      "Halma": [
+        "Sprung",
+        "Stern",
+        "Weg"
+      ],
+      "Mau-Mau": [
+        "Farbe",
+        "Blatt",
+        "Legen"
+      ],
+      "Mensch ärgere Dich nicht": [
+        "Weg",
+        "Pech",
+        "Feld"
+      ],
+      "Monopoly": [
+        "Geld",
+        "Streit",
+        "Stunden"
+      ],
+      "Mühle": [
+        "Linie",
+        "Platz",
+        "Zug"
+      ],
+      "Phase 10": [
+        "Etappe",
+        "Sammeln",
+        "Abschluss"
+      ],
+      "Poker": [
+        "Einsatz",
+        "Runde",
+        "Strategie"
+      ],
+      "Risiko": [
+        "Zufall",
+        "Ausgang",
+        "Figur"
+      ],
+      "Rommé": [
+        "Satz",
+        "Reihe",
+        "Blatt"
+      ],
+      "Schach": [
+        "Taktik",
+        "Turm",
+        "Zeit"
+      ],
+      "Scrabble": [
+        "Stein",
+        "Punkte",
+        "Feld"
+      ],
+      "Siedler von Catan": [
+        "Grenze",
+        "Verhandlung",
+        "Ausbau"
+      ],
+      "Skat": [
+        "Punkte",
+        "Runde",
+        "Blatt"
+      ],
+      "Skip-Bo": [
+        "Stapel",
+        "Reihenfolge",
+        "Ablage"
+      ],
+      "Trivial Pursuit": [
+        "Farbe",
+        "Würfel",
+        "Gedächtnis"
+      ],
+      "Uno": [
+        "Hand",
+        "Stapel",
+        "Zug"
+      ]
+    }
+  ],
+  "Gefühle & Emotionen": [
+    {
+      "Angst": [
+        "Dunkel",
+        "Enge",
+        "Flucht"
+      ],
+      "Aufregung": [
+        "Kribbeln",
+        "Warten",
+        "Hektik"
+      ],
+      "Dankbarkeit": [
+        "Ruhe",
+        "Erinnerung",
+        "Verbinden"
+      ],
+      "Einsamkeit": [
+        "Stille",
+        "Fenster",
+        "Warten"
+      ],
+      "Ekel": [
+        "Unbehagen",
+        "Geruch",
+        "Glitschig"
+      ],
+      "Enttäuschung": [
+        "Hoffnung",
+        "Schmerz",
+        "Verlust"
+      ],
+      "Freude": [
+        "Wärme",
+        "Leichtigkeit",
+        "Glanz"
+      ],
+      "Hass": [
+        "Dunkel",
+        "Kalt",
+        "Schmerz"
+      ],
+      "Hoffnung": [
+        "Licht",
+        "Antrieb",
+        "Morgen"
+      ],
+      "Langeweile": [
+        "Ruhe",
+        "Warten",
+        "Leere"
+      ],
+      "Liebe": [
+        "Herz",
+        "Sehnsucht",
+        "Zeit"
+      ],
+      "Mitgefühl": [
+        "Wärme",
+        "Nähe",
+        "Tränen"
+      ],
+      "Neid": [
+        "Wunsch",
+        "Vergleichen",
+        "Besitz"
+      ],
+      "Scham": [
+        "Verbergen",
+        "Fehler",
+        "Urteil"
+      ],
+      "Schuld": [
+        "Last",
+        "Gewissen",
+        "Schatten"
+      ],
+      "Sicherheit": [
+        "Vertrauen",
+        "Ruhe",
+        "Halt"
+      ],
+      "Stolz": [
+        "Ziel",
+        "Haltung",
+        "Glanz"
+      ],
+      "Trauer": [
+        "Stille",
+        "Schwere",
+        "Veränderung"
+      ],
+      "Verwirrung": [
+        "Frage",
+        "Nebel",
+        "Knoten"
+      ],
+      "Wut": [
+        "Hitze",
+        "Druck",
+        "Riss"
+      ],
+      "Überraschung": [
+        "Neuigkeit",
+        "Ereignis",
+        "Reaktion"
+      ]
+    }
+  ],
+  "Körperteile (knifflig)": [
+    {
+      "Achsel": [
+        "Pflege",
+        "Duft",
+        "Mulde"
+      ],
+      "Adamsapfel": [
+        "Vorsprung",
+        "Markant",
+        "Sichtbar"
+      ],
+      "Augenbraue": [
+        "Bogen",
+        "Linie",
+        "Rahmen"
+      ],
+      "Blinddarm": [
+        "Bauch",
+        "Schmerz",
+        "Ecke"
+      ],
+      "Daumen": [
+        "Geste",
+        "Griff",
+        "Wischen"
+      ],
+      "Ellenbogen": [
+        "Winkel",
+        "Stütze",
+        "Spitze"
+      ],
+      "Ferse": [
+        "Halt",
+        "Druck",
+        "Rundung"
+      ],
+      "Fingernagel": [
+        "Schicht",
+        "Pflege",
+        "Hart"
+      ],
+      "Gaumen": [
+        "Innen",
+        "Empfindlich",
+        "Klang"
+      ],
+      "Kniekehle": [
+        "Beugung",
+        "Sehne",
+        "Versteck"
+      ],
+      "Leber": [
+        "Stoffwechsel",
+        "Speicherung",
+        "Flüssigkeit"
+      ],
+      "Mandel": [
+        "Schmerz",
+        "Inneres",
+        "Gewebe"
+      ],
+      "Milz": [
+        "Flüssigkeit",
+        "Abwehr",
+        "Speicherung"
+      ],
+      "Schienbein": [
+        "Länge",
+        "Stütze",
+        "Vorderseite"
+      ],
+      "Schlüsselbein": [
+        "Bogen",
+        "Träger",
+        "Rand"
+      ],
+      "Steißbein": [
+        "Sitz",
+        "Empfindlich",
+        "Abschluss"
+      ],
+      "Stirn": [
+        "Falte",
+        "Schwitzen",
+        "Oben"
+      ],
+      "Wimper": [
+        "Schutz",
+        "Rand",
+        "Staub"
+      ],
+      "Wirbelsäule": [
+        "Achse",
+        "Gerüst",
+        "Verbindung"
+      ],
+      "Zwerchfell": [
+        "Luft",
+        "Trennen",
+        "Mitte"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,808 @@
+{
+    "Part_1": {
+        "Introduction": {
+            "Text": [
+                "After first starting the game, you are presented with several languages in which you can play the game. Once you select your preferred language, the game then gives you the choice of one of eight combinations of gender, skin tone, hair color and eye color. You can change your hair and eye color later, but the selected gender and skin tone cannot be changed after starting. After confirming these options, the introductory cutscene begins with a live feed of the Wyndon Stadium Pitch. The current head of Macro Cosmos and Chairman of the Galar Pokémon League , Rose , introduces not only the world of Pokémon but also the Galar Region. After a further cutscene, the camera then pans up marking the beginning the game in earnest."
+            ]
+        },
+        "Postwick": {
+            "Text": [
+                "Your journey begins in Postwick , a small town in the south of the Galar region. With a lack of any amenities and a population of only five, Postwick is the smallest town not only in Galar, but in the entire Pokémon world up to this point.",
+                "Unlike many past core series games, your journey doesn't begin with waking up in your room. Instead, you start seated on the couch in your living room, watching the champion Leon ’s exhibition match on your Rotom Phone . Your next-door neighbor and best friend, Hop , bursts through the door with excitement, urging you to meet him at his house so that both of you can go pickup Leon, who is also Hop's older brother. Apparently, Leon has a present for each of you, so you better get going. Your mom advises you to grab your father’s old hat and bag from your room before heading out. As you head down the hill from your home, you notice that Hop has been waiting for you outside, and he again urges you to come along to his house. He runs ahead, and you should follow him. Upon entering his and Leon’s house, Hop excitedly asks his mom if Leon has arrived yet. She responds that he's running late and suggests that the two of you should head over to Wedgehurst to meet him."
+            ]
+        },
+        "Galar Route 1": {
+            "Text": [
+                "Galar Route 1 is located just to the north of Postwick. It is split into two different paths: one that’s smaller and leads straight to Wedgehurst while the other is a longer, curved path that has tall grass in which wild Pokémon can be encountered. Since you have no Pokémon with you at the moment, Hop advises that you should probably stay clear of the longer path to stay safe. Take the straight path towards Wedgehurst and meet Leon at the train station."
+            ]
+        },
+        "Wedgehurst": {
+            "Text": [
+                "Upon first arriving in Wedgehurst, it seems that Leon is being swarmed by his fans at the station’s entrance. While addressing the crowd and performing his signature pose, he spots Hop waving and he makes his way through the crowd to meet you both. Leon comments that it’s great to finally meet you in person, and that he’s heard so much about you from Hop. He then ends his surprise meet-and-greet and runs off towards Postwick, in spite of Hop's protests regarding his lack of skill with directions."
+            ]
+        },
+        "Postwick (Return Visit)": {
+            "Text": [
+                "Once you return back to Postwick and head to Hop and Leon's yard, Hop excitedly asks what sort of present Leon has brought for you both. The presents in question are the Galar region’s very own first partner Pokémon , Grookey , Scorbunny , and Sobble ! A brief cutscene then plays, showing off each of their personalities, and subtly demonstrating which matchups are most effective. Following this, Leon calls the three to line up so that you and Hop can choose your brand new first partner Pokémon.",
+                "Hop will let you pick your first partner Pokémon first, since he’s got his partner Wooloo with him already. All three first partner Pokémon are respectable in their own rights and all three are all eager to meet you. Just keep in mind that whoever you end up starting your journey with, Hop will always pick the first partner Pokémon that has the type disadvantage to your own, leaving the one that is advantageous against yours with Leon. Once you both pick your first partner Pokémon, you head off to bed not only tired, but excited for your first real day as a Pokémon trainer.",
+                "The next day, Hop meets you outside and tells you to meet him and Leon at their house. He comments on the Wooloo that’s trying to break through the gate keeping it from entering the Slumbering Weald, and then runs off towards his house. Hop finishes talking to his older brother and suddenly declaring you and he rivals he challenges you to your very first Pokémon battle!",
+                "Hop will always lead with his trusty Wooloo first, and it shouldn’t be that big of a problem to take down. Just use your starting normal type move ( Scratch for Grookey, Tackle for Scorbunny, and Pound for Sobble) to deal enough damage to knock it out. One interesting thing to note about this battle, is that Hop’s Wooloo will always yield just enough experience for your first partner Pokémon to level up. This level up grants them the first of many moves that apply a same type attack bonus (or STAB for short), with Grookey learning Branch Poke , Scorbunny learning Ember , and Sobble learning Water Gun . With these new moves in hand, you should be more than capable of taking down Hop’s new first partner Pokémon."
+            ],
+            "First battle": {
+                "Text": [
+                    "Once you two finish your battle a loud crash comes from the other side of town alerting both you and Hop. You both run over towards your house to see that the gate that keeps Postwick safe from whatever is hiding in the Slumbering Weald is open. Moreover, the Wooloo that was trying to break down the gate is gone. With nothing else left to do but give chase, the both of you run into the Slumbering Weald to rescue the lost Wooloo."
+                ]
+            }
+        },
+        "Slumbering Weald": {
+            "Text": [
+                "Upon entering the Slumbering Weald for the first time with Hop, he expresses concern about the missing Wooloo and the thickening fog, hinting that finding the Pokémon quickly is crucial to avoid trouble. As you traverse the Weald, you will have mandatory battles with two Skwovet , a regional normal type Pokémon, as well as the regional bird, Rookidee . Dispatch them using your attacking moves and proceed through the Weald.",
+                "After defeating the first Skwovet and Rookidee, you and Hop hear a Pokémon's cry, prompting you to remain alert. Following the defeat of a second Skwovet, the cry grows louder, and Hop urges you to venture further into the fog out of concern for Wooloo's safety. As you catch up with Hop, the fog becomes so dense that visibility diminishes. While searching for Wooloo, a mysterious Pokémon suddenly emerges, startling both of you. A battle ensues, but there are important aspects to note. Firstly, you cannot escape from this encounter. Secondly, none of your attacks will land on the mysterious Pokémon. Hop acknowledges this during the battle, and the opposing Pokémon uses its howl to intensify the fog. Meanwhile, Hop anxiously checks on your well-being as you navigate through the challenging situation.",
+                "As the battle concludes, the fog thickens to the point of near blindness, and the mysterious Pokémon departs, causing both you and Hop to black out. Upon regaining consciousness and rising from the ground, Leon, having grown worried, calls out to you. He had been waiting for your arrival, and when you didn't show up, he set out to find you. Despite this, Hop realizes that Wooloo still needs rescuing. However, Leon, along with his Charizard , has ensured the safety of the wayward Pokémon.",
+                "Leon acknowledges your courage in entering the forbidden Slumbering Weald and understands your motives. Hop expresses relief at Wooloo's well-being and shares his concern when the fog rolled in and the unexpected Pokémon attacked. Leon inquires about the powerful Pokémon you faced, and Hop describes its strength, commanding presence, and the peculiarity that your moves seemed ineffective against it.",
+                "Leon ponders the possibility of the legendary Pokémon in the Slumbering Weald being illusions but encourages both of you to become strong enough to uncover the truth someday. Before parting ways, Hop reflects on the shared experience, declaring it as the initial chapter in the tale of his legendary journey."
+            ]
+        }
+    },
+    "Part_2": {
+        "Route 1": {
+            "Text": [
+                "Now that you have a Pokémon, you can explore the tall grass on the right side of the route towards Wedgehurst. The main path is blocked by Wooloo , so you will now have to take the detour around through tall grass, where there are plenty of wild Pokémon available. You already have five Poké Balls , so you will have the option to catch any of these Pokémon should you wish.",
+                "Head straight north through this route to Wedgehurst when you are done."
+            ]
+        },
+        "Wedgehurst": {
+            "Text": [
+                "Upon reaching Wedgehurst, you'll meet up with Leon for a visit to the Pokémon Research Lab situated on the town's east side. Inside the lab, you'll meet Sonia , a childhood companion of Leon and the assistant, as well as granddaughter, of Professor Magnolia . It's at this point that you'll receive the indispensable Pokédex . Sonia will task you with a visit to her grandmother's residence across Route 2.",
+                "After you leave the lab and head further through Wedgehurst, Hop will offer to show you around the Pokémon Center. Feel free to decline his tutorial if you're already well-versed in the mechanics of Pokémon Centers. There are three stations within Galar Pokémon Centers. On the left is a Move Tutor who will rate nicknames, and help with remembering or forgetting a move. In the center is the healing station and on the right is a Poké Mart .",
+                "After exiting the Pokémon Center for the first time speak with the girl on the right to register your birthdate and have your fortune told."
+            ]
+        },
+        "Route 2": {
+            "Text": [
+                "Moving on to Route 2, you will meet with Hop before a patch of tall grass. If you haven't already caught a Pokémon, Leon will step in and provide a tutorial on how to catch one.This will be skipped however, if you have already captured a Pokémon on Route 1. Leon will also gift you with 20 Poké Balls. You can catch a slew of new Pokémon here, and there are three novice trainers along the way who will challenge you to a battle.",
+                "Head north east through the route when you're done to reach Professor Magnolia's house."
+            ],
+            "Magnolia's House": {
+                "Text": [
+                    "After your arrival at Professor Magnolia's house, Leon expresses his reservations about endorsing you and Hop for the Gym Challenge . Magnolia encourages him to endorse both you and Hop, and Leon proposes the two of you battle to prove your worthiness. Head outside to battle Hop.",
+                    "Afterwards, you are both endorsed by Leon, and a pair of Wishing Stars will drop from the sky. Magnolia will take both of these and use them for Dynamax Bands that she will gift to you the next morning. After receiving these, head back south to Wedgehurst to continue your journey."
+                ]
+            }
+        },
+        "Wedgehurst (Return Visit)": {
+            "Text": [
+                "When you get to Wedgehurst, head straight to the station in the south west of the town."
+            ],
+            "Wedgehurst Station": {
+                "Text": [
+                    "When you head into the station, your mom will stop you to give you the Camping Gear before you continue. There is another Poké Mart in the station that is identical to the one in the Pokémon Centre . Once you receive this, head onto the train to continue your journey into the Wild Area ."
+                ]
+            }
+        }
+    },
+    "Part_3": {
+        "Meetup Spot": {
+            "Wild Area Station": {
+                "Text": [
+                    "When you first get off the train, Hop will immediately notice that you're in the Wild Area , and not your intended destination of Motostoke . A railway attendant will inform you and Hop that the train is unable to continue to Motostoke due to a flock of Wooloo blocking the tracks! Far from unfortunate, this gives you an excellent opportunity to familiarise yourself with the wild area as you make your way to Motostoke on foot.",
+                    "Before heading off, if you have save data from Pokémon: Let's Go, Pikachu! or Let's Go, Eevee! you can receive a Pikachu or Eevee with Gigantamax Factor from the two people standing to the left of the train gates. You can also collect 5 Poké Dolls from the trainer with the backpack to the left of the exit. Be sure to stock up on pokéballs from the station shop if needed before exiting the station and heading north to meet Hop in the Wild Area!"
+                ]
+            }
+        },
+        "Wild Area South": {
+            "Text": [
+                "As you enter the Wild Area, you will stop to quickly talk to Sonia and Hop . Here, Sonia will give you the Pokémon Box Link which will allow you to access the Pokémon stored in your boxes at any time through the menu. While your next goal is to head to Motostoke, there are a few things to investigate in the Wild Area on your way. Broadly, the Wild Area is divided into a south section (where you are now) and a north section (to which you don't have access at the moment).",
+                "Pokémon encounters in the Wild Area work a bit differently to those in the normal routes, as Pokémon with a wide range of levels can be found here from the beginning of the game. Regular encounters can be found within the grass, but stronger Pokémon will also be found wandering outside of the grass. At the moment, you can only catch Pokémon up to level 20 so feel free to run from battles with these stronger Pokémon until you have a few more badges. Keep in mind you can always use a Poké Doll to end a battle if you aren't able to run.",
+                "Also found in the Wild Area are Pokémon Dens , which glow red with a beam of light. Here you can battle a Dynamaxed Pokémon alongside a team of three other trainers (either other players, or NPCs). Some strong and rare Pokémon can be found in these, so it may be worth investigating! With no badges collected, you will be limited to 1-star raid dens which contain weaker or less rare Pokémon, but as you progress you will be given the chance to battle and catch stronger and stronger Pokémon.",
+                "While in the Wild Area, you will also come across Berry Trees which you can shake for a chance to get a variety of berries. The more you shake though, the greater chance of disturbing a wild Pokémon from within the tree and forcing you into battle.",
+                "There are many locations in the Wild Area that you now have access to that this guide won't cover, so feel free to explore to your heart's content. Once you're finished, head east then north through Rolling Fields and East Lake Axewell to continue on to Motostoke through the large gateway in the north."
+            ]
+        }
+    },
+    "Part_4": {
+        "Motostoke": {
+            "Text": [
+                "After arriving in Motostoke, head straight to the Pokémon Center to meetup with Sonia where she will give you an introduction to Rotomi which you can use to access boxes, Loto-ID, Poké Jobs and Card Maker. Before leaving the Pokémon Center, you can speak to the lass in the far right to trade your Bunnelby in exchange for a Skwovet. Head outside once you're done.",
+                "Back outside, Sonia will remind you to register for the gym challenge when you're ready. Before you do though, feel free to explore the lower tier to use any of the services provided such as the hair salon or the boutique. Head north to get into the lift for the upper tier when you're done.",
+                "Leon will stop you to gift you an item that will boost the power of moves of the same type as your selected first partner Pokémon. Head straight to the stadium where you'll finally sign up for the gym challenge, and have a brief run-in with another mysterious trainer . Once you've signed up, head outside and go west to the Budew Drop Inn ."
+            ],
+            "Budew Drop Inn": {
+                "Text": [
+                    "When you enter the inn, you will have to deal with the belligerent group of people known as Team Yell who are attempting to obstruct Gym Challengers from signing in. Quickly battle the first two grunts, before teaming up with Hop to take out the last two in a Multi Battle .",
+                    "After you deal with the Team Yell Grunts, a Trainer named Marnie will step in and tell them off, revealing they are her fans who are overly belligerent and go too far in trying to support her. She apologizes for their behavior and you can sign in for the night."
+                ]
+            },
+            "Motostoke Stadium": {
+                "Text": [
+                    "Return to the stadium in the morning for the Gym Challenge opening ceremony. After the ceremony, you'll get access to the Flying Taxi service which allow you to fast travel to locations to which you've been before. To continue your journey, head west to Route 3 and meetup with Hop for a battle.",
+                    "After the battle, if you have the DLC, you can start working on that next . Otherwise you can continue west onto Route 3 ."
+                ]
+            }
+        }
+    },
+    "Part_5": {
+        "Route 3": {
+            "Text": [
+                "There's a tired Corviknight blocking the east exit from Motostoke, so for now head west to continue your journey onto Route 3. There are a few trainers on the route to battle. You can avoid most of these, either by going through the grass instead of the path or by waiting until the trainer is not looking in your direction to sneak past.",
+                "When you reach the fork in the road, first head down the south path to quickly grab a hidden Burn Heal before continuing up the north path to meet up with Sonia in the middle of the route. She will give you a bit of exposition into Galar's backstory before giving you an Escape Rope , which allows you to immediately leave from dungeons such as caves or forests. In this game its a key item, so use it often! She will also heal your Pokémon before she leaves you to continue your adventure.",
+                "Continue west, and at the next fork you can take the south path to battle an optional trainer, collect some berries from the tree and collect TM037 ( Beat Up ). Backtrack to the fork and continue on the north path.",
+                "You will pass a camp which you can use if you like. Talk to the girl out the front to receive a Cheri Berry. You will also be able to use a flying taxi to travel to this camp if you need to revisit Route 3. Continue west and then north to enter Galar Mine, speaking to the woman near the entrance if you need to heal up your Pokémon."
+            ]
+        },
+        "Galar Mine": {
+            "Text": [
+                "The main path through Galar Mine will be to follow the tracks to the north. Again, there are a few trainers most of which can be avoided with careful movements. Optionally, take the first branch to the south/west to fight a trainer and backtrack to Route 3. Collect three Great Balls on the short dead end path before heading outside to a previously inaccessible cliff on Route 3 where you can grab TM054 ( Rock Blast ).",
+                "Heading back and continuing north following the tracks through the mine, you again have the option to detour to the west to collect TM026 ( Scary Face ) and a hidden Stardust. Otherwise continue through the mine until you come across Bede just before the exit. You might remember him as the smug trainer you first encountered in Motostoke Stadium, but here he properly introduces himself and will challenge you to a battle.",
+                "Once you've defeated Bede, head out of Galar Mine to Route 4."
+            ]
+        },
+        "Route 4": {
+            "Text": [
+                "Talk to the woman just outside of Galar Mine to heal your Pokémon before you continue. Route 4 is a short path directly north to Turffield, however you can detour through the fields to battle six optional trainers and collect items before you continue.",
+                "There is again a camp in this route you can visit and can fly to whenever you need to return here.",
+                "Once you're done exploring, take the north route to Turffield where you'll be stopped by a runaway Wooloo being chased by Milo, a Grass Type trainer and the Gym Leader of the Turffield Gym. Head north into Turffield to continue your gym challenge."
+            ]
+        }
+    },
+    "Part_6": {
+        "Turffield": {
+            "Text": [
+                "Now that you have arrived at Turffield, you will be greeted by Sonia's Yamper. Follow it across the path to the left, and you will meet up with Sonia. She will discuss the massive geoglyph appearing before you and its potential connection to the legend of the Darkest Day and Dynamax . Afterwards, heal up your Pokémon at the Pokémon Center and obtain some Potions if necessary."
+            ]
+        },
+        "Turffield Stadium": {
+            "Text": [
+                "Next, head up to the big stadium up front. You will meet up with Hop who has already defeated Milo, and later you will enter the Gym. You will meet up with the Ball Guy, who will give you a Friend Ball . Meet up with the person in front of the gate, and sign up to partake in the Turffield Gym Puzzle.",
+                "For the first gym in the Galar region, this puzzle is based on chasing down a flock of 20 Wooloo. They will move away from you as you approach from behind. For each checkpoint, get all 20 Wooloo to the end mat in front of a log wall, after which they will roll into it and proceed to the next column. For later columns, a Yamper will step in and bark to chase the Wooloo down different directions, effectively serving as obstacles in your way. The Yamper will stop once you challenge and defeat the Trainer in that column.",
+                "After you have chased down all 20 Wooloo to the end, you can enter the gate to the stadium field and will pass the Gym Challenge. Milo will challenge you to your very first Gym Battle in Galar: and he uses Gossifleur and Eldegoss. If you're not already familiar with Dynamax, you can utilize it here. Once Milo sends out his Eldegoss, he will immediately Dynamax it in the following turn.",
+                "After defeating Milo, you will obtain the Grass Badge as well as TM10 ( Magical Leaf )."
+            ]
+        },
+        "Route 5": {
+            "Text": [
+                "After you have obtained the Grass Badge, head on to Route 5. You will meet several Trainers along the way, and at the end, you will battle Hop again.",
+                "There is a Nursery where you can raise and breed your Pokémon. A prize Toxel can also be obtained here, if you wish.",
+                "A nearby Pokémon Camp is available to visit. This can also function as a Fly point for this route.",
+                "When you come across the bridge on Route 5, you will meet with a Doctor who is being obstructed by a pair of Team Yell grunts. As a reward for defeating the Grunts, he will give you the Rotom Bike . Now you can press + or - to activate the bike and move at even faster speeds.",
+                "At the end of the route lies Hulbury."
+            ]
+        }
+    },
+    "Part_7": {
+        "Hulbury": {
+            "Text": [
+                "Upon arriving at Hulbury, heal up your Pokémon at the Pokémon Center. You will run into Rose running incognito in a rather...silly outfit, I should put it, alongside his secretary Oleana being hoarded by a group of fans. You also briefly encounter Bede talking to Rose before walking off, and then Rose will notice your presence. He encourages you to go to the Stadium and defeat Nessa, and to join him at the Captain's Table restaurant afterwards.",
+                "Now, since you're here, there's a bit to do before doing heading to Hulbury Stadium. Chief among these is an in-game trade: if you have a Minccino, you can trade on for a Cottonee!"
+            ]
+        },
+        "Hulbury Stadium": {
+            "Text": [
+                "Before arriving at Hulbury Stadium, you will be met with a Gym Trainer who is guarding the entrance. You will be told that Nessa is at the Hulbury Lighthouse, so make your way there: it's at the easternmost part of Hulbury. Meet up with Nessa, and you will be given her League Card before asking you to challenge her at the stadium.",
+                "You can get a Lure Ball from the Ball Guy here. The second Gym specializes in Water-type Pokémon. Now for this gym challenge, you will be met with a puzzle that involves setting up colored switches that activate and deactivate water pipes: pressing a colored switch will activate inactive water pipes of the corresponding color and deactivate active ones of said color. You must press these switches in a certain order while battling Trainers along the way. After you have completed this puzzle, you will battle with Nessa. She will Dynamax her main Pokémon, Drednaw , at the first opportunity. Upon defeating her, you will receive the Water Badge and the TM for Whirlpool.",
+                "After defeating Nessa, head over straight to The Captain's Table, which is next to the Pokémon Center. You will meet up with Rose and Sonia before Rose is forced to leave by his secretary Oleana ."
+            ]
+        },
+        "Galar Mine No. 2": {
+            "Text": [
+                "Now that you've done everything you need to in Hulbury , head over east and meet up with Hop , as you now both head into the second Galar Mine. This is a cave not too different from the previous one, and you will meet up with Bede and battle with him again, after which you will obtain his League Card. Battle the trainers along the way and head over to the end of the mine, where you and Hop will meet up with and deal with a group of Team Yell grunts, and later on meet the next Gym Leader, Kabu , before existing for the Motostoke Outskirts."
+            ]
+        }
+    },
+    "Part_8": {
+        "Motostoke Outskirts": {
+            "Text": [
+                "Now you are in the Motostoke Outskirts , and it's nighttime. Walk through this area and battle a small handful of Trainers to return back to Motostoke ."
+            ]
+        },
+        "Motostoke": {
+            "Text": [
+                "Upon returning to Motostoke, return to the Budew Drop Inn to take a rest for the night. Upon arrival you will meet up with Marnie again, who this time will challenge you to a battle. Defeat her, and you will receive two Burn Heals as well as Kabu's League Card.",
+                "After defeating Marnie, you will rest for the night. Now that it's morning, it's time to head into the Motostoke Stadium for the next Gym Battle!"
+            ]
+        },
+        "Motostoke Stadium": {
+            "Text": [
+                "You will briefly meet up with Hop before signing onto the Motostoke Gym Challenge. Now be ready for a surprise, as this Gym Challenge is unlike any Gym puzzle you've faced earlier in this game, or in any game beforehand. This time, you will be catching Wild Pokémon! How this works is that there will be three patches of grass: one with a Sizzlipede , one with a Litwick , and one with a Vulpix . You will achieve points based on a point system: one for knocking the Pokémon out, two for catching the Pokémon. Your goal here is to ultimately achieve five points.",
+                "With each of these patches, you will be assigned a partner Trainer who will do everything in their power to disrupt you by either taking the Pokémon down before you do (which earns you zero points), or by burning your Pokémon or lowering your accuracy. Get around these with strategy and capture the Pokémon, and you'll succeed. If you so wish, you can add one of these Pokémon to your team for the rest of the game: they will all prove worthwhile team members to carry with you.",
+                "After you have succeeded, you will head straight into Motostoke Stadium and meet up with Kabu . He specializes in Fire-type Pokémon, and he's quite tough, with three fully evolved Pokémon for this point, and he will also burn your Pokémon with Will-o-Wisp . His Centiskorch is his signature Pokémon, which he will Gigantamax at the first opportunity. After defeating him, you will earn the Fire Badge as well as the TM for Will-o-Wisp.",
+                "The Trainers appear as rivals in wild encounters. The player does not battle them directly. Kabu Gigantamaxes his Centiskorch at the first opportunity.",
+                "Now that you've successfully obtained the first three Badges, you and Hop will be ready to head into the Wild Area once again, before being given a proper farewell from Milo , Nessa , and Kabu. Upon returning to the Wild Area, Hop will be confronted by Bede who will then have a battle with him. Feel free to start exploring the Wild Area, and now that you're stronger, you can now explore the northern half of the Wild Area."
+            ]
+        }
+    },
+    "Part_9": {
+        "North Wild Area": {
+            "Text": [
+                "Now that you have three Gym Badges , you are ready to cross the bridge at the northern end of North Lake Miloch and venture through the North Wild Area to get to Hammerlocke .",
+                "In the North Wild Area, there are more things that can be done that are not available in the South Wild Area, beyond the additional Max Raid Dens and Watt Traders you can find there.",
+                "There is a Nursery in Bridge Field to raise and breed your Pokémon, just like the one on Route 5 .",
+                "Once per day, you can find the Digging Duo in Bridge Field and pay 500 Watts to have one of them dig up items for you. You can have them stop digging at any point after any item is successfully dug up, though they will eventually become tired at a certain point. You can do this for one of them, or both of them. Each Digging Duo brother has a strength; the brother to the left focuses on skill, being able to find rarer items, but tiring out faster. The brother to the right focuses on stamina, finding less rare items, but also having a higher chance for a longer digging streak. If you're lucky and had a good digging streak going with the last brother you spoke to, he might start digging again free of charge if you talk to him again.",
+                "In the Dusty Bowl , there is a stone arch. You can evolve Galarian Yamask into Runerigus by walking under this arch after it has taken at least 49 HP damage without fainting.",
+                "The following sub-areas of the North Wild Area will be filled with different Pokémon depending on the weather: (Note: This will only cover Pokémon who can be captured at this point. Any Pokémon above level 35 cannot be caught yet, so if you see one of these, run immediately)."
+            ],
+            "Trainers": {
+                "Text": [
+                    "The Trainer in the Wild Area has returned with a stronger team and can be battled here. She will eventually return after being defeated.",
+                    "Once you've done everything you want to do in the Wild Area, head toward the entrance to Hammerlocke, which is in the north area of Hammerlocke Hills . It resembles the head of a dragon, with a large stairwell. Just before you enter the city, Bede will show up and gloat about his victory over Hop before heading into Hammerlocke himself. After he leaves, ascend the stairs."
+                ]
+            }
+        }
+    },
+    "Part_10": {
+        "Hammerlocke": {
+            "Text": [
+                "Upon entering Hammerlocke , you will find Bede reporting his progress to Chairman Rose and Oleana , who commend him for his work. Oleana then asks Bede to come with her to discuss something. Rose notices you and invites you to meet him at Hammerlocke Stadium to tell you how Galar gets its energy. Hammerlocke Stadium is straight ahead from the city entrance; not too far away, so head on in.",
+                "When you enter, Chairman Rose explains that the stadium doubles as a power plant . After his explanation, Chairman Rose suggests visiting Hammerlocke Vault, before leaving with Oleana. While you cannot challenge the Gym here yet, you can still get a Level Ball from the Ball Guy before leaving the stadium. You'll come back here later.",
+                "There are many things to do in Hammerlocke, but don't forget to heal up your Pokémon at one of the Pokémon Centers (Hammerlocke has three!). After you've finished exploring, head to Hammerlocke Vault, which is in the western portion of the city. You will see Leon 's rival, Raihan , at the entrance. He'll tell you that Sonia is on the top floor, so meet up with her there. Sonia will talk about Galar's history, and then give you two Revives for your time. As you're leaving the vault, Raihan will give you his League Card . At this point, you will have done all that you're required to do in Hammerlocke for now, so head further west to Route 6 ."
+            ],
+            "Trade": {
+                "Text": [
+                    "A woman in front of the vault will offer to trade you her Togepi nicknamed \"Snips\" in exchange for a Toxel . The Toxel you obtained from the Nursery on Route 5 will suffice if you really want the Togepi."
+                ]
+            },
+            "Trainers": {
+                "Text": [
+                    "There is an optional Trainer battle in one of the houses. You will obtain a Focus Sash for winning."
+                ]
+            }
+        },
+        "Route 6": {
+            "Text": [
+                "After crossing the bridge from Hammerlocke to Route 6 , you will be stopped by two Team Yell Grunts . You'll have to fight them one-on-one, despite Hop showing up. Hop explains what happened in the aftermath of his battle with Bede , and why he feels dejected. He will go on ahead afterwards, while an elderly lady named Opal will introduce herself and give you her League Card. It's now time to traverse the route and head to Stow-on-Side .",
+                "Fight the Trainers and ascend the ladders. There will also be several Pokémon you can battle and catch along the way. When you reach the top, there will be a Pokémon Camp you can visit. There will also be a scientist near the camp who can revive any Fossils you have on hand, but there's a catch; you need two different Fossils for her to combine. If you have these Fossils, consult the table below to see what you can obtain.",
+                "Beyond the Camp, there is a stone arch, where you must pass through to get to the next city. Battle the last Trainer, an Artist , and then continue on to Stow-on-Side."
+            ]
+        },
+        "Stow-on-Side": {
+            "Text": [
+                "When you enter Stow-on-Side , the first building you will come across is the Pokémon Center. Heal up your team there, and then explore the city at your leisure, as there are many items scattered all around.",
+                "There is also a market with two main places of interest: The Bargain Shop and the Valuable Item Buyer . The Bargain Shop offers one rare item a day, and will sell it for $ 3000, but if you don't take him up on the offer on that day, he'll offer the same item the next day for $ 5000. Either buy the item on the day it's first offered if you want it, or don't buy it at all. The Valuable Item Buyer will offer to buy one valuable item from you per day, should you have it. If you have the requested item, sell it here, because they will give you more money for it than you would if you sell the same item at the Poké Mart , and these items have no other use other than to be sold anyway.",
+                "You will find Hop at the bottom of the stairs leading to the Stow-on-Side Stadium . He will ask you to have a battle with him. He has made several changes to his team; notably, his Wooloo is no longer present.",
+                "After you defeat Hop, he will lament about his weakness before resolving to find new Pokémon to train well to become stronger. He will then leave for the next Gym. Opal will appear rather suddenly, revealing that she was watching the whole time, and gives you the League Card of the Gym Leader you will face next, who will be different depending on your game version, either the Fighting-type specialist Bea Sw or the Ghost-type specialist Allister Sh . Once you are ready, with your team healed up, enter Stow-on-Side stadium to get your next Badge ."
+            ],
+            "Trade": {
+                "Text": [
+                    "A man sitting on a western building's rooftop will offer to trade you his Hatenna Sw /Impidimp Sh nicknamed \"Fringe\" Sw /\"Peepers\" Sh in exchange for a Maractus. If you don't have one, you will be able to catch one in Glimwood Tangle up ahead."
+                ]
+            }
+        },
+        "Stow-on-Side Stadium": {
+            "Text": [
+                "If you talk to the Ball Guy here, he will give you a Heavy Ball . Regardless of your version, the Gym puzzle will be the same: You will have to ride in a cup, rotating your joystick to move it left or right. If you run into a boxing glove Sw or a glowing hand Sh , you will be boosted in the direction that it's facing. You'll have to stop to fight the Gym Trainers along the way, and once you're finished, you will take on Bea or Allister."
+            ],
+            "Sword version": {
+                "Text": [
+                    "Keep in mind that Bea Gigantamaxes her Machamp at the first opportunity, so be ready to take it on by Dynamaxing one of your Pokémon to take it on, preferably a Flying -, Fairy -, or Psychic-type (although for the latter, Machamp carries a Dark-type move, so watch out). Defeating her will earn you the Fighting Badge , the Fighting Uniform, and the TM for Revenge ."
+                ]
+            },
+            "Shield version": {
+                "Text": [
+                    "Allister Gigantamaxes his Gengar at the first opportunity, so be prepared to take it on with a Dynamax of your own, especially if you have a Ground - or Dark-type Pokémon. Ghost and Psychic are also super effective against Gengar , but using one of these types will leave you open to its Ghost-type G-Max Terror , so be careful! Defeating Allister will earn you the Ghost Badge , the Ghost Uniform, and the TM for Hex ."
+                ]
+            }
+        },
+        "After defeating the Gym": {
+            "Text": [
+                "When you leave the stadium after defeating Bea/Allister, Sonia and her Yamper will be there to talk to you, before being interrupted by a loud crash. Ascend the stairs to the left of the stadium.",
+                "You will find Bede at the top with a large Pokémon, a Copperajah belonging to Chairman Rose, commanding it to destroy Stow-on-Side's mural, hoping to find Wishing Stars hidden within. As soon as you approach, Bede will challenge you.",
+                "Half of Bede's Psychic-type team has a Fairy move, so keep that in mind if you bring a Dark type.",
+                "After you defeat Bede, Chairman Rose will come with Oleana and two League Staff members and disqualify Bede from the Gym Challenge for attempting to destroy the mural. Everyone present, except you and Sonia, leaves for Hammerlocke. Once they do, the mural crumbles away, revealing statues of the legendary heroes and two Pokémon, leading to Sonia uncovering more about Galar's legends. She will talk more about this revelation and give you two Revives for your time. Heal up your team, and prepare to enter Glimwood Tangle to continue your journey."
+            ]
+        }
+    },
+    "Part_11": {
+        "Glimwood Tangle": {
+            "Text": [
+                "With Bea / Allister and Bede defeated, your Gym Challenge continues in Ballonlea . You’ll need to venture through the Glimwood Tangle to get there. Take the path heading east from Stow-on-Side stadium and you’ll reach an eerie, dimly lit forest filled with luminous mushrooms. There’s a new batch of Pokémon to catch here, although it can be difficult to navigate through. Don’t worry if you get lost - you can interact with the mushrooms to gain some extra light. Some of these will also cause encounters with Impidimp and Morgrem . There’s some useful items to pick up along the way, including a couple of TMs and a handy Bright Powder . Head right at the first T-junction, follow the path round, then stick to the right-hand wall for the quickest path through the woods to arrive in Ballonlea."
+            ]
+        },
+        "Ballonlea": {
+            "Text": [
+                "Ballonlea is one of Galar 's smaller settlements, with Ballonlea Stadium as the main feature. It’s worth stopping to look around and chat, as you can easily miss things otherwise. The man who wants to be a Pokémon by the pile of wood gives you an Acrobatics TM if you wear the Fire-type uniform you received as a reward for defeating Kabu 's Gym and the Fire-type tracksuit jacket from the boutique found in the west of Hammerlocke . An elderly lady in one of the houses gives you the TM that Stow-on-Side's Gym Leader would have gifted in the other version to yours - this means you’ll receive Hex in Sword and Revenge in Shield. You can also obtain an Eviolite , a held item that boosts the defense and special defense of Pokémon that can still evolve, after defeating Breeder Elena and her Dottler ."
+            ]
+        },
+        "Ballonlea Stadium": {
+            "Text": [
+                "Upon entering Ballonlea Stadium, you’ll be greeted by Marnie and her Morpeko , and she’ll give you a copy of her League Card , noting that you two are essentially rivals now, before leaving. Ball Guy is back, and his prize this time is a Love Ball , a ball that has a higher catch rate on Pokémon of the opposite gender to yours. There’s also a trade available with a young girl dressed as an Eevee in the lobby, who’s after a Galarian Yamask , and she’ll trade you the regular version in return."
+            ],
+            "Gym Mission": {
+                "Text": [
+                    "The Gym Mission itself is relatively straightforward - you’ll face three trainers, and Opal will ask you a quiz question in each battle. Getting the question right boosts certain stats by one stage, but getting it wrong will lower them by one stage. The first question is impossible to get wrong, and the other two aren’t too difficult if you’ve been paying attention. After you’ve bested the Gym Trainers, it’s time to take on Opal herself. She’ll continue to question you periodically throughout the battle, although this time the stat changes from right or wrong answers are two stages rather than just one. These answers are less obvious and don’t rely on Pokémon knowledge, so thankfully we’ve done the hard bit for you."
+                ]
+            },
+            "Trainers": {
+                "Text": [
+                    "Opal’s team can be tricky, as she uses Galarian Weezing and Mawile , dual-type Pokémon that help cover Fairy 's weaknesses. Poison types that usually have a good matchup are neutral into the Weezing and do no damage to her Mawile, whereas Steel-type moves hit everything for at least neutral damage. Fire-type Pokémon provide natural resistance to Fairy moves, but beware of Ancient Power on Togekiss. Both the Mawile and Alcremie have moves that boost defense by two stages, and with Mawile's Intimidate they can make things tough on physical attackers. As the Alcremie Gigantamaxes as soon as it hits the field, the chances of it using Acid Armor are low, as it would have to outlast the three turns of Gigantamaxing first.",
+                    "Upon your triumph, Opal will hand over the TM for Draining Kiss , the Fairy Uniform, and the Fairy Badge, and maybe mercifully, she will let you know that she doesn’t want you to take over from her as the Ballonlea Gym Leader and you’re free to continue your Gym Challenge."
+                ]
+            }
+        },
+        "Hammerlocke": {
+            "Text": [
+                "When you leave Ballonlea Stadium, Opal will generously offer you a free ride to Hammerlocke - you are under no obligation to take it, but it’s where you need to go anyway so it makes sense to take her up on it. Head east towards the main stadium and you’ll find Bede, who’s still determined to regain his challenger status and become Champion. Opal has other ideas, seizing the opportunity to train him as her protégé, and the two of them head back to Ballonlea to work on his training. Continue heading east towards the train station, where Sonia 's waiting to talk to you about the significance of what you saw in Stow-on-Side. Before she can get fully into the swing of things, you're interrupted by an almighty explosion that shakes the stadium, and appears to trigger a new Power Spot all the way through Hammerlocke. Leon arrives to check things out and, for the first time ever in a Pokémon game, the adults take the initiative of investigating themselves, leaving you free to chat with the newly arrived Hop before heading out east into Route 7 ."
+            ]
+        }
+    },
+    "Part_12": {
+        "Route 7": {
+            "Text": [
+                "Head east along the bridge on Route 7 and you'll find Hop , who’s done lots more tinkering with his team. Cramorant , Toxel , and Silicobra are out, and Trevenant , Heatmor , Boltund , and Snorlax are in. It's definitely a sterner challenge, but you should still be able to defeat him without too much problem if you've healed beforehand.",
+                "After your victory, Hop vows to improve, and promises to battle you again after you both win the Circhester Gym badge. Continue along the route and head north - not that you have much choice, with two Team Yell Grunts blocking the way eastwards. It's not a particularly long route, with only two Trainers. You'll have to beat Cabbie Bruce, but you can scoot past Model Mila who's guarding a hidden Ether if you so choose. Otherwise just advance to Route 8 . You'll come back through the other half of Route 7 later."
+            ],
+            "Items": {
+                "Berry trees": {
+                    "Text": [
+                        "Shaking a Berry tree can yield Berries, but a Pokémon may be shaken loose instead and steal some of the Berries after a battle."
+                    ]
+                }
+            },
+            "Pokémon": {
+                "Text": [
+                    "While the game contains data for different hidden encounters in non-clear weather, the weather is always clear on this route."
+                ]
+            }
+        },
+        "Route 8": {
+            "Text": [
+                "While Route 7 is very straightforward, Route 8 is the complete opposite. The bulk of the route consists of ancient ruins, with a maze of ladders and stairs for the player to navigate. There's plenty of good items to be found if you want to explore, including two TMs , a Pixie Plate , and a King's Rock . For the most direct path, go down the stairs at the start, head north, then turn right at the first opportunity and head down the ladder to fight Doctor Joanna. Climb the next ladder, head north through the dry grass, go down the stairs and up the ladder, then turn right and descend the next ladder. The path funnels you in one direction for a while, through a missing section of wall before jumping a small ledge. Continue forward, dodging the Falinks on patrol from their holes, and turn right rather than going up the stairs. It is possible to dodge Musician Charles if you wait it out in the corner at the top until he moves down. Go down the next ladder, do some more Falinks dodging, then head up one final set of stairs and ascend the last ladder to reach the other side.",
+                "There's a Pokémon Camp to the right hand side, if you want to refresh your Pokémon, but there’s a tricky Double Battle against Jordan and Alison blocking your path. Otherwise head north onto the second part of the route, also known as Steamdrift Way."
+            ],
+            "Steamdrift Way": {
+                "Text": [
+                    "The Steamdrift Way itself is very short. There's hidden Star Pieces on the north side, the opportunity to catch some Ice-type Pokémon, and an optional battle against Police Officer Bobby. Head through and you'll arrive in Circhester ."
+                ]
+            }
+        },
+        "Circhester": {
+            "Text": [
+                "The snowy town of Circhester has a few main points of interest, most notably the Hero's Bath, Hotel Iona, Bob's Your Uncle restaurant, and Circhester Stadium . You can head straight to the Stadium in the north of the town should you wish, but it's worth paying Hotel Iona a visit. Some of the guests are based on GAME FREAK production staff, and more than just being a nice easter egg, they will also give you a Catching Charm , and later an Oval Charm and a Shiny Charm on fulfilling certain requirements. There's also a number of TMs dotted around the town to add to your collection. Once you're satisfied you've seen all there is to see, it's off to the Stadium for Gym number six."
+            ],
+            "Trade": {
+                "Text": [
+                    "An ice cream seller in the city square will offer to trade you his Throh Sw / Sawk Sh nicknamed \"Reddos\" Sw /\"Blubop\" Sh in exchange for a Vanillish . Considering that Vanillish are not too hard to find on Steamdrift Way and the upcoming Gym Leader's team is weak against Fighting , this could be a trade worth accepting."
+                ]
+            }
+        },
+        "Circhester Stadium": {
+            "Text": [
+                "When you enter the Stadium, you'll see Hop leaving, having lost to the Gym Leader . He'll give you the leader's League Card , resolve to do some more tinkering with his team, and then depart. The Ball Guy will gift you a Moon Ball , which has an improved catch rate on Pokémon who evolve via Moon Stone . Otherwise you can get started on the Gym Mission.",
+                "Like in Stow-on-Side , the Gym Leader here differs in each version. Sword has the Rock-type specialist Gordie , while Shield has Melony , Gordie’s mother, who uses Ice types. The puzzle is the same no matter which version you play on - much like Stow-on-Side, the changes are only cosmetic. You'll have to use the two Trap Detectors you're given to navigate your way through an environment with hidden pitfall traps. Your controller will vibrate more strongly the closer you get to the traps. If you make a wrong move and trigger a trap, you'll fall into a pit and be sent to either the start of the area or a checkpoint midway through. Once you’ve cleared each area, the location of all the trap pits will be revealed. The first two mazes let you see where you're going, but the third and final maze takes place in either a sandstorm or a snowstorm, depending on your game version, and can be much more troublesome. The Gym Trainers you fight along the way shouldn't pose too much of a challenge, as they only have one Pokémon each. Once you've navigated through all three puzzles, it's time to take on the Gym Leader.",
+                "Upon your victory, you’ll be awarded the TM for either Rock Tomb or Icy Wind , depending on which Gym Leader you beat, and the uniform that matches their type, Rock for Gordie, and Ice for Melony."
+            ],
+            "Sword": {
+                "Text": [
+                    "Gordie's team shouldn’t be too much trouble if you’ve got a well trained Water or Grass type, preferably a Special Attacker to take advantage of Stonjourner 's low Special Defense . Barbaracle can absolutely be a problem if it gets a Shell Smash off, so a fast Fighting type is also handy. While Shuckle finally makes its long-awaited debut on a Gym Leader's team, it shouldn't pose much of a problem. Gordie will Gigantamax his Coalossal as soon as he sends it out, and its Ability Steam Engine maximizes its Speed when hit with a Fire - or Water-type move - the latter are 4× super-effective, but if you're worried about not being able to take it out in one hit, it's worth remembering it also has a 4× weakness to Ground-type moves. In short, fast, Special-Attacking Water, Grass, or Ground types should see you gain the Rock Badge without too much difficulty. Defeating Gordie will also earn you the Rock uniform, and the TM for Rock Tomb ."
+                ]
+            },
+            "Shield": {
+                "Text": [
+                    "Melony is a much trickier proposition, as her Ice-type Pokémon cover each other's weaknesses well. Frosmoth , being 4× weak to Fire - and Rock-type moves, coupled with its poor Defense stat, should be easy enough to deal with. Its Ability is Shield Dust rather than Ice Scales , so it lacks the Special bulk it might otherwise have as well. Galarian Darmanitan is similarly saddled with poor physical and Special Defense , but be wary of activating Zen Mode , which will boost both its Attack and Speed , as it can easily start rolling through teams once activated. Eiscue poses a problem for physical attackers with its Ice Face Ability, taking no damage from the first physical move used against it, but special moves can bypass this, so they are recommended. It can use Hail to restore Ice Face once you break through it, but overall it lacks the damage output to really threaten - Water-type Pokémon should beware of Freeze-Dry though. Melony's ace is a Lapras that she Gigantamaxes at the first opportunity, and can prove to be quite bulky. Its G-Max Move is G-Max Resonance , an Ice-type move that sets up Aurora Veil , reducing both physical and special damage, and unlike regular Aurora Veil, does not require hail to be activated. A Fighting-type Pokémon with Brick Break can be useful to shatter the wall. Fire-type Pokémon that are useful elsewhere in the battle are a risk now with Lapras carrying Water-type moves and a secondary Water typing. With a mix of physical and special bulk, and some decent coverage as well, this can be a troublesome fight, but a mix of physical and special attackers and Rock, Fighting, Steel , or Fire types with good type matchups should see you through to collect the Ice Badge . Defeating Melony will also earn you the Ice uniform, and the TM for Icy Wind ."
+                ]
+            }
+        },
+        "After defeating the Gym": {
+            "Text": [
+                "With the sixth Gym Badge in your pocket, head back out into Circhester."
+            ]
+        }
+    },
+    "Part_13": {
+        "Route 9": {
+            "Text": [
+                "Start by heading south over the bridge, past the patch of grass and the first two trainers, and you'll find two Team Yell Grunts cheering on a Drednaw , as well as blocking your path, of course. They’re also holding up the scientist who gave you your Rotom Bike , who says he can upgrade it so that it can travel on water. You’ll only end up fighting one, because they’ll both clear off with the Drednaw when you win. Your reward is the ability to ride the Rotom Bike across water, which is handy as the second section of Route 9 , known as Circhester Bay, is impossible to cross otherwise."
+            ]
+        },
+        "Circhester Bay": {
+            "Text": [
+                "Circhester Bay is mostly water, with an island in the center that has a Pokémon Camp , as well as various small beaches. To advance to the next part of the route, Outer Spikemuth , you can travel either clockwise or counter-clockwise around the center, eventually reaching land in the south. It’s definitely worth exploring all the nooks and crannies, with plenty of money items to be found, as well as two TMs , and other good utility items as well. There’s a fair few trainers to be fought, who use either Fighting - or Water-type Pokémon depending on their Trainer class. It's possible to get through this section without fighting any of them, however, should you so wish. There’s also plenty of Water-type Pokémon to catch, as well as some sneaky Grapploct lying in wait for unsuspecting trainers."
+            ],
+            "Items": {
+                "Text": [
+                    "All items here require an upgraded Rotom Bike to be accessed, aside from the upgrade itself."
+                ]
+            }
+        },
+        "Outer Spikemuth": {
+            "Text": [
+                "The third and final section of Route 9 is Outer Spikemuth. Head up the slope towards the town and you’ll find that the entrance has been closed off, preventing anyone from getting in. Marnie will helpfully signal to you, so follow her lead down the path to the south and round the corner where she’ll be waiting for you. She knows about another way into Spikemuth, her hometown, but as she’s a rival she won’t let you use it unless you can beat her in battle, with two Team Yell Grunts coming out for support. Her team of Dark types won’t be a problem for you if you know your type chart, although her Toxicroak has a good matchup into Fairy-type Pokémon that would otherwise flourish, so be wary.",
+                "Marnie pledges to get her revenge in the Champion Cup , but true to her word, she does step aside to let you into Spikemuth."
+            ]
+        },
+        "Spikemuth": {
+            "Text": [
+                "When you enter Spikemuth, you'll find the Pokémon Center right in front of you. It's worth using it immediately, as you’ll be thrown right into the Gym Challenge. Head east after exiting the Center where Marnie is waiting for you. She'll hand you Piers 's League Card and run off, and a Team Yell Grunt will make you change into your Uniform for the Gym Mission."
+            ],
+            "Gym Mission": {
+                "Text": [
+                    "The Mission itself just has you advance down Spikemuth's one long, narrow street, battling Team Yell Grunts, who double as Gym Trainers . A Kantonian Mr. Mime will block your path at certain points - just head back the way you came for a few steps and the next Trainers will ambush you, whose defeat will make Mr. Mime retreat and allow you to continue onward. There’s a Max Revive you can pick up along the way just in case you get into trouble. All the Trainers carry exclusively Dark-type Pokémon, so Fighting-, Fairy-, and Bug-type Pokémon should make light work of them. The only difficulty might be the Drapion the last Trainer uses, but a strong Ground-type move to attack its only weakness should see you through.",
+                    "After you've defeated all the Trainers, you'll find Marnie, who explains that Team Yell shut Spikemuth's gates to prevent other Trainers from completing the Gym Challenge. Marnie tells you not to worry about that, though, and instead take on the Gym Leader, her brother Piers.",
+                    "This battle is unique for a number of reasons. First, Spikemuth is the only town without a Power Spot, so neither you or Piers can Dynamax during your battle. Second, Piers is the only Gym Leader in any Pokémon game (as of Generation IX ) to specialize in Dark-type Pokémon. He leads with a Scrafty that has Intimidate , weakening physical attackers. It also likes to use Fake Out on the first turn, causing you to flinch. You can get around this by using a Pokémon with Inner Focus , which both blocks Intimidate and prevents flinching , using a special attacker, or by using your first turn to set up an X Attack , boosting your attack to +1 on a turn you wouldn’t normally get a move off anyway. The Skuntank , which would normally be a problem for Fairy-type Pokémon that carry a good type matchup, doesn’t have any Poison-type damaging moves, so there’s nothing stopping you from utilizing them. With Dynamax unavailable, Piers can send his Pokémon out in any order, but none should pose too much of a problem if you’ve picked the right Pokémon to use.",
+                    "After you've defeated him, Piers will hand over the Dark Badge , and the Dark Uniform. Piers then reveals to Marnie that he wants her to take over as the Gym Leader after the Champion Cup, although she flatly refuses, as she won’t have time when she's Champion . You’ll be returned to the start of the Gym Challenge, and a Team Yell Grunt will give you TM85 ( Snarl ), a Dark-type special move that drops your opponent’s Special Attack ."
+                ]
+            },
+            "After beating the Gym": {
+                "Text": [
+                    "A stranger, who’s able to get into Spikemuth now that the main shutters have been opened, makes you head outside to Route 9 where there’s some sort of commotion going on. Leon ’s outside checking things out, and he promises that he can take care of whatever’s making all the noise, and that you should just focus on finishing your Gym Challenge by facing Raihan , the final Gym Leader. Before you follow him into the Route 9 Tunnel , head back to the end of Spikemuth, where you can find a pair of Choice Specs just below the stage. With everything now tidied up in Spikemuth, you can return to the outside world to continue your adventure."
+                ],
+                "Pokémon": {
+                    "Text": [
+                        "A male Team Yell Grunt named Edmund in the booth at the Gym arena will offer to trade the player his Kantonian Mr. Mime nicknamed \"Mymo\" in exchange for an Obstagoon ."
+                    ]
+                }
+            }
+        }
+    },
+    "Part_14": {
+        "Route 9 Tunnel": {
+            "Text": [
+                "The tunnel was previously blocked off to you, but with all the concern about what’s happening in Hammerlocke , it’s now possible to pass through. It’s not a particularly long tunnel, and there’s nothing of note inside, so just pass through on your way back to Route 7 ."
+            ]
+        },
+        "Route 7": {
+            "Text": [
+                "When you exit the tunnel, you’ll find that Hop ’s been waiting here for you. He explains that Pokémon have begun to Dynamax everywhere following the explosions, although he seems more focused about Leon taking some of them down. He races on ahead, and asks you to catch him up at Hammerlocke Stadium . Continue across the bridge, where you can choose to fight Gentleman Caden (this can be avoided if you stay far enough south), visit the Pokémon Camp , and pick up some useful items - the Safety Goggles at the bottom of the path south of the bridge can be very helpful in the next Gym Challenge. Otherwise you can follow Hop’s lead and continue on into Hammerlocke."
+            ],
+            "Pokémon": {
+                "Text": [
+                    "While the game contains data for different hidden encounters in non-clear weather, the weather is always clear on this route."
+                ]
+            }
+        },
+        "Hammerlocke": {
+            "Text": [
+                "Upon entering Hammerlocke, make your way back to the front of Hammerlocke Stadium, where you’ll find Hop, Sonia , and Leon. After you discuss where the mysterious red light causing Pokémon to Dynamax away from Power Spots has come from, Professor Magnolia arrives. She explains that Chairman Rose asked for her help in figuring out what’s going on, although she doesn’t seem to think there’s too much to be worried about. She does, however, want Sonia to investigate how it could be linked to the Darkest Day . Leon, as ever, just wants you to continue your Gym Challenge , so Hop heads back to Spikemuth to challenge Piers , while you’re now free to enter Hammerlocke Stadium to challenge Raihan ."
+            ]
+        },
+        "Hammerlocke Stadium": {
+            "Text": [
+                "Talk to the attendant at the end of the corridor to begin the final Gym. This Gym is different from all the others in a number of ways. Firstly, there’s no Gym Mission this time, just three Trainer battles. Second, said battles do not occur at the Gym, but at Hammerlocke Vault. And third, each battle in the Gym is a Double Battle , which can catch you off-guard if you’re not careful. While Raihan is a Dragon-type specialist, and each Gym Trainer does have a Dragon-type Pokémon, they’re all paired with a different weather setter - Pelipper for rain, Ninetales for sun, and then Abomasnow for hail. Make sure to bring your own weather options to overwrite this if you’re worried.",
+                "Raihan, like the other Gym Trainers, has a mix of weather setters and Dragons on his team. He leads with a pairing of Gigalith , whose Sand Stream ability creates a sandstorm, next to Flygon . Once one of those two are knocked out, he’ll bring in Sandaconda who can also cause a sandstorm when hits thanks to its Sand Spit Ability, assuming one isn’t up already. Raihan’s final Pokémon is a Duraludon , which he’ll Gigantamax on its first turn in battle. The sand gives the Gigalith a special defense boost, which can make it tricky to take out in one hit, so bringing a Pokémon who can change the weather can make things easier for you. If you don’t have that option available, equipping a Pokémon with the Safety Goggles you can find on Route 7 will prevent them from taking any chip damage from the sand. A strong Water-type Pokémon has a good matchup with the Gigalith and Sandaconda, and an Ice-type coverage move should easily deal with the Flygon and hit the Duraludon for neutral damage. You can also Dynamax to use Max Geyser , which has the secondary effect of setting the rain for you. Pairing that with a Pokémon that can support by reducing damage with screens or stat-dropping moves is helpful, as is using a Fighting - or Ground-type Pokémon that can fire off super effective attacks into the Gigantamax Duraludon. A Ground-type Pokémon also has a good matchup for the Gigalith, but it is worth keeping in mind that the Flygon has the Levitate Ability, negating Ground-type attacks. As long as your Pokémon are around a similar level to Raihan, this Gym shouldn’t prove too tricky.",
+                "After your victory Raihan will award you the Dragon badge, which signifies the completion of your Gym Challenge, and also allows you to catch wild Pokémon of any level. Before you leave Raihan will also hand you TM99 , which teaches Breaking Swipe , as well as the Dragon Uniform. Before you go, Hop will arrive to finish his Gym Challenge against Raihan, but you’re free to leave. When you exit, Sonia and Professor Magnolia are waiting outside to congratulate you and talk more about the strange goings on in Galar of late. Magnolia has a surprise for Sonia - her own lab coat, and the confidence and recognition that comes with it. While the two of them continue to discuss the ramifications of the mysterious beams of light, head to the station where Hop and Raihan will catch you up, with Hop having won his final badge too. The train will take you to Route 10 , which you must traverse to get to Wyndon , your next destination, so you can participate in the Champion Cup."
+            ]
+        }
+    },
+    "Part_15": {
+        "Route 10": {
+            "Text": [
+                "The train will drop you off at the station for Route 10 . You can stock up at the Poké Mart behind the counter inside before venturing outside into the snow. Hop is waiting outside, and he’ll speed off ahead to Wyndon , leaving you to traverse the route at your own pace. Route 10 starts with an uphill slope, before a flat middle area with some grass patches and a number of trainers, and a downhill slope at the end which leads into Wyndon. The grassy areas are filled with plenty of wild Ice-type Pokémon that can be caught, and every battle takes place with hail in effect, so a pair of Safety Goggles is useful to prevent chip damage, as the majority of trainers have multiple Pokémon.",
+                "Head up the slope, fighting Doctor Graham, then head round to the east. The first two Trainers, Hiker Douglas and Office Worker Ronald, can be avoided, but you will have to beat either Cabbie Geoffrey or Postman Harper to progress - the latter is an easier battle, although there’s nothing preventing you from doing both if you want the extra experience. To the west there’s a Pokémon Camp where you can refresh your Pokémon, before heading up the hill, beating the final three trainers en route - these battles are mandatory but manageable, with the last of the three being a double battle. When you reach the top of the hill, the weather will clear to reveal the entrance to Wyndon. Head down the slope, making sure to pick up the TM for Stomping Tantrum off to the right-hand side, before entering Wyndon."
+            ],
+            "Pokémon": {
+                "Near Station": {
+                    "Text": [
+                        "This encounter table has a notable quirk:",
+                        "This encounter table has two notable quirks:"
+                    ]
+                },
+                "North": {
+                    "Text": [
+                        "This encounter table has a notable quirk:"
+                    ]
+                }
+            }
+        },
+        "Wyndon": {
+            "Text": [
+                "Hop enters Wyndon at the same time as you, and charges off ahead to Wyndon Stadium to participate in the Champion Cup . There’s some useful items dotted around, and a Trainer in one of the houses will give you a Rotom Catalog , allowing you to change Rotom forms, if you can beat him in battle. You can also trade a Frosmoth for a Duraludon in a house on the east of the city, should you wish. Otherwise, follow Hop’s lead and head northeast to the Stadium to continue your adventure."
+            ]
+        }
+    },
+    "Part_16": {
+        "Wyndon Stadium": {
+            "Text": [
+                "When you enter the Stadium, you can find Marnie waiting to your right, and the Ball Guy to your left - he’ll give you a Dream Ball if you talk to him. Hop is already checked in at the registration desk, so talk to the staff member there once you feel ready and he’ll get the semifinals underway. You’ll be transported to the locker room where you can make any final team adjustments, before heading through the double doors to take on Marnie, your first opponent."
+            ],
+            "Round 1: Marnie": {
+                "Text": [
+                    "Marnie’s team, as expected, is stuffed with Dark-type Pokémon, so Fighting -, Fairy -, and Bug-type Pokémon should hit most of the team hard. She leads off with a Liepard that can be a nuisance, as it knows Fake Out to flinch you on the opening turn, Torment to prevent you using the same move consecutively, and Snarl to drop your special attack stat. You can nullify Fake Out with a Ghost-type Pokémon, or use the turn to apply an X item to boost a stat of your choice.",
+                    "The team order varies from here. Toxicroak isn’t as scary for Fairy-type Pokémon as it might be, as it relies on the combination of Toxic and Venoshock to deal super effective damage, while only being neutral to Fairy-type attacks. Swagger can be dangerous, and the Scrafty has access to Swagger as well, while threatening strong physical attacks in Brick Break , Crunch and Scary Face to drop your speed. Marnie’s signature Morpeko is frail, without having high base power moves, so shouldn’t pose too much of a problem.",
+                    "She closes out with Grimmsnarl , which she will always Gigantamax on its first turn in battle. Fighting-type Pokémon should beware of Max Starfall or Spirit Break , depending on whether Grimmsnarl is still Gigantamaxed, while the G-Max Move G-Max Snooze can make your Pokémon drowsy, forcing you to switch them out or risk falling asleep. If you were able to obtain Urshifu from the Isle of Armor it performs well in this battle, and Steel-type Pokémon or moves will help you deal with the Toxicroak and Grimmsnarl if they cause you any problems.",
+                    "After defeating Marnie, she promises to watch with Piers from the stands before you head back to the locker room, where Hop is heading out for his semifinal. After a transition, a staff member informs you Hop was a quick and comfortable victor, so you’ll face your old rival for a place in the tournament proper. Your team is fully healed after your previous battle, but you can still make some adjustments here before your upcoming match."
+                ]
+            },
+            "Round 2: Hop": {
+                "Text": [
+                    "Hop leads off with his trusty Dubwool , which has a fiendish combination of Cotton Guard to boost its defense, Body Slam with a paralysis chance, Zen Headbutt which can flinch , and Reversal , which gets stronger the less HP Dubwool has. It can be a rather annoying moveset if the secondary effects keep triggering, but strong Fighting-type Pokémon shouldn’t have too much trouble.",
+                    "His Snorlax is similar as a bulky Normal-type Pokémon, although it has no Normal-type attacks. Snorlax is so slow already that it doesn’t really care about Hammer Arm reducing its speed further, High Horsepower can hit hard, and Heavy Slam can be very strong if you’re using a smaller Pokémon, regardless of type matchups. It does, however, share that weakness to Fighting. Hop’s Corviknight threatens any Fighting-type Pokémon with a powerful Drill Peck , and has stats that make it difficult to take out in one hit, especially if it uses Swagger and you get unlucky with confusion. Fire and Electric moves are a good option if you have them.",
+                    "Pincurchin , like Snorlax, weirdly doesn’t have a full move set. It can use Curse to bolster its attack and defense at the cost of a drop in speed, although its base speed is slow enough that, just like Snorlax, you should always outspeed anyway. A Poison Jab , if it can use Curse beforehand, could really hit hard, though Steel-type Pokémon won’t have to worry about this.",
+                    "Hop finishes with the first partner Pokémon he took back in Postwick , which has an unfavorable type matchup to the first partner Pokémon you selected, so now is a great time to run that first battle back. Hop will Dynamax Inteleon , Rillaboom , or Cinderace on its first turn in battle. Each carries a set of four attacking moves of different types, which give excellent coverage against whoever you have in battle. Inteleon with Icy Wind / Max Hailstorm and Rillaboom with High Horsepower/ Max Quake both have the ability to hit your chosen super effectively, so be careful if you’re not sure whether you can finish them in one hit.",
+                    "A well balanced team should see you through, especially as you can use items to heal yourself - Hop will if his Pokémon are ever at low HP, so it’d be unfair if you were unable to as well.",
+                    "After your victory, Hop will congratulate you on the battlefield before you make your way back to the foyer where Leon , in his signature pose, is waiting for you both. He’ll offer his praise as well before you and Hop head back to the hotel, and upon your arrival a reporter will interview you about your victory and the upcoming Finals. Hop cuts off the interview at that point, letting you both head back to your rooms before meeting Leon for dinner. Leon however is late, even by his standards, and Piers arrives instead to let you know that the Champion went to Rose Tower , and he offers to show you the way, with a little support from Team Yell , of course. Leave the hotel and you can explore Wyndon , should you wish, before talking to Piers outside to continue your adventure."
+                ]
+            }
+        }
+    },
+    "Part_17": {
+        "Wyndon": {
+            "Text": [
+                "Upon leaving the 'Rose of the Rondelands' hotel, Piers is waiting outside for you so he can show you how to get to Rose Tower to find Leon . Talk to him, and Hop , Marnie , and Team Yell will join you. But, before you can set off, Chairman Rose ’s secretary Oleana will interrupt you. Oleana informs you that Rose and Leon are having an important meeting which must go undisturbed, and that only those with a special access key are able to ride the monorail to Rose Tower in the first place anyway. She gives the key to a member of the League Staff , who is identical to the others bar a different pair of sunglasses, to make sure that no-one can obtain it. Take Piers up on his offer to go to the plaza to start looking for him.",
+                "You can find the Staff member staring into a wall to the right of the station, with a Team Yell Grunt trying to get him to turn around. Surprise him and he’ll break cover and challenge you to a battle. After the first turn, Marnie and Team Yell will cheer you on, giving you a two-stage boost to your Speed.",
+                "If you beat him, he’ll run off and hide again. This time, he’s to the west of the statue in the plaza, pretending to be part of a three-way conversation. Marnie and Team Yell will cheer you on again at the end of the first turn, this time boosting both Defense and Special Defense by two stages each.",
+                "Eric will hide again when you win - keep heading west and you’ll find him holed up in the phone booth. You’ll get another cheer after the first turn of battle, this time granting a two-stage boost to both your Attack and Special Attack.",
+                "After his third defeat, Eric scarpers into the station, and after following him in Piers breaks out into an impromptu concert in the concourse, allowing you, Hop, and Marnie to grab the key in all the confusion caused and take the monorail to Rose Tower."
+            ]
+        },
+        "Rose Tower": {
+            "Text": [
+                "Upon arrival at Rose Tower, Marnie and the newly-arrived Piers agree to wait by the entrance to help stand guard, allowing you and Hop to proceed up Rose Tower. Before you can do so, you’ll be challenged by a staff member preventing you from going any further, although with just a Durant , this battle shouldn’t be an issue.",
+                "Elijah will stand aside once you defeat him, so step into the giant elevator to ascend the tower. Before you can reach the top, you’ll be challenged by Macro Cosmos members trying to thwart your charge upwards, and will have to win three Double Battles , where you’ll be partnered by Hop, who uses his Dubwool , Corviknight , and whichever first partner Pokémon he selected, all with the same movesets as the Semifinal battle (except for Dubwool, which has forgotten Cotton Guard). All the staff members use Steel-type Pokémon, so use your Fire , Fighting , and Ground types to combat them. Hop will handily heal you both between battles, making things easier for you.",
+                "When you reach the top, you’ll find that rather than Leon or Rose, Oleana awaits you. She vows not to let you go any further and interfere with the Chairman’s plans, and you’ll be thrust into another battle.",
+                "Oleana’s team is quite type diverse, and each Pokémon poses its own problems. Froslass can Double Team to make it tricky to hit; Tsareena ’s Attract can make attacking a coin flip; the Salazzle is a strong Special Attacker ; and the Milotic has the Ability Competitive , which boosts its Special Attack by two stages if it gets a stat drop. With Safeguard , Aqua Ring , and Recover , combined with strong natural bulk, this Milotic has the ability to start sweeping if you accidentally trigger the Ability.",
+                "Oleana will Gigantamax her ace, Garbodor , at the first opportunity. It has solid Defense, Special Defense, and HP, so can likely survive a non-super-effective hit, and the Ability Weak Armor will decrease Defense and increase Speed when hit by a physical move, so be wary when using physical attackers as it might outspeed you after a turn or two.",
+                "Upon your victory, Oleana chastises herself for not being able to win, but tells you that it doesn’t matter anyway, as Rose has all the Wishing Stars he needs. You’ll find Rose in conversation with Leon, telling the Champion about an impending energy crisis - in a thousand years, anyway. Rose is insistent his plan must begin immediately, with Leon imploring the Chairman to delay until after the Championship tomorrow. Leon and Rose tell you not to worry, and Leon promises to actually take you to dinner, with Rose, now alone, ominously vowing to change the course of history.",
+                "You pick things up back at the hotel the next day, where a League staff member will greet you and Hop to take you to the Stadium , so you can begin the Finals of the Champion Cup ."
+            ]
+        }
+    },
+    "Part_18": {
+        "Wyndon Stadium": {
+            "Text": [
+                "Hop is waiting for you at the bottom of the steps up to the Stadium. Follow him up and enter, before checking in at the registration desk. You’ll be brought into the locker room with all the Gym Leaders , minus Opal , preparing for their first matches. Once you’re happy with your own preparations, head out onto the pitch for the opening ceremony.",
+                "Leon is leading the crowd in the absence of Chairman Rose , but before the battles can commence, you’re rudely interrupted by a familiar face - Bede is back! Now wearing the fetching Fairy uniform, Bede challenges you to a battle to prove they should never have been expelled from the Gym Challenge , and is coming for your Finals spot, pledging to retire as a trainer if they lose.",
+                "Bede leads with a Mawile with Intimidate , which drops your attack one stage, and as a part Steel-type Pokémon is immune to Poison-type moves that would normally be super effective against Fairy-types . All of Bede’s other Pokémon have a secondary Psychic-type , making using Poison-type Pokémon a risky strategy. As such, Steel-type Pokémon are a better bet, hitting Mawile neutrally and being super effective against the rest of Bede’s team, while resisting STAB moves from all of their Pokémon. Bede’s ace is Hatterene , which they will Gigantamax on its first turn in battle.",
+                "After your victory, Bede reneges on their retirement plans, vowing to train even harder and eventually take over Opal’s role as the Fairy-type Gym Leader, while you return back to the locker room to get ready for your first finals match, where you’ll take on Nessa .",
+                "Nessa leads with Golisopod , with the priority move First Impression and the Emergency Exit ability switching it out below half HP for another First Impression later. Pelipper ’s Drizzle sets up the rain to boost Water-type attacks, while also doubling the speed of Seaking and Barraskewda thanks to their Swift Swim ability. The Pelipper can also set Tailwind, doubling the speed of Nessa’s team for four turns, helping her further win the speed war. The order of these Pokémon varies, so be prepared, especially as Barraskewda will outspeed you in the rain. Nessa closes out with her Drednaw , which she must have fed some Max Soup as it can now Gigantamax, which it will at the first available opportunity.",
+                "With Drednaw dispatched and Nessa defeated, your next opponent is the Gym Leader from Stow-on-Side, meaning you’ll face Bea on Pokémon Sword , while Allister awaits on Pokémon Shield .",
+                "Bea’s Fighting-type Pokémon can output lots of damage, but are all physical attackers, so might struggle to break through Pokémon with a high defense stat, especially if they resist their Fighting-type attacks. A strong special attacker, preferably a Psychic-type or Flying-type , should handle her team without any major concerns, with most of her team lacking good coverage options. Bea will once again Gigantamax her Machamp on its first turn in battle.",
+                "Allister’s team has really good synergy against physical attackers, with Chandelure ’s Will-O-Wisp cutting the damage output in half, Rock Tomb on the bulky Dusknoir slowing you down, and Weak Armor on both Polteageist and Cursola to try and outspeed after taking physical attacks. Cursola can be a particular problem, with Hex dealing more damage if you do get burned, and Strength Sap able to cut your attack even further. Special attackers have a much easier matchup, especially Dark-type Pokémon, with Allister lacking ways to hit them super effectively in return. Gengar , his ace, will Gigantamax on its first turn in battle, as it did in your Gym Battle.",
+                "Marnie and Piers are already in the locker room after the latter’s semifinal match against Raihan . Piers lost, which means you’ll face Raihan for the right to take on Champion Leon.",
+                "Raihan’s team has its usual mix of Dragon-types interspersed with weather setters. He leads with Torkoal , which uses its Drought ability to create harsh sunlight. Its high physical defense stat makes special attackers preferable, but Water-type Pokémon not only have their STAB moves weakened by the sun, but are also vulnerable to a single turn Solar Beam . A quick Rain Dance to put the weather in your favor should deal with the Torkoal easily enough. Goodra has outstanding special bulk, and has the dangerous Thunder , which always hits in the rain, countering Water-type leads to tackle the Torkoal. Even if you don’t overwrite the harsh sunlight, Goodra has Rain Dance to implement that strategy. Physical attackers should beware of Turtonator ’s Shell Trap - using a special move to avoid triggering its ability is wise. It can also choose to use Sunny Day to boost its Fire-type attacks, if it hasn’t expired after removing Torkoal. Flygon carries Sandstorm , coupled with strong physical attacks, but its double weakness to Ice-type moves shouldn’t make it too tricky to deal with. Raihan Gigantamaxes his Duraludon on its first turn in battle, and its high physical defense with increased HP make special attackers once again preferable.",
+                "With victory over Raihan, only one battle remains - Leon, who endorsed your Gym Challenge, the reigning Champion, is all that stands between you and battling immortality. Hop gives you a final pep talk before grabbing a seat in the stands. When you’re ready, head out once more for your shot at glory.",
+                "Leon plays up the occasion in the middle, but just as you’re about to begin, Chairman Rose appears on the jumbotron. Rose has decided it’s time to bring about the Darkest Day , that his plan can wait no longer, and huge beams of light erupt from the middle of Galar ’s stadiums as you and Leon run to safety.",
+                "Leon chastises himself for not realizing Rose’s plan sooner, and heads off to Hammerlocke , where the Chairman appeared to be, to find him. You and Hop try to work out how to help, and decide to head to the Slumbering Weald to find the Pokémon of legend, remembering the mysterious encounter you two had there at the start of the story.",
+                "Sonia was already investigating the Weald when you arrive at home, and your Mum comes out to help inform the new Professor about Chairman Rose’s ominous speech. With that, Sonia gives you three Max Revives , and you and Hop enter the Slumbering Weald to find the mythical Sword and Shield."
+            ]
+        }
+    },
+    "Part_19": {
+        "Slumbering Weald": {
+            "Text": [
+                "For the first time since the start of our adventure, we’re back in the Slumbering Weald , although this time our mission is slightly more pertinent than saving some runaway Wooloo (sorry, Wooloo). Advance through the first few patches of grass with low level Pokémon, and continue down the long path deeper into the woods.",
+                "The second section features Pokémon much closer to your current level, and rather than one clear path there’s a much more maze-like array of options. You can pick up some handy items, including TM86 ( Phantom Force ), if you explore, but for the fastest way through head left at the first fork, right at the second, then keep left and head forward until you meet Hop.",
+                "When you approach Hop , he’ll mention how the fog is even deeper than the first time you entered the Weald, when you saw either Zacian or Zamazenta , and as if by magic, the two appear right in front of you. The fog deepens again, however, and by the time it clears again they have disappeared.",
+                "Sonia arrives, but much to Hop’s dismay she doesn’t believe his claims to have seen the legendary Pokémon . Her research has, however, uncovered their existence, and their names (which were previously unknown to the player character). Hop, ever eager, bounds off hoping to find the Sword and Shield they used to carry, so follow him into the deepest part of the forest.",
+                "Awaiting the both of you there is a secluded glen, with an old stone arch over what looks like some sort of altar beneath. Two items are left laying there - a Rusted Sword and a Rusted Shield . Approach them and your character will take the item that matches the version you’re playing on - Hop will collect the other. With your task here now completed, it’s time to head to Hammerlocke to try and put the Sword and Shield to use. Talk to Hop and the two of you will take a Flying Taxi straight there."
+            ]
+        },
+        "Hammerlocke": {
+            "Text": [
+                "Raihan is awaiting your arrival in Hammerlocke, but before he’s even finished speaking Hop charges off to help his brother. The Gym Leader tells you that the town has been evacuated, before some words of encouragement as you head into the Vault.",
+                "Oleana is pacing outside nervously, and she reveals her Pokémon spontaneously Dynamax in the Stadium, and although Raihan took care of it she’s now worried about what could happen if more Pokémon are affected, and if the underground power plant could collapse with Chairman Rose inside. It turns out that Rose has awoken Eternatus , the Pokémon responsible for all the Dynamax energy. Take the lift down to the plant to see if you can stop things escalating."
+            ]
+        },
+        "Energy Plant": {
+            "Text": [
+                "Hop has made it already, but you can head past him to confront Chairman Rose. Rose explains how this was all his plan to secure the future of Galar ’s energy by awakening Eternatus, and how he has already succeeded. The only way to try and stop things is to defeat him in battle.",
+                "Rose, like the rest of Macro Cosmos , is a Steel-type specialist. As such, Ground-type , Fighting-type , and Fire-type moves and Pokémon are a must here. Fire-types are especially useful, with two of his Pokémon carrying a dual weakness. Special attackers also have a good matchup, with his team carrying more physical than special bulk. Despite the grand stage and build-up, this battle shouldn’t be too difficult if you know your type matchups. Rose will Gigantamax his Copperajah at the first opportunity, but  if you've been able to deal with the rest of the party than this shouldn't be much of a challenge for you at this point.",
+                "After his defeat, Rose will let you take the lift up to the roof, just in time to see Leon capture Eternatus. At least, that was the plan, anyway…"
+            ]
+        },
+        "Eternatus": {
+            "Text": [
+                "Upon exiting the elevator you’ll find Leon and his trusty Charizard standing face-to-face with Eternatus, the Pokémon at the heart of the Darkest Day . While he compliments you on coming up to help, he explains there’s no need, as he (wildly optimistically) throws a single Poké Ball to catch the awakened legend. When, unsurprisingly, Eternatus breaks out, you’ll be thrust into a battle with it.",
+                "Eternatus in its base form shouldn’t pose too much trouble to a full team, and as you can’t throw any balls you have no choice but to defeat it. Doing so only unleashes its vastly more powerful form, Eternamax Eternatus.",
+                "With a ludicrous base stat spread, Eternamax Eternatus would be a tough challenge for any single trainer, but the battle plays out like a Max Raid, with you and Hop working together to take it down. Despite your team being fully healed, whenever you try to use a move a mysterious power stops anything from happening. After a few fruitless tries, Hop suggests using the Rusted Sword and Rusted Shield to see if anything changes. Doing so awakens Zacian and Zamazenta from the Slumbering Weald, and the two arrive just in time to help you in battle. Not only that, they combine with the items to take on their more powerful Crowned Sword and Crowned Shield forms, and with their help you can now battle Eternatus.",
+                "Use your party to keep chipping away at Eternatus, and with the help of Zacian and Zamazenta (and Hop) you should be able to take it down, before catching it in the ball of your choice - this catch is forced, and is guaranteed, so you can use whichever ball you wish. With Eternatus caught and the Darkest Day prevented, the two dogs take off into the distance, leaving you and Hop behind."
+            ]
+        }
+    },
+    "Part_20": {
+        "Wyndon": {
+            "Text": [
+                "It’s three days after Eternatus when we return, and you overhear people in the hotel gossiping about how Rose brought about the Darkest Day , and how he turned himself in to the authorities. Hop arrives to tell you to go to Wyndon Stadium , where Leon ’s waiting for you to have the Championship Match that was rudely interrupted by Rose three days ago. Head to Wyndon Stadium, where your date with destiny awaits."
+            ]
+        },
+        "Wyndon Stadium": {
+            "Text": [
+                "After checking in at the desk and changing into your uniform, it’s time for your entrance, with Leon coming through the opposite corridor. The two of you meet in the middle, and Leon even mentions how wild the crowd is as a result of your success in capturing Eternatus and saving the Galar region. Leon, as confident as ever, vows victory, and you both take your places for the final battle.",
+                "Leon always leads with Aegislash , and his team always has the double Dragon-types of Dragapult and Haxorus , as well as the final Evolution of whichever first partner Pokémon he was left with. Rhyperior , Seismitoad , or Mr. Rime will take up the remaining spot, depending on your first partner of choice, while he always closes with his ace, Charizard , which he Gigantamaxes at the earliest opportunity.",
+                "Leon’s team is fitting for a Champion , carrying good type diversity, strong Pokémon, and a mixture of physical and special attackers. Play your type matchups well, remember that you can use items to heal or boost if necessary, and your toughest battle so far is, while difficult, definitely winnable.",
+                "After your victory, Leon thanks you for the best match he’s ever had, and with your Mom and Hop in the stands and confetti falling, he raises your arm as the brand new Champion of Galar!"
+            ]
+        }
+    },
+    "Part_21": {
+        "Postwick": {
+            "Text": [
+                "With disaster averted, and now the official Champion , after a brief cutscene of the Slumbering Weald we find ourselves at home in our bedroom. Professor Magnolia arrives and gives us a Master Ball as a thank you present, before leaving to allow us to continue our adventure. Head down the road to Hop and Leon’s house, and once you’re there go upstairs into Leon ’s bedroom. You’ll find a Poké Ball there, which Leon has left as a gift for you. Inside is a Charmander that has the Gigantamax factor, so when you evolve it into a Charizard it will already be able to Gigantamax without having to be fed Max Soup . With everything taken care of here, it’s time to head back into the Slumbering Weald."
+            ]
+        },
+        "Slumbering Weald": {
+            "Text": [
+                "Our destination here is the altar in the deepest part of the Slumbering Weald, where we retrieved the Rusted Sword and Rusted Shield earlier. Hop is here as well, taking some quiet thinking time, but he congratulates you on your victory before, inevitably, challenging you to another battle. He gives you some time to make any changes to your team as you wish before you can initiate the battle when you’re ready.",
+                "Hop’s team is almost identical to the one you faced in the Champion Cup ; the only difference is a change of movesets and the addition of Cramorant . Given that you have just beaten Leon, who has a tougher team at a higher level, Hop should be relatively easy to dispatch.",
+                "After the battle Sonia emerges to congratulate you on your victory over Leon, and to reveal that she’s taken over from Magnolia as the Professor. She even gives you a signed copy of her book, although Hop already bought his own copy. Sonia then prompts you both to return the Rusted Sword and Rusted Shield to their rightful place at the altar.",
+                "With the items returned, you can now exit the Weald. Or, at least, you could, were you not suddenly blocked by two rather strange looking gentlemen. They recognize Sonia, but accuse her book of being filled with lies, before revealing themselves as Sordward and Shielbert , who declare themselves to be descendants of the first kings of Galar. The two self-described “celebrities” then take the Rusted Sword and Rusted Shield that you’ve only just returned, before challenging you to a battle - you’ll face Sordward on Sword, and Shielbert on Shield."
+            ],
+            "Pokémon Shield": {
+                "Text": [
+                    "Upon your victory you’ll successfully reclaim the Rusted Sword or Rusted Shield, only to find Hop lost to the other brother, his mind apparently elsewhere. The brothers then identify you as the trainer who took down Eternatus , stealing their glory, and also present when Bede destroyed the mural in Stow-on-Side . The two of them then head off, with Hop following closely behind them to try and retrieve the missing relic. Sonia suggests meeting up at the lab in Wedgehurst - head there next."
+                ]
+            }
+        },
+        "Wedgehurst": {
+            "Text": [
+                "The first person you find isn’t Sonia, but a person the professor reveals to be her new assistant, to help with her workload. Sonia takes you to her Power Spot Detector, which should help you track down Sordward and Shielbert. It’s picking up a particularly strong reading in Turffield Stadium , indicating the two brothers might be there, so that’ll be our next destination."
+            ]
+        }
+    },
+    "Part_22": {
+        "Turffield Stadium": {
+            "Text": [
+                "Upon arrival at Turffield Stadium , you’ll find Milo and Piers in conversation together. It transpires they were having an exhibition match when a Dynamax Pokémon charged in and interrupted proceedings. Hop then emerges, letting us know he’s been helping evacuate people to safety after chasing Sordward and Shielbert here, although they were able to get away in all the commotion. The four of you then enter the arena to challenge the Dynamaxed Pokémon, a Tsareena , in a Max Raid battle."
+            ],
+            "Dynamax Pokémon": {
+                "Text": [
+                    "Hop will use his first partner Pokémon, Piers uses his Obstagoon , while Milo will send out either Flapple (on Sword) or Appletun (on Shield). Choose a Pokémon with a good type matchup, Dynamax if you need to, and this should be a comfortable win (especially if Hop has Cinderace ).",
+                    "With Tsareena defeated, conversation turns to how it was able to Dynamax without a trainer present, and the fact that it seemed unable to control its power. With everything taken care of, Milo hands you his rare League Card and departs with Tsareena. The brothers then appear in the Stadium shop, and reveal they were behind the incident, before fleeing. When you leave the Stadium Sonia appears, and tells you that there’s similar problems at Hulbury Stadium and Motostoke Stadium as well. You can choose which to go to next - we’ll start with Hulbury ."
+                ]
+            }
+        },
+        "Hulbury Stadium": {
+            "Text": [
+                "Nessa ’s been waiting for you in the Hulbury Stadium foyer. Make sure you have your chosen Pokémon at the head of your party before you enter, as after a brief chat you’ll head straight in to battle a Dynamax Gyarados ."
+            ],
+            "Dynamax Pokémon": {
+                "Text": [
+                    "Hop and Piers will continue to use their starter and Obstagoon respectively, while Nessa uses her Drednaw . Again, with the right choice of Pokémon (a strong Electric-type is particularly effective) and Dynamax available, the Gyarados should be dealt with easily enough. Nessa hands you her rare League Card after the battle, and you can head off to Motostoke to take on the next battle."
+                ]
+            }
+        },
+        "Motostoke Stadium": {
+            "Text": [
+                "Kabu is ready and waiting inside the stadium, and after a little chit-chat you head in to take on the next battle, a Dynamax Torkoal . You don’t get the opportunity to change Pokémon after you enter the Stadium, just like in Hulbury, so make sure you have the right Pokémon at the front of your party beforehand."
+            ],
+            "Dynamax Pokémon": {
+                "Text": [
+                    "Kabu brings his Centiskorch into battle alongside the three of you. This might be trickier than the other two battles, as Torkoal’s Drought sets up the sun which reduces damage from Water-type attacks, and Torkoal has a high defense stat, but special attackers shouldn’t have too much of an issue, even if they only hit for neutral damage. After Kabu hands over his rare League Card, your Rotom Phone rings. It’s Sonia, and the brothers have turned up at the lab demanding Wishing Stars , so make your way there to stop them from causing too much trouble."
+                ]
+            }
+        },
+        "Wedgehurst": {
+            "Text": [
+                "Upon your arrival at the lab, Sordward and Shielbert are trying to coerce Sonia into giving up the Wishing Stars, although she and Magnolia refuse to co-operate. Hop bursts in, followed by you and Piers, and Hop goads the brothers into battle by calling them “weirdos”, and they challenge you and Hop to a double battle."
+            ],
+            "Sordward and Shielbert": {
+                "Text": [
+                    "You have an inherent advantage in this matchup, as you can bring a full party of six Pokémon, while everybody else only has three available. With four Steel-type Pokémon, a Fire-type can do particularly well here, although watch out for Stone Edge on the Bisharp . Given the disparity in numbers, this fight shouldn’t be too difficult, especially as you can use items to heal if required.",
+                    "After the battle you’re interrupted by Sonia’s assistant, who’s been working undercover for Sordward and Shielbert this entire time, and has used your battle as a distraction to nab the Wishing Stars! With their cunning plan successfully completed, the three of them leave to continue their scheme. Exit the building and you’ll find all of the other Gyms are now in danger (bar Spikemuth , which doesn’t have a Power Spot). These can also be tackled in any order, so heal up your party, pick a destination, and head out."
+                ]
+            }
+        }
+    },
+    "Part_23": {
+        "Stow-on-Side Stadium": {
+            "Text": [
+                "As with the previous battles, these Stadiums can be visited in any order - we’re following the order of the Gym Challenge , and heading to Stow-on-Side Stadium next. Depending on your game version, you’ll find either Bea or Allister inside. Rather than taking on the Dynamax Pokémon as a foursome though, this time it’s just you, although you are able to use your full party as a result. On Sword you’ll face Conkeldurr , while Shield pits you against Dusknoir .",
+                "Both Pokémon carry lots of coverage options, and as soon as you enter the Stadium you can’t edit the order of your party, so make sure you have the correct Pokémon out front. Both opponents are quite bulky, but the ability to Dynamax coupled with a full party means you shouldn’t face too many problems. You’ll receive the Gym Leader ’s rare League Card after you succeed, and you can then leave to tackle the next Stadium."
+            ]
+        },
+        "Ballonlea Stadium": {
+            "Text": [
+                "Bede is waiting for you when you enter, but it turns out he’s already dealt with most of the Dynamax Pokémon himself, and instead what he wants is to battle you! You’ll be thrown straight into the fight, so again make sure you have your lead Pokémon of choice at the front of your party before entering the Stadium.",
+                "This is a tougher battle than the recent Dynamax battles have been, especially as Intimidate on the Mawile can be annoying, but the rest of his party also being part Psychic-type expands their list of weaknesses - this means that Ghost-type Pokémon can also be very handy here. With a team of four against your six, it should still be fairly comfortable for you. Both Bede and Opal hand over their rare League Cards after your triumph, and Bede heads back inside to continue clearing up, leaving you free to head to the next Stadium (when Hop eventually stops chit-chatting)."
+            ]
+        },
+        "Circhester Stadium": {
+            "Text": [
+                "You’ll find either Gordie or Melony inside the Stadium, and much like in Stow-on-Side , everyone goes to take on one Pokémon each, so you’ll pit your full party up against either Gigalith or Froslass .",
+                "As this is another six against one battle, and you can order your party optimally before you enter the Stadium (but not after), it shouldn’t be too difficult, especially with the ability to Dynamax yourself. The Gym Leader will once again hand over their rare League Card after you win, and when they go to get things back to normal you can go to Hammerlocke Stadium to take on the last challenge."
+            ]
+        },
+        "Hammerlocke Stadium": {
+            "Text": [
+                "When you enter the Stadium, you can find Sonia standing outside the elevator to the Energy Plant, although at the moment she’s unable to open it, so continue past her to Raihan . As before, the plan is for each character to tackle one Pokémon each, and it’s up to you to take down a Dynamax Haxorus .",
+                "With the six Pokémon to one advantage, this is a very winnable fight, although the Haxorus has good coverage to hit Pokémon that are super effective against it, but if your team is varied and in good health you should be fine. Raihan hands over his rare League Card as a reward, and just in time as Sonia calls, telling you to go to the door to the Energy Plant to pursue the dastardly duo."
+            ]
+        }
+    },
+    "Part_24": {
+        "Energy Plant": {
+            "Text": [
+                "Speak to Sonia at the elevator doors in Hammerlocke Stadium , and her Yamper will handily give them the jolt of electricity needed to open. Head down to the Energy Plant and you’ll be confronted by either Sordward or Shielbert . They’ll then reveal their plan to you - they were testing the ability to Dynamax Pokémon against their will in all the Stadiums, and plan to do the same to Zacian and Zamazenta to prove that they were unworthy and incapable of saving Galar , thus proving that the brothers were in fact descended from royalty. You can try to put a stop to this, of course, by defeating them in battle.",
+                "Neither brother carries a full team of six Pokémon, and Sordward hasn’t even evolved his Doublade yet, but with each Pokémon at level 64 this can be a tricky battle if you’re not prepared. Both lead with Sirfetch’d , which can give you valuable setup time as Meteor Assault has a recharge turn afterwards. Sordward has better type diversity than Shielbert - a strong Fire-type deals well with the Steel-type Pokémon on both teams, however, and only really has to worry about Liquidation from Golisopod , but if you can play around it then you should be good to go.",
+                "After your victory a familiar howling echoes from the summit, and it seems the precious battle might have given the brothers enough time to enact their nefarious scheme. Heal your party as required before going up.",
+                "On the roof you’ll find the other brother standing before Zacian ( Shield ) or Zamazenta ( Sword ), having used the appropriate artifact to lure them there before bombarding them with Galar particles. In this wild, out of control state, only one person is strong enough to stop it, and that’s you! You can’t capture them in this battle, so just knock them out instead - remember that in the Hero of Many Battles form they’re not part Steel-type, and also not as powerful, and it should be smooth sailing.",
+                "After your win Zacian/Zamazenta charges towards Hop , only for the other Legendary Pokémon to appear in the nick of time to stop them! The previously enraged Pokémon then flees, and Hop takes the Rusted Sword or Rusted Shield back to its rightful place in hopes of calming it down. You then have a stare down with our newly-arrived Pokémon, before it settles itself in the middle of the arena, waiting for you to take it on!",
+                "Make sure to save your game if you want to catch it in a specific ball, because this catch, unlike Eternatus , is not guaranteed, and this is your only chance. It’ll be at level 70, and in its more powerful Crowned Sword (Zacian) or Crowned Shield (Zamazenta) form , so it can very easily sweep your team if you’re unprepared. You do, of course, have the Master Ball at this point, and now would be an opportune time to use it.",
+                "With Zacian/Zamazenta now captured, Sordward and Shielbert recognise your strength and the error of their ways, and ask Piers to hand them over to the authorities (but not before Piers hands over his rare League Card ). As they leave your Rotom Phone rings - it’s Hop calling, and he wants you to go to the Slumbering Weald to help with the other Legendary Pokémon. If that wasn’t persuasive enough, your own Legend howls in agreement, so head back to the heart of the forest."
+            ]
+        },
+        "Slumbering Weald": {
+            "Text": [
+                "Once you arrive at the Slumbering Weald you can find Sonia at the entrance, and she will take you straight to the altar in the center of the woods. There you’ll find Hop trying to calm down Zacian/Zamazenta. Somehow, not only has Hop succeeded, but he’s convinced the Pokémon enough to let him catch it (in a Poké Ball , no less)! Of course, now that he’s got a legend of his own, there’s only one thing left to do… That’s right, it’s a final battle!"
+            ],
+            "Pokémon Shield": {
+                "Text": [
+                    "Hop’s team is much the same as it was the last time you fought him, with two key differences. The first is that his party is roughly ten levels higher, so he might well outlevel you at this point, possibly the first time all game. The second is that his Cramorant has had to make way for either Zacian or Zamazenta, undoubtedly now the toughest Pokémon on his team. He still leads off with his trusty Dubwool , which for all its charm does not hit particularly hard. You can use this to your advantage by boosting your stats against it, either with a setup move such as Bulk Up or Dragon Dance , or with the use of X items (or both), and sweeping through his team once you're ready. He always saves his Legend for last, so keep that in mind, and take him out one final time.",
+                    "The battle helps Hop come to a realization - rather than try to become Champion , he wants to help people and Pokémon in need by becoming a Professor . The two of you exchange a handshake, acknowledging that you’ll still always be rivals, before Sonia offers Hop the opportunity to become her assistant, which he gladly accepts. Hop hands you his rare League Card as Leon , Piers, Sordward, and Shielbert arrive on the scene. The brothers apologize for their misdeeds, before scampering off to continue on their apology tour. Leon offers his younger words of pride and encouragement, leaving Hop very unusually lost for words, before everyone leaves the altar, your main adventure now at end. There is, however, still more to uncover, including the brand new Battle Tower in Wyndon , where we’ll go next."
+                ]
+            }
+        }
+    },
+    "Part_25": {
+        "Battle Tower": {
+            "Text": [
+                "After you leave the Slumbering Weald , for the first time you’ll find yourself at somewhat of a loose end, with a bevy of options available to you. If you talk to your Mom, she’ll suggest heading to Wyndon ’s Battle Tower , and we’re going to follow her advice.",
+                "The Battle Tower was previously Rose Tower , but after the Chairman was apprehended following the Darkest Day , Leon took over and has remade it into a battling facility. When you head inside, you’ll see a staff member on the left-hand side talking to a Type:Null. Strike up a conversation and they’ll reveal that it’s now yours, along with all the Memories that change its type.",
+                "There are two counters inside - the counter on the left has two BP shops, where you can spend points earned in the Battle Tower, and the registration desk. The right counter has rental teams you can borrow, as well as an NPC who can bring over Pokémon from older games, and the ability to Hyper Train your Pokémon, provided they are level 100 and you have Bottle Caps to hand over. Talk to the lady at the registration desk, choose single or double battles depending on your preference, and get started!",
+                "You can use your own Pokémon, or pick up a rental team for use. There are five rental teams available, three of which are geared for single battles, and two designed for double battles - find one that meshes with the style you want to play and try it out."
+            ],
+            "Basic Team": {
+                "Text": [
+                    "\"This team is good for Single Battles! It’s a nice, simple team that’s built around three Pokémon close to the heart of anyone in Galar. Take a good hard look at what types of Pokémon your opponent is sending out, then choose one of these great allies to send out yourself!\""
+                ]
+            },
+            "Skill Team": {
+                "Text": [
+                    "\"This team is good for Single Battles! The Pokémon on this team know tons of moves that can help them boost their stats in battle. Send out Duraludon first and have it use Reflect or Light Screen to get a defensive advantage, then swap in others as fit for the situation!\""
+                ]
+            },
+            "Tough Team": {
+                "Text": [
+                    "\"This team is good for Single Battles! This almighty team is ready for any opponents. Of course they can unleash heavy hit after heavy hit, but if you also use their status moves wisely, then you might even be able to pull out a win against opponents that might usually put you in a real sticky situation!\""
+                ]
+            },
+            "Rain Team": {
+                "Text": [
+                    "\"This rain-ready team is good for Double Battles! Falling rain can boost the power of their moves or trigger certain Abilities, so start by sending out Pelipper first to get the rain going and get this team rolling!\""
+                ]
+            },
+            "Slow Team": {
+                "Text": [
+                    "\"This team is good for Double Battles! They might look real slow to start with, but all you need is a good Trick Room, and suddenly your slow bulky team will be a fast bulky team! Lucario will be great support if you know how to use it, so hurry straight into a Trick Room!\"",
+                    "The first few levels have two trainers each - after each victory you’ll be awarded 2 BP, plus an extra 3 BP when you clear each level. At the end of level three you’ll be challenged by Leon, and this can be genuinely difficult. As all Pokémon in the Battle Tower are set to level 50, you won’t be able to rely on a level advantage, and as well as having a pool of Pokémon to pick from, making it harder to plan ahead, they also have optimal EVs for their movesets (even if some of the movesets are a bit funky). He will, whatever happens, always bring his Charizard, and Gigantamax it on its first turn in battle. Don’t worry if you lose; you can go right back in and challenge him again.",
+                    "Once you’re able to defeat Leon, he’ll hand over his rare League Card , and the receptionist downstairs will give you some goodies, including BP , as well as unlocking the ability to choose your music in the Tower. She will also unlock the Judge function, which allows you to check your Pokémon IVs while in the box.",
+                    "Once you’re all battled out, head to Hulbury for an impromptu career change…"
+                ]
+            }
+        },
+        "Hulbury": {
+            "Text": [
+                "We’re in Hulbury to visit the Captain’s Table restaurant, where you dined with Chairman Rose early in your adventure. Go inside and talk to the chef behind the bar, and he’ll tell you the delivery driver called in sick, and ask you to fill in. Accept his offer, and he’ll hand over the first delivery - although he didn’t grab the address, just a clickety-clack sound down the phone. It’s the sound from the trains coming into and out of the station, so enter the house next door and hand over the delivery to the lady inside, who’ll tip you an Exp. Candy L as a thanks.",
+                "Go back to the restaurant to collect your next delivery (and five nuggets as recompense). The chef forgot to ask for the address again, but did hear a Pokémon cry, which sounds like a swirl. It’s a Swirlix , which you can find in the fourth house north of the Pokémon Center . Deliver the food to the gentleman inside, then go back to the Captain’s Table to collect your reward, two big nuggets.",
+                "There’s one more delivery for you to complete - this time to a place with a green roof, even though there aren’t any houses in Hulbury that match that description. This delivery is going to the right-most stall in the market just below the restaurant. Hand it over before returning, and you’ll be given a Lucky Egg , a rare item that increases the experience gained in battle for whichever Pokémon holds it.",
+                "While you’re here, you can head over to the lighthouse where you’ll find a group of musical Pokémon outside. Speak to the person next to them, and he’ll tell you that they’re the Pokémon band the Maximizers, and you can listen to them in concert should you wish. This is actually just a sneaky way to make the Credits replayable whenever you wish, so this section is entirely optional, but it’s a neat little touch anyway."
+            ]
+        },
+        "Motostoke": {
+            "Text": [
+                "The next stop is Motostoke , so fly in and make for the Stadium. Our old friend Ball Guy is outside, and if you chat to him he’ll hand over his apparently much-coveted League Card . This is all we’re here for, so make for our next stop in Spikemuth ."
+            ]
+        },
+        "Spikemuth": {
+            "Text": [
+                "Enter under the shutters and you’ll see Marnie standing outside the Pokémon Center. Speak to her and she’ll propose an exhibition match now that she’s officially the Gym Leader here. Make any preparations you need to, then take her up on her kind offer.",
+                "It’s a typical Marnie team, with a heavy dose of Dark-type Pokémon alongside Toxicroak to mix things up slightly. Her Liepard will use Fake Out turn one, so unless you have a Ghost-type or a Pokémon that's immune to flinching, you can use this turn to boost your stats with a X item of choice, as you won’t otherwise get to attack anyway. Fighting-type and Fairy-type Pokémon will work well, as long as you have a strategy in place for dealing with the troublesome Toxicroak.",
+                "After your victory, Marnie will give you her rare League Card as a reward. While you can’t rematch her immediately after, you can come back to Spikemuth once a day to spar against Marnie for money and experience."
+            ]
+        }
+    },
+    "Part_26": {
+        "Wyndon Stadium": {
+            "Text": [
+                "Now that all the post-game story is complete, it’s time to head back to Wyndon Stadium . We have the option to re-run the Champion Cup as many times as desired, with a little twist. You will be given the choice by the attendant at the reception desk to invite any trainer whose rare League Card you have obtained (excluding Opal , who must be making the most of her retirement). Conveniently, we spent the last chapter mopping up some loose ends, so we now have the full collection, meaning you can invite any Gym Leader or rival to participate.",
+                "The tournament itself is an eight person bracket, meaning you’ll need to win three rounds to emerge victorious again. Your opponents will be a selection of Gym Leaders and Gym Challengers , randomly chosen, including an invited opponent. Of note is that there’s no guarantee you’ll end up fighting your invitee, as they may well be knocked out of the tournament before you have a chance to face them."
+            ],
+            "Gym Challengers": {
+                "Text": [
+                    "All the Gym Challengers are type specialists (although not necessarily the same types as the Gym Leaders), and as you are shown who you’ll face before the fight starts you can pick your lead Pokémon accordingly based on the matchup. The Gym Challengers are at a lower level than the Gym Leaders, so you should outlevel them, and they do not Dynamax any of their Pokémon."
+                ]
+            },
+            "Special Trainers": {
+                "Text": [
+                    "As you might expect, the Gym Leaders are all of a higher level than the Gym Challengers. They also all carry a Pokémon that will Gigantamax on its first turn in battle - Piers is the lone exception to this. Again, as you can see who your opponent will be before you take them on, you can adjust your team appropriately to ensure a favorable matchup. Your team is fully healed in between each fight as well, to help cut down on preparation time."
+                ]
+            },
+            "Marnie": {
+                "Text": [
+                    "With the right type matchups and a significant level advantage, these fights shouldn’t pose a great deal of problems, especially as you can plan in advance. You also have the benefit of being able to carry six Pokémon, while all your opponents carry five, and can Dynamax early in the battle to set up stat boosts or weather and terrain to tilt things further in your favor and start sweeping early. Factor in the ability to use items as frequently as you like as well, and you should be set up for success.",
+                    "Ball Guy will appear after you win the tournament to give you a reward. This will always be a Wishing Piece for your first win each day, and is decided randomly for any subsequent victories.",
+                    "With the Champion Cup rematches available to take on as frequently as you like, it’s a solid way to train your Pokémon and bolster your bank account (especially with an Amulet Coin equipped).",
+                    "This wraps up the quests available in the main game, but there’s still the Isle of Armor storyline to finish, before heading into the Crown Tundra ."
+                ]
+            }
+        }
+    }
+}

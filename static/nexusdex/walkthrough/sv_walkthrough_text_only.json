@@ -1,0 +1,806 @@
+{
+    "Part_1": {
+        "Prologue": {
+            "Text": [
+                "The player is immediately given a choice of several languages—English, Spanish, French, German, Italian, Japanese, Korean, and Simplified and Traditional Chinese—in which to play. After that, they are prompted to choose a look for their character by selecting one of eight headshots. This allows for the choice between gender and skin tone, which cannot be changed; other variables like hairstyle and eye color may be customized later on. Finally, the player is asked to enter their name, which may be up to twelve characters long. The player is then given a final chance to change the character's hairstyle and look before confirming all current selections.",
+                "Next, a closeup shot of paperwork on a desk shows an Enrollment Application for Naranja Academy S / Uva Academy V , which includes the character's headshot, language, and name. A message notifying the player of the autosave function, which may be turned off in the Options menu, is displayed for a moment. The academy's logo then appears onscreen, followed by a brief overview of the school that welcomes the player to the world of Pokémon .",
+                "The player is introduced to the head of the academy, Clavell , in his office. Clavell then addresses the player, and introduces the Paldea region, a land bursting with lush nature and varied landscapes; and the mysterious creatures that inhabit it, known as Pokémon. He opens a Poké Ball to reveal a Pawmi , which then climbs onto his shoulder. Clavell goes on to explain that Pokémon can be found anywhere, coexisting with humans as each helps the other to live and thrive. He promises that the academy is here to help each student reach their potential as Pokémon Trainers , and that the faculty and staff cannot wait to welcome everyone. The screen then fades to black.",
+                "A red, feathered dragon S / purple, metallic dragon V is then shown flying up from the great crater that dominates the center of the region. It glides around the skies for a short time before losing consciousness and crashing onto a southern beach, which happens to be located near the player's home."
+            ]
+        },
+        "South Province (Area One)": {
+            "Cabo Poco": {
+                "Text": [
+                    "The journey begins in Cabo Poco , a small town on a cape in southern Paldea . It is the southernmost part of South Province (Area One) , and connects with Poco Path to the north."
+                ],
+                "Home": {
+                    "Text": [
+                        "The player finds their character sitting at the desk in their bedroom. Instructions appear directing the player to use the Left Stick to have the character stand and walk. It is possible at the point to access the Options menu by pressing the X Button; this allows the player to change settings like Text Speed. To manually save the game, press the X Button to open the main menu, then press the R Button, and confirm; it is then safe to exit the game. An autosave function exists as well.",
+                        "The main menu also displays a link to the Nintendo eShop , where the player may purchase downloadable content included in The Hidden Treasure of Area Zero .",
+                        "Walk downstairs to be greeted by Mom 's Skwovet , then follow it into the kitchen to find her. She is excited for your first day at your new school, but advises against hurrying off too soon. The school is waiting on something important to arrive for you, and asks that you wait a little while longer before attending.",
+                        "Just then, the doorbell rings. Approach the door to find that the visitor has already let himself inside. The man apologizes for the late arrival of your enrollment documents, and introduces himself as Clavell , the director of Naranja Academy S / Uva Academy V . He delivers the documents to Mom, who offers him a cup of tea. In the meantime, she sends you back upstairs to collect your bag and hat.",
+                        "Examine the two items hanging on the corner of the bed to pull them on. A book named the Adventure Guide is already packed inside, and allows Trainers to review helpful tips that were previously encountered. The first tip, \"Your Adventure Guide\" , is then shown onscreen.",
+                        "Return to the first floor, and both Mom and Clavell compliment your new academy uniform. Clavell then remembers that he has something else for you, but says that your living room is hardly the place for it and asks that you follow him outside."
+                    ]
+                },
+                "The Academy Offers a Choice": {
+                    "Text": [
+                        "When you and Mom join him, Clavell sends out three Pokémon from their Poké Balls. He explains that the academy provides each new student with a Pokémon of their own, and asks that you choose one of the three to become your first partner Pokémon . He'd like to stay to see which one you will choose, but must be off to his next home visit at the house down the hill, and asks that you find him after making your decision."
+                    ]
+                },
+                "A Shiny New Smartphone": {
+                    "Text": [
+                        "Once Clavell leaves, Mom suggests taking the three Pokémon on a walk to get to know them. But first, she has a gift for your big day: a new Rotom Phone ! A Pokémon called Rotom lives within this latest model of smartphone and can be used to run several handy apps. There are two apps unlocked immediately, with space for a third . In addition, Rotom will even ease the user to the ground when falling from a great height!",
+                        "The Map app is accessed by pressing the Y Button, and displays a detailed view of the Paldea region. The Right Stick is used to rotate or lock the map view, while the Left Stick is used to move the magnifying glass icon. The ZL and ZR Buttons are used to zoom in and out, respectively. Selecting a location lets the user mark it as the next destination. Trainers can also use the app to call the Flying Taxi , a form of public transportation. This service allows them to revisit previous locations, indicated by a feather mark on the map.",
+                        "Pressing the X Button while using this app allows the user to switch to a different one.",
+                        "The Profile app displays a digital ID card with a Trainer's photo, name, and ID number . It also lists adventure records, like number of Badges collected and Pokédex progress. The back of the card shows their name, enrollment date, and the amount of money and League Points on hand. Gym Badge effects are listed at the bottom; with no Badges earned yet, Pokémon caught at Level 20 or below will obey without question. The current party is shown to the left."
+                    ]
+                },
+                "A Stroll Along the Sea": {
+                    "Text": [
+                        "The three Pokémon will follow alongside you as you explore Cabo Poco . Walk northward to find an item ball , marked by a beam of light, behind a large tree; examine it to obtain the Poké Ball inside. Continue around the back of the house to reach a Potion , then collect an Antidote beyond the vegetable garden to the south. Make your way downhill until you pass a red sign on the left that reads \"Cabo Poco\" ; at this point, instructions appear directing the player to use the Left Stick to run. Hurry along with the three Pokémon, and pick up another Poké Ball to the north of the large, white stairway at the bottom of the hill."
+                    ]
+                },
+                "An Important Decision": {
+                    "Text": [
+                        "Enter the gate to see the three Pokémon excitedly rush ahead and make themselves at home. Quaxly bathes in a pond, Sprigatito visits with the home's flower gardens, and Fuecoco tries to eat a fallen piece of fruit. You are then greeted by Clavell and a young woman. He introduces you and Nemona , student council president and a Champion -ranked student, to each other before allowing you to choose your Pokémon.",
+                        "Once you have chosen your Pokémon, Clavell allows Nemona to take one, as well. Regardless of which Pokémon you took, she will always choose the one with a type disadvantage. The final Pokémon remains under Clavell's care. Nemona then invites you to battle her on the beach behind her home."
+                    ]
+                },
+                "Battle on the Beach": {
+                    "Text": [
+                        "Go to the battlfield and speak to Nemona , who is so fired up that Clavell must remind her not to use her experienced Pokémon against the new student!"
+                    ]
+                },
+                "One More Thing!": {
+                    "Text": [
+                        "Nemona is very eager to battle again, but Clavell says that you've had enough for today. He asks that she take you under her wing, as there is surely a great deal to be learned from a Champion -ranked Trainer like her. As you are new to Pokémon training, Nemona takes your Rotom Phone for a moment and adds another essential app: the Pokédex ! This high-tech encyclopedia records data on every Pokémon encountered by the user. Clavell asks Nemona to accompany you to the academy, then leaves to meet with her parents. Nemona prepares to demonstrate how to catch a Pokémon, and runs off up the stairway from the beach.",
+                        "The Pokédex app can be accessed directly by pressing the Minus Button, or by pressing the X Button on the Map app. Encounter Pokémon in battle to compile volumes within the app, which then receive fancier covers for species that have been caught.",
+                        "The Paldea Pokédex includes a total of 400 entries, with completion rewards earned for every tenth species caught. The next reward, and any previous rewards, are displayed by pressing the X Button. Items are obtained automatically by pressing the X Button once the next threshold has been met."
+                    ]
+                },
+                "The Adventure Begins": {
+                    "Text": [
+                        "Follow Nemona to the stairway in front of her home to find her speaking with Mom , who is here to see you off on your adventure. She gives you $ 10,000 of spending money, a Sandwich that she packed for your first day, and a bundle of five Potions . She then heads for home, while Nemona runs northward to Poco Path ."
+                    ]
+                }
+            }
+        }
+    },
+    "Part_2": {
+        "South Province (Area One)": {
+            "Poco Path": {
+                "Text": [
+                    "Poco Path is a short path leading from Cabo Poco in the south to the rest of South Province (Area One) to the north. A cave called the Inlet Grotto is located here."
+                ],
+                "Catching a Pokémon": {
+                    "Text": [
+                        "Nemona is waiting a short distance to the north along the dirt path. She introduces you to Poco Path , \"the path that leads to adventure\", and explains that things are different here than in town. Wild Pokémon can be seen out and about; get too close to one, and you'll have to battle. Catching a Pokémon requires something in which to store them, so she gives you a bundle of five Poké Balls to get you started. Just then, a wild Lechonk wandering nearby notices the two of you, and you are automatically drawn into battle.",
+                        "Catch Lechonk , and the battle ends with a new entry added to your Pokédex app. Nemona congratulates you and gives you another ten Poké Balls . She sends you off to try battling and catching more wild Pokémon, and suggests meeting at the nearby lighthouse when you're ready."
+                    ]
+                },
+                "A Mysterious Cry": {
+                    "Text": [
+                        "When you approach the lighthouse, Nemona catches up with you. She checks in on your Pokémon-catching progress, when suddenly a mysterious cry is heard! Nemona wonders if it might be a Pokémon, and suggests that the two of you find the source. She cautions you against visiting an unsafe cave nearby, then leaves you to begin the search.",
+                        "Approach the broken section of rope fence nearby, and you quickly notice a large dragon-like Pokémon on the beach that has drawn the attention of a pair of Houndour . The dragon musters enough energy for a roar, scaring the two Pokémon away but causing you to lose your footing as well. After the Rotom Phone slows your fall, approach the dragon to find that it's too weak to move. Try offering Mom 's Sandwich to it, and it perks right up! It cries out in a flash of light, and seems to be feeling better. It moves to the entrance to the Inlet Grotto , where it waits for you to follow."
+                    ]
+                },
+                "Inlet Grotto": {
+                    "Text": [
+                        "The Inlet Grotto is a cave system located under Poco Path . It leads from the beach to the hills high above.",
+                        "Follow the dragon into the cave, and you hear Nemona calling out to you a moment later. She's at the cave exit high above, and is relieved to see that you're not hurt. Grab the nearby Potion , then follow the dragon past some glowing moss on the wall to find the path blocked by a boulder. It attacks the rock, breaking it into pieces and scaring off the two Houndour hiding behind it.",
+                        "A Houndoom can be seen standing on a cliff to the left. Pick up the Poké Ball beneath it, and the Potion next to a nearby rock pillar. The dragon continues along, and is soon confronted by a whole pack of Houndour ! It easily scares them off with a roar before continuing into a tunnel filled with more glowing moss. At its end, it pulverizes another rock to reach the next chamber.",
+                        "Just then, Nemona alerts you to something approaching from behind: it's the Houndoom , and it's not happy with how the Houndour have been treated! The Level 40 Pokémon draws you into battle, but your young Pokémon immediately retreats back into its Poké Ball. Houndoom lets out a roar, causing the dragon to notice the danger and step in to defend you. Houndoom responds by summoning a large number of Houndour, who quickly surround the both of you. The dragon is prepared to fight, but decides to escape with you instead. It carries you as it jumps up the cliffside to Nemona's position, out of reach of the Pokémon below."
+                    ]
+                },
+                "A Weakened State": {
+                    "Text": [
+                        "Seeing that you are unhurt, the dragon begins moving toward the nearby lighthouse, but seems to lose its energy in another flash of light. Nemona wonders if it used up all of its power, and the dragon wakes up a moment later. Nemona then exchanges phone numbers with you, so that you can keep in contact if you're ever separated again. She also gives you a copy of TM032 , a Technical Machine containing the move Swift . Technical Machines, or TMs, are single-use items that teach a new move to a compatible Pokémon. Nemona then suggests resting for a moment at the nearby lighthouse."
+                    ]
+                },
+                "Poco Path Lighthouse": {
+                    "Text": [
+                        "When the three of you approach the lighthouse, you find a young man peering into its window. He notices the dragon right away, and speaks to it like the two have met before. Nemona recognizes the student as Arven , the son of the Pokémon Professor , Sada S / Turo V . Arven is more interested in how the dragon finds itself here, and why it looks this way. Nemona explains what has happened, and Arven reveals the dragon's name, Koraidon S / Miraidon V . He claims that no average Trainer can hope to control it, and offers to test your worthiness in battle.",
+                        "Arven relents, saying that if you really intend to take the dragon off his hands, then you'll need its Poké Ball. He then hands over Koraidon's Poké Ball S / Miraidon's Poké Ball V . Nemona questions why he has has it, but Arven refuses to answer and runs off to the north.",
+                        "Nemona then invites you to the top of the lighthouse, so approach the ladder to automatically climb up. Speak to her at the top, and she directs your attention to Mesagoza , a large city to the north. Naranja Academy S / Uva Academy V can even be seen from here; it's the big building with the Poké Ball on it! She points out the surrounding biomes, each with countless Pokémon to catch, and officially welcomes you to the Paldea region. Reaching the school is a bit of a hike from here, so she suggests visiting Los Platos along the way."
+                    ]
+                }
+            },
+            "Road to Los Platos": {
+                "Text": [
+                    "The path from the lighthouse to Los Platos is a short one. A pond can be found near the path, and a river runs eastward to the ocean; both areas are great places to find Water-type Pokémon. Several larger lakes can be found beyond the hills to the east, as well."
+                ]
+            },
+            "Los Platos": {
+                "Text": [
+                    "Los Platos is a small settlement in the middle of South Province (Area One) , to the northwest of the Poco Path lighthouse."
+                ],
+                "Pokémon Center": {
+                    "Text": [
+                        "When you enter Los Platos , Nemona calls out to you. She introduces you to the Pokémon Center building, then leaves the explanation of its services to the woman behind the counter.",
+                        "Nemona then talks about how handy League Points are, and even transfers 5,000 of her extra points to you. She also hands you a good supply of TM Materials to get you started. After that, she goes on to explain the Union Circle , a round, yellow-colored area at the end of the building. In this part of any Pokémon Center, Trainers may connect with others to find traveling companions. Finally, she explains that pressing the R Button sends the lead Pokémon out of its Poké Ball to travel alongside its Trainer. While traveling this way, the Pokémon may pick up items or even battle on its own!"
+                    ]
+                },
+                "Sugar-N-Ice": {
+                    "Text": [
+                        "A food cart can be found a short distance up the road. This is Sugar-N-Ice , part of a chain that sells ice cream cones. In Paldea , food items provide Meal Powers when consumed. These effects may include bonuses like boosting the catch rate, increasing the amount of experience earned after battle, or increasing the odds of a wild Pokémon dropping an item. Each food item triggers three different Meal Powers at once. Each Meal Power lasts for 30 minutes and only affects one Pokémon type at a time. The food item is consumed upon purchase."
+                    ]
+                }
+            },
+            "Road to Mesagoza": {
+                "Text": [
+                    "Take either the west or north exit from Los Platos and proceed northward. The two paths eventually converge outside Mesagoza , at the Mesagoza (South) Pokémon Center."
+                ]
+            },
+            "Mesagoza (South) Pokémon Center": {
+                "Pokémon League representative": {
+                    "Text": [
+                        "At the Pokémon Center outside Mesagoza 's southern gate, you find a well-dressed man standing near the TM Machine counter. He is a Pokémon League representative , and offers you a challenge: defeat four Trainers in South Province (Area One) to receive a reward. Speak to him again after doing so, and he rewards you with TM082 ( Thunder Wave )."
+                    ]
+                }
+            },
+            "The Price of Admission": {
+                "Text": [
+                    "The south gate to Mesagoza is shut tight. When you approach, Nemona hurries to catch up to you. Since is excited to see how much your Pokémon have grown, and challenges you to another battle!"
+                ],
+                "VS Nemona, Battle 2": {
+                    "Text": [
+                        "Once her first partner Pokémon is defeated, she sends out the newest addition to her team. Before you can make a move, she decides to show off a new trick. She uses a crystal-encrusted Poké Ball to make her Pawmi shine like gemstones, complete with a decorative jewel that resembles a light bulb. After a Pokémon undergoes Terastallization , any move used that matches its Tera Type gains a power boost. A Terastallized Pokémon's Tera Type is indicated by the jewel on its head. Pawmi's light bulb indicates an Electric Tera Type, so its Thunder Shock will deal more damage than normal!",
+                        "Defeated, Pawmi 's jewel shatters and the battle ends. Nemona is impressed that you defeated a Terastallized Pokémon, but suddenly realizes that you can't Terastallize your own Pokémon and promises to take care of it for you. She gives you three Revives , then directs you to the gate leading into Mesagoza . She explains that there are many hills and stairways in the city, and will take a moment to rest before joining you."
+                    ]
+                }
+            }
+        }
+    },
+    "Part_3": {
+        "Mesagoza": {
+            "Text": [
+                "Mesagoza is the largest city in Paldea , located in the heart of the region's South Province . The city stands in a river-fed basin, with bridges leading south to South Province (Area One) , west to South Province (Area Two) , and east to South Province (Area Three) . Naranja Academy S / Uva Academy V dominates the northern skyline, while many restaurants, convenience stores, and clothing stores can be found elsewhere."
+            ],
+            "Welcome to Mesagoza!": {
+                "Text": [
+                    "Once you enter the gate, Nemona introduces you to Paldea 's largest city. It's long been a trade hub, where travelers from all walks of life learn about the latest advances in technology. There are plenty of shops, restaurants, and even a hair salon. She asks where you'd like to visit first, then promises to make arrangements so that you'll be able to Terastallize your own Pokémon. In the meantime, she leaves you to explore the city for yourself and recommends visiting Delibird Presents , a chain of convenience stores that sell battle items , Poké Balls, and other goods. Mesagoza is so large, it features no less than three locations for this particular shop! Nemona asks that you meet her in front of the academy when you're finished checking out the city."
+                ]
+            },
+            "Trouble Brewing": {
+                "Text": [
+                    "When you approach the large stairway leading up to the academy, you find a girl with an Eevee backpack being harassed by two Team Star Grunts. They're trying to convince the girl to join the team, but she's not interested. Step in to help her, and you are quickly drawn into battle against the first Grunt and her Shroodle .",
+                    "The second Grunt then prepares to attack as well, but Nemona arrives a moment later. Seeing that Team Star is causing trouble again, she explains that as head of the student council, it would normally be left to her to straighten them out. However, she sees this as the perfect opportunity for you to try out her latest gift: your very own Tera Orb ! When charged with enough energy during battle, this special type of Poké Ball lets a Trainer Terastallize their active Pokémon. She studies your first partner Pokémon for a moment before revealing that its Tera Type seems to match its usual Type.",
+                    "Send out your first partner Pokémon and press the R Button to trigger the transformation. Use its newfound power to defeat the Grunt's Yungoos !",
+                    "Afterward, Nemona explains that Pokémon can sometimes have a Tera Type that is different than their usual Type. She reminds you to charge your Tera Orb at a Pokémon Center after each use, and the Team Star Grunts then make their escape. She continues, stating that Team Star is group of students that like to cause trouble, and not even the teachers know what to do with them. The mysterious girl thanks you for your help, then runs up the stairway to the academy. Nemona follows a moment later."
+                ]
+            },
+            "Naranja AcademyS/Uva AcademyV": {
+                "Entrance Hall": {
+                    "Text": [
+                        "When you enter the academy, you are met in the Entrance Hall by Nemona . She welcomes you to the school, and explains that you can sign up for all kinds of classes at the front desk. Clavell appears and asks about your journey to the school. Nemona informs him of the Team Star Grunts in town; Clavell is shocked to hear this, and asks if they are still around. He goes on to mention how a girl with an Eevee backpack matches the description of student named Penny , and asks that Nemona report the encounter with Team Star to the Homeroom teacher, Jacq . Class is about to start, so the two students hurry off to Homeroom in Classroom 1-A."
+                    ]
+                },
+                "Homeroom": {
+                    "Text": [
+                        "In Homeroom, Jacq introduces you to the class and invites his students to ask a few questions of their new classmate. A young boy asks your favorite thing about Pokémon, then Nemona asks what you hope to achieve by enrolling here. Jacq introduces himself as both your Homeroom and Biology teacher, then directs you to take your seat in the second row.",
+                        "When the class ends a short time later, you have the chance to explore the academy campus on your own. Approach the doorway to the south to access a fast-travel map of the school. Nemona has been called away to a meeting in the Staff Room, while Arven can be found in the Cafeteria.",
+                        "The first Biology, Math, and Battle Studies classes can now be accessed from the Entrance Hall."
+                    ]
+                },
+                "Staff Room": {
+                    "Text": [
+                        "Upon reaching the Staff Room, you find Nemona speaking to a woman with long, black hair . She has just given Nemona a task to carry out in her place, and turns to leave. Nemona introduces the woman as \"La Primera\" : cool, strong, and everything that she'd like to be. Since you're determined to become a strong Trainer, she has an idea for you: reaching the level of Champion Rank Trainer like her! She explains that such Trainers are the best of the best, having earned the title by defeating the Pokémon League . It involves more than just taking classes, however; you must first take on Paldea 's eight Pokémon Gyms and earn their Gym Badges . After that, there is a special test called the Champion Assessment. Pass that test, and you will officially be a Champion like her! She reached Champion Rank during the previous Treasure Hunt, an independent study project where Trainers can leave the school to travel and learn however they like. She believes that she could get even stronger if both of you participate, and shares data to your phone that registers the location of each Gym in your Map app.",
+                        "This begins the Victory Road storyline."
+                    ]
+                },
+                "Cafeteria": {
+                    "Text": [
+                        "Speak to Arven in the Cafeteria, and he asks for your help. He loves picnics and perfectly prepared sandwiches , and has been researching new recipes that will make Pokémon feel healthier. He shows you a book that he found recently and mentions a section about Herba Mystica , special ingredients with powerful healing properties. The five different varieties are all very rare, with a single known specimen of each guarded by a Titan Pokémon , so they won't be easy to get! He then shows you a sketch of an elephant-like Pokémon he believes to be a Titan, and the accompanying caption.",
+                        "He then shares a blurry photo that seems to be of the same creature.",
+                        "Arven admits that he's not very good at battling, but believes that the two of you working together can secure the Herba Mystica . He then shares data to your phone, registering the alleged location of each Titan Pokémon 's lair in your Map app.",
+                        "This begins the Path of Legends storyline.",
+                        "Arven then gives you a bag of Stardust as thanks for hearing him out, and hurries off.",
+                        "When you try to leave the room, your Rotom Phone rings. The other person's identity is unknown, but they seem to know you! The caller claims to have hacked your phone in order to speak to you, and gives only \"Cassiopeia\" as their name. They've heard that you are a Trainer with serious potential, so there is something they would like to ask of you. They mention Team Star , and seem determined to not sit by and let them get away with causing trouble. They've come up with a plan to force the team to disband, codenamed \"Operation Starfall\", but will need allies like you to carry it out. They promise that the two of you will speak again, and end the call.",
+                        "Clavell enters a moment later. He asks that you keep your voice down while making a call, as you wouldn't want anyone overhearing any personal info. After you automatically leave the room a moment later, he mutters the name of Team Star to himself.",
+                        "When you find yourself back in the Entrance Hall, an announcement over the PA system calls you to the Director's Office. Examine the fast-travel map again to reach it."
+                    ]
+                },
+                "Director's Office": {
+                    "Text": [
+                        "Clavell explains that he has called you here because a friend of his has a serious matter to discuss with you. He starts a video call, and the person on the other end soon answers.",
+                        "Afterward, Clavell wonders aloud if the dragon may have originated in Area Zero . He reaffirms that the academy is always here to support you, and expresses his hope that you will continue to enjoy your time here with Koraidon S Miraidon V .",
+                        "When to try to leave the room, Nemona enters. She explains that Jacq asked her to show you to your room in the Dorms. The fast-travel map appears, so select Your Dorm Room to get there."
+                    ]
+                },
+                "Your Dorm Room": {
+                    "Text": [
+                        "Nemona suggests resting on your bed to let your Pokémon recover after the day's events, then leaves. Examine the bed, and the story fast-forwards through the next three days."
+                    ]
+                },
+                "Schoolyard": {
+                    "Text": [
+                        "When you awake, an announcement over the PA system marks this day as the beginning of an important assignment, and asks everyone to gather in the Schoolyard. Nemona arrives to escort you a moment later. Examine the fast-travel map to go outside, where Clavell introduces the theme of the new independent study project: \"A Treasure Hunt\". He invites each student to travel far and wide in search of their own treasure, in order to deepen the understanding of the lessons learned here. He ends his remarks, and the crowd disperses."
+                    ]
+                }
+            },
+            "A Brand New Adventure!": {
+                "Text": [
+                    "After Clavell 's remarks, you find yourself outside the academy's front gate. The other students rush to begin their adventures while Clavell calls after them, warning of the dangers in the Great Crater of Paldea . Nemona hurries past you as well, so follow her to the top of the stairway. She explains a bit more about the Treasure Hunt: there's no real treasure exactly, as it is more a way for students to experience everything Paldea has to offer. A student may choose to challenge Pokémon Gyms , or help out people in need—things that can't be done sitting in a classroom. She reminds you that your phone's map can be used to mark a location as a new destination, and suggests marking one of the Gyms to get started."
+                ]
+            },
+            "★ Starfall Street ★": {
+                "Text": [
+                    "Arven happens to be passing by when he overhears Nemona . He is upset to hear her pushing you toward the Gyms while he needs your help with the Titan Pokémon . Neither can agree which is more important, and leave it up to you to decide which path to take.",
+                    "A moment later, your phone rings: it's Cassiopeia again, with more details on Operation Starfall. The caller reveals that Team Star is made up of five squads, each with their own base of operations. Cassiopeia asks that you visit all five bases and defeat the boss of each squad. The team's Grunts will likely try to interfere, so the voice promises to help, at least from a distance. Cassiopeia then shares data to your phone, registering the location of the five bases in your Map app.",
+                    "This begins the Starfall Street storyline.",
+                    "Cassiopeia promises rewards for each base defeated, but Nemona demands to know the person's identity and why they are sending you on such a dangerous mission. The caller simply says that it's up to you whether to pursue a task or not, like Nemona and Arven already agreed. The call ends, then Nemona shares a photo to show what a Gym building looks like. Arven promises to find the Herba Mystica and make you the best sandwich ever, which causes the hungry dragon to appear from its Poké Ball. Nemona wonders aloud if it wants you to hop on its back.",
+                    "Climb onto its back, and it transforms into its mobility mode. Arven pushes you to leave through the east gate to find the nearest Titan Pokémon , while Nemona suggests taking the west gate to reach the nearest Gym . The two give up and go their separate ways, leaving you to make your own path. The Treasure Hunt has now begun!",
+                    "The first History and Home Economics classes can now be accessed from the Entrance Hall.",
+                    "Mass Outbreaks may now occur."
+                ]
+            }
+        }
+    },
+    "Part_4": {
+        "Mesagoza": {
+            "Text": [
+                "When you approach Mesagoza 's west gate, you receive a call from Nemona . Upon hearing that you are headed westward, she recommends visiting the town of Cortondo and challenging the Bug-type Gym there."
+            ]
+        },
+        "South Province (Area Two)": {
+            "Text": [
+                "South Province (Area Two) consists of a valley in southwestern Paldea that includes the town of Cortondo . It borders Mesagoza to the east, South Province (Area Four) to the southeast, South Province (Area Six) to the southwest, and West Province (Area One) to the northwest."
+            ],
+            "Picnic Time": {
+                "Text": [
+                    "A short distance from Mesagoza , you find a young girl and her Eevee at a picnic table. Speak to her to find that she has too many ingredients , and decides to share some with you. As she believes that food is best enjoyed outside, she suggests having a picnic so that you and your Pokémon can take a rest. Doing so here restores your Pokémon to full health, leaving them ready to explore the rest of the area. The girl invites you to visit again anytime.",
+                    "Continue along the path and you will soon reach the South Province (Area Two) Pokémon Center, which unlocks the building as a fast-travel point."
+                ]
+            },
+            "South Province (Area Two) Watchtower": {
+                "Text": [
+                    "The South Province (Area Two) Watchtower stands on the edge of a cliff to the north-northwest of the Pokémon Center. Reaching the tower unlocks it as a fast-travel point."
+                ],
+                "Lower level": {
+                    "Text": [
+                        "Climb to the lower level to find a copy of TM072 ( Electro Ball ), then continue to the top."
+                    ]
+                },
+                "Upper level": {
+                    "Text": [
+                        "A suspicious-looking treasure chest can be found on the upper level. Examine it to trigger a battle with a Chest Form Gimmighoul , a Ghost-type Pokémon. When the battle ends, you automatically obtain a random quantity (10-777) of Gimmighoul Coins that it leaves behind. Gimmighoul evolves when leveled up after collecting 999 of these coins, which then disappear in the process.",
+                        "Gimmighoul also has a second appearance, its Roaming Form. This form lacks its treasure chest and can be found in various places, like hiding behind signs or standing on rocks. It is timid and flees when examined, and also leaves behind a number (1-200) of Gimmighoul Coins ."
+                    ]
+                }
+            },
+            "Tera Crystals": {
+                "Text": [
+                    "Across Paldea , there are gleaming crystal clusters that grow and fade over time. These Tera Crystals have been found in a variety of colors, and are visible from a distance due to the brilliant beams of light they emit. Examine one to take part in a Tera Raid Battle !",
+                    "Examining each crystal cluster for the first time also awards a certain amount of League Points , even if you choose not to participate in the raid.",
+                    "Only a single 6★ crystal is available per refresh. 7★ crystals are only available from Poké Portal News ."
+                ],
+                "Tera Raid Battles": {
+                    "Text": [
+                        "In Tera Raid Battles , you must work together with three other Trainers to battle powerful Tera Pokémon. These Pokémon will have rare Tera Types, which are indicated by the color of the Tera Crystal. It is possible to battle alongside nearby friends in Offline Mode , or faraway friends in Online Mode . Work together with your allies to defeat the Tera Pokémon and earn the chance to catch it, and also receive special items!"
+                    ]
+                }
+            },
+            "Grand Olive Orchard": {
+                "Text": [
+                    "The Grand Olive Orchard includes a large number of fields along the road outside Cortondo where olives are grown, and has been designated as one of the Ten Sights of Paldea . A wild Rock-type Tera Diglett has been known to frequent the area.",
+                    "A sign indicating the landmark is located to the north of the main road, near some ruins on the higher eastern plateau. Examining this sign unlocks the area as a fast-travel point."
+                ]
+            },
+            "Cortondo": {
+                "Text": [
+                    "The town of Cortondo is located in the southwestern part of South Province (Area Two) . The area is well-known for olives, its top export. Locals believe that an annual event, the Olive Harvest Festival, ushers in abundant crops."
+                ],
+                "Cortondo (East) Pokémon Center": {
+                    "Text": [
+                        "A Pokémon League representative can be found near the Cortondo (East) Pokémon Center. Speak to him, and he offers a prize for defeating five Trainers in South Province (Area Two) . Do so, and he rewards you with a copy of TM042 ( Aerial Ace )."
+                    ]
+                },
+                "Cortondo Gym": {
+                    "Text": [
+                        "When you visit the Cortondo Gym , you find Nemona at the front desk. She is excited to find you setting your sights on the Pokémon League, and explains that before you can challenge a Gym Leader , you must first pass their Gym Test. Every Gym Test is different, and each Gym's receptionist can give further details. She gives you three Super Potions , then runs off to find her next opponent.",
+                        "Speak to the receptionist to register as a challenger. In order to take on Gym Leader Katy , you must first clear her Gym Test: the Olive Roll. To clear it, challengers must roll a large, olive-shaped ball to the goal at the end of the field, navigating past various obstacles along the way. He directs you to the staff member at the Olive-Rolling Field, and shares the location data to your Map app."
+                    ]
+                }
+            },
+            "Olive-Rolling Field": {
+                "Text": [
+                    "The Olive-Rolling Field is located just north of town, down the road from the Cortondo (West) Pokémon Center. Speak to the staffer to accept the challenge, and the Gym Test begins!"
+                ],
+                "Cortondo Gym Test": {
+                    "Text": [
+                        "From the starting platform, roll the ball straight ahead to the southeast corner of the field. From this point, there are several possible paths that each lead to the center of the field.",
+                        "From the middle of the field, there are two paths from which to choose.",
+                        "Get the ball into the large, red basket at the north end of the field to pass the Gym Test. The staffer declares the test officially cleared, and asks that you report your result to the receptionist in the Gym."
+                    ]
+                }
+            },
+            "Cortondo (Visit 2)": {
+                "Cortondo Gym": {
+                    "Text": [
+                        "Speak to the receptionist, and he asks if you are ready to challenge Gym Leader Katy . Say yes, and you are automatically escorted to the battle court across the street."
+                    ]
+                },
+                "Battle court": {
+                    "Text": [
+                        "Cortondo 's battle court sits above a bakery known as Patisserie Soapberry. The Gym Leader introduces herself as the bakery's owner, and reveals that her main occupation is crafting sweets as a pastry chef. She explains that just as sweets bring happiness with a single bite, Bug-type Pokémon are also small yet powerful, and warns against underestimating them.",
+                        "Bug-type moves are super effective against Dark -, Grass -, and Psychic-type Pokémon, while Bug-type Pokémon are weak to Fire -, Flying -, and Rock-type moves.",
+                        "Fire and Flying Pokémon, like Fuecoco , Fletchling , and Starly , will have little trouble against Katy 's team. Rock Pokémon, however, should avoid facing her Nymble as it can retaliate with Double Kick , a Fighting-type attack. Katy will Terastallize her Teddiursa at the earliest opportunity, causing the Normal-type Pokémon to become Bug type instead.",
+                        "After the battle, Katy awards you the Bug Badge . Having earned one Gym Badge ensures obedience from all Pokémon caught at Level 25 or below. She also gives you a copy of TM021 ( Pounce ) as a prize."
+                    ]
+                },
+                "The Next Step": {
+                    "Text": [
+                        "With the battle concluded, you find yourself back inside the Gym building. As you turn to leave, you receive a call from Nemona . She asks how things went at the Gym, and congratulates you on your victory. She's been traveling all over the place during her training, and is grateful to have the Map app in a huge place like Paldea . She points out how the path to getting stronger usually involves strange stops and detours, and wonders aloud what Arven has been doing lately. She ends the call by reminding you to expect a battle with her the next time you meet!"
+                    ]
+                },
+                "Time for a Trade": {
+                    "Text": [
+                        "A boy on the main road, just west of the Gym, would like to trade Pokémon. He is willing to part with his Snom in exchange for a Flabébé . The flower held by the Pokémon can be found in several colors, but he is happy to receive the Pokémon regardless of color."
+                    ]
+                }
+            }
+        }
+    },
+    "Part_5": {
+        "South Province (Area Three)": {
+            "Text": [
+                "South Province (Area Three) is a rocky region in southeastern Paldea . It borders Mesagoza to the west, South Province (Area Five) to the south, East Province (Area One) to the north, and the town of Artazon to the east."
+            ],
+            "Picnic Time": {
+                "Text": [
+                    "A short distance from Mesagoza , you find a man and his Pikachu at a picnic table. Speak to him to find that he bought too many ingredients , and decides to share some with you. Before you can leave, he invites you to picnic with him and his Pikachu so that you and your Pokémon can take a rest. Doing so here restores your Pokémon to full health, leaving them ready to continue their adventure. The man invites you to visit again anytime.",
+                    "Continue along the path to reach the South Province (Area Three) Pokémon Center, which unlocks the building as a fast-travel point."
+                ]
+            },
+            "South Province (Area Three) Pokémon Center": {
+                "Text": [
+                    "A Pokémon League representative can be found near the South Province (Area Three) Pokémon Center. Speak to him, and he offers a prize for defeating seven Trainers in the area. Do so, and he rewards you with a Shell Bell ."
+                ]
+            },
+            "On the Trail of a Titan": {
+                "Text": [
+                    "As you continue on from the Pokémon Center, you receive a call from Arven . He informs you that the Stony Cliff Titan is said to lurk around the area, but that he hasn't been able to find it. He wonders aloud if maybe it is hiding high up on a cliff, but dismisses the idea as too unlikely and warns against doing anything too dangerous while trying to find it. He suggests checking the Map app if you get stuck, then ends the call."
+                ]
+            },
+            "South Province (Area Three) Watchtower": {
+                "Text": [
+                    "The South Province (Area Three) Watchtower stands on the north side of the main road, about halfway between the Pokémon Center and the town of Artazon . Reaching the tower unlocks it as a fast-travel point."
+                ],
+                "Lower level": {
+                    "Text": [
+                        "Climb to the lower level, then continue to the top."
+                    ]
+                },
+                "Upper level": {
+                    "Text": [
+                        "Another suspicious-looking treasure chest can be found on the upper level. Examine it to trigger a battle with a Chest Form Gimmighoul , and collect the Gimmighoul Coins that it leaves behind.",
+                        "A copy of TM080 ( Metronome ) can also be found here."
+                    ]
+                }
+            },
+            "Picnic Time (Visit 2)": {
+                "Text": [
+                    "On the opposite side of the road from the watchtower, you find a man and his Rockruff at a picnic table. Speak to him, and he gives you some of his extra ingredients . Before you can leave, he invites you to picnic with him and his Rockruff so that you and your Pokémon can take a rest. Doing so here restores your Pokémon to full health, leaving them ready to explore the rest of the area. The man invites you to visit again anytime."
+                ]
+            },
+            "The Stony Cliff Titan": {
+                "Text": [
+                    "East of the watchtower, there is a wide open area with a tall rocky structure to the north. A massive crab-like Pokémon can be seen hanging on the cliffside near ground level. It hurries away as you approach, climbing higher and around the side of the structure. Run up the ramp to the east to follow it to the upper level. Approach it here a second time, and the Titan Pokémon leaps off of the cliff and attacks!"
+                ],
+                "VS Titan Klawf, Round 1": {
+                    "Text": [
+                        "Rock-type Pokémon like Klawf are weak to Fighting -, Grass -, Ground -, Steel -, and Water-type moves. Beware its Anger Shell Ability; when its HP falls below 50%, its Defense and Special Defense drop in order to boost its Attack , Special Attack , and Speed ! When its health is nearly depleted, it suddenly flees from the battle by jumping down the cliff's edge behind it."
+                    ]
+                },
+                "VS Titan Klawf, Round 2": {
+                    "Text": [
+                        "Run back down the ramp and approach the Titan a final time. Cornered, it suddenly turns around and attacks the cliffside, revealing a massive cave. The Pokémon then begins eating a pink-colored plant , just as Arven appears. He's amazed at the Titan Pokémon's size, and is afraid that it will be stronger now after consuming the herb. Klawf prepares to attack, while Arven and his Shellder join you in a Multi Battle against it."
+                    ]
+                },
+                "Herba Mystica, Secured": {
+                    "Text": [
+                        "With the Titan Pokémon defeated, Arven decides to investigate the cave before Klawf can return. The two of you soon reach a cavern with glowing moss and a shining, pink herb: the Sweet Herba Mystica ! Arven consults his book for details, and finds that the herb aids in digestion. He wonders aloud if he could get \"him\" to eat some of it, then goes on to make sandwiches for you both. He also rewards you with the Rock Badge , a homemade treasure that he calls a Titan Badge, as thanks for taking on the Titan Pokémon .",
+                        "The two Trainers are about to eat when Koraidon S / Miraidon V suddenly appears from its Poké Ball. The dragon sniffs longingly at your sandwich , which gives you the chance to feed it. The dragon is thrilled, but Arven is disappointed that you now cannot appreciate his hard work. He reluctantly shares half of his sandwich with you, just as the dragon begins acting strangely. Consuming the Herba Mystica has given it enough power to reclaim one of its abilities, and is now able to dash as a result! Arven begins to pack things up, and urges you to start searching for the four remaining Herba Mystica.",
+                        "Once you and the dragon have left the cave, Arven then lets an unseen Pokémon out of its Poké Ball to eat."
+                    ]
+                }
+            },
+            "An Update from the Professor": {
+                "Text": [
+                    "When you exit the cave, you receive a call from Professor Sada S / Professor Turo V . The professor has detected that the dragon has regained some of its original power, and explains that it will now be able to dash at high speeds. After encouraging you to continue exploring Paldea with Koraidon S / Miraidon V at your side, the professor then ends the call. Pressing the Left Stick allows the dragon to move at high speed, but watch out for trees! If it strikes a tree while dashing, Pokémon lurking in the branches will fall from their perch, allowing you to battle them."
+                ]
+            }
+        }
+    },
+    "Part_6": {
+        "East Province (Area One)": {
+            "Text": [
+                "East Province (Area One) is a grassy region in southeastern Paldea that includes the town of Artazon . It borders South Province (Area Three) to the southwest, South Province (Area Five) to the south-southwest, East Province (Area Two) to the northeast, and East Province (Area Three) to the northwest."
+            ],
+            "Artazon": {
+                "Text": [
+                    "The town of Artazon is located in the southern part of East Province (Area One) . A large windmill can be seen in the center of town, and a hedge maze can be found to the north. The Artazon Gym stands the south side of town. Known for its flowers, the town features the Pokémon Sunflora in several of its art installations."
+                ],
+                "Artazon Gym": {
+                    "Text": [
+                        "When you visit the Artazon Gym , you find Nemona at the front desk. She seems surprised to run into you here, and swears that it's definitely not because she has been waiting here in the hopes of battling you again. As proof, she offers you three Ethers instead of a battle, then runs off to train \"maybe 20 Pokémon\" while you challenge the Gym.",
+                        "Speak to the receptionist to register as a challenger. In order to challenge Gym Leader Brassius , you must first take on his Gym Test: Sunflora Hide-and-Seek . To clear it, challengers must locate ten Sunflora scattered around town and lead them back to the Sunflora Lawn. She directs you to the staff member at the field, and shares the location data to your Map app."
+                    ]
+                },
+                "Sunflora Lawn": {
+                    "Text": [
+                        "The Sunflora Lawn is a fenced-in area located in the southeast part of Artazon , just east of the Gym. Speak to the staffer to accept the challenge, and the Gym Test begins!",
+                        "Be sure to search everywhere, as there are many possible locations where the Sunflora may be hiding. Some may even trigger a battle when examined, and must be defeated before following like the others.",
+                        "Once all ten have been found, lead them back to the Sunflora Lawn to pass the Gym Test. The staffer declares the test officially cleared, and asks that you report your result to the receptionist in the Gym."
+                    ]
+                },
+                "Artazon Gym (Visit 2)": {
+                    "Text": [
+                        "Speak to the receptionist, and she asks if you are ready to challenge Gym Leader Brassius . Say yes, and you are automatically escorted to the battle court in the middle of town."
+                    ]
+                },
+                "Battle court": {
+                    "Text": [
+                        "Artazon 's battle court sits in the center of town, at the foot of a large windmill. The Gym Leader greets you from atop one of the windmill's blades before leaping down to the battlefield below. He introduces himself as Brassius , an artist specializing in Grass-type Pokémon. He reveals that he observed your Gym Test from atop the windmill, and expresses his wish that you demonstrate in battle the same eye for beauty that helped find the Sunflora . Brassius views the upcoming battle as a collaborative work of art, and is eager to begin.",
+                        "Grass-type moves are super effective against Ground -, Rock -, and Water-type Pokémon, while Grass-type Pokémon are weak to Bug -, Fire -, Flying -, Ice -, and Poison-type moves.",
+                        "Ice and Poison Pokémon will have the easiest time defensively against Brassius 's team. Bug, Fire, and Flying Pokémon are also useful, but will take serious damage from Sudowoodo 's Rock Throw . Brassius will Terastallize his Sudowoodo at the earliest opportunity, causing the Rock-type Pokémon to become Grass type instead.",
+                        "After the battle, Brassius awards you the Grass Badge . Having earned two Gym Badges ensures obedience from all Pokémon caught at Level 30 or below. He also gives you a copy of TM020 ( Trailblaze ) as a prize."
+                    ]
+                },
+                "Meet the Art Teacher": {
+                    "Text": [
+                        "With the battle concluded, you find yourself back inside the Gym building. As you turn to leave, you are stopped by a man in a suit who asks if you might be the Trainer that he heard about from Nemona . He introduces himself as Hassel , a member of Paldea 's Elite Four and art teacher at the academy. He asks what drives you on your journey to become a Champion , and mentions how Nemona is the youngest Trainer to reach Champion Rank in all of Paldea's history. Hassel wonders if such potential lies within you as well, and looks forward to the day that you face him in battle. As he turns to leave, he advises you to start training hard now, and invites you to take part in his class sometime.",
+                        "The first Languages and Art classes can now be accessed from the Entrance Hall."
+                    ]
+                }
+            },
+            "East Province (Area One) Watchtower": {
+                "Text": [
+                    "The East Province (Area One) Watchtower stands atop a cliff far to the northeast of Artazon , where it overlooks the city of Levincia . Reaching the tower unlocks it as a fast-travel point."
+                ],
+                "Lower level": {
+                    "Text": [
+                        "Climb to the lower level, then continue to the top."
+                    ]
+                },
+                "Upper level": {
+                    "Text": [
+                        "Another suspicious-looking treasure chest can be found on the upper level. Examine it to trigger a battle with a Chest Form Gimmighoul , and collect the Gimmighoul Coins that it leaves behind.",
+                        "A Rare Candy can also be found here."
+                    ]
+                }
+            }
+        }
+    },
+    "Part_7": {
+        "West Province (Area One)": {
+            "Text": [
+                "West Province (Area One) is a grassy region in western Paldea . It borders South Province (Area Two) and South Province (Area Four) to the southeast, South Province (Area Six) to the south, West Province (Area Three) and the city of Cascarrafa to the northeast, and the Asado Desert to the north. The western side of the region borders the West Paldean Sea ."
+            ],
+            "Picnic Time": {
+                "Text": [
+                    "A short distance northwest of Cortondo , you find a woman and her Polteageist at a picnic table beneath a tree. Speak to her to find that she is tired from traveling the hilly terrain, and is just about to have a meal. She then offers some of her ingredients so that you can do the same. Before you can leave, she invites you to picnic with her and her Polteageist so that you and your Pokémon can take a rest. Doing so here restores your Pokémon to full health, leaving them ready to continue their adventure. The woman invites you to visit again anytime."
+                ]
+            },
+            "West Province (Area One) - Central Pokémon Center": {
+                "Text": [
+                    "West Province (Area One) 's Central Pokémon Center is located farther northwest of Cortondo , uphill from the bridge over the southbound river. Be sure to take a moment to rest before moving on, as the Open Sky Titan is said to be located a short distance away."
+                ]
+            },
+            "On the Trail of a Titan": {
+                "Text": [
+                    "Southwest of the Pokémon Center, the path diverges; turn northward, and you soon receive a call from Arven . He informs you that the Open Sky Titan lives somewhere up on this mountain, but there are plenty of boulders raining down, too! He warns that you will be sent flying if hit by a falling boulder, but believes that you could withstand a collision while atop Koraidon S / Miraidon V ."
+                ]
+            },
+            "Picnic Time (Visit 2)": {
+                "Text": [
+                    "Northwest of the Central Pokémon Center, near the western bridge, you find a man and his Goomy at a picnic table. He is happy to enjoy the scenery along with his sandwich, and gives you a variety of ingredients so that you can do the same. Like the woman near Cortondo , he invites you to picnic with him and his Goomy in order to rest your Pokémon."
+                ]
+            },
+            "The Open Sky Titan": {
+                "Text": [
+                    "West of the western bridge, the path leads up a mountain trail littered with large rocks. Climb onto the dragon's back and use these rocks as cover to avoid the steady supply of boulders rolling downhill, dropped by a large flying Pokémon visible to the west. When the latest wave has passed, hurry across the open area and past the two large rock slabs that serve as makeshift ramps. Once the coast is clear again, hurry around the bend to escape the barrage of boulders. When you reach the top of the hill, the Titan Pokémon attacks!"
+                ],
+                "VS Titan Bombirdier, Round 1": {
+                    "Text": [
+                        "Bombirdier is a Flying - and Dark-type Pokémon, making it vulnerable to Rock -, Electric -, Ice -, and Fairy-type attacks. Avoid using Ice-type Pokémon, as its Rock Throw attack deals serious damage to such Pokémon, and its Rocky Payload Ability boosts the power of Rock-type moves. When its health is nearly depleted, it suddenly flees from battle."
+                    ]
+                },
+                "VS Titan Bombirdier, Round 2": {
+                    "Text": [
+                        "After fleeing from battle, the Titan attacks the nearby cliffside, revealing a massive cave. The Pokémon then begins eating a green-colored plant , just as Arven appears. He was able to sneak up the mountain while Bombirdier was distracted, and is ready to help take on the powered-up Pokémon. Bombirdier prepares to attack, and Arven and his Nacli join you in a Multi Battle against it."
+                    ]
+                },
+                "Herba Mystica, Secured": {
+                    "Text": [
+                        "With the Titan Pokémon defeated, Arven decides to investigate the cave before Bombirdier can return. The two of you soon reach a cavern with glowing moss and a shining, green herb: the Bitter Herba Mystica ! Arven consults his book for details, and finds that the herb aids in circulation. He wonders aloud if he could slip it into a sandwich and get \"him\" to eat some of it, then goes on to make sandwiches for you both. He also rewards you with the Flying Badge , the second of his homemade Titan Badges, as thanks for taking on the Titan Pokémon.",
+                        "The two Trainers are about to eat when Koraidon S / Miraidon V suddenly appears from its Poké Ball. The dragon sniffs longingly at your sandwich, which gives you the chance to feed it. The dragon is thrilled and Arven is again disappointed, but fortunately made extra food this time. Just then, the dragon begins acting strangely. Consuming the Herba Mystica has given it enough power to reclaim one of its abilities, and it is now able to swim as a result!",
+                        "Arven turns his back for a moment, and the dragon is about to eat his sandwich as well, until he suddenly scolds it. He quickly apologizes for shouting, then decides to tell you a story. He lets his Mabosstiff out of its Poké Ball and offers it a sandwich in the hopes it will make it feel better. Arven explains that his Pokémon was seriously injured recently and has not yet recovered, and neither Potions nor Pokémon Centers seem to help. He promised to do whatever it takes to make Mabosstiff better, and has tried every remedy he could find to no effect. He then learned about the Herba Mystica from a book he found in the lab run by his mother S / father V . He then shows you a sketch of these herbs, and the accompanying caption.",
+                        "According to this book, consuming all five Herba Mystica can cure any ailment. Arven believes the tale, and points to the fact that Mabosstiff 's cold-as-ice paws warmed after eating the first herb. Just then, the weakened Pokémon opens its eyes and even makes an attempt to stand. Arven is overjoyed, and reaffirms his commitment to tracking down the three remaining Herba Mystica."
+                    ]
+                }
+            },
+            "An Update from the Professor": {
+                "Text": [
+                    "When you exit the cave, you receive a call from Professor Sada S / Professor Turo V . The professor has detected that the dragon has regained more of its original power, and explains that it will now be able to move across bodies of water. It can also jump out of the water by pressing the B Button."
+                ]
+            },
+            "West Province (Area One) - North Pokémon Center": {
+                "Text": [
+                    "A Pokémon League representative can be found near the North Pokémon Center. Speak to him, and he offers a prize for defeating nine Trainers in West Province (Area One) . Do so, and he rewards you with a Clear Amulet ."
+                ]
+            },
+            "West Province (Area One) Watchtower": {
+                "Text": [
+                    "The West Province (Area One) Watchtower stands to the east of the North Pokémon Center, overlooking a field of ruins. Reaching the tower unlocks it as a fast-travel point. A copy of TM039 ( Low Sweep ) is located on the tower's second level, and a Chest Form Gimmighoul can be battled on the top level."
+                ]
+            }
+        }
+    },
+    "Part_8": {
+        "West Province (Area One)": {
+            "A Declaration of War": {
+                "Text": [
+                    "Upon reaching the first intersection to the northeast of the North Pokémon Center, you receive a call from Cassiopeia . They inform you that one of Team Star 's bases is nearby, and asks if you have decided to join their operation. Agree, and they officially declare you a member of Operation Starfall.",
+                    "Just then, a man in an academy uniform approaches you, asking if this operation has room for one more member. He introduces himself as Clive , and Cassiopeia demands to know how long he has been spying on the two of you. He downplays their fears, calling you a mutual friend. The voice insists that the operation is not to be taken lightly, but Clive reveals that he has unsettled business with Team Star and always gets the job done. Cassiopeia reluctantly accepts his help, and Clive asks about the identity of the person on the phone; the voice reveals only that they have history with the group.",
+                    "Cassiopeia then returns the conversation to Operation Starfall, tasking you with raiding each of Team Star 's five bases and defeating the squads within. They point to the front gates of the nearby Segin Squad's Base , tucked away between the cliffs to the southeast. The team's code of conduct requires that bosses accept all challenges; if defeated, they must step down from their position. With no one to lead them, the rest of the squad will crumble. Cassiopeia has issued challenges to each base under your name, so Team Star is already aware that you are looking for a fight! Each base is a considerable size and holds a large group of Pokémon inside to fend off intruders, so this is not a mission for just any Trainer. Cassiopeia will assist from afar, while Clive serves as support."
+                ]
+            },
+            "Infiltration": {
+                "Text": [
+                    "When you approach Segin Squad's Base , you are stopped by a pair of Team Star Grunts. They soon identify you as the one who issued the challenge, and prepare to attack.",
+                    "Once the first Grunt is defeated, the pair retreats into the base to warn the others. Just then, you receive another call from Cassiopeia . The voice explains that the base houses Team Star 's Dark Crew, the Segin Squad. Their boss, Giacomo , is the acting leader of Team Star. Cassiopeia calls him a sharp guy, someone who would not be rattled by a challenge. The voice warns that he will likely wear you down with a wave of Grunts before taking you on himself. Keep defeating as many Pokémon as possible until he shows up!"
+                ]
+            },
+            "Segin Squad's Base": {
+                "Prepare to Attack": {
+                    "Text": [
+                        "Organize your party so that the first three Pokémon are fit for battle, then ring the bell on the front gate to begin the assault. Once inside, Clive appears and explains that Team Star has a unique way of doing battle, called a Star Barrage. To fend them off, you must press the R Button to send out up to three Pokémon at the same time to trigger an Auto Battle . If they run low on health, you can speak to Clive or visit one of the base's vending machines to heal them. The Team Star Grunts will heal their Pokémon as well, so stay sharp!",
+                        "Just then, one of the Grunts can be heard over the PA system, alerting everyone of the intruder. The voice then addresses you directly, promising that defeating 30 Pokémon in under 10 minutes just may cause the boss to show himself. A Star Barrage is lost if all of a challenger's Pokémon are defeated or time runs out. If you should need to retreat, press the Y Button to escape.",
+                        "Team Star Grunts line the path through the base, and send out wave after wave of Dark-type Pokémon to greet you. Defeat each wave and continue along the path, and you will soon clear the trial. The Grunts then call for help, and Giacomo suddenly appears from inside one of the tents, riding atop a large car."
+                    ]
+                },
+                "VS Giacomo": {
+                    "Text": [
+                        "As the boss of Team Star 's Dark Crew, Giacomo specializes in Dark-type Pokémon. Dark-type moves are super effective against Ghost - and Psychic-type Pokémon, while Dark-type Pokémon are weak to Bug -, Fairy -, and Fighting-type moves.",
+                        "Giacomo leads with his Pawniard , a Dark / Steel Pokémon. Both Metal Claw and Fury Cutter can boost its power, and its Defiant Ability increases its physical Attack when any of its stats are lowered. Once Pawniard is defeated, Giacomo sends in his car, which turns out to be a souped-up Revavroom referred to as the Segin Starmobile. Its signature move, Wicked Torque , deals damage and may put the target to sleep ."
+                    ]
+                }
+            },
+            "Aftermath": {
+                "Text": [
+                    "When the battle ends, Giacomo experiences a flashback of events that occurred around 18 months ago.",
+                    "Back in the present day, Giacomo says that he did his best but that there is no going back now, and reluctantly accepts that his days as a boss are over. To prove your victory, he gives you the Dark Badge , a homemade treasure that he calls a Star Badge, and a copy of TM062 ( Foul Play ). He is impressed by your Pokémon, and asks if you enjoy your time at the academy. Clive enters a moment later; he asks Giacomo why not break up the team and start attending class again, as the group is headed toward expulsion from the academy if they keep up their delinquent ways. Giacomo tells him that they are waiting on their big boss to return, but admits that they have not heard from this person in a year and a half, and their current whereabouts are unknown. The bosses believe that if they keep Team Star active, then the big boss will return one day, but the academy keeps pressing them to disband. Clive mentions how the team must mean a lot to Giacomo, who responds by calling it his greatest treasure."
+                ]
+            },
+            "Cassiopeia Checks In": {
+                "Text": [
+                    "Outside the front gate, you receive a call from Cassiopeia . They have detected that Giacomo no longer carries his Star Badge, the symbol of his status as a boss. With no leadership, the Segin Squad is sure to fall apart. As a reward, Cassiopeia transfers 5,000 LP to your phone, and expands the library of TM recipes available for crafting.",
+                    "In addition, the voice informs you that a messenger from their supply unit will be along soon to deliver a variety of TM Materials to you. The call ends, and you are immediately approached by Penny , the girl with the Eevee backpack. The tech-savvy student has been working behind the scenes with Operation Starfall as part of her Treasure Hunt, and is here to deliver your crafting materials. She promises more rewards from Cassiopeia when each further Team Star base is defeated, and wishes you luck against the four remaining bases."
+                ]
+            }
+        }
+    },
+    "Part_9": {
+        "Let’s Go to Levincia": {
+            "Text": [
+                "After flying to Artazon (East) you’ll be able to travel to Levincia , the next stop on Victory Road . Iono is the Gym Leader here, and she specialises in Electric-types . Make sure you have something that counters this, like a Ground-type before you attempt to take her on. There is a beach just outside of Levincia, where Sandygast and Nacli hang out, both of which are good additions.",
+                "On the way to Levincia we’ll pass by the Team Star Schedar Squad's Base , which we want to take on after Iono. As we’ll be returning shortly, you’ll want to unlock the East Province (Area One) Pokémon Center . Once you have unlocked this center, you want to head for Levincia (South).",
+                "There are a few rivers between Artazon and Levincia, but since defeating Bombirdier we have the ability to swim. This means that you don’t need to stick to the path, and instead you can cut across the fields and rivers to get to Levincia quickly."
+            ],
+            "Levincia, City of Lights": {
+                "Text": [
+                    "Levincia is one of the largest cities in the game and you can find pretty much everything you need there. In particular, you will want to visit Delibird Presents to grab some new held items and Chansey Supply to train your Pokémon. If you are looking to change your style, Levincia's clothing shops sell exclusive sportswear-themed clothes."
+                ],
+                "Shops": {
+                    "Text": [
+                        "Here is the list of shops you can find:",
+                        "Delibird Presents has different stock depending on the location. Here are the items exclusive to the Levincia Store."
+                    ]
+                }
+            },
+            "Enter the Iono Zone": {
+                "Text": [
+                    "Iono’s Gym is only slightly down the road from the Levincia (South) Pokémon Center."
+                ],
+                "Vs. Nemona": {
+                    "Text": [
+                        "Once you enter the gym Nemona will call you, and upon realising you’re in Levincia, she will come and meet you at the gym. She will then challenge you to a battle, before you start your Gym Test. You can turn her down in order to get your party in order, but you do have to battle her before you take on the gym.",
+                        "It doesn’t matter if you lose this battle. You will not black out, and the story will continue whether you win or lose. She will always have Rockruff and Pawmi in her team, but her final Pokémon depends on your first partner Pokémon. Nemona will Terastallize her first partner Pokémon at the first opportunity.",
+                        "Win or lose you are then free to take on Iono’s Gym Test."
+                    ]
+                },
+                "Start Streaming": {
+                    "Text": [
+                        "Go to the front desk to register, and then walk outside to meet Iono. She will start a stream with you as the special guest, and asks you to find Director Clavell around Levincia. Calling him Mr. Walksabout, she offers you a number of scenes where Clavell is hiding, and your test is finding him in each image.",
+                        "In the first scene, he’s sitting at a table with a parasol to the right of the screen. Once you click on him, you’ll be challenged by Gym Trainer Marti and his Luxio .",
+                        "In the second scene, Clavell can be found working in the Pokémon Center. Clicking on him leads to the next gym battle against Michael and his Tynamo and Flaaffy .",
+                        "For the final scene, Clavell is sat on a boat to the far right of the screen. Once you have found Clavell for the third time you can return to the gym lobby to fight Iono. Remember that your team won’t be healed following the Gym Test, so you might want to go to the Pokémon Center first."
+                    ]
+                },
+                "Iono’s Fight": {
+                    "Text": [
+                        "Iono has four Pokémon and they are all Electric-types, except her ace Mismagius , which will terastylize to Electric-type at the first opportunity. She opens with a Wattrel and closes with Mismagius, which has Levitate , meaning that Ground-type moves won’t work. However, they will be very strong against her Bellibolt and Luxio.",
+                        "Iono is a little jump in difficulty from Giacomo , particularly her Mismagius, which can continually boost its Special Attack with Charge Beam . Make sure you take it out before it gets out of control. She will give you TM048 Volt Switch once you win, which is a great move for repositioning. Defeating Iono will also open up more lessons at the academy.",
+                        "Geeta will introduce herself once you finish the third gym as the chairwoman of the Pokémon League .",
+                        "Once you’ve defeated Iono and done your shopping, you can head south of Levincia to take down the next Team Star base."
+                    ]
+                }
+            }
+        }
+    },
+    "Part_10": {
+        "Returning to Team Star Schedar Squad's Base": {
+            "Text": [
+                "After taking down Iono, you will want to go back the way you came towards the Fire-type Team Star Schedar Squad's Base . The leader here is Mela , and like Giacomo , you’ll need at least three different Pokémon capable of taking on Fire-types in order to take down her base. To get back to Mela’s base you can either fly directly back to the East Province (Area One) Pokémon Center , but it’s better to take the long way back and activate the fly point on the East Province (Area Two) Pokémon Center.",
+                "Marill , Magikarp , and Drednaw are abundant in the surrounding area, so if you are lacking Fire-type resistances these are good choices with a bit of training. If you don’t fancy these, you can find Mareanie on the beach just south of Levincia ."
+            ]
+        },
+        "Entering the Ring of Fire": {
+            "Text": [
+                "As you approach the Mela’s base Clive will talk to you. He’ll explain to you that he’s worried about the members of Team Star, and thinks that they’ve been bullied. He is worried about the level of truancy, particularly of the leaders who haven’t been to school in a year. Cassiopeia will interrupt your conversation with another phone call and tell you to be careful.",
+                "As you approach the gates another grunt will challenge you, but as they only have one Pokémon it shouldn’t be too difficult.",
+                "Following the battle, Clive will come back and introduce you to Charlos the Charcadet , a Pokémon that hangs out at the academy. Clive will chase after Charlos and Casseopeia will call again. They will tell you a bit about Mela and her crew. Once you have healed your Pokémon, and put your three best fire tamers at the front of your party, you’re ready to take on the Let’s Go battles."
+            ]
+        },
+        "Taking Down the Star Squad": {
+            "Star Barrage": {
+                "Text": [
+                    "For the three versus thirty Let’s Go battles there is less type variation than at the Dark-type base, making them easier to counter with a combination of Ground-, Rock- and Water-type moves."
+                ]
+            },
+            "VS Mela": {
+                "Text": [
+                    "As soon as you take down the rest of her Fire Crew, Mela will challenge you. Not only does she open with her Drought Torkoal that will power up her Starmobile ’s moves, but it has Clear Smog , meaning that you can’t set up on it. The harsh sunlight will expire after five turns, so it might be worth waiting it out and keeping the Torkoal in battle until it expires. Torkoal has low Special Defense, so any Special Attacker should do well here.",
+                    "Speed Boost means that Mela’s Starmobile can quickly get out of hand. It’s best to lean into being slower, boost your Defense and allow the Starmobile to lower its own Special Attack with Overheat. Its signature move Blazing Torque has a 30% chance to burn so make sure you heal this off any Physical Attacker before you throw a punch.",
+                    "After you defeat Mela, you’ll be treated to another cutscene explaining about her past. She will give you TM038 Flame Charge , which is a Fire-type move that raises your Speed. Clive and Charlos will then approach Mela, and they both ask her to come back to school.",
+                    "Once outside the base Cassiopeia calls you again, and sends you 6,000 LP. They also unlock more TMs at the TM Machine and Penny will approach to deliver more Pokémon Materials.  With the Fire Base defeated you are now ready to take on the Titan Orthworm and power up."
+                ]
+            }
+        }
+    },
+    "Part_11": {
+        "Entering East Province (Area Three)": {
+            "Text": [
+                "After you have taken down Mela , you want to fly back to Levincia North as this is the closest Pokémon Center to Orthworm , The Lurking Steel Titan . You can travel to Orthworm as the crow flies, but if you follow the path North from the Pokémon Center there will be a few trainers along the way to help you level up. Makuhita and Carkol are fairly common along this path, and both are good picks for the battle ahead."
+            ]
+        },
+        "Approaching a Titan": {
+            "Text": [
+                "Not far up the path Arven will call to let you know that you are close to the Lurking Steel Titan. He’ll warn you that it likes to stay hidden. This tells you that while you are close to Orthworm it might be a little hard to spot. Before we take the Titan on, we want to make sure we’re ready.",
+                "Orthworm is a pure Steel-type , meaning it would usually be weak to Fighting -, Fire -, and Ground-type attacks. However, it comes with the ability Earth Eater , which heals it when hit with Ground-type attacks. This means you’ll want to prepare one or two Fire- or Fighting-type Pokémon in order to take it down. The Titan Orthworm is level 29, so your Pokémon should be at least in their mid-20s."
+            ]
+        },
+        "Catch the Worm": {
+            "Text": [
+                "Continue up the path and you will eventually see a tunnel through the mountain on the right. This tunnel leads to where Orthworm likes to hang out, and while Arven told you it likes to hide, you can very easily see its huge head poking out from the sand. As you approach it, it will run away but if you keep following the burrowing path eventually it will battle you.",
+                "Orthworm has the moves Iron Tail , Sandstorm , Headbutt , and Wrap , so luckily none of these moves are too scary. Orthworm’s main trick is its ability, but as we already know not to use Ground-type moves it shouldn’t be too difficult. Once you take down the first phase Orthworm will burrow through the mountain, and you can follow it for part two of the fight."
+            ]
+        },
+        "The Lurking Steel Titan and Arven": {
+            "Text": [
+                "Orthworm is on the other side of the tunnel, but it will run away again when you approach. The same as last time, you’ll need to chase the burrowing worm around a little before it will challenge you. Arven will then join you in battle with his level 28 Toedscool. This Pokémon is mostly supportive, but can deal decent damage with Grass Knot thanks to how heavy Orthworm is.",
+                "Once you take down Orthworm you will have another cutscene with Arven where he makes some sandwiches using the new Herba Mystica . As usual Koraidon / Miraidon isn’t too happy about being left out of the picnic time. Give your bike your sandwich, and Arven will give Mabosstiff some bites and hear it woof for the first time in a long time.",
+                "After you leave the cave with the Herba Mystica, Professor Sada / Turo will call you. They will tell you that Koraidon can now jump much higher than before if you keep hold of the B button while jumping."
+            ]
+        },
+        "Catch your own Titan": {
+            "Text": [
+                "If you return to the place where you fought the first phase of the Lurking Steel Titan fight, you will see a large static Orthworm just laying down outside the tunnel. This is the catchable version of the Titan Orthworm, so grab your best catching Pokémon and some Great Balls, then talk to it to start the battle. There is only one of each Titan in the game, so make sure you’re ready for battle.",
+                "It is the same level as it is in the Titan fight and has the same moves. Catch it just like you would any other Pokémon, by weakening it and applying a status if you have a Pokémon that can do so. This Orthworm will have the Titan Mark that confers the title the Former Titan. You can also grab the Orthworm the Great mark by visiting the woman next to the fountain in Mesagoza who judges your Pokémon by their size.",
+                "Once you’ve done everything here, we will head to Cascarrafa next for our next Gym challenge."
+            ]
+        }
+    },
+    "Part_12": {
+        "Crashing into Cascarrafa": {
+            "Text": [
+                "Our next stop is the Gym in Cascarrafa so we’ll be flying back to the western side of the map. Fly back to the nearest Pokémon Center that you’ve unlocked, which if you’ve been following this guide should be West Province (Area One) - North. Following the path heading North from the Center will lead you straight to Cascarrafa.",
+                "Before you challenge the Gym here there are plenty of shops you can visit in the city. It’s split over three layers with an elevator that will take you between the layers of the city."
+            ],
+            "Shops": {
+                "Text": [
+                    "Here is the list of shops you can find:",
+                    "Delibird Presents has different stock depending on the location. Here are the items exclusive to the Cascarrafa Store."
+                ]
+            }
+        },
+        "Getting Gym Tested": {
+            "Text": [
+                "Cascaraffa’s Gym is right at the top of the city, and you’ll have to take the elevators to get there. However, as you approach the entrance, one of the Gym staff will approach you and tell you that the Gym Leader Kofu has gone shopping, but he left his wallet behind. His assistant asks you to take his wallet to him. Say yes and you’ll be directed to Porto Marinada where the market is.",
+                "The easiest way to get here is through the Asado Desert . With our new high jump power it’s easy to jump to the bottom of the city and into the desert. Kofu is a Water-type Gym Leader, and there are some Cacnea in the desert if you need something to deal Super Effective damage. There are also level 40 Pokémon in the desert so be careful what you run into. They will be difficult to catch and won’t obey you until you have Kofu’s badge anyway.",
+                "If you go through the desert you might go close to the Quaking Earth Titan triggering Arven ’s call. Don’t worry if you do, he’ll wait until you’re ready to take it on, so you can keep heading to Porto Marinada. There is a Pokémon Center as you go down into the town so make sure you trigger it before you go in. The market where Kofu is lies right in the center of town."
+            ]
+        },
+        "Returning the wallet": {
+            "Text": [
+                "Before you approach Kofu at the market, make sure that your Pokémon are healed and you have an Electric - or Grass-type in your lead. As soon as you approach Kofu, Gym Trainer Hugo will battle you. He leads with his Floatzel that likes to use Aqua Jet so your speed doesn’t matter too much. By comparison his Clauncher is a lot easier to deal with.",
+                "Once you beat Hugo, Kofu will approach you and thank you for returning his wallet. Kofu will then give you 50,000 Poké Dollars and ask you to bid on some seaweed for him, telling you that you can keep the change. It will always go for less than 50,000 Poké Dollars but exactly how much money you receive is random. Just make sure that you bid and you’ll pass the task.",
+                "Once you hand the seaweed over to Kofu you will have passed the Gym Test you can fly back to Cascarrafa to go to the Gym and challenge Kofu himself."
+            ]
+        },
+        "Challenging Kofu": {
+            "Text": [
+                "As your fourth gym, when you enter Hassel will approach you with a new character Rika . They explain that they are members of the Elite Four , and that they’ve been keeping an eye on your progress. They will leave and you are then free to approach the Gym reception and challenge Kofu. Of course remember to put your best Pokémon at the front of your party before you begin.",
+                "Kofu has three Pokémon between levels 29 and 30. He opens with Veluza which has Pluck to counter Grass-types, and his Wugtrio has Mud-Slap to counter Electric-types. Despite this, taking these two types into battle should be relatively safe. The Crabominable hits very hard though, so be careful.",
+                "Once you beat Kofu he will give you the Gym Badge , which allows Pokémon up to level 40 to obey you. He gives you the TM for Chilling Water , which is a great move that lowers your opponent’s Attack while dealing damage.",
+                "As soon as you finish with Kofu, Nemona will come meet you at the Gym. Don’t worry, she won’t battle you this time, but she will tell you how proud she is of your efforts. With that done we’re ready to take on the next Team Star base."
+            ]
+        }
+    },
+    "Part_13": {
+        "Eastward Bound": {
+            "Text": [
+                "Both Larry the Gym Leader , and the Quaking Earth Titan are near Kofu and Cascarrafa , but we’re going to fly to the East first and level up a bit before taking them on. Fly to the Levincia (North) Pokémon Center , and you can follow the road West to get to Zapapico first. This will unlock some new fly points and be close to the Poison Crew's Base. It looks like you can travel to from the East Province (Area Two) Pokémon Center, but a sheer cliff will stop you from reaching Zapico.",
+                "Along the way we’ll be preparing for the next Team Star base so we want some Ground - or Psychic-type on the team. Steel-types are also a good choice as they are immune to being Poisoned and Poison-type moves. You can find Cufant and Varoom on this path, and if you didn’t catch the Titan Orthworm then you’ll have an opportunity to find a regular one here. Halfway down the path to Zapapico, you will see a woman under a tent on the right, use her to heal your Pokémon."
+            ]
+        },
+        "Entering Zapapico": {
+            "Text": [
+                "Zapapico isn’t a big town, but it’s an important one to get the fly point for. It provides access to Dalizapa Passage , and it is also where you will find the man/woman who trades 10 Bronzor Fragments/Sinistea Chips for the Auspicious Armor / Malicious Armor needed to evolve Charcadet into Armarouge / Ceruledge . They are standing next to a fountain, and have the text “Fancy a trade?”. There are also a few cafés and sandwich ingredient shops here, but there are no items exclusive to the town.",
+                "When you’re done, set your route for the Navi Squad's Base in Tagtree Thicket . The Pokémon North of here are around level 35, so they are a bit stronger than what we’ve faced so far. However, there are Tinkatuff and Espathra in this area, which can be decent counters to the Navi Squad's Poison Pokémon. Tagtree Thicket has a border around it that can only be crossed at certain points. You can walk or fly back to the woman who healed you along the path you came from, and head up the road to the North to get into the forest."
+            ]
+        },
+        "Taking on Tagtree Thicket": {
+            "Text": [
+                "You’ll see a Pokémon Center right outside the thicket, which is a great place to heal. The entrance to the forest is marked with purple Team Star flags on either side. As you enter the Tagtree Thicket you’ll be entered into a cutscene. Clive will approach you and tell you that he has been keeping in contact with members of Team Star and wants to continue with Operation Starfall.",
+                "From here you can decide whether to go straight to the base, or to pick up some Pokémon from Tagtree Thicket. Scarlet players can pick up Oranguru here, which can be strong in the upcoming battles. Once you have caught everything you want, approach the front gates. You will see a Team Star Grunt arguing with a student who wants to go into the base and meet the leader Atticus . You approach the pair and tell them who you are. The Grunt will hurry inside, and Pokémon Trainer Youssef will fight you.",
+                "Youssef will try to overwhelm your team with Toxic and stalling strategies with Stockpile and Swallow . The Shroodle can be annoying with Flatter to confuse you, but overall it shouldn’t be too difficult. Once you beat Youssef, Clive will approach and talk to him. Cassiopeia then calls and tells you a little about Atticus and the Poison Squad. After this you are free to put your three Poison-type counters in the lead and head into the base."
+            ]
+        },
+        "Taking down Team Star": {
+            "Text": [
+                "Like with the other Team Star bases, you will have to defeat 30 Pokémon in Let’s Go battles within 10 minutes. You will commonly face Gastly , Haunter , Shroodle , Grafaiai , Paldean Wooper , and Clodsire , but Gulpin , Swalot , Seviper , Foongus , Amoonguss , Grimer , Venonat , and Venomoth can also appear. Don’t forget to heal at the vending machines if you need to.",
+                "Once that’s done you’re ready for the leader Atticus. He has three Pokémon and the Starmobile , and his Skuntank will prove an issue if you’re relying on Psychic-type attackers. Its mix of Toxic and Venoshock , which doubles in power when the opponent is Poisoned, is also devastating. Stench can flinch making this fight event more difficult if you don’t have speed on your side. The Muk is less threatening, though Sludge Wave hits hard, and Mud-Slap can be very disruptive. The Revavroom can be taken out with a single Ground-type move, but it hits very hard if you allow it to.",
+                "As with all Starmobile’s Atticus’ one is very strong with a lot of HP. It has Toxic Debris spreading Toxic Spikes around the field, preventing you from switching around too much. Its gimmick is all about Speed . Spin Out will sharply lower its Speed, and Flame Charge will raise it. However, even if its Speed is lowered it still has a good chance at outspeeding your team."
+            ]
+        },
+        "Atticus’ Memories": {
+            "Text": [
+                "Once you’ve defeated Atticus, you’ll see one of his memories where he shows his face. It shows Atticus giving the Team Star leaders their outfits after he has designed and made them. The memory explains how Atticus was bullied for his love of fashion, which is why he found a home with Team Star. They also talk about how they want to train and become better at battling. Atticus will then take a picture with you for defeating him and gives you TM102 Gunk Shot , a powerful physical Poison-type move.",
+                "Clive brings over Youssef, the student that you defeated at the gate, to talk to Atticus. The student expresses gratitude to Atticus and Team Star for pushing the bullies out of the school. Atticus explains that the big boss of Team Star has since gone missing, and that the leaders will defend their bases until their boss returns. He also explains that the boss is a recluse, and none of the members of Team Star have actually met them.",
+                "Once outside the base Cassiopeia will call you again. Cassiopeia explains that the main goal of Operation Starfall is to take down the big boss, the person who formed Team Star. However, like Atticus, they don’t know who the big boss is. Despite this they believe that the big boss will make themselves known once all five bases are taken down. Cassiopeia then transfers you 7,000 LP, upgrades the TM machine, and Penny stops by with plenty of Pokémon materials. Koraidon / Miraidon will pop out of its ball and give her a fright, and she will explain that taking down the big boss is important to her too.",
+                "After this cutscene you are free to travel to Medali and take on our next Gym Leader , Larry ."
+            ]
+        }
+    },
+    "Part_14": {
+        "Next stop Medali": {
+            "Text": [
+                "Our next stop is the Medali Gym , and while the town looks close to Cascarrafa , without the ability to climb it is easier to get there from Zapapico (West). Leaving Zapapico via this exit, and taking the fork to the right, will lead us on the path straight to Medali with a fly point we can unlock on the way. One thing to note is that the Pokémon here can be slightly higher level than what we’ve faced so far, coming in around the mid-30s. This is also the level of our Gym Leader Larry , so you’ll need to make sure your team is ready to take them on. Once you leave the tunnel head down the hill to enter Medali for the first time."
+            ]
+        },
+        "Much to do in Medali": {
+            "Text": [
+                "Medali has a lot of shops, but the most important one is Treasure Eatery . This is not only where you’ll face the next Gym Leader, but also where you go if you want to change your Pokémon’s Tera type . Be warned you’ll need 50 Tera Shards of the type you want to change to. You probably won’t have this many at this point unless you’ve been participating in a lot of Tera Raid Battles.",
+                "Here is the list of shops in Medali:"
+            ]
+        },
+        "Larry’s favorite food": {
+            "Text": [
+                "To begin the Medali Gym Test you’ll first have to enter the Gym. Once you do so Nemona will challenge you to another battle. However, you won’t fight her until after you have taken down Larry, so you don’t have to worry about her yet. When signing up to the Gym Test you are asked to find four clues as to Larry’s favorite food, and tell the code word to the wait staff at the Treasure Eatery.",
+                "You can find these by battling trainers around town. They will then give you a location where you can find the clue. You can skip all of this by going straight to the waiter if you know the order, but you will miss out on the money and experience. There is one trainer in front of the restaurant, one in front of Sure Cans, and one in front of the amphitheater. You will notice them as their speech bubbles are outlined in yellow.",
+                "One will tell you that they want some ice cream, leading you to Sugar-N-Ice near the Treasure Eatery where the odd food out is Grilled Rice Balls. The next will say to listen to the blue bird Pokémon, meaning the Squawkabilly that tells you “Medium”. The next will tell you to look for a dark spot surrounded by stairs, and you can find the words Fire Blast hidden behind the grate. Finally, ask the man eating at the counter, and he will tell you that regulars season their food with “Lemon”. All that’s left is to approach the waiter and ask for Grilled rice balls, Medium serving, Extra crispy Fire Blast style, and Lemon. You can then talk to the waiter again to challenge Larry."
+            ]
+        },
+        "Facing the Exceptional Everyman": {
+            "Text": [
+                "Larry’s team isn’t too intimidating, except Staraptor which has Intimidate and can lower your Attack . Fighting-types are best here, and you’ll want to watch out for status moves like Yawn and Glare . Komala ’s Comatose , and Staraptor ’s Facade also mean that you don’t want to status Larry’s team back. Once you are done, you’ll grab a picture with Larry, and be given TM025 Facade, a strong Normal-type move that doubles in power when you are statused. Pokémon caught below level 45 will now always obey."
+            ]
+        },
+        "Facing Nemona": {
+            "Text": [
+                "After you’ve finished against Larry, Geeta will approach. Nemona tells you a bit more about her, and how Geeta’s the Top Champion . Geeta says she’s here to scope out top talent, and Nemona will give you that battle she promised. Don’t worry, Geeta will heal your team before the battle starts. Nemona’s team is the same no matter her first partner Pokémon, except for that Pokémon. She will always Terastylize this Pokémon, but like our other fights with Nemona, it doesn’t matter if you win or lose.",
+                "Once you’re finished Geeta will give you a few TM171s . This is Tera Blast , a move that takes on a Pokémon’s Tera type when it’s Terstylized. It also adapts to your highest offensive stat, so it’s a great move to give your Pokémon more type coverage, particularly given that we’ve just unlocked the Treasure Eatery. If you don’t Terastylize then it is a fairly powerful Normal-type special move. After this Geeta will return you to Larry’s Gym and you are free to take on the next challenge."
+            ]
+        }
+    },
+    "Part_15": {
+        "Ascending Glaseado Mountain": {
+            "Text": [
+                "Leaving Medali from the East will take you on a path towards Glaseado Mountain. Heading either directly North East or following a more winding path East, South and then North will take you to Montenevera and your next Gym Battle with Gym Leader Ryme . The snowy landscape of Glaseado Mountain is home to a variety of Ice-type Pokémon, catching one here might come in useful against one of the Elite Four later. \nThe wild Pokémon you can encounter on Glaseado Mountain can range in level from the mid-30s to low-40s and cover an array of typings so avoid placing all your trust in a single Fire-type Pokémon. Ryme's level is at the top of this level range so be prepared for a step-up from Larry's mid-30s level Pokémon."
+            ]
+        }
+    }
+}
