@@ -61,8 +61,8 @@ def trigger_update(room_code: str, state: dict):
     # 6. Broadcast
     try:
         pusher_client.trigger(channel_name, 'state-update', payload)
-    except Exception:
-        pass
+    except Exception as e:
+        print(f"[Pusher Error] Failed to trigger {channel_name}/state-update: {e}")
 
 
 def record_game_results_if_ended(state: dict):

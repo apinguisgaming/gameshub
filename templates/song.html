@@ -688,6 +688,7 @@
 
         var pusherKey = "{{ pusher_key }}";
         var pusherCluster = "{{ pusher_cluster }}";
+        Pusher.logToConsole = true;
         var pusher = new Pusher(pusherKey, { cluster: pusherCluster });
         var channel = null;
         var currentRoomCode = "";

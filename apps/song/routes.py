@@ -36,7 +36,7 @@ def trigger_update(room_code: str, state: dict, event_name: str = 'state-update'
     try:
         pusher_client.trigger(channel_name, event_name, safe_state)
     except Exception as e:
-        pass
+        print(f"[Pusher Error] Failed to trigger {channel_name}/{event_name}: {e}")
 
 
 def record_game_results_if_ended(state: dict):

@@ -23,6 +23,21 @@ PUSHER_KEY = os.environ.get('PUSHER_KEY', 'c70b0b1879d5918e3996')
 PUSHER_SECRET = os.environ.get('PUSHER_SECRET', 'f5251bcb6332cef94ddb')
 PUSHER_CLUSTER = os.environ.get('PUSHER_CLUSTER', 'eu')
 
+# Detect PythonAnywhere environment and configure outbound proxy
+IS_PYTHONANYWHERE = bool(
+    os.environ.get('PYTHONANYWHERE_DOMAIN') or 
+    os.environ.get('PYTHONANYWHERE_SITE') or 
+    Path('/etc/pythonanywhere').exists() or
+    (Path('/home').exists() and Path('/var/www').exists())
+)
+
+if IS_PYTHONANYWHERE:
+    proxy_url = 'http://proxy.server:3128'
+    os.environ.setdefault('http_proxy', proxy_url)
+    os.environ.setdefault('https_proxy', proxy_url)
+    os.environ.setdefault('HTTP_PROXY', proxy_url)
+    os.environ.setdefault('HTTPS_PROXY', proxy_url)
+
 def get_pusher_client():
     """Initializes and returns a Pusher client or a safe fallback if unavailable."""
     try:
@@ -34,7 +49,7 @@ def get_pusher_client():
             cluster=PUSHER_CLUSTER,
             ssl=True
         )
-    except ImportError:
+    except Exception as e:
         class DummyPusher:
             def trigger(self, channel, event, data):
                 pass
