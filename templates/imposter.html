@@ -718,31 +718,12 @@
 
     </div>
 
+    <script src="{{ url_for('static', filename='common/tab-auth.js') }}"></script>
     <script>
-        {% if auth_token %}
-        sessionStorage.setItem('gamehub_token', {{ auth_token | tojson }});
-        {% endif %}
-        {% if current_user %}
-        sessionStorage.setItem('gamehub_user', JSON.stringify({{ current_user | tojson }}));
-        window.GAMEHUB_USER = {{ current_user | tojson }};
-        {% else %}
-        window.GAMEHUB_USER = null;
-        {% endif %}
-        window.GAMEHUB_TOKEN = sessionStorage.getItem('gamehub_token') || {{ auth_token | tojson if auth_token else 'null' }};
-
-        function syncTabUser() {
-            const savedUserStr = sessionStorage.getItem('gamehub_user');
-            if (savedUserStr) {
-                try {
-                    const su = JSON.parse(savedUserStr);
-                    if (su && su.username) {
-                        window.GAMEHUB_USER = su;
-                        document.querySelectorAll('.account-badge-username').forEach(el => el.textContent = '👤 ' + su.username);
-                    }
-                } catch(e) {}
-            }
-        }
-        document.addEventListener('DOMContentLoaded', syncTabUser);
+        initTabSession(
+            {{ current_user | tojson if current_user else 'null' }},
+            {{ auth_token | tojson if auth_token else 'null' }}
+        );
 
         const Game = {
             data: {},

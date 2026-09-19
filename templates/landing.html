@@ -396,15 +396,14 @@
         
         <!-- Top Auth Status Header -->
         <div class="top-bar">
-            {% if current_user %}
-                <div class="user-pill">
-                    <span class="user-avatar-tag account-badge-avatar">👤 {{ current_user.username }}</span>
-                    <span>Account: <strong class="account-badge-name">{{ current_user.username }}</strong></span>
-                </div>
-                <button class="btn-auth btn-logout" onclick="handleLogout()">Abmelden</button>
-            {% else %}
+            <div id="auth-header-logged-in" class="user-pill" style="display: {{ 'flex' if current_user else 'none' }}; align-items:center; gap:8px;">
+                <span class="user-avatar-tag account-badge-avatar">👤 {{ current_user.username if current_user else '' }}</span>
+                <span>Account: <strong class="account-badge-name">{{ current_user.username if current_user else '' }}</strong></span>
+                <button class="btn-auth btn-logout" style="margin-left: 10px;" onclick="handleLogout()">Abmelden</button>
+            </div>
+            <div id="auth-header-logged-out" style="display: {{ 'none' if current_user else 'block' }};">
                 <button class="btn-auth btn-login" onclick="openAuthModal('login')">Anmelden / Registrieren</button>
-            {% endif %}
+            </div>
         </div>
 
         <header>
@@ -505,28 +504,27 @@
         </div>
     </div>
 
+    <script src="{{ url_for('static', filename='common/tab-auth.js') }}"></script>
     <script>
-        {% if auth_token %}
-        sessionStorage.setItem('gamehub_token', {{ auth_token | tojson }});
-        {% endif %}
-        {% if current_user %}
-        sessionStorage.setItem('gamehub_user', JSON.stringify({{ current_user | tojson }}));
-        {% endif %}
-
         let currentAuthMode = 'login';
 
-        function syncTabUser() {
-            const savedUser = sessionStorage.getItem('gamehub_user');
-            if (savedUser) {
-                try {
-                    const u = JSON.parse(savedUser);
-                    if (u && u.username) {
-                        document.querySelectorAll('.account-badge-name').forEach(el => el.textContent = u.username);
-                        document.querySelectorAll('.account-badge-avatar').forEach(el => el.textContent = '👤 ' + u.username);
-                    }
-                } catch(e) {}
+        function updateLandingHeader(user) {
+            const loggedInEl = document.getElementById('auth-header-logged-in');
+            const loggedOutEl = document.getElementById('auth-header-logged-out');
+            if (user && user.username) {
+                if (loggedInEl) loggedInEl.style.display = 'flex';
+                if (loggedOutEl) loggedOutEl.style.display = 'none';
+            } else {
+                if (loggedInEl) loggedInEl.style.display = 'none';
+                if (loggedOutEl) loggedOutEl.style.display = 'block';
             }
         }
+
+        initTabSession(
+            {{ current_user | tojson if current_user else 'null' }},
+            {{ auth_token | tojson if auth_token else 'null' }},
+            updateLandingHeader
+        );
 
         function openAuthModal(mode) {
             currentAuthMode = mode || 'login';
@@ -618,21 +616,11 @@
         }
 
         async function handleLogout() {
-            const token = sessionStorage.getItem('gamehub_token');
-            try {
-                await fetch('/api/auth/logout', {
-                    method: 'POST',
-                    headers: token ? { 'X-Auth-Token': token } : {}
-                });
-            } catch (e) {}
-            sessionStorage.removeItem('gamehub_token');
-            sessionStorage.removeItem('gamehub_user');
-            window.location.href = '/';
+            await window.gamehubLogout();
         }
 
         // Check if redirected with ?login=1
         document.addEventListener('DOMContentLoaded', () => {
-            syncTabUser();
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('login') === '1') {
                 openAuthModal('login');

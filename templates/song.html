@@ -667,24 +667,24 @@
         </div>
     </div>
 
+    <script src="{{ url_for('static', filename='common/tab-auth.js') }}"></script>
     <script>
-        {% if auth_token %}
-        sessionStorage.setItem('gamehub_token', {{ auth_token | tojson }});
-        {% endif %}
-        {% if current_user %}
-        sessionStorage.setItem('gamehub_user', JSON.stringify({{ current_user | tojson }}));
-        window.GAMEHUB_USER = {{ current_user | tojson }};
-        {% else %}
-        window.GAMEHUB_USER = null;
-        {% endif %}
-        window.GAMEHUB_TOKEN = sessionStorage.getItem('gamehub_token') || {{ auth_token | tojson if auth_token else 'null' }};
+        initTabSession(
+            {{ current_user | tojson if current_user else 'null' }},
+            {{ auth_token | tojson if auth_token else 'null' }},
+            function(user) {
+                if (user && user.username) {
+                    myName = user.username;
+                }
+            }
+        );
 
         var pusherKey = "{{ pusher_key }}";
         var pusherCluster = "{{ pusher_cluster }}";
         var pusher = new Pusher(pusherKey, { cluster: pusherCluster });
         var channel = null;
         var currentRoomCode = "";
-        var myName = "{{ current_user.username if current_user else '' }}";
+        var myName = (window.GAMEHUB_USER && window.GAMEHUB_USER.username) || "{{ current_user.username if current_user else '' }}";
         var isHost = false;
 
         var audio = null;
@@ -694,20 +694,6 @@
         var hasGuessed = false;
         var roundStartTime = 0;
         var nextAudio = new Audio();
-
-        function syncTabUser() {
-            const savedUserStr = sessionStorage.getItem('gamehub_user');
-            if (savedUserStr) {
-                try {
-                    const su = JSON.parse(savedUserStr);
-                    if (su && su.username) {
-                        myName = su.username;
-                        window.GAMEHUB_USER = su;
-                        $('.account-badge-username').text('👤 ' + su.username);
-                    }
-                } catch(e) {}
-            }
-        }
 
         // Inject room_code and X-Auth-Token automatically into all jQuery POST requests
         $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
@@ -727,7 +713,9 @@
         });
 
         $(document).ready(function () {
-            syncTabUser();
+            if (window.GAMEHUB_USER && window.GAMEHUB_USER.username) {
+                myName = window.GAMEHUB_USER.username;
+            }
             if ($('#game-audio').length === 0) {
                 $('body').append('<audio id="game-audio" preload="auto" playsinline></audio>');
             }

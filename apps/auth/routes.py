@@ -132,10 +132,15 @@ def logout():
     token = get_current_token() or request.headers.get('X-Auth-Token') or request.args.get('token')
     if token:
         try:
+            token_user = get_storage().get_user_by_token(token)
             get_storage().delete_session_token(token)
+            # Only clear the shared cookie if it actually belongs to this user
+            if token_user and session.get('user_id') == token_user['id']:
+                session.clear()
         except Exception:
             pass
-    session.clear()
+    else:
+        session.clear()
     return jsonify({'success': True})
 
 
