@@ -1,6 +1,6 @@
 {# templates/components/top_bar.html - Single Source of Truth for top navigation and user status #}
 {% macro render_top_bar(back_url='/', back_text='← GAMEHUB', room_code=None, extra_class='', custom_back_onclick=None) %}
-<div class="top-nav-bar gamehub-top-bar {{ extra_class }}">
+<div class="top-nav-bar gamehub-top-bar {{ extra_class }}" style="display: flex; justify-content: space-between; align-items: center;">
     {% if custom_back_onclick %}
         <button type="button" class="gamehub-back-btn geo-btn-back" onclick="{{ custom_back_onclick }}">{{ back_text }}</button>
     {% else %}
