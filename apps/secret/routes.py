@@ -15,6 +15,7 @@ from apps.common.rooms import (
     validate_game_start,
 )
 from apps.common.delta import broadcast_tracker
+from apps.common.multiplayer_bp import register_standard_room_routes
 from . import logic as secret_logic
 
 secret_bp = Blueprint('secret_bp', __name__)
@@ -123,15 +124,6 @@ def index():
     return render_template('secret.html', existing_name=username)
 
 
-@secret_bp.route('/rooms', methods=['GET'])
-@login_required
-def get_rooms():
-    active = list_rooms('secret')
-    return jsonify({'success': True, 'rooms': active})
-
-
-@secret_bp.route('/create_room', methods=['POST'])
-@login_required
 def create_new_room():
     user = get_current_user()
     if not user:
@@ -150,6 +142,10 @@ def create_new_room():
         initial_state=initial
     )
     return jsonify({'success': True, 'room_code': room_code})
+
+
+register_standard_room_routes(secret_bp, 'secret', custom_create_room_fn=create_new_room)
+
 
 
 @secret_bp.route('/join_game', methods=['POST'])

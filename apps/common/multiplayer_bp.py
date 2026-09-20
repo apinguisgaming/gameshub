@@ -1,6 +1,6 @@
-"""Reusable multiplayer Flask Blueprint factory for GameHub.
+"""Reusable multiplayer Flask Blueprint factory and route helpers for GameHub.
 
-Provides standard room lifecycle endpoints (create, join, leave, state, heartbeat, list_lobbies)
+Provides standard room lifecycle endpoints (create, join, leave, state, heartbeat, list_lobbies, rooms)
 for multiplayer games to plug into without reimplementing boilerplate HTTP routes.
 """
 from typing import Any, Callable, Dict, Optional
@@ -9,6 +9,48 @@ from config import get_pusher_client
 from apps.auth.decorators import get_current_user, login_required
 from apps.common.heartbeat import record_player_heartbeat
 from apps.common.rooms import create_room, get_room_state, join_room, leave_room, list_rooms
+
+
+def register_standard_room_routes(
+    bp: Blueprint,
+    game_id: str,
+    initial_state_factory: Optional[Callable[[], Dict[str, Any]]] = None,
+    custom_create_room_fn: Optional[Callable[[], Any]] = None,
+) -> None:
+    """Registers standard room discovery and creation endpoints on any game blueprint.
+
+    Endpoints:
+      - GET /rooms, GET /list_lobbies -> returns active room list
+      - POST /create_room, POST /create -> creates room and returns room_code
+    """
+    @bp.route('/rooms', methods=['GET'])
+    @bp.route('/list_lobbies', methods=['GET'])
+    @login_required
+    def standard_get_rooms():
+        active = list_rooms(game_id)
+        return jsonify({'success': True, 'rooms': active, 'lobbies': active})
+
+    if custom_create_room_fn:
+        bp.add_url_rule('/create_room', f'{game_id}_create_room', custom_create_room_fn, methods=['POST'])
+        bp.add_url_rule('/create', f'{game_id}_create', custom_create_room_fn, methods=['POST'])
+    elif initial_state_factory:
+        @bp.route('/create_room', methods=['POST'])
+        @bp.route('/create', methods=['POST'])
+        @login_required
+        def standard_create_room():
+            user = get_current_user()
+            if not user:
+                return jsonify({'error': 'Nicht angemeldet'}), 401
+
+            initial = initial_state_factory()
+            room_code = create_room(
+                game_id=game_id,
+                host_username=user['username'],
+                host_user_id=user['id'],
+                initial_state=initial
+            )
+            record_player_heartbeat(game_id, room_code, user['username'])
+            return jsonify({'success': True, 'room_code': room_code})
 
 
 def create_multiplayer_blueprint(
@@ -45,6 +87,7 @@ def create_multiplayer_blueprint(
         return render_template(tpl, room_code=room_code)
 
     @bp.route('/create', methods=['POST'])
+    @bp.route('/create_room', methods=['POST'])
     @login_required
     def handle_create():
         user = get_current_user()
@@ -82,14 +125,20 @@ def create_multiplayer_blueprint(
             return jsonify({'success': False, 'error': str(e)}), 400
 
     @bp.route('/<room_code>/leave', methods=['POST'])
+    @bp.route('/<room_code>/leave_game', methods=['POST'])
+    @bp.route('/leave_game', methods=['POST'])
     @login_required
-    def handle_leave(room_code):
+    def handle_leave(room_code=None):
         user = get_current_user()
         username = user['username'] if user else 'Player'
+        code = (room_code or request.form.get('room_code') or '').upper().strip()
 
-        state = leave_room(game_id, room_code, username)
+        if not code:
+            return jsonify({'success': True})
+
+        state = leave_room(game_id, code, username)
         if state:
-            _trigger_update(room_code, state)
+            _trigger_update(code, state)
         return jsonify({'success': True})
 
     @bp.route('/<room_code>/state', methods=['GET'])
@@ -101,17 +150,21 @@ def create_multiplayer_blueprint(
         return jsonify(sanitize_fn(state))
 
     @bp.route('/<room_code>/heartbeat', methods=['POST'])
+    @bp.route('/heartbeat', methods=['POST'])
     @login_required
-    def handle_heartbeat(room_code):
+    def handle_heartbeat(room_code=None):
         user = get_current_user()
         username = user['username'] if user else 'Player'
-        record_player_heartbeat(game_id, room_code, username)
+        code = (room_code or request.form.get('room_code') or '').upper().strip()
+        if code:
+            record_player_heartbeat(game_id, code, username)
         return jsonify({'success': True})
 
+    @bp.route('/rooms', methods=['GET'])
     @bp.route('/list_lobbies', methods=['GET'])
     @login_required
     def handle_list_lobbies():
         lobbies = list_rooms(game_id)
-        return jsonify({'lobbies': lobbies})
+        return jsonify({'success': True, 'rooms': lobbies, 'lobbies': lobbies})
 
     return bp

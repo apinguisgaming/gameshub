@@ -15,9 +15,12 @@ from apps.common.rooms import (
     validate_game_start,
 )
 from apps.common.delta import broadcast_tracker
+from apps.common.multiplayer_bp import register_standard_room_routes
 from . import logic as song_logic
 
 song_bp = Blueprint('song_bp', __name__)
+register_standard_room_routes(song_bp, 'song', initial_state_factory=song_logic.get_initial_state)
+
 
 
 def trigger_update(room_code: str, state: dict, event_name: str = 'state-update', custom_payload: dict = None, force_full: bool = False):
@@ -106,30 +109,6 @@ def index():
     return render_template('song.html', existing_name=username, playlists=playlist_names)
 
 
-@song_bp.route('/rooms', methods=['GET'])
-@login_required
-def get_rooms():
-    active = list_rooms('song')
-    return jsonify({'success': True, 'rooms': active})
-
-
-@song_bp.route('/create_room', methods=['POST'])
-@login_required
-def create_new_room():
-    user = get_current_user()
-    if not user:
-        return jsonify({'error': 'Nicht angemeldet'}), 401
-
-    initial = song_logic.get_initial_state()
-    room_code = create_room(
-        game_id='song',
-        host_username=user['username'],
-        host_user_id=user['id'],
-        initial_state=initial
-    )
-    return jsonify({'success': True, 'room_code': room_code})
-
-
 @song_bp.route('/join_game', methods=['POST'])
 @song_bp.route('/<room_code>/join', methods=['POST'])
 @login_required
@@ -179,25 +158,12 @@ def leave(room_code: str = None):
     if not code or not name:
         return jsonify({'success': True})
 
-    state = get_room_state('song', code)
-    if not state:
-        return jsonify({'success': True})
-
-    if name in state.get('players', []):
-        state['players'].remove(name)
-    if name in state.get('spectators', []):
-        state['spectators'].remove(name)
-    if name in state.get('scores', []):
-        del state['scores'][name]
-
-    if len(state.get('players', [])) == 0 and len(state.get('spectators', [])) == 0:
-        get_storage().delete_lobby('song', code)
-        return jsonify({'success': True})
-
-    if state.get('host') == name and state.get('players'):
-        state['host'] = state['players'][0]
-
-    trigger_update(code, state)
+    state = leave_room('song', code, name)
+    if state:
+        if name in state.get('scores', {}):
+            del state['scores'][name]
+            get_storage().save_lobby('song', code, state, len(state.get('players', [])), state.get('status', 'lobby'))
+        trigger_update(code, state)
     return jsonify({'success': True})
 
 

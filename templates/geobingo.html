@@ -17,6 +17,8 @@
 
 {% block body_class %}geobingo-body{% endblock %}
 
+{% from "components/top_bar.html" import render_top_bar %}
+
 {% block content %}
 <div class="geo-app-container">
 
@@ -24,13 +26,8 @@
          SCREEN 1: ROOM BROWSER
          ==================================================================== -->
     <div id="screen-browser" class="geo-screen active">
-        <div class="geo-top-bar">
-            <a href="/" class="geo-btn-back">← GAMEHUB</a>
-            <div class="geo-account-tag">
-                <span>ACCOUNT:</span>
-                <strong>👤 {{ current_user.username if current_user else 'Gast' }}</strong>
-            </div>
-        </div>
+        {{ render_top_bar(extra_class='geo-top-bar') }}
+
 
         <div class="geo-title-box">
             <h1 class="geo-main-title">GEO<span>BINGO</span></h1>

@@ -16,11 +16,14 @@ from apps.common.rooms import (
     validate_game_start,
 )
 from apps.common.delta import broadcast_tracker
+from apps.common.multiplayer_bp import register_standard_room_routes
 from . import logic as geobingo_logic
 from . import items as geobingo_items
 
 logger = logging.getLogger(__name__)
 geobingo_bp = Blueprint('geobingo_bp', __name__)
+register_standard_room_routes(geobingo_bp, 'geobingo', initial_state_factory=geobingo_logic.get_initial_state)
+
 
 
 def trigger_update(room_code: str, state: dict, force_full: bool = False):
@@ -101,30 +104,6 @@ def index():
     return render_template('geobingo.html', existing_name=username, global_items=global_items)
 
 
-@geobingo_bp.route('/rooms', methods=['GET'])
-@login_required
-def get_rooms():
-    active = list_rooms('geobingo')
-    return jsonify({'success': True, 'rooms': active})
-
-
-@geobingo_bp.route('/create_room', methods=['POST'])
-@login_required
-def create_new_room():
-    user = get_current_user()
-    if not user:
-        return jsonify({'error': 'Nicht angemeldet'}), 401
-
-    initial = geobingo_logic.get_initial_state()
-    room_code = create_room(
-        game_id='geobingo',
-        host_username=user['username'],
-        host_user_id=user['id'],
-        initial_state=initial
-    )
-    return jsonify({'success': True, 'room_code': room_code})
-
-
 @geobingo_bp.route('/join_game', methods=['POST'])
 @geobingo_bp.route('/<room_code>/join', methods=['POST'])
 @login_required
@@ -173,21 +152,9 @@ def leave(room_code: str = None):
     if not code or not name:
         return jsonify({'success': True})
 
-    state = get_room_state('geobingo', code)
+    state = leave_room('geobingo', code, name)
     if not state:
         return jsonify({'success': True})
-
-    if name in state.get('players', []):
-        state['players'].remove(name)
-    if name in state.get('spectators', []):
-        state['spectators'].remove(name)
-
-    if len(state.get('players', [])) == 0 and len(state.get('spectators', [])) == 0:
-        get_storage().delete_lobby('geobingo', code)
-        return jsonify({'success': True})
-
-    if state.get('host') == name and state.get('players'):
-        state['host'] = state['players'][0]
 
     if state.get('status') == 'judging':
         rem_players = state.get('players', [])

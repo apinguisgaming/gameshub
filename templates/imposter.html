@@ -10,6 +10,8 @@
 
 {% block body_class %}imposter-body{% endblock %}
 
+{% from "components/top_bar.html" import render_top_bar %}
+
 {% block content %}
     <div id="error-popup">Fehler Nachricht</div>
     <!-- 1. HINTERGRUND FORMEN -->
@@ -18,15 +20,9 @@
     <div class="bg-shape s-tri"></div>
 
     <div class="app-container">
-        
         <!-- Top Auth Status Header -->
-        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom: var(--border-thick); padding-bottom:12px; margin-bottom: 20px;">
-            <a href="/" class="gamehub-back-btn" style="border:var(--border-thick); background:white; color:black; padding:6px 14px; font-weight:900; text-decoration:none; box-shadow:var(--shadow-small); text-transform:uppercase; font-size:0.85rem;">← GAMEHUB</a>
-            <div style="font-size: 0.9rem; font-weight:900; display:flex; align-items:center; gap:8px;">
-                <span>ACCOUNT:</span>
-                <span class="account-badge-username" style="background:var(--c-yellow); border:2px solid var(--c-black); padding:2px 8px; box-shadow:2px 2px 0px var(--c-black);">👤 {{ current_user.username if current_user else 'Gast' }}</span>
-            </div>
-        </div>
+        {{ render_top_bar() }}
+
 
         <header>
             <h1>Impo<span>stor</span></h1>
