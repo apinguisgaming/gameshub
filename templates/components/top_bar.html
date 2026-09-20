@@ -1,5 +1,6 @@
 {# templates/components/top_bar.html - Single Source of Truth for top navigation and user status #}
-{% macro render_top_bar(back_url='/', back_text='← GAMEHUB', room_code=None, extra_class='', custom_back_onclick=None) %}
+{% macro render_top_bar(back_url='/', back_text='← GAMEHUB', room_code=None, extra_class='', custom_back_onclick=None, user=None) %}
+{% set active_user = user or current_user %}
 <div class="top-nav-bar gamehub-top-bar {{ extra_class }}" style="display: flex; justify-content: space-between; align-items: center;">
     {% if custom_back_onclick %}
         <button type="button" class="gamehub-back-btn geo-btn-back" onclick="{{ custom_back_onclick }}">{{ back_text }}</button>
@@ -12,7 +13,7 @@
             <span class="room-badge" style="font-weight: 900; letter-spacing: 1px;">ROOM: <strong>#{{ room_code }}</strong></span>
         {% endif %}
         <span>ACCOUNT:</span>
-        <span class="account-badge-username" style="font-weight: 900;">👤 {{ current_user.username if current_user else 'Gast' }}</span>
+        <span class="account-badge-username" style="font-weight: 900;">👤 {{ active_user.username if active_user else 'Gast' }}</span>
     </div>
 </div>
 {% endmacro %}

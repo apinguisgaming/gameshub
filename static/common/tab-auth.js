@@ -128,4 +128,17 @@
         window.location.href = '/';
     };
 
+    document.addEventListener('DOMContentLoaded', function () {
+        var u = window.GAMEHUB_USER;
+        if (!u) {
+            try {
+                var raw = sessionStorage.getItem('gamehub_user');
+                if (raw) u = JSON.parse(raw);
+            } catch (e) {}
+        }
+        if (u) {
+            applyUserToUI(u);
+        }
+    });
+
 })(window);

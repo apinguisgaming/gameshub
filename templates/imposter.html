@@ -10,7 +10,7 @@
 
 {% block body_class %}imposter-body{% endblock %}
 
-{% from "components/top_bar.html" import render_top_bar %}
+{% from "components/top_bar.html" import render_top_bar with context %}
 
 {% block content %}
     <div id="error-popup">Fehler Nachricht</div>

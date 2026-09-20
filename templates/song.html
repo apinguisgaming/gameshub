@@ -11,7 +11,7 @@
 {% endblock %}
 
 {% block body_class %}song-body{% endblock %}
-{% from "components/top_bar.html" import render_top_bar %}
+{% from "components/top_bar.html" import render_top_bar with context %}
 
 {% block content %}
     <div id="audio-overlay"
