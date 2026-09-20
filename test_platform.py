@@ -977,12 +977,12 @@ class GameHubPlatformTests(unittest.TestCase):
         self.client.post('/api/auth/register', json={'username': username, 'password': password})
         res_login = self.client.post('/api/auth/login', json={'username': username, 'password': password})
         token = res_login.get_json()['token']
-        headers = {'X-Auth-Token': token}
+        headers = {'X-Auth-Token': token, 'X-Forwarded-For': '198.51.100.88'}
 
         # Clear any preexisting penalties for clean test
         with self.storage._get_conn() as conn:
-            conn.execute("DELETE FROM maps_penalties WHERE identifier LIKE '%ratelimituser%' OR identifier LIKE 'ip:%'")
-            conn.execute("DELETE FROM maps_api_logs WHERE username = ?", (username,))
+            conn.execute("DELETE FROM maps_penalties WHERE identifier LIKE '%ratelimituser%' OR identifier LIKE '%198.51.100.88%'")
+            conn.execute("DELETE FROM maps_api_logs WHERE username = ? OR ip_address = '198.51.100.88'", (username,))
 
         # 1. Test Smart Gaming: Fast in-game actions in 2 rooms (4 requests: 1 SDK + 3 in-game)
         self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geobingo/', 'details': {'room': 'R1'}})
@@ -1065,8 +1065,8 @@ class GameHubPlatformTests(unittest.TestCase):
 
         # 7. Test Admin Manual Reset in DB:
         with self.storage._get_conn() as conn:
-            conn.execute("DELETE FROM maps_penalties WHERE identifier LIKE '%ratelimituser%' OR identifier LIKE 'ip:%'")
-            conn.execute("DELETE FROM maps_api_logs WHERE username = ?", (username,))
+            conn.execute("DELETE FROM maps_penalties WHERE identifier LIKE '%ratelimituser%' OR identifier LIKE '%198.51.100.88%'")
+            conn.execute("DELETE FROM maps_api_logs WHERE username = ? OR ip_address = '198.51.100.88'", (username,))
 
         res_after_admin_reset = self.client.post('/api/logs/maps/check', headers=headers)
         self.assertEqual(res_after_admin_reset.status_code, 200)

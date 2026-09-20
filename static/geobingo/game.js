@@ -1654,7 +1654,6 @@
     // Google Maps API Async Callback entrypoint
     window.initGoogleMapsServices = function () {
         console.log("[GeoBingo] Google Maps JavaScript SDK ready.");
-        logMapsUsage('maps_sdk_init', { room_code: currentRoomCode });
         const mapModal = document.getElementById('map-modal');
         if (mapModal && mapModal.classList.contains('active')) {
             initPickerMap();
