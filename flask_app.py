@@ -88,7 +88,10 @@ def authenticate_request():
 # ==========================================
 def card_template_exists(game_id: str) -> bool:
     """Checks if a handcrafted card template exists for the game."""
-    cards_dir = os.path.join(app.template_folder, 'cards')
+    folder = app.template_folder
+    if not os.path.isabs(folder):
+        folder = os.path.join(app.root_path, folder)
+    cards_dir = os.path.join(folder, 'cards')
     return os.path.isfile(os.path.join(cards_dir, f"{game_id}.html"))
 
 @app.context_processor

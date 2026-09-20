@@ -35,9 +35,13 @@ def _register_single_game(app: Flask, manifest: GameManifest) -> None:
 
     def view_func(target_manifest=manifest):
         tpl = target_manifest.template
-        tpl_path = os.path.join(app.template_folder, tpl) if tpl else None
-        if tpl and os.path.isfile(tpl_path):
-            return render_template(tpl, game=target_manifest)
+        if tpl:
+            folder = app.template_folder
+            if not os.path.isabs(folder):
+                folder = os.path.join(app.root_path, folder)
+            tpl_path = os.path.join(folder, tpl)
+            if os.path.isfile(tpl_path):
+                return render_template(tpl, game=target_manifest)
         return render_template('game_shell.html', game=target_manifest)
 
     # Apply login_required decorator
