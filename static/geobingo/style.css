@@ -378,14 +378,74 @@ html, body {
 
 .geo-word-pool {
     display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    max-height: 180px;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 240px;
     overflow-y: auto;
-    padding: 6px;
+    padding: 8px;
     background: #090e0b;
     border: var(--geo-border-thin);
     margin-bottom: 6px;
+}
+
+.geo-pool-section {
+    width: 100%;
+}
+
+.geo-pool-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: var(--geo-sand);
+    letter-spacing: 0.8px;
+    padding: 4px 8px;
+    margin-bottom: 6px;
+    background: #111a14;
+    border-left: 3px solid var(--geo-sand);
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease;
+}
+
+.geo-pool-section-header:hover {
+    background: #18261d;
+}
+
+.geo-pool-section-header.is-global {
+    border-left-color: #4dabf7;
+    color: #a5d8ff;
+}
+
+.geo-pool-section-count {
+    font-size: 0.65rem;
+    color: #888;
+    font-weight: 700;
+}
+
+.geo-pool-section-toggle-icon {
+    display: inline-block;
+    font-size: 0.65rem;
+    margin-right: 6px;
+    transition: transform 0.15s ease;
+}
+
+.geo-pool-section.is-collapsed .geo-pool-section-chips {
+    display: none !important;
+}
+
+.geo-pool-section-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.geo-pool-empty-hint {
+    font-size: 0.75rem;
+    color: #666;
+    font-style: italic;
+    padding: 4px 6px;
 }
 
 .geo-word-chip {
@@ -400,7 +460,9 @@ html, body {
     border: 1.5px solid #28392f;
     cursor: pointer;
     user-select: none;
-    transition: all 0.1s ease;
+    transition: background 0.1s ease, color 0.1s ease, border-color 0.1s ease;
+    box-sizing: border-box;
+    white-space: nowrap;
 }
 
 .geo-word-chip:hover {
@@ -411,9 +473,9 @@ html, body {
 .geo-word-chip.is-selected {
     background: var(--geo-green-bright) !important;
     color: #000 !important;
-    font-weight: 900 !important;
+    font-weight: 700 !important;
     border-color: #000 !important;
-    box-shadow: 2px 2px 0px #000 !important;
+    box-shadow: none !important;
 }
 
 .geo-word-chip.is-readonly {
@@ -955,6 +1017,192 @@ html, body {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     width: 100%;
+}
+
+.geo-vote-bar .geo-btn {
+    transition: all 0.15s ease;
+    position: relative;
+}
+
+.geo-vote-bar .geo-btn.is-active {
+    box-shadow: 0 0 12px rgba(81, 207, 102, 0.75), inset 0 0 0 2px #fff !important;
+    transform: scale(1.02);
+}
+
+.geo-vote-bar .geo-btn-danger.is-active {
+    box-shadow: 0 0 12px rgba(255, 71, 87, 0.75), inset 0 0 0 2px #fff !important;
+    transform: scale(1.02);
+}
+
+.geo-vote-bar .geo-btn.is-dimmed {
+    opacity: 0.45;
+    filter: grayscale(0.4);
+}
+
+.geo-disagreement-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 107, 107, 0.15);
+    border: 1.5px solid var(--geo-red);
+    padding: 8px 12px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #ff8787;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    animation: geoPulseRed 2s infinite ease-in-out;
+}
+
+@keyframes geoPulseRed {
+    0%, 100% { box-shadow: 0 0 0px rgba(255, 107, 107, 0); }
+    50% { box-shadow: 0 0 10px rgba(255, 107, 107, 0.5); }
+}
+
+.geo-judge-chat-card {
+    display: flex;
+    flex-direction: column;
+    background: #0d1510;
+    border: 1.5px solid #28392f;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    overflow: hidden;
+    animation: geoSlideDown 0.25s ease-out;
+}
+
+@keyframes geoSlideDown {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.geo-chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #152219;
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--geo-sand);
+    border-bottom: 1px solid #28392f;
+    letter-spacing: 0.5px;
+}
+
+.geo-chat-status-pill {
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    background: rgba(81, 207, 102, 0.2);
+    border: 1px solid var(--geo-green-bright);
+    color: var(--geo-green-bright);
+    border-radius: 3px;
+    font-weight: 800;
+}
+
+.geo-chat-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    height: 120px;
+    max-height: 160px;
+    overflow-y: auto;
+    padding: 8px 10px;
+    background: #090e0b;
+}
+
+.geo-chat-empty {
+    color: #666;
+    font-size: 0.75rem;
+    font-style: italic;
+    text-align: center;
+    margin: auto 0;
+}
+
+.geo-chat-msg {
+    display: flex;
+    flex-direction: column;
+    max-width: 85%;
+    padding: 5px 9px;
+    font-size: 0.78rem;
+    border-radius: 4px;
+    line-height: 1.3;
+    word-break: break-word;
+}
+
+.geo-chat-msg.is-me {
+    align-self: flex-end;
+    background: #1e3828;
+    border: 1px solid #2e593d;
+    color: #f1f3f5;
+}
+
+.geo-chat-msg.is-other {
+    align-self: flex-start;
+    background: #18221c;
+    border: 1px solid #2c3e33;
+    color: #f1f3f5;
+}
+
+.geo-chat-meta {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    font-size: 0.65rem;
+    font-weight: 800;
+    margin-bottom: 2px;
+    color: var(--geo-sand);
+}
+
+.geo-chat-msg.is-me .geo-chat-meta {
+    color: var(--geo-green-bright);
+    justify-content: flex-end;
+}
+
+.geo-chat-time {
+    color: #777;
+    font-weight: 600;
+}
+
+.geo-chat-input-bar {
+    display: flex;
+    gap: 6px;
+    padding: 6px 8px;
+    background: #111a14;
+    border-top: 1px solid #28392f;
+}
+
+.geo-chat-input-bar input {
+    height: 32px;
+    font-size: 0.8rem;
+    padding: 0 8px;
+}
+
+.geo-voter-badge {
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.15s ease;
+}
+
+.geo-voter-badge.has-voted-yes {
+    background: rgba(81, 207, 102, 0.18);
+    border: 1px solid var(--geo-green-bright);
+    color: var(--geo-green-bright);
+}
+
+.geo-voter-badge.has-voted-no {
+    background: rgba(255, 71, 87, 0.18);
+    border: 1px solid var(--geo-red);
+    color: #ff6b6b;
+}
+
+.geo-voter-badge.is-waiting {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #444;
+    color: #888;
 }
 
 /* ==========================================================================

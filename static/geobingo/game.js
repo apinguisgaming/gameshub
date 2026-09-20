@@ -173,6 +173,14 @@
             console.log('%c[GeoBingo Event: game-reset (In-Memory Rematch)]', 'color: #ff6b6b; font-weight: bold; background: #3a1a1a; padding: 2px 6px; border-radius: 3px;', payload);
             handleGameReset(payload ? payload.state : null);
         });
+
+        pusherChannel.bind('chat-message', function (msg) {
+            if (gameState) {
+                if (!gameState.chat_messages) gameState.chat_messages = [];
+                gameState.chat_messages.push(msg);
+                renderChatMessages();
+            }
+        });
     }
 
 
@@ -224,6 +232,7 @@
             gameState = state;
             initPusher(currentRoomCode);
             startHeartbeat(currentRoomCode);
+            syncCustomWordsToRoom();
 
             // If I am host, sync custom items and initialize selection if empty
             if (state && state.host === currentUser && state.status === 'lobby') {
@@ -286,6 +295,22 @@
     // --- User Custom Items & Account Storage ---
     let userCustomItems = [];
     let currentPoolFilter = 'all';
+    const collapsedPoolSections = new Set();
+
+    function syncCustomWordsToRoom() {
+        if (!currentRoomCode) return;
+        $.post(`/geobingo/${currentRoomCode}/sync_custom_words`, {
+            room_code: currentRoomCode,
+            custom_items: userCustomItems
+        }, function (res) {
+            if (res && res.player_custom_items && gameState) {
+                gameState.player_custom_items = res.player_custom_items;
+                if (gameState.status === 'lobby') {
+                    renderLobbyWordPool(gameState.settings || {});
+                }
+            }
+        });
+    }
 
     function loadUserCustomItems() {
         const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
@@ -303,6 +328,9 @@
                     try { userCustomItems = JSON.parse(local) || []; } catch(e) {}
                 }
             }
+            if (currentRoomCode) {
+                syncCustomWordsToRoom();
+            }
             if (gameState && gameState.status === 'lobby') {
                 renderLobbySettings(gameState.settings || {});
             }
@@ -311,6 +339,9 @@
             const local = localStorage.getItem('geobingo_custom_items');
             if (local) {
                 try { userCustomItems = JSON.parse(local) || []; } catch(e) {}
+            }
+            if (currentRoomCode) {
+                syncCustomWordsToRoom();
             }
         });
     }
@@ -330,6 +361,7 @@
         if (gameState && gameState.host === currentUser) {
             updateSetting('host_custom_items', userCustomItems);
         }
+        syncCustomWordsToRoom();
     }
 
     window.setPoolFilter = function (filter) {
@@ -412,7 +444,18 @@
         if (!gameState || gameState.host !== currentUser) return;
         const targetCount = Number(gameState.settings.item_count || 7);
         const globalItems = window.GEO_GLOBAL_ITEMS || [];
-        const pool = Array.from(new Set([...globalItems, ...userCustomItems]));
+
+        const allCustom = [];
+        if (gameState.player_custom_items) {
+            Object.values(gameState.player_custom_items).forEach(arr => {
+                if (Array.isArray(arr)) allCustom.push(...arr);
+            });
+        }
+        userCustomItems.forEach(w => {
+            if (!allCustom.includes(w)) allCustom.push(w);
+        });
+
+        const pool = Array.from(new Set([...globalItems, ...allCustom]));
         const shuffled = pool.sort(() => 0.5 - Math.random());
         const picked = shuffled.slice(0, targetCount);
         updateSetting('selected_items', picked);
@@ -636,6 +679,67 @@
     };
 
     /**
+     * Judgement Chat: Send Message
+     */
+    window.sendJudgeChatMessage = function () {
+        const input = document.getElementById('input-judge-chat');
+        if (!input || !currentRoomCode) return;
+        const text = (input.value || '').trim();
+        if (!text) return;
+
+        input.value = '';
+        $.post(`/geobingo/${currentRoomCode}/send_chat`, {
+            room_code: currentRoomCode,
+            message: text
+        }).fail(function (xhr) {
+            alert(xhr.responseJSON?.error || 'Fehler beim Senden der Nachricht.');
+        });
+    };
+
+    function renderChatMessages() {
+        const container = document.getElementById('judge-chat-messages');
+        if (!container || !gameState) return;
+
+        const messages = gameState.chat_messages || [];
+        container.innerHTML = '';
+
+        if (messages.length === 0) {
+            const empty = document.createElement('div');
+            empty.className = 'geo-chat-empty';
+            empty.textContent = 'Noch keine Nachrichten. Schreibt hier, um euch zu einigen!';
+            container.appendChild(empty);
+            return;
+        }
+
+        messages.forEach(m => {
+            const isMe = (m.sender === currentUser);
+            const el = document.createElement('div');
+            el.className = `geo-chat-msg ${isMe ? 'is-me' : 'is-other'}`;
+
+            const meta = document.createElement('div');
+            meta.className = 'geo-chat-meta';
+            meta.innerHTML = `<span>${isMe ? 'Du' : escapeHtml(m.sender)}</span><span class="geo-chat-time">${escapeHtml(m.time || '')}</span>`;
+
+            const txt = document.createElement('div');
+            txt.className = 'geo-chat-text';
+            txt.textContent = m.text || '';
+
+            el.appendChild(meta);
+            el.appendChild(txt);
+            container.appendChild(el);
+        });
+
+        container.scrollTop = container.scrollHeight;
+    }
+
+    function escapeHtml(str) {
+        if (!str) return '';
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
+    /**
      * Rendering Logic according to Game State
      */
     function renderState(state) {
@@ -704,23 +808,10 @@
 
         const isHost = (currentUser === (gameState ? gameState.host : null));
         const globalItems = window.GEO_GLOBAL_ITEMS || [];
-        const hostCustom = (gameState && gameState.settings && gameState.settings.host_custom_items) || [];
-
-        // All custom items available in this view
-        const availableCustom = Array.from(new Set([...userCustomItems, ...hostCustom]));
-
-        let itemsToDisplay = [];
-        if (currentPoolFilter === 'global') {
-            itemsToDisplay = globalItems;
-        } else if (currentPoolFilter === 'custom') {
-            itemsToDisplay = availableCustom;
-        } else {
-            itemsToDisplay = Array.from(new Set([...globalItems, ...availableCustom]));
-        }
-
         const selectedItems = settings.selected_items || [];
         const targetCount = Number(settings.item_count || 7);
 
+        // Update selected items counter badge
         const counterBadge = document.getElementById('pool-selected-counter');
         if (counterBadge) {
             counterBadge.textContent = `${selectedItems.length} / ${targetCount} GEWÄHLT`;
@@ -733,25 +824,75 @@
             }
         }
 
-        poolContainer.innerHTML = '';
-        if (itemsToDisplay.length === 0) {
-            const emptyMsg = document.createElement('div');
-            emptyMsg.style.cssText = 'color: #777; font-size: 0.8rem; font-weight: 700; padding: 12px; text-align: center; width: 100%;';
-            emptyMsg.textContent = (currentPoolFilter === 'custom') ? 'Noch keine eigenen Wörter angelegt. Tippe auf "+ NEU"!' : 'Keine Wörter im Pool.';
-            poolContainer.appendChild(emptyMsg);
-            return;
+        // Active players in lobby
+        const players = (gameState && gameState.players && gameState.players.length) ? gameState.players : [currentUser];
+
+        // Gather all custom items per player
+        const playerCustomMap = {};
+        if (gameState && gameState.player_custom_items) {
+            Object.keys(gameState.player_custom_items).forEach(p => {
+                const arr = gameState.player_custom_items[p];
+                playerCustomMap[p] = Array.isArray(arr) ? [...arr] : [];
+            });
+        }
+        // Ensure every lobby player has an entry in the map
+        players.forEach(p => {
+            if (!playerCustomMap[p]) playerCustomMap[p] = [];
+        });
+        // Merge current user's local userCustomItems into their own section
+        if (currentUser) {
+            if (!playerCustomMap[currentUser]) playerCustomMap[currentUser] = [];
+            userCustomItems.forEach(w => {
+                if (!playerCustomMap[currentUser].includes(w)) {
+                    playerCustomMap[currentUser].push(w);
+                }
+            });
         }
 
-        itemsToDisplay.forEach(item => {
+        // Dynamically update filter slider buttons
+        const filterSlider = document.getElementById('pool-filter-slider');
+        if (filterSlider) {
+            const filterDefs = [
+                { key: 'all', label: 'ALLE' },
+                { key: 'global', label: 'GLOBAL' }
+            ];
+            players.forEach(p => {
+                const isMe = (p === currentUser);
+                filterDefs.push({
+                    key: `player_${p}`,
+                    label: isMe ? `${p.toUpperCase()} (DU)` : p.toUpperCase()
+                });
+            });
+
+            const validKeys = filterDefs.map(f => f.key);
+            if (!validKeys.includes(currentPoolFilter)) {
+                currentPoolFilter = 'all';
+            }
+
+            filterSlider.innerHTML = '';
+            filterDefs.forEach(f => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = `geo-filter-opt ${currentPoolFilter === f.key ? 'active' : ''}`;
+                btn.setAttribute('data-filter', f.key);
+                btn.textContent = f.label;
+                btn.onclick = () => window.setPoolFilter(f.key);
+                filterSlider.appendChild(btn);
+            });
+        }
+
+        poolContainer.innerHTML = '';
+
+        // Helper to create a single word chip
+        function createChip(item, owner) {
             const isSelected = selectedItems.includes(item);
-            const isMyCustom = userCustomItems.includes(item);
+            const isMyCustom = (owner === currentUser);
 
             const chip = document.createElement('div');
             chip.className = `geo-word-chip ${isSelected ? 'is-selected' : ''} ${!isHost ? 'is-readonly' : ''}`;
             if (isHost) {
                 chip.onclick = () => window.toggleWordSelection(item);
             }
-
             chip.innerHTML = `<span>${item}</span>`;
 
             if (isMyCustom) {
@@ -762,9 +903,89 @@
                 delBtn.onclick = (e) => window.deleteCustomWord(item, e);
                 chip.appendChild(delBtn);
             }
+            return chip;
+        }
 
-            poolContainer.appendChild(chip);
-        });
+        // Helper to append a section with small header and collapse/expand toggle
+        function appendSection(secKey, title, countText, isGlobal, items, owner) {
+            const sec = document.createElement('div');
+            const isCollapsed = collapsedPoolSections.has(secKey);
+            sec.className = `geo-pool-section ${isCollapsed ? 'is-collapsed' : ''}`;
+
+            const header = document.createElement('div');
+            header.className = `geo-pool-section-header ${isGlobal ? 'is-global' : ''}`;
+            header.title = 'Klicken zum Ein-/Ausklappen';
+            header.innerHTML = `
+                <div style="display: flex; align-items: center;">
+                    <span class="geo-pool-section-toggle-icon">${isCollapsed ? '▶' : '▼'}</span>
+                    <span>${title}</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span class="geo-pool-section-count">${countText}</span>
+                    <span style="font-size: 0.65rem; color: #888; font-weight: 700;">[${isCollapsed ? 'AUSKLAPPEN' : 'EINKLAPPEN'}]</span>
+                </div>
+            `;
+
+            header.onclick = function () {
+                if (collapsedPoolSections.has(secKey)) {
+                    collapsedPoolSections.delete(secKey);
+                } else {
+                    collapsedPoolSections.add(secKey);
+                }
+                renderLobbyWordPool(settings);
+            };
+
+            sec.appendChild(header);
+
+            const chipsWrap = document.createElement('div');
+            chipsWrap.className = 'geo-pool-section-chips';
+            if (isCollapsed) {
+                chipsWrap.style.display = 'none';
+            }
+
+            if (!items || items.length === 0) {
+                const empty = document.createElement('div');
+                empty.className = 'geo-pool-empty-hint';
+                empty.textContent = (owner === currentUser)
+                    ? 'Noch keine eigenen Wörter angelegt. Tippe oben auf "+ NEU"!'
+                    : 'Keine eigenen Wörter angelegt.';
+                chipsWrap.appendChild(empty);
+            } else {
+                items.forEach(item => {
+                    chipsWrap.appendChild(createChip(item, owner));
+                });
+            }
+
+            sec.appendChild(chipsWrap);
+            poolContainer.appendChild(sec);
+        }
+
+        // Render based on current pool filter
+        if (currentPoolFilter === 'all') {
+            // Sektion 1: Global
+            appendSection('global', '🌐 GLOBAL', `${globalItems.length} Begriffe`, true, globalItems, null);
+
+            // Sektion 2+: Eigene Bereiche für jeden Spieler mit dessen Namen als Überschrift
+            players.forEach(p => {
+                const pItems = playerCustomMap[p] || [];
+                const isMe = (p === currentUser);
+                appendSection(`player_${p}`, `👤 ${p.toUpperCase()}${isMe ? ' (DU)' : ''}`, `${pItems.length} Begriffe`, false, pItems, p);
+            });
+        } else if (currentPoolFilter === 'global') {
+            appendSection('global', '🌐 GLOBAL', `${globalItems.length} Begriffe`, true, globalItems, null);
+        } else if (currentPoolFilter.startsWith('player_')) {
+            const targetP = currentPoolFilter.replace('player_', '');
+            const pItems = playerCustomMap[targetP] || [];
+            const isMe = (targetP === currentUser);
+            appendSection(`player_${targetP}`, `👤 ${targetP.toUpperCase()}${isMe ? ' (DU)' : ''}`, `${pItems.length} Begriffe`, false, pItems, targetP);
+        } else {
+            // Fallback
+            appendSection('global', '🌐 GLOBAL', `${globalItems.length} Begriffe`, true, globalItems, null);
+            players.forEach(p => {
+                const pItems = playerCustomMap[p] || [];
+                appendSection(`player_${p}`, `👤 ${p.toUpperCase()}${p === currentUser ? ' (DU)' : ''}`, `${pItems.length} Begriffe`, false, pItems, p);
+            });
+        }
     }
 
     function renderLobbySettings(settings) {
@@ -888,46 +1109,140 @@
 
         if (!rev.proof || !rev.proof.pano_id) {
             if (noProofOverlay) noProofOverlay.style.display = 'flex';
-            return;
+        } else {
+            if (noProofOverlay) noProofOverlay.style.display = 'none';
+
+            if (streetViewPanorama) {
+                // Camera lock: Drag is blocked via transparent overlay, panControl disabled, zoom only
+                streetViewPanorama.setOptions({
+                    clickToGo: false,
+                    linksControl: false,
+                    addressControl: false,
+                    panControl: false,
+                    zoomControl: false,
+                    enableCloseButton: false,
+                    motionTracking: false,
+                    motionTrackingControl: false
+                });
+
+                const targetHeading = Number(rev.proof.heading) || 0;
+                const targetPitch = Number(rev.proof.pitch) || 0;
+
+                streetViewPanorama.setPano(rev.proof.pano_id);
+                streetViewPanorama.setPov({
+                    heading: targetHeading,
+                    pitch: targetPitch
+                });
+
+                const targetZoom = (rev.proof.zoom !== undefined) ? Number(rev.proof.zoom) : (rev.proof.fov ? Math.round(Math.log2(180 / Math.max(10, Number(rev.proof.fov)))) : 1);
+                streetViewPanorama.setZoom(targetZoom);
+
+                setTimeout(() => {
+                    if (streetViewPanorama && window.google) {
+                        google.maps.event.trigger(streetViewPanorama, 'resize');
+                        streetViewPanorama.setPov({
+                            heading: targetHeading,
+                            pitch: targetPitch
+                        });
+                        streetViewPanorama.setZoom(targetZoom);
+                    }
+                }, 60);
+            }
         }
 
-        if (noProofOverlay) noProofOverlay.style.display = 'none';
+        // --- Voting Controls, Consensus Check & Live Voter Status ---
+        const btnYes = document.getElementById('btn-judge-yes');
+        const btnNo = document.getElementById('btn-judge-no');
+        const voteMsg = document.getElementById('judge-vote-msg');
+        const votersList = document.getElementById('judge-voters-list');
+        const disBox = document.getElementById('judge-disagreement-box');
 
-        if (streetViewPanorama) {
-            // Camera lock: Drag is blocked via transparent overlay, panControl disabled, zoom only
-            streetViewPanorama.setOptions({
-                clickToGo: false,
-                linksControl: false,
-                addressControl: false,
-                panControl: false,
-                zoomControl: false,
-                enableCloseButton: false,
-                motionTracking: false,
-                motionTrackingControl: false
-            });
+        const votes = rev.votes || {};
+        const votedPlayers = rev.voted_players || Object.keys(votes);
+        const myVote = (rev.my_vote !== undefined) ? rev.my_vote : (votes[currentUser] !== undefined ? votes[currentUser] : null);
+        const totalVoters = rev.total_voters || (state.players || []).length;
+        const isDisagreement = Boolean(rev.is_disagreement);
 
-            const targetHeading = Number(rev.proof.heading) || 0;
-            const targetPitch = Number(rev.proof.pitch) || 0;
-
-            streetViewPanorama.setPano(rev.proof.pano_id);
-            streetViewPanorama.setPov({
-                heading: targetHeading,
-                pitch: targetPitch
-            });
-
-            const targetZoom = (rev.proof.zoom !== undefined) ? Number(rev.proof.zoom) : (rev.proof.fov ? Math.round(Math.log2(180 / Math.max(10, Number(rev.proof.fov)))) : 1);
-            streetViewPanorama.setZoom(targetZoom);
-
-            setTimeout(() => {
-                if (streetViewPanorama && window.google) {
-                    google.maps.event.trigger(streetViewPanorama, 'resize');
-                    streetViewPanorama.setPov({
-                        heading: targetHeading,
-                        pitch: targetPitch
-                    });
-                    streetViewPanorama.setZoom(targetZoom);
+        // Disagreement Warning Box & Agreement Chat
+        const chatBox = document.getElementById('judge-chat-box');
+        if (disBox) {
+            if (isDisagreement) {
+                disBox.style.display = 'flex';
+                disBox.innerHTML = `
+                    <span style="font-size: 1.2rem;">⚠️</span>
+                    <div>
+                        <strong>UNEINIG (${rev.yes_count || 0}x ZÄHLT vs. ${rev.no_count || 0}x NEIN):</strong>
+                        Ihr müsst euch einig werden, bevor es weitergeht! Nutzt den Chat unten zur Absprache.
+                    </div>
+                `;
+                if (chatBox) {
+                    chatBox.style.display = 'flex';
+                    renderChatMessages();
                 }
-            }, 60);
+            } else {
+                disBox.style.display = 'none';
+                if (chatBox) {
+                    chatBox.style.display = 'none';
+                }
+            }
+        }
+
+        // Highlight selected vote button for currentUser
+        if (btnYes && btnNo) {
+            btnYes.classList.remove('is-active', 'is-dimmed');
+            btnNo.classList.remove('is-active', 'is-dimmed');
+
+            if (myVote === true) {
+                btnYes.classList.add('is-active');
+                btnNo.classList.add('is-dimmed');
+            } else if (myVote === false) {
+                btnNo.classList.add('is-active');
+                btnYes.classList.add('is-dimmed');
+            }
+        }
+
+        // Progress status text
+        if (voteMsg) {
+            if (isDisagreement) {
+                voteMsg.textContent = 'Uneinig! Klicke auf ZÄHLT oder NEIN, um deine Stimme anzupassen.';
+                voteMsg.style.color = '#ff8787';
+            } else if (myVote !== null && myVote !== undefined) {
+                if (votedPlayers.length >= totalVoters) {
+                    voteMsg.textContent = '✓ Auswertung...';
+                    voteMsg.style.color = 'var(--geo-green-bright)';
+                } else {
+                    voteMsg.textContent = `✓ Deine Stimme ist gespeichert (${myVote ? 'ZÄHLT' : 'NEIN'}). Warte auf Mitspieler... (${votedPlayers.length}/${totalVoters})`;
+                    voteMsg.style.color = 'var(--geo-sand)';
+                }
+            } else {
+                voteMsg.textContent = `Bitte abstimmen! (${votedPlayers.length}/${totalVoters} Stimmen)`;
+                voteMsg.style.color = 'var(--geo-sand)';
+            }
+        }
+
+        // Voter badges per player
+        if (votersList && state.players) {
+            votersList.innerHTML = '';
+            state.players.forEach(p => {
+                const hasVoted = (p in votes);
+                const pVote = votes[p];
+                const badge = document.createElement('div');
+                const isMe = (p === currentUser);
+
+                if (hasVoted) {
+                    if (pVote === true) {
+                        badge.className = 'geo-voter-badge has-voted-yes';
+                        badge.innerHTML = `<span>✓</span> <span>${p}${isMe ? ' (Du)' : ''}: ZÄHLT</span>`;
+                    } else {
+                        badge.className = 'geo-voter-badge has-voted-no';
+                        badge.innerHTML = `<span>✕</span> <span>${p}${isMe ? ' (Du)' : ''}: NEIN</span>`;
+                    }
+                } else {
+                    badge.className = 'geo-voter-badge is-waiting';
+                    badge.innerHTML = `<span>⏳</span> <span>${p}${isMe ? ' (Du)' : ''}: WARTET</span>`;
+                }
+                votersList.appendChild(badge);
+            });
         }
     }
 

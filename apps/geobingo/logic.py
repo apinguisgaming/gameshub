@@ -25,12 +25,15 @@ def get_initial_state() -> Dict[str, Any]:
         "proofs": {},                  # {player: {item_idx_str: {pano_id, lat, lng, heading, pitch, fov, timestamp}}}
         "completed_count": {},         # {player: int}
         "judgements": {},              # {voter: {f"{target_player}_{item_idx}": bool}}
+        "approved_results": {},        # {f"{target_player}_{item_idx}": bool}
+        "player_custom_items": {},     # {username: [item1, item2, ...]}
         "judge_phase": {
             "item_index": 0,           # which item is currently being judged
             "target_player": None,     # whose proof is currently being reviewed
             "history": [],             # list of completed reviews
         },
         "scores": {},                  # {player: int} number of approved items
+        "chat_messages": [],           # [{sender, text, time, item_idx}]
         "exploration_end_time": None,  # unix timestamp
         "winner": None,
         "logs": ["Spiel initialisiert."],
@@ -60,6 +63,7 @@ def setup_new_game(state: Dict[str, Any]) -> Dict[str, Any]:
     state['proofs'] = {p: {} for p in state.get('players', [])}
     state['completed_count'] = {p: 0 for p in state.get('players', [])}
     state['judgements'] = {p: {} for p in state.get('players', [])}
+    state['approved_results'] = {}
     state['scores'] = {p: 0 for p in state.get('players', [])}
     state['winner'] = None
     state['rush_countdown'] = False
@@ -172,9 +176,13 @@ def submit_judgement(
     item_idx: int,
     approved: bool
 ) -> Tuple[bool, Optional[str]]:
-    """Records a player's vote on another player's proof."""
+    """Records a player's vote on another player's proof and advances only upon consensus or majority."""
     if state.get('status') != 'judging':
         return False, "Bewertungsrunde ist nicht aktiv."
+
+    players = state.get('players', [])
+    if voter not in players:
+        return False, "Nur aktive Spieler können abstimmen."
 
     judge_phase = state.get('judge_phase', {})
     current_idx = judge_phase.get('item_index', 0)
@@ -187,9 +195,27 @@ def submit_judgement(
     review_key = f"{target_player}_{item_idx}"
     voter_judgements[review_key] = bool(approved)
 
-    # In a 1v1 game, the opponent evaluates the target's proof.
-    # If the voter is the opponent (or self in single-play testing), advance when vote is cast.
-    advance_judgement_step(state)
+    # Check if consensus or strict majority (> total_players / 2) has been reached
+    judgements = state.get('judgements', {})
+    total_players = len(players)
+
+    yes_votes = sum(1 for p in players if judgements.get(p, {}).get(review_key) is True)
+    no_votes = sum(1 for p in players if judgements.get(p, {}).get(review_key) is False)
+    threshold = total_players / 2
+
+    # In 1v1 (2 players): threshold is 1.0 -> requires 2 (both agree on Yes or both agree on No).
+    # In 1v1v1 (3 players): threshold is 1.5 -> requires >= 2.
+    # In solo (1 player): threshold is 0.5 -> requires 1.
+    if yes_votes > threshold:
+        state.setdefault('approved_results', {})[review_key] = True
+        advance_judgement_step(state)
+    elif no_votes > threshold:
+        state.setdefault('approved_results', {})[review_key] = False
+        advance_judgement_step(state)
+    else:
+        # No majority reached yet (e.g. 1 Yes vs 1 No in 1v1) -> do NOT advance!
+        pass
+
     return True, None
 
 
@@ -230,39 +256,38 @@ def conclude_game(state: Dict[str, Any]) -> None:
 
     players = state.get('players', [])
     items = state.get('items', [])
-    judgements = state.get('judgements', {})
+    approved_results = state.get('approved_results', {})
     proofs = state.get('proofs', {})
 
     scores = {p: 0 for p in players}
 
     for target in players:
-        # Who was the evaluator? In 1v1 it's the other player, or fallback to target
-        other_players = [p for p in players if p != target]
-        evaluator = other_players[0] if other_players else target
-
         target_proofs = proofs.get(target, {})
         for idx in range(len(items)):
             key = f"{target}_{idx}"
-            # Was there a proof submitted and did the evaluator accept it?
             has_proof = str(idx) in target_proofs
-            vote = judgements.get(evaluator, {}).get(key, False)
-            if has_proof and vote:
+            # Only award point if proof was actually submitted AND approved by consensus/majority
+            if has_proof and approved_results.get(key) is True:
                 scores[target] += 1
 
     state['scores'] = scores
 
-    if len(players) >= 2:
-        p1, p2 = players[0], players[1]
-        if scores[p1] > scores[p2]:
-            state['winner'] = p1
-            add_log(state, f"🏆 {p1} gewinnt mit {scores[p1]} zu {scores[p2]} Punkten!")
-        elif scores[p2] > scores[p1]:
-            state['winner'] = p2
-            add_log(state, f"🏆 {p2} gewinnt mit {scores[p2]} zu {scores[p1]} Punkten!")
-        else:
-            state['winner'] = "Unentschieden"
-            add_log(state, f"🤝 Unentschieden ({scores[p1]} : {scores[p2]})!")
-    elif players:
+    if not players:
+        state['winner'] = None
+        return
+
+    max_score = max(scores.values()) if scores else 0
+    top_players = [p for p in players if scores[p] == max_score]
+
+    if len(top_players) == 1:
+        winner = top_players[0]
+        state['winner'] = winner
+        add_log(state, f"🏆 {winner} gewinnt mit {max_score} Punkten!")
+    elif len(top_players) > 1:
+        state['winner'] = "Unentschieden"
+        tie_names = " und ".join(top_players)
+        add_log(state, f"🤝 Unentschieden zwischen {tie_names} mit je {max_score} Punkten!")
+    else:
         state['winner'] = players[0]
 
 
@@ -294,12 +319,38 @@ def get_client_safe_state(state: Dict[str, Any], for_player: Optional[str] = Non
         item_name = items[idx] if idx < len(items) else ""
         target_proof = all_proofs.get(target, {}).get(str(idx)) if target else None
 
+        review_key = f"{target}_{idx}"
+        judgements = state.get('judgements', {})
+        players = state.get('players', [])
+
+        votes_map = {}
+        for p in players:
+            if p in judgements and review_key in judgements[p]:
+                votes_map[p] = judgements[p][review_key]
+
+        yes_count = sum(1 for v in votes_map.values() if v is True)
+        no_count = sum(1 for v in votes_map.values() if v is False)
+        voted_count = len(votes_map)
+        total_voters = len(players)
+
+        # Disagreement tie check: all voted but neither Yes nor No reached strict majority
+        threshold = total_voters / 2
+        is_disagreement = (voted_count == total_voters) and (yes_count <= threshold) and (no_count <= threshold)
+        my_vote = votes_map.get(for_player) if for_player else None
+
         active_review = {
             "item_index": idx,
             "item_name": item_name,
             "target_player": target,
             "proof": target_proof,
-            "total_items": len(items)
+            "total_items": len(items),
+            "votes": votes_map,
+            "voted_players": list(votes_map.keys()),
+            "yes_count": yes_count,
+            "no_count": no_count,
+            "total_voters": total_voters,
+            "is_disagreement": is_disagreement,
+            "my_vote": my_vote
         }
 
     return {
@@ -313,9 +364,12 @@ def get_client_safe_state(state: Dict[str, Any], for_player: Optional[str] = Non
         "proofs": client_proofs,
         "completed_count": state.get('completed_count', {}),
         "judgements": state.get('judgements', {}),
+        "approved_results": state.get('approved_results', {}),
+        "player_custom_items": state.get('player_custom_items', {}),
         "judge_phase": state.get('judge_phase', {}),
         "active_review": active_review,
         "scores": state.get('scores', {}),
+        "chat_messages": state.get('chat_messages', []),
         "winner": state.get('winner'),
         "exploration_end_time": state.get('exploration_end_time'),
         "rush_countdown": state.get('rush_countdown', False),

@@ -245,22 +245,56 @@
             <div style="font-size: 0.75rem; font-weight: 800; color: #888; text-transform: uppercase;">GESUCHTES OBJEKT:</div>
             <div class="geo-judge-item-title" id="judge-item-name" style="margin-bottom: 6px;">🚗 ROTES AUTO</div>
 
-            <div style="font-size: 0.85rem; font-weight: 800; color: #ddd; margin-bottom: 12px; text-transform: uppercase;">
+            <div style="font-size: 0.85rem; font-weight: 800; color: #ddd; margin-bottom: 10px; text-transform: uppercase;">
                 FOTO VON: <strong id="judge-target-name" style="color: var(--geo-sand);">SPIELER</strong>
             </div>
 
+            <!-- Disagreement Warning Box -->
+            <div id="judge-disagreement-box" class="geo-disagreement-box" style="display: none;">
+                <span style="font-size: 1.1rem;">⚠️</span>
+                <span><strong>UNEINIG:</strong> Ihr habt unterschiedlich gestimmt. Ihr müsst euch einig werden, bevor es weitergeht!</span>
+            </div>
+
+            <!-- Disagreement Chat Container (Opens when uneinig) -->
+            <div id="judge-chat-box" class="geo-judge-chat-card" style="display: none;">
+                <div class="geo-chat-header">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span>💬</span>
+                        <span>DISKUSSION ZUR EINIGUNG</span>
+                    </div>
+                    <span class="geo-chat-status-pill">LIVE CHAT</span>
+                </div>
+                <div id="judge-chat-messages" class="geo-chat-messages">
+                    <!-- Dynamic chat messages -->
+                </div>
+                <div class="geo-chat-input-bar">
+                    <input type="text" id="input-judge-chat" class="geo-input" placeholder="Schreibe eine Nachricht..." maxlength="200" onkeydown="if(event.key==='Enter') sendJudgeChatMessage()">
+                    <button type="button" class="geo-btn geo-btn-primary" onclick="sendJudgeChatMessage()" style="width: auto; min-width: 80px; padding: 6px 12px; font-size: 0.8rem;">
+                        SENDEN
+                    </button>
+                </div>
+            </div>
+
             <div class="geo-vote-bar">
-                <button class="geo-btn geo-btn-success" onclick="castVote(true)">
+                <button id="btn-judge-yes" class="geo-btn geo-btn-success" onclick="castVote(true)">
                     ✓ ZÄHLT
                 </button>
-                <button class="geo-btn geo-btn-danger" onclick="castVote(false)">
+                <button id="btn-judge-no" class="geo-btn geo-btn-danger" onclick="castVote(false)">
                     ✕ NEIN
                 </button>
             </div>
+
+            <!-- Voting Progress Status & Voter Badges -->
+            <div id="judge-voting-status-box" style="margin-top: 10px; text-align: center;">
+                <div id="judge-vote-msg" style="font-size: 0.8rem; font-weight: 800; color: var(--geo-sand); margin-bottom: 6px;">
+                    Warte auf Stimmen...
+                </div>
+                <div id="judge-voters-list" style="display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;"></div>
+            </div>
         </div>
 
-        <div style="text-align: center; color: var(--geo-gray); font-weight: 700; font-size: 0.8rem; margin-top: auto; padding: 4px 0;">
-            BEIDE SPIELER STIMMEN ÜBER JEDEN BEWEIS AB
+        <div id="judge-rule-hint" style="text-align: center; color: var(--geo-gray); font-weight: 700; font-size: 0.78rem; margin-top: auto; padding: 4px 0;">
+            ⚖️ MEHRHEIT ENTSCHEIDET (IM 1gg1 MÜSSEN SICH BEIDE EINIG SEIN)
         </div>
     </div>
 
