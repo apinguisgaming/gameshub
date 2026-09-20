@@ -8,33 +8,9 @@ from storage import get_storage
 
 auth_bp = Blueprint('auth_bp', __name__)
 
-# Rate limiting storage: {ip_address: [(timestamp), ...]}
-_FAILED_ATTEMPTS: Dict[str, list] = {}
 MAX_FAILED_ATTEMPTS = 5
 LOCKOUT_WINDOW_SECONDS = 60.0
 USERNAME_REGEX = re.compile(r'^[a-zA-Z0-9_-]{2,16}$')
-
-
-def _is_rate_limited(ip: str) -> bool:
-    """Checks if the given IP address has exceeded failed login threshold."""
-    now = time.time()
-    attempts = _FAILED_ATTEMPTS.get(ip, [])
-    # Keep only attempts within lockout window
-    recent = [t for t in attempts if now - t < LOCKOUT_WINDOW_SECONDS]
-    _FAILED_ATTEMPTS[ip] = recent
-    return len(recent) >= MAX_FAILED_ATTEMPTS
-
-
-def _record_failed_attempt(ip: str) -> None:
-    now = time.time()
-    if ip not in _FAILED_ATTEMPTS:
-        _FAILED_ATTEMPTS[ip] = []
-    _FAILED_ATTEMPTS[ip].append(now)
-
-
-def _clear_failed_attempts(ip: str) -> None:
-    if ip in _FAILED_ATTEMPTS:
-        del _FAILED_ATTEMPTS[ip]
 
 
 @auth_bp.route('/register', methods=['POST'])
@@ -88,7 +64,9 @@ def register():
 @auth_bp.route('/login', methods=['POST'])
 def login():
     ip = request.remote_addr or 'unknown'
-    if _is_rate_limited(ip):
+    storage = get_storage()
+
+    if storage.count_recent_failures(ip, LOCKOUT_WINDOW_SECONDS) >= MAX_FAILED_ATTEMPTS:
         return jsonify({
             'success': False,
             'error': 'Zu viele Fehlversuche. Bitte versuche es in einer Minute erneut.'
@@ -101,14 +79,13 @@ def login():
     if not username or not password:
         return jsonify({'success': False, 'error': 'Benutzername und Passwort angeben.'}), 400
 
-    storage = get_storage()
     user = storage.get_user_by_username(username)
 
     if not user or not check_password_hash(user['password_hash'], password):
-        _record_failed_attempt(ip)
+        storage.record_failed_login(ip)
         return jsonify({'success': False, 'error': 'Ungültiger Benutzername oder falsches Passwort.'}), 401
 
-    _clear_failed_attempts(ip)
+    storage.clear_failed_logins(ip)
     storage.update_user(user['id'], last_login=time.strftime('%Y-%m-%d %H:%M:%S'))
 
     token = storage.create_session_token(user['id'])

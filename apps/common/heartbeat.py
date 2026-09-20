@@ -1,6 +1,7 @@
-"""Consolidated heartbeat tracking and player timeout manager."""
+"""Consolidated heartbeat tracking and player timeout manager (SQLite-backed)."""
 import time
-from typing import Dict, List, NamedTuple, Tuple
+from typing import List, NamedTuple
+from storage import get_storage
 
 
 class HeartbeatResult(NamedTuple):
@@ -8,46 +9,36 @@ class HeartbeatResult(NamedTuple):
     kicked_players: List[str]
 
 
-# In-memory heartbeat cache: (game_id, room_code, username) -> last_seen_unix_timestamp
-HEARTBEAT_CACHE: Dict[Tuple[str, str, str], float] = {}
-
-
 def process_heartbeat(
     game_id: str,
     room_code: str,
     username: str,
     force_offline: bool = False,
-    kick_threshold: float = 60.0,
-    offline_threshold: float = 5.0
+    kick_threshold: float = 300.0,
+    offline_threshold: float = 45.0
 ) -> HeartbeatResult:
-    """Updates last-seen timestamp for a user and checks timeout status of room players.
+    """Updates last-seen timestamp and checks timeout status of room players.
     
-    Returns HeartbeatResult containing lists of players that are offline or should be kicked.
+    Uses SQLite storage instead of an in-memory dict for multi-worker WSGI safety.
     """
     code = room_code.upper().strip()
     now = time.time()
-    key = (game_id, code, username)
+    storage = get_storage()
 
-    if force_offline:
-        HEARTBEAT_CACHE[key] = now - 10.0
-    else:
-        HEARTBEAT_CACHE[key] = now
+    # Update current player's heartbeat
+    ts = (now - 10.0) if force_offline else now
+    storage.upsert_heartbeat(game_id, code, username, ts)
+
+    heartbeats = storage.get_room_heartbeats(game_id, code)
 
     offline_players: List[str] = []
     kicked_players: List[str] = []
 
-    # Check all active players for this room
-    prefix = (game_id, code)
-    room_keys = [k for k in HEARTBEAT_CACHE.keys() if k[0] == prefix[0] and k[1] == prefix[1]]
-
-    for rk in room_keys:
-        p_name = rk[2]
-        last_seen = HEARTBEAT_CACHE.get(rk, 0.0)
+    for p_name, last_seen in heartbeats.items():
         diff = now - last_seen
-
         if diff > kick_threshold:
             kicked_players.append(p_name)
-            del HEARTBEAT_CACHE[rk]
+            storage.delete_heartbeat(game_id, code, p_name)
         elif diff > offline_threshold:
             offline_players.append(p_name)
 
@@ -55,15 +46,16 @@ def process_heartbeat(
 
 
 def clear_player(game_id: str, room_code: str, username: str) -> None:
-    """Removes a player from the heartbeat cache on explicit departure."""
-    key = (game_id, room_code.upper().strip(), username)
-    if key in HEARTBEAT_CACHE:
-        del HEARTBEAT_CACHE[key]
+    """Removes a player from the heartbeat tracking on explicit departure."""
+    get_storage().delete_heartbeat(game_id, room_code.upper().strip(), username)
 
 
 def clear_room(game_id: str, room_code: str) -> None:
-    """Removes all players belonging to a room from heartbeat cache."""
-    code = room_code.upper().strip()
-    keys_to_delete = [k for k in HEARTBEAT_CACHE.keys() if k[0] == game_id and k[1] == code]
-    for k in keys_to_delete:
-        del HEARTBEAT_CACHE[k]
+    """Removes all heartbeat records belonging to a room."""
+    get_storage().delete_room_heartbeats(game_id, room_code.upper().strip())
+
+
+def record_player_heartbeat(game_id: str, room_code: str, username: str) -> None:
+    """Convenience helper to record a player heartbeat."""
+    process_heartbeat(game_id, room_code, username)
+

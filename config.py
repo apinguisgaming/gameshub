@@ -3,6 +3,23 @@ from pathlib import Path
 
 # Base Paths
 BASE_DIR = Path(__file__).resolve().parent
+
+# Auto-load .env file if present
+_env_file = BASE_DIR / '.env'
+if _env_file.exists():
+    try:
+        with open(_env_file, 'r', encoding='utf-8') as _f:
+            for _line in _f:
+                _line = _line.strip()
+                if _line and not _line.startswith('#') and '=' in _line:
+                    _k, _v = _line.split('=', 1)
+                    _k = _k.strip()
+                    _v = _v.strip().strip('"').strip("'")
+                    if _k and _k not in os.environ:
+                        os.environ[_k] = _v
+    except Exception:
+        pass
+
 DATA_DIR = Path(os.environ.get('DATA_DIR', BASE_DIR / 'data'))
 STATIC_DIR = BASE_DIR / 'static'
 TEMPLATES_DIR = BASE_DIR / 'templates'
@@ -11,17 +28,24 @@ TEMPLATES_DIR = BASE_DIR / 'templates'
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 # Application Security
-SECRET_KEY = os.environ.get('SECRET_KEY', 'super_secret_key_change_this_later')
+SECRET_KEY = os.environ.get('SECRET_KEY')
+if not SECRET_KEY:
+    import warnings
+    warnings.warn("SECRET_KEY not set! Using dev fallback key.", stacklevel=2)
+    SECRET_KEY = 'dev-secret-key-change-in-production'
 
 # Storage Configuration
 STORAGE_BACKEND = os.environ.get('STORAGE_BACKEND', 'sqlite')
-MONGODB_URI = os.environ.get('MONGODB_URI', '')
 
-# Pusher Configuration
-PUSHER_APP_ID = os.environ.get('PUSHER_APP_ID', '2087525')
-PUSHER_KEY = os.environ.get('PUSHER_KEY', 'c70b0b1879d5918e3996')
-PUSHER_SECRET = os.environ.get('PUSHER_SECRET', 'f5251bcb6332cef94ddb')
+# Pusher Configuration — load from environment variables
+PUSHER_APP_ID = os.environ.get('PUSHER_APP_ID', '')
+PUSHER_KEY = os.environ.get('PUSHER_KEY', '')
+PUSHER_SECRET = os.environ.get('PUSHER_SECRET', '')
 PUSHER_CLUSTER = os.environ.get('PUSHER_CLUSTER', 'eu')
+
+# Google Maps Platform Configuration
+GOOGLE_MAPS_API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY', '')
+
 
 # Detect PythonAnywhere environment and configure outbound proxy
 IS_PYTHONANYWHERE = bool(
@@ -60,6 +84,13 @@ class DummyPusher:
 
     def trigger(self, channel, event, data):
         return None
+
+    def authenticate(self, channel, socket_id, custom_data=None):
+        import json
+        return {
+            'auth': f'dummy_key:dummy_signature_{socket_id}',
+            'channel_data': json.dumps(custom_data) if custom_data else None
+        }
 
 def get_pusher_client():
     """Initializes and returns a Pusher client or a safe fallback if unavailable."""

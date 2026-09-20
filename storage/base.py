@@ -87,7 +87,7 @@ class BaseStorage(ABC):
         """Updates last-active timestamp of a lobby."""
         pass
 
-    def cleanup_inactive_lobbies(self, max_idle_seconds: int = 60) -> int:
+    def cleanup_inactive_lobbies(self, max_idle_seconds: int = 300) -> int:
         """Deletes lobbies inactive for more than max_idle_seconds."""
         return 0
 
@@ -106,3 +106,48 @@ class BaseStorage(ABC):
     def get_leaderboard(self, game_id: str, metric: str = 'wins', limit: int = 10) -> List[Dict[str, Any]]:
         """Get top players for a specific game metric."""
         pass
+
+    # --- Heartbeat Tracking ---
+    def upsert_heartbeat(self, game_id: str, room_code: str, username: str, timestamp: float) -> None:
+        """Updates or inserts a player's heartbeat timestamp."""
+        pass
+
+    def get_room_heartbeats(self, game_id: str, room_code: str) -> Dict[str, float]:
+        """Returns {username: last_seen} for all tracked players in a room."""
+        return {}
+
+    def delete_heartbeat(self, game_id: str, room_code: str, username: str) -> None:
+        """Deletes a player's heartbeat record."""
+        pass
+
+    def delete_room_heartbeats(self, game_id: str, room_code: str) -> None:
+        """Deletes all heartbeat records for a room."""
+        pass
+
+    def has_active_heartbeats(self, game_id: str, room_code: str, max_age_seconds: int = 300) -> bool:
+        """Checks if any player in the room has reported a heartbeat within max_age_seconds."""
+        return False
+
+    # --- Rate Limiting ---
+    def record_failed_login(self, ip: str) -> None:
+        """Records a failed login attempt for an IP address."""
+        pass
+
+    def count_recent_failures(self, ip: str, window_seconds: float = 60.0) -> int:
+        """Counts failed login attempts from an IP within window_seconds."""
+        return 0
+
+    def clear_failed_logins(self, ip: str) -> None:
+        """Clears failed login attempts for an IP upon successful login."""
+        pass
+
+    # --- Session Token Maintenance ---
+    def cleanup_expired_sessions(self, max_age_days: int = 30) -> int:
+        """Purges session tokens older than max_age_days."""
+        return 0
+
+
+class OptimisticLockError(Exception):
+    """Raised when a concurrent write collision is detected during optimistic locking."""
+    pass
+
