@@ -19,6 +19,7 @@ from apps.common.delta import broadcast_tracker
 from apps.common.multiplayer_bp import register_standard_room_routes
 from . import logic as geobingo_logic
 from . import items as geobingo_items
+from . import geo_countries as geobingo_geo
 
 logger = logging.getLogger(__name__)
 geobingo_bp = Blueprint('geobingo_bp', __name__)
@@ -101,7 +102,13 @@ def index():
     user = get_current_user()
     username = user['username'] if user else ''
     global_items = geobingo_items.get_global_items()
-    return render_template('geobingo.html', existing_name=username, global_items=global_items)
+    available_countries = geobingo_geo.get_all_countries_for_ui()
+    return render_template(
+        'geobingo.html',
+        existing_name=username,
+        global_items=global_items,
+        available_countries=available_countries
+    )
 
 
 @geobingo_bp.route('/join_game', methods=['POST'])
@@ -229,9 +236,62 @@ def update_settings(room_code: str = None):
             settings['custom_items'] = [i.strip() for i in raw_items.split(',') if i.strip()]
         elif isinstance(raw_items, list):
             settings['custom_items'] = [str(i).strip() for i in raw_items if str(i).strip()]
+    if 'blocked_countries' in data:
+        raw_blocked = data['blocked_countries']
+        if isinstance(raw_blocked, str):
+            settings['blocked_countries'] = [c.strip().upper() for c in raw_blocked.split(',') if c.strip()]
+        elif isinstance(raw_blocked, list):
+            settings['blocked_countries'] = [str(c).strip().upper() for c in raw_blocked if str(c).strip()]
 
     trigger_update(code, state)
     return jsonify({'success': True, 'settings': settings})
+
+
+@geobingo_bp.route('/<room_code>/check_location', methods=['POST'])
+@geobingo_bp.route('/check_location', methods=['POST'])
+@login_required
+def check_location(room_code: str = None):
+    data = request.get_json(silent=True) or request.form.to_dict()
+    code = (room_code or data.get('room_code') or '').upper().strip()
+    try:
+        lat = float(data.get('lat', 0.0))
+        lng = float(data.get('lng', 0.0))
+    except (ValueError, TypeError):
+        return jsonify({'error': 'Ungültige Koordinaten'}), 400
+
+    state = get_room_state('geobingo', code) if code else None
+    blocked_codes = state.get('settings', {}).get('blocked_countries', []) if state else []
+
+    is_blocked, country = geobingo_geo.is_location_blocked(lat, lng, blocked_codes)
+    return jsonify({
+        'blocked': is_blocked,
+        'country': country
+    })
+
+
+@geobingo_bp.route('/<room_code>/country_polygons', methods=['GET', 'POST'])
+@geobingo_bp.route('/country_polygons', methods=['GET', 'POST'])
+@login_required
+def country_polygons(room_code: str = None):
+    codes_param = request.args.get('codes')
+    if not codes_param and request.is_json:
+        codes_param = (request.get_json(silent=True) or {}).get('codes')
+
+    if isinstance(codes_param, str):
+        codes = [c.strip().upper() for c in codes_param.split(',') if c.strip()]
+    elif isinstance(codes_param, list):
+        codes = [str(c).strip().upper() for c in codes_param if str(c).strip()]
+    else:
+        codes = []
+
+    code = (room_code or '').upper().strip()
+    if code and not codes:
+        state = get_room_state('geobingo', code)
+        if state:
+            codes = state.get('settings', {}).get('blocked_countries', [])
+
+    polys = geobingo_geo.get_polygons_for_countries(codes)
+    return jsonify({'success': True, 'countries': polys})
 
 
 @geobingo_bp.route('/<room_code>/sync_custom_words', methods=['POST'])

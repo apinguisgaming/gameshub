@@ -20,6 +20,7 @@ def get_initial_state() -> Dict[str, Any]:
             "host_custom_items": [],   # custom items created by host for this lobby
             "item_preset": "standard", # standard, easy, hard, custom
             "custom_items": [],        # list of custom item strings if preset == custom
+            "blocked_countries": [],   # list of blocked country codes (e.g. ['DE', 'FR'])
         },
         "items": [],                   # List of items to search for this match
         "proofs": {},                  # {player: {item_idx_str: {pano_id, lat, lng, heading, pitch, fov, timestamp}}}
@@ -102,6 +103,17 @@ def record_proof(
     pano_id = proof_data.get('pano_id')
     if not pano_id:
         return False, "Keine Pano-ID übermittelt."
+
+    lat = float(proof_data.get('lat', 0.0))
+    lng = float(proof_data.get('lng', 0.0))
+
+    blocked_codes = state.get('settings', {}).get('blocked_countries', [])
+    if blocked_codes:
+        from .geo_countries import is_location_blocked
+        is_blocked, country = is_location_blocked(lat, lng, blocked_codes)
+        if is_blocked and country:
+            country_name = country.get('name_de') or country.get('code')
+            return False, f"🚫 Dieses Foto liegt in {country_name}! Dieses Land ist in dieser Runde gesperrt."
 
     player_proofs = state.setdefault('proofs', {}).setdefault(player, {})
     item_key = str(item_idx)
