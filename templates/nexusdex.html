@@ -1,31 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block title %}NexusDex – Gallery Pokédex{% endblock %}
+
+{% block head %}
     <meta name="description" content="NexusDex – The Premium Tactile Pokémon Experience">
-    <title>NexusDex – Gallery Pokédex</title>
-    <script>
-        (function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('token')) {
-                sessionStorage.setItem('gamehub_token', urlParams.get('token'));
-                urlParams.delete('token');
-                const cleanQuery = urlParams.toString() ? ('?' + urlParams.toString()) : '';
-                window.history.replaceState({}, document.title, window.location.pathname + cleanQuery + window.location.hash);
-            }
-        })();
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800;900&family=JetBrains+Mono:wght@700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800;900&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/nexusdex/styles.css">
-</head>
+{% endblock %}
 
-<body>
+{% block content %}
     <!-- ======== GLASSMORPHIC HEADER / COMMAND CENTER ======== -->
     <header id="app-header" class="glass-header">
         <div class="header-inner">
@@ -222,13 +207,8 @@
     </div>
 
     <div class="toast-container" id="toast-container"></div>
-    <script src="{{ url_for('static', filename='common/tab-auth.js') }}"></script>
-    <script>
-        initTabSession(
-            {{ current_user | tojson if current_user else 'null' }},
-            {{ auth_token | tojson if auth_token else 'null' }}
-        );
-    </script>
+{% endblock %}
+
+{% block scripts %}
     <script src="/static/nexusdex/app.js"></script>
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,131 @@
+/* =========================================================================
+   1. ROOT & GLOBAL STYLES
+   ========================================================================= */
+:root {
+    --bg-color: #121212;
+    --ui-panel: #1a1616;
+    --ui-border: #8a6a3e; /* Dull Gold */
+    --ui-border-highlight: #cfa538; /* Bright Gold */
+    --text: #e0e0e0;
+    --accent: #ffd700;
+    --hp-color: #990000; /* Deep Blood Red */
+    --xp-color: #1e3a8a; /* Royal Blue */
+    --font-head: 'Cinzel Decorative', cursive;
+    --font-body: 'Crimson Pro', serif;
+}
+body, body.survivors-body { margin: 0; padding: 0; overflow: hidden; background: #000; color: var(--text); user-select: none; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: var(--font-body); }
+
+/* =========================================================================
+   2. LAYOUT & OVERLAYS
+   ========================================================================= */
+#main-container { position: relative; width: 100vw; height: 100vh; box-shadow: 0 0 50px #000; border: 1px solid #333; background: #000; }
+
+#gameCanvas { display: block; image-rendering: pixelated; width: 100%; height: 100%;} /* crisp edges */
+
+/* CRT/Overlay Effects */
+#scanlines { position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%); background-size: 100% 4px; z-index: 50; opacity: 0.3; }
+#vignette { position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index: 51; background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.8) 100%); }
+#flash { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: white; opacity: 0; pointer-events: none; transition: opacity 0.1s; z-index: 999; mix-blend-mode: overlay; }
+
+#ui-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; display: flex; justify-content: center; align-items: center; z-index: 60; }
+
+/* =========================================================================
+   3. HUD COMPONENT
+   ========================================================================= */
+#top-bar {
+    position: absolute; top: 15px; left: 50%; transform: translateX(-50%); width: 96%; max-width: 1280px; height: 54px;
+    background: linear-gradient(to bottom, #2a2020, #151010);
+    border: 2px solid var(--ui-border); border-top-color: var(--ui-border-highlight);
+    border-radius: 2px; display: flex; justify-content: space-between; align-items: center;
+    padding: 0 20px; box-sizing: border-box; box-shadow: 0 5px 15px rgba(0,0,0,0.8);
+    font-size: 22px; text-shadow: 2px 2px 0 #000; font-weight: 600;
+}
+#top-bar::before, #top-bar::after { content: '♦'; color: var(--ui-border); position: absolute; top: 50%; transform: translateY(-50%); font-size: 14px; }
+#top-bar::before { left: 5px; } #top-bar::after { right: 5px; }
+
+#hp-container { display: flex; align-items: center; gap: 12px; width: 280px; }
+.hud-icon { filter: drop-shadow(0 2px 2px rgba(0,0,0,0.8)); }
+#hp-bar-bg { width: 160px; height: 16px; background: #200; border: 2px solid #4a1a1a; position: relative; box-shadow: inset 0 0 5px #000; transform: skewX(-10deg); }
+#hp-bar-fg { width: 100%; height: 100%; background: linear-gradient(to bottom, #ff4444, var(--hp-color), #400); transition: width 0.1s; box-shadow: inset 0 2px 2px rgba(255,255,255,0.2); }
+
+#xp-container { flex-grow: 1; display: flex; justify-content: center; align-items: center; gap: 10px; }
+#xp-bar-wrap { width: 100%; max-width: 500px; height: 14px; border: 2px solid #2a3a4a; padding: 1px; transform: skewX(-10deg); background: #000; }
+#xp-bar-fg { width: 0%; height: 100%; background: linear-gradient(to bottom, #4da6ff, var(--xp-color), #001133); box-shadow: 0 0 8px var(--xp-color); transition: width 0.2s ease-out; }
+#lvl-badge {
+    background: linear-gradient(135deg, var(--ui-border), #5a4a2e); color: #111;
+    padding: 2px 10px; border: 1px solid var(--ui-border-highlight);
+    font-family: var(--font-head); font-weight: bold; text-shadow: none;
+    box-shadow: 0 2px 5px #000; position: relative; top: -1px;
+}
+
+#stats-container { display: flex; gap: 20px; width: 280px; justify-content: flex-end; align-items: center; color: #ccc; }
+.stat-pair { display: flex; align-items: center; gap: 8px; }
+
+/* =========================================================================
+   4. GENERIC SCREEN & TYPOGRAPHY
+   ========================================================================= */
+.screen { position: absolute; top:0; left:0; width:100%; height:100%; flex-direction: column; align-items: center; justify-content: center; text-align: center; pointer-events: auto; display: none; background: rgba(0,0,0,0.85); backdrop-filter: blur(4px); z-index: 100; }
+.screen::before { content: ''; position: absolute; top: 20px; left: 20px; right: 20px; bottom: 20px; border: 2px solid #333; border-image: linear-gradient(to bottom, var(--ui-border), transparent, var(--ui-border)) 1; pointer-events: none; }
+
+h1 { font-family: var(--font-head); font-size: 90px; margin: 0 0 10px 0; background: linear-gradient(to bottom, #ff4444, #8a0303); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 5px 20px rgba(0,0,0,1); letter-spacing: 2px; filter: drop-shadow(0 0 15px rgba(138, 3, 3, 0.6)); }
+h1 span { font-size: 0.6em; display: block; color: #ccc; -webkit-text-fill-color: #ccc; letter-spacing: 8px; margin-top: -10px; }
+h2 { font-family: var(--font-head); color: var(--ui-border-highlight); font-size: 48px; margin-bottom: 40px; text-shadow: 0 0 15px rgba(207, 165, 56, 0.5); position: relative; }
+
+.pulse-text { font-size: 26px; color: var(--accent); animation: pulse 2s infinite ease-in-out; text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); font-style: italic; margin-top: 40px; }
+
+.controls-hint { font-size: 16px; color: #666; position: absolute; bottom: 50px; text-transform: uppercase; letter-spacing: 1px; display: flex; gap: 20px; font-family: 'Crimson Pro', serif;}
+.key { border: 1px solid #444; padding: 2px 6px; border-radius: 4px; background: #111; color: #aaa; }
+
+/* =========================================================================
+   5. SPECIFIC SCREENS & COMPONENTS
+   ========================================================================= */
+/* Level Up Screen */
+#level-up-screen { background: rgba(10, 5, 5, 0.97); }
+#level-up-screen h2::after { content: ''; display: block; width: 200px; height: 2px; background: linear-gradient(90deg, transparent, var(--ui-border), transparent); margin: 10px auto 0; }
+#cards-container { display: flex; gap: 25px; justify-content: center; align-items: stretch; perspective: 1000px; z-index: 101;}
+.card {
+    background: linear-gradient(160deg, #2a2020 0%, #151010 100%);
+    border: 2px solid var(--ui-border);
+    width: 220px; padding: 25px 20px; cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex; flex-direction: column; align-items: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.8), inset 0 0 30px rgba(0,0,0,0.8);
+    position: relative; overflow: hidden; border-radius: 4px;
+    animation: cardAppear 0.4s ease-out backwards;
+}
+.card::after { content: ''; position: absolute; top: 2px; left: 2px; right: 2px; bottom: 2px; border: 1px solid rgba(207, 165, 56, 0.2); pointer-events: none; }
+.card:nth-child(1) { animation-delay: 0.05s; } .card:nth-child(2) { animation-delay: 0.15s; } .card:nth-child(3) { animation-delay: 0.25s; }
+.card:hover {
+    border-color: var(--ui-border-highlight);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.9), 0 0 15px rgba(207, 165, 56, 0.4);
+    background: linear-gradient(160deg, #352828 0%, #1a1212 100%);
+}
+.card-icon-frame { width: 80px; height: 80px; background: #0a0505; border: 2px solid #5a3a3a; transform: rotate(45deg); display: flex; justify-content: center; align-items: center; margin: 10px 0 25px; box-shadow: inset 0 0 10px #000; }
+.card-icon-frame svg { width: 48px; height: 48px; transform: rotate(-45deg); filter: drop-shadow(0 0 8px var(--accent)); }
+.card-title { font-family: var(--font-head); color: var(--ui-border-highlight); font-size: 20px; margin-bottom: 5px; text-shadow: 1px 1px 2px #000; text-align: center; }
+.card-type { font-size: 13px; color: #888; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; border-top: 1px solid #333; border-bottom: 1px solid #333; padding: 4px 0; width: 100%; text-align: center; }
+.card-desc { font-size: 15px; line-height: 1.4; color: #ccc; font-style: italic; text-align: center; }
+
+/* Game Over / Victory Screen */
+#game-over-screen h1, #victory-screen h1 { -webkit-text-fill-color: #8a0303; background: none; text-shadow: 0 0 20px #f00; animation: flicker 3s infinite; }
+#victory-screen h1 { color: var(--accent); -webkit-text-fill-color: var(--accent); text-shadow: 0 0 20px var(--accent); }
+#go-stats { background: rgba(20,10,10,0.8); border: 1px solid #500; padding: 30px 50px; font-size: 22px; line-height: 2; margin-bottom: 30px; color: #aaa; box-shadow: 0 0 50px rgba(138, 3, 3, 0.2); font-family: var(--font-head); text-align: left; }
+#go-stats span { color: #fff; float: right; font-family: var(--font-body); }
+#go-stats hr { border: 0; border-bottom: 1px solid #400; margin: 5px 0 15px; }
+
+/* =========================================================================
+   6. UTILITY COMPONENTS
+   ========================================================================= */
+#mute-btn { position: absolute; top: 10px; right: 10px; z-index: 200; background: #111; border: 1px solid #444; color: #888; padding: 5px 10px; cursor: pointer; font-family: sans-serif; font-size: 12px; pointer-events: auto; }
+#mute-btn:hover { color: #fff; border-color: #888; }
+#debug-btn { position: absolute; top: 10px; left: 10px; z-index: 200; background: #111; border: 1px solid #444; color: #888; padding: 5px 10px; cursor: pointer; font-family: sans-serif; font-size: 12px; pointer-events: auto; }
+#debug-btn:hover { color: #fff; border-color: #888; }
+#debugInfo {position: absolute;bottom: 10px;left: 10px;color: white;font-family: monospace;font-size: 12px;text-shadow: 1px 1px #000;z-index: 200;pointer-events: none;text-align: left;background: rgba(0, 0, 0, 0.6);padding: 10px;border: 1px solid #666;white-space: pre;line-height: 1.5;display: none;}
+
+/* =========================================================================
+   7. KEYFRAME ANIMATIONS
+   ========================================================================= */
+@keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; text-shadow: 0 0 20px var(--accent); } }
+@keyframes cardAppear { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes flicker { 0%,100% { opacity: 1; } 90% { opacity: 1; } 91% { opacity: 0.8; } 92% { opacity: 1; } 98% { opacity: 0.7; } 99% { opacity: 1; } }

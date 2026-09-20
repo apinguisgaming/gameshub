@@ -1,24 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokémon Tower Defense Alpha</title>
-    <script>
-        (function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('token')) {
-                sessionStorage.setItem('gamehub_token', urlParams.get('token'));
-                urlParams.delete('token');
-                const cleanQuery = urlParams.toString() ? ('?' + urlParams.toString()) : '';
-                window.history.replaceState({}, document.title, window.location.pathname + cleanQuery + window.location.hash);
-            }
-        })();
-    </script>
+{% extends "base.html" %}
+
+{% block title %}Pokémon Tower Defense Alpha{% endblock %}
+
+{% block head %}
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block styles %}
     <link rel="stylesheet" href="{{ url_for('static', filename='tower/style.css') }}">
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
     <!-- Top Auth Status Header -->
     <div style="width: 100%; max-width: 1300px; margin: 10px auto 5px; display: flex; justify-content: space-between; align-items: center; padding: 8px 14px; background: #1a1a24; border: 2px solid #333; font-family: 'Press Start 2P', monospace; font-size: 9px; box-sizing: border-box;">
         <a href="/" class="gamehub-back-btn" style="color: #ffd400; text-decoration: none; border: 1px solid #ffd400; padding: 4px 8px; background: rgba(255,212,0,0.1);">← GAMEHUB</a>
@@ -225,17 +217,6 @@
         </div>
     </div>
 
-    <script src="{{ url_for('static', filename='common/tab-auth.js') }}"></script>
-    <script>
-        initTabSession(
-            {{ current_user | tojson if current_user else 'null' }},
-            {{ auth_token | tojson if auth_token else 'null' }}
-        );
-    </script>
-    <script src="{{ url_for('static', filename='tower/game-data.js') }}"></script>
-    <script src="{{ url_for('static', filename='tower/game-admin.js') }}"></script>
-    <script src="{{ url_for('static', filename='tower/game-engine.js') }}"></script>
-
     <!-- Starter Selection Overlay -->
     <div id="starter-modal" class="modal-overlay hidden">
         <div class="modal-content">
@@ -244,5 +225,10 @@
             <div id="starter-options" class="starter-grid"></div>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='tower/game-data.js') }}"></script>
+    <script src="{{ url_for('static', filename='tower/game-admin.js') }}"></script>
+    <script src="{{ url_for('static', filename='tower/game-engine.js') }}"></script>
+{% endblock %}

@@ -1,502 +1,534 @@
 import QrScanner from "https://unpkg.com/qr-scanner/qr-scanner.min.js";
 
-let player; // Define player globally
-let playbackTimer; // hold the timer reference
-let playbackDuration = 30; // Default playback duration
+window.staticBaseUrl = window.staticBaseUrl || "/static/songseeker/";
+
+let player; 
+let playbackTimer; 
+let playbackDuration = 30; 
 let qrScanner;
 let csvCache = {};
-let lastDecodedText = ""; // Store the last decoded text
+let lastDecodedText = ""; 
 let currentStartTime = 0;
 
-// Function to detect iOS devices
 function isIOS() {
     return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-
     const video = document.getElementById('qr-video');
-    const resultContainer = document.getElementById("qr-reader-results");
 
-    // If the user is on an iOS device, uncheck and disable the autoplay checkbox
     if (isIOS()) {
         var autoplayCheckbox = document.getElementById('autoplay');
-        autoplayCheckbox.checked = false;
-        autoplayCheckbox.disabled = true;
+        if (autoplayCheckbox) {
+            autoplayCheckbox.checked = false;
+            autoplayCheckbox.disabled = true;
+        }
     }
 
     qrScanner = new QrScanner(video, result => {
-        console.log('decoded qr code:', result);
         if (result.data !== lastDecodedText) {
-            lastDecodedText = result.data; // Update the last decoded text
+            lastDecodedText = result.data; 
             handleScannedLink(result.data);
         }
-    }, {
+    }, { 
         highlightScanRegion: true,
         highlightCodeOutline: true,
-    }
-    );
+    });
+});
 
-    }
-);
+function setUIState(state) {
+    const startBtn = document.getElementById('startScanButton');
+    const videoWrapper = document.getElementById('video-wrapper');
+    const cancelBtn = document.getElementById('cancelScanButton');
+    const playbackUI = document.getElementById('playback-ui');
+    const visualizer = document.getElementById('audio-visualizer');
+    const doneBtn = document.getElementById('doneButton');
+    const playBtn = document.getElementById('startstop-video');
+    const statusMsg = document.getElementById('status-message');
 
-// Function to determine the type of link and act accordingly
+    const localUI = document.getElementById('local-mode-ui');
+    const isLocalMode = localUI && localUI.style.display !== 'none';
+
+    if (startBtn) startBtn.style.display = 'none';
+    if (videoWrapper) videoWrapper.style.display = 'none';
+    if (cancelBtn) cancelBtn.style.display = 'none';
+    if (playbackUI) playbackUI.style.display = 'none';
+    if (visualizer) visualizer.style.display = 'none';
+    if (doneBtn) doneBtn.style.display = 'none';
+    if (statusMsg) {
+        statusMsg.style.display = 'none';
+        statusMsg.classList.remove('pulsing');
+    }
+
+    if (state === 'IDLE') {
+        if (startBtn) startBtn.style.display = 'inline-flex';
+        if (player && typeof player.pauseVideo === 'function') player.pauseVideo();
+    } else if (state === 'SCANNING') {
+        if (videoWrapper) videoWrapper.style.display = 'block';
+        if (cancelBtn) cancelBtn.style.display = 'block';
+    } else if (state === 'FETCHING') {
+        if (statusMsg) {
+            statusMsg.textContent = '🔍 Fetching Song...';
+            statusMsg.style.display = 'block';
+            statusMsg.classList.add('pulsing');
+        }
+    } else if (state === 'LOADING') {
+        if (statusMsg) {
+            statusMsg.textContent = '⏳ Loading Audio...';
+            statusMsg.style.display = 'block';
+            statusMsg.classList.add('pulsing');
+        }
+    } else if (state === 'ERROR') {
+        if (statusMsg) statusMsg.style.display = 'block';
+        if (!isLocalMode && doneBtn) doneBtn.style.display = 'inline-flex';
+    } else if (state === 'CUED' || state === 'PAUSED') {
+        if (playbackUI) playbackUI.style.display = 'flex';
+        if (!isLocalMode && doneBtn) doneBtn.style.display = 'inline-flex';
+        if (playBtn) {
+            playBtn.innerHTML = "Play";
+            playBtn.disabled = false;
+        }
+    } else if (state === 'BUFFERING') {
+        if (playbackUI) playbackUI.style.display = 'flex';
+        if (!isLocalMode && doneBtn) doneBtn.style.display = 'inline-flex';
+        if (playBtn) {
+            playBtn.innerHTML = "Buffering...";
+            playBtn.disabled = true;
+        }
+    } else if (state === 'PLAYING') {
+        if (playbackUI) playbackUI.style.display = 'flex';
+        if (visualizer) visualizer.style.display = 'block';
+        if (!isLocalMode && doneBtn) doneBtn.style.display = 'inline-flex';
+        if (playBtn) {
+            playBtn.innerHTML = "Stop";
+            playBtn.disabled = false;
+        }
+    }
+}
+
 async function handleScannedLink(decodedText) {
-    // 1. Sanitize input: Remove hidden zero-width characters sometimes added by QR scanners
     decodedText = decodedText.replace(/[\u200B-\u200D\uFEFF]/g, '').trim();
-    
-    console.log("=== NEW SCAN DETECTED ===");
-    console.log(`Raw Scanned URL: "${decodedText}"`);
+    const isHitster = isHitsterLink(decodedText);
+    const isYT = isYoutubeLink(decodedText);
+    const isRock = isRockster(decodedText);
+
+    if (!isHitster && !isYT && !isRock) return;
+
+    if (qrScanner) qrScanner.stop();
+    setUIState('FETCHING');
 
     let youtubeURL = "";
-
-    if (isYoutubeLink(decodedText)) {
-        console.log("✅ Identified as direct YouTube link.");
+    if (isYT) {
         youtubeURL = decodedText;
-    } else if (isHitsterLink(decodedText)) {
-        console.log("✅ Identified as Hitster link.");
-        
+    } else if (isHitster) {
         const hitsterData = parseHitsterUrl(decodedText);
-        
         if (hitsterData) {
-            console.log(`✅ Hitster Data Parsed -> File Language: ${hitsterData.lang}, Song ID: ${hitsterData.id}`);
-            
-            // Safe check for staticBaseUrl
-            const baseUrl = window.staticBaseUrl ? window.staticBaseUrl : "";
-            const csvUrl = `${baseUrl}playlists/hitster-${hitsterData.lang}.csv`;
-            
-            console.log(`📥 Fetching CSV from: ${csvUrl}`);
-            
             try {
+                const csvUrl = `${window.staticBaseUrl}playlists/hitster-${hitsterData.lang}.csv`;
                 const csvContent = await getCachedCsv(csvUrl);
-                console.log(`✅ CSV Loaded. Total rows: ${csvContent.length}`);
-                
                 const youtubeLink = lookupYoutubeLink(hitsterData.id, csvContent);
-                
-                if (youtubeLink) {
-                    console.log(`🎯 SUCCESS! Found YouTube Link: ${youtubeLink}`);
-                    youtubeURL = youtubeLink;
-                } else {
-                    console.error(`❌ ERROR: Song ID '${hitsterData.id}' was NOT FOUND inside ${csvUrl}`);
-                }
+                if (youtubeLink) youtubeURL = youtubeLink;
             } catch (error) {
-              console.error(`❌ CRITICAL ERROR: Failed to fetch the CSV file at ${csvUrl}. Check if the file exists and is named exactly right!`, error);
+                console.error("Failed to fetch CSV:", error);
             }
-        } else {
-            console.error("❌ ERROR: parseHitsterUrl returned null! Regex could not extract ID.");
         }
-    } else if (isRockster(decodedText)){
-        // Rockster logic...
-        console.log("✅ Identified as Rockster link.");
+    } else if (isRock) {
         try {
             const urlObj = new URL(decodedText); 
             const ytCode = urlObj.searchParams.get("yt"); 
-            if (ytCode) {
-                youtubeURL = `https://www.youtube.com/watch?v=${ytCode}`;
-            }
-        } catch (e) {
-            console.error("Invalid Rockster URL.");
-        }
-    } else {
-        console.error("❌ ERROR: Link did not match ANY known formats.");
+            if (ytCode) youtubeURL = `https://www.youtube.com/watch?v=${ytCode}`;
+        } catch (error) {}
     }
 
     if (youtubeURL !== "") {
-        console.log(`▶️ Proceeding to play: ${youtubeURL}`);
         const youtubeLinkData = parseYoutubeLink(youtubeURL);
         if (youtubeLinkData) {
-            qrScanner.stop(); 
-            document.getElementById('qr-reader').style.display = 'none'; 
-            document.getElementById('cancelScanButton').style.display = 'none'; 
             lastDecodedText = ""; 
-
-            document.getElementById('video-id').textContent = youtubeLinkData.videoId;
+            const vId = document.getElementById('video-id');
+            if (vId) vId.textContent = youtubeLinkData.videoId;  
             currentStartTime = youtubeLinkData.startTime || 0;
-            player.cueVideoById(youtubeLinkData.videoId, currentStartTime);
+            setUIState('LOADING');
+            if (player && typeof player.cueVideoById === 'function') {
+                player.cueVideoById(youtubeLinkData.videoId, currentStartTime);
+            }
         }
+    } else {
+        setUIState('ERROR');
+        const sMsg = document.getElementById('status-message');
+        if (sMsg) sMsg.textContent = "❌ Song not found in Pack!";
     }
 }
 
-    function isHitsterLink(url) {
-    url = url.trim();
-    const regex = /^(?:https?:\/\/)?(?:www\.)?(hitstergame|app\.hitsternordics)\.com\/.+/i;
-    const result = regex.test(url);
-    console.log(`🔍 Checking isHitsterLink: ${result}`);
-    return result;
-}
+function isHitsterLink(url) { return /^(?:https?:\/\/)?(?:www\.)?(hitstergame|app\.hitsternordics)\.com\/.+/i.test(url.trim()); }
+function isYoutubeLink(url) { return url.startsWith("https://www.youtube.com") || url.startsWith("https://youtu.be") || url.startsWith("https://music.youtube.com/"); }
+function isRockster(url){ return url.startsWith("https://rockster.brettspiel.digital"); }
 
-    // Example implementation for isYoutubeLink
-    function isYoutubeLink(url) {
-        return url.startsWith("https://www.youtube.com") || url.startsWith("https://youtu.be") || url.startsWith("https://music.youtube.com/");
-    }
-    function isRockster(url){
-        return url.startsWith("https://rockster.brettspiel.digital")
-    }
-    // Example implementation for parseHitsterUrl
-    function parseHitsterUrl(url) {
+function parseHitsterUrl(url) {
     url = url.trim();
     const regex = /^(?:https?:\/\/)?(?:www\.)?hitstergame\.com\/(.+?)\/(\d+)(?:[/?#].*)?$/i;
     const match = url.match(regex);
-    
     if (match) {
-        let processedLang = match[1].replace(/\//g, "-");
+        let pathPart = match[1].replace(/\//g, "-");
         let idStr = match[2];
-
-        // Condensed format detection (e.g., 00264)
-        if (idStr.startsWith("00") && idStr.length >= 5) {
-            const packPrefix = idStr.substring(0, 4); 
-            const cardId = idStr.substring(4);        
-            
-            let letterCode = "aaaa"; 
-            if (processedLang === "ca") {
-                letterCode = "aaad";
-            } else if (processedLang === "hu" || processedLang === "pl") {
-                letterCode = "aaae";
+        if (idStr.length === 5) {
+            const packPrefix = idStr.substring(0, 2);
+            const cardNum = idStr.substring(2);
+            if (packPrefix === "00") return { lang: pathPart, id: parseInt(cardNum, 10).toString() };
+            else {
+                let letterCode = "aaaa"; 
+                if (pathPart === "ca") letterCode = "aaad";
+                else if (pathPart === "hu" || pathPart === "pl") letterCode = "aaae";
+                return { lang: `${pathPart}-${letterCode}00${packPrefix}`, id: parseInt(cardNum, 10).toString() };
             }
-            
-            processedLang = `${processedLang}-${letterCode}${packPrefix}`;
-            idStr = cardId; 
-            console.log(`🛠️ Converted to expansion pack! Using file: ${processedLang}, Card ID: ${idStr}`);
         }
-
-        return { lang: processedLang, id: idStr };
+        return { lang: pathPart, id: idStr };
     }
-
     const regex_nordics = /^(?:https?:\/\/)?(?:www\.)?app\.hitster(nordics)\.com\/resources\/songs\/(\d+)(?:[/?#].*)?$/i;
     const match_nordics = url.match(regex_nordics);
-    if (match_nordics) {
-        return { lang: match_nordics[1].toLowerCase(), id: match_nordics[2] };
-    }
-    
+    if (match_nordics) return { lang: match_nordics[1].toLowerCase(), id: match_nordics[2] };
     return null;
 }
 
-    // Looks up the YouTube link in the CSV content based on the ID
-    function lookupYoutubeLink(id, csvContent) {
+function lookupYoutubeLink(id, csvContent) {
     if (!csvContent || csvContent.length === 0) return null;
-
-    // Remove BOM and hidden spaces from headers to ensure strict matching
     const headers = csvContent[0].map(h => h ? h.replace(/^\uFEFF/, '').trim() : '');
-    console.log(`📊 CSV Headers Detected: [${headers.join(', ')}]`);
-    
     const cardIndex = headers.indexOf('Card#');
     const urlIndex = headers.indexOf('URL');
+    if (cardIndex === -1 || urlIndex === -1) return null;
 
-    if (cardIndex === -1 || urlIndex === -1) {
-        console.error("❌ CRITICAL: 'Card#' or 'URL' column NOT FOUND in the CSV file!");
-        return null;
-    }
-
-    const targetId = parseInt(id, 10);
-    const lines = csvContent.slice(1);
-
-    for (let i = 0; i < lines.length; i++) {
-        const row = lines[i];
-        if (!row || row.length <= Math.max(cardIndex, urlIndex)) continue; 
-        
-        const rowIdStr = row[cardIndex] ? row[cardIndex].trim() : "";
-        const csvId = parseInt(rowIdStr, 10);
-        
-        if (csvId === targetId) {
+    const targetId = parseInt(id, 10); 
+    for (let i = 1; i < csvContent.length; i++) {
+        const row = csvContent[i];
+        if (row && row[cardIndex] && parseInt(row[cardIndex], 10) === targetId) {
             return row[urlIndex].trim(); 
         }
     }
     return null; 
 }
 
-    // Could also use external library, but for simplicity, we'll define it here
-    function parseCSV(text) {
-        const lines = text.split('\n');
-        return lines.map(line => {
-            const result = [];
-            let startValueIdx = 0;
-            let inQuotes = false;
-            for (let i = 0; i < line.length; i++) {
-                if (line[i] === '"' && line[i-1] !== '\\') {
-                    inQuotes = !inQuotes;
-                } else if (line[i] === ',' && !inQuotes) {
-                    result.push(line.substring(startValueIdx, i).trim().replace(/^"(.*)"$/, '$1'));
-                    startValueIdx = i + 1;
-                }
+function parseCSV(text) {
+    const lines = text.split('\n');
+    return lines.map(line => {
+        const result = [];
+        let startValueIdx = 0;
+        let inQuotes = false;
+        for (let i = 0; i < line.length; i++) {
+            if (line[i] === '"' && line[i-1] !== '\\') {
+                inQuotes = !inQuotes;
+            } else if (line[i] === ',' && !inQuotes) {
+                result.push(line.substring(startValueIdx, i).trim().replace(/^"(.*)"$/, '$1'));
+                startValueIdx = i + 1;
             }
-            result.push(line.substring(startValueIdx).trim().replace(/^"(.*)"$/, '$1')); // Push the last value
-            return result;
-        });
-    }
-
-    async function getCachedCsv(url) {
-        if (!csvCache[url]) { // Check if the URL is not in the cache
-            console.log(`URL not cached, fetching CSV from URL: ${url}`);
-            const response = await fetch(url);
-            const data = await response.text();
-            csvCache[url] = parseCSV(data); // Cache the parsed CSV data using the URL as a key
         }
-        return csvCache[url]; // Return the cached data for the URL
-    }
-
-    function parseYoutubeLink(url) {
-        // First, ensure that the URL is decoded (handles encoded URLs)
-        url = decodeURIComponent(url);
-
-        const regex = /^https?:\/\/(www\.youtube\.com\/watch\?v=|youtu\.be\/|music\.youtube\.com\/watch\?v=)(.{11})(.*)/;
-        const match = url.match(regex);
-        if (match) {
-            const queryParams = new URLSearchParams(match[3]); // Correctly capture and parse the query string part of the URL
-            const videoId = match[2];
-            let startTime = queryParams.get('start') || queryParams.get('t');
-            const endTime = queryParams.get('end');
-
-            document.getElementById('video-start').textContent = startTime;
-            // Normalize and parse 't' and 'start' parameters
-            startTime = normalizeTimeParameter(startTime);
-            const parsedEndTime = normalizeTimeParameter(endTime);
-
-            return { videoId, startTime, endTime: parsedEndTime };
-        }
-        return null;
-    }
-
-    function normalizeTimeParameter(timeValue) {
-        if (!timeValue) return null; // Return null if timeValue is falsy
-
-        // Handle time formats (e.g., 't=1m15s' or '75s')
-        let seconds = 0;
-        if (timeValue.endsWith('s')) {
-            seconds = parseInt(timeValue, 10);
-        } else {
-            // Additional parsing can be added here for 'm', 'h' formats if needed
-            seconds = parseInt(timeValue, 10);
-        }
-
-        return isNaN(seconds) ? null : seconds;
-    }
-
-// This function creates an <iframe> (and YouTube player) after the API code downloads.
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-        height: '0',
-        width: '0',
-        events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-        }
+        result.push(line.substring(startValueIdx).trim().replace(/^"(.*)"$/, '$1'));
+        return result;
     });
 }
-window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
 
-// Load the YouTube IFrame API script
+async function getCachedCsv(url) {
+    if (!csvCache[url]) { 
+        const response = await fetch(url);
+        const data = await response.text();
+        csvCache[url] = parseCSV(data); 
+    }
+    return csvCache[url]; 
+}
+
+function parseYoutubeLink(url) {
+    url = decodeURIComponent(url);
+    const regex = /^https?:\/\/(www\.youtube\.com\/watch\?v=|youtu\.be\/|music\.youtube\.com\/watch\?v=)(.{11})(.*)/;
+    const match = url.match(regex);
+    if (match) {
+        const queryParams = new URLSearchParams(match[3]); 
+        const videoId = match[2];
+        let startTime = queryParams.get('start') || queryParams.get('t');
+        const vStart = document.getElementById('video-start');
+        if (vStart) vStart.textContent = startTime;
+        startTime = startTime ? parseInt(startTime, 10) : 0;
+        return { videoId, startTime: isNaN(startTime) ? 0 : startTime };
+    }
+    return null;
+}
+
 const tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
-const firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+document.getElementsByTagName('script')[0].parentNode.insertBefore(tag, document.getElementsByTagName('script')[0]);
 
-// The API will call this function when the video player is ready.
+window.onYouTubeIframeAPIReady = function() {
+    player = new YT.Player('player', {
+        height: '10',
+        width: '10',
+        playerVars: {
+            'playsinline': 1
+        },
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange,
+            'onError': onPlayerError
+        }
+    });
+};
+
 function onPlayerReady(event) {
-    // Cue a video using the videoId from the QR code (example videoId used here)
-    // player.cueVideoById('dQw4w9WgXcQ');
     event.target.setVolume(100);
     event.target.unMute();
 }
 
-// Display video information when it's cued
+function onPlayerError(event) {
+    let errorMsg = "❌ Audio Error!";
+    if (event.data == 101 || event.data == 150) errorMsg = "❌ Blocked by Copyright Owner!";
+    else if (event.data == 100) errorMsg = "❌ Video not found / deleted!";
+    else if (event.data == 2) errorMsg = "❌ Invalid Video ID!";
+
+    if (window.showLocalError) window.showLocalError(errorMsg);
+    setUIState('ERROR');
+    const sMsg = document.getElementById('status-message');
+    if (sMsg) sMsg.textContent = errorMsg;
+}
+
+const SVG_PLAY = `<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>`;
+const SVG_PAUSE = `<svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><rect x="5" y="4" width="4" height="16"/><rect x="15" y="4" width="4" height="16"/></svg>`;
+
+window.setLocalPlayPauseIcon = function(isPlaying) {
+    const localPlayBtn = document.getElementById('localPlayPauseBtn');
+    if (localPlayBtn) {
+        localPlayBtn.innerHTML = isPlaying ? SVG_PAUSE : SVG_PLAY;
+    }
+};
+
 function onPlayerStateChange(event) {
+    const visualizerBars = document.querySelectorAll('#audio-visualizer .bar');
+
     if (event.data == YT.PlayerState.CUED) {
-        document.getElementById('startstop-video').style.background = "green";
-        // Display title and duration
+        setUIState('CUED');
         var videoData = player.getVideoData();
-        document.getElementById('video-title').textContent = videoData.title;
-        var duration = player.getDuration();
-        document.getElementById('video-duration').textContent = formatDuration(duration);
-        // We do need this on iOS devices otherwise one would need to press play twice
-        if (isIOS()) {
-            player.playVideo();
-        }
-        // Check for Autoplay, there is not autoplay on iOS
-        else if (document.getElementById('autoplay').checked == true) {
-            document.getElementById('startstop-video').innerHTML = "Stop";
-            if (document.getElementById('randomplayback').checked == true) {
-                playVideoAtRandomStartTime();
-            }
-            else {
-                player.playVideo();
-            }
+        const vTitle = document.getElementById('video-title');
+        if (vTitle) vTitle.textContent = videoData.title;
+        const vDur = document.getElementById('video-duration');
+        if (vDur) vDur.textContent = formatDuration(player.getDuration());
+        
+        const auto = document.getElementById('autoplay');
+        if (auto && auto.checked == true && !isIOS()) {
+            const rand = document.getElementById('randomplayback');
+            if (rand && rand.checked == true) playVideoAtRandomStartTime();
+            else player.playVideo();
         }
     }
     else if (event.data == YT.PlayerState.PLAYING) {
-        document.getElementById('startstop-video').style.background = "red";
+        setUIState('PLAYING');
+        visualizerBars.forEach(b => b.classList.add('playing'));
+        window.setLocalPlayPauseIcon(true);
+        const localMsg = document.getElementById('local-status-message');
+        if (localMsg) localMsg.style.display = 'none';
     }
     else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
-        document.getElementById('startstop-video').innerHTML = "Play";
-        document.getElementById('startstop-video').style.background = "green";
+        setUIState('PAUSED');
+        visualizerBars.forEach(b => b.classList.remove('playing'));
+        window.setLocalPlayPauseIcon(false);
     }
     else if (event.data == YT.PlayerState.BUFFERING) {
-        document.getElementById('startstop-video').style.background = "orange";
+        setUIState('BUFFERING');
     }
 }
 
-// Helper function to format duration from seconds to a more readable format
 function formatDuration(duration) {
-    var minutes = Math.floor(duration / 60);
-    var seconds = duration % 60;
-    return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+    var min = Math.floor(duration / 60);
+    var sec = duration % 60;
+    return min + ":" + (sec < 10 ? '0' : '') + sec;
 }
-
-// Add event listeners to Play and Stop buttons
-document.getElementById('startstop-video').addEventListener('click', function() {
-    if (this.innerHTML == "Play") {
-        this.innerHTML = "Stop";
-        if (document.getElementById('randomplayback').checked == true) {
-            playVideoAtRandomStartTime();
-        }
-        else {
-            player.playVideo();
-        }
-    }
-    else {
-        this.innerHTML = "Play";
-        player.pauseVideo();
-    }
-});
 
 function playVideoAtRandomStartTime() {
-    const minStartPercentage = 0.10;
-    const maxEndPercentage = 0.90;
-    let videoDuration = player.getDuration()
-    playbackDuration = parseInt(document.getElementById('playback-duration').value, 10) || 30;
-    let startTime = currentStartTime;
-    let endTime = playbackDuration;
+    let dur = player.getDuration();
+    const pbInput = document.getElementById('playback-duration');
+    playbackDuration = parseInt(pbInput ? pbInput.value : 30, 10) || 30;
+    let start = Math.max(currentStartTime, dur * 0.1);
+    let end = dur * 0.9;
+    let offset = Math.random() * Math.max(0, end - start - playbackDuration);
+    let finalStart = start + offset;
 
-    // Adjust start and end time based on video duration
-    const minStartTime = Math.max(currentStartTime, videoDuration * minStartPercentage);
-    const maxEndTime = videoDuration * maxEndPercentage;
-
-    // Ensure the video ends by 90% of its total duration
-    if (endTime > maxEndTime) {
-        endTime = maxEndTime;
-        startTime = Math.max(minStartTime, endTime - playbackDuration);
-    }
-
-    // If custom start time is 0 or very close to the beginning, pick a random start time within the range
-    if (startTime <= minStartTime) {
-        const range = maxEndTime - minStartTime - playbackDuration;
-        const randomOffset = Math.random() * range;
-        startTime = minStartTime + randomOffset;
-        endTime = startTime + playbackDuration;
-    }
-
-    // Cue video at calculated start time and play
-    console.log("play random", startTime, endTime)
-    player.seekTo(startTime, true);
+    player.seekTo(finalStart, true);
     player.playVideo();
 
-    clearTimeout(playbackTimer); // Clear any existing timer
-    // Schedule video stop after the specified duration
-    playbackTimer = setTimeout(() => {
-        player.pauseVideo();
-        document.getElementById('startstop-video').innerHTML = "Play";
-    }, (endTime - startTime) * 1000); // Convert to milliseconds
+    clearTimeout(playbackTimer); 
+    playbackTimer = setTimeout(() => player.pauseVideo(), playbackDuration * 1000); 
 }
 
-// Assuming you have an element with the ID 'qr-reader' for the QR scanner
-document.getElementById('qr-reader').style.display = 'none'; // Initially hide the QR Scanner
-
-document.getElementById('startScanButton').addEventListener('click', function() {
-    document.getElementById('cancelScanButton').style.display = 'block';
-    document.getElementById('qr-reader').style.display = 'block'; // Show the scanner
-    qrScanner.start().catch(err => {
-        console.error('Unable to start QR Scanner', err);
-        qrResult.textContent = "QR Scanner failed to start.";
-    });
-
-    qrScanner.start().then(() => {
-        qrScanner.setInversionMode('both'); // we want to scan also for Hitster QR codes which use inverted colors
-    });
-});
-
-document.getElementById('debugButton').addEventListener('click', function() {
-    handleScannedLink("https://www.hitstergame.com/de-aaaa0012/237");
-    // handleScannedLink("https://rockster.brettspiel.digital/?yt=1bP-fFxAMOI");
-});
-
-document.getElementById('songinfo').addEventListener('click', function() {
-    var cb = document.getElementById('songinfo');
-    var videoid = document.getElementById('videoid');
-    var videotitle = document.getElementById('videotitle');
-    var videoduration = document.getElementById('videoduration');
-    var videostart = document.getElementById('videostart');
-    if(cb.checked == true){
-        videoid.style.display = 'block';
-        videotitle.style.display = 'block';
-        videoduration.style.display = 'block';
-        videostart.style.display = 'block';
-    } else {
-        videoid.style.display = 'none';
-        videotitle.style.display = 'none';
-        videoduration.style.display = 'none';
-        videostart.style.display = 'none';
-    }
-});
-
-document.getElementById('cancelScanButton').addEventListener('click', function() {
-    qrScanner.stop(); // Stop scanning after a result is found
-    document.getElementById('qr-reader').style.display = 'none'; // Hide the scanner after successful scan
-    document.getElementById('cancelScanButton').style.display = 'none'; // Hide the cancel-button
-});
-
-document.getElementById('cb_settings').addEventListener('click', function() {
-    var cb = document.getElementById('cb_settings');
-    if (cb.checked == true) {
-        document.getElementById('settings_div').style.display = 'block';
-    }
-    else {
-        document.getElementById('settings_div').style.display = 'none';
-    }
-});
-
-document.getElementById('randomplayback').addEventListener('click', function() {
-    document.cookie = "RandomPlaybackChecked=" + this.checked + ";max-age=2592000"; //30 Tage
-    listCookies();
-});
-
-document.getElementById('autoplay').addEventListener('click', function() {
-    document.cookie = "autoplayChecked=" + this.checked + ";max-age=2592000"; //30 Tage
-    listCookies();
-});
-
-document.getElementById('cookies').addEventListener('click', function() {
-    var cb = document.getElementById('cookies');
-    if (cb.checked == true) {
-        document.getElementById('cookielist').style.display = 'block';
-    }
-    else {
-        document.getElementById('cookielist').style.display = 'none';
-    }
-});
-
-function listCookies() {
-    var result = document.cookie;
-    document.getElementById("cookielist").innerHTML=result;
- }
-
+function listCookies() { 
+    const cl = document.getElementById("cookielist");
+    if (cl) cl.innerHTML = document.cookie; 
+}
 function getCookieValue(name) {
-    const regex = new RegExp(`(^| )${name}=([^;]+)`);
-    const match = document.cookie.match(regex);
-    if (match) {
-        return match[2];
-    }
+    const match = document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`));
+    return match ? match[2] : undefined;
 }
-
 function getCookies() {
-    var isTrueSet;
-    if (getCookieValue("RandomPlaybackChecked") != "") {
-        isTrueSet = (getCookieValue("RandomPlaybackChecked") === 'true');
-        document.getElementById('randomplayback').checked = isTrueSet;
-    }
-    if (getCookieValue("autoplayChecked") != "") {
-        isTrueSet = (getCookieValue("autoplayChecked") === 'true');
-        document.getElementById('autoplay').checked = isTrueSet;
-    }
+    const rp = document.getElementById('randomplayback');
+    const ap = document.getElementById('autoplay');
+    if (getCookieValue("RandomPlaybackChecked") !== undefined && rp) rp.checked = (getCookieValue("RandomPlaybackChecked") === 'true');
+    if (getCookieValue("autoplayChecked") !== undefined && ap) ap.checked = (getCookieValue("autoplayChecked") === 'true');  
     listCookies();
 }
 
-window.addEventListener("DOMContentLoaded", getCookies());
+window.parseCSV = parseCSV;
+window.parseYoutubeLink = parseYoutubeLink;
+window.getCachedCsv = getCachedCsv;
+
+window.playYtVideo = function(videoId, start = 0) {
+    const vid = document.getElementById('video-id');
+    if (vid) vid.textContent = videoId;
+    currentStartTime = start || 0;
+    if (player && typeof player.cueVideoById === 'function') {
+        player.cueVideoById(videoId, currentStartTime);
+        setTimeout(() => {
+            player.playVideo();
+            setUIState('PLAYING');
+        }, 500);
+    }
+};
+
+window.stopYtVideo = function() {
+    if (player && typeof player.pauseVideo === 'function') {
+        player.pauseVideo();
+        setUIState('PAUSED');
+    }
+};
+
+window.toggleYtVideo = function(videoId, start) {
+    if (!player || typeof player.getPlayerState !== 'function') return false;
+    const videoData = player.getVideoData();
+    if (!videoData || videoData.video_id !== videoId) {
+        const vid = document.getElementById('video-id');
+        if (vid) vid.textContent = videoId;
+        currentStartTime = start || 0;
+        player.cueVideoById(videoId, currentStartTime);
+        setTimeout(() => {
+            player.playVideo();
+            setUIState('PLAYING');
+        }, 500);
+        return true;
+    }
+
+    if (player.getPlayerState() === 1) {
+        player.pauseVideo();
+        return false;
+    } else {
+        player.playVideo();
+        return true;
+    }
+};
+
+// Bind DOM event listeners once DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    const startStop = document.getElementById('startstop-video');
+    if (startStop) {
+        startStop.addEventListener('click', function() {
+            if (!player || typeof player.getPlayerState !== 'function') return;
+            let state = player.getPlayerState();
+            if (state !== YT.PlayerState.PLAYING && state !== YT.PlayerState.BUFFERING) {
+                const rp = document.getElementById('randomplayback');
+                if (rp && rp.checked == true) playVideoAtRandomStartTime();
+                else player.playVideo();
+            } else {
+                player.pauseVideo();
+            }
+        });
+    }
+
+    const sScan = document.getElementById('startScanButton');
+    if (sScan) {
+        sScan.addEventListener('click', () => {
+            setUIState('SCANNING');
+            if (qrScanner) {
+                qrScanner.start().then(() => qrScanner.setInversionMode('both')).catch(() => setUIState('IDLE'));
+            }
+        });
+    }
+
+    const cScan = document.getElementById('cancelScanButton');
+    if (cScan) cScan.addEventListener('click', () => { if (qrScanner) qrScanner.stop(); setUIState('IDLE'); });
+
+    const dBtn = document.getElementById('doneButton');
+    if (dBtn) dBtn.addEventListener('click', () => setUIState('IDLE'));
+
+    const dbgBtn = document.getElementById('debugButton');
+    if (dbgBtn) dbgBtn.addEventListener('click', () => handleScannedLink("https://www.hitstergame.com/de-aaaa0012/237"));
+
+    const sInfo = document.getElementById('songinfo');
+    if (sInfo) {
+        sInfo.addEventListener('click', function() {
+            ['videoid', 'videotitle', 'videoduration', 'videostart'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.display = sInfo.checked ? 'block' : 'none';
+            });
+        });
+    }
+
+    const cbSet = document.getElementById('cb_settings');
+    if (cbSet) {
+        cbSet.addEventListener('change', function() {
+            const sd = document.getElementById('settings_div');
+            if (sd) sd.classList.toggle('hidden', !this.checked);
+        });
+    }
+
+    const rp = document.getElementById('randomplayback');
+    if (rp) {
+        rp.addEventListener('click', function() {
+            document.cookie = "RandomPlaybackChecked=" + this.checked + ";max-age=2592000"; 
+            listCookies();
+        });
+    }
+
+    const ap = document.getElementById('autoplay');
+    if (ap) {
+        ap.addEventListener('click', function() {
+            document.cookie = "autoplayChecked=" + this.checked + ";max-age=2592000"; 
+            listCookies();
+        });
+    }
+
+    const ck = document.getElementById('cookies');
+    if (ck) {
+        ck.addEventListener('click', function() {
+            const cl = document.getElementById('cookielist');
+            if (cl) cl.style.display = this.checked ? 'block' : 'none';
+        });
+    }
+
+    const tLocal = document.getElementById('toggleLocalModeButton');
+    if (tLocal) {
+        tLocal.addEventListener('click', function() {
+            const scannerBox = document.getElementById('scanner-box');
+            const doneBtn = document.getElementById('doneButton');
+            const settingsToggle = document.getElementById('show_hide_settings');
+            const settingsDiv = document.getElementById('settings_div');
+            const localUI = document.getElementById('local-mode-ui');
+            const bottomBar = document.getElementById('local-bottom-bar');
+            
+            if (localUI.style.display === 'none' || localUI.style.display === '') {
+                if (qrScanner) qrScanner.stop();
+                if (scannerBox) scannerBox.style.display = 'none';
+                if (doneBtn) doneBtn.style.display = 'none';
+                if (settingsToggle) settingsToggle.style.display = 'none';
+                if (settingsDiv) settingsDiv.classList.add('hidden');
+                localUI.style.display = 'flex';
+                this.textContent = 'Exit Local Mode';
+                const gameboard = document.getElementById('local-gameboard');
+                if (bottomBar && gameboard && gameboard.style.display !== 'none') {
+                    bottomBar.style.display = 'flex';
+                }
+            } else {
+                if (scannerBox) scannerBox.style.display = 'flex';
+                if (settingsToggle) settingsToggle.style.display = 'flex';
+                localUI.style.display = 'none';
+                if (bottomBar) bottomBar.style.display = 'none';
+                this.textContent = 'Local Mode';
+                setUIState('IDLE');
+                window.stopYtVideo();
+            }
+        });
+    }
+
+    setUIState('IDLE');
+    getCookies();
+});
