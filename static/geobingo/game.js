@@ -20,6 +20,8 @@
     let pickerMap = null;
     let streetViewService = null;
     let coverageLayer = null;
+    let activeBlockedOverlays = [];
+    let countryPolygonsCache = {};
 
     // Initial Coordinates (Europe default)
     let currentLat = 48.8584;
@@ -34,6 +36,85 @@
         judgement: document.getElementById('screen-judgement'),
         results: document.getElementById('screen-results')
     };
+
+    // ==========================================================================
+    // Custom Dialog & Toast System (Zero native browser alerts/confirms)
+    // ==========================================================================
+    function showCustomAlert(msg, title = 'HINWEIS', icon = 'ℹ️', callback = null) {
+        const dialog = document.getElementById('geo-custom-dialog');
+        if (!dialog) {
+            window.alert(msg);
+            if (callback) callback();
+            return;
+        }
+        document.getElementById('geo-dialog-icon').textContent = icon;
+        document.getElementById('geo-dialog-title').textContent = title;
+        document.getElementById('geo-dialog-msg').textContent = msg;
+
+        const btnConfirm = document.getElementById('geo-dialog-btn-confirm');
+        const btnCancel = document.getElementById('geo-dialog-btn-cancel');
+
+        btnConfirm.textContent = 'OK';
+        btnConfirm.className = 'geo-btn geo-btn-primary';
+        btnCancel.style.display = 'none';
+
+        dialog.style.display = 'flex';
+
+        btnConfirm.onclick = function () {
+            dialog.style.display = 'none';
+            if (callback) callback();
+        };
+    }
+
+    function showCustomConfirm(msg, title = 'BESTÄTIGUNG', onConfirm = null, onCancel = null, confirmText = 'BESTÄTIGEN', icon = '❓') {
+        const dialog = document.getElementById('geo-custom-dialog');
+        if (!dialog) {
+            if (window.confirm(msg)) {
+                if (onConfirm) onConfirm();
+            } else {
+                if (onCancel) onCancel();
+            }
+            return;
+        }
+        document.getElementById('geo-dialog-icon').textContent = icon;
+        document.getElementById('geo-dialog-title').textContent = title;
+        document.getElementById('geo-dialog-msg').textContent = msg;
+
+        const btnConfirm = document.getElementById('geo-dialog-btn-confirm');
+        const btnCancel = document.getElementById('geo-dialog-btn-cancel');
+
+        btnConfirm.textContent = confirmText;
+        btnConfirm.className = 'geo-btn geo-btn-danger';
+        btnCancel.textContent = 'ABBRECHEN';
+        btnCancel.style.display = 'block';
+
+        dialog.style.display = 'flex';
+
+        btnConfirm.onclick = function () {
+            dialog.style.display = 'none';
+            if (onConfirm) onConfirm();
+        };
+
+        btnCancel.onclick = function () {
+            dialog.style.display = 'none';
+            if (onCancel) onCancel();
+        };
+    }
+
+    function showGeoToast(msg, type = 'info', duration = 3000) {
+        const container = document.getElementById('geo-toast-container');
+        if (!container) return;
+        const toast = document.createElement('div');
+        toast.className = `geo-toast ${type}`;
+        const icon = type === 'error' ? '🚫' : (type === 'success' ? '✅' : 'ℹ️');
+        toast.innerHTML = `<span>${icon}</span><span>${msg}</span>`;
+        container.appendChild(toast);
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transition = 'opacity 0.25s ease';
+            setTimeout(() => toast.remove(), 250);
+        }, duration);
+    }
 
     function isStartLocationChosen() {
         if (!currentRoomCode) return false;
@@ -206,7 +287,7 @@
                 enterRoom(res.room_code);
             }
         }).fail(function (xhr) {
-            alert(xhr.responseJSON?.error || 'Fehler beim Erstellen des Raumes.');
+            showCustomAlert(xhr.responseJSON?.error || 'Fehler beim Erstellen des Raumes.', 'FEHLER', '⚠️');
         });
     };
 
@@ -214,7 +295,7 @@
         const input = document.getElementById('input-room-code');
         const code = (input.value || '').trim().toUpperCase();
         if (!code) {
-            alert('Bitte gib einen 4-stelligen Raumcode ein.');
+            showCustomAlert('Bitte gib einen 4-stelligen Raumcode ein.', 'UNGÜLTIGER CODE', '⚠️');
             return;
         }
         enterRoom(code);
@@ -249,14 +330,24 @@
 
             renderState(gameState);
         }).fail(function (xhr) {
-            alert(xhr.responseJSON?.error || 'Konnte Raum nicht beitreten.');
+            showCustomAlert(xhr.responseJSON?.error || 'Konnte Raum nicht beitreten.', 'FEHLER', '⚠️');
         });
     }
 
     window.leaveGame = function () {
+        window.closeMapModal();
         if (!currentRoomCode) return;
         const oldCode = currentRoomCode;
         $.post(`/geobingo/${currentRoomCode}/leave_game`, { room_code: currentRoomCode }, function () {
+            sessionStorage.removeItem('geobingo_start_' + oldCode);
+            currentRoomCode = null;
+            sessionStorage.removeItem('geobingo_room');
+            if (heartbeatInterval) clearInterval(heartbeatInterval);
+            if (timerInterval) clearInterval(timerInterval);
+            showScreen('browser');
+            loadRoomList();
+        }).fail(function () {
+            // Fallback ensures player exits screen even on network lag
             sessionStorage.removeItem('geobingo_start_' + oldCode);
             currentRoomCode = null;
             sessionStorage.removeItem('geobingo_room');
@@ -268,9 +359,17 @@
     };
 
     window.confirmLeaveGame = function () {
-        if (confirm('Möchtest du das laufende Spiel wirklich verlassen?')) {
-            window.leaveGame();
-        }
+        showCustomConfirm(
+            'Möchtest du das laufende Spiel wirklich verlassen?',
+            'SPIEL VERLASSEN',
+            function () {
+                window.closeMapModal();
+                window.leaveGame();
+            },
+            null,
+            'VERLASSEN',
+            '🚪'
+        );
     };
 
     window.updateSetting = function (key, val) {
@@ -374,14 +473,18 @@
         }
     };
 
-    window.toggleAddCustomWordInput = function () {
+    window.toggleAddCustomWordInput = function (forceState) {
         const box = document.getElementById('add-custom-word-box');
         if (!box) return;
         const isHidden = (box.style.display === 'none' || !box.style.display);
-        box.style.display = isHidden ? 'block' : 'none';
-        if (isHidden) {
+        const shouldOpen = (typeof forceState === 'boolean') ? forceState : isHidden;
+        box.style.display = shouldOpen ? 'block' : 'none';
+        if (shouldOpen) {
             const inp = document.getElementById('input-new-custom-word');
-            if (inp) inp.focus();
+            if (inp) {
+                inp.value = '';
+                setTimeout(() => inp.focus(), 50);
+            }
         }
     };
 
@@ -405,7 +508,7 @@
         }
 
         inp.value = '';
-        window.toggleAddCustomWordInput();
+        window.toggleAddCustomWordInput(false);
         if (gameState && gameState.settings) {
             renderLobbyWordPool(gameState.settings);
         }
@@ -413,19 +516,26 @@
 
     window.deleteCustomWord = function (word, e) {
         if (e) e.stopPropagation();
-        if (!confirm(`Möchtest du das Suchobjekt "${word}" wirklich aus deinem Konto löschen?`)) return;
+        showCustomConfirm(
+            `Möchtest du das Suchobjekt "${word}" wirklich aus deinem Konto löschen?`,
+            'SUCHOBJEKT LÖSCHEN',
+            function () {
+                userCustomItems = userCustomItems.filter(w => w !== word);
+                saveUserCustomItems();
 
-        userCustomItems = userCustomItems.filter(w => w !== word);
-        saveUserCustomItems();
+                if (gameState && gameState.host === currentUser) {
+                    const selected = (gameState.settings.selected_items || []).filter(w => w !== word);
+                    updateSetting('selected_items', selected);
+                }
 
-        if (gameState && gameState.host === currentUser) {
-            const selected = (gameState.settings.selected_items || []).filter(w => w !== word);
-            updateSetting('selected_items', selected);
-        }
-
-        if (gameState && gameState.settings) {
-            renderLobbyWordPool(gameState.settings);
-        }
+                if (gameState && gameState.settings) {
+                    renderLobbyWordPool(gameState.settings);
+                }
+            },
+            null,
+            'LÖSCHEN',
+            '🗑️'
+        );
     };
 
     window.toggleWordSelection = function (word) {
@@ -466,17 +576,193 @@
         updateSetting('selected_items', []);
     };
 
+    // --- Blocked Countries Lobby Handlers & Custom Dropdown ---
+    let countryDropdownFilter = '';
+
+    function getCountryFlagImg(code, extraClass) {
+        const c = String(code || '').toLowerCase().trim();
+        const cls = extraClass ? ` ${extraClass}` : '';
+        return `<img src="https://flagcdn.com/20x15/${c}.png" class="geo-flag-img${cls}" width="20" height="15" alt="${c.toUpperCase()}" onerror="this.style.display='none'">`;
+    }
+
+    window.toggleCountryDropdown = function (forceState) {
+        const menu = document.getElementById('country-dropdown-menu');
+        const btn = document.getElementById('btn-toggle-country-search');
+        if (!menu) return;
+
+        const isCurrentlyOpen = (menu.style.display === 'flex');
+        const shouldOpen = (typeof forceState === 'boolean') ? forceState : !isCurrentlyOpen;
+
+        if (shouldOpen) {
+            menu.style.display = 'flex';
+            if (btn) btn.classList.add('active');
+            renderCountryDropdownOptions();
+            const searchInput = document.getElementById('input-country-search');
+            if (searchInput) {
+                searchInput.value = '';
+                countryDropdownFilter = '';
+                setTimeout(() => searchInput.focus(), 50);
+            }
+        } else {
+            menu.style.display = 'none';
+            if (btn) btn.classList.remove('active');
+        }
+    };
+
+    window.filterCountryDropdown = function (query) {
+        countryDropdownFilter = (query || '').trim().toLowerCase();
+        renderCountryDropdownOptions();
+    };
+
+    function renderCountryDropdownOptions() {
+        const listContainer = document.getElementById('country-options-list');
+        if (!listContainer) return;
+
+        const allCountries = window.GEO_AVAILABLE_COUNTRIES || [];
+        const blocked = (gameState && gameState.settings && gameState.settings.blocked_countries) || [];
+        const query = countryDropdownFilter;
+
+        const filtered = allCountries.filter(c => {
+            if (!query) return true;
+            return (
+                (c.name_de && c.name_de.toLowerCase().includes(query)) ||
+                (c.name_en && c.name_en.toLowerCase().includes(query)) ||
+                (c.code && c.code.toLowerCase().includes(query))
+            );
+        });
+
+        if (filtered.length === 0) {
+            listContainer.innerHTML = '<div style="padding: 12px; text-align: center; color: #888; font-size: 0.8rem;">Kein Land gefunden</div>';
+            return;
+        }
+
+        listContainer.innerHTML = '';
+        filtered.forEach(c => {
+            const isBlocked = blocked.includes(c.code);
+            const row = document.createElement('div');
+            row.className = `geo-country-option ${isBlocked ? 'is-blocked' : ''}`;
+            row.innerHTML = `
+                <div class="geo-country-option-info">
+                    ${getCountryFlagImg(c.code)}
+                    <span style="font-weight: 700;">${c.name_de}</span>
+                    <span class="geo-country-code-tag">${c.code}</span>
+                </div>
+                <div>
+                    ${isBlocked 
+                        ? '<span class="geo-country-status-badge badge-blocked">✓ GESPERRT</span>' 
+                        : '<span class="geo-country-status-badge badge-add">+ SPERREN</span>'}
+                </div>
+            `;
+            row.onclick = function (e) {
+                e.stopPropagation();
+                window.toggleCountryBlock(c.code);
+            };
+            listContainer.appendChild(row);
+        });
+    }
+
+    // Close dropdown on click outside
+    document.addEventListener('click', function (e) {
+        const menu = document.getElementById('country-dropdown-menu');
+        const btn = document.getElementById('btn-toggle-country-search');
+        if (menu && menu.style.display === 'flex') {
+            if (!menu.contains(e.target) && (!btn || !btn.contains(e.target))) {
+                window.toggleCountryDropdown(false);
+            }
+        }
+    });
+
+    window.toggleCountryBlock = function (code) {
+        if (!gameState || gameState.host !== currentUser) return;
+        code = String(code || '').toUpperCase().trim();
+        if (!code) return;
+
+        const currentBlocked = Array.from(gameState.settings.blocked_countries || []);
+        const idx = currentBlocked.indexOf(code);
+        if (idx >= 0) {
+            currentBlocked.splice(idx, 1);
+        } else {
+            currentBlocked.push(code);
+        }
+        updateSetting('blocked_countries', currentBlocked);
+    };
+
+    window.removeCountryBlock = function (code, e) {
+        if (e) e.stopPropagation();
+        if (!gameState || gameState.host !== currentUser) return;
+        code = String(code || '').toUpperCase().trim();
+        const currentBlocked = (gameState.settings.blocked_countries || []).filter(c => c !== code);
+        updateSetting('blocked_countries', currentBlocked);
+    };
+
+    function getCountryMeta(code) {
+        code = String(code || '').toUpperCase().trim();
+        const list = window.GEO_AVAILABLE_COUNTRIES || [];
+        const found = list.find(c => c.code === code);
+        if (found) return found;
+        return { code: code, name_de: code, flag: '🏳️' };
+    }
+
+    function renderBlockedCountries(settings) {
+        const blocked = settings.blocked_countries || [];
+        const counter = document.getElementById('blocked-countries-counter');
+        if (counter) {
+            counter.textContent = `${blocked.length} GESPERRT`;
+            if (blocked.length > 0) {
+                counter.style.background = 'rgba(255, 107, 107, 0.25)';
+                counter.style.borderColor = 'var(--geo-red)';
+                counter.style.color = '#ff8787';
+            } else {
+                counter.style.background = '';
+                counter.style.borderColor = '';
+                counter.style.color = '';
+            }
+        }
+
+        // Tags container
+        const container = document.getElementById('lobby-blocked-countries-list');
+        if (!container) return;
+
+        if (blocked.length === 0) {
+            container.innerHTML = '<div class="geo-empty-blocked-msg">Keine Länder gesperrt (weltweit erlaubt).</div>';
+        } else {
+            container.innerHTML = '';
+            const isHost = (gameState && gameState.host === currentUser);
+
+            blocked.forEach(code => {
+                const meta = getCountryMeta(code);
+                const chip = document.createElement('div');
+                chip.className = 'geo-blocked-chip';
+                chip.innerHTML = `
+                    ${getCountryFlagImg(code)}
+                    <span>${meta.name_de || meta.code}</span>
+                    ${isHost ? `<button type="button" class="geo-btn-remove-blocked" onclick="removeCountryBlock('${code}', event)" title="Sperre aufheben">✕</button>` : ''}
+                `;
+                container.appendChild(chip);
+            });
+        }
+
+        // Also update open dropdown rows if menu is open
+        const menu = document.getElementById('country-dropdown-menu');
+        if (menu && menu.style.display === 'flex') {
+            renderCountryDropdownOptions();
+        }
+
+        // Update map overlays if pickerMap exists
+        renderBlockedMapOverlays();
+    }
+
     window.startGame = function () {
         if (!currentRoomCode) return;
         const minPlayers = (window.GAME_CONFIG && window.GAME_CONFIG.min_players) || 2;
         if (gameState && gameState.players && gameState.players.length < minPlayers) {
-            alert(`Mindestens ${minPlayers} Spieler erforderlich!`);
+            showCustomAlert(`Mindestens ${minPlayers} Spieler erforderlich!`, 'NICHT GENUG SPIELER', '👥');
             return;
         }
         $.post(`/geobingo/${currentRoomCode}/start_game`, { room_code: currentRoomCode }, function () {
             // Screen transition handled via Pusher state-update
         }).fail(function (xhr) {
-            alert(xhr.responseJSON?.error || 'Start fehlgeschlagen.');
+            showCustomAlert(xhr.responseJSON?.error || 'Start fehlgeschlagen.', 'FEHLER', '⚠️');
         });
     };
 
@@ -606,7 +892,7 @@
                     if (retryPano) {
                         window.captureItemProof(itemIdx);
                     } else {
-                        alert('Street View lädt gerade noch. Bitte kurz warten und erneut tippen.');
+                        showCustomAlert('Street View lädt gerade noch. Bitte kurz warten und erneut tippen.', 'BITTE WARTEN', '⏳');
                     }
                 }, 250);
                 return;
@@ -661,7 +947,7 @@
             delete gameState.proofs[currentUser][String(itemIdx)];
             delete localMyProofs[String(itemIdx)];
             renderExploration(gameState);
-            alert(xhr.responseJSON?.error || 'Fehler beim Speichern des Fotos.');
+            showCustomAlert(xhr.responseJSON?.error || 'Fehler beim Speichern des Fotos.', 'FOTO ABGEWIESEN', '🚫');
         });
     };
 
@@ -679,7 +965,7 @@
             item_idx: rev.item_index,
             approved: approved
         }).fail(function (xhr) {
-            alert(xhr.responseJSON?.error || 'Abstimmung fehlgeschlagen.');
+            showCustomAlert(xhr.responseJSON?.error || 'Abstimmung fehlgeschlagen.', 'FEHLER', '⚠️');
         });
     };
 
@@ -697,7 +983,7 @@
             room_code: currentRoomCode,
             message: text
         }).fail(function (xhr) {
-            alert(xhr.responseJSON?.error || 'Fehler beim Senden der Nachricht.');
+            showCustomAlert(xhr.responseJSON?.error || 'Fehler beim Senden der Nachricht.', 'FEHLER', '⚠️');
         });
     };
 
@@ -792,6 +1078,19 @@
         renderLobbySettings(state.settings || {});
 
         const isHost = (currentUser === state.host);
+        const btnPoolRandom = document.getElementById('btn-pool-random');
+        const btnPoolReset = document.getElementById('btn-pool-reset');
+        if (btnPoolRandom) btnPoolRandom.style.display = isHost ? 'inline-flex' : 'none';
+        if (btnPoolReset) btnPoolReset.style.display = isHost ? 'inline-flex' : 'none';
+
+        const btnCountrySearch = document.getElementById('btn-toggle-country-search');
+        if (btnCountrySearch) btnCountrySearch.style.display = isHost ? 'inline-flex' : 'none';
+
+        const hostCountryControls = document.getElementById('host-country-controls');
+        if (hostCountryControls) {
+            hostCountryControls.style.display = isHost ? 'block' : 'none';
+        }
+
         const btnStart = document.getElementById('btn-start-game');
         const waitMsg = document.getElementById('lobby-wait-msg');
 
@@ -867,38 +1166,6 @@
             });
         }
 
-        // Dynamically update filter slider buttons
-        const filterSlider = document.getElementById('pool-filter-slider');
-        if (filterSlider) {
-            const filterDefs = [
-                { key: 'all', label: 'ALLE' },
-                { key: 'global', label: 'GLOBAL' }
-            ];
-            players.forEach(p => {
-                const isMe = (p === currentUser);
-                filterDefs.push({
-                    key: `player_${p}`,
-                    label: isMe ? `${p.toUpperCase()} (DU)` : p.toUpperCase()
-                });
-            });
-
-            const validKeys = filterDefs.map(f => f.key);
-            if (!validKeys.includes(currentPoolFilter)) {
-                currentPoolFilter = 'all';
-            }
-
-            filterSlider.innerHTML = '';
-            filterDefs.forEach(f => {
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.className = `geo-filter-opt ${currentPoolFilter === f.key ? 'active' : ''}`;
-                btn.setAttribute('data-filter', f.key);
-                btn.textContent = f.label;
-                btn.onclick = () => window.setPoolFilter(f.key);
-                filterSlider.appendChild(btn);
-            });
-        }
-
         poolContainer.innerHTML = '';
 
         // Helper to create a single word chip
@@ -961,13 +1228,32 @@
                 chipsWrap.style.display = 'none';
             }
 
+            // If user's own section, place "+ NEU" chip as the very first item
+            if (owner === currentUser) {
+                const addChip = document.createElement('div');
+                addChip.className = 'geo-word-chip geo-chip-add-btn';
+                addChip.title = 'Eigenes Suchobjekt hinzufügen';
+                addChip.innerHTML = `<span>➕ NEU</span>`;
+                addChip.onclick = function (e) {
+                    e.stopPropagation();
+                    collapsedPoolSections.delete(secKey);
+                    window.toggleAddCustomWordInput(true);
+                };
+                chipsWrap.appendChild(addChip);
+            }
+
             if (!items || items.length === 0) {
-                const empty = document.createElement('div');
-                empty.className = 'geo-pool-empty-hint';
-                empty.textContent = (owner === currentUser)
-                    ? 'Noch keine eigenen Wörter angelegt. Tippe oben auf "+ NEU"!'
-                    : 'Keine eigenen Wörter angelegt.';
-                chipsWrap.appendChild(empty);
+                if (owner === currentUser) {
+                    const empty = document.createElement('span');
+                    empty.className = 'geo-pool-empty-hint';
+                    empty.textContent = 'Noch keine eigenen Wörter.';
+                    chipsWrap.appendChild(empty);
+                } else {
+                    const empty = document.createElement('div');
+                    empty.className = 'geo-pool-empty-hint';
+                    empty.textContent = 'Keine eigenen Wörter angelegt.';
+                    chipsWrap.appendChild(empty);
+                }
             } else {
                 items.forEach(item => {
                     chipsWrap.appendChild(createChip(item, owner));
@@ -978,37 +1264,23 @@
             poolContainer.appendChild(sec);
         }
 
-        // Render based on current pool filter
-        if (currentPoolFilter === 'all') {
-            // Sektion 1: Global
-            appendSection('global', '🌐 GLOBAL', `${globalItems.length} Begriffe`, true, globalItems, null);
+        // Always render Global section first
+        appendSection('global', '🌐 GLOBAL', `${globalItems.length} Begriffe`, true, globalItems, null);
 
-            // Sektion 2+: Eigene Bereiche für jeden Spieler mit dessen Namen als Überschrift
-            players.forEach(p => {
-                const pItems = playerCustomMap[p] || [];
-                const isMe = (p === currentUser);
-                appendSection(`player_${p}`, `👤 ${p.toUpperCase()}${isMe ? ' (DU)' : ''}`, `${pItems.length} Begriffe`, false, pItems, p);
-            });
-        } else if (currentPoolFilter === 'global') {
-            appendSection('global', '🌐 GLOBAL', `${globalItems.length} Begriffe`, true, globalItems, null);
-        } else if (currentPoolFilter.startsWith('player_')) {
-            const targetP = currentPoolFilter.replace('player_', '');
-            const pItems = playerCustomMap[targetP] || [];
-            const isMe = (targetP === currentUser);
-            appendSection(`player_${targetP}`, `👤 ${targetP.toUpperCase()}${isMe ? ' (DU)' : ''}`, `${pItems.length} Begriffe`, false, pItems, targetP);
-        } else {
-            // Fallback
-            appendSection('global', '🌐 GLOBAL', `${globalItems.length} Begriffe`, true, globalItems, null);
-            players.forEach(p => {
-                const pItems = playerCustomMap[p] || [];
-                appendSection(`player_${p}`, `👤 ${p.toUpperCase()}${p === currentUser ? ' (DU)' : ''}`, `${pItems.length} Begriffe`, false, pItems, p);
-            });
-        }
+        // Render player custom sections
+        players.forEach(p => {
+            const pItems = playerCustomMap[p] || [];
+            const isMe = (p === currentUser);
+            appendSection(`player_${p}`, `👤 ${p.toUpperCase()}${isMe ? ' (DU)' : ''}`, `${pItems.length} Begriffe`, false, pItems, p);
+        });
     }
 
     function renderLobbySettings(settings) {
         // Render Word Pool
         renderLobbyWordPool(settings);
+
+        // Render Blocked Countries
+        renderBlockedCountries(settings);
 
         // Count
         const count = String(settings.item_count || 7);
@@ -1511,6 +1783,68 @@
     }
 
     /**
+     * Draw red polygon overlays on 2D Picker Map for blocked countries
+     */
+    function renderBlockedMapOverlays() {
+        if (!pickerMap || !window.google || !window.google.maps) return;
+
+        // Clean up previous polygon overlays
+        if (activeBlockedOverlays && activeBlockedOverlays.length > 0) {
+            activeBlockedOverlays.forEach(p => {
+                if (p && p.setMap) p.setMap(null);
+            });
+        }
+        activeBlockedOverlays = [];
+
+        const blockedCodes = (gameState && gameState.settings && gameState.settings.blocked_countries) || [];
+        if (blockedCodes.length === 0) return;
+
+        function drawPolygons() {
+            if (!pickerMap || !window.google || !window.google.maps) return;
+            blockedCodes.forEach(code => {
+                const cData = countryPolygonsCache[code];
+                if (!cData || !cData.polygons) return;
+
+                cData.polygons.forEach(ring => {
+                    const path = ring.map(pt => ({ lat: Number(pt[1]), lng: Number(pt[0]) }));
+                    const poly = new google.maps.Polygon({
+                        paths: path,
+                        strokeColor: '#e03131',
+                        strokeOpacity: 0.95,
+                        strokeWeight: 2.5,
+                        fillColor: '#ff2222',
+                        fillOpacity: 0.38,
+                        map: pickerMap,
+                        zIndex: 99
+                    });
+
+                    poly.addListener('click', function () {
+                        showCustomAlert(`🚫 ${cData.name_de || code} ist in dieser Runde gesperrt! Bitte wähle ein anderes Land auf der Karte.`, 'GESPERRTES LAND', '🚫');
+                    });
+
+                    activeBlockedOverlays.push(poly);
+                });
+            });
+        }
+
+        const missingCodes = blockedCodes.filter(c => !countryPolygonsCache[c]);
+        if (missingCodes.length > 0) {
+            const endpoint = currentRoomCode
+                ? `/geobingo/${currentRoomCode}/country_polygons?codes=${missingCodes.join(',')}`
+                : `/geobingo/country_polygons?codes=${missingCodes.join(',')}`;
+
+            $.getJSON(endpoint, function (res) {
+                if (res && res.countries) {
+                    Object.assign(countryPolygonsCache, res.countries);
+                }
+                drawPolygons();
+            });
+        } else {
+            drawPolygons();
+        }
+    }
+
+    /**
      * 2D MAP PICKER & COVERAGE LAYER (Singleton)
      */
     function initPickerMap() {
@@ -1537,6 +1871,9 @@
                 coverageLayer = new google.maps.StreetViewCoverageLayer();
                 coverageLayer.setMap(pickerMap);
 
+                // Render red polygons for blocked countries on map
+                renderBlockedMapOverlays();
+
                 streetViewService = new google.maps.StreetViewService();
 
                 // When user taps anywhere on the 2D map
@@ -1549,20 +1886,50 @@
                         source: google.maps.StreetViewSource.OUTDOOR
                     }, function (data, status) {
                         if (status === google.maps.StreetViewStatus.OK && data && data.location) {
-                            if (currentRoomCode) {
-                                sessionStorage.setItem('geobingo_start_' + currentRoomCode, '1');
+                            const targetLat = data.location.latLng ? data.location.latLng.lat() : clickedLatLng.lat();
+                            const targetLng = data.location.latLng ? data.location.latLng.lng() : clickedLatLng.lng();
+
+                            const blockedList = (gameState && gameState.settings && gameState.settings.blocked_countries) || [];
+                            if (blockedList.length > 0) {
+                                $.ajax({
+                                    url: `/geobingo/${currentRoomCode}/check_location`,
+                                    type: 'POST',
+                                    contentType: 'application/json',
+                                    data: JSON.stringify({
+                                        room_code: currentRoomCode,
+                                        lat: targetLat,
+                                        lng: targetLng
+                                    }),
+                                    success: function (chk) {
+                                        if (chk && chk.blocked) {
+                                            const cName = (chk.country && (chk.country.name_de || chk.country.code)) || 'diesem Land';
+                                            showCustomAlert(`🚫 ${cName} ist in dieser Runde gesperrt! Bitte wähle ein anderes Land auf der Karte.`, 'GESPERRTES LAND', '🚫');
+                                            return;
+                                        }
+                                        applyLocationAndEnter(data, targetLat, targetLng);
+                                    },
+                                    error: function () {
+                                        applyLocationAndEnter(data, targetLat, targetLng);
+                                    }
+                                });
+                            } else {
+                                applyLocationAndEnter(data, targetLat, targetLng);
                             }
-                            if (data.location.latLng) {
-                                currentLat = data.location.latLng.lat();
-                                currentLng = data.location.latLng.lng();
-                            }
-                            ensureStreetViewInitialized(data.location.pano);
-                            closeMapModal();
                         } else {
-                            alert('An dieser Stelle ist leider kein Street View verfügbar. Bitte tippe direkt auf eine blaue Straße!');
+                            showCustomAlert('An dieser Stelle ist leider kein Street View verfügbar. Bitte tippe direkt auf eine blaue Straße!', 'KEIN STREET VIEW', '🗺️');
                         }
                     });
                 });
+
+                function applyLocationAndEnter(data, targetLat, targetLng) {
+                    if (currentRoomCode) {
+                        sessionStorage.setItem('geobingo_start_' + currentRoomCode, '1');
+                    }
+                    currentLat = targetLat;
+                    currentLng = targetLng;
+                    ensureStreetViewInitialized(data.location.pano);
+                    closeMapModal();
+                }
             });
         }
 
@@ -1570,6 +1937,7 @@
             if (pickerMap && window.google && window.google.maps) {
                 google.maps.event.trigger(pickerMap, 'resize');
                 pickerMap.setCenter({ lat: currentLat, lng: currentLng });
+                renderBlockedMapOverlays();
             }
         }, 150);
     }
@@ -1589,8 +1957,26 @@
             if (modalHint) modalHint.innerHTML = 'Tippe auf eine <strong>blaue Linie</strong>, um dich dorthin zu teleportieren!';
         }
 
+        // Show blocked countries banner if configured
+        const blockedBanner = document.getElementById('map-blocked-banner');
+        const blockedText = document.getElementById('map-blocked-banner-text');
+        const blockedCodes = (gameState && gameState.settings && gameState.settings.blocked_countries) || [];
+        if (blockedBanner && blockedText) {
+            if (blockedCodes.length > 0) {
+                const names = blockedCodes.map(code => {
+                    const m = getCountryMeta(code);
+                    return `<span style="display:inline-flex; align-items:center; gap:4px;">${getCountryFlagImg(code, 'geo-flag-img-sm')} ${m.name_de || m.code}</span>`;
+                });
+                blockedText.innerHTML = `<strong>Gesperrte Länder in dieser Runde:</strong> &nbsp;` + names.join(' &nbsp;•&nbsp; ');
+                blockedBanner.style.display = 'flex';
+            } else {
+                blockedBanner.style.display = 'none';
+            }
+        }
+
         renderMapChecklist(gameState);
         initPickerMap();
+        renderBlockedMapOverlays();
     };
 
     window.closeMapModal = function () {
@@ -1600,9 +1986,17 @@
 
     window.handleMapModalClose = function () {
         if (!isStartLocationChosen()) {
-            if (confirm('Du hast noch keinen Startort gewählt. Möchtest du das laufende Spiel verlassen?')) {
-                window.leaveGame();
-            }
+            showCustomConfirm(
+                'Du hast noch keinen Startort gewählt. Möchtest du das laufende Spiel verlassen?',
+                'SPIEL VERLASSEN',
+                function () {
+                    window.closeMapModal();
+                    window.leaveGame();
+                },
+                null,
+                'VERLASSEN',
+                '🚪'
+            );
         } else {
             window.closeMapModal();
         }

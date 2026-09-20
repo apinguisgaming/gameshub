@@ -98,30 +98,20 @@
             <!-- Interactive Word Pool Manager -->
             <div class="geo-pool-header-row">
                 <span class="geo-setting-label">SUCHOBJEKTE-POOL</span>
-                <span id="pool-selected-counter" class="geo-pool-count-badge">0 GEWÄHLT</span>
-            </div>
-
-            <!-- Filter Slider & Actions Bar -->
-            <div class="geo-pool-filter-bar">
-                <div class="geo-filter-slider" id="pool-filter-slider">
-                    <button type="button" class="geo-filter-opt active" onclick="setPoolFilter('all')" data-filter="all">ALLE</button>
-                    <button type="button" class="geo-filter-opt" onclick="setPoolFilter('global')" data-filter="global">GLOBAL</button>
-                    <button type="button" class="geo-filter-opt" onclick="setPoolFilter('custom')" data-filter="custom">EIGENE</button>
-                </div>
-                <div class="geo-pool-action-buttons">
-                    <button type="button" class="geo-btn-pool-action" onclick="toggleAddCustomWordInput()" title="Eigenes Suchobjekt hinzufügen">+ NEU</button>
-                    <button type="button" class="geo-btn-pool-action" onclick="randomizeSelection()" title="Zufällige Begriffe auswählen">🎲 ZUFALL</button>
-                    <button type="button" class="geo-btn-pool-action" onclick="clearSelectedItems()" title="Auswahl zurücksetzen">✕ RESET</button>
+                <div class="geo-pool-header-right">
+                    <button type="button" id="btn-pool-random" class="geo-btn-pool-compact" onclick="randomizeSelection()" title="Zufällige Begriffe auswählen" style="display: none;">🎲 ZUFALL</button>
+                    <button type="button" id="btn-pool-reset" class="geo-btn-pool-compact" onclick="clearSelectedItems()" title="Auswahl zurücksetzen" style="display: none;">✕ RESET</button>
+                    <span id="pool-selected-counter" class="geo-pool-count-badge">0 GEWÄHLT</span>
                 </div>
             </div>
 
             <!-- Inline Add Custom Item Input -->
             <div id="add-custom-word-box" class="geo-add-word-box" style="display: none;">
-                <div style="display: flex; gap: 6px;">
+                <div style="display: flex; gap: 6px; align-items: center;">
                     <input type="text" id="input-new-custom-word" class="geo-input" placeholder="z. B. 🍦 Eiswagen oder Baustelle" maxlength="40" onkeydown="if(event.key==='Enter') submitNewCustomWord()">
-                    <button type="button" class="geo-btn geo-btn-primary" style="width: auto; min-width: 80px; padding: 6px 12px; font-size: 0.8rem;" onclick="submitNewCustomWord()">+ DAZU</button>
+                    <button type="button" class="geo-btn geo-btn-primary" style="width: auto; min-width: 70px; padding: 6px 12px; font-size: 0.8rem;" onclick="submitNewCustomWord()">+ DAZU</button>
+                    <button type="button" class="geo-btn-close-box" onclick="toggleAddCustomWordInput(false)" title="Schließen">✕</button>
                 </div>
-                <div style="font-size: 0.7rem; color: #888; margin-top: 4px;">Wird dauerhaft in deinem Benutzerkonto gespeichert!</div>
             </div>
 
             <!-- Scrollable Chips Container -->
@@ -129,7 +119,7 @@
                 <!-- Dynamically populated chips -->
             </div>
 
-            <span style="font-size: 0.75rem; font-weight: 800; color: #bbb; text-transform: uppercase; margin-top: 10px;">ANZAHL OBJEKTE</span>
+            <span style="font-size: 0.75rem; font-weight: 800; color: #bbb; text-transform: uppercase; margin-top: 8px;">ANZAHL OBJEKTE</span>
             <div class="geo-selector-bar" id="ctrl-count">
                 <div class="geo-selector-opt" onclick="updateSetting('item_count', 5)" data-val="5">5</div>
                 <div class="geo-selector-opt active" onclick="updateSetting('item_count', 7)" data-val="7">7</div>
@@ -142,6 +132,33 @@
                 <div class="geo-selector-opt active" onclick="updateSetting('time_limit', 600)" data-val="600">10 MIN</div>
                 <div class="geo-selector-opt" onclick="updateSetting('time_limit', 900)" data-val="900">15 MIN</div>
                 <div class="geo-selector-opt" onclick="updateSetting('time_limit', 0)" data-val="0">OHNE</div>
+            </div>
+
+            <!-- Blocked Countries Section -->
+            <div class="geo-pool-header-row" style="margin-top: 10px; position: relative;">
+                <span class="geo-setting-label">🚫 GESPERRTE LÄNDER</span>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                    <span id="blocked-countries-counter" class="geo-pool-count-badge">0 GESPERRT</span>
+                    <button type="button" id="btn-toggle-country-search" class="geo-btn-icon-search" onclick="toggleCountryDropdown()" title="Land suchen & sperren" style="display: none;">🔍</button>
+                </div>
+            </div>
+
+            <!-- Host controls for blocking countries -->
+            <div id="host-country-controls" style="display: none; position: relative;">
+                <div class="geo-country-dropdown-menu" id="country-dropdown-menu" style="display: none;">
+                    <div class="geo-country-search-box">
+                        <input type="text" id="input-country-search" class="geo-input geo-country-search-input" placeholder="🔍 Land suchen (z. B. Deutschland, USA)..." oninput="filterCountryDropdown(this.value)">
+                        <button type="button" class="geo-btn-close-search" onclick="toggleCountryDropdown(false)" title="Suche schließen">✕</button>
+                    </div>
+                    <div class="geo-country-options-list" id="country-options-list">
+                        <!-- Populated with flag image + country name + ISO code -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active blocked countries tags list -->
+            <div id="lobby-blocked-countries-list" class="geo-blocked-countries-container">
+                <div class="geo-empty-blocked-msg">Keine Länder gesperrt (weltweit erlaubt).</div>
             </div>
         </div>
 
@@ -344,6 +361,12 @@
                 <button id="map-modal-close" class="geo-modal-close" onclick="handleMapModalClose()" title="Schließen / Verlassen">✕</button>
             </div>
 
+            <!-- Blocked Countries Alert Banner in Map Picker -->
+            <div id="map-blocked-banner" class="geo-map-blocked-banner" style="display: none;">
+                <span class="geo-banner-icon">🚫</span>
+                <span id="map-blocked-banner-text"><strong>Gesperrte Länder:</strong> Keine</span>
+            </div>
+
             <div class="geo-map-frame">
                 <div id="picker-map-container"></div>
             </div>
@@ -371,12 +394,31 @@
         </div>
     </div>
 
+    <!-- Global Custom Modal / Confirmation Dialog -->
+    <div id="geo-custom-dialog" class="geo-dialog-overlay" style="display: none;">
+        <div class="geo-dialog-card">
+            <div class="geo-dialog-header">
+                <span class="geo-dialog-icon" id="geo-dialog-icon">⚠️</span>
+                <h4 class="geo-dialog-title" id="geo-dialog-title">Hinweis</h4>
+            </div>
+            <div class="geo-dialog-msg" id="geo-dialog-msg">Nachrichtentext</div>
+            <div class="geo-dialog-actions" id="geo-dialog-actions">
+                <button type="button" class="geo-btn geo-btn-primary" id="geo-dialog-btn-confirm">OK</button>
+                <button type="button" class="geo-btn geo-btn-neutral" id="geo-dialog-btn-cancel" style="display: none;">ABBRECHEN</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Toast Notification Container -->
+    <div id="geo-toast-container" class="geo-toast-container"></div>
+
 </div>
 {% endblock %}
 
 {% block scripts %}
     <script>
         window.GEO_GLOBAL_ITEMS = {{ (global_items or []) | tojson }};
+        window.GEO_AVAILABLE_COUNTRIES = {{ (available_countries or []) | tojson }};
     </script>
     <script src="{{ url_for('static', filename='geobingo/game.js') }}"></script>
 {% endblock %}
