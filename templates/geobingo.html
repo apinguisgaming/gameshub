@@ -1,0 +1,351 @@
+{% extends "base.html" %}
+
+{% block title %}GEO // BINGO - GameHub{% endblock %}
+
+{% block head %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='geobingo/style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+
+    {# Conditionally load real Google Maps JavaScript API if key is present #}
+    {% if google_maps_key %}
+        <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_key }}&callback=initGoogleMapsServices&loading=async" async defer></script>
+    {% endif %}
+{% endblock %}
+
+{% block body_class %}geobingo-body{% endblock %}
+
+{% block content %}
+<div class="geo-app-container">
+
+    <!-- ====================================================================
+         SCREEN 1: ROOM BROWSER
+         ==================================================================== -->
+    <div id="screen-browser" class="geo-screen active">
+        <div class="geo-top-bar">
+            <a href="/" class="geo-btn-back">← GAMEHUB</a>
+            <div class="geo-account-tag">
+                <span>ACCOUNT:</span>
+                <strong>👤 {{ current_user.username if current_user else 'Gast' }}</strong>
+            </div>
+        </div>
+
+        <div class="geo-title-box">
+            <h1 class="geo-main-title">GEO<span>BINGO</span></h1>
+            <div class="geo-subtitle">STREET VIEW 1 VS 1 DETEKTIVSPIEL</div>
+        </div>
+
+        <div class="geo-card">
+            <div class="geo-card-header">NEUES SPIEL STARTEN</div>
+            <p style="font-size: 0.85rem; color: #ccc; margin: 0 0 12px; font-weight: 600;">
+                Erstelle einen Raum und teile den 4-stelligen Code mit deinem Mitspieler.
+            </p>
+            <button class="geo-btn geo-btn-primary" onclick="createRoom()">
+                + RAUM ERSTELLEN
+            </button>
+        </div>
+
+        <div class="geo-card">
+            <div class="geo-card-header">PER CODE BEITRETEN</div>
+            <div style="display: flex; gap: 8px; margin-top: 4px;">
+                <input type="text" id="input-room-code" class="geo-input" placeholder="CODE (Z. B. B2K9)" maxlength="6" style="text-transform: uppercase; letter-spacing: 2px;">
+                <button class="geo-btn geo-btn-primary" style="width: auto; min-width: 110px;" onclick="joinRoomByInput()">
+                    BEITRETEN
+                </button>
+            </div>
+        </div>
+
+        <div class="geo-card" style="flex: 1;">
+            <div class="geo-card-header">
+                <span>OFFENE RÄUME</span>
+                <button onclick="loadRoomList()" style="background: none; border: none; color: var(--geo-sand); cursor: pointer; font-size: 0.8rem; font-weight: 800;">↻ NEU LADEN</button>
+            </div>
+            <div id="room-list-container" style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="text-align: center; padding: 20px; color: var(--geo-gray); font-weight: 700; font-size: 0.85rem;">
+                    Lade aktive Räume...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         SCREEN 2: LOBBY
+         ==================================================================== -->
+    <div id="screen-lobby" class="geo-screen">
+        <div class="geo-top-bar">
+            <a href="/" class="geo-btn-back">← HUB</a>
+            <div class="geo-account-tag">
+                <span>CODE:</span>
+                <strong id="lobby-code-badge" style="letter-spacing: 2px;">----</strong>
+            </div>
+            <button class="geo-btn-back" onclick="leaveGame()" style="background: var(--geo-red); color: #fff;">✕</button>
+        </div>
+
+        <div class="geo-title-box" style="margin-bottom: 8px;">
+            <h2 class="geo-main-title" style="font-size: 1.8rem;">GEO<span>BINGO</span></h2>
+            <div class="geo-subtitle">WARTE AUF GEGNER (MAX. 2 SPIELER)</div>
+        </div>
+
+        <!-- Crew Card -->
+        <div class="geo-card">
+            <div class="geo-card-header">SPIELER</div>
+            <div id="lobby-players-grid" class="geo-player-grid"></div>
+        </div>
+
+        <!-- Settings Card -->
+        <div class="geo-card">
+            <div class="geo-card-header">EINSTELLUNGEN</div>
+
+            <!-- Interactive Word Pool Manager -->
+            <div class="geo-pool-header-row">
+                <span class="geo-setting-label">SUCHOBJEKTE-POOL</span>
+                <span id="pool-selected-counter" class="geo-pool-count-badge">0 GEWÄHLT</span>
+            </div>
+
+            <!-- Filter Slider & Actions Bar -->
+            <div class="geo-pool-filter-bar">
+                <div class="geo-filter-slider" id="pool-filter-slider">
+                    <button type="button" class="geo-filter-opt active" onclick="setPoolFilter('all')" data-filter="all">ALLE</button>
+                    <button type="button" class="geo-filter-opt" onclick="setPoolFilter('global')" data-filter="global">GLOBAL</button>
+                    <button type="button" class="geo-filter-opt" onclick="setPoolFilter('custom')" data-filter="custom">EIGENE</button>
+                </div>
+                <div class="geo-pool-action-buttons">
+                    <button type="button" class="geo-btn-pool-action" onclick="toggleAddCustomWordInput()" title="Eigenes Suchobjekt hinzufügen">+ NEU</button>
+                    <button type="button" class="geo-btn-pool-action" onclick="randomizeSelection()" title="Zufällige Begriffe auswählen">🎲 ZUFALL</button>
+                    <button type="button" class="geo-btn-pool-action" onclick="clearSelectedItems()" title="Auswahl zurücksetzen">✕ RESET</button>
+                </div>
+            </div>
+
+            <!-- Inline Add Custom Item Input -->
+            <div id="add-custom-word-box" class="geo-add-word-box" style="display: none;">
+                <div style="display: flex; gap: 6px;">
+                    <input type="text" id="input-new-custom-word" class="geo-input" placeholder="z. B. 🍦 Eiswagen oder Baustelle" maxlength="40" onkeydown="if(event.key==='Enter') submitNewCustomWord()">
+                    <button type="button" class="geo-btn geo-btn-primary" style="width: auto; min-width: 80px; padding: 6px 12px; font-size: 0.8rem;" onclick="submitNewCustomWord()">+ DAZU</button>
+                </div>
+                <div style="font-size: 0.7rem; color: #888; margin-top: 4px;">Wird dauerhaft in deinem Benutzerkonto gespeichert!</div>
+            </div>
+
+            <!-- Scrollable Chips Container -->
+            <div id="lobby-word-pool" class="geo-word-pool">
+                <!-- Dynamically populated chips -->
+            </div>
+
+            <span style="font-size: 0.75rem; font-weight: 800; color: #bbb; text-transform: uppercase; margin-top: 10px;">ANZAHL OBJEKTE</span>
+            <div class="geo-selector-bar" id="ctrl-count">
+                <div class="geo-selector-opt" onclick="updateSetting('item_count', 5)" data-val="5">5</div>
+                <div class="geo-selector-opt active" onclick="updateSetting('item_count', 7)" data-val="7">7</div>
+                <div class="geo-selector-opt" onclick="updateSetting('item_count', 10)" data-val="10">10</div>
+            </div>
+
+            <span style="font-size: 0.75rem; font-weight: 800; color: #bbb; text-transform: uppercase;">ZEITLIMIT</span>
+            <div class="geo-selector-bar" id="ctrl-time">
+                <div class="geo-selector-opt" onclick="updateSetting('time_limit', 300)" data-val="300">5 MIN</div>
+                <div class="geo-selector-opt active" onclick="updateSetting('time_limit', 600)" data-val="600">10 MIN</div>
+                <div class="geo-selector-opt" onclick="updateSetting('time_limit', 900)" data-val="900">15 MIN</div>
+                <div class="geo-selector-opt" onclick="updateSetting('time_limit', 0)" data-val="0">OHNE</div>
+            </div>
+        </div>
+
+        <div style="margin-top: auto; padding-top: 10px;">
+            <button id="btn-start-game" class="geo-btn geo-btn-success" onclick="startGame()" style="display: none;">
+                ▶ SPIEL STARTEN
+            </button>
+            <div id="lobby-wait-msg" style="text-align: center; color: #888; font-weight: 700; font-size: 0.9rem; padding: 12px;">
+                Warte auf Spielleiter...
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         SCREEN 3: EXPLORATION (Street View + Checklist)
+         ==================================================================== -->
+    <div id="screen-exploration" class="geo-screen">
+        <!-- Top HUD -->
+        <div class="geo-exp-header">
+            <a href="/" class="geo-btn-back" style="padding: 4px 8px; font-size: 0.7rem;">← HUB</a>
+            <div class="geo-room-tag">#<span class="active-room-code">----</span></div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <div class="geo-timer-pill" id="exp-timer-display">10:00</div>
+                <button class="geo-btn-back" onclick="confirmLeaveGame()" style="background: var(--geo-red); color: #fff; padding: 4px 8px; font-size: 0.8rem; line-height: 1;" title="Spiel verlassen">✕</button>
+            </div>
+        </div>
+
+        <!-- Street View Stage -->
+        <div id="exp-sv-stage" class="geo-sv-stage">
+            <button class="geo-btn-switch-loc" onclick="openMapModal()">
+                🗺️ ORT WECHSELN
+            </button>
+            <div id="streetview-container"></div>
+        </div>
+
+        <!-- Prompt Bar / Collapsible Toggle Header -->
+        <div id="exp-checklist-toggle-bar" class="geo-prompt-bar" onclick="toggleExpChecklist()" style="cursor: pointer; user-select: none;" title="Checkliste ein-/ausklappen">
+            <div style="display: flex; align-items: center; gap: 6px;">
+                <span id="exp-checklist-toggle-icon" style="font-size: 0.75rem;">▼</span>
+                <span>📷 <strong>SUCHOBJEKTE:</strong> TIPPE AUF EIN ITEM</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <span id="exp-proof-counter">0 / 7</span>
+                <span id="exp-checklist-toggle-text" style="font-size: 0.7rem; color: var(--geo-sand); font-weight: 800;">[ EINKLAPPEN ]</span>
+            </div>
+        </div>
+
+        <!-- Scrollable Item Checklist -->
+        <div id="exp-checklist" class="geo-checklist-container">
+            <!-- Dynamically generated rows -->
+        </div>
+
+        <!-- Status Footer -->
+        <div class="geo-exp-footer">
+            <div class="geo-score-badge">
+                <span class="geo-score-dot" style="background: var(--geo-sand);"></span>
+                <span>DU: <strong id="my-score-display">0</strong></span>
+            </div>
+            <div class="geo-score-badge">
+                <span class="geo-score-dot" style="background: var(--geo-red);"></span>
+                <span id="opp-score-display">GEGNER: 0</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         SCREEN 4: JUDGEMENT ROUND (Live 3D Proof Inspection)
+         ==================================================================== -->
+    <div id="screen-judgement" class="geo-screen">
+        <div class="geo-top-bar">
+            <div class="geo-account-tag">
+                <span>BEWERTUNGSRUNDE</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <div class="geo-timer-pill" id="judge-step-indicator">1 / 7</div>
+                <button class="geo-btn-back" onclick="confirmLeaveGame()" style="background: var(--geo-red); color: #fff; padding: 4px 8px; font-size: 0.8rem; line-height: 1;" title="Spiel verlassen">✕</button>
+            </div>
+        </div>
+
+        <!-- Live Street View Stage in Judging -->
+        <div id="judge-sv-stage" class="geo-sv-stage">
+            <div id="judge-drag-blocker" class="geo-judge-drag-blocker"></div>
+            <div class="geo-judge-zoom-controls">
+                <button type="button" class="geo-btn-zoom" onclick="zoomJudge(1)" title="Heranzoomen">+</button>
+                <button type="button" class="geo-btn-zoom" onclick="zoomJudge(-1)" title="Herauszoomen">−</button>
+            </div>
+            <div id="judge-no-proof-overlay" class="geo-judge-no-proof" style="display: none;">
+                <span style="font-size: 2.8rem; margin-bottom: 8px;">❌</span>
+                <div style="font-weight: 900; font-size: 1.1rem; color: var(--geo-sand);">KEIN FOTO EINGEREICHT</div>
+                <div style="font-size: 0.8rem; color: #aaa; margin-top: 4px;">Dieses Objekt wurde nicht gefunden.</div>
+            </div>
+            <div class="geo-judge-hint-badge">
+                🔍 BLICKWINKEL FIXIERT (NUR ZOOMEN)
+            </div>
+        </div>
+
+        <div class="geo-card geo-judge-card" style="margin-top: 8px; padding: 12px 14px;">
+            <div style="font-size: 0.75rem; font-weight: 800; color: #888; text-transform: uppercase;">GESUCHTES OBJEKT:</div>
+            <div class="geo-judge-item-title" id="judge-item-name" style="margin-bottom: 6px;">🚗 ROTES AUTO</div>
+
+            <div style="font-size: 0.85rem; font-weight: 800; color: #ddd; margin-bottom: 12px; text-transform: uppercase;">
+                FOTO VON: <strong id="judge-target-name" style="color: var(--geo-sand);">SPIELER</strong>
+            </div>
+
+            <div class="geo-vote-bar">
+                <button class="geo-btn geo-btn-success" onclick="castVote(true)">
+                    ✓ ZÄHLT
+                </button>
+                <button class="geo-btn geo-btn-danger" onclick="castVote(false)">
+                    ✕ NEIN
+                </button>
+            </div>
+        </div>
+
+        <div style="text-align: center; color: var(--geo-gray); font-weight: 700; font-size: 0.8rem; margin-top: auto; padding: 4px 0;">
+            BEIDE SPIELER STIMMEN ÜBER JEDEN BEWEIS AB
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         SCREEN 5: RESULTS
+         ==================================================================== -->
+    <div id="screen-results" class="geo-screen">
+        <div class="geo-top-bar">
+            <a href="/" class="geo-btn-back">← HUB</a>
+            <div class="geo-account-tag">
+                <strong>SPIEL BEENDET</strong>
+            </div>
+        </div>
+
+        <div class="geo-card geo-results-box">
+            <div class="geo-trophy">🏆</div>
+            <div class="geo-subtitle">DER GEWINNER IST</div>
+            <div class="geo-winner-text" id="results-winner-text">SPIELER 1</div>
+
+            <table class="geo-score-table">
+                <thead>
+                    <tr>
+                        <th>SPIELER</th>
+                        <th style="text-align: right;">PUNKTE</th>
+                    </tr>
+                </thead>
+                <tbody id="results-score-body">
+                    <!-- Dynamic rows -->
+                </tbody>
+            </table>
+
+            <div style="display: flex; gap: 8px; margin-top: 20px;">
+                <button id="btn-results-rematch" class="geo-btn geo-btn-primary" onclick="resetGame()" style="flex: 1;">
+                    ↻ NOCHMAL
+                </button>
+                <button class="geo-btn geo-btn-neutral" onclick="leaveGame()" style="flex: 1;">
+                    VERLASSEN
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         2D MAP PICKER MODAL (Full Screen Street View Coverage Layer)
+         ==================================================================== -->
+    <div id="map-modal" class="geo-modal-overlay">
+        <div class="geo-modal-content">
+            <div class="geo-modal-header">
+                <h3 id="map-modal-title">🗺️ ORT WÄHLEN</h3>
+                <button id="map-modal-close" class="geo-modal-close" onclick="handleMapModalClose()" title="Schließen / Verlassen">✕</button>
+            </div>
+
+            <div class="geo-map-frame">
+                <div id="picker-map-container"></div>
+            </div>
+
+            <!-- Map Checklist Drawer / Collapsible -->
+            <div id="map-checklist-wrapper" class="geo-map-checklist-box collapsed">
+                <div class="geo-map-checklist-header" onclick="toggleMapChecklist()" title="Suchobjekte ein-/ausklappen">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <span id="map-checklist-toggle-icon" style="font-size: 0.75rem;">▲</span>
+                        <span>📋 <strong>SUCHOBJEKTE</strong></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span id="map-proof-counter">0 / 7</span>
+                        <span id="map-checklist-toggle-text" style="font-size: 0.7rem; color: var(--geo-sand); font-weight: 800;">[ AUSKLAPPEN ]</span>
+                    </div>
+                </div>
+                <div id="map-checklist" class="geo-map-checklist-list">
+                    <!-- Dynamically populated rows -->
+                </div>
+            </div>
+
+            <div id="map-modal-hint" class="geo-map-hint">
+                Tippe auf eine <strong>blaue Linie</strong>, um dich dorthin zu teleportieren!
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        window.GEO_GLOBAL_ITEMS = {{ (global_items or []) | tojson }};
+    </script>
+    <script src="{{ url_for('static', filename='geobingo/game.js') }}"></script>
+{% endblock %}
