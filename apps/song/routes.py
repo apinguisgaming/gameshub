@@ -12,16 +12,26 @@ from apps.common.rooms import (
     get_room_state,
     update_room_state,
 )
+from apps.common.delta import broadcast_tracker
 from . import logic as song_logic
 
 song_bp = Blueprint('song_bp', __name__)
 
 
-def trigger_update(room_code: str, state: dict, event_name: str = 'state-update', custom_payload: dict = None):
+def trigger_update(room_code: str, state: dict, event_name: str = 'state-update', custom_payload: dict = None, force_full: bool = False):
     """Broadcasts sanitized state or delta update via room-scoped Pusher channel and persists to storage."""
     code = room_code.upper().strip()
     channel_name = f'song-{code}'
-    payload = custom_payload if custom_payload is not None else song_logic.get_client_safe_state(state)
+
+    if custom_payload is not None:
+        payload = custom_payload
+    elif event_name == 'state-update':
+        safe = song_logic.get_client_safe_state(state)
+        payload, is_delta = broadcast_tracker.get_broadcast_payload('song', code, safe, force_full=force_full)
+        if payload is None:
+            return {'success': True, 'skipped': 'no_changes'}
+    else:
+        payload = song_logic.get_client_safe_state(state)
 
     storage = get_storage()
     storage.save_lobby(
@@ -341,6 +351,9 @@ def end_round(room_code: str = None):
     if not state:
         return jsonify({'error': 'Raum nicht gefunden'}), 404
 
+    if user['username'] != state.get('host'):
+        return jsonify({'error': 'Nur der Host kann die Runde beenden'}), 403
+
     state['status'] = 'reveal'
     state['round']['active'] = False
     state['round']['reveal_answer'] = state['round'].get('correct_answer')
@@ -372,21 +385,23 @@ def update_settings(room_code: str = None):
     if not state:
         return jsonify({'error': f"Raum '{code}' nicht gefunden"}), 404
 
-    host_name = (state.get('host') or '').strip().lower()
-    my_name = (user.get('username') or '').strip().lower()
-    if my_name != host_name:
-        return jsonify({'error': f"Nur der Host ({state.get('host')}) kann Einstellungen anpassen"}), 403
-
     key = request.form.get('key') or data.get('key')
     val = request.form.get('value') if request.form.get('value') is not None else data.get('value')
 
+    host_name = (state.get('host') or '').strip().lower()
+    my_name = (user.get('username') or '').strip().lower()
+    if my_name != host_name and key != 'playlists_open':
+        return jsonify({'error': f"Nur der Host ({state.get('host')}) kann Einstellungen anpassen"}), 403
+
     if key == 'playlists':
-        state['settings']['playlists'] = val.split(',') if val else []
+        state['settings']['playlists'] = [p.strip() for p in val.split(',') if p.strip()] if val else []
     elif key in ['time_per_song', 'total_songs']:
         try:
             state['settings'][key] = int(val)
         except (ValueError, TypeError):
             pass
+    elif key == 'playlists_open':
+        state['settings']['playlists_open'] = str(val).lower() in ['true', '1', 'yes']
 
     delta = {
         'key': key,
@@ -423,7 +438,7 @@ def reset_game(room_code: str = None):
 
     trigger_update(code, new_state)
     try:
-        pusher_client.trigger(f'song-{code}', 'game-reset', {})
+        get_pusher_client().trigger(f'song-{code}', 'game-reset', {})
     except Exception:
         pass
     return jsonify({'success': True})

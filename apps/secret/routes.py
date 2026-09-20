@@ -12,13 +12,14 @@ from apps.common.rooms import (
     get_room_state,
     update_room_state,
 )
+from apps.common.delta import broadcast_tracker
 from . import logic as secret_logic
 
 secret_bp = Blueprint('secret_bp', __name__)
 
 
-def trigger_update(room_code: str, state: dict):
-    """Broadcasts current game state and notifications via room-scoped Pusher channel."""
+def trigger_update(room_code: str, state: dict, force_full: bool = False):
+    """Broadcasts current game state or delta update via room-scoped Pusher channel."""
     code = room_code.upper().strip()
     channel_name = f'secret-{code}'
     state = secret_logic.validate_game_integrity(state)
@@ -59,9 +60,20 @@ def trigger_update(room_code: str, state: dict):
         status=state.get('status', 'lobby')
     )
 
-    # 6. Broadcast
+    # 6. Compute Delta vs Full Broadcast
+    broadcast_payload, is_delta = broadcast_tracker.get_broadcast_payload(
+        game_id='secret',
+        room_code=code,
+        current_safe_state=payload,
+        force_full=force_full
+    )
+
+    if broadcast_payload is None:
+        return
+
+    # 7. Broadcast over room channel
     try:
-        client.trigger(channel_name, 'state-update', payload)
+        client.trigger(channel_name, 'state-update', broadcast_payload)
     except Exception as e:
         import logging
         logging.error(f"[Pusher Error] Failed to trigger {channel_name}/state-update: {e}", exc_info=True)
@@ -206,6 +218,117 @@ def join_game(room_code: str = None):
     return jsonify({**secret_logic.get_full_state(state), "your_uuid": client_uuid})
 
 
+@secret_bp.route('/<room_code>/set_avatar', methods=['POST'])
+@secret_bp.route('/set_avatar', methods=['POST'])
+@login_required
+def set_avatar(room_code: str = None):
+    """Sets a player's avatar preferences in the room."""
+    user = get_current_user()
+    data = request.get_json(silent=True) or {}
+    code = (room_code or request.form.get('room_code') or data.get('room_code') or '').upper().strip()
+    avatar = request.form.get('avatar') or data.get('avatar')
+    username = user['username']
+
+    if not avatar:
+        return jsonify({"error": "Kein Avatar angegeben"}), 400
+
+    if not code:
+        storage = get_storage()
+        with storage._get_conn() as conn:
+            cur = conn.cursor()
+            cur.execute("SELECT room_code, state_data FROM game_lobbies WHERE game_id = 'secret'")
+            for row in cur.fetchall():
+                try:
+                    import json
+                    st = json.loads(row['state_data']) if row['state_data'] else {}
+                    if username in st.get('players', []) or username in st.get('spectators', []):
+                        code = row['room_code']
+                        break
+                except Exception:
+                    continue
+
+    if not code:
+        return jsonify({"error": "Kein Raumcode angegeben"}), 400
+
+    state = get_room_state('secret', code)
+    if not state:
+        return jsonify({"error": "Raum nicht gefunden"}), 404
+
+    # Check if avatar is taken by another player in the SAME style
+    my_style = state.get('card_styles', {}).get(username, 'style_standard')
+    for p, av in state.get('avatars', {}).items():
+        if p != username:
+            p_style = state.get('card_styles', {}).get(p, 'style_standard')
+            if av == avatar and p_style == my_style:
+                return jsonify({"error": "Dieser Avatar ist in diesem Stil bereits vergeben."}), 400
+
+    state.setdefault('avatars', {})[username] = avatar
+    trigger_update(code, state)
+    return jsonify({"success": True, "avatar": avatar})
+
+
+@secret_bp.route('/<room_code>/set_style', methods=['POST'])
+@secret_bp.route('/set_style', methods=['POST'])
+@login_required
+def set_style(room_code: str = None):
+    """Sets a player's card style preference in the room."""
+    user = get_current_user()
+    data = request.get_json(silent=True) or {}
+    code = (room_code or request.form.get('room_code') or data.get('room_code') or '').upper().strip()
+    style = request.form.get('style') or data.get('style')
+    username = user['username']
+
+    if not style:
+        return jsonify({"error": "Kein Stil angegeben"}), 400
+
+    if not code:
+        storage = get_storage()
+        with storage._get_conn() as conn:
+            cur = conn.cursor()
+            cur.execute("SELECT room_code, state_data FROM game_lobbies WHERE game_id = 'secret'")
+            for row in cur.fetchall():
+                try:
+                    import json
+                    st = json.loads(row['state_data']) if row['state_data'] else {}
+                    if username in st.get('players', []) or username in st.get('spectators', []):
+                        code = row['room_code']
+                        break
+                except Exception:
+                    continue
+
+    if not code:
+        return jsonify({"error": "Kein Raumcode angegeben"}), 400
+
+    state = get_room_state('secret', code)
+    if not state:
+        return jsonify({"error": "Raum nicht gefunden"}), 404
+
+    # If new style causes avatar collision with another player, reassign avatar to an untaken one
+    my_avatar = state.get('avatars', {}).get(username, 'avatar_1')
+    collision = False
+    for p, st in state.get('card_styles', {}).items():
+        if p != username and st == style:
+            if state.get('avatars', {}).get(p) == my_avatar:
+                collision = True
+                break
+
+    if collision:
+        taken_in_style = {
+            state.get('avatars', {}).get(p)
+            for p, st in state.get('card_styles', {}).items()
+            if p != username and st == style
+        }
+        for i in range(1, 25):
+            candidate = f"avatar_{i}"
+            if candidate not in taken_in_style:
+                state.setdefault('avatars', {})[username] = candidate
+                break
+
+    state.setdefault('card_styles', {})[username] = style
+    trigger_update(code, state)
+    return jsonify({"success": True, "style": style, "avatar": state.get('avatars', {}).get(username)})
+
+
 @secret_bp.route('/<room_code>/leave_game', methods=['POST'])
 @secret_bp.route('/leave_game', methods=['POST'])
 @login_required
@@ -339,12 +462,35 @@ def nominate(room_code: str = None):
 @login_required
 def vote(room_code: str = None):
     user = get_current_user()
-    code = (room_code or request.form.get('room_code') or '').upper().strip()
+    data = request.get_json(silent=True) or {}
+    code = (room_code or request.form.get('room_code') or data.get('room_code') or '').upper().strip()
     voter = user['username']
-    vote_val = request.form.get('vote')
+    vote_val = request.form.get('vote') or data.get('vote')
+
+    if not code:
+        storage = get_storage()
+        with storage._get_conn() as conn:
+            cur = conn.cursor()
+            cur.execute("SELECT room_code, state_data FROM game_lobbies WHERE game_id = 'secret'")
+            for row in cur.fetchall():
+                try:
+                    import json
+                    st = json.loads(row['state_data']) if row['state_data'] else {}
+                    if voter in st.get('players', []):
+                        code = row['room_code']
+                        break
+                except Exception:
+                    continue
+
+    if not code:
+        return jsonify({"error": "Kein Raumcode angegeben"}), 400
 
     if vote_val not in ('Ja', 'Nein'):
         return jsonify({"error": "Ungültige Stimme"}), 400
+
+    state = get_room_state('secret', code)
+    if not state:
+        return jsonify({"error": "Raum nicht gefunden"}), 404
 
     def apply_vote(s):
         if voter not in s['players'] or voter in s.get('dead_players', []):
@@ -389,7 +535,7 @@ def pres_discard(room_code: str = None):
     secret_logic.add_log(state, f"Präsident {current_pres} hat eine Karte an den Kanzler weitergegeben.")
 
     trigger_update(code, state)
-    return jsonify({"success": True})
+    return jsonify({"success": True, "hand": state.get('hand', [])})
 
 
 @secret_bp.route('/<room_code>/chancellor_discard', methods=['POST'])
@@ -447,6 +593,8 @@ def chan_discard(room_code: str = None):
 
 @secret_bp.route('/<room_code>/call_veto', methods=['POST'])
 @secret_bp.route('/call_veto', methods=['POST'])
+@secret_bp.route('/<room_code>/propose_veto', methods=['POST'])
+@secret_bp.route('/propose_veto', methods=['POST'])
 @login_required
 def call_veto(room_code: str = None):
     user = get_current_user()
@@ -474,7 +622,7 @@ def call_veto(room_code: str = None):
 def respond_veto(room_code: str = None):
     user = get_current_user()
     code = (room_code or request.form.get('room_code') or '').upper().strip()
-    consent = request.form.get('consent') == 'true'
+    consent = (request.form.get('consent') == 'true' or request.form.get('decision') == 'agree')
 
     state = get_room_state('secret', code)
     if not state:
@@ -611,7 +759,7 @@ def toggle_setting(room_code: str = None):
         settings[setting] = not settings[setting]
 
     trigger_update(code, state)
-    return jsonify({"success": True})
+    return jsonify({"success": True, "settings": settings})
 
 
 @secret_bp.route('/<room_code>/reset_game', methods=['POST'])
@@ -642,12 +790,155 @@ def reset_game(room_code: str = None):
     new_state['card_styles'] = saved_styles
     new_state['settings'] = saved_settings
 
-    trigger_update(code, new_state)
+    broadcast_tracker.reset_room('secret', code)
+    trigger_update(code, new_state, force_full=True)
     try:
-        pusher_client.trigger(f'secret-{code}', 'game-reset', {})
+        get_pusher_client().trigger(f'secret-{code}', 'game-reset', {})
     except Exception:
         pass
     return jsonify({"success": True})
+
+
+@secret_bp.route('/<room_code>/end_action', methods=['POST'])
+@secret_bp.route('/end_action', methods=['POST'])
+@login_required
+def end_action(room_code: str = None):
+    """Concludes an executive action and advances to the next president."""
+    user = get_current_user()
+    data = request.get_json(silent=True) or {}
+    code = (room_code or request.form.get('room_code') or data.get('room_code') or '').upper().strip()
+    if not code:
+        return jsonify({"error": "Kein Raumcode"}), 400
+
+    state = get_room_state('secret', code)
+    if not state:
+        return jsonify({"error": "Raum nicht gefunden"}), 404
+
+    current_pres = state['players'][state['president_index']] if state.get('players') else None
+    if user['username'] != current_pres:
+        return jsonify({"error": "Nur der Präsident kann die Aktion abschließen"}), 403
+
+    state['pending_action'] = None
+    state['action_payload'] = None
+    state = secret_logic.advance_president(state)
+    trigger_update(code, state)
+    return jsonify({"success": True})
+
+
+@secret_bp.route('/<room_code>/get_my_role', methods=['GET'])
+@secret_bp.route('/get_my_role', methods=['GET'])
+@secret_bp.route('/<room_code>/my_role', methods=['GET'])
+@secret_bp.route('/my_role', methods=['GET'])
+@login_required
+def get_my_role(room_code: str = None):
+    """Returns the authenticated player's secret role and faction information."""
+    user = get_current_user()
+    code = (room_code or request.args.get('room_code') or '').upper().strip()
+
+    # If code not provided in request, attempt to find the user's active game
+    if not code:
+        storage = get_storage()
+        with storage._get_conn() as conn:
+            cur = conn.cursor()
+            cur.execute("SELECT room_code, state_data FROM game_lobbies WHERE game_id = 'secret'")
+            for row in cur.fetchall():
+                try:
+                    import json
+                    st = json.loads(row['state_data']) if row['state_data'] else {}
+                    if user['username'] in st.get('players', []):
+                        code = row['room_code']
+                        break
+                except Exception:
+                    continue
+
+    if not code:
+        return jsonify({"role": None, "info": "Kein Raumcode angegeben."}), 400
+
+    state = get_room_state('secret', code)
+    if not state:
+        return jsonify({"role": None, "info": "Raum nicht gefunden."}), 404
+
+    username = user['username']
+    role = state.get('roles', {}).get(username)
+    if not role:
+        return jsonify({"role": None, "info": "Keine Rolle zugewiesen."})
+
+    players = state.get('players', [])
+    roles = state.get('roles', {})
+
+    if role == 'Liberal':
+        info = "Du bist ein Liberaler. Finde die Faschisten und verabschiede 5 liberale Gesetze."
+    elif role == 'Hitler':
+        fascists = [p for p, r in roles.items() if r == 'Fascist']
+        if len(players) <= 6:
+            info = f"Du bist Hitler. Dein Mitfaschist: {', '.join(fascists) if fascists else 'Keiner'}."
+        else:
+            info = "Du bist Hitler. Du kennst deine Mitfaschisten nicht."
+    elif role == 'Fascist':
+        hitler = [p for p, r in roles.items() if r == 'Hitler']
+        other_fascists = [p for p, r in roles.items() if r == 'Fascist' and p != username]
+        parts = []
+        if hitler:
+            parts.append(f"Hitler: {hitler[0]}")
+        if other_fascists:
+            parts.append(f"Faschisten: {', '.join(other_fascists)}")
+        info = "Du bist ein Faschist. " + (". ".join(parts) if parts else "")
+    else:
+        info = role
+
+    return jsonify({"role": role, "info": info})
+
+
+@secret_bp.route('/<room_code>/my_hand', methods=['GET'])
+@secret_bp.route('/my_hand', methods=['GET'])
+@login_required
+def my_hand(room_code: str = None):
+    """Returns confidential policy card hand strictly to the active President or Chancellor."""
+    user = get_current_user()
+    code = (room_code or request.args.get('room_code') or '').upper().strip()
+
+    state = get_room_state('secret', code)
+    if not state:
+        return jsonify({"hand": [], "step": None})
+
+    username = user['username']
+    current_pres = state['players'][state['president_index']] if state.get('players') else None
+    chancellor = state.get('chancellor_nominee')
+    step = state.get('legislative_step')
+
+    # Security check: only the active legislator can read policy cards
+    if step == 'president_session' and username == current_pres:
+        return jsonify({"hand": state.get('hand', []), "step": step})
+    elif step == 'chancellor_session' and username == chancellor:
+        return jsonify({"hand": state.get('hand', []), "step": step})
+    elif step == 'veto_consent' and username in (current_pres, chancellor):
+        return jsonify({"hand": state.get('hand', []), "step": step})
+
+    return jsonify({"hand": [], "step": step})
+
+
+@secret_bp.route('/<room_code>/my_action', methods=['GET'])
+@secret_bp.route('/my_action', methods=['GET'])
+@login_required
+def my_action(room_code: str = None):
+    """Returns executive action payload strictly to the authorized President."""
+    user = get_current_user()
+    code = (room_code or request.args.get('room_code') or '').upper().strip()
+
+    state = get_room_state('secret', code)
+    if not state:
+        return jsonify({"action": None, "payload": None})
+
+    username = user['username']
+    current_pres = state['players'][state['president_index']] if state.get('players') else None
+
+    if username == current_pres and state.get('pending_action'):
+        return jsonify({
+            "action": state.get('pending_action'),
+            "payload": state.get('action_payload')
+        })
+
+    return jsonify({"action": None, "payload": None})
 
 
 @secret_bp.route('/<room_code>/heartbeat', methods=['POST'])

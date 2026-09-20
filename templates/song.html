@@ -1,1445 +1,250 @@
-<!DOCTYPE html>
-<html lang="de">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>SONG // GUESSER</title>
-    <script>
-        (function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('token')) {
-                sessionStorage.setItem('gamehub_token', urlParams.get('token'));
-                urlParams.delete('token');
-                const cleanQuery = urlParams.toString() ? ('?' + urlParams.toString()) : '';
-                window.history.replaceState({}, document.title, window.location.pathname + cleanQuery + window.location.hash);
-            }
-        })();
-    </script>
+{% block title %}SONG // GUESSER{% endblock %}
+
+{% block head %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='song/style.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+{% endblock %}
 
-    <style>
-        :root {
-            --c-bg: #050505;
-            --c-box: #0f172a;
-            --c-royal: #3b82f6;
-            --c-cyan: #ffffff;
-            --c-header: #25acea;
-            --c-white: #f3f4f6;
+{% block body_class %}song-body{% endblock %}
 
-            --border-thick: 3px solid var(--c-cyan);
-            --shadow-hard: 6px 6px 0px var(--c-royal);
-            --shadow-glow: 0 0 15px rgba(6, 182, 212, 0.3);
-        }
-
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            background-color: var(--c-bg);
-            color: var(--c-header);
-            font-family: 'Jost', sans-serif;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-        }
-
-        .bg-shape {
-            position: fixed;
-            z-index: -1;
-            opacity: 0.2;
-            pointer-events: none;
-        }
-
-        .s-vinyl {
-            width: 50vh;
-            height: 50vh;
-            background: transparent;
-            border: 40px solid #1e293b;
-            border-radius: 50%;
-            top: -10vh;
-            right: -15vh;
-        }
-
-        .s-vinyl::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 30%;
-            height: 30%;
-            background: var(--c-royal);
-            border-radius: 50%;
-        }
-
-        .s-play {
-            width: 0;
-            height: 0;
-            border-top: 20vh solid transparent;
-            border-bottom: 20vh solid transparent;
-            border-left: 35vh solid var(--c-cyan);
-            bottom: 5%;
-            left: -5%;
-            opacity: 0.05;
-        }
-
-        .app-container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            padding: 20px 15px;
-            max-width: 600px;
-            width: 100%;
-            margin: 0 auto;
-            padding-bottom: 80px;
-        }
-
-        header {
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-            line-height: 0.9;
-            font-weight: 900;
-        }
-
-        h1 span {
-            color: var(--c-cyan);
-            text-decoration: underline;
-            text-decoration-thickness: 6px;
-            text-decoration-color: var(--c-royal);
-        }
-
-        .card {
-            background: var(--c-box);
-            border: var(--border-thick);
-            box-shadow: var(--shadow-hard);
-            padding: 20px;
-            margin-bottom: 25px;
-            position: relative;
-        }
-
-        .section-label {
-            background: var(--c-cyan);
-            color: var(--c-bg);
-            font-weight: 900;
-            text-transform: uppercase;
-            padding: 5px 15px;
-            display: inline-block;
-            transform: translateY(-35px);
-            border: 2px solid var(--c-white);
-            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
-        }
-
-        input.retro-input {
-            width: 100%;
-            border: var(--border-thick);
-            padding: 15px;
-            font-family: 'Jost', sans-serif;
-            font-weight: 700;
-            font-size: 1.2rem;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--c-white);
-            margin-bottom: 15px;
-            outline: none;
-        }
-
-        input.retro-input:focus {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--c-royal);
-        }
-
-        .btn-action {
-            background: var(--c-royal);
-            color: var(--c-white);
-            border: 2px solid var(--c-white);
-            padding: 20px;
-            font-size: 1.4rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            width: 100%;
-            cursor: pointer;
-            box-shadow: var(--shadow-hard);
-            transition: transform 0.1s;
-        }
-
-        .btn-action:active {
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px black;
-        }
-
-        .player-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 12px 0;
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-
-        .player-row.me {
-            color: var(--c-cyan);
-            text-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
-        }
-
-        .player-row.host::after {
-            content: 'HOST';
-            font-size: 0.7rem;
-            background: var(--c-white);
-            color: black;
-            padding: 2px 6px;
-            margin-left: 10px;
-            border-radius: 2px;
-        }
-
-        .player-row.offline {
-            opacity: 0.5;
-            color: #ef4444;
-            text-decoration: line-through;
-        }
-
-        .control-group {
-            margin-top: 15px;
-        }
-
-        .control-bar {
-            display: flex;
-            border: 2px solid var(--c-white);
-            background: transparent;
-        }
-
-        .control-opt {
-            flex: 1;
-            text-align: center;
-            padding: 12px 0;
-            font-weight: 900;
-            cursor: pointer;
-            border-right: 2px solid var(--c-white);
-            transition: background 0.2s;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .control-opt:last-child {
-            border-right: none;
-        }
-
-        .control-opt.active {
-            background: var(--c-cyan);
-            color: var(--c-bg);
-        }
-
-        .accordion-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            padding-bottom: 10px;
-        }
-
-        .accordion-header .section-label {
-            transform: none;
-            margin: 0;
-        }
-
-        .accordion-icon {
-            font-size: 1.5rem;
-            color: var(--c-cyan);
-            font-weight: bold;
-            transition: transform 0.3s;
-        }
-
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-
-        .accordion-content.open {
-            max-height: 600px;
-        }
-
-        .playlist-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 15px;
-            padding-bottom: 10px;
-        }
-
-        .playlist-card {
-            border: 2px solid var(--c-cyan);
-            padding: 15px;
-            font-weight: 700;
-            text-align: center;
-            cursor: pointer;
-            background: rgba(6, 182, 212, 0.05);
-            color: var(--c-cyan);
-            transition: 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 80px;
-            font-size: 0.9rem;
-            word-break: break-word;
-        }
-
-        .playlist-card:hover {
-            background: rgba(6, 182, 212, 0.1);
-        }
-
-        .playlist-card.selected {
-            background: var(--c-cyan);
-            color: var(--c-bg);
-            box-shadow: 0 0 15px var(--c-cyan);
-            border-color: var(--c-white);
-        }
-
-        .read-only {
-            pointer-events: none;
-            opacity: 0.6;
-            filter: grayscale(0.2);
-        }
-
-        .vinyl-container {
-            width: 200px;
-            height: 200px;
-            background: #111;
-            border-radius: 50%;
-            margin: 20px auto;
-            position: relative;
-            border: 4px solid var(--c-cyan);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 30px rgba(6, 182, 212, 0.2);
-        }
-
-        .vinyl-label {
-            width: 80px;
-            height: 80px;
-            background: var(--c-royal);
-            border-radius: 50%;
-            border: 20px solid #000;
-        }
-
-        .spinning {
-            animation: spin 2s linear infinite;
-        }
-
-        @keyframes spin {
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        .score-display {
-            font-family: 'Space Mono', monospace;
-            font-size: 3rem;
-            font-weight: 700;
-            text-align: center;
-            margin: 10px 0;
-            color: var(--c-cyan);
-            text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
-        }
-
-        .screen {
-            display: none;
-        }
-
-        .host-only-btn {
-            display: none;
-        }
-
-        .options-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .btn-option {
-            position: relative;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid var(--c-cyan);
-            color: var(--c-white);
-            padding: 12px 10px;
-            font-family: 'Jost', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: 0.2s;
-            height: auto;
-            min-height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            box-shadow: 0 4px 0 rgba(0, 0, 0, 0.5);
-            word-break: break-word;
-            overflow-wrap: break-word;
-            line-height: 1.2;
-        }
-
-        .btn-option:active {
-            transform: translateY(4px);
-            box-shadow: none;
-        }
-
-        .btn-option.correct {
-            background: #22c55e !important;
-            border-color: #fff;
-            color: black;
-        }
-
-        .btn-option.wrong {
-            background: #ef4444 !important;
-            opacity: 0.5;
-        }
-
-        .btn-option:disabled {
-            pointer-events: none;
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translate(-50%, -50%) scale(1) rotate(-5deg);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translate(-50%, -200%) scale(1.4) rotate(0deg);
-                opacity: 0;
-            }
-        }
-
-        .floating-points {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            pointer-events: none;
-            color: #ffffff;
-            font-family: 'Space Mono', monospace;
-            font-weight: 900;
-            font-size: 2.5rem;
-            text-shadow: 4px 4px 0px #000000, 0 0 10px rgba(0, 0, 0, 0.8);
-            animation: floatUp 0.8s ease-out forwards;
-            z-index: 9999;
-            white-space: nowrap;
-        }
-
-        @media (max-width: 600px) {
-            .app-container {
-                padding: 10px;
-                padding-bottom: 60px;
-                max-width: 100%;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            .vinyl-container {
-                width: 140px;
-                height: 140px;
-                margin: 10px auto;
-            }
-
-            .vinyl-label {
-                width: 50px;
-                height: 50px;
-                border-width: 12px;
-            }
-
-            .score-display {
-                font-size: 2rem;
-            }
-
-            .options-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-
-            .btn-option {
-                min-height: 60px;
-                font-size: 0.95rem;
-                padding: 15px;
-            }
-
-            .card {
-                padding: 15px;
-                margin-bottom: 20px;
-            }
-
-            .section-label {
-                transform: translateY(-25px);
-                font-size: 0.9rem;
-            }
-        }
-    </style>
-</head>
-
-<body>
+{% block content %}
     <div id="audio-overlay"
         style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(5,5,5,0.9); z-index:9999; flex-direction:column; justify-content:center; align-items:center;">
         <div style="font-size:4rem; margin-bottom:20px;">🔊</div>
         <h2 style="color:var(--c-white); margin-bottom:20px;">SOUND REQUIRED</h2>
         <button class="btn-action" style="max-width:250px;" onclick="forceAudioPlay()">LOUD & CLEAR!</button>
     </div>
-    <div class="bg-shape s-vinyl"></div>
-    <div class="bg-shape s-play"></div>
+
+    <!-- Bauhaus Background Decorative Watermark & SVG Objects (Vinyl, Microphone, Notes) -->
+    <div class="bg-deco">SONG /// GUESS</div>
+
+    <div class="bg-shape s-disc">
+        <svg width="240" height="240" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="95" fill="#0c1424" stroke="#1c2c4a" stroke-width="4"/>
+            <circle cx="100" cy="100" r="75" stroke="#253a5e" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.4"/>
+            <circle cx="100" cy="100" r="55" stroke="#253a5e" stroke-width="1.5" stroke-dasharray="10 8" opacity="0.4"/>
+            <circle cx="100" cy="100" r="34" fill="#152238" stroke="#1c2c4a" stroke-width="3"/>
+            <circle cx="100" cy="100" r="10" fill="#050505" stroke="#253a5e" stroke-width="2"/>
+        </svg>
+    </div>
+
+    <div class="bg-shape s-mic">
+        <svg width="180" height="250" viewBox="0 0 120 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="35" y="10" width="50" height="80" rx="25" fill="#0c1424" stroke="#1c2c4a" stroke-width="4"/>
+            <line x1="35" y1="35" x2="85" y2="35" stroke="#253a5e" stroke-width="2" opacity="0.4"/>
+            <line x1="35" y1="50" x2="85" y2="50" stroke="#253a5e" stroke-width="2" opacity="0.4"/>
+            <line x1="35" y1="65" x2="85" y2="65" stroke="#253a5e" stroke-width="2" opacity="0.4"/>
+            <line x1="60" y1="10" x2="60" y2="90" stroke="#253a5e" stroke-width="2" opacity="0.4"/>
+            <path d="M22 55 C22 105, 98 105, 98 55" stroke="#1c2c4a" stroke-width="4" fill="none"/>
+            <line x1="60" y1="100" x2="60" y2="145" stroke="#1c2c4a" stroke-width="6"/>
+            <rect x="25" y="145" width="70" height="15" fill="#0c1424" stroke="#1c2c4a" stroke-width="3"/>
+        </svg>
+    </div>
+
+    <div class="bg-shape s-notes">
+        <svg width="170" height="170" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="30" cy="82" rx="15" ry="11" transform="rotate(-20 30 82)" fill="#0c1424" stroke="#1c2c4a" stroke-width="4"/>
+            <ellipse cx="82" cy="68" rx="15" ry="11" transform="rotate(-20 82 68)" fill="#0c1424" stroke="#1c2c4a" stroke-width="4"/>
+            <rect x="39" y="20" width="9" height="62" fill="#1c2c4a"/>
+            <rect x="91" y="6" width="9" height="62" fill="#1c2c4a"/>
+            <polygon points="39,20 100,6 100,22 39,36" fill="#0c1424" stroke="#1c2c4a" stroke-width="3"/>
+        </svg>
+    </div>
+
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
 
     <div class="app-container">
-        <header>
-            <h1>SONG <span>GUESSER</span></h1>
-        </header>
-
         <!-- 1. ROOM BROWSER SCREEN -->
         <div id="screen-room-browser" class="screen" style="display: block;">
-            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom: 3px solid var(--c-royal); padding-bottom:12px; margin-bottom: 20px;">
-                <div>
-                    <a href="/" class="gamehub-back-btn btn-action" style="padding:6px 14px; font-size:12px; text-decoration:none; display:inline-block;">← GAMEHUB</a>
-                </div>
-                <div style="font-size: 13px; font-weight:700; color:var(--c-cyan); display:flex; align-items:center; gap:8px;">
+            <!-- Top Auth Status Header (Matching Impostor) -->
+            <div class="top-nav-bar">
+                <a href="/" class="gamehub-back-btn">← GAMEHUB</a>
+                <div class="account-badge-wrap">
                     <span>ACCOUNT:</span>
-                    <span class="account-badge-username" style="background:var(--c-box); color:var(--c-white); border:1px solid var(--c-royal); padding:3px 10px; font-weight:800;">👤 {{ current_user.username if current_user else 'Gast' }}</span>
+                    <span class="account-badge-username">👤 {{ current_user.username if current_user else 'Gast' }}</span>
                 </div>
             </div>
 
-            <div class="card" style="margin-top: 10px;">
-                <h2 style="text-align: center; text-transform: uppercase; color: var(--c-cyan); margin-bottom: 5px;">Mehrspieler-Räume</h2>
-                <p style="text-align: center; color: var(--c-light-blue); font-size: 0.9rem; margin-bottom: 25px;">Erstelle eine Session oder tritt einem Freund per Code bei.</p>
+            <!-- Header (Matching Impostor) -->
+            <header>
+                <h1>Song<span>Guesser</span></h1>
+            </header>
 
-                <div style="display:flex; flex-direction:column; gap:15px; max-width:400px; margin: 0 auto;">
-                    <button class="btn-action" onclick="createRoom()" style="padding:14px; font-size:1.1rem;">+ NEUEN RAUM ERSTELLEN</button>
+            <div class="card">
+                <div class="card-header-row">
+                    <h2 class="section-title">MEHRSPIELER-RÄUME</h2>
+                </div>
+                <p style="color: var(--c-text-muted); font-size: 0.95rem; margin: 0 0 20px 0; font-weight: 600;">
+                    Erstelle eine Session oder tritt einem Freund per Code bei.
+                </p>
 
-                    <div style="display:flex; gap:10px; margin-top:10px;">
-                        <input type="text" id="input-room-code" class="retro-input" placeholder="CODE (Z.B. B2K9)" maxlength="6" style="text-transform:uppercase; letter-spacing:2px; margin:0; flex:2;">
-                        <button class="btn-action" onclick="joinRoomByInput()" style="flex:1; margin:0; padding:10px;">BEITRETEN</button>
-                    </div>
+                <button class="btn-action" onclick="createRoom()" style="margin-top:0; margin-bottom: 20px; background: var(--c-blue);">
+                    + NEUEN RAUM ERSTELLEN
+                </button>
 
-                    <div style="margin-top:20px;">
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                            <span style="font-size:0.8rem; font-weight:900; color:var(--c-royal); letter-spacing:1px;">OFFENE SESSIONS</span>
-                            <button onclick="loadRoomList()" style="background:none; border:none; color:var(--c-cyan); cursor:pointer; font-size:0.8rem; font-weight:700;">↻ AKTUALISIEREN</button>
-                        </div>
-                        <div id="song-room-list" style="display:flex; flex-direction:column; gap:8px;">
-                            <div style="text-align:center; padding:15px; color:var(--c-light-blue);">Lade aktive Räume...</div>
-                        </div>
-                    </div>
+                <div style="display: flex; gap: 10px; margin-bottom: 25px;">
+                    <input type="text" id="input-room-code" class="retro-input" placeholder="CODE (Z.B. B2K9)" maxlength="6" autocomplete="off" autocorrect="off" autocapitalize="characters" style="flex: 2; margin: 0; text-transform: uppercase; letter-spacing: 2px;">
+                    <button class="btn-action" onclick="joinRoomByInput()" style="flex: 1; margin: 0; padding: 12px; font-size: 1.1rem; background: var(--c-blue);">
+                        BEITRETEN
+                    </button>
+                </div>
+
+                <div class="card-header-row" style="margin-top: 25px;">
+                    <h2 class="section-title" style="font-size: 0.95rem;">OFFENE SESSIONS</h2>
+                    <button onclick="loadRoomList()" style="background:none; border:none; color:var(--c-cyan); cursor:pointer; font-size:0.85rem; font-weight:900;">↻ AKTUALISIEREN</button>
+                </div>
+                <div id="song-room-list" style="display: flex; flex-direction: column; gap: 10px;">
+                    <div style="text-align:center; padding:15px; color:var(--c-text-muted); font-weight:700;">Lade aktive Räume...</div>
                 </div>
             </div>
         </div>
 
         <!-- 2. LOBBY SCREEN -->
         <div id="screen-lobby" class="screen">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
-                <div style="font-size:1.1rem; font-weight:900; color:var(--c-cyan); display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-                    <a href="/" class="gamehub-back-btn btn-action" style="padding:4px 10px; font-size:11px; text-decoration:none;">← GAMEHUB</a>
-                    <span>ACCOUNT: <strong class="account-badge-username" style="color:var(--c-white); background:rgba(255,255,255,0.1); padding:2px 8px;">👤 {{ current_user.username if current_user else 'Gast' }}</strong></span>
-                    <span>RAUMCODE: <span id="song-lobby-code" style="background:var(--c-royal); color:white; padding:3px 10px; letter-spacing:2px;">----</span></span>
+            <div class="top-nav-bar">
+                <a href="/" class="gamehub-back-btn">← HUB</a>
+                <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                    <button type="button" class="room-code-badge" onclick="copyRoomCode()" title="Tippen zum Kopieren">
+                        CODE: <span id="song-lobby-code" style="letter-spacing: 2px;">----</span> 📋
+                    </button>
+                    <div class="account-badge-wrap">
+                        <span class="account-badge-username">👤 {{ current_user.username if current_user else 'Gast' }}</span>
+                    </div>
+                    <button type="button" class="btn-close-room" onclick="leaveGame()" title="Raum verlassen" aria-label="Raum verlassen">✕</button>
                 </div>
-                <button class="btn-action" onclick="leaveGame()" style="width:auto; padding:6px 14px; font-size:12px; margin:0; background:#ff6b6b; color:white;">RAUM VERLASSEN</button>
             </div>
 
-            <div class="card" style="padding-top: 30px;">
-                <div class="section-label">CREW</div>
-                <div id="player-list"></div>
+            <!-- CREW CARD -->
+            <div class="card">
+                <div class="card-header-row">
+                    <h2 class="section-title">CREW</h2>
+                </div>
+                <div id="player-list" class="player-grid"></div>
             </div>
 
-            <div id="lobby-settings" class="card settings-panel" style="padding-top: 30px;">
-                <div class="section-label">MIXER SETTINGS</div>
-
-                <div class="control-group">
-                    <span style="font-weight:900; font-size:0.8rem; color:var(--c-royal);">ZEIT PRO SONG</span>
-                    <div class="control-bar" id="ctrl-time">
-                        <div class="control-opt" onclick="updateSetting('time_per_song', 5)" data-val="5">5s</div>
-                        <div class="control-opt" onclick="updateSetting('time_per_song', 10)" data-val="10">10s</div>
-                        <div class="control-opt active" onclick="updateSetting('time_per_song', 20)" data-val="20">20s</div>
+            <!-- MIXER SETTINGS (Matching Impostor Selector Bars) -->
+            <div id="lobby-settings" class="settings-panel">
+                <div class="control-bar">
+                    <span class="cat-label">ZEIT PRO SONG</span>
+                    <div class="imp-selector" id="ctrl-time">
+                        <div class="control-opt imp-opt" onclick="updateSetting('time_per_song', 5)" data-val="5">5s</div>
+                        <div class="control-opt imp-opt" onclick="updateSetting('time_per_song', 10)" data-val="10">10s</div>
+                        <div class="control-opt imp-opt active" onclick="updateSetting('time_per_song', 20)" data-val="20">20s</div>
                     </div>
                 </div>
 
-                <div class="control-group">
-                    <span style="font-weight:900; font-size:0.8rem; color:var(--c-royal);">ANZAHL SONGS</span>
-                    <div class="control-bar" id="ctrl-count">
-                        <div class="control-opt" onclick="updateSetting('total_songs', 5)" data-val="5">5</div>
-                        <div class="control-opt active" onclick="updateSetting('total_songs', 10)" data-val="10">10</div>
-                        <div class="control-opt" onclick="updateSetting('total_songs', 20)" data-val="20">20</div>
+                <div class="control-bar" style="margin-top: 12px;">
+                    <span class="cat-label">ANZAHL SONGS</span>
+                    <div class="imp-selector" id="ctrl-count">
+                        <div class="control-opt imp-opt" onclick="updateSetting('total_songs', 5)" data-val="5">5</div>
+                        <div class="control-opt imp-opt active" onclick="updateSetting('total_songs', 10)" data-val="10">10</div>
+                        <div class="control-opt imp-opt" onclick="updateSetting('total_songs', 20)" data-val="20">20</div>
                     </div>
                 </div>
             </div>
 
-            <div id="lobby-playlists" class="card settings-panel" style="padding: 15px;">
-                <div class="accordion-header" onclick="togglePlaylists()">
-                    <div class="section-label">PLATTENKISTE</div>
-                    <div class="accordion-icon" id="pl-icon">▼</div>
+            <!-- PLATTENKISTE (Matching Impostor Categories Bar) -->
+            <div id="lobby-playlists" style="margin-top: 12px;">
+                <div class="cat-toggle-bar" onclick="togglePlaylists()">
+                    <span class="cat-label">PLATTENKISTE</span>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <span id="pl-summary" class="cat-status">ALLE (STANDARD)</span>
+                        <span id="pl-icon" style="font-size:1.1rem; font-weight:900; transition:transform 0.2s; display:inline-block;">▼</span>
+                    </div>
                 </div>
 
-                <div id="playlist-container" class="accordion-content">
+                <div id="playlist-container" class="cat-content">
                     <div class="playlist-grid">
                         {% if playlists %}
                         {% for pl in playlists %}
                         <div class="playlist-card" data-playlist="{{ pl }}" onclick="togglePlaylist(this)">{{ pl }}</div>
                         {% endfor %}
                         {% else %}
-                        <div class="playlist-card" style="grid-column: span 2; border-color: red; color: red;">
+                        <div class="playlist-card no-playlists">
                             KEINE PLAYLISTS GEFUNDEN
-                        </div>
-                        <div style="grid-column: span 2; text-align:center; font-size:0.8rem; color: #666;">
-                            (Run song_admin.py to add songs)
                         </div>
                         {% endif %}
                     </div>
                 </div>
-                <div id="pl-summary" style="font-size:0.8rem; color:var(--c-royal); margin-top:5px; text-transform:uppercase;">Keine ausgewählt</div>
             </div>
 
             <div id="lobby-footer">
                 <button id="btn-start" class="btn-action host-only-btn" onclick="startGame()">SPIEL STARTEN</button>
-                <div id="wait-msg" style="text-align:center; font-weight:700; margin-top:20px; color:rgba(255,255,255,0.5);">WARTE AUF HOST...</div>
-                <button class="control-opt" style="width:100%; margin-top:20px; border:2px solid var(--c-white); background:transparent; color: var(--c-white);" onclick="leaveGame()">VERLASSEN</button>
+                <div id="wait-msg" class="wait-host-indicator">
+                    <span class="wait-pulse-dot"></span>
+                    <span>WARTE AUF HOST...</span>
+                </div>
             </div>
         </div>
 
         <!-- 3. GAME SCREEN -->
         <div id="screen-game" class="screen">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; padding:6px 12px; background:var(--c-box); border:1px solid var(--c-royal); flex-wrap:wrap; gap:8px;">
-                <div style="display:flex; align-items:center; gap:10px;">
-                    <a href="/" class="gamehub-back-btn btn-action" style="padding:3px 8px; font-size:11px; text-decoration:none;">← GAMEHUB</a>
-                    <span class="account-badge-username" style="color:var(--c-cyan); font-weight:800; font-size:12px;">👤 {{ current_user.username if current_user else 'Gast' }}</span>
-                    <span style="font-size:12px; font-weight:700; color:var(--c-white);">
-                        RAUM: <span class="active-room-display" style="color:var(--c-cyan); font-weight:900;"></span>
-                    </span>
+            <div class="top-nav-bar">
+                <button type="button" class="btn-close-room" onclick="confirmLeaveGame()" title="Spiel verlassen" aria-label="Spiel verlassen">✕</button>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span id="round-counter" class="hud-round-pill">ROUND 1/10</span>
+                    <span style="font-family:'Space Mono'; font-weight:900; font-size:0.95rem; color:#555;">#<span class="active-room-display" style="color:var(--c-blue);"></span></span>
                 </div>
-                <div style="display:flex; align-items:center; gap:8px;">
-                    <button class="btn-action host-only-btn" onclick="resetGame()" style="width:auto; padding:4px 10px; font-size:11px; margin:0; background:#f59e0b; color:white;">SPIEL ABBRECHEN</button>
-                    <button class="btn-action" onclick="leaveGame()" style="width:auto; padding:4px 10px; font-size:11px; margin:0; background:#ff6b6b; color:white;">RAUM VERLASSEN</button>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <button type="button" class="btn-hud-reset host-only-btn" onclick="resetGame()" title="Spiel abbrechen">↺ ABBRECHEN</button>
+                    <span class="account-badge-username">👤 {{ current_user.username if current_user else 'Gast' }}</span>
                 </div>
             </div>
 
-            <div class="card" style="text-align: center; padding-top:40px; position:relative;">
-                <div id="round-counter" style="position: absolute; top: 10px; right: 15px; font-weight: 900; color: var(--c-cyan); font-size: 0.9rem;">
-                    ROUND 1/10
+            <div class="card game-stage-card">
+                <div class="stage-center-box">
+                    <div class="vinyl-container">
+                        <div class="vinyl-groove"></div>
+                        <div class="vinyl-label"></div>
+                    </div>
+
+                    <div class="timer-container">
+                        <div class="score-display" id="timer-display">00:00</div>
+                        <div class="stage-prompt">WÄHLE DEN SONG</div>
+                    </div>
                 </div>
-
-                <div class="vinyl-container">
-                    <div class="vinyl-label"></div>
-                </div>
-
-                <div class="score-display" id="timer-display">00:00</div>
-
-                <h3 style="margin:0; margin-bottom: 15px; text-transform:uppercase; color: var(--c-white); font-size: 0.8rem; letter-spacing: 2px; opacity: 0.7;">
-                    Wähle den Song
-                </h3>
 
                 <div id="options-container" class="options-grid"></div>
             </div>
 
             <div class="card">
-                <div class="section-label">LIVE RANGLISTE</div>
-                <div id="game-leaderboard" style="display:flex; flex-direction:column; gap:8px;"></div>
+                <div class="card-header-row">
+                    <h2 class="section-title">LIVE RANGLISTE</h2>
+                </div>
+                <div id="game-leaderboard"></div>
             </div>
         </div>
 
         <!-- 4. RESULT SCREEN -->
-        <div id="screen-result" class="screen" style="text-align:center;">
-            <div class="card" style="margin-top:40px;">
-                <h2 style="color:var(--c-cyan); text-transform:uppercase; margin-bottom:5px;">FINALE STANDINGS</h2>
-                <div style="font-size:0.8rem; color: #666; margin-bottom:20px;">GAME OVER</div>
-
-                <div id="final-leaderboard" style="display:flex; flex-direction:column; gap:10px;"></div>
+        <div id="screen-result" class="screen">
+            <div class="top-nav-bar">
+                <button type="button" class="btn-close-room" onclick="leaveGame()" title="Raum verlassen" aria-label="Raum verlassen">✕</button>
+                <div class="account-badge-wrap">
+                    <span class="account-badge-username">👤 {{ current_user.username if current_user else 'Gast' }}</span>
+                </div>
             </div>
 
-            <div style="display:flex; gap:10px; justify-content:center; margin-top:20px; flex-wrap:wrap;">
-                <button class="btn-action host-only-btn" onclick="resetGame()" style="margin:0; width:auto; padding:8px 18px;">LOBBY RESET</button>
-                <button class="btn-action" onclick="leaveGame()" style="background:#ff6b6b; color:white; margin:0; width:auto; padding:8px 18px;">RAUM VERLASSEN</button>
+            <div class="card" style="text-align: center;">
+                <div style="font-size: 3.5rem; margin-bottom: 6px;">🏆</div>
+                <h2 style="font-size: 2.2rem; font-weight: 900; margin: 0; text-transform: uppercase;">FINALE STANDINGS</h2>
+                <div style="font-size: 0.85rem; font-weight: 900; color: #888; letter-spacing: 2px; margin-top: 4px; margin-bottom: 20px;">GAME OVER</div>
+
+                <div id="final-leaderboard"></div>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-top: 20px;">
+                <button type="button" class="btn-action host-only-btn" onclick="resetGame()" style="margin-top:0; flex:1; background:var(--c-blue);">NOCHMAL SPIELEN</button>
+                <button type="button" class="btn-action btn-secondary" onclick="leaveGame()" style="margin-top:0; flex:1;">RAUM VERLASSEN</button>
             </div>
         </div>
     </div>
-
-    <script src="{{ url_for('static', filename='common/tab-auth.js') }}"></script>
-    <script>
-        initTabSession(
-            {{ current_user | tojson if current_user else 'null' }},
-            {{ auth_token | tojson if auth_token else 'null' }},
-            function(user) {
-                if (user && user.username) {
-                    myName = user.username;
-                }
-            }
-        );
-
-        var pusherKey = "{{ pusher_key }}";
-        var pusherCluster = "{{ pusher_cluster }}";
-        Pusher.logToConsole = false;
-        var pusher = new Pusher(pusherKey, { cluster: pusherCluster });
-        var channel = null;
-        var currentRoomCode = "";
-        var myName = (window.GAMEHUB_USER && window.GAMEHUB_USER.username) || "{{ current_user.username if current_user else '' }}";
-        var isHost = false;
-
-        var audio = null;
-        var audioUnlocked = false;
-        var timerInterval = null;
-        var heartbeatTimer = null;
-        var hasGuessed = false;
-        var roundStartTime = 0;
-        var nextAudio = new Audio();
-
-        var roomListTimer = null;
-
-        // Inject room_code and X-Auth-Token automatically into all jQuery POST requests
-        $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
-            const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
-            if (token) {
-                jqXHR.setRequestHeader('X-Auth-Token', token);
-            }
-            if (currentRoomCode && options.type && options.type.toUpperCase() === 'POST') {
-                if (typeof options.data === 'string') {
-                    if (options.data.indexOf('room_code=') === -1) {
-                        options.data += (options.data ? '&' : '') + 'room_code=' + encodeURIComponent(currentRoomCode);
-                    }
-                } else if (typeof FormData !== 'undefined' && options.data instanceof FormData) {
-                    if (!options.data.has('room_code')) {
-                        options.data.append('room_code', currentRoomCode);
-                    }
-                } else if (typeof options.data === 'object' && options.data !== null) {
-                    if (!options.data.room_code) {
-                        options.data.room_code = currentRoomCode;
-                    }
-                } else if (!options.data) {
-                    options.data = 'room_code=' + encodeURIComponent(currentRoomCode);
-                }
-            }
-        });
-
-        $(document).ready(function () {
-            if (window.GAMEHUB_USER && window.GAMEHUB_USER.username) {
-                myName = window.GAMEHUB_USER.username;
-            }
-            if ($('#game-audio').length === 0) {
-                $('body').append('<audio id="game-audio" preload="auto" playsinline></audio>');
-            }
-            audio = document.getElementById('game-audio');
-
-            $('.screen').hide();
-
-            let hashRoom = window.location.hash ? window.location.hash.substring(1).toUpperCase().trim() : '';
-            let savedRoom = sessionStorage.getItem('song_active_room') || '';
-
-            if (hashRoom || savedRoom) {
-                joinRoom(hashRoom || savedRoom);
-            } else {
-                showRoomBrowser();
-            }
-
-            $('body').one('click', function () {
-                if (!audioUnlocked) {
-                    audio.src = "data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAGZGF0YQAAAAA=";
-                    audio.play().then(() => {
-                        audio.pause();
-                        audioUnlocked = true;
-                    }).catch(e => console.log("Audio unlock"));
-                }
-            });
-
-            $(document).on('click', '.gamehub-back-btn', function () {
-                sessionStorage.removeItem('song_active_room');
-                if (currentRoomCode) {
-                    let d = new FormData();
-                    d.append('status', 'leaving');
-                    d.append('room_code', currentRoomCode);
-                    try { navigator.sendBeacon('/song/heartbeat', d); } catch(e) {}
-                }
-            });
-        });
-
-        function showRoomBrowser() {
-            stopHeartbeatLoop();
-            currentRoomCode = "";
-            sessionStorage.removeItem('song_active_room');
-            window.location.hash = "";
-            $('.screen').hide();
-            $('#screen-room-browser').show();
-            loadRoomList(false);
-            if (!roomListTimer) {
-                roomListTimer = setInterval(function () {
-                    if ($('#screen-room-browser').is(':visible')) {
-                        loadRoomList(true);
-                    }
-                }, 3000);
-            }
-        }
-
-        function loadRoomList(silent) {
-            if (!silent) {
-                $('#song-room-list').html('<div style="text-align:center; padding:15px; color:var(--c-light-blue);">Lade Sessions...</div>');
-            }
-            $.get('/song/rooms', function (res) {
-                if (!res.rooms || res.rooms.length === 0) {
-                    $('#song-room-list').html('<div style="text-align:center; padding:15px; color:#888; border:2px dashed #444;">Keine aktiven Sessions.<br>Starte oben eine neue!</div>');
-                    return;
-                }
-                let html = '';
-                res.rooms.forEach(r => {
-                    let isLobby = r.status === 'lobby';
-                    let statusText = isLobby ? '<span style="color:#10b981;">LOBBY</span>' : '<span style="color:#f59e0b;">IN SPIEL</span>';
-                    let btnText = isLobby ? 'BEITRETEN' : 'ZUSCHAUEN';
-                    html += `
-                        <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.03); border:2px solid var(--c-royal); padding:12px 16px;">
-                            <div>
-                                <span style="font-size:1.1rem; font-weight:900; letter-spacing:2px; color:var(--c-white);">${r.room_code}</span>
-                                <span style="font-size:0.8rem; color:var(--c-cyan); margin-left:8px;">Host: <strong>${r.host_username || 'Unbekannt'}</strong></span>
-                                <div style="font-size:0.75rem; color:#aaa; margin-top:2px;">Spieler: ${r.player_count}/12 • Status: ${statusText}</div>
-                            </div>
-                            <button onclick="joinRoom('${r.room_code}')" class="btn-action" style="width:auto; padding:6px 14px; font-size:0.8rem; margin:0;">${btnText}</button>
-                        </div>
-                    `;
-                });
-                $('#song-room-list').html(html);
-            }).fail(function () {
-                $('#song-room-list').html('<div style="text-align:center; padding:10px; color:#ff6b6b;">Fehler beim Laden.</div>');
-            });
-        }
-
-        function createRoom() {
-            $.post('/song/create_room', function (res) {
-                if (res.success && res.room_code) {
-                    joinRoom(res.room_code);
-                } else {
-                    alert(res.error || "Konnte Raum nicht erstellen.");
-                }
-            }).fail(function () {
-                alert("Serverfehler beim Erstellen.");
-            });
-        }
-
-        function joinRoomByInput() {
-            let code = $('#input-room-code').val().trim().toUpperCase();
-            if (!code || code.length < 3) return alert("Gültigen Raumcode eingeben!");
-            joinRoom(code);
-        }
-
-        function bindPusherEvents() {
-            channel.bind('settings-update', function (data) {
-                if (data && data.settings) {
-                    if (data.key === 'time_per_song' || !data.key) {
-                        updateControlVisuals('ctrl-time', data.settings.time_per_song);
-                    }
-                    if (data.key === 'total_songs' || !data.key) {
-                        updateControlVisuals('ctrl-count', data.settings.total_songs);
-                    }
-                    if (data.key === 'playlists' || !data.key) {
-                        const plNames = data.settings.playlists || [];
-                        $('.playlist-card').removeClass('selected');
-                        plNames.forEach(pl => {
-                            $(`.playlist-card[data-playlist="${pl}"]`).addClass('selected');
-                        });
-                        $('#pl-summary').text(plNames.length > 0 ? plNames.length + " AUSGEWÄHLT" : "ALLE (Standard)");
-                    }
-                }
-            });
-
-            channel.bind('state-update', function (data) {
-                updateUI(data);
-            });
-
-            channel.bind('round-preload', function(data) {
-                if (!myName) return;
-                updateUI(data);
-
-                $('#options-container').empty();
-                $('#timer-display').text("LADEN...");
-                $('.vinyl-container').removeClass('spinning');
-
-                let song = data.round.current_song;
-                audio.src = song.url;
-
-                $(audio).one('loadedmetadata', function() {
-                    audio.currentTime = song.offset || 0;
-                });
-
-                let fallback = setTimeout(() => {
-                $.post('/song/player_ready');
-            }, 4000);
-
-            $(audio).one('canplaythrough', function() {
-                clearTimeout(fallback);
-                $.post('/song/player_ready');
-            });
-
-            audio.load();
-
-            if (isHost) {
-                setTimeout(() => {
-                    $.post('/song/force_start');
-                }, 5000);
-            }
-        });
-
-        channel.bind('round-start', function (data) {
-            if (!myName) return;
-            if (data && data.scores) {
-                renderGameLeaderboard(data.scores, data.players || []);
-            }
-
-            hasGuessed = false;
-            roundStartTime = Date.now();
-
-            const $container = $('#options-container');
-            $container.empty().removeClass('disabled');
-
-            let song = data.round.current_song;
-
-            song.options.forEach(opt => {
-                const $btn = $('<button></button>')
-                    .addClass('btn-option')
-                    .attr('id', 'btn-' + opt.id)
-                    .attr('data-id', opt.id)
-                    .text(opt.label)
-                    .on('click', function () {
-                        clickOption(opt.id);
-                    });
-                $container.append($btn);
-            });
-
-            if (audio.currentTime < song.offset) {
-                audio.currentTime = song.offset || 0;
-            }
-
-            let playPromise = audio.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(e => {
-                    $('#audio-overlay').css('display', 'flex');
-                });
-            }
-
-            $('.vinyl-container').addClass('spinning');
-            startLocalTimer(song.duration);
-        });
-
-        function startLocalTimer(duration) {
-            clearInterval(timerInterval);
-            let display = $('#timer-display');
-            let localStart = Date.now();
-
-            timerInterval = setInterval(() => {
-                let elapsed = (Date.now() - localStart) / 1000;
-                let timeLeft = duration - elapsed;
-
-                if (timeLeft <= 0) {
-                    timeLeft = 0;
-                    clearInterval(timerInterval);
-                    audio.pause();
-                    $('.vinyl-container').removeClass('spinning');
-
-                    if (isHost) {
-                        $.post('/song/end_round', { room_code: currentRoomCode });
-                    }
-                }
-
-                let s = Math.ceil(timeLeft);
-                display.text(`00:${s < 10 ? '0' + s : s}`);
-            }, 100);
-        }
-
-        channel.bind('round-end', function (data) {
-            if (data && data.scores) {
-                renderGameLeaderboard(data.scores, data.players || []);
-            }
-            let correctId = data.round.reveal_answer;
-            let isLastRound = data.round.is_last_round;
-
-            let correctBtn = $(document.getElementById('btn-' + correctId));
-            if (correctBtn.length === 0) {
-                correctBtn = $(`.btn-option[data-id="${correctId}"]`);
-            }
-
-            $('.btn-option').prop('disabled', true);
-            correctBtn.addClass('correct');
-            $('.btn-option').not(correctBtn).addClass('wrong');
-
-            $('.vinyl-container').removeClass('spinning');
-            audio.pause();
-
-            if (data.round.preload_url) {
-                nextAudio.src = data.round.preload_url;
-                nextAudio.load();
-            }
-
-            let nextTime = 5;
-            let label = isLastRound ? "FINALE: " : "NEXT: ";
-            $('#timer-display').text(label + nextTime);
-
-            let intermission = setInterval(() => {
-                nextTime--;
-                if (nextTime > 0) {
-                    $('#timer-display').text(label + nextTime);
-                } else {
-                    clearInterval(intermission);
-                    $('#timer-display').text("LOADING...");
-                }
-            }, 1000);
-
-            // If it's the last round, host calls finish_game after 5s. Otherwise starts next song.
-            if (isHost) {
-                setTimeout(() => {
-                    if (isLastRound) {
-                        $.post('/song/finish_game', { room_code: currentRoomCode });
-                    } else {
-                        $.post('/song/start_game', { room_code: currentRoomCode });
-                    }
-                }, 5000);
-            }
-        });
-
-        channel.bind('game-over', function (data) {
-            updateUI(data);
-        });
-
-        channel.bind('game-reset', () => location.reload());
-    }
-
-    function clickOption(id) {
-        if (hasGuessed) return;
-        hasGuessed = true;
-
-        let elapsed = 0;
-        if (roundStartTime > 0) {
-            elapsed = (Date.now() - roundStartTime) / 1000;
-        }
-
-        let btn = $(document.getElementById('btn-' + id));
-        if (btn.length === 0) {
-            btn = $(`.btn-option[data-id="${id}"]`);
-        }
-
-        btn.css('border-color', 'var(--c-white)').css('background', 'rgba(255,255,255,0.2)');
-        $('.btn-option').prop('disabled', true);
-
-        $.post('/song/submit_guess', { guess_id: id, elapsed: elapsed }, function (res) {
-            if (res.scores) {
-                renderGameLeaderboard(res.scores);
-            }
-            if (res.result === 'correct') {
-                btn.addClass('correct');
-                let pts = res.points || 0;
-                btn.append(`<div class="floating-points">+ ${pts}</div>`);
-                setTimeout(() => { btn.find('.floating-points').remove(); }, 1500);
-            } else {
-                btn.addClass('wrong');
-            }
-        });
-    }
-
-    function forceAudioPlay() {
-        $('#audio-overlay').hide();
-        audio.pause();
-        let playPromise = audio.play();
-        if (playPromise !== undefined) {
-            playPromise.catch(e => {
-                audio.load();
-            });
-        }
-    }
-
-    function joinRoom(code) {
-            code = code.toUpperCase().trim();
-            currentRoomCode = code;
-            if (roomListTimer) { clearInterval(roomListTimer); roomListTimer = null; }
-            sessionStorage.setItem('song_active_room', code);
-            window.location.hash = code;
-            $('#song-lobby-code').text(code);
-            $('.active-room-display').text(code);
-
-            if (channel) {
-                channel.unbind_all();
-                pusher.unsubscribe(channel.name);
-            }
-            channel = pusher.subscribe('song-' + code);
-            bindPusherEvents();
-
-            $.post('/song/join_game', { room_code: code }, function (data) {
-                if (data.error) {
-                    alert(data.error);
-                    showRoomBrowser();
-                } else {
-                    updateUI(data);
-                    startHeartbeatLoop();
-                }
-            }).fail(function () {
-                alert("Verbindungsfehler beim Beitreten.");
-                showRoomBrowser();
-            });
-        }
-
-        function leaveGame() {
-            sessionStorage.removeItem('song_active_room');
-            window.location.hash = "";
-            let code = currentRoomCode;
-            currentRoomCode = "";
-            if (channel) {
-                try {
-                    channel.unbind_all();
-                    pusher.unsubscribe(channel.name);
-                } catch(e) {}
-                channel = null;
-            }
-            if (code) {
-                $.post('/song/leave_game', { room_code: code }).always(function () {
-                    showRoomBrowser();
-                });
-            } else {
-                showRoomBrowser();
-            }
-        }
-
-        function startGame() {
-            const selected = [];
-            $('.playlist-card.selected').each(function () {
-                selected.push($(this).data('playlist') || $(this).text().trim());
-            });
-
-            $.post('/song/update_settings', { key: 'playlists', value: selected.join(','), room_code: currentRoomCode }, function () {
-                $.post('/song/start_game', { room_code: currentRoomCode }, function (response) {
-                    if (response.error) {
-                        alert("⚠️ START FAILED: " + response.error);
-                    }
-                });
-            });
-        }
-
-        function resetGame() {
-            if (!isHost && !confirm("Möchtest du das Spiel abbrechen und zur Lobby zurückkehren?")) return;
-            let code = currentRoomCode;
-            $.post('/song/reset_game', { room_code: code }, function () {
-                if (code) {
-                    $.post('/song/join_game', { room_code: code }, function (data) {
-                        if (data && !data.error) updateUI(data);
-                    });
-                }
-            }).fail(function () {
-                leaveGame();
-            });
-        }
-
-        function updateSetting(key, val) {
-            if (!isHost) {
-                console.warn("[updateSetting] Blocked: current client is not host.", { myName: myName, currentRoomCode: currentRoomCode });
-                return;
-            }
-            if (key === 'time_per_song') updateControlVisuals('ctrl-time', val);
-            if (key === 'total_songs') updateControlVisuals('ctrl-count', val);
-            console.log("[updateSetting] Sending update:", key, val, "for room:", currentRoomCode);
-            $.post('/song/update_settings', { key: key, value: val, room_code: currentRoomCode }, function (res) {
-                if (res.error) {
-                    console.error("[updateSetting] Server returned error:", res.error);
-                } else {
-                    console.log("[updateSetting] Server success:", res);
-                }
-            }).fail(function (xhr) {
-                console.error("[updateSetting] Request failed:", xhr.status, xhr.responseText);
-            });
-        }
-
-        function togglePlaylist(el) {
-            if (!isHost) {
-                console.warn("[togglePlaylist] Blocked: current client is not host.");
-                return;
-            }
-            $(el).toggleClass('selected');
-
-            const selected = [];
-            $('.playlist-card.selected').each(function () {
-                selected.push($(this).data('playlist') || $(this).text().trim());
-            });
-            $('#pl-summary').text(selected.length > 0 ? selected.length + " AUSGEWÄHLT" : "ALLE (Standard)");
-            $.post('/song/update_settings', { key: 'playlists', value: selected.join(','), room_code: currentRoomCode })
-                .fail(function (xhr) {
-                    console.error("[togglePlaylist] Request failed:", xhr.status, xhr.responseText);
-                });
-        }
-
-        function togglePlaylists() {
-            const el = document.getElementById('playlist-container');
-            const icon = document.getElementById('pl-icon');
-            el.classList.toggle('open');
-            icon.style.transform = el.classList.contains('open') ? "rotate(180deg)" : "rotate(0deg)";
-        }
-
-        var lastLobbySig = "";
-
-        function updateUI(data) {
-            if (!data) return;
-            if (!myName && window.GAMEHUB_USER && window.GAMEHUB_USER.username) {
-                myName = window.GAMEHUB_USER.username;
-            }
-            if (data.host) {
-                isHost = Boolean(myName && data.host.trim().toLowerCase() === myName.trim().toLowerCase());
-            }
-            if (isHost) $('.host-only-btn').show(); else $('.host-only-btn').hide();
-
-            if (data.status === 'lobby') {
-                if ($('#screen-lobby').is(':hidden')) {
-                    $('.screen').hide();
-                    $('#screen-lobby').show();
-                }
-                if (audio) { audio.pause(); }
-                renderLobby(data);
-            }
-            else if (data.status === 'finished') {
-                if ($('#screen-result').is(':hidden')) {
-                    $('.screen').hide();
-                    $('#screen-result').show();
-                }
-                renderResult(data);
-            }
-            else {
-                if ($('#screen-game').is(':hidden')) {
-                    $('.screen').hide();
-                    $('#screen-game').show();
-                }
-                renderGame(data);
-            }
-        }
-
-        function renderLobby(data) {
-            let sig = JSON.stringify([data.players, data.host, data.scores, data.settings, isHost]);
-            if (sig === lastLobbySig && $('#player-list').children().length > 0) return;
-            lastLobbySig = sig;
-
-            const list = $('#player-list');
-            list.empty();
-
-            (data.players || []).forEach(p => {
-                let classes = 'player-row';
-                if (p === myName) classes += ' me';
-                if (p === data.host) classes += ' host';
-
-                list.append(`<div id="p-row-${p}" class="${classes}">
-                    <span>${p}</span>
-                    <span style="font-size:0.8rem;">${(data.scores && data.scores[p]) || 0} PTS</span>
-                </div>`);
-            });
-
-            if (data.settings) {
-                updateControlVisuals('ctrl-time', data.settings.time_per_song);
-                updateControlVisuals('ctrl-count', data.settings.total_songs);
-
-                const plNames = data.settings.playlists || [];
-                $('.playlist-card').removeClass('selected');
-                plNames.forEach(pl => {
-                    $(`.playlist-card[data-playlist="${pl}"]`).addClass('selected');
-                });
-
-                $('#pl-summary').text(plNames.length > 0 ? plNames.length + " AUSGEWÄHLT" : "ALLE (Standard)");
-            }
-
-            if (isHost) {
-                $('#wait-msg').hide();
-                $('.settings-panel').removeClass('read-only');
-            } else {
-                $('#wait-msg').show();
-                $('.settings-panel').addClass('read-only');
-            }
-        }
-
-        function renderGameLeaderboard(scores, players) {
-            const board = $('#game-leaderboard');
-            if (board.length === 0) return;
-
-            let allNames = Array.from(new Set([...(players || []), ...Object.keys(scores || {})]));
-            if (allNames.length === 0) {
-                board.html('<div style="text-align:center; color:rgba(255,255,255,0.4); padding:12px; font-size:0.85rem;">Warte auf Punktestand...</div>');
-                return;
-            }
-
-            let sorted = allNames.map(name => ({
-                name: name,
-                score: (scores && typeof scores[name] === 'number') ? scores[name] : 0
-            }));
-            sorted.sort((a, b) => b.score - a.score);
-
-            board.empty();
-            sorted.forEach((p, idx) => {
-                let rank = idx + 1;
-                let isMe = Boolean(myName && p.name.trim().toLowerCase() === myName.trim().toLowerCase());
-                let medal = rank === 1 ? '🥇 ' : (rank === 2 ? '🥈 ' : (rank === 3 ? '🥉 ' : ''));
-                let borderCol = isMe ? 'var(--c-cyan)' : 'var(--c-royal)';
-                let textCol = isMe ? 'var(--c-cyan)' : 'var(--c-white)';
-                let bgCol = isMe ? 'rgba(6, 182, 212, 0.12)' : 'rgba(255, 255, 255, 0.03)';
-                let glow = isMe ? 'box-shadow: 0 0 10px rgba(6, 182, 212, 0.25);' : '';
-
-                board.append(`
-                    <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 14px; background:${bgCol}; border:2px solid ${borderCol}; border-radius:4px; ${glow}">
-                        <div style="font-weight:800; color:${textCol}; font-size:1rem; display:flex; align-items:center; gap:8px;">
-                            <span style="width:24px; color:var(--c-royal); font-size:0.85rem;">${rank}.</span>
-                            <span>${medal}${p.name}</span>
-                            ${isMe ? '<span style="font-size:0.7rem; background:var(--c-cyan); color:var(--c-bg); padding:2px 6px; font-weight:900; border-radius:3px;">DU</span>' : ''}
-                        </div>
-                        <div style="font-family:'Space Mono', monospace; font-weight:900; color:${isMe ? 'var(--c-cyan)' : 'var(--c-white)'}; font-size:1.1rem;">
-                            ${p.score} <span style="font-size:0.75rem; color:#888;">PTS</span>
-                        </div>
-                    </div>
-                `);
-            });
-        }
-
-        function renderGame(data) {
-            renderGameLeaderboard(data.scores || {}, data.players || []);
-
-            if (data.round && data.settings) {
-                let cur = data.round.number;
-                let max = data.settings.total_songs;
-                $('#round-counter').text(`ROUND ${cur} / ${max}`);
-            }
-
-            if (data.round && data.round.status === 'playing' && data.round.current_song) {
-                if (audio.paused && !audio.ended) {
-                    let serverStartTime = data.round.start_time;
-                    let now = Date.now() / 1000;
-
-                    let timePassed = Math.max(0, now - serverStartTime);
-                    let timeRemaining = data.round.current_song.duration - timePassed;
-
-                    if (timeRemaining > 0) {
-                        audio.src = data.round.current_song.url;
-                        audio.currentTime = data.round.current_song.offset + timePassed;
-
-                        let playPromise = audio.play();
-                        if (playPromise !== undefined) {
-                            playPromise.catch(e => {
-                                $('#audio-overlay').css('display', 'flex');
-                            });
-                        }
-
-                        $('.vinyl-container').addClass('spinning');
-                        startLocalTimer(timeRemaining);
-                    }
-                }
-            }
-        }
-
-        function renderResult(data) {
-            if (audio) { audio.pause(); }
-            $('.vinyl-container').removeClass('spinning');
-
-            const board = $('#final-leaderboard');
-            board.empty();
-
-            let sortedPlayers = Object.keys(data.scores || {}).map(key => {
-                return { name: key, score: data.scores[key] };
-            });
-
-            sortedPlayers.sort((a, b) => b.score - a.score);
-
-            sortedPlayers.forEach((p, index) => {
-                let rank = index + 1;
-                let medal = "";
-                if (rank === 1) medal = "🥇 ";
-                if (rank === 2) medal = "🥈 ";
-                if (rank === 3) medal = "🥉 ";
-
-                let color = (p.name === myName) ? "var(--c-cyan)" : "var(--c-white)";
-
-                board.append(`
-                    <div style="display:flex; justify-content:space-between; padding:15px; background:rgba(255,255,255,0.05); border:2px solid ${color}; align-items:center;">
-                        <div style="font-weight:900; color:${color}; font-size:1.2rem;">
-                            <span style="width:30px; display:inline-block;">${rank}.</span>
-                            ${medal}${p.name}
-                        </div>
-                        <div style="font-family:'Space Mono'; font-weight:700;">${p.score} PTS</div>
-                    </div>
-                `);
-            });
-        }
-
-        function updateControlVisuals(id, val) {
-            $(`#${id} .control-opt`).removeClass('active');
-            $(`#${id} .control-opt[data-val="${val}"]`).addClass('active');
-        }
-
-        function sendHeartbeat() {
-            if (!myName || !currentRoomCode) return;
-            $.post('/song/heartbeat', { status: 'active', room_code: currentRoomCode }, function (res) {
-                if (res.room_closed) {
-                    showRoomBrowser();
-                    return;
-                }
-                $('.player-row').removeClass('offline');
-                if (res.offline) {
-                    res.offline.forEach(p => { $(`#p-row-${p}`).addClass('offline'); });
-                }
-                if (res.state) {
-                    if (res.state.status === 'lobby') {
-                        updateUI(res.state);
-                    } else if (res.state.status === 'finished') {
-                        if ($('#screen-result').is(':hidden')) {
-                            updateUI(res.state);
-                        }
-                    } else if (res.state.status === 'playing') {
-                        if ($('#screen-game').is(':hidden')) {
-                            updateUI(res.state);
-                        } else if (res.state.scores) {
-                            renderGameLeaderboard(res.state.scores, res.state.players || []);
-                        }
-                    }
-                }
-            });
-        }
-
-        function startHeartbeatLoop() {
-            if (heartbeatTimer) return;
-            sendHeartbeat();
-            heartbeatTimer = setInterval(sendHeartbeat, 1500);
-        }
-
-        function stopHeartbeatLoop() {
-            if (heartbeatTimer) { clearInterval(heartbeatTimer); heartbeatTimer = null; }
-        }
-
-        document.addEventListener("visibilitychange", function () {
-            if (document.visibilityState === 'hidden') {
-                stopHeartbeatLoop();
-                if (myName && currentRoomCode) {
-                    let d = new FormData();
-                    d.append('status', 'leaving');
-                    d.append('room_code', currentRoomCode);
-                    navigator.sendBeacon('/song/heartbeat', d);
-                }
-            } else if (document.visibilityState === 'visible') {
-                if (myName && currentRoomCode) {
-                    startHeartbeatLoop();
-                    $.post('/song/join_game', { room_code: currentRoomCode });
-                }
-            }
-        });
-
-        $(window).on('beforeunload', function () {
-            if (myName && currentRoomCode) {
-                let d = new FormData();
-                d.append('status', 'leaving');
-                d.append('room_code', currentRoomCode);
-                navigator.sendBeacon('/song/heartbeat', d);
-            }
-        });
-    </script>
-</body>
-</html>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='song/game.js') }}"></script>
+{% endblock %}

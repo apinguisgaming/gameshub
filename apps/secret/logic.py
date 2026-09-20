@@ -287,7 +287,11 @@ def process_vote_outcome(state: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def get_full_state(state: Dict[str, Any]) -> Dict[str, Any]:
-    """Prepares safe state snapshot for connected clients."""
+    """Prepares safe state snapshot for broadcast to all connected clients.
+    
+    SECURITY: Strips confidential data (hand, action_payload, unrevealed roles)
+    so players cannot inspect network packets or WebSocket frames to cheat.
+    """
     data = {
         'players': state['players'],
         'spectators': state.get('spectators', []),
@@ -304,13 +308,13 @@ def get_full_state(state: Dict[str, Any]) -> Dict[str, Any]:
         'discard_count': len(state.get('discard_pile', [])),
         'legislative_step': state.get('legislative_step'),
         'game_over_msg': state.get('game_over_msg'),
-        'hand': state.get('hand', []),
+        'hand_count': len(state.get('hand', [])),
         'election_tracker': state.get('election_tracker', 0),
         'prev_pres': state.get('previous_president'),
         'prev_chan': state.get('previous_chancellor'),
         'dead_players': state.get('dead_players', []),
         'pending_action': state.get('pending_action'),
-        'action_payload': state.get('action_payload'),
+        'has_action_payload': state.get('action_payload') is not None,
         'veto_declined': state.get('veto_declined', False),
         'logs': state.get('logs', []),
         'settings': state.get('settings', {}),
@@ -414,8 +418,8 @@ def handle_heartbeat(
         room_code=room_code,
         username=player_name,
         force_offline=force_offline,
-        kick_threshold=120.0,
-        offline_threshold=5.0
+        kick_threshold=300.0,
+        offline_threshold=45.0
     )
 
     kicked = hb_result.kicked_players

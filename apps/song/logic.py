@@ -37,20 +37,29 @@ def get_initial_state() -> Dict[str, Any]:
         "settings": {
             "time_per_song": 10,
             "total_songs": 10,
-            "playlists": []
+            "playlists": [],
+            "playlists_open": False
         },
         "played_songs": [],
         "last_active": time.time()
     }
 
 
+_SONGS_CACHE: Optional[Dict[str, List[Dict[str, Any]]]] = None
+
+
 def load_songs_library() -> Dict[str, List[Dict[str, Any]]]:
-    """Reads available song playlists from static JSON data file."""
+    """Reads available song playlists from static JSON, cached in memory after first load."""
+    global _SONGS_CACHE
+    if _SONGS_CACHE is not None:
+        return _SONGS_CACHE
+
     if not os.path.exists(DATA_FILE):
         return {}
     try:
         with open(DATA_FILE, 'r', encoding='utf-8') as f:
-            return json.load(f)
+            _SONGS_CACHE = json.load(f)
+            return _SONGS_CACHE
     except Exception:
         return {}
 
@@ -250,8 +259,8 @@ def handle_heartbeat(
         room_code=room_code,
         username=player_name,
         force_offline=force_offline,
-        kick_threshold=60.0,
-        offline_threshold=5.0
+        kick_threshold=300.0,
+        offline_threshold=45.0
     )
 
     kicked = hb_result.kicked_players
