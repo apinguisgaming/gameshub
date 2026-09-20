@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}GameHub{% endblock %}</title>
+
+    {# 1. Immediate token interception from URL before any other script executes #}
+    <script>
+        (function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('token')) {
+                sessionStorage.setItem('gamehub_token', urlParams.get('token'));
+                urlParams.delete('token');
+                const cleanQuery = urlParams.toString() ? ('?' + urlParams.toString()) : '';
+                window.history.replaceState({}, document.title, window.location.pathname + cleanQuery + window.location.hash);
+            }
+        })();
+    </script>
+
+    {# 2. Global GameHub runtime configuration #}
+    <script>
+        window.GAMEHUB_CONFIG = {
+            user: {{ (current_user if current_user is defined and current_user else None) | tojson }},
+            token: {{ (auth_token if auth_token is defined and auth_token else None) | tojson }},
+            pusherKey: {{ (pusher_key if pusher_key is defined and pusher_key else '') | tojson }},
+            pusherCluster: {{ (pusher_cluster if pusher_cluster is defined and pusher_cluster else 'eu') | tojson }},
+            googleMapsKey: {{ (google_maps_key if google_maps_key is defined and google_maps_key else '') | tojson }}
+        };
+    </script>
+
+
+    {# 3. Tab authentication and session isolation #}
+    <script src="{{ url_for('static', filename='common/tab-auth.js') }}"></script>
+    {# 4. Universal state delta patcher for multiplayer games #}
+    <script src="{{ url_for('static', filename='common/game-delta.js') }}"></script>
+    <script>
+        if (window.initTabSession && window.GAMEHUB_CONFIG) {
+            window.initTabSession(window.GAMEHUB_CONFIG.user, window.GAMEHUB_CONFIG.token);
+        }
+    </script>
+
+    {% block head %}{% endblock %}
+    {% block styles %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+    {% block content %}{% endblock %}
+    {% block scripts %}{% endblock %}
+</body>
+</html>

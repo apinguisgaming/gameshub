@@ -1,632 +1,85 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAME PORTAL - GameHub</title>
-    <script>
-        (function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('token')) {
-                sessionStorage.setItem('gamehub_token', urlParams.get('token'));
-                urlParams.delete('token');
-                const cleanQuery = urlParams.toString() ? ('?' + urlParams.toString()) : '';
-                window.history.replaceState({}, document.title, window.location.pathname + cleanQuery + window.location.hash);
-            }
-        })();
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700;900&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --c-black: #111;
-            --c-white: #f4f4f4;
-            --c-red: #D02028;
-            --c-blue: #0052A5;
-            --c-yellow: #FFD400;
-            --c-green: #2ecc71;
-            --c-grey: #e0e0e0;
-            
-            --c-dark-blue: #0D1B2A;
-            --c-mid-blue: #1B263B;
-            --c-light-blue: #415A77;
-            --c-cyan: #778DA9;
+{% extends "base.html" %}
 
-            --border: 4px solid var(--c-black);
-            --shadow: 8px 8px 0px var(--c-black);
-            --shadow-hover: 12px 12px 0px var(--c-black);
-        }
+{% block title %}GAME PORTAL - GameHub{% endblock %}
 
-        * { box-sizing: border-box; }
+{% block head %}
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700;900&display=swap" rel="stylesheet">
+{% endblock %}
 
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--c-white);
-            font-family: 'Jost', sans-serif;
-            color: var(--c-black);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='landing/style.css') }}">
+{% endblock %}
 
-        .bg-deco {
-            position: fixed;
-            z-index: -1;
-            opacity: 0.04;
-            font-size: 20rem;
-            font-weight: 900;
-            line-height: 0.8;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%) rotate(-10deg);
-            white-space: nowrap;
-            pointer-events: none;
-        }
+{% block content %}
+<div class="bg-deco">PLAY /// GAME</div>
 
-        .container {
-            width: 100%;
-            max-width: 1000px;
-            padding: 20px 20px 60px 20px;
-        }
-
-        /* Top Bar / Auth Header */
-        .top-bar {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 15px;
-            padding: 10px 0 20px 0;
-            width: 100%;
-        }
-
-        .user-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            border: var(--border);
-            background: white;
-            padding: 6px 14px;
-            box-shadow: 4px 4px 0px var(--c-black);
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .user-avatar-tag {
-            background: var(--c-yellow);
-            border: 2px solid var(--c-black);
-            padding: 2px 6px;
-            font-size: 0.8rem;
-        }
-
-        .btn-auth {
-            font-family: 'Jost', sans-serif;
-            font-size: 1rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            padding: 8px 16px;
-            border: var(--border);
-            box-shadow: 4px 4px 0px var(--c-black);
-            cursor: pointer;
-            transition: all 0.15s ease;
-            text-decoration: none;
-            color: var(--c-black);
-        }
-
-        .btn-auth:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0px var(--c-black);
-        }
-
-        .btn-login {
-            background: var(--c-yellow);
-        }
-
-        .btn-logout {
-            background: #ff6b6b;
-            color: white;
-        }
-
-        /* Header */
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        h1 {
-            font-size: 4rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-            line-height: 1;
-        }
-
-        h1 span {
-            color: var(--c-red);
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            font-weight: 700;
-            background: var(--c-black);
-            color: var(--c-white);
-            padding: 5px 15px;
-            display: inline-block;
-            transform: rotate(-2deg);
-            margin-top: 10px;
-        }
-
-        /* Grid Layout */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        /* Die Karten */
-        .card {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            text-decoration: none;
-            color: var(--c-black);
-            border: var(--border);
-            background: white;
-            padding: 30px;
-            box-shadow: var(--shadow);
-            transition: all 0.2s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .card-tag {
-            position: absolute;
-            top: 0; right: 0;
-            background: var(--c-black);
-            color: white;
-            font-size: 0.8rem;
-            font-weight: 900;
-            padding: 5px 10px;
-            text-transform: uppercase;
-        }
-
-        .card h2 {
-            font-size: 2.5rem;
-            margin: 10px 0;
-            text-transform: uppercase;
-            line-height: 0.9;
-        }
-
-        .card p {
-            font-size: 1.1rem;
-            font-weight: 500;
-            margin: 0;
-            opacity: 0.7;
-        }
-
-        .card-arrow {
-            font-size: 2rem;
-            font-weight: 900;
-            margin-top: auto; 
-            padding-top: 20px;
-        }
-
-        /* Spezifische Farben */
-        .card-imposter { background: var(--c-yellow); }
-        .card-imposter:hover { background: #ffe033; }
-        .card-imposter h2 { color: var(--c-red); }
-
-        .card-survivors { border-left: 10px solid var(--c-blue); }
-
-        .card-secret { background: var(--c-black); color: var(--c-white); }
-        .card-secret h2 { color: var(--c-white); }
-        .card-secret p { color: #aaa; }
-
-        .card-song {
-            background: #05173e;
-            color: var(--c-white);
-            border-color: #969aa0;
-        }
-        .card-song:hover { box-shadow: 12px 12px 0px #294581; }
-        .card-song .card-tag { background: var(--c-light-blue); color: var(--c-dark-blue); }
-        .card-song h2 { color: var(--c-cyan); }
-        .card-song p { color: var(--c-light-blue); }
-        .card-song .card-arrow { color: var(--c-cyan); }
-
-        .card-tower { border-left: 10px solid #f59e0b; }
-        .card-songseeker { border-left: 10px solid #ff8fbd; }
-        .card-nexusdex { border-left: 10px solid #8A2BE2; }
-
-        /* Modal Backdrop */
-        .modal-backdrop {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal-backdrop.active {
-            display: flex;
-        }
-
-        /* Bauhaus Auth Modal */
-        .auth-modal {
-            background: white;
-            border: var(--border);
-            box-shadow: 16px 16px 0px var(--c-black);
-            width: 100%;
-            max-width: 440px;
-            padding: 30px;
-            position: relative;
-            animation: popIn 0.15s ease-out;
-        }
-
-        @keyframes popIn {
-            from { transform: scale(0.95); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 10px; right: 10px;
-            background: var(--c-black);
-            color: white;
-            border: none;
-            font-size: 1.4rem;
-            width: 32px; height: 32px;
-            cursor: pointer;
-            font-weight: 900;
-            line-height: 1;
-        }
-
-        .auth-tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 25px;
-            border-bottom: 3px solid var(--c-black);
-            padding-bottom: 10px;
-        }
-
-        .auth-tab {
-            font-family: 'Jost', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 900;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 5px 12px;
-            text-transform: uppercase;
-            color: #888;
-        }
-
-        .auth-tab.active {
-            color: var(--c-black);
-            background: var(--c-yellow);
-            border: 2px solid var(--c-black);
-            box-shadow: 3px 3px 0px var(--c-black);
-        }
-
-        .form-group {
-            margin-bottom: 18px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 12px 14px;
-            border: var(--border);
-            font-family: 'Jost', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            background: #fafafa;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            background: white;
-            border-color: var(--c-blue);
-        }
-
-        .auth-error {
-            display: none;
-            background: #ffe0e0;
-            border: 2px solid var(--c-red);
-            color: var(--c-red);
-            padding: 10px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-        }
-
-        .btn-submit {
-            width: 100%;
-            background: var(--c-yellow);
-            border: var(--border);
-            box-shadow: 6px 6px 0px var(--c-black);
-            font-family: 'Jost', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            padding: 12px;
-            cursor: pointer;
-            transition: all 0.15s ease;
-        }
-
-        .btn-submit:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 8px 8px 0px var(--c-black);
-            background: #ffe033;
-        }
-
-        .auth-hint {
-            margin-top: 15px;
-            font-size: 0.85rem;
-            color: #666;
-            text-align: center;
-        }
-
-        @media (max-width: 600px) {
-            h1 { font-size: 3rem; }
-            .grid { grid-template-columns: 1fr; }
-            .top-bar { justify-content: center; }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="bg-deco">PLAY /// GAME</div>
-
-    <div class="container">
-        
-        <!-- Top Auth Status Header -->
-        <div class="top-bar">
-            <div id="auth-header-logged-in" class="user-pill" style="display: {{ 'flex' if current_user else 'none' }}; align-items:center; gap:8px;">
-                <span class="user-avatar-tag account-badge-avatar">👤 {{ current_user.username if current_user else '' }}</span>
-                <span>Account: <strong class="account-badge-name">{{ current_user.username if current_user else '' }}</strong></span>
-                <button class="btn-auth btn-logout" style="margin-left: 10px;" onclick="handleLogout()">Abmelden</button>
-            </div>
-            <div id="auth-header-logged-out" style="display: {{ 'none' if current_user else 'block' }};">
-                <button class="btn-auth btn-login" onclick="openAuthModal('login')">Anmelden / Registrieren</button>
-            </div>
+<div class="container">
+    <!-- Top Auth Status Header -->
+    <div class="top-bar">
+        <div id="auth-header-logged-in" class="user-pill auth-logged-in" style="display: {{ 'flex' if current_user else 'none' }}; align-items:center; gap:8px;">
+            <span class="user-avatar-tag account-badge-avatar">👤 {{ current_user.username if current_user else '' }}</span>
+            <span>Account: <strong class="account-badge-name">{{ current_user.username if current_user else '' }}</strong></span>
+            <button class="btn-auth btn-logout" style="margin-left: 10px;" onclick="handleLogout()">Abmelden</button>
         </div>
-
-        <header>
-            <h1>Game<span>Hub</span></h1>
-            <div class="subtitle">Wähle dein Spiel</div>
-        </header>
-
-        <div class="grid">
-            
-            <!-- IMPOSTOR -->
-            <a href="/imposter/" class="card card-imposter">
-                <div class="card-tag">Game</div>
-                <h2>Impostor</h2>
-                <p>Finde den Verräter unter euch (Pass & Play).</p>
-                <div class="card-arrow">➜</div>
-            </a>
-            
-            <!-- SONG GUESSER -->
-            <a href="/song/" class="card card-song">
-                <div class="card-tag">Multiplayer</div>
-                <h2>Song<br>Guesser</h2>
-                <p>Errate den Song anhand eines kurzen Ausschnitts.</p>
-                <div class="card-arrow">➜</div>
-            </a>
-            
-            <!-- SECRET HITLER -->
-            <a href="/secret/" class="card card-secret">
-                <div class="card-tag">Multiplayer</div>
-                <h2>Secret<br>Hitler</h2>
-                <p>Social Deduction Spiel für 5 bis 10 Personen.</p>
-                <div class="card-arrow">➜</div>
-            </a>
-
-            <!-- POKEMON TOWER DEFENSE -->
-            <a href="/tower/" class="card card-tower">
-                <div class="card-tag">Canvas Game</div>
-                <h2>Pokémon<br>Tower Defense</h2>
-                <p>Verteidige das Spielfeld mit deinen Pokémon.</p>
-                <div class="card-arrow">➜</div>
-            </a>
-
-            <!-- GOTHIC SURVIVORS -->
-            <a href="/survivors/" class="card card-survivors">
-                <div class="card-tag">Action RPG</div>
-                <h2>Gothic<br>Survivors</h2>
-                <p>Pixel-Art Rogue-lite & Character Creator.</p>
-                <div class="card-arrow">➜</div>
-            </a>
-
-            <!-- SONGSEEKER -->
-            <a href="/songseeker/" class="card card-songseeker">
-                <div class="card-tag">Music Tool</div>
-                <h2>Song<br>Seeker</h2>
-                <p>Interaktives Musik-Ratespiel im Hitster-Stil.</p>
-                <div class="card-arrow">➜</div>
-            </a>
-
-            <!-- NEXUSDEX -->
-            <a href="/nexusdex/" class="card card-nexusdex">
-                <div class="card-tag">Pokedex</div>
-                <h2>Nexus<br>Dex</h2>
-                <p>Der interaktive Pokédex & Typen-Guide.</p>
-                <div class="card-arrow">➜</div>
-            </a>
-
+        <div id="auth-header-logged-out" class="auth-logged-out" style="display: {{ 'none' if current_user else 'block' }};">
+            <button class="btn-auth btn-login" onclick="openAuthModal('login')">Anmelden / Registrieren</button>
         </div>
     </div>
 
-    <!-- Login / Register Modal -->
-    <div id="auth-modal-backdrop" class="modal-backdrop">
-        <div class="auth-modal">
-            <button class="modal-close" onclick="closeAuthModal()">✕</button>
-            
-            <div class="auth-tabs">
-                <button id="tab-login" class="auth-tab active" onclick="switchAuthTab('login')">Einloggen</button>
-                <button id="tab-register" class="auth-tab" onclick="switchAuthTab('register')">Registrieren</button>
+    <header>
+        <h1>Game<span>Hub</span></h1>
+        <div class="subtitle">Wähle dein Spiel</div>
+    </header>
+
+    <div class="grid">
+        {% for game in registered_games %}
+            {% if card_template_exists(game.id) %}
+                {% include "cards/" ~ game.id ~ ".html" %}
+            {% else %}
+                <a href="{{ game.route_prefix }}/" class="card {{ game.card_class }}" {% if game.color and not game.card_class %}style="border-color: {{ game.color }};"{% endif %}>
+                    <div class="card-tag">{{ game.tag }}</div>
+                    <h2>{{ game.title | safe }}</h2>
+                    <p>{{ game.subtitle }}</p>
+                    <div class="card-arrow">➜</div>
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Login / Register Modal -->
+<div id="auth-modal-backdrop" class="modal-backdrop">
+    <div class="auth-modal">
+        <button class="modal-close" onclick="closeAuthModal()">✕</button>
+        
+        <div class="auth-tabs">
+            <button id="tab-login" class="auth-tab active" onclick="switchAuthTab('login')">Einloggen</button>
+            <button id="tab-register" class="auth-tab" onclick="switchAuthTab('register')">Registrieren</button>
+        </div>
+
+        <div id="auth-error" class="auth-error"></div>
+
+        <form id="auth-form" onsubmit="handleAuthSubmit(event)">
+            <div class="form-group">
+                <label for="auth-username">Benutzername</label>
+                <input type="text" id="auth-username" required maxlength="16" placeholder="z. B. Gamer_42" autocomplete="username">
             </div>
 
-            <div id="auth-error" class="auth-error"></div>
-
-            <form id="auth-form" onsubmit="handleAuthSubmit(event)">
-                <div class="form-group">
-                    <label for="auth-username">Benutzername</label>
-                    <input type="text" id="auth-username" required maxlength="16" placeholder="z. B. Gamer_42" autocomplete="username">
-                </div>
-
-                <div class="form-group">
-                    <label for="auth-password">Passwort</label>
-                    <input type="password" id="auth-password" required minlength="4" placeholder="••••••••" autocomplete="current-password">
-                </div>
-
-                <button type="submit" id="btn-submit" class="btn-submit">Einloggen</button>
-            </form>
-
-            <div class="auth-hint">
-                Ein Account für alle Spiele. Spielstände & Statistiken werden synchronisiert.
+            <div class="form-group">
+                <label for="auth-password">Passwort</label>
+                <input type="password" id="auth-password" required minlength="4" placeholder="••••••••" autocomplete="current-password">
             </div>
+
+            <button type="submit" id="btn-submit" class="btn-submit">Einloggen</button>
+        </form>
+
+        <div class="auth-hint">
+            Ein Account für alle Spiele. Spielstände & Statistiken werden synchronisiert.
         </div>
     </div>
+</div>
+{% endblock %}
 
-    <script src="{{ url_for('static', filename='common/tab-auth.js') }}"></script>
-    <script>
-        let currentAuthMode = 'login';
-
-        function updateLandingHeader(user) {
-            const loggedInEl = document.getElementById('auth-header-logged-in');
-            const loggedOutEl = document.getElementById('auth-header-logged-out');
-            if (user && user.username) {
-                if (loggedInEl) loggedInEl.style.display = 'flex';
-                if (loggedOutEl) loggedOutEl.style.display = 'none';
-            } else {
-                if (loggedInEl) loggedInEl.style.display = 'none';
-                if (loggedOutEl) loggedOutEl.style.display = 'block';
-            }
-        }
-
-        initTabSession(
-            {{ current_user | tojson if current_user else 'null' }},
-            {{ auth_token | tojson if auth_token else 'null' }},
-            updateLandingHeader
-        );
-
-        function openAuthModal(mode) {
-            currentAuthMode = mode || 'login';
-            switchAuthTab(currentAuthMode);
-            document.getElementById('auth-modal-backdrop').classList.add('active');
-            document.getElementById('auth-username').focus();
-        }
-
-        function closeAuthModal() {
-            document.getElementById('auth-modal-backdrop').classList.remove('active');
-            clearAuthError();
-        }
-
-        function switchAuthTab(mode) {
-            currentAuthMode = mode;
-            clearAuthError();
-            const tabLogin = document.getElementById('tab-login');
-            const tabReg = document.getElementById('tab-register');
-            const submitBtn = document.getElementById('btn-submit');
-
-            if (mode === 'login') {
-                tabLogin.classList.add('active');
-                tabReg.classList.remove('active');
-                submitBtn.textContent = 'Einloggen';
-            } else {
-                tabReg.classList.add('active');
-                tabLogin.classList.remove('active');
-                submitBtn.textContent = 'Konto erstellen';
-            }
-        }
-
-        function showAuthError(msg) {
-            const el = document.getElementById('auth-error');
-            el.textContent = msg;
-            el.style.display = 'block';
-        }
-
-        function clearAuthError() {
-            const el = document.getElementById('auth-error');
-            el.textContent = '';
-            el.style.display = 'none';
-        }
-
-        async function handleAuthSubmit(e) {
-            e.preventDefault();
-            clearAuthError();
-
-            const username = document.getElementById('auth-username').value.trim();
-            const password = document.getElementById('auth-password').value;
-
-            if (!username || !password) {
-                showAuthError('Bitte alle Felder ausfüllen.');
-                return;
-            }
-
-            const endpoint = currentAuthMode === 'login' ? '/api/auth/login' : '/api/auth/register';
-
-            try {
-                const res = await fetch(endpoint, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ username, password })
-                });
-
-                const data = await res.json();
-                if (!res.ok || !data.success) {
-                    showAuthError(data.error || 'Aktion fehlgeschlagen.');
-                    return;
-                }
-
-                if (data.token) {
-                    sessionStorage.setItem('gamehub_token', data.token);
-                }
-                if (data.user) {
-                    sessionStorage.setItem('gamehub_user', JSON.stringify(data.user));
-                }
-
-                // Redirect to ?next= param if present, or reload cleanly without token in URL
-                const urlParams = new URLSearchParams(window.location.search);
-                const nextUrl = urlParams.get('next');
-                if (nextUrl && nextUrl.startsWith('/')) {
-                    window.location.href = nextUrl;
-                } else {
-                    window.location.href = '/';
-                }
-            } catch (err) {
-                showAuthError('Verbindungsfehler. Bitte erneut versuchen.');
-            }
-        }
-
-        async function handleLogout() {
-            await window.gamehubLogout();
-        }
-
-        // Check if redirected with ?login=1
-        document.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('login') === '1') {
-                openAuthModal('login');
-                showAuthError('Bitte einloggen, um das Spiel zu betreten.');
-            }
-        });
-    </script>
-</body>
-</html>
+{% block scripts %}
+<script src="{{ url_for('static', filename='landing/portal.js') }}"></script>
+{% endblock %}
