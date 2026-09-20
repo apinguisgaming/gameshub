@@ -146,6 +146,48 @@ class BaseStorage(ABC):
         """Purges session tokens older than max_age_days."""
         return 0
 
+    # --- Google Maps API Request Logging ---
+    def log_maps_request(
+        self,
+        username: str,
+        ip_address: str,
+        page: str,
+        user_id: Optional[int] = None,
+        action: str = 'map_load',
+        user_agent: Optional[str] = None,
+        details: Optional[Dict[str, Any]] = None
+    ) -> int:
+        """Logs a Google Maps client-side request and returns record id."""
+        return 0
+
+    def get_maps_logs(self, limit: int = 100, username: Optional[str] = None) -> List[Dict[str, Any]]:
+        """Retrieves recent Google Maps API request logs."""
+        return []
+
+    # --- Google Maps Rate Limiting & Penalties ---
+    def check_maps_penalty(self, username: str, ip_address: str) -> Dict[str, Any]:
+        """Checks if a user or IP is currently subject to a Maps rate limit penalty."""
+        return {'blocked': False, 'is_permanent': False, 'strike_count': 0, 'remaining_seconds': 0, 'last_strike_at': None}
+
+    def count_recent_maps_activity(
+        self,
+        username: str,
+        ip_address: str,
+        after_timestamp: Optional[str] = None,
+        window_seconds: int = 300
+    ) -> Dict[str, int]:
+        """Counts maps activity within window_seconds, optionally restricted to after_timestamp for cascade protection."""
+        return {'sdk_inits': 0, 'total_requests': 0}
+
+    def record_maps_penalty_strike(
+        self,
+        username: str,
+        ip_address: str,
+        reason: str = 'excessive_reloads'
+    ) -> Dict[str, Any]:
+        """Escalates penalty strike count and computes cooldown duration or permanent ban."""
+        return {'strike_count': 1, 'blocked_until': 0, 'is_permanent': False, 'duration_seconds': 60}
+
 
 class OptimisticLockError(Exception):
     """Raised when a concurrent write collision is detected during optimistic locking."""

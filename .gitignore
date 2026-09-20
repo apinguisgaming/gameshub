@@ -25,5 +25,7 @@ data/*.db
 data/*.db-wal
 data/*.db-shm
 data/*_state.json
+data/logs/
+*.log
 *.sqlite
 *.sqlite3
