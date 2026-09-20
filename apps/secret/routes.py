@@ -410,8 +410,8 @@ def start(room_code: str = None):
     if user['username'] != state.get('host'):
         return jsonify({"error": "Nur der Host kann das Spiel starten"}), 403
 
-    if len(state['players']) < 2:
-        return jsonify({"error": "Mindestens 2 Spieler erforderlich"}), 400
+    if len(state['players']) < 5:
+        return jsonify({"error": "Mindestens 5 Spieler erforderlich (Secret Hitler: 5 bis 10 Spieler)"}), 400
 
     state = secret_logic.setup_new_game(state)
     trigger_update(code, state)

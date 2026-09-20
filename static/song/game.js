@@ -550,6 +550,10 @@
     }
 
     function startGame() {
+        if (currentGameState && currentGameState.players && currentGameState.players.length < 2) {
+            alert("⚠️ Mindestens 2 Spieler erforderlich (2 bis 4 Spieler)!");
+            return;
+        }
         const selected = [];
         $('.playlist-card.selected').each(function () {
             selected.push($(this).data('playlist') || $(this).text().trim());
@@ -718,6 +722,12 @@
         if (isHost) {
             $('#wait-msg').hide();
             $('.settings-panel').removeClass('read-only');
+            const count = (data.players || []).length;
+            if (count < 2) {
+                $('#btn-start').prop('disabled', true).css({ opacity: '0.5', cursor: 'not-allowed' }).text('WARTE AUF MITSPIELER (MIN. 2)');
+            } else {
+                $('#btn-start').prop('disabled', false).css({ opacity: '1', cursor: 'pointer' }).text('SPIEL STARTEN');
+            }
         } else {
             $('#wait-msg').show();
             $('.settings-panel').addClass('read-only');

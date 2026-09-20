@@ -172,11 +172,24 @@ class GameHubPlatformTests(unittest.TestCase):
         data = res.get_json()
         self.assertIn('SH_Player2', data['players'])
 
-        # 4. Host starts game
+        # 4. Host attempts to start with only 2 players -> fails (min 5 required)
+        res_fail = host_client.post(f'/secret/{code}/start_game')
+        self.assertEqual(res_fail.status_code, 400)
+        self.assertIn('Mindestens 5 Spieler', res_fail.get_json()['error'])
+
+        # Players 3, 4, 5 join to meet 5-player minimum
+        for i in [3, 4, 5]:
+            c = self.app.test_client()
+            c.post('/api/auth/register', json={'username': f'SH_Player{i}', 'password': 'pass'})
+            c.post('/api/auth/login', json={'username': f'SH_Player{i}', 'password': 'pass'})
+            res_j = c.post(f'/secret/{code}/join')
+            self.assertEqual(res_j.status_code, 200)
+
+        # 5. Host starts game now with 5 players
         res = host_client.post(f'/secret/{code}/start_game')
         self.assertEqual(res.status_code, 200)
 
-        # 5. Leave room
+        # 6. Leave room
         res = p2_client.post(f'/secret/{code}/leave_game')
         self.assertEqual(res.status_code, 200)
 
@@ -327,6 +340,13 @@ class GameHubPlatformTests(unittest.TestCase):
 
         # Join room
         p2_client.post(f'/secret/{room_code}/join', headers={'X-Auth-Token': p2_token})
+
+        # Players 3, 4, 5 join to satisfy 5 player minimum
+        for i in [3, 4, 5]:
+            c = self.app.test_client()
+            c.post('/api/auth/register', json={'username': f'RolePlayer{i}', 'password': 'pass'})
+            res_l = c.post('/api/auth/login', json={'username': f'RolePlayer{i}', 'password': 'pass'})
+            c.post(f'/secret/{room_code}/join', headers={'X-Auth-Token': res_l.get_json()['token']})
 
         # Start game
         res_start = host_client.post(f'/secret/{room_code}/start_game', headers={'X-Auth-Token': host_token})
@@ -841,6 +861,11 @@ class GameHubPlatformTests(unittest.TestCase):
         code = res.get_json()['room_code']
         self.assertTrue(bool(code))
 
+        # Test min 2 players requirement: Host cannot start alone
+        res_solo = host_client.post(f'/geobingo/{code}/start_game')
+        self.assertEqual(res_solo.status_code, 400)
+        self.assertIn('Mindestens 2 Spieler', res_solo.get_json()['error'])
+
         # 2. Player 2 joins
         p2_client = self.app.test_client()
         p2_client.post('/api/auth/register', json={'username': 'GB_Player2', 'password': 'pass'})
@@ -850,6 +875,23 @@ class GameHubPlatformTests(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
         data = res.get_json()
         self.assertIn('GB_Player2', data['players'])
+
+        # Players 3 and 4 join as active players (max 4 supported)
+        for i in [3, 4]:
+            c = self.app.test_client()
+            c.post('/api/auth/register', json={'username': f'GB_Player{i}', 'password': 'pass'})
+            c.post('/api/auth/login', json={'username': f'GB_Player{i}', 'password': 'pass'})
+            res_p = c.post(f'/geobingo/{code}/join')
+            self.assertEqual(res_p.status_code, 200)
+            self.assertIn(f'GB_Player{i}', res_p.get_json()['players'])
+
+        # Player 5 joins -> capacity is 4, joins as spectator
+        c5 = self.app.test_client()
+        c5.post('/api/auth/register', json={'username': 'GB_Player5', 'password': 'pass'})
+        c5.post('/api/auth/login', json={'username': 'GB_Player5', 'password': 'pass'})
+        res_p5 = c5.post(f'/geobingo/{code}/join')
+        self.assertEqual(res_p5.status_code, 200)
+        self.assertIn('GB_Player5', res_p5.get_json()['spectators'])
 
         # 3. Host updates settings
         res = host_client.post(f'/geobingo/{code}/update_settings', json={'item_count': 5, 'item_preset': 'easy'})

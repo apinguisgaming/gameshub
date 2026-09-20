@@ -740,7 +740,17 @@
             });
 
             // --- 4. ADMIN CONTROLS ---
-            if (myName === data.host) $('#admin-controls').show(); else $('#admin-controls').hide();
+            if (myName === data.host) {
+                $('#admin-controls').show();
+                const count = (data.players || []).length;
+                if (count < 5) {
+                    $('#btn-secret-start').prop('disabled', true).css({ opacity: '0.5', cursor: 'not-allowed' }).text(`START GAME (MIN. 5 SPIELER, AKTUELL: ${count})`);
+                } else {
+                    $('#btn-secret-start').prop('disabled', false).css({ opacity: '1', cursor: 'pointer' }).text('START GAME');
+                }
+            } else {
+                $('#admin-controls').hide();
+            }
         }
 
         // --- HELPER UI ---

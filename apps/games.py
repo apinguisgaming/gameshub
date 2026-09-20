@@ -23,7 +23,7 @@ def init_games_registry():
     register_game(GameManifest(
         id='song',
         title='Song<br>Guesser',
-        subtitle='Errate den Song anhand eines kurzen Ausschnitts.',
+        subtitle='Errate den Song anhand eines kurzen Ausschnitts (2 bis 4 Spieler).',
         tag='Multiplayer',
         game_type='multiplayer',
         route_prefix='/song',
@@ -115,11 +115,11 @@ def init_games_registry():
         icon='📖'
     ))
 
-    # 9. Geo Bingo (Multiplayer 1v1 Street View Game)
+    # 9. Geo Bingo (Multiplayer Street View Game)
     register_game(GameManifest(
         id='geobingo',
         title='Geo<br>Bingo',
-        subtitle='Finde Objekte in Google Street View (1 vs 1).',
+        subtitle='Finde Objekte in Google Street View (2 bis 4 Spieler).',
         tag='Multiplayer',
         game_type='multiplayer',
         route_prefix='/geobingo',

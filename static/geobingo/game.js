@@ -468,6 +468,10 @@
 
     window.startGame = function () {
         if (!currentRoomCode) return;
+        if (gameState && gameState.players && gameState.players.length < 2) {
+            alert('Mindestens 2 Spieler erforderlich (2 bis 4 Spieler)!');
+            return;
+        }
         $.post(`/geobingo/${currentRoomCode}/start_game`, { room_code: currentRoomCode }, function () {
             // Screen transition handled via Pusher state-update
         }).fail(function (xhr) {
@@ -792,7 +796,19 @@
 
         if (btnStart && waitMsg) {
             if (isHost) {
+                const playerCount = (state.players || []).length;
                 btnStart.style.display = 'flex';
+                if (playerCount < 2) {
+                    btnStart.disabled = true;
+                    btnStart.style.opacity = '0.5';
+                    btnStart.style.cursor = 'not-allowed';
+                    btnStart.textContent = '▶ WARTE AUF MITSPIELER (MIN. 2)';
+                } else {
+                    btnStart.disabled = false;
+                    btnStart.style.opacity = '1';
+                    btnStart.style.cursor = 'pointer';
+                    btnStart.textContent = '▶ SPIEL STARTEN';
+                }
                 waitMsg.style.display = 'none';
             } else {
                 btnStart.style.display = 'none';
@@ -1037,9 +1053,20 @@
         document.getElementById('exp-proof-counter').textContent = `${myCount} / ${total}`;
         document.getElementById('my-score-display').textContent = `${myCount} / ${total}`;
 
-        const otherPlayer = (state.players || []).find(p => p !== currentUser);
-        const oppCount = otherPlayer ? (state.completed_count && state.completed_count[otherPlayer] || 0) : 0;
-        document.getElementById('opp-score-display').textContent = otherPlayer ? `${otherPlayer}: ${oppCount}/${total}` : 'GEGNER: 0';
+        const otherPlayers = (state.players || []).filter(p => p !== currentUser);
+        const oppEl = document.getElementById('opp-score-display');
+        if (oppEl) {
+            if (otherPlayers.length === 1) {
+                const opp = otherPlayers[0];
+                const oppCount = (state.completed_count && state.completed_count[opp]) || 0;
+                oppEl.textContent = `${opp}: ${oppCount}/${total}`;
+            } else if (otherPlayers.length > 1) {
+                const summary = otherPlayers.map(p => `${p}: ${(state.completed_count && state.completed_count[p]) || 0}/${total}`).join(' | ');
+                oppEl.textContent = summary;
+            } else {
+                oppEl.textContent = 'GEGNER: 0';
+            }
+        }
 
         // Timer & Rush countdown
         updateTimerDisplay(state.exploration_end_time, state.rush_countdown, state.rush_player);
