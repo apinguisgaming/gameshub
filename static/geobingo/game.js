@@ -956,6 +956,177 @@
     }
 
     /**
+     * Maps Request Logger (Application-internal tracking)
+     */
+    const loggedMapsEvents = {};
+    function logMapsUsage(action, details) {
+        const eventKey = action + (details && details.room_code ? ('_' + details.room_code) : '');
+        if (loggedMapsEvents[eventKey]) return;
+        loggedMapsEvents[eventKey] = true;
+
+        const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token') || '';
+        const userObj = window.GAMEHUB_USER || (window.GAMEHUB_CONFIG && window.GAMEHUB_CONFIG.user) || null;
+        const username = (userObj && userObj.username) ? userObj.username : currentUser;
+
+        try {
+            fetch('/api/logs/maps', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Auth-Token': token
+                },
+                credentials: 'same-origin',
+                keepalive: true,
+                body: JSON.stringify({
+                    action: action,
+                    page: window.location.pathname,
+                    token: token,
+                    username: username,
+                    details: details || {}
+                })
+            }).catch(function (err) {
+                console.warn('[GeoBingo] Maps logging request failed:', err);
+            });
+        } catch (e) {
+            console.warn('[GeoBingo] Maps logging exception:', e);
+        }
+    }
+
+    /**
+     * Maps Rate Limiting & Pre-Check Client Guard
+     */
+    let isMapsBlocked = false;
+    let mapsCooldownTimer = null;
+
+    function formatRemainingTime(seconds) {
+        if (seconds < 0) return 'Dauerhaft';
+        const m = Math.floor(seconds / 60);
+        const s = seconds % 60;
+        return `${m}:${s < 10 ? '0' : ''}${s}`;
+    }
+
+    function showMapsCooldownBanner(stageContainer, penaltyInfo) {
+        if (!stageContainer) return;
+        let overlay = stageContainer.querySelector('.geo-cooldown-overlay');
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'geo-cooldown-overlay';
+            overlay.style.cssText = `
+                position: absolute;
+                inset: 0;
+                background: rgba(18, 18, 24, 0.95);
+                z-index: 999;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 24px;
+                color: #fff;
+                font-family: inherit;
+            `;
+            stageContainer.style.position = 'relative';
+            stageContainer.appendChild(overlay);
+        }
+
+        const isPerma = Boolean(penaltyInfo && penaltyInfo.is_permanent);
+        let remaining = penaltyInfo && penaltyInfo.cooldown_seconds ? Number(penaltyInfo.cooldown_seconds) : 60;
+        const strike = penaltyInfo && penaltyInfo.strike_count ? penaltyInfo.strike_count : 1;
+
+        function renderContent() {
+            if (isPerma) {
+                overlay.innerHTML = `
+                    <div style="font-size: 3rem; margin-bottom: 12px;">🚫</div>
+                    <div style="color: #ff6b6b; font-weight: 900; font-size: 1.3rem; letter-spacing: 1px; margin-bottom: 8px;">
+                        KARTENZUGANG DAUERHAFT GESPERRT
+                    </div>
+                    <div style="color: #ccc; max-width: 420px; font-size: 0.9rem; line-height: 1.5;">
+                        Aufgrund wiederholten Neuladens (F5-Spam) wurde dein Google Maps Kontingent gesperrt.<br>
+                        Bitte wende dich an einen Administrator.
+                    </div>
+                `;
+            } else {
+                overlay.innerHTML = `
+                    <div style="font-size: 3rem; margin-bottom: 12px;">⏳</div>
+                    <div style="color: #fcc419; font-weight: 900; font-size: 1.2rem; letter-spacing: 1px; margin-bottom: 6px;">
+                        RATE-LIMIT: ZU VIELE KARTENAUFRUFE
+                    </div>
+                    <div style="font-size: 0.85rem; color: #aaa; margin-bottom: 16px;">
+                        Sperrstufe: <strong>${strike} von 4</strong>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.5); border: 2px solid #fcc419; border-radius: 8px; padding: 12px 24px; margin-bottom: 16px;">
+                        <span style="font-size: 0.8rem; color: #bbb; display: block; font-weight: 700;">VERBLEIBENDE WARTEZEIT</span>
+                        <strong style="font-size: 2rem; color: #fff; font-family: monospace; letter-spacing: 2px;">
+                            ${formatRemainingTime(remaining)}
+                        </strong>
+                    </div>
+                    <div style="color: #888; font-size: 0.8rem; max-width: 380px;">
+                        Bitte vermeide wiederholtes Neuladen der Seite, um weitere Eskalationsstufen zu verhindern.
+                    </div>
+                `;
+            }
+        }
+
+        renderContent();
+
+        if (!isPerma) {
+            if (mapsCooldownTimer) clearInterval(mapsCooldownTimer);
+            mapsCooldownTimer = setInterval(() => {
+                remaining -= 1;
+                if (remaining <= 0) {
+                    clearInterval(mapsCooldownTimer);
+                    mapsCooldownTimer = null;
+                    isMapsBlocked = false;
+                    if (overlay && overlay.parentElement) {
+                        overlay.parentElement.removeChild(overlay);
+                    }
+                } else {
+                    renderContent();
+                }
+            }, 1000);
+        }
+    }
+
+    function checkMapsAccess(onAllowed) {
+        if (isMapsBlocked) return;
+
+        const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token') || '';
+        const userObj = window.GAMEHUB_USER || (window.GAMEHUB_CONFIG && window.GAMEHUB_CONFIG.user) || null;
+        const username = (userObj && userObj.username) ? userObj.username : currentUser;
+
+        fetch('/api/logs/maps/check', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Auth-Token': token
+            },
+            credentials: 'same-origin',
+            body: JSON.stringify({
+                token: token,
+                username: username
+            })
+        }).then(function (res) {
+            return res.json().then(function (data) {
+                return { status: res.status, data: data };
+            });
+        }).then(function (result) {
+            if (result.status === 200 && result.data && result.data.allowed) {
+                isMapsBlocked = false;
+                if (onAllowed) onAllowed();
+            } else if (result.status === 429 || (result.data && !result.data.allowed)) {
+                isMapsBlocked = true;
+                const svStage = document.getElementById('streetview-container') || document.getElementById('exp-sv-stage');
+                const pickerStage = document.getElementById('picker-map-container');
+                if (svStage) showMapsCooldownBanner(svStage, result.data);
+                if (pickerStage) showMapsCooldownBanner(pickerStage, result.data);
+            }
+        }).catch(function (err) {
+            console.warn('[GeoBingo] checkMapsAccess network check failed, allowing fallback:', err);
+            if (onAllowed) onAllowed();
+        });
+    }
+
+    /**
      * ==========================================================================
      * SINGLETON MANAGERS: Street View & 2D Picker Map
      * ==========================================================================
@@ -966,22 +1137,26 @@
 
         // Instantiated once when Google Maps SDK is loaded
         if (!streetViewPanorama && window.google && window.google.maps) {
-            const options = {
-                pov: { heading: 0, pitch: 0 },
-                zoom: 1,
-                addressControl: false,
-                showRoadLabels: false,
-                motionTracking: false,
-                motionTrackingControl: false
-            };
-            if (typeof initialPanoOrLatLng === 'string') {
-                options.pano = initialPanoOrLatLng;
-            } else if (initialPanoOrLatLng && initialPanoOrLatLng.lat) {
-                options.position = initialPanoOrLatLng;
-            } else {
-                options.position = { lat: currentLat, lng: currentLng };
-            }
-            streetViewPanorama = new google.maps.StreetViewPanorama(container, options);
+            checkMapsAccess(function () {
+                if (streetViewPanorama) return;
+                const options = {
+                    pov: { heading: 0, pitch: 0 },
+                    zoom: 1,
+                    addressControl: false,
+                    showRoadLabels: false,
+                    motionTracking: false,
+                    motionTrackingControl: false
+                };
+                if (typeof initialPanoOrLatLng === 'string') {
+                    options.pano = initialPanoOrLatLng;
+                } else if (initialPanoOrLatLng && initialPanoOrLatLng.lat) {
+                    options.position = initialPanoOrLatLng;
+                } else {
+                    options.position = { lat: currentLat, lng: currentLng };
+                }
+                streetViewPanorama = new google.maps.StreetViewPanorama(container, options);
+                logMapsUsage('streetview_init', { room_code: currentRoomCode });
+            });
         } else if (streetViewPanorama && initialPanoOrLatLng) {
             if (typeof initialPanoOrLatLng === 'string') {
                 streetViewPanorama.setPano(initialPanoOrLatLng);
@@ -1000,45 +1175,49 @@
 
         // Real 2D Map with Street View Coverage Layer (Only instantiated ONCE)
         if (!pickerMap) {
-            pickerMap = new google.maps.Map(mapContainer, {
-                center: { lat: currentLat, lng: currentLng },
-                zoom: 4,
-                mapTypeId: 'roadmap',
-                disableDefaultUI: false,
-                streetViewControl: false, // Pegman komplett deaktiviert - spart API-Kosten & verhindert Doppel-Panorama!
-                zoomControl: true,
-                fullscreenControl: false,
-                mapTypeControl: false
-            });
+            checkMapsAccess(function () {
+                if (pickerMap) return;
+                pickerMap = new google.maps.Map(mapContainer, {
+                    center: { lat: currentLat, lng: currentLng },
+                    zoom: 4,
+                    mapTypeId: 'roadmap',
+                    disableDefaultUI: false,
+                    streetViewControl: false, // Pegman komplett deaktiviert - spart API-Kosten & verhindert Doppel-Panorama!
+                    zoomControl: true,
+                    fullscreenControl: false,
+                    mapTypeControl: false
+                });
+                logMapsUsage('picker_map_init', { room_code: currentRoomCode });
 
-            // Activate official blue Street View coverage line overlay
-            coverageLayer = new google.maps.StreetViewCoverageLayer();
-            coverageLayer.setMap(pickerMap);
+                // Activate official blue Street View coverage line overlay
+                coverageLayer = new google.maps.StreetViewCoverageLayer();
+                coverageLayer.setMap(pickerMap);
 
-            streetViewService = new google.maps.StreetViewService();
+                streetViewService = new google.maps.StreetViewService();
 
-            // When user taps anywhere on the 2D map
-            pickerMap.addListener('click', function (e) {
-                const clickedLatLng = e.latLng;
-                // Query nearest panorama within 250m to avoid black screens
-                streetViewService.getPanorama({
-                    location: clickedLatLng,
-                    radius: 250,
-                    source: google.maps.StreetViewSource.OUTDOOR
-                }, function (data, status) {
-                    if (status === google.maps.StreetViewStatus.OK && data && data.location) {
-                        if (currentRoomCode) {
-                            sessionStorage.setItem('geobingo_start_' + currentRoomCode, '1');
+                // When user taps anywhere on the 2D map
+                pickerMap.addListener('click', function (e) {
+                    const clickedLatLng = e.latLng;
+                    // Query nearest panorama within 250m to avoid black screens
+                    streetViewService.getPanorama({
+                        location: clickedLatLng,
+                        radius: 250,
+                        source: google.maps.StreetViewSource.OUTDOOR
+                    }, function (data, status) {
+                        if (status === google.maps.StreetViewStatus.OK && data && data.location) {
+                            if (currentRoomCode) {
+                                sessionStorage.setItem('geobingo_start_' + currentRoomCode, '1');
+                            }
+                            if (data.location.latLng) {
+                                currentLat = data.location.latLng.lat();
+                                currentLng = data.location.latLng.lng();
+                            }
+                            ensureStreetViewInitialized(data.location.pano);
+                            closeMapModal();
+                        } else {
+                            alert('An dieser Stelle ist leider kein Street View verfügbar. Bitte tippe direkt auf eine blaue Straße!');
                         }
-                        if (data.location.latLng) {
-                            currentLat = data.location.latLng.lat();
-                            currentLng = data.location.latLng.lng();
-                        }
-                        ensureStreetViewInitialized(data.location.pano);
-                        closeMapModal();
-                    } else {
-                        alert('An dieser Stelle ist leider kein Street View verfügbar. Bitte tippe direkt auf eine blaue Straße!');
-                    }
+                    });
                 });
             });
         }
@@ -1160,6 +1339,7 @@
     // Google Maps API Async Callback entrypoint
     window.initGoogleMapsServices = function () {
         console.log("[GeoBingo] Google Maps JavaScript SDK ready.");
+        logMapsUsage('maps_sdk_init', { room_code: currentRoomCode });
         const mapModal = document.getElementById('map-modal');
         if (mapModal && mapModal.classList.contains('active')) {
             initPickerMap();

@@ -20,6 +20,7 @@ class GameHubPlatformTests(unittest.TestCase):
         with storage._get_conn() as conn:
             conn.execute("DELETE FROM game_lobbies")
             conn.execute("DELETE FROM player_heartbeats")
+            conn.execute("DELETE FROM maps_penalties")
 
     def setUp(self):
         self.app = app
@@ -882,9 +883,201 @@ class GameHubPlatformTests(unittest.TestCase):
 
         print("[OK] 26: Geo Bingo 1v1 multi-room lifecycle verified")
 
+    def test_27_google_maps_request_logging(self):
+        """Verify Google Maps request logging, user identity linking, X-Forwarded-For handling, and logfile creation."""
+        from apps.common.maps_logger import MAPS_LOG_FILE
+
+        with self.storage._get_conn() as conn:
+            conn.execute("DELETE FROM maps_penalties")
+            conn.execute("DELETE FROM maps_api_logs WHERE username = 'MapsUser_77'")
+
+        # 1. Unauthenticated request without username/token must be rejected
+        unauth_client = self.app.test_client()
+        res_unauth = unauth_client.post('/api/logs/maps', json={
+            'action': 'sdk_init',
+            'page': '/geobingo/'
+        })
+        self.assertEqual(res_unauth.status_code, 401)
+        self.assertFalse(res_unauth.get_json().get('success', True))
+
+        # 2. Register and login test user
+        username = "MapsUser_77"
+        password = "SecurePassword123"
+        res_reg = self.client.post('/api/auth/register', json={'username': username, 'password': password})
+        self.assertIn(res_reg.status_code, [201, 200, 409])
+        res_login = self.client.post('/api/auth/login', json={'username': username, 'password': password})
+        self.assertEqual(res_login.status_code, 200)
+        token = res_login.get_json()['token']
+
+        # 3. Log Google Maps request with multi-IP X-Forwarded-For header
+        multi_ip_header = "198.51.100.42, 10.0.0.1, 172.16.0.5"
+        res_log = self.client.post(
+            '/api/logs/maps',
+            headers={
+                'X-Auth-Token': token,
+                'X-Forwarded-For': multi_ip_header,
+                'User-Agent': 'TestBrowser/1.0 (Windows NT 10.0)'
+            },
+            json={
+                'action': 'maps_sdk_init',
+                'page': '/geobingo/',
+                'details': {'room_code': 'TEST99'}
+            }
+        )
+        self.assertEqual(res_log.status_code, 200)
+        data = res_log.get_json()
+        self.assertTrue(data['success'])
+        self.assertEqual(data['username'], username)
+        self.assertEqual(data['ip_address'], '198.51.100.42') # First IP extracted
+        self.assertEqual(data['page'], '/geobingo/')
+        self.assertEqual(data['action'], 'maps_sdk_init')
+
+        # 4. Verify record in SQLite database
+        logs = self.storage.get_maps_logs(limit=5, username=username)
+        self.assertTrue(len(logs) >= 1)
+        latest = logs[0]
+        self.assertEqual(latest['username'], username)
+        self.assertEqual(latest['ip_address'], '198.51.100.42')
+        self.assertEqual(latest['page'], '/geobingo/')
+        self.assertEqual(latest['action'], 'maps_sdk_init')
+        self.assertIn('details', latest)
+        self.assertEqual(latest['details'].get('room_code'), 'TEST99')
+
+        # 5. Verify record in structured logfile
+        self.assertTrue(MAPS_LOG_FILE.exists(), f"Log file does not exist: {MAPS_LOG_FILE}")
+        with open(MAPS_LOG_FILE, 'r', encoding='utf-8') as f:
+            log_contents = f.read()
+
+        expected_pattern = f'USER="{username}" IP="198.51.100.42" PAGE="/geobingo/" ACTION="maps_sdk_init"'
+        self.assertIn(expected_pattern, log_contents)
+
+        # 6. Verify GET /api/logs/maps retrieval
+        res_get = self.client.post(
+            '/api/logs/maps',
+            headers={'X-Auth-Token': token},
+            json={'action': 'picker_map_init', 'page': '/geobingo/'}
+        )
+        self.assertEqual(res_get.status_code, 200)
+
+        res_logs_query = self.client.get(f'/api/logs/maps?username={username}', headers={'X-Auth-Token': token})
+        self.assertEqual(res_logs_query.status_code, 200)
+        query_data = res_logs_query.get_json()
+        self.assertTrue(query_data['success'])
+        self.assertGreaterEqual(query_data['count'], 2)
+
+        print("[OK] 27: Google Maps request logging, IP extraction & logfile verified")
+
+    def test_28_maps_rate_limiting_and_cascade_protection(self):
+        """Verify progressive rate-limiting, cascade protection, strike escalation, and manual DB admin reset."""
+        from apps.common.maps_logger import MAPS_LOG_FILE
+        import time
+
+        username = "RateLimitUser"
+        password = "SecurePassword123"
+        self.client.post('/api/auth/register', json={'username': username, 'password': password})
+        res_login = self.client.post('/api/auth/login', json={'username': username, 'password': password})
+        token = res_login.get_json()['token']
+        headers = {'X-Auth-Token': token}
+
+        # Clear any preexisting penalties for clean test
+        with self.storage._get_conn() as conn:
+            conn.execute("DELETE FROM maps_penalties WHERE identifier LIKE '%ratelimituser%' OR identifier LIKE 'ip:%'")
+            conn.execute("DELETE FROM maps_api_logs WHERE username = ?", (username,))
+
+        # 1. Test Smart Gaming: Fast in-game actions in 2 rooms (4 requests: 1 SDK + 3 in-game)
+        self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geobingo/', 'details': {'room': 'R1'}})
+        self.client.post('/api/logs/maps', headers=headers, json={'action': 'picker_map_init', 'page': '/geobingo/', 'details': {'room': 'R1'}})
+        self.client.post('/api/logs/maps', headers=headers, json={'action': 'picker_map_init', 'page': '/geobingo/', 'details': {'room': 'R2'}})
+        self.client.post('/api/logs/maps', headers=headers, json={'action': 'streetview_init', 'page': '/geobingo/', 'details': {'room': 'R2'}})
+
+        # Pre-check must ALLOW (200 OK) because user is simply playing games (only 1 SDK init, 4 total < 8)
+        res_check = self.client.post('/api/logs/maps/check', headers=headers)
+        self.assertEqual(res_check.status_code, 200)
+        self.assertTrue(res_check.get_json()['allowed'])
+
+        # 2. Test F5-Reload Spam: Trigger 2 more SDK inits (total 3 sdk_inits in 5 min)
+        self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geobingo/'})
+        self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geobingo/'})
+
+        # Pre-check must trigger STRIKE 1 (60s cooldown, 429)
+        res_check_strike1 = self.client.post('/api/logs/maps/check', headers=headers)
+        self.assertEqual(res_check_strike1.status_code, 429)
+        data_s1 = res_check_strike1.get_json()
+        self.assertFalse(data_s1['allowed'])
+        self.assertEqual(data_s1['strike_count'], 1)
+        self.assertGreaterEqual(data_s1['cooldown_seconds'], 55)
+
+        # Verify Strike 1 is logged to structured logfile
+        with open(MAPS_LOG_FILE, 'r', encoding='utf-8') as f:
+            log_content = f.read()
+        self.assertIn(f'PENALTY USER="{username}"', log_content)
+        self.assertIn('STRIKE=1 DURATION="60s"', log_content)
+
+        # 3. Test Cascade Protection:
+        # Advance time by manually expiring the 60s cooldown in the database
+        with self.storage._get_conn() as conn:
+            conn.execute(
+                "UPDATE maps_penalties SET blocked_until = ? WHERE identifier LIKE '%ratelimituser%' OR identifier LIKE 'ip:%'",
+                (time.time() - 5.0,)
+            )
+
+        # Without new requests, pre-check must be ALLOWED! Old 3 requests must NOT trigger Strike 2!
+        res_check_cascade = self.client.post('/api/logs/maps/check', headers=headers)
+        self.assertEqual(res_check_cascade.status_code, 200)
+        self.assertTrue(res_check_cascade.get_json()['allowed'])
+
+        # 4. Trigger Strike 2: 3 NEW SDK reloads after the first strike
+        # Note: we temporarily artificially set timestamp on logs or send 3 new ones
+        time.sleep(1.05) # ensure SQLite timestamp > last_strike_at
+        self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geobingo/'})
+        self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geobingo/'})
+        self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geobingo/'})
+
+        res_check_strike2 = self.client.post('/api/logs/maps/check', headers=headers)
+        self.assertEqual(res_check_strike2.status_code, 429)
+        data_s2 = res_check_strike2.get_json()
+        self.assertEqual(data_s2['strike_count'], 2)
+        self.assertGreaterEqual(data_s2['cooldown_seconds'], 290) # 5 min (300s)
+
+        # 5. Escalate to Strike 3 (3600s = 1 hour)
+        with self.storage._get_conn() as conn:
+            conn.execute("UPDATE maps_penalties SET blocked_until = ? WHERE identifier LIKE '%ratelimituser%' OR identifier LIKE 'ip:%'", (time.time() - 5.0,))
+        time.sleep(1.05)
+        for _ in range(3):
+            self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geobingo/'})
+        res_s3 = self.client.post('/api/logs/maps/check', headers=headers)
+        self.assertEqual(res_s3.status_code, 429)
+        self.assertEqual(res_s3.get_json()['strike_count'], 3)
+        self.assertGreaterEqual(res_s3.get_json()['cooldown_seconds'], 3500)
+
+        # 6. Escalate to Strike 4 (PERMANENT BAN)
+        with self.storage._get_conn() as conn:
+            conn.execute("UPDATE maps_penalties SET blocked_until = ? WHERE identifier LIKE '%ratelimituser%' OR identifier LIKE 'ip:%'", (time.time() - 5.0,))
+        time.sleep(1.05)
+        for _ in range(3):
+            self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geobingo/'})
+        res_s4 = self.client.post('/api/logs/maps/check', headers=headers)
+        self.assertEqual(res_s4.status_code, 429)
+        data_s4 = res_s4.get_json()
+        self.assertEqual(data_s4['strike_count'], 4)
+        self.assertTrue(data_s4['is_permanent'])
+        self.assertEqual(data_s4['error'], 'permanently_blocked')
+
+        # 7. Test Admin Manual Reset in DB:
+        with self.storage._get_conn() as conn:
+            conn.execute("DELETE FROM maps_penalties WHERE identifier LIKE '%ratelimituser%' OR identifier LIKE 'ip:%'")
+            conn.execute("DELETE FROM maps_api_logs WHERE username = ?", (username,))
+
+        res_after_admin_reset = self.client.post('/api/logs/maps/check', headers=headers)
+        self.assertEqual(res_after_admin_reset.status_code, 200)
+        self.assertTrue(res_after_admin_reset.get_json()['allowed'])
+
+        print("[OK] 28: Maps progressive rate-limiting, cascade protection & admin reset verified")
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
+
 
 
 
