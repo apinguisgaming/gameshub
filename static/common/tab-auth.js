@@ -1,4 +1,4 @@
-﻿/**
+/**
  * GameHub Tab Session Hydrator
  * Provides strict multi-tab session isolation and client-side token hydration.
  */
@@ -6,7 +6,21 @@
     'use strict';
 
     function applyUserToUI(user) {
-        if (!user || !user.username) return;
+        var loggedInEls = document.querySelectorAll('.auth-logged-in, #auth-header-logged-in');
+        var loggedOutEls = document.querySelectorAll('.auth-logged-out, #auth-header-logged-out');
+
+        if (!user || !user.username) {
+            loggedInEls.forEach(function (el) { el.style.display = 'none'; });
+            loggedOutEls.forEach(function (el) { el.style.display = ''; });
+            try {
+                window.dispatchEvent(new CustomEvent('gamehub:auth', { detail: { user: null } }));
+            } catch (e) {}
+            return;
+        }
+
+        loggedInEls.forEach(function (el) { el.style.display = 'flex'; });
+        loggedOutEls.forEach(function (el) { el.style.display = 'none'; });
+
         var name = user.username;
         document.querySelectorAll('.account-badge-username').forEach(function (el) {
             el.textContent = '👤 ' + name;
@@ -27,6 +41,10 @@
             p1.value = name;
             p1.readOnly = true;
         }
+
+        try {
+            window.dispatchEvent(new CustomEvent('gamehub:auth', { detail: { user: user } }));
+        } catch (e) {}
     }
 
     window.initTabSession = function (serverUser, serverToken, onReady) {
