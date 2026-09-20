@@ -11,6 +11,8 @@ from apps.common.rooms import (
     list_rooms,
     get_room_state,
     update_room_state,
+    validate_room_capacity,
+    validate_game_start,
 )
 from apps.common.delta import broadcast_tracker
 from . import logic as song_logic
@@ -153,8 +155,9 @@ def join_game(room_code: str = None):
             # Join as spectator
             state.setdefault('spectators', []).append(name)
         else:
-            if len(players) >= 4:
-                return jsonify({'error': 'Raum ist voll (max. 4 Spieler)'}), 400
+            cap_error = validate_room_capacity('song', len(players))
+            if cap_error:
+                return jsonify({'error': cap_error}), 400
             players.append(name)
             scores[name] = 0
 
@@ -212,8 +215,9 @@ def start(room_code: str = None):
     if user['username'] != state.get('host'):
         return jsonify({'error': 'Nur der Host kann starten'}), 403
 
-    if len(state.get('players', [])) < 2:
-        return jsonify({'error': 'Mindestens 2 Spieler erforderlich (2 bis 4 Spieler)'}), 400
+    start_error = validate_game_start('song', len(state.get('players', [])))
+    if start_error:
+        return jsonify({'error': start_error}), 400
 
     if state.get('status') in ['lobby', 'finished']:
         state['status'] = 'playing'

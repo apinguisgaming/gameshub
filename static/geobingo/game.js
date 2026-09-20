@@ -468,8 +468,9 @@
 
     window.startGame = function () {
         if (!currentRoomCode) return;
-        if (gameState && gameState.players && gameState.players.length < 2) {
-            alert('Mindestens 2 Spieler erforderlich (2 bis 4 Spieler)!');
+        const minPlayers = (window.GAME_CONFIG && window.GAME_CONFIG.min_players) || 2;
+        if (gameState && gameState.players && gameState.players.length < minPlayers) {
+            alert(`Mindestens ${minPlayers} Spieler erforderlich!`);
             return;
         }
         $.post(`/geobingo/${currentRoomCode}/start_game`, { room_code: currentRoomCode }, function () {
@@ -797,12 +798,13 @@
         if (btnStart && waitMsg) {
             if (isHost) {
                 const playerCount = (state.players || []).length;
+                const minPlayers = (window.GAME_CONFIG && window.GAME_CONFIG.min_players) || 2;
                 btnStart.style.display = 'flex';
-                if (playerCount < 2) {
+                if (playerCount < minPlayers) {
                     btnStart.disabled = true;
                     btnStart.style.opacity = '0.5';
                     btnStart.style.cursor = 'not-allowed';
-                    btnStart.textContent = '▶ WARTE AUF MITSPIELER (MIN. 2)';
+                    btnStart.textContent = `▶ WARTE AUF MITSPIELER (MIN. ${minPlayers})`;
                 } else {
                     btnStart.disabled = false;
                     btnStart.style.opacity = '1';

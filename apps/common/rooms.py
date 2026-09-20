@@ -50,10 +50,15 @@ def join_room(
     game_id: str,
     room_code: str,
     username: str,
-    max_players: int = 10,
+    max_players: Optional[int] = None,
     allow_spectator: bool = True
 ) -> Dict[str, Any]:
     """Adds a player or spectator to an existing room."""
+    if max_players is None:
+        from apps.common.registry import get_game
+        m = get_game(game_id)
+        max_players = m.max_players if m else 10
+
     code = room_code.upper().strip()
     storage = get_storage()
     state = storage.load_lobby(game_id, code)
@@ -179,3 +184,33 @@ def update_room_state(
         status=state.get('status', 'lobby')
     )
     return state
+
+
+def validate_room_capacity(game_id: str, current_player_count: int) -> Optional[str]:
+    """Validates if room has reached its maximum player capacity from GameManifest.
+    
+    Returns error message if room is full, None if space is available.
+    """
+    from apps.common.registry import get_game
+    manifest = get_game(game_id)
+    if not manifest:
+        return None
+    if current_player_count >= manifest.max_players:
+        return f"Raum ist voll (max. {manifest.max_players} Spieler)."
+    return None
+
+
+def validate_game_start(game_id: str, current_player_count: int) -> Optional[str]:
+    """Validates if minimum required players are present to start match.
+    
+    Returns error message if too few players, None if ready to start.
+    """
+    from apps.common.registry import get_game
+    manifest = get_game(game_id)
+    if not manifest:
+        return None
+    if current_player_count < manifest.min_players:
+        if manifest.min_players == manifest.max_players:
+            return f"Genau {manifest.min_players} Spieler erforderlich."
+        return f"Mindestens {manifest.min_players} Spieler erforderlich ({manifest.min_players} bis {manifest.max_players} Spieler)."
+    return None

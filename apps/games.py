@@ -11,25 +11,32 @@ def init_games_registry():
         id='imposter',
         title='Impostor',
         subtitle='Finde den Verräter unter euch (Pass & Play).',
-        tag='Game',
+        tag='Game (3-12)',
         game_type='singleplayer',
         route_prefix='/imposter',
         template='imposter.html',
         card_class='card-imposter',
-        icon='🤫'
+        color='#b91c1c',
+        icon='🤫',
+        min_players=3,
+        max_players=12
     ))
 
     # 2. Song Guesser (Multiplayer)
     register_game(GameManifest(
         id='song',
         title='Song<br>Guesser',
-        subtitle='Errate den Song anhand eines kurzen Ausschnitts (2 bis 4 Spieler).',
-        tag='Multiplayer',
+        subtitle='Errate den Song anhand eines kurzen Ausschnitts.',
+        tag='Multiplayer (2-4)',
         game_type='multiplayer',
         route_prefix='/song',
         template='song.html',
         card_class='card-song',
-        icon='🎵'
+        color='#2563eb',
+        icon='🎵',
+        min_players=2,
+        max_players=4,
+        default_settings={'time_per_song': 20, 'total_songs': 10}
     ))
 
     # 3. Secret Hitler (Multiplayer)
@@ -37,12 +44,15 @@ def init_games_registry():
         id='secret',
         title='Secret<br>Hitler',
         subtitle='Social Deduction Spiel für 5 bis 10 Personen.',
-        tag='Multiplayer',
+        tag='Multiplayer (5-10)',
         game_type='multiplayer',
         route_prefix='/secret',
         template='secret.html',
         card_class='card-secret',
-        icon='🕵️'
+        color='#800f2f',
+        icon='🕵️',
+        min_players=5,
+        max_players=10
     ))
 
     # 4. Pokémon Tower Defense (Canvas Singleplayer)
@@ -55,9 +65,12 @@ def init_games_registry():
         route_prefix='/tower',
         template='tower.html',
         card_class='card-tower',
+        color='#d97706',
         aliases=['/site4/'],
         icon='🛡️',
-        has_cloud_save=True
+        has_cloud_save=True,
+        min_players=1,
+        max_players=1
     ))
 
     # 5. Gothic Survivors (Rogue-lite Singleplayer)
@@ -70,8 +83,11 @@ def init_games_registry():
         route_prefix='/survivors',
         template='survivors.html',
         card_class='card-survivors',
+        color='#4b5563',
         icon='⚔️',
-        has_cloud_save=True
+        has_cloud_save=True,
+        min_players=1,
+        max_players=1
     ))
 
     # 6. Gothic Survivors Character Creator (Sub-tool)
@@ -84,8 +100,11 @@ def init_games_registry():
         route_prefix='/survivors/creator',
         template='survivors_creator.html',
         card_class='card-survivors',
+        color='#6b7280',
         show_on_portal=False,
-        icon='🎨'
+        icon='🎨',
+        min_players=1,
+        max_players=1
     ))
 
     # 7. SongSeeker (Music Tool)
@@ -98,7 +117,10 @@ def init_games_registry():
         route_prefix='/songseeker',
         template='songseeker.html',
         card_class='card-songseeker',
-        icon='📻'
+        color='#059669',
+        icon='📻',
+        min_players=1,
+        max_players=1
     ))
 
     # 8. NexusDex (Pokedex Reference Tool)
@@ -111,21 +133,28 @@ def init_games_registry():
         route_prefix='/nexusdex',
         template='nexusdex.html',
         card_class='card-nexusdex',
+        color='#dc2626',
         aliases=['/site3/'],
-        icon='📖'
+        icon='📖',
+        min_players=1,
+        max_players=1
     ))
 
     # 9. Geo Bingo (Multiplayer Street View Game)
     register_game(GameManifest(
         id='geobingo',
         title='Geo<br>Bingo',
-        subtitle='Finde Objekte in Google Street View (2 bis 4 Spieler).',
-        tag='Multiplayer',
+        subtitle='Finde Objekte in Google Street View.',
+        tag='Multiplayer (2-4)',
         game_type='multiplayer',
         route_prefix='/geobingo',
         template='geobingo.html',
         card_class='card-geobingo',
-        icon='🗺️'
+        color='#2d6a4f',
+        icon='🗺️',
+        min_players=2,
+        max_players=4,
+        default_settings={'item_count': 7, 'time_limit': 600, 'item_preset': 'standard'}
     ))
 
     return get_all_games()

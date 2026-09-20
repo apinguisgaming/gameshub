@@ -743,8 +743,9 @@
             if (myName === data.host) {
                 $('#admin-controls').show();
                 const count = (data.players || []).length;
-                if (count < 5) {
-                    $('#btn-secret-start').prop('disabled', true).css({ opacity: '0.5', cursor: 'not-allowed' }).text(`START GAME (MIN. 5 SPIELER, AKTUELL: ${count})`);
+                const minPlayers = (window.GAME_CONFIG && window.GAME_CONFIG.min_players) || 5;
+                if (count < minPlayers) {
+                    $('#btn-secret-start').prop('disabled', true).css({ opacity: '0.5', cursor: 'not-allowed' }).text(`START GAME (MIN. ${minPlayers} SPIELER, AKTUELL: ${count})`);
                 } else {
                     $('#btn-secret-start').prop('disabled', false).css({ opacity: '1', cursor: 'pointer' }).text('START GAME');
                 }

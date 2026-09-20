@@ -96,9 +96,10 @@ def card_template_exists(game_id: str) -> bool:
 
 @app.context_processor
 def inject_global_context():
-    """Injects user authentication profile, active token, Pusher settings, and games registry into all templates."""
+    """Injects user authentication profile, active token, Pusher settings, active game manifest, and games registry into all templates."""
     from apps.auth.decorators import get_current_user, get_current_token
-    from apps.common.registry import get_all_games
+    from apps.common.registry import get_all_games, get_game_by_path
+    active_manifest = get_game_by_path(request.path)
     return {
         'current_user': get_current_user(),
         'auth_token': get_current_token(),
@@ -107,6 +108,7 @@ def inject_global_context():
         'google_maps_key': GOOGLE_MAPS_API_KEY,
         'registered_games': [g for g in get_all_games() if g.show_on_portal],
         'card_template_exists': card_template_exists,
+        'active_game_manifest': active_manifest,
     }
 
 

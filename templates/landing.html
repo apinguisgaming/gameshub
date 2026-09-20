@@ -36,11 +36,11 @@
             {% if card_template_exists(game.id) %}
                 {% include "cards/" ~ game.id ~ ".html" %}
             {% else %}
-                <a href="{{ game.route_prefix }}/" class="card {{ game.card_class }}" {% if game.color and not game.card_class %}style="border-color: {{ game.color }};"{% endif %}>
-                    <div class="card-tag">{{ game.tag }}</div>
+                <a href="{{ game.route_prefix }}/" class="card {{ game.card_class }}" {% if game.color %}style="border-color: {{ game.color }};"{% endif %}>
+                    <div class="card-tag" {% if game.color %}style="background: {{ game.color }}; color: #fff;"{% endif %}>{{ game.tag }}</div>
                     <h2>{{ game.title | safe }}</h2>
                     <p>{{ game.subtitle }}</p>
-                    <div class="card-arrow">➜</div>
+                    <div class="card-arrow" {% if game.color %}style="color: {{ game.color }};"{% endif %}>➜</div>
                 </a>
             {% endif %}
         {% endfor %}

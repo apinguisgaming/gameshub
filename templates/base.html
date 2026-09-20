@@ -25,8 +25,10 @@
             token: {{ (auth_token if auth_token is defined and auth_token else None) | tojson }},
             pusherKey: {{ (pusher_key if pusher_key is defined and pusher_key else '') | tojson }},
             pusherCluster: {{ (pusher_cluster if pusher_cluster is defined and pusher_cluster else 'eu') | tojson }},
-            googleMapsKey: {{ (google_maps_key if google_maps_key is defined and google_maps_key else '') | tojson }}
+            googleMapsKey: {{ (google_maps_key if google_maps_key is defined and google_maps_key else '') | tojson }},
+            game: {{ (active_game_manifest.to_dict() if active_game_manifest is defined and active_game_manifest else None) | tojson }}
         };
+        window.GAME_CONFIG = window.GAMEHUB_CONFIG.game;
     </script>
 
 

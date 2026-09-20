@@ -11,6 +11,8 @@ from apps.common.rooms import (
     list_rooms,
     get_room_state,
     update_room_state,
+    validate_room_capacity,
+    validate_game_start,
 )
 from apps.common.delta import broadcast_tracker
 from . import logic as secret_logic
@@ -201,8 +203,9 @@ def join_game(room_code: str = None):
     if rejoin_only:
         return jsonify({"error": "silent_fail"})
 
-    if len(state['players']) >= 10:
-        return jsonify({"error": "Raum ist voll (maximal 10 Spieler)"}), 400
+    cap_error = validate_room_capacity('secret', len(state['players']))
+    if cap_error:
+        return jsonify({"error": cap_error}), 400
 
     if name not in state['players']:
         state['players'].append(name)
@@ -410,8 +413,9 @@ def start(room_code: str = None):
     if user['username'] != state.get('host'):
         return jsonify({"error": "Nur der Host kann das Spiel starten"}), 403
 
-    if len(state['players']) < 5:
-        return jsonify({"error": "Mindestens 5 Spieler erforderlich (Secret Hitler: 5 bis 10 Spieler)"}), 400
+    start_error = validate_game_start('secret', len(state['players']))
+    if start_error:
+        return jsonify({"error": start_error}), 400
 
     state = secret_logic.setup_new_game(state)
     trigger_update(code, state)

@@ -12,6 +12,8 @@ from apps.common.rooms import (
     list_rooms,
     get_room_state,
     update_room_state,
+    validate_room_capacity,
+    validate_game_start,
 )
 from apps.common.delta import broadcast_tracker
 from . import logic as geobingo_logic
@@ -146,8 +148,9 @@ def join_game(room_code: str = None):
             # Spectator
             state.setdefault('spectators', []).append(name)
         else:
-            if len(players) >= 4:
-                # 4-player limit for match participants, extra can spectate
+            cap_error = validate_room_capacity('geobingo', len(players))
+            if cap_error:
+                # Capacity reached for match participants, extra can spectate
                 state.setdefault('spectators', []).append(name)
             else:
                 players.append(name)
@@ -305,8 +308,9 @@ def start(room_code: str = None):
     if user['username'] != state.get('host'):
         return jsonify({'error': 'Nur der Host kann das Spiel starten'}), 403
 
-    if len(state.get('players', [])) < 2:
-        return jsonify({'error': 'Mindestens 2 Spieler erforderlich (2 bis 4 Spieler)'}), 400
+    start_error = validate_game_start('geobingo', len(state.get('players', [])))
+    if start_error:
+        return jsonify({'error': start_error}), 400
 
     state = geobingo_logic.setup_new_game(state)
     trigger_update(code, state, force_full=True)
