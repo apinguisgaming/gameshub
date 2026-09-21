@@ -372,7 +372,7 @@ class GameHubPlatformTests(unittest.TestCase):
 
     def test_12_secret_hitler_state_no_hand_leak(self):
         """Verify broadcast state does not leak policy hand or action payload."""
-        from apps.secret_hitler import logic as secret_logic
+        from games.secret_hitler import logic as secret_logic
         state = secret_logic.get_initial_state()
         state['players'] = ['A', 'B']
         state['hand'] = ['Liberal', 'Fascist', 'Fascist']
@@ -610,7 +610,7 @@ class GameHubPlatformTests(unittest.TestCase):
 
     def test_20_song_library_memory_cache(self):
         """Verify song data library is cached in memory across calls."""
-        from apps.song_guesser.logic import load_songs_library
+        from games.song_guesser.logic import load_songs_library
         lib1 = load_songs_library()
         lib2 = load_songs_library()
         self.assertIs(lib1, lib2, "Song library is being re-parsed from disk instead of cached!")
@@ -620,7 +620,7 @@ class GameHubPlatformTests(unittest.TestCase):
     def test_21_game_registry_manifests(self):
         """Verify centralized game registry and manifest management."""
         from engine.registry import get_all_games, get_game, register_game, GameManifest
-        from apps.games import init_games_registry
+        from games import init_games_registry
 
         games = init_games_registry()
         game_ids = [g.id for g in games]
@@ -648,7 +648,7 @@ class GameHubPlatformTests(unittest.TestCase):
     def test_22_hybrid_card_rendering(self):
         """Verify hybrid portal card rendering: auto-generated cards and custom card overrides."""
         import os
-        from apps.games import init_games_registry
+        from games import init_games_registry
         init_games_registry()
 
         # 1. Fallback auto-generated cards render on landing portal

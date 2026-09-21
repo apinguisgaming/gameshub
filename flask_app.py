@@ -7,9 +7,7 @@ from storage import get_storage
 from apps.auth.routes import auth_bp
 from apps.auth.decorators import login_required
 from apps.api.routes import api_bp
-from apps.secret_hitler.routes import secret_bp
-from apps.song_guesser.routes import song_bp
-from apps.geo_bingo.routes import geobingo_bp
+from games import init_games_registry
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -30,13 +28,10 @@ with app.app_context():
         logger.warning(f"Session cleanup skipped: {e}")
 
 # ==========================================
-#         BLUEPRINT REGISTRATION
+#         CORE BLUEPRINT REGISTRATION
 # ==========================================
 app.register_blueprint(auth_bp, url_prefix='/api/auth')
 app.register_blueprint(api_bp, url_prefix='/api')
-app.register_blueprint(secret_bp, url_prefix='/secret-hitler')
-app.register_blueprint(song_bp, url_prefix='/song-guesser')
-app.register_blueprint(geobingo_bp, url_prefix='/geo-bingo')
 
 # ==========================================
 #       PUSHER CHANNEL AUTHENTICATION
@@ -113,7 +108,7 @@ def inject_global_context():
 
 
 # ==========================================
-#       PORTAL & DYNAMIC GAME ROUTES
+#       PORTAL & GAME INITIALIZATION
 # ==========================================
 
 @app.route('/')
@@ -122,20 +117,8 @@ def portal():
     return render_template('landing.html')
 
 
-@app.route('/gothic-survivors/creator')
-@login_required
-def gothic_survivors_creator():
-    from engine.registry import get_game
-    manifest = get_game('gothic_survivors')
-    return render_template('gothic_survivors_creator.html', game=manifest)
-
-
-# Initialize game registry and auto-register singleplayer routes
-from apps.games import init_games_registry
-from engine.singleplayer import register_singleplayer_routes
-
-init_games_registry()
-register_singleplayer_routes(app)
+# Auto-discover colocated games, register manifests and blueprints
+init_games_registry(app)
 
 
 @app.teardown_appcontext
