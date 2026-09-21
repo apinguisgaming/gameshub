@@ -25,28 +25,24 @@ GAME_ID = 'secret_hitler'
 
 
 
+from engine.broadcasting import broadcast_state_update
+from engine.stats import record_match_outcome
+
+
 def trigger_update(room_code: str, state: dict, force_full: bool = False):
-    """Broadcasts current game state or delta update via room-scoped Pusher channel."""
+    """Broadcasts current game state or delta update via non-blocking Pusher dispatch."""
     code = room_code.upper().strip()
-    channel_name = f'secret_hitler-{code}'
     state = secret_logic.validate_game_integrity(state)
 
-    client = get_pusher_client()
-
+    extra_events = []
     # 1. Policy Enacted Notification
     if 'last_enacted' in state:
-        try:
-            client.trigger(channel_name, 'policy-enacted', {'type': state['last_enacted']})
-        except Exception:
-            pass
+        extra_events.append(('policy-enacted', {'type': state['last_enacted']}))
         del state['last_enacted']
 
     # 2. Reshuffle Notification
     if state.get('deck_reshuffled'):
-        try:
-            client.trigger(channel_name, 'reshuffle-notification', {})
-        except Exception:
-            pass
+        extra_events.append(('reshuffle-notification', {}))
         state['deck_reshuffled'] = False
 
     # 3. Safe State Payload
@@ -57,56 +53,33 @@ def trigger_update(room_code: str, state: dict, force_full: bool = False):
         payload['vote_result'] = state['vote_notification']
         del state['vote_notification']
 
-    # 5. Save updated state to storage
-    storage = get_storage()
-    storage.save_lobby(
+    broadcast_state_update(
         game_id='secret_hitler',
         room_code=code,
         state=state,
-        player_count=len(state.get('players', [])),
-        status=state.get('status', 'lobby')
+        safe_state=payload,
+        event_name='auto',
+        force_full=force_full,
+        extra_events=extra_events
     )
-
-    # 6. Compute Delta vs Full Broadcast
-    broadcast_payload, is_delta = broadcast_tracker.get_broadcast_payload(
-        game_id='secret_hitler',
-        room_code=code,
-        current_safe_state=payload,
-        force_full=force_full
-    )
-
-    if broadcast_payload is None:
-        return
-
-    event_type = 'delta-state' if is_delta else 'full-state'
-    try:
-        client.trigger(channel_name, event_type, broadcast_payload)
-    except Exception as e:
-        logger.error(f"[SH] Failed to broadcast state update for {code}: {e}")
 
 
 def award_secret_stats(state: dict):
-    """Awards wins/losses to registered users in Secret Hitler."""
-    from storage import get_storage
-    storage = get_storage()
+    """Awards wins/losses to registered users in Secret Hitler in a single batch."""
     liberals_won = (state.get('winner') == 'Liberals')
+    winners = []
+    losers = []
 
     for player_name in state.get('players', []):
-        u = storage.get_user_by_username(player_name)
-        if not u:
-            continue
-        uid = u['id']
         role = state.get('roles', {}).get(player_name, '')
         is_liberal = (role == 'Liberal')
         won = (is_liberal and liberals_won) or (not is_liberal and not liberals_won)
+        if won:
+            winners.append(player_name)
+        else:
+            losers.append(player_name)
 
-        storage.update_stats(
-            user_id=uid,
-            game_id='secret_hitler',
-            games_played=1,
-            wins=1 if won else 0,
-            losses=0 if won else 1
-        )
+    record_match_outcome(game_id='secret_hitler', winners=winners, losers=losers)
 
 
 # --- PORTAL & ROOM MANAGEMENT ---

@@ -118,20 +118,19 @@ class BroadcastTracker:
             If payload is None, no changes exist and no Pusher event needs to be sent.
         """
         key = self._key(game_id, room_code)
-        safe_copy = copy.deepcopy(current_safe_state)
-
         with self._lock:
             prev = self._cache.get(key)
             if force_full or prev is None:
+                safe_copy = copy.deepcopy(current_safe_state)
                 self._cache[key] = safe_copy
                 return safe_copy, False
 
-            delta = compute_state_delta(prev, safe_copy)
+            delta = compute_state_delta(prev, current_safe_state)
             if delta is None:
                 return None, False
 
-            # Update cached snapshot
-            self._cache[key] = safe_copy
+            # Update cached snapshot only when changed
+            self._cache[key] = copy.deepcopy(current_safe_state)
             return delta, True
 
     def reset_room(self, game_id: str, room_code: str) -> None:

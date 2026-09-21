@@ -19,19 +19,42 @@ class SQLiteStorage(BaseStorage):
 
     @contextmanager
     def _get_conn(self):
-        """Context manager for SQLite connections with WAL mode and row factory."""
-        conn = sqlite3.connect(str(self.db_path), timeout=15.0)
-        conn.row_factory = sqlite3.Row
+        """Context manager for SQLite connections with WAL mode and row factory.
+        Reuses a single pooled connection per Flask request context when available.
+        """
         try:
-            conn.execute("PRAGMA foreign_keys = ON;")
-            conn.execute("PRAGMA journal_mode = WAL;")
-            yield conn
-            conn.commit()
-        except Exception:
-            conn.rollback()
-            raise
-        finally:
-            conn.close()
+            from flask import has_request_context, g
+            in_ctx = has_request_context()
+        except ImportError:
+            in_ctx = False
+
+        if in_ctx:
+            conn = getattr(g, '_db_conn', None)
+            if conn is None:
+                conn = sqlite3.connect(str(self.db_path), timeout=15.0)
+                conn.row_factory = sqlite3.Row
+                conn.execute("PRAGMA foreign_keys = ON;")
+                conn.execute("PRAGMA journal_mode = WAL;")
+                g._db_conn = conn
+            try:
+                yield conn
+                conn.commit()
+            except Exception:
+                conn.rollback()
+                raise
+        else:
+            conn = sqlite3.connect(str(self.db_path), timeout=15.0)
+            conn.row_factory = sqlite3.Row
+            try:
+                conn.execute("PRAGMA foreign_keys = ON;")
+                conn.execute("PRAGMA journal_mode = WAL;")
+                yield conn
+                conn.commit()
+            except Exception:
+                conn.rollback()
+                raise
+            finally:
+                conn.close()
 
     def _init_db(self) -> None:
         """Initializes database schema if tables do not exist."""
@@ -425,6 +448,47 @@ class SQLiteStorage(BaseStorage):
                     INSERT INTO game_stats (user_id, game_id, games_played, wins, losses, high_score)
                     VALUES (?, ?, ?, ?, ?, ?)
                 """, (user_id, game_id, games_played_delta, wins_delta, losses_delta, initial_high))
+
+    def batch_update_stats(self, records: List[Dict[str, Any]]) -> None:
+        """Updates statistics for multiple users in a single batched SQLite transaction."""
+        if not records:
+            return
+
+        with self._get_conn() as conn:
+            cur = conn.cursor()
+            for rec in records:
+                user_id = rec.get('user_id')
+                game_id = rec.get('game_id')
+                if not user_id or not game_id:
+                    continue
+
+                games_played_delta = rec.get('games_played', 0)
+                wins_delta = rec.get('wins', 0)
+                losses_delta = rec.get('losses', 0)
+                new_score = rec.get('high_score', None)
+
+                cur.execute(
+                    "SELECT high_score FROM game_stats WHERE user_id = ? AND game_id = ?",
+                    (user_id, game_id)
+                )
+                row = cur.fetchone()
+                if row:
+                    current_high = row['high_score']
+                    updated_high = max(current_high, new_score) if new_score is not None else current_high
+                    cur.execute("""
+                        UPDATE game_stats SET
+                            games_played = games_played + ?,
+                            wins = wins + ?,
+                            losses = losses + ?,
+                            high_score = ?
+                        WHERE user_id = ? AND game_id = ?
+                    """, (games_played_delta, wins_delta, losses_delta, updated_high, user_id, game_id))
+                else:
+                    initial_high = new_score if new_score is not None else 0
+                    cur.execute("""
+                        INSERT INTO game_stats (user_id, game_id, games_played, wins, losses, high_score)
+                        VALUES (?, ?, ?, ?, ?, ?)
+                    """, (user_id, game_id, games_played_delta, wins_delta, losses_delta, initial_high))
 
     def get_stats(self, user_id: int, game_id: str) -> Optional[Dict[str, Any]]:
         with self._get_conn() as conn:

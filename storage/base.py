@@ -98,8 +98,17 @@ class BaseStorage(ABC):
     # --- Leaderboards & Stats ---
     @abstractmethod
     def update_stats(self, user_id: int, game_id: str, **stat_deltas: Any) -> None:
-        """Increment or update game statistics for a user."""
+        """Update or insert gameplay statistics for a user."""
         pass
+
+    def batch_update_stats(self, records: List[Dict[str, Any]]) -> None:
+        """Updates statistics for multiple users in a single batched operation."""
+        for rec in records:
+            uid = rec.get('user_id')
+            gid = rec.get('game_id')
+            deltas = {k: v for k, v in rec.items() if k not in ('user_id', 'game_id')}
+            if uid and gid:
+                self.update_stats(uid, gid, **deltas)
 
     @abstractmethod
     def get_stats(self, user_id: int, game_id: str) -> Optional[Dict[str, Any]]:

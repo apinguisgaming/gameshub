@@ -137,5 +137,18 @@ from engine.singleplayer import register_singleplayer_routes
 init_games_registry()
 register_singleplayer_routes(app)
 
+
+@app.teardown_appcontext
+def close_db_connection(exception=None):
+    """Closes request-scoped pooled SQLite connection."""
+    from flask import g
+    conn = getattr(g, '_db_conn', None)
+    if conn is not None:
+        try:
+            conn.close()
+        except Exception:
+            pass
+
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)

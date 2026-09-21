@@ -28,71 +28,40 @@ register_standard_room_routes(geobingo_bp, GAME_ID, initial_state_factory=geobin
 
 
 
-def trigger_update(room_code: str, state: dict, force_full: bool = False):
-    """Broadcasts sanitized state via room-scoped Pusher channel and saves to storage."""
-    code = room_code.upper().strip()
-    channel_name = f'{GAME_ID}-{code}'
+from engine.broadcasting import broadcast_state_update
+from engine.stats import record_match_outcome
 
+
+def trigger_update(room_code: str, state: dict, force_full: bool = False):
+    """Broadcasts sanitized state via non-blocking Pusher dispatch and saves to storage."""
+    code = room_code.upper().strip()
     state = geobingo_logic.validate_game_integrity(state)
     payload = geobingo_logic.get_client_safe_state(state)
 
-    storage = get_storage()
-    storage.save_lobby(
+    broadcast_state_update(
         game_id=GAME_ID,
         room_code=code,
         state=state,
-        player_count=len(state.get('players', [])),
-        status=state.get('status', 'lobby')
-    )
-
-    broadcast_payload, is_delta = broadcast_tracker.get_broadcast_payload(
-        game_id=GAME_ID,
-        room_code=code,
-        current_safe_state=payload,
+        safe_state=payload,
+        event_name='state-update',
         force_full=force_full
     )
 
-    if broadcast_payload is None:
-        return
-
-    client = get_pusher_client()
-    try:
-        res = client.trigger(channel_name, 'state-update', broadcast_payload)
-        logger.info(f"[Pusher] Sent state-update to {channel_name} (delta={is_delta}, res={res})")
-    except Exception as e:
-        logger.error(f"[Pusher Error] Failed to trigger {channel_name}/state-update: {e}", exc_info=True)
-
-
 
 def record_game_results_if_ended(state: dict):
-    """Saves win/loss statistics in storage when game reaches finished status."""
+    """Saves win/loss statistics in storage when game reaches finished status in a single transaction."""
     if state.get('status') != 'finished':
         return
     if state.get('stats_recorded'):
         return
     state['stats_recorded'] = True
 
-    storage = get_storage()
     scores = state.get('scores', {})
     winner = state.get('winner')
+    winners = [winner] if winner else []
+    losers = [p for p in scores.keys() if p != winner]
 
-    try:
-        for player, score in scores.items():
-            user = storage.get_user_by_username(player)
-            if not user:
-                continue
-            uid = user['id']
-            won = (player == winner)
-            storage.update_stats(
-                user_id=uid,
-                game_id=GAME_ID,
-                games_played=1,
-                wins=1 if won else 0,
-                losses=0 if won else 1,
-                high_score=score
-            )
-    except Exception as e:
-        logger.error(f"[GeoBingo Stats Error] Failed to update stats: {e}", exc_info=True)
+    record_match_outcome(game_id=GAME_ID, winners=winners, losers=losers, scores=scores)
 
 
 # --- PORTAL & ROOM MANAGEMENT ---

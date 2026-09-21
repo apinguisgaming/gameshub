@@ -178,6 +178,24 @@
         joinRoom(code);
     }
 
+    var clockOffset = 0;
+
+    function calibrateClock() {
+        var startT = Date.now() / 1000;
+        $.getJSON('/song-guesser/clock')
+            .done(function (res) {
+                if (res && typeof res.server_time === 'number') {
+                    var endT = Date.now() / 1000;
+                    var rtt = endT - startT;
+                    clockOffset = res.server_time - (endT - (rtt / 2));
+                    console.log('%c[SongGuesser ClockSync]', 'color: #38d9a9;', 'Calibrated offset:', clockOffset.toFixed(3), 's');
+                }
+            })
+            .fail(function () {
+                clockOffset = 0;
+            });
+    }
+
     function bindPusherEvents() {
         channel.bind('settings-update', function (data) {
             if (data && data.settings) {
@@ -217,21 +235,29 @@
             $('.vinyl-container').removeClass('spinning');
 
             let song = data.round.current_song;
-            audio.src = song.url;
+
+            // Reuse nextAudio buffer if it matches current song URL
+            if (nextAudio && nextAudio.src === song.url) {
+                audio.src = nextAudio.src;
+            } else {
+                audio.src = song.url;
+            }
 
             $(audio).one('loadedmetadata', function() {
                 audio.currentTime = song.offset || 0;
             });
 
-            let fallback = setTimeout(() => {
-                $.post('/song-guesser/player_ready');
-            }, 4000);
-
-            $(audio).one('canplaythrough', function() {
+            var readySent = false;
+            function sendPlayerReady() {
+                if (readySent) return;
+                readySent = true;
                 clearTimeout(fallback);
+                $(audio).off('canplaythrough', sendPlayerReady);
                 $.post('/song-guesser/player_ready');
-            });
+            }
 
+            let fallback = setTimeout(sendPlayerReady, 4000);
+            $(audio).one('canplaythrough', sendPlayerReady);
             audio.load();
 
             if (isHost) {
@@ -248,7 +274,6 @@
             }
 
             hasGuessed = false;
-            roundStartTime = Date.now();
 
             const $container = $('#options-container');
             $container.empty().removeClass('disabled');
@@ -271,15 +296,22 @@
                 audio.currentTime = song.offset || 0;
             }
 
-            let playPromise = audio.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(e => {
-                    $('#audio-overlay').css('display', 'flex');
-                });
-            }
+            // High-precision clock-calibrated synchronous playback across all devices
+            var serverStartTime = (data.round && data.round.start_time) ? data.round.start_time : (Date.now() / 1000);
+            var localTargetMs = (serverStartTime - clockOffset) * 1000;
+            var playDelayMs = Math.max(0, localTargetMs - Date.now());
 
-            $('.vinyl-container').addClass('spinning');
-            startLocalTimer(song.duration);
+            setTimeout(function () {
+                let playPromise = audio.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(e => {
+                        $('#audio-overlay').css('display', 'flex');
+                    });
+                }
+                roundStartTime = Date.now();
+                $('.vinyl-container').addClass('spinning');
+                startLocalTimer(song.duration);
+            }, playDelayMs);
         });
 
         channel.bind('round-end', function (data) {
@@ -436,6 +468,7 @@
         window.location.hash = code;
         $('#song-lobby-code').text(code);
         $('.active-room-display').text(code);
+        calibrateClock();
 
         if (channel) {
             channel.unbind_all();

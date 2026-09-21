@@ -40,6 +40,8 @@ from engine.multiplayer import (
     create_multiplayer_blueprint,
     register_standard_room_routes,
 )
+from engine.broadcasting import broadcast_state_update
+from engine.stats import record_match_outcome
 
 # Compatibility alias for multiplayer blueprint module
 from engine import multiplayer as multiplayer_bp

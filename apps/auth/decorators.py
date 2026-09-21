@@ -1,7 +1,26 @@
 """Authentication decorators and request identity resolvers for GameHub."""
 from functools import wraps
+import threading
+import time
 from flask import session, redirect, request, jsonify
 from storage import get_storage
+
+_CACHE_LOCK = threading.Lock()
+_TOKEN_CACHE = {}  # token_str -> (user_dict, expires_at)
+_USER_CACHE = {}   # user_id -> (user_dict, expires_at)
+TOKEN_CACHE_TTL = 60.0
+
+
+def invalidate_auth_cache(user_id=None, token=None):
+    """Invalidates cached authentication identities."""
+    with _CACHE_LOCK:
+        if token and token in _TOKEN_CACHE:
+            _TOKEN_CACHE.pop(token, None)
+        if user_id and user_id in _USER_CACHE:
+            _USER_CACHE.pop(user_id, None)
+        if not user_id and not token:
+            _TOKEN_CACHE.clear()
+            _USER_CACHE.clear()
 
 
 def resolve_user_for_request():
@@ -29,11 +48,23 @@ def resolve_user_for_request():
             token = None
 
     storage = get_storage()
+    now = time.time()
 
     # 1. Validate Session Token (Multi-Tab Isolation)
     if token:
         token_str = str(token).strip()
-        user = storage.get_user_by_token(token_str)
+        user = None
+        with _CACHE_LOCK:
+            cached = _TOKEN_CACHE.get(token_str)
+            if cached and cached[1] > now:
+                user = cached[0]
+
+        if not user:
+            user = storage.get_user_by_token(token_str)
+            if user:
+                with _CACHE_LOCK:
+                    _TOKEN_CACHE[token_str] = (user, now + TOKEN_CACHE_TTL)
+
         if user:
             request.current_user = user
             request.auth_token = token_str
@@ -42,7 +73,18 @@ def resolve_user_for_request():
     # 2. Fallback to Flask Session Cookie
     user_id = session.get('user_id')
     if user_id:
-        user = storage.get_user_by_id(user_id)
+        user = None
+        with _CACHE_LOCK:
+            cached = _USER_CACHE.get(user_id)
+            if cached and cached[1] > now:
+                user = cached[0]
+
+        if not user:
+            user = storage.get_user_by_id(user_id)
+            if user:
+                with _CACHE_LOCK:
+                    _USER_CACHE[user_id] = (user, now + TOKEN_CACHE_TTL)
+
         if user:
             request.current_user = user
             request.auth_token = None

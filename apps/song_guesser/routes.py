@@ -24,78 +24,48 @@ register_standard_room_routes(song_bp, GAME_ID, initial_state_factory=song_logic
 
 
 
+from engine.broadcasting import broadcast_state_update
+from engine.stats import record_match_outcome
+
+
 def trigger_update(room_code: str, state: dict, event_name: str = 'state-update', custom_payload: dict = None, force_full: bool = False):
-    """Broadcasts sanitized state or delta update via room-scoped Pusher channel and persists to storage."""
+    """Broadcasts sanitized state or delta update via non-blocking Pusher dispatch and persists to storage."""
     code = room_code.upper().strip()
-    channel_name = f'{GAME_ID}-{code}'
 
     if custom_payload is not None:
         payload = custom_payload
     elif event_name == 'state-update':
-        safe = song_logic.get_client_safe_state(state)
-        payload, is_delta = broadcast_tracker.get_broadcast_payload(GAME_ID, code, safe, force_full=force_full)
-        if payload is None:
-            return {'success': True, 'skipped': 'no_changes'}
+        payload = song_logic.get_client_safe_state(state)
     else:
         payload = song_logic.get_client_safe_state(state)
 
-    storage = get_storage()
-    storage.save_lobby(
+    return broadcast_state_update(
         game_id=GAME_ID,
         room_code=code,
         state=state,
-        player_count=len(state.get('players', [])),
-        status=state.get('status', 'lobby')
+        safe_state=payload,
+        event_name=event_name,
+        force_full=force_full
     )
-
-    client = get_pusher_client()
-    pusher_res = {'client_type': type(client).__name__, 'channel': channel_name, 'event': event_name}
-    if type(client).__name__ == 'DummyPusher':
-        pusher_res['error'] = getattr(client, 'error', 'Dummy client active (import failed)')
-        return pusher_res
-
-    try:
-        trig = client.trigger(channel_name, event_name, payload)
-        pusher_res['success'] = True
-        pusher_res['result'] = str(trig)
-    except Exception as e:
-        import logging
-        logging.error(f"[Pusher Error] Failed to trigger {channel_name}/{event_name}: {e}", exc_info=True)
-        pusher_res['error'] = f"{type(e).__name__}: {e}"
-
-    return pusher_res
 
 
 def record_game_results_if_ended(state: dict):
-    """Records match results and high scores to storage."""
+    """Records match results and high scores to storage in a single transaction."""
     if state.get('status') != 'finished':
         return
     if state.get('stats_recorded'):
         return
     state['stats_recorded'] = True
 
-    storage = get_storage()
     scores = state.get('scores', {})
     if not scores:
         return
 
     max_score = max(scores.values()) if scores else 0
     winners = [p for p, s in scores.items() if s == max_score and s > 0]
+    losers = [p for p in scores.keys() if p not in winners]
 
-    for player, score in scores.items():
-        user = storage.get_user_by_username(player)
-        if not user:
-            continue
-        uid = user['id']
-        won = player in winners
-        storage.update_stats(
-            user_id=uid,
-            game_id=GAME_ID,
-            games_played=1,
-            wins=1 if won else 0,
-            losses=0 if won else 1,
-            high_score=score
-        )
+    record_match_outcome(game_id=GAME_ID, winners=winners, losers=losers, scores=scores)
 
 
 # --- PORTAL & ROOM MANAGEMENT ---
@@ -227,6 +197,12 @@ def finish(room_code: str = None):
     return jsonify({'game_over': True})
 
 
+@song_bp.route('/clock', methods=['GET'])
+def get_clock():
+    """Returns authoritative server timestamp for client audio playback synchronization."""
+    return jsonify({'server_time': time.time()})
+
+
 @song_bp.route('/<room_code>/player_ready', methods=['POST'])
 @song_bp.route('/player_ready', methods=['POST'])
 @login_required
@@ -248,7 +224,14 @@ def player_ready(room_code: str = None):
         ready_players.append(player)
 
     active_players = state.get('players', [])
-    if set(active_players).issubset(set(ready_players)):
+    # Filter against player heartbeats (offline >45s won't block the round)
+    storage = get_storage()
+    heartbeats = storage.get_room_heartbeats(GAME_ID, code)
+    now_ts = time.time()
+    online_players = [p for p in active_players if (now_ts - heartbeats.get(p, 0)) <= 45.0]
+    expected_players = online_players if online_players else active_players
+
+    if set(expected_players).issubset(set(ready_players)):
         now = time.time()
         launch_delay = 1.2
         round_data['status'] = 'playing'
@@ -257,7 +240,7 @@ def player_ready(room_code: str = None):
         trigger_update(code, state, 'round-start')
         return jsonify({'status': 'started'})
 
-    get_storage().save_lobby(GAME_ID, code, state, len(active_players), state.get('status', 'playing'))
+    storage.save_lobby(GAME_ID, code, state, len(active_players), state.get('status', 'playing'))
     return jsonify({'status': 'waiting'})
 
 
@@ -293,13 +276,21 @@ def submit_guess(room_code: str = None):
     guess_id = request.form.get('guess_id')
 
     try:
-        elapsed = float(request.form.get('elapsed', 0.0))
+        client_elapsed = float(request.form.get('elapsed', 0.0))
     except (ValueError, TypeError):
-        elapsed = 0.0
+        client_elapsed = 0.0
 
     state = get_room_state(GAME_ID, code)
     if not state or not guess_id:
         return jsonify({'result': 'error'})
+
+    # Server-authoritative elapsed calculation based on scheduled round.start_time
+    now = time.time()
+    round_start = state.get('round', {}).get('start_time')
+    if round_start:
+        elapsed = max(0.0, now - round_start)
+    else:
+        elapsed = client_elapsed
 
     result_status, points = song_logic.evaluate_guess(state, player, guess_id, elapsed)
 

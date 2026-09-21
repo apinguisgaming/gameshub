@@ -105,18 +105,24 @@ def login():
 
 @auth_bp.route('/logout', methods=['POST', 'GET'])
 def logout():
-    from apps.auth.decorators import get_current_token
+    from apps.auth.decorators import get_current_token, invalidate_auth_cache
     token = get_current_token() or request.headers.get('X-Auth-Token') or request.args.get('token')
     if token:
         try:
             token_user = get_storage().get_user_by_token(token)
             get_storage().delete_session_token(token)
+            invalidate_auth_cache(token=token)
+            if token_user:
+                invalidate_auth_cache(user_id=token_user['id'])
             # Only clear the shared cookie if it actually belongs to this user
             if token_user and session.get('user_id') == token_user['id']:
                 session.clear()
         except Exception:
             pass
     else:
+        user_id = session.get('user_id')
+        if user_id:
+            invalidate_auth_cache(user_id=user_id)
         session.clear()
     return jsonify({'success': True})
 
