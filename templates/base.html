@@ -36,8 +36,10 @@
     <script src="{{ url_for('static', filename='common/tab-auth.js') }}"></script>
     {# 4. Universal state delta patcher for multiplayer games #}
     <script src="{{ url_for('static', filename='common/game-delta.js') }}"></script>
-    {# 6. Universal multiplayer lobby controller #}
+    {# 5. Universal multiplayer lobby controller #}
     <script src="{{ url_for('static', filename='common/game-lobby.js') }}"></script>
+    {# 6. Unified GameHub Client SDK #}
+    <script src="{{ url_for('static', filename='common/sdk.js') }}"></script>
     <script>
         if (window.initTabSession && window.GAMEHUB_CONFIG) {
             window.initTabSession(window.GAMEHUB_CONFIG.user, window.GAMEHUB_CONFIG.token);
