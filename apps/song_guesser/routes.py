@@ -1,51 +1,108 @@
-"""Song Guesser route handlers supporting multi-room lobbies and persistent authentication."""
+"""Song Guesser route handlers powered by GameHub Multiplayer Blueprint."""
 import time
-from flask import Blueprint, jsonify, render_template, request, session
+from flask import jsonify, request
 from config import get_pusher_client
 from storage import get_storage
 from apps.auth.decorators import login_required, get_current_user
 from engine.rooms import (
-    create_room,
-    join_room,
-    leave_room,
-    list_rooms,
     get_room_state,
-    update_room_state,
     validate_room_capacity,
     validate_game_start,
 )
-from engine.delta import broadcast_tracker
-from engine.multiplayer import register_standard_room_routes
+from engine.multiplayer import create_multiplayer_blueprint
+from engine.stats import record_match_outcome
 from . import logic as song_logic
 
-song_bp = Blueprint('song_bp', __name__)
 GAME_ID = 'song_guesser'
-register_standard_room_routes(song_bp, GAME_ID, initial_state_factory=song_logic.get_initial_state)
 
 
+def get_template_context():
+    """Provides playlist names to the lobby template."""
+    library = song_logic.load_songs_library()
+    playlist_names = list(library.keys()) if library else []
+    return {'playlists': playlist_names}
 
-from engine.broadcasting import broadcast_state_update
-from engine.stats import record_match_outcome
+
+def handle_song_join(room_code: str, user: dict, data: dict):
+    """Custom join handler initializing player scores or spectator role."""
+    state = get_room_state(GAME_ID, room_code)
+    if not state:
+        return jsonify({'error': f"Raum '{room_code}' nicht gefunden"}), 404
+
+    name = user['username']
+    players = state.setdefault('players', [])
+    scores = state.setdefault('scores', {})
+
+    if name not in players:
+        if state.get('status') in ('playing', 'finished'):
+            state.setdefault('spectators', []).append(name)
+        else:
+            cap_error = validate_room_capacity(GAME_ID, len(players))
+            if cap_error:
+                return jsonify({'error': cap_error}), 400
+            players.append(name)
+            scores[name] = 0
+
+    if not state.get('host') or state['host'] not in players:
+        state['host'] = name
+
+    trigger_update(room_code, state)
+    return jsonify(song_logic.get_client_safe_state(state))
+
+
+def handle_song_leave(room_code: str, state: dict, username: str):
+    """Cleans up player score when leaving."""
+    if username in state.get('scores', {}):
+        del state['scores'][username]
+
+
+def handle_song_heartbeat(room_code: str, user: dict, data: dict):
+    """Handles song guesser heartbeat with inactive player kicking."""
+    status = data.get('status') or request.form.get('status')
+    force_offline = (status == 'leaving')
+
+    state = get_room_state(GAME_ID, room_code)
+    if not state:
+        return jsonify({'offline': [], 'room_closed': True})
+
+    get_storage().touch_lobby(GAME_ID, room_code)
+
+    state, offline, kicked = song_logic.handle_heartbeat(
+        state, room_code, user['username'], force_offline=force_offline
+    )
+
+    if kicked:
+        trigger_update(room_code, state)
+
+    safe_state = song_logic.get_client_safe_state(state)
+    return jsonify({'offline': offline, 'state': safe_state})
+
+
+# Instantiate reusable multiplayer blueprint
+song_bp = create_multiplayer_blueprint(
+    game_id=GAME_ID,
+    bp_name='song_bp',
+    url_prefix='/song-guesser',
+    template='song_guesser.html',
+    initial_state_factory=song_logic.get_initial_state,
+    sanitize_state_func=song_logic.get_client_safe_state,
+    template_context=get_template_context,
+    on_join=handle_song_join,
+    on_leave=handle_song_leave,
+    on_heartbeat=handle_song_heartbeat,
+)
 
 
 def trigger_update(room_code: str, state: dict, event_name: str = 'state-update', custom_payload: dict = None, force_full: bool = False):
     """Broadcasts sanitized state or delta update via non-blocking Pusher dispatch and persists to storage."""
     code = room_code.upper().strip()
-
-    if custom_payload is not None:
-        payload = custom_payload
-    elif event_name == 'state-update':
-        payload = song_logic.get_client_safe_state(state)
-    else:
-        payload = song_logic.get_client_safe_state(state)
-
-    return broadcast_state_update(
-        game_id=GAME_ID,
+    payload = custom_payload if custom_payload is not None else song_logic.get_client_safe_state(state)
+    return song_bp.trigger_update(
         room_code=code,
         state=state,
-        safe_state=payload,
         event_name=event_name,
-        force_full=force_full
+        force_full=force_full,
+        custom_payload=payload
     )
 
 
@@ -68,78 +125,17 @@ def record_game_results_if_ended(state: dict):
     record_match_outcome(game_id=GAME_ID, winners=winners, losers=losers, scores=scores)
 
 
-# --- PORTAL & ROOM MANAGEMENT ---
+# --- NON-ACTION ENDPOINTS ---
 
-@song_bp.route('/')
-@login_required
-def index():
-    user = get_current_user()
-    username = user['username'] if user else ''
-    library = song_logic.load_songs_library()
-    playlist_names = list(library.keys()) if library else []
-    return render_template('song_guesser.html', existing_name=username, playlists=playlist_names)
+@song_bp.route('/clock', methods=['GET'])
+def get_clock():
+    """Returns authoritative server timestamp for client audio playback synchronization."""
+    return jsonify({'server_time': time.time()})
 
 
-@song_bp.route('/join_game', methods=['POST'])
-@song_bp.route('/<room_code>/join', methods=['POST'])
-@login_required
-def join_game(room_code: str = None):
-    user = get_current_user()
-    if not user:
-        return jsonify({'error': 'Nicht angemeldet'}), 401
+# --- ACTIONS ---
 
-    name = user['username']
-    code = (room_code or request.form.get('room_code') or '').upper().strip()
-    if not code:
-        return jsonify({'error': 'Kein Raumcode angegeben'}), 400
-
-    state = get_room_state(GAME_ID, code)
-    if not state:
-        return jsonify({'error': f"Raum '{code}' nicht gefunden"}), 404
-
-    players = state.setdefault('players', [])
-    scores = state.setdefault('scores', {})
-
-    if name not in players:
-        if state.get('status') in ('playing', 'finished'):
-            # Join as spectator
-            state.setdefault('spectators', []).append(name)
-        else:
-            cap_error = validate_room_capacity(GAME_ID, len(players))
-            if cap_error:
-                return jsonify({'error': cap_error}), 400
-            players.append(name)
-            scores[name] = 0
-
-    if not state.get('host') or state['host'] not in players:
-        state['host'] = name
-
-    trigger_update(code, state)
-    return jsonify(song_logic.get_client_safe_state(state))
-
-
-@song_bp.route('/<room_code>/leave_game', methods=['POST'])
-@song_bp.route('/leave_game', methods=['POST'])
-@login_required
-def leave(room_code: str = None):
-    user = get_current_user()
-    name = user['username'] if user else None
-    code = (room_code or request.form.get('room_code') or '').upper().strip()
-
-    if not code or not name:
-        return jsonify({'success': True})
-
-    state = leave_room(GAME_ID, code, name)
-    if state:
-        if name in state.get('scores', {}):
-            del state['scores'][name]
-        trigger_update(code, state)
-    return jsonify({'success': True})
-
-
-@song_bp.route('/<room_code>/start_game', methods=['POST'])
-@song_bp.route('/start_game', methods=['POST'])
-@login_required
+@song_bp.action('start_game')
 def start(room_code: str = None):
     user = get_current_user()
     code = (room_code or request.form.get('room_code') or '').upper().strip()
@@ -179,9 +175,7 @@ def start(room_code: str = None):
     return jsonify({'game_over': True})
 
 
-@song_bp.route('/<room_code>/finish_game', methods=['POST'])
-@song_bp.route('/finish_game', methods=['POST'])
-@login_required
+@song_bp.action('finish_game')
 def finish(room_code: str = None):
     user = get_current_user()
     code = (room_code or request.form.get('room_code') or '').upper().strip()
@@ -197,15 +191,7 @@ def finish(room_code: str = None):
     return jsonify({'game_over': True})
 
 
-@song_bp.route('/clock', methods=['GET'])
-def get_clock():
-    """Returns authoritative server timestamp for client audio playback synchronization."""
-    return jsonify({'server_time': time.time()})
-
-
-@song_bp.route('/<room_code>/player_ready', methods=['POST'])
-@song_bp.route('/player_ready', methods=['POST'])
-@login_required
+@song_bp.action('player_ready')
 def player_ready(room_code: str = None):
     user = get_current_user()
     code = (room_code or request.form.get('room_code') or '').upper().strip()
@@ -224,7 +210,6 @@ def player_ready(room_code: str = None):
         ready_players.append(player)
 
     active_players = state.get('players', [])
-    # Filter against player heartbeats (offline >45s won't block the round)
     storage = get_storage()
     heartbeats = storage.get_room_heartbeats(GAME_ID, code)
     now_ts = time.time()
@@ -244,9 +229,7 @@ def player_ready(room_code: str = None):
     return jsonify({'status': 'waiting'})
 
 
-@song_bp.route('/<room_code>/force_start', methods=['POST'])
-@song_bp.route('/force_start', methods=['POST'])
-@login_required
+@song_bp.action('force_start')
 def force_start(room_code: str = None):
     user = get_current_user()
     code = (room_code or request.form.get('room_code') or '').upper().strip()
@@ -266,17 +249,16 @@ def force_start(room_code: str = None):
     return jsonify({'success': True})
 
 
-@song_bp.route('/<room_code>/submit_guess', methods=['POST'])
-@song_bp.route('/submit_guess', methods=['POST'])
-@login_required
+@song_bp.action('submit_guess')
 def submit_guess(room_code: str = None):
     user = get_current_user()
     code = (room_code or request.form.get('room_code') or '').upper().strip()
     player = user['username']
-    guess_id = request.form.get('guess_id')
+    guess_id = request.form.get('guess_id') or (request.get_json(silent=True) or {}).get('guess_id')
 
     try:
-        client_elapsed = float(request.form.get('elapsed', 0.0))
+        raw_elapsed = request.form.get('elapsed') or (request.get_json(silent=True) or {}).get('elapsed') or 0.0
+        client_elapsed = float(raw_elapsed)
     except (ValueError, TypeError):
         client_elapsed = 0.0
 
@@ -284,7 +266,6 @@ def submit_guess(room_code: str = None):
     if not state or not guess_id:
         return jsonify({'result': 'error'})
 
-    # Server-authoritative elapsed calculation based on scheduled round.start_time
     now = time.time()
     round_start = state.get('round', {}).get('start_time')
     if round_start:
@@ -304,9 +285,7 @@ def submit_guess(room_code: str = None):
     return jsonify({'result': result_status, 'scores': state.get('scores')})
 
 
-@song_bp.route('/<room_code>/end_round', methods=['POST'])
-@song_bp.route('/end_round', methods=['POST'])
-@login_required
+@song_bp.action('end_round')
 def end_round(room_code: str = None):
     user = get_current_user()
     code = (room_code or request.form.get('room_code') or '').upper().strip()
@@ -334,9 +313,7 @@ def end_round(room_code: str = None):
     return jsonify({'success': True})
 
 
-@song_bp.route('/<room_code>/update_settings', methods=['POST'])
-@song_bp.route('/update_settings', methods=['POST'])
-@login_required
+@song_bp.action('update_settings')
 def update_settings(room_code: str = None):
     user = get_current_user()
     if not user:
@@ -376,9 +353,7 @@ def update_settings(room_code: str = None):
     return jsonify({'success': True, 'settings': state.get('settings'), 'pusher': pusher_status})
 
 
-@song_bp.route('/<room_code>/reset_game', methods=['POST'])
-@song_bp.route('/reset_game', methods=['POST'])
-@login_required
+@song_bp.action('reset_game')
 def reset_game(room_code: str = None):
     user = get_current_user()
     code = (room_code or request.form.get('room_code') or '').upper().strip()
@@ -406,33 +381,3 @@ def reset_game(room_code: str = None):
     except Exception:
         pass
     return jsonify({'success': True})
-
-
-@song_bp.route('/<room_code>/heartbeat', methods=['POST'])
-@song_bp.route('/heartbeat', methods=['POST'])
-@login_required
-def heartbeat(room_code: str = None):
-    user = get_current_user()
-    data = request.get_json(silent=True) or {}
-    code = (room_code or request.form.get('room_code') or data.get('room_code') or '').upper().strip()
-    status = request.form.get('status') or data.get('status')
-    force_offline = (status == 'leaving')
-
-    if not code:
-        return jsonify({'offline': []})
-
-    state = get_room_state(GAME_ID, code)
-    if not state:
-        return jsonify({'offline': [], 'room_closed': True})
-
-    get_storage().touch_lobby(GAME_ID, code)
-
-    state, offline, kicked = song_logic.handle_heartbeat(
-        state, code, user['username'], force_offline=force_offline
-    )
-
-    if kicked:
-        trigger_update(code, state)
-
-    safe_state = song_logic.get_client_safe_state(state)
-    return jsonify({'offline': offline, 'state': safe_state})

@@ -1,112 +1,50 @@
-"""Geo Bingo route handlers supporting multi-room lobbies and real-time state sync."""
+"""Geo Bingo route handlers powered by GameHub Multiplayer Blueprint."""
+import datetime
 import logging
-import time
-from flask import Blueprint, jsonify, render_template, request
+from flask import jsonify, request
 from config import get_pusher_client
 from storage import get_storage
 from apps.auth.decorators import login_required, get_current_user
 from engine.rooms import (
-    create_room,
-    join_room,
-    leave_room,
-    list_rooms,
     get_room_state,
-    update_room_state,
     validate_room_capacity,
     validate_game_start,
 )
 from engine.delta import broadcast_tracker
-from engine.multiplayer import register_standard_room_routes
+from engine.multiplayer import create_multiplayer_blueprint
+from engine.stats import record_match_outcome
 from . import logic as geobingo_logic
 from . import items as geobingo_items
 from . import geo_countries as geobingo_geo
 
 logger = logging.getLogger(__name__)
-geobingo_bp = Blueprint('geobingo_bp', __name__)
 GAME_ID = 'geo_bingo'
-register_standard_room_routes(geobingo_bp, GAME_ID, initial_state_factory=geobingo_logic.get_initial_state)
 
 
-
-from engine.broadcasting import broadcast_state_update
-from engine.stats import record_match_outcome
-
-
-def trigger_update(room_code: str, state: dict, force_full: bool = False):
-    """Broadcasts sanitized state via non-blocking Pusher dispatch and saves to storage."""
-    code = room_code.upper().strip()
-    state = geobingo_logic.validate_game_integrity(state)
-    payload = geobingo_logic.get_client_safe_state(state)
-
-    broadcast_state_update(
-        game_id=GAME_ID,
-        room_code=code,
-        state=state,
-        safe_state=payload,
-        event_name='state-update',
-        force_full=force_full
-    )
-
-
-def record_game_results_if_ended(state: dict):
-    """Saves win/loss statistics in storage when game reaches finished status in a single transaction."""
-    if state.get('status') != 'finished':
-        return
-    if state.get('stats_recorded'):
-        return
-    state['stats_recorded'] = True
-
-    scores = state.get('scores', {})
-    winner = state.get('winner')
-    winners = [winner] if winner else []
-    losers = [p for p in scores.keys() if p != winner]
-
-    record_match_outcome(game_id=GAME_ID, winners=winners, losers=losers, scores=scores)
-
-
-# --- PORTAL & ROOM MANAGEMENT ---
-
-@geobingo_bp.route('/')
-@login_required
-def index():
-    user = get_current_user()
-    username = user['username'] if user else ''
+def get_template_context():
+    """Provides items and available countries to the template."""
     global_items = geobingo_items.get_global_items()
     available_countries = geobingo_geo.get_all_countries_for_ui()
-    return render_template(
-        'geo_bingo.html',
-        existing_name=username,
-        global_items=global_items,
-        available_countries=available_countries
-    )
+    return {
+        'global_items': global_items,
+        'available_countries': available_countries
+    }
 
 
-@geobingo_bp.route('/join_game', methods=['POST'])
-@geobingo_bp.route('/<room_code>/join', methods=['POST'])
-@login_required
-def join_game(room_code: str = None):
-    user = get_current_user()
-    if not user:
-        return jsonify({'error': 'Nicht angemeldet'}), 401
+def handle_geobingo_join(room_code: str, user: dict, data: dict):
+    """Custom join handler with max player capacity and spectator assignment."""
+    state = get_room_state(GAME_ID, room_code)
+    if not state:
+        return jsonify({'error': f"Raum '{room_code}' nicht gefunden"}), 404
 
     name = user['username']
-    code = (room_code or request.form.get('room_code') or '').upper().strip()
-    if not code:
-        return jsonify({'error': 'Kein Raumcode angegeben'}), 400
-
-    state = get_room_state(GAME_ID, code)
-    if not state:
-        return jsonify({'error': f"Raum '{code}' nicht gefunden"}), 404
-
     players = state.setdefault('players', [])
     if name not in players:
         if state.get('status') in ('playing', 'judging', 'finished'):
-            # Spectator
             state.setdefault('spectators', []).append(name)
         else:
             cap_error = validate_room_capacity(GAME_ID, len(players))
             if cap_error:
-                # Capacity reached for match participants, extra can spectate
                 state.setdefault('spectators', []).append(name)
             else:
                 players.append(name)
@@ -114,25 +52,12 @@ def join_game(room_code: str = None):
     if not state.get('host') or state['host'] not in players:
         state['host'] = name
 
-    trigger_update(code, state)
+    trigger_update(room_code, state)
     return jsonify(geobingo_logic.get_client_safe_state(state, for_player=name))
 
 
-@geobingo_bp.route('/<room_code>/leave_game', methods=['POST'])
-@geobingo_bp.route('/leave_game', methods=['POST'])
-@login_required
-def leave(room_code: str = None):
-    user = get_current_user()
-    name = user['username'] if user else None
-    code = (room_code or request.form.get('room_code') or '').upper().strip()
-
-    if not code or not name:
-        return jsonify({'success': True})
-
-    state = leave_room(GAME_ID, code, name)
-    if not state:
-        return jsonify({'success': True})
-
+def handle_geobingo_leave(room_code: str, state: dict, username: str):
+    """Cleans up player from active judgement phase if game is in progress."""
     if state.get('status') == 'judging':
         rem_players = state.get('players', [])
         if not rem_players:
@@ -156,13 +81,134 @@ def leave(room_code: str = None):
                     state.setdefault('approved_results', {})[review_key] = False
                     geobingo_logic.advance_judgement_step(state)
 
-    trigger_update(code, state)
-    return jsonify({'success': True})
+
+def handle_geobingo_heartbeat(room_code: str, user: dict, data: dict):
+    """Handles geo bingo player heartbeats, timer expirations, and presence."""
+    status = data.get('status') or request.form.get('status')
+    force_offline = (status == 'leaving')
+
+    state = get_room_state(GAME_ID, room_code)
+    if not state:
+        return jsonify({'status': 'room_closed', 'room_closed': True})
+
+    get_storage().touch_lobby(GAME_ID, room_code)
+
+    state, offline_players, kicked_players = geobingo_logic.handle_heartbeat(
+        state, room_code, user['username'], force_offline=force_offline
+    )
+
+    if kicked_players or geobingo_logic.check_timer_expiration(state):
+        trigger_update(room_code, state)
+
+    safe_state = geobingo_logic.get_client_safe_state(state, for_player=user['username'])
+    return jsonify({
+        'status': 'ok',
+        'offline': offline_players,
+        'kicked': kicked_players,
+        'state': safe_state
+    })
 
 
-@geobingo_bp.route('/<room_code>/update_settings', methods=['POST'])
-@geobingo_bp.route('/update_settings', methods=['POST'])
+# Instantiate reusable multiplayer blueprint
+geobingo_bp = create_multiplayer_blueprint(
+    game_id=GAME_ID,
+    bp_name='geobingo_bp',
+    url_prefix='/geo-bingo',
+    template='geo_bingo.html',
+    initial_state_factory=geobingo_logic.get_initial_state,
+    sanitize_state_func=geobingo_logic.get_client_safe_state,
+    max_players=4,
+    allow_spectator=True,
+    template_context=get_template_context,
+    on_join=handle_geobingo_join,
+    on_leave=handle_geobingo_leave,
+    on_heartbeat=handle_geobingo_heartbeat,
+)
+
+
+def trigger_update(room_code: str, state: dict, force_full: bool = False):
+    """Broadcasts sanitized state via non-blocking Pusher dispatch and saves to storage."""
+    code = room_code.upper().strip()
+    state = geobingo_logic.validate_game_integrity(state)
+    payload = geobingo_logic.get_client_safe_state(state)
+
+    geobingo_bp.trigger_update(
+        room_code=code,
+        state=state,
+        event_name='state-update',
+        force_full=force_full,
+        custom_payload=payload
+    )
+
+
+def record_game_results_if_ended(state: dict):
+    """Saves win/loss statistics in storage when game reaches finished status in a single transaction."""
+    if state.get('status') != 'finished':
+        return
+    if state.get('stats_recorded'):
+        return
+    state['stats_recorded'] = True
+
+    scores = state.get('scores', {})
+    winner = state.get('winner')
+    winners = [winner] if winner else []
+    losers = [p for p in scores.keys() if p != winner]
+
+    record_match_outcome(game_id=GAME_ID, winners=winners, losers=losers, scores=scores)
+
+
+# --- ADDITIONAL NON-ACTION ENDPOINTS ---
+
+@geobingo_bp.route('/<room_code>/check_location', methods=['POST'])
+@geobingo_bp.route('/check_location', methods=['POST'])
 @login_required
+def check_location(room_code: str = None):
+    data = request.get_json(silent=True) or request.form.to_dict()
+    code = (room_code or data.get('room_code') or '').upper().strip()
+    try:
+        lat = float(data.get('lat', 0.0))
+        lng = float(data.get('lng', 0.0))
+    except (ValueError, TypeError):
+        return jsonify({'error': 'Ungültige Koordinaten'}), 400
+
+    state = get_room_state(GAME_ID, code) if code else None
+    blocked_codes = state.get('settings', {}).get('blocked_countries', []) if state else []
+
+    is_blocked, country = geobingo_geo.is_location_blocked(lat, lng, blocked_codes)
+    return jsonify({
+        'blocked': is_blocked,
+        'country': country
+    })
+
+
+@geobingo_bp.route('/<room_code>/country_polygons', methods=['GET', 'POST'])
+@geobingo_bp.route('/country_polygons', methods=['GET', 'POST'])
+@login_required
+def country_polygons(room_code: str = None):
+    codes_param = request.args.get('codes')
+    if not codes_param and request.is_json:
+        codes_param = (request.get_json(silent=True) or {}).get('codes')
+
+    if isinstance(codes_param, str):
+        codes = [c.strip().upper() for c in codes_param.split(',') if c.strip()]
+    elif isinstance(codes_param, list):
+        codes = [str(c).strip().upper() for c in codes_param if str(c).strip()]
+    else:
+        codes = []
+
+    code = (room_code or '').upper().strip()
+    if code and not codes:
+        state = get_room_state(GAME_ID, code)
+        if state:
+            codes = state.get('settings', {}).get('blocked_countries', [])
+
+    polys = geobingo_geo.get_polygons_for_countries(codes)
+    return jsonify({'success': True, 'countries': polys})
+
+
+# --- ACTIONS ---
+
+@geobingo_bp.action('update_settings')
 def update_settings(room_code: str = None):
     user = get_current_user()
     data = request.get_json(silent=True) or request.form.to_dict()
@@ -217,56 +263,7 @@ def update_settings(room_code: str = None):
     return jsonify({'success': True, 'settings': settings})
 
 
-@geobingo_bp.route('/<room_code>/check_location', methods=['POST'])
-@geobingo_bp.route('/check_location', methods=['POST'])
-@login_required
-def check_location(room_code: str = None):
-    data = request.get_json(silent=True) or request.form.to_dict()
-    code = (room_code or data.get('room_code') or '').upper().strip()
-    try:
-        lat = float(data.get('lat', 0.0))
-        lng = float(data.get('lng', 0.0))
-    except (ValueError, TypeError):
-        return jsonify({'error': 'Ungültige Koordinaten'}), 400
-
-    state = get_room_state(GAME_ID, code) if code else None
-    blocked_codes = state.get('settings', {}).get('blocked_countries', []) if state else []
-
-    is_blocked, country = geobingo_geo.is_location_blocked(lat, lng, blocked_codes)
-    return jsonify({
-        'blocked': is_blocked,
-        'country': country
-    })
-
-
-@geobingo_bp.route('/<room_code>/country_polygons', methods=['GET', 'POST'])
-@geobingo_bp.route('/country_polygons', methods=['GET', 'POST'])
-@login_required
-def country_polygons(room_code: str = None):
-    codes_param = request.args.get('codes')
-    if not codes_param and request.is_json:
-        codes_param = (request.get_json(silent=True) or {}).get('codes')
-
-    if isinstance(codes_param, str):
-        codes = [c.strip().upper() for c in codes_param.split(',') if c.strip()]
-    elif isinstance(codes_param, list):
-        codes = [str(c).strip().upper() for c in codes_param if str(c).strip()]
-    else:
-        codes = []
-
-    code = (room_code or '').upper().strip()
-    if code and not codes:
-        state = get_room_state(GAME_ID, code)
-        if state:
-            codes = state.get('settings', {}).get('blocked_countries', [])
-
-    polys = geobingo_geo.get_polygons_for_countries(codes)
-    return jsonify({'success': True, 'countries': polys})
-
-
-@geobingo_bp.route('/<room_code>/sync_custom_words', methods=['POST'])
-@geobingo_bp.route('/sync_custom_words', methods=['POST'])
-@login_required
+@geobingo_bp.action('sync_custom_words')
 def sync_custom_words(room_code: str = None):
     user = get_current_user()
     data = request.get_json(silent=True) or request.form.to_dict()
@@ -290,9 +287,7 @@ def sync_custom_words(room_code: str = None):
     return jsonify({'success': True, 'player_custom_items': player_custom})
 
 
-@geobingo_bp.route('/<room_code>/start_game', methods=['POST'])
-@geobingo_bp.route('/start_game', methods=['POST'])
-@login_required
+@geobingo_bp.action('start_game')
 def start(room_code: str = None):
     user = get_current_user()
     data = request.get_json(silent=True) or request.form.to_dict()
@@ -314,9 +309,7 @@ def start(room_code: str = None):
     return jsonify({'success': True})
 
 
-@geobingo_bp.route('/<room_code>/save_proof', methods=['POST'])
-@geobingo_bp.route('/save_proof', methods=['POST'])
-@login_required
+@geobingo_bp.action('save_proof')
 def save_proof(room_code: str = None):
     user = get_current_user()
     data = request.get_json(silent=True) or request.form.to_dict()
@@ -355,10 +348,7 @@ def save_proof(room_code: str = None):
     })
 
 
-
-@geobingo_bp.route('/<room_code>/submit_judgement', methods=['POST'])
-@geobingo_bp.route('/submit_judgement', methods=['POST'])
-@login_required
+@geobingo_bp.action('submit_judgement')
 def submit_judgement(room_code: str = None):
     user = get_current_user()
     data = request.get_json(silent=True) or request.form.to_dict()
@@ -392,9 +382,7 @@ def submit_judgement(room_code: str = None):
     return jsonify({'success': True})
 
 
-@geobingo_bp.route('/<room_code>/send_chat', methods=['POST'])
-@geobingo_bp.route('/send_chat', methods=['POST'])
-@login_required
+@geobingo_bp.action('send_chat')
 def send_chat(room_code: str = None):
     user = get_current_user()
     data = request.get_json(silent=True) or request.form.to_dict()
@@ -408,7 +396,6 @@ def send_chat(room_code: str = None):
     if not state:
         return jsonify({'error': 'Raum nicht gefunden'}), 404
 
-    import datetime
     now_str = datetime.datetime.now().strftime("%H:%M")
     msg_obj = {
         "sender": user['username'],
@@ -430,9 +417,7 @@ def send_chat(room_code: str = None):
     return jsonify({'success': True, 'message': msg_obj})
 
 
-@geobingo_bp.route('/<room_code>/reset_game', methods=['POST'])
-@geobingo_bp.route('/reset_game', methods=['POST'])
-@login_required
+@geobingo_bp.action('reset_game')
 def reset_game(room_code: str = None):
     user = get_current_user()
     data = request.get_json(silent=True) or request.form.to_dict()
@@ -468,44 +453,7 @@ def reset_game(room_code: str = None):
     return jsonify({'success': True, 'state': new_state})
 
 
-@geobingo_bp.route('/<room_code>/heartbeat', methods=['POST'])
-@geobingo_bp.route('/heartbeat', methods=['POST'])
-@login_required
-def heartbeat(room_code: str = None):
-    user = get_current_user()
-    data = request.get_json(silent=True) or request.form.to_dict()
-    code = (room_code or data.get('room_code') or '').upper().strip()
-    status = data.get('status')
-    force_offline = (status == 'leaving')
-
-    if not code:
-        return jsonify({'status': 'ok'})
-
-    state = get_room_state(GAME_ID, code)
-    if not state:
-        return jsonify({'status': 'room_closed', 'room_closed': True})
-
-    get_storage().touch_lobby(GAME_ID, code)
-
-    state, offline_players, kicked_players = geobingo_logic.handle_heartbeat(
-        state, code, user['username'], force_offline=force_offline
-    )
-
-    if kicked_players or geobingo_logic.check_timer_expiration(state):
-        trigger_update(code, state)
-
-    safe_state = geobingo_logic.get_client_safe_state(state, for_player=user['username'])
-    return jsonify({
-        'status': 'ok',
-        'offline': offline_players,
-        'kicked': kicked_players,
-        'state': safe_state
-    })
-
-
-@geobingo_bp.route('/<room_code>/check_timer', methods=['POST'])
-@geobingo_bp.route('/check_timer', methods=['POST'])
-@login_required
+@geobingo_bp.action('check_timer')
 def check_timer(room_code: str = None):
     data = request.get_json(silent=True) or request.form.to_dict()
     code = (room_code or data.get('room_code') or '').upper().strip()

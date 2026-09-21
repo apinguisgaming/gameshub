@@ -775,6 +775,26 @@ class GameHubPlatformTests(unittest.TestCase):
         lobbies = res_list.get_json()['lobbies']
         self.assertTrue(any(l['room_code'] == room_code for l in lobbies))
 
+        # Register an action on mp_bp
+        @mp_bp.action('make_move')
+        def handle_move(room_code, user, state, data):
+            cell = data.get('cell', 0)
+            state['board'][cell] = 1
+            mp_bp.trigger_update(room_code, state)
+            return {'success': True, 'board': state['board']}
+
+        # Test POST /<room_code>/action action dispatch
+        res_act = client.post(f'/tictactoe/{room_code}/action', json={'action': 'make_move', 'cell': 4})
+        self.assertEqual(res_act.status_code, 200)
+        self.assertTrue(res_act.get_json()['success'])
+        self.assertEqual(res_act.get_json()['board'][4], 1)
+
+        # Test POST /<room_code>/<action> direct action invocation
+        res_direct = client.post(f'/tictactoe/{room_code}/make_move', json={'cell': 0})
+        self.assertEqual(res_direct.status_code, 200)
+        self.assertTrue(res_direct.get_json()['success'])
+        self.assertEqual(res_direct.get_json()['board'][0], 1)
+
         # Leave room
         res_leave = client.post(f'/tictactoe/{room_code}/leave')
         self.assertEqual(res_leave.status_code, 200)
