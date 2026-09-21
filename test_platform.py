@@ -233,13 +233,18 @@ class GameHubPlatformTests(unittest.TestCase):
         print("[OK] 07: Song Guesser multi-room lifecycle verified")
 
     def test_08_imposter_static_words(self):
-        """Verify imposter static words file exists and is valid JSON."""
-        words_path = config.STATIC_DIR / 'impostor' / 'words.json'
-        self.assertTrue(words_path.exists(), "static/impostor/words.json does not exist")
+        """Verify imposter static words file exists in colocated package and is served via static route."""
+        words_path = config.GAMES_DIR / 'impostor' / 'static' / 'words.json'
+        self.assertTrue(words_path.exists(), f"Colocated words file does not exist at {words_path}")
         with open(words_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
             self.assertTrue(len(data) > 5, "Fewer than 5 word categories found")
-        print("[OK] 08: Impostor static words verified")
+
+        # Verify static file serving via HTTP
+        res = self.client.get('/static/impostor/words.json')
+        self.assertEqual(res.status_code, 200)
+        self.assertTrue(len(res.get_json()) > 5)
+        print("[OK] 08: Impostor colocated static words verified")
 
 
     def test_09_token_authentication_and_multi_tab_isolation(self):

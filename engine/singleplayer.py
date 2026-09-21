@@ -36,12 +36,11 @@ def _register_single_game(app: Flask, manifest: GameManifest) -> None:
     def view_func(target_manifest=manifest):
         tpl = target_manifest.template
         if tpl:
-            folder = app.template_folder
-            if not os.path.isabs(folder):
-                folder = os.path.join(app.root_path, folder)
-            tpl_path = os.path.join(folder, tpl)
-            if os.path.isfile(tpl_path):
+            try:
+                app.jinja_env.get_template(tpl)
                 return render_template(tpl, game=target_manifest)
+            except Exception:
+                pass
         return render_template('game_shell.html', game=target_manifest)
 
     # Apply login_required decorator

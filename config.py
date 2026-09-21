@@ -23,6 +23,7 @@ if _env_file.exists():
 DATA_DIR = Path(os.environ.get('DATA_DIR', BASE_DIR / 'data'))
 STATIC_DIR = BASE_DIR / 'static'
 TEMPLATES_DIR = BASE_DIR / 'templates'
+GAMES_DIR = BASE_DIR / 'games'
 
 # Ensure data directory exists
 DATA_DIR.mkdir(parents=True, exist_ok=True)

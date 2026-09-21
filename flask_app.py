@@ -1,7 +1,8 @@
 """Flask application entry point for GameHub platform."""
 import logging
 import os
-from flask import Flask, render_template, session, request, jsonify
+from flask import Flask, render_template, session, request, jsonify, send_from_directory
+from jinja2 import ChoiceLoader, FileSystemLoader
 from config import SECRET_KEY, PUSHER_KEY, PUSHER_CLUSTER, GOOGLE_MAPS_API_KEY, get_pusher_client
 from storage import get_storage
 from apps.auth.routes import auth_bp
@@ -13,9 +14,22 @@ from games import init_games_registry
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder=None)
 app.secret_key = SECRET_KEY
 app.json.sort_keys = False
+
+# Configure unified Jinja template search across root templates/ and all games/*/templates/
+games_dir = os.path.join(app.root_path, 'games')
+game_template_dirs = [
+    os.path.join(games_dir, g, 'templates')
+    for g in os.listdir(games_dir)
+    if os.path.isdir(os.path.join(games_dir, g, 'templates'))
+] if os.path.isdir(games_dir) else []
+
+app.jinja_loader = ChoiceLoader([
+    FileSystemLoader(os.path.join(app.root_path, 'templates')),
+    FileSystemLoader(game_template_dirs),
+])
 
 # Run session cleanup on startup
 with app.app_context():
@@ -26,6 +40,27 @@ with app.app_context():
             logger.info(f"Cleaned {cleaned} expired session tokens on startup")
     except Exception as e:
         logger.warning(f"Session cleanup skipped: {e}")
+
+# ==========================================
+#         STATIC FILE SERVING
+# ==========================================
+@app.route('/static/<path:filename>', endpoint='static')
+def serve_static(filename: str):
+    """Serves static files from root static/ or colocated games/<id>/static/ packages."""
+    static_root = os.path.join(app.root_path, 'static')
+    root_file = os.path.join(static_root, filename)
+    if os.path.isfile(root_file):
+        return send_from_directory(static_root, filename)
+
+    parts = filename.split('/', 1)
+    if len(parts) == 2:
+        game_id, rel_path = parts
+        game_static = os.path.join(app.root_path, 'games', game_id, 'static')
+        game_file = os.path.join(game_static, rel_path)
+        if os.path.isfile(game_file):
+            return send_from_directory(game_static, rel_path)
+
+    return send_from_directory(static_root, filename)
 
 # ==========================================
 #         CORE BLUEPRINT REGISTRATION
@@ -83,11 +118,11 @@ def authenticate_request():
 # ==========================================
 def card_template_exists(game_id: str) -> bool:
     """Checks if a handcrafted card template exists for the game."""
-    folder = app.template_folder
-    if not os.path.isabs(folder):
-        folder = os.path.join(app.root_path, folder)
-    cards_dir = os.path.join(folder, 'cards')
-    return os.path.isfile(os.path.join(cards_dir, f"{game_id}.html"))
+    cards_dir = os.path.join(app.root_path, 'templates', 'cards')
+    if os.path.isfile(os.path.join(cards_dir, f"{game_id}.html")):
+        return True
+    game_card = os.path.join(app.root_path, 'games', game_id, 'templates', 'card.html')
+    return os.path.isfile(game_card)
 
 @app.context_processor
 def inject_global_context():
