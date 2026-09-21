@@ -72,6 +72,7 @@ class MultiplayerBlueprint(Blueprint):
         initial_state_factory: Optional[Callable[[], Dict[str, Any]]] = None,
         sanitize_state_func: Optional[Callable[[Dict[str, Any]], Dict[str, Any]]] = None,
         max_players: int = 10,
+        min_players: Optional[int] = None,
         allow_spectator: bool = True,
         template_context: Optional[Callable[[], Dict[str, Any]]] = None,
         custom_create_room_fn: Optional[Callable[[], Any]] = None,
@@ -89,6 +90,7 @@ class MultiplayerBlueprint(Blueprint):
         self.initial_state_factory = initial_state_factory or (lambda: {"status": "lobby", "phase": "lobby"})
         self.sanitize_state_func = sanitize_state_func or (lambda s: s)
         self.max_players = max_players
+        self.min_players = min_players
         self.allow_spectator = allow_spectator
         self.template_context = template_context
         self.custom_create_room_fn = custom_create_room_fn
@@ -362,6 +364,7 @@ def create_multiplayer_blueprint(
     initial_state_factory: Optional[Callable[[], Dict[str, Any]]] = None,
     sanitize_state_func: Optional[Callable[[Dict[str, Any]], Dict[str, Any]]] = None,
     max_players: int = 10,
+    min_players: Optional[int] = None,
     allow_spectator: bool = True,
     template_context: Optional[Callable[[], Dict[str, Any]]] = None,
     custom_create_room_fn: Optional[Callable[[], Any]] = None,
@@ -380,6 +383,7 @@ def create_multiplayer_blueprint(
         initial_state_factory=initial_state_factory,
         sanitize_state_func=sanitize_state_func,
         max_players=max_players,
+        min_players=min_players,
         allow_spectator=allow_spectator,
         template_context=template_context,
         custom_create_room_fn=custom_create_room_fn,
