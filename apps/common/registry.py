@@ -47,6 +47,7 @@ def get_game(game_id: str) -> Optional[GameManifest]:
     return _REGISTRY.get(game_id)
 
 
+
 def get_game_by_path(path: str) -> Optional[GameManifest]:
     """Resolves active GameManifest from current request URL path."""
     if not path:

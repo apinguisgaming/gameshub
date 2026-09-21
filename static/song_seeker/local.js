@@ -65,7 +65,7 @@ function loadState() {
 
     if (!_songseekerCloudChecked) {
         _songseekerCloudChecked = true;
-        fetch('/api/save/songseeker', {
+        fetch('/api/save/song_seeker', {
             headers: token ? {'X-Auth-Token': token} : {}
         }).then(r => r.json()).then(cloud => {
             if (cloud && cloud.state && Object.keys(cloud.state).length > 0) {
@@ -131,7 +131,7 @@ function saveState() {
     localStorage.setItem(key, JSON.stringify(gameState));
     const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
     try {
-        fetch('/api/save/songseeker', {
+        fetch('/api/save/song_seeker', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -263,7 +263,7 @@ function resetGame() {
         
         const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
         try {
-            fetch('/api/save/songseeker', {
+            fetch('/api/save/song_seeker', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

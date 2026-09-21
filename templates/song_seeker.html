@@ -10,14 +10,14 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
 
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='songseeker/icon-180x180.png') }}">
-  <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='songseeker/icon-192x192.png') }}">
-  <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='songseeker/icon-96x96.png') }}">
-  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='songseeker/favicon.ico') }}">
-  <link rel="shortcut icon" sizes="192x192" href="{{ url_for('static', filename='songseeker/icon-192x192.png') }}">
-  <link rel="manifest" href="{{ url_for('static', filename='songseeker/manifest.json') }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='song_seeker/icon-180x180.png') }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ url_for('static', filename='song_seeker/icon-192x192.png') }}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='song_seeker/icon-96x96.png') }}">
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='song_seeker/favicon.ico') }}">
+  <link rel="shortcut icon" sizes="192x192" href="{{ url_for('static', filename='song_seeker/icon-192x192.png') }}">
+  <link rel="manifest" href="{{ url_for('static', filename='song_seeker/manifest.json') }}">
 
-  <link rel="stylesheet" href="{{ url_for('static', filename='songseeker/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='song_seeker/style.css') }}">
 
   <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
   <script>eruda.init();</script>
@@ -224,6 +224,6 @@
 {% endblock %}
 
 {% block scripts %}
-  <script type="module" src="{{ url_for('static', filename='songseeker/app.js') }}"></script>
-  <script type="module" src="{{ url_for('static', filename='songseeker/local.js') }}?v=2059"></script>
+  <script type="module" src="{{ url_for('static', filename='song_seeker/app.js') }}"></script>
+  <script type="module" src="{{ url_for('static', filename='song_seeker/local.js') }}?v=2059"></script>
 {% endblock %}

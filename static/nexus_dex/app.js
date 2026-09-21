@@ -1072,7 +1072,7 @@ let activeGameTab = 'encounters', walkthroughCache = {}, tabScrollY = { encounte
 
     function getNexusSaveKey() {
         const uname = (window.GAMEHUB_USER && window.GAMEHUB_USER.username) ? window.GAMEHUB_USER.username : 'guest';
-        return 'nexusDexSave_' + uname;
+        return 'nexus_dex_save_' + uname;
     }
 
     function saveData() {
@@ -1081,7 +1081,7 @@ let activeGameTab = 'encounters', walkthroughCache = {}, tabScrollY = { encounte
         localStorage.setItem(key, JSON.stringify(data));
         const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
         try {
-            fetch('/api/save/nexusdex', {
+            fetch('/api/save/nexus_dex', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1109,7 +1109,7 @@ let activeGameTab = 'encounters', walkthroughCache = {}, tabScrollY = { encounte
 
             if (!_nexusCloudChecked) {
                 _nexusCloudChecked = true;
-                fetch('/api/save/nexusdex', {
+                fetch('/api/save/nexus_dex', {
                     headers: token ? {'X-Auth-Token': token} : {}
                 }).then(r => r.json()).then(cloud => {
                     if (cloud && cloud.state && Object.keys(cloud.state).length > 0) {

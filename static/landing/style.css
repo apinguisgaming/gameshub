@@ -197,30 +197,31 @@ h1 span {
 }
 
 /* Specific Game Theme Colors */
-.card-imposter { background: var(--c-yellow); }
-.card-imposter:hover { background: #ffe033; }
-.card-imposter h2 { color: var(--c-red); }
+.card-impostor { background: var(--c-yellow); }
+.card-impostor:hover { background: #ffe033; }
+.card-impostor h2 { color: var(--c-red); }
 
-.card-survivors { border-left: 10px solid var(--c-blue); }
+.card-gothic-survivors { border-left: 10px solid var(--c-blue); }
 
-.card-secret { background: var(--c-black); color: var(--c-white); }
-.card-secret h2 { color: var(--c-white); }
-.card-secret p { color: #aaa; }
+.card-secret-hitler { background: var(--c-black); color: var(--c-white); }
+.card-secret-hitler h2 { color: var(--c-white); }
+.card-secret-hitler p { color: #aaa; }
 
-.card-song {
+.card-song-guesser {
     background: #05173e;
     color: var(--c-white);
     border-color: #969aa0;
 }
-.card-song:hover { box-shadow: 12px 12px 0px #294581; }
-.card-song .card-tag { background: var(--c-light-blue); color: var(--c-dark-blue); }
-.card-song h2 { color: var(--c-cyan); }
-.card-song p { color: var(--c-light-blue); }
-.card-song .card-arrow { color: var(--c-cyan); }
+.card-song-guesser:hover { box-shadow: 12px 12px 0px #294581; }
+.card-song-guesser .card-tag { background: var(--c-light-blue); color: var(--c-dark-blue); }
+.card-song-guesser h2 { color: var(--c-cyan); }
+.card-song-guesser p { color: var(--c-light-blue); }
+.card-song-guesser .card-arrow { color: var(--c-cyan); }
 
-.card-tower { border-left: 10px solid #f59e0b; }
-.card-songseeker { border-left: 10px solid #ff8fbd; }
-.card-nexusdex { border-left: 10px solid #8A2BE2; }
+.card-pokemon-tower { border-left: 10px solid #f59e0b; }
+.card-song-seeker { border-left: 10px solid #ff8fbd; }
+.card-nexus-dex { border-left: 10px solid #8A2BE2; }
+.card-geo-bingo { border-left: 10px solid #2d6a4f; }
 
 /* Modal Backdrop */
 .modal-backdrop {

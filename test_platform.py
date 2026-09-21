@@ -80,13 +80,14 @@ class GameHubPlatformTests(unittest.TestCase):
     def test_03_auth_gate_redirects(self):
         """Verify unauthenticated users get redirected to portal with ?login=1."""
         protected_routes = [
-            '/secret/',
-            '/song/',
-            '/imposter/',
-            '/tower/',
-            '/survivors/',
-            '/nexusdex/',
-            '/songseeker/'
+            '/secret-hitler/',
+            '/song-guesser/',
+            '/impostor/',
+            '/pokemon-tower/',
+            '/gothic-survivors/',
+            '/nexus-dex/',
+            '/song-seeker/',
+            '/geo-bingo/'
         ]
 
         # Use clean client without session
@@ -107,13 +108,14 @@ class GameHubPlatformTests(unittest.TestCase):
 
         routes = [
             '/',
-            '/secret/',
-            '/song/',
-            '/imposter/',
-            '/tower/',
-            '/survivors/',
-            '/nexusdex/',
-            '/songseeker/'
+            '/secret-hitler/',
+            '/song-guesser/',
+            '/impostor/',
+            '/pokemon-tower/',
+            '/gothic-survivors/',
+            '/nexus-dex/',
+            '/song-seeker/',
+            '/geo-bingo/'
         ]
 
         for r in routes:
@@ -129,12 +131,12 @@ class GameHubPlatformTests(unittest.TestCase):
 
         # Save Tower Defense state
         test_state = {'wave': 12, 'money': 850, 'lives': 15}
-        res = self.client.post('/api/save/tower', json={'state': test_state})
+        res = self.client.post('/api/save/pokemon_tower', json={'state': test_state})
         self.assertEqual(res.status_code, 200)
         self.assertTrue(res.get_json()['success'])
 
         # Load Tower Defense state
-        res = self.client.get('/api/save/tower')
+        res = self.client.get('/api/save/pokemon_tower')
         self.assertEqual(res.status_code, 200)
         data = res.get_json()
         self.assertTrue(data['success'])
@@ -150,13 +152,13 @@ class GameHubPlatformTests(unittest.TestCase):
         host_client.post('/api/auth/login', json={'username': 'SH_Host', 'password': 'pass'})
 
         # 1. Create Room
-        res = host_client.post('/secret/create_room')
+        res = host_client.post('/secret-hitler/create_room')
         self.assertEqual(res.status_code, 200)
         code = res.get_json()['room_code']
         self.assertTrue(len(code) >= 3)
 
         # 2. List Rooms
-        res = host_client.get('/secret/rooms')
+        res = host_client.get('/secret-hitler/rooms')
         self.assertEqual(res.status_code, 200)
         rooms = res.get_json()['rooms']
         found = any(r['room_code'] == code for r in rooms)
@@ -167,14 +169,14 @@ class GameHubPlatformTests(unittest.TestCase):
         p2_client.post('/api/auth/register', json={'username': 'SH_Player2', 'password': 'pass'})
         p2_client.post('/api/auth/login', json={'username': 'SH_Player2', 'password': 'pass'})
 
-        res = p2_client.post(f'/secret/{code}/join')
+        res = p2_client.post(f'/secret-hitler/{code}/join')
         self.assertEqual(res.status_code, 200)
         data = res.get_json()
         self.assertIn('SH_Player2', data['players'])
-        self.assertEqual(self.storage.find_player_room('secret', 'SH_Player2'), code)
+        self.assertEqual(self.storage.find_player_room('secret_hitler', 'SH_Player2'), code)
 
         # 4. Host attempts to start with only 2 players -> fails (min 5 required)
-        res_fail = host_client.post(f'/secret/{code}/start_game')
+        res_fail = host_client.post(f'/secret-hitler/{code}/start_game')
         self.assertEqual(res_fail.status_code, 400)
         self.assertIn('Mindestens 5 Spieler', res_fail.get_json()['error'])
 
@@ -183,15 +185,15 @@ class GameHubPlatformTests(unittest.TestCase):
             c = self.app.test_client()
             c.post('/api/auth/register', json={'username': f'SH_Player{i}', 'password': 'pass'})
             c.post('/api/auth/login', json={'username': f'SH_Player{i}', 'password': 'pass'})
-            res_j = c.post(f'/secret/{code}/join')
+            res_j = c.post(f'/secret-hitler/{code}/join')
             self.assertEqual(res_j.status_code, 200)
 
         # 5. Host starts game now with 5 players
-        res = host_client.post(f'/secret/{code}/start_game')
+        res = host_client.post(f'/secret-hitler/{code}/start_game')
         self.assertEqual(res.status_code, 200)
 
         # 6. Leave room
-        res = p2_client.post(f'/secret/{code}/leave_game')
+        res = p2_client.post(f'/secret-hitler/{code}/leave_game')
         self.assertEqual(res.status_code, 200)
 
         print("[OK] 06: Secret Hitler multi-room lifecycle verified")
@@ -203,7 +205,7 @@ class GameHubPlatformTests(unittest.TestCase):
         host_client.post('/api/auth/login', json={'username': 'SG_Host', 'password': 'pass'})
 
         # 1. Create Room
-        res = host_client.post('/song/create_room')
+        res = host_client.post('/song-guesser/create_room')
         self.assertEqual(res.status_code, 200)
         code = res.get_json()['room_code']
 
@@ -212,28 +214,28 @@ class GameHubPlatformTests(unittest.TestCase):
         p2_client.post('/api/auth/register', json={'username': 'SG_Player2', 'password': 'pass'})
         p2_client.post('/api/auth/login', json={'username': 'SG_Player2', 'password': 'pass'})
 
-        res = p2_client.post(f'/song/{code}/join')
+        res = p2_client.post(f'/song-guesser/{code}/join')
         self.assertEqual(res.status_code, 200)
         data = res.get_json()
         self.assertIn('SG_Player2', data['players'])
 
         # 3. Host updates settings (including Plattenkiste accordion toggle)
-        res = host_client.post(f'/song/{code}/update_settings', data={'key': 'time_per_song', 'value': '15'})
+        res = host_client.post(f'/song-guesser/{code}/update_settings', data={'key': 'time_per_song', 'value': '15'})
         self.assertEqual(res.status_code, 200)
-        res_pl = host_client.post(f'/song/{code}/update_settings', data={'key': 'playlists_open', 'value': 'true'})
+        res_pl = host_client.post(f'/song-guesser/{code}/update_settings', data={'key': 'playlists_open', 'value': 'true'})
         self.assertEqual(res_pl.status_code, 200)
         self.assertTrue(res_pl.get_json()['settings']['playlists_open'])
 
         # 4. Leave
-        res = p2_client.post(f'/song/{code}/leave_game')
+        res = p2_client.post(f'/song-guesser/{code}/leave_game')
         self.assertEqual(res.status_code, 200)
 
         print("[OK] 07: Song Guesser multi-room lifecycle verified")
 
     def test_08_imposter_static_words(self):
         """Verify imposter static words file exists and is valid JSON."""
-        words_path = config.STATIC_DIR / 'imposter' / 'words.json'
-        self.assertTrue(words_path.exists(), "static/imposter/words.json does not exist")
+        words_path = config.STATIC_DIR / 'impostor' / 'words.json'
+        self.assertTrue(words_path.exists(), "static/impostor/words.json does not exist")
         with open(words_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
             self.assertTrue(len(data) > 5, "Fewer than 5 word categories found")
@@ -272,11 +274,11 @@ class GameHubPlatformTests(unittest.TestCase):
         self.assertEqual(res_me_b.get_json()['user']['username'], 'TabUserBeta')
 
         # Test query parameter token (?token=...)
-        res_param = clean_tab_a.get(f'/tower/?token={token_a}')
+        res_param = clean_tab_a.get(f'/pokemon-tower/?token={token_a}')
         self.assertEqual(res_param.status_code, 200)
         self.assertIn(b'TabUserAlpha', res_param.data)
 
-        res_param_b = clean_tab_b.get(f'/tower/?token={token_b}')
+        res_param_b = clean_tab_b.get(f'/pokemon-tower/?token={token_b}')
         self.assertEqual(res_param_b.status_code, 200)
         self.assertIn(b'TabUserBeta', res_param_b.data)
 
@@ -291,34 +293,34 @@ class GameHubPlatformTests(unittest.TestCase):
 
         # Ensure Beta starts with empty save
         beta_client = self.app.test_client()
-        beta_client.post('/api/save/tower', headers={'X-Auth-Token': token_b}, json={'state': None})
+        beta_client.post('/api/save/pokemon_tower', headers={'X-Auth-Token': token_b}, json={'state': None})
 
         # Alpha saves Pokémon Tower progress (Wave 50)
         alpha_client = self.app.test_client()
-        res = alpha_client.post('/api/save/tower',
+        res = alpha_client.post('/api/save/pokemon_tower',
             headers={'X-Auth-Token': token_a},
             json={'state': {'wave': 50, 'pokes': ['Pikachu', 'Charizard']}}
         )
         self.assertEqual(res.status_code, 200)
 
         # Beta has NOT saved yet -> check Beta's cloud save is empty
-        res_beta_empty = beta_client.get('/api/save/tower', headers={'X-Auth-Token': token_b})
+        res_beta_empty = beta_client.get('/api/save/pokemon_tower', headers={'X-Auth-Token': token_b})
         self.assertEqual(res_beta_empty.status_code, 200)
         self.assertIsNone(res_beta_empty.get_json()['state'])
 
         # Beta saves Pokémon Tower progress (Wave 1)
-        res = beta_client.post('/api/save/tower',
+        res = beta_client.post('/api/save/pokemon_tower',
             headers={'X-Auth-Token': token_b},
             json={'state': {'wave': 1, 'pokes': ['Bulbasaur']}}
         )
         self.assertEqual(res.status_code, 200)
 
         # Alpha still has Wave 50
-        res_alpha = alpha_client.get('/api/save/tower', headers={'X-Auth-Token': token_a})
+        res_alpha = alpha_client.get('/api/save/pokemon_tower', headers={'X-Auth-Token': token_a})
         self.assertEqual(res_alpha.get_json()['state']['wave'], 50)
 
         # Beta still has Wave 1
-        res_beta = beta_client.get('/api/save/tower', headers={'X-Auth-Token': token_b})
+        res_beta = beta_client.get('/api/save/pokemon_tower', headers={'X-Auth-Token': token_b})
         self.assertEqual(res_beta.get_json()['state']['wave'], 1)
 
         print("[OK] 10: User-scoped cloud save isolation verified")
@@ -336,32 +338,32 @@ class GameHubPlatformTests(unittest.TestCase):
         p2_token = p2_login.get_json()['token']
 
         # Create room
-        res_create = host_client.post('/secret/create_room', headers={'X-Auth-Token': host_token})
+        res_create = host_client.post('/secret-hitler/create_room', headers={'X-Auth-Token': host_token})
         room_code = res_create.get_json()['room_code']
 
         # Join room
-        p2_client.post(f'/secret/{room_code}/join', headers={'X-Auth-Token': p2_token})
+        p2_client.post(f'/secret-hitler/{room_code}/join', headers={'X-Auth-Token': p2_token})
 
         # Players 3, 4, 5 join to satisfy 5 player minimum
         for i in [3, 4, 5]:
             c = self.app.test_client()
             c.post('/api/auth/register', json={'username': f'RolePlayer{i}', 'password': 'pass'})
             res_l = c.post('/api/auth/login', json={'username': f'RolePlayer{i}', 'password': 'pass'})
-            c.post(f'/secret/{room_code}/join', headers={'X-Auth-Token': res_l.get_json()['token']})
+            c.post(f'/secret-hitler/{room_code}/join', headers={'X-Auth-Token': res_l.get_json()['token']})
 
         # Start game
-        res_start = host_client.post(f'/secret/{room_code}/start_game', headers={'X-Auth-Token': host_token})
+        res_start = host_client.post(f'/secret-hitler/{room_code}/start_game', headers={'X-Auth-Token': host_token})
         self.assertEqual(res_start.status_code, 200)
 
         # Query my role for host
-        res_role = host_client.get(f'/secret/{room_code}/get_my_role', headers={'X-Auth-Token': host_token})
+        res_role = host_client.get(f'/secret-hitler/{room_code}/get_my_role', headers={'X-Auth-Token': host_token})
         self.assertEqual(res_role.status_code, 200)
         data = res_role.get_json()
         self.assertIn(data['role'], ['Liberal', 'Fascist', 'Hitler'])
         self.assertTrue(len(data.get('info', '')) > 0)
 
         # Query my role for player 2
-        res_role2 = p2_client.get(f'/secret/{room_code}/get_my_role', headers={'X-Auth-Token': p2_token})
+        res_role2 = p2_client.get(f'/secret-hitler/{room_code}/get_my_role', headers={'X-Auth-Token': p2_token})
         self.assertEqual(res_role2.status_code, 200)
         data2 = res_role2.get_json()
         self.assertIn(data2['role'], ['Liberal', 'Fascist', 'Hitler'])
@@ -370,7 +372,7 @@ class GameHubPlatformTests(unittest.TestCase):
 
     def test_12_secret_hitler_state_no_hand_leak(self):
         """Verify broadcast state does not leak policy hand or action payload."""
-        from apps.secret import logic as secret_logic
+        from apps.secret_hitler import logic as secret_logic
         state = secret_logic.get_initial_state()
         state['players'] = ['A', 'B']
         state['hand'] = ['Liberal', 'Fascist', 'Fascist']
@@ -414,15 +416,15 @@ class GameHubPlatformTests(unittest.TestCase):
             'legislative_step': 'president_session',
             'hand': ['Liberal', 'Fascist', 'Liberal']
         }
-        storage.save_lobby('secret', 'HND1', state)
+        storage.save_lobby('secret_hitler', 'HND1', state)
 
         # President should see hand
-        res_pres = host_client.get('/secret/HND1/my_hand', headers={'X-Auth-Token': pres_token})
+        res_pres = host_client.get('/secret-hitler/HND1/my_hand', headers={'X-Auth-Token': pres_token})
         self.assertEqual(res_pres.status_code, 200)
         self.assertEqual(res_pres.get_json()['hand'], ['Liberal', 'Fascist', 'Liberal'])
 
         # Other player should NOT see hand
-        res_other = other_client.get('/secret/HND1/my_hand', headers={'X-Auth-Token': other_token})
+        res_other = other_client.get('/secret-hitler/HND1/my_hand', headers={'X-Auth-Token': other_token})
         self.assertEqual(res_other.status_code, 200)
         self.assertEqual(res_other.get_json()['hand'], [])
 
@@ -441,18 +443,18 @@ class GameHubPlatformTests(unittest.TestCase):
         guest_token = login_g.get_json()['token']
 
         # Create room
-        res_c = host_client.post('/song/create_room', headers={'X-Auth-Token': host_token})
+        res_c = host_client.post('/song-guesser/create_room', headers={'X-Auth-Token': host_token})
         code = res_c.get_json()['room_code']
 
         # Guest joins
-        guest_client.post(f'/song/{code}/join', headers={'X-Auth-Token': guest_token})
+        guest_client.post(f'/song-guesser/{code}/join', headers={'X-Auth-Token': guest_token})
 
         # Guest tries to end round -> 403 Forbidden
-        res_fail = guest_client.post(f'/song/{code}/end_round', headers={'X-Auth-Token': guest_token})
+        res_fail = guest_client.post(f'/song-guesser/{code}/end_round', headers={'X-Auth-Token': guest_token})
         self.assertEqual(res_fail.status_code, 403)
 
         # Host tries to end round -> 200 OK
-        res_ok = host_client.post(f'/song/{code}/end_round', headers={'X-Auth-Token': host_token})
+        res_ok = host_client.post(f'/song-guesser/{code}/end_round', headers={'X-Auth-Token': host_token})
         self.assertEqual(res_ok.status_code, 200)
 
         print("[OK] 14: Song Guesser host-only end_round authorization verified")
@@ -460,7 +462,7 @@ class GameHubPlatformTests(unittest.TestCase):
     def test_15_pusher_presence_auth_endpoint(self):
         """Verify /pusher/auth enforces authentication and handles channel authorization."""
         anon_client = self.app.test_client()
-        res_anon = anon_client.post('/pusher/auth', data={'socket_id': '123.456', 'channel_name': 'presence-secret-TEST'})
+        res_anon = anon_client.post('/pusher/auth', data={'socket_id': '123.456', 'channel_name': 'presence-secret_hitler-TEST'})
         self.assertEqual(res_anon.status_code, 403)
 
         auth_client = self.app.test_client()
@@ -475,7 +477,7 @@ class GameHubPlatformTests(unittest.TestCase):
         # Authenticated attempt -> successfully passed auth gate (returns auth response or 500 on dummy pusher, NOT 403)
         res_auth = auth_client.post('/pusher/auth', headers={'X-Auth-Token': token}, data={
             'socket_id': '1234.5678',
-            'channel_name': 'presence-secret-ROOM'
+            'channel_name': 'presence-secret_hitler-ROOM'
         })
         self.assertIn(res_auth.status_code, (200, 500))
 
@@ -489,29 +491,29 @@ class GameHubPlatformTests(unittest.TestCase):
 
         # Upsert heartbeats
         now = time.time()
-        storage.upsert_heartbeat('secret', 'HBTEST', 'Player1', now)
-        storage.upsert_heartbeat('secret', 'HBTEST', 'Player2', now + 5.0)
+        storage.upsert_heartbeat('secret_hitler', 'HBTEST', 'Player1', now)
+        storage.upsert_heartbeat('secret_hitler', 'HBTEST', 'Player2', now + 5.0)
 
         # Retrieve room heartbeats
-        hb_map = storage.get_room_heartbeats('secret', 'HBTEST')
+        hb_map = storage.get_room_heartbeats('secret_hitler', 'HBTEST')
         self.assertIn('Player1', hb_map)
         self.assertIn('Player2', hb_map)
         self.assertEqual(hb_map['Player1'], now)
         self.assertEqual(hb_map['Player2'], now + 5.0)
 
         # Check active status
-        self.assertTrue(storage.has_active_heartbeats('secret', 'HBTEST', max_age_seconds=60))
-        self.assertFalse(storage.has_active_heartbeats('secret', 'HBTEST_UNKNOWN', max_age_seconds=60))
+        self.assertTrue(storage.has_active_heartbeats('secret_hitler', 'HBTEST', max_age_seconds=60))
+        self.assertFalse(storage.has_active_heartbeats('secret_hitler', 'HBTEST_UNKNOWN', max_age_seconds=60))
 
         # Delete single player
-        storage.delete_heartbeat('secret', 'HBTEST', 'Player1')
-        hb_map_after = storage.get_room_heartbeats('secret', 'HBTEST')
+        storage.delete_heartbeat('secret_hitler', 'HBTEST', 'Player1')
+        hb_map_after = storage.get_room_heartbeats('secret_hitler', 'HBTEST')
         self.assertNotIn('Player1', hb_map_after)
         self.assertIn('Player2', hb_map_after)
 
         # Delete entire room
-        storage.delete_room_heartbeats('secret', 'HBTEST')
-        hb_empty = storage.get_room_heartbeats('secret', 'HBTEST')
+        storage.delete_room_heartbeats('secret_hitler', 'HBTEST')
+        hb_empty = storage.get_room_heartbeats('secret_hitler', 'HBTEST')
         self.assertEqual(len(hb_empty), 0)
 
         print("[OK] 16: SQLite player heartbeat multi-worker storage verified")
@@ -557,19 +559,19 @@ class GameHubPlatformTests(unittest.TestCase):
         storage = get_storage()
 
         room_code = 'LOCK1'
-        storage.delete_lobby('secret', room_code)
+        storage.delete_lobby('secret_hitler', room_code)
         state = {'room_code': room_code, 'round': 1}
 
         # Initial save (version = 1)
-        storage.save_lobby('secret', room_code, state)
+        storage.save_lobby('secret_hitler', room_code, state)
 
         # First concurrent writer expects version 1 -> succeeds, bumps to 2
         state['round'] = 2
-        storage.save_lobby('secret', room_code, state, expected_version=1)
+        storage.save_lobby('secret_hitler', room_code, state, expected_version=1)
 
         # Second concurrent writer also thought it was version 1 -> collision!
         with self.assertRaises(OptimisticLockError):
-            storage.save_lobby('secret', room_code, state, expected_version=1)
+            storage.save_lobby('secret_hitler', room_code, state, expected_version=1)
 
         print("[OK] 18: Optimistic concurrency control (version locking) verified")
 
@@ -581,26 +583,26 @@ class GameHubPlatformTests(unittest.TestCase):
 
         # 1. Old room with NO active heartbeats -> gets pruned
         room_dead = 'DEADRM'
-        storage.save_lobby('secret', room_dead, {'status': 'lobby'})
+        storage.save_lobby('secret_hitler', room_dead, {'status': 'lobby'})
         # Force updated_at to 10 minutes ago
         with storage._get_conn() as conn:
             conn.execute("UPDATE game_lobbies SET updated_at = datetime('now', '-600 seconds') WHERE room_code = ?", (room_dead,))
 
         storage.cleanup_inactive_lobbies(300)
-        loaded_dead = storage.load_lobby('secret', room_dead)
+        loaded_dead = storage.load_lobby('secret_hitler', room_dead)
         self.assertIsNone(loaded_dead, "Empty idle room was not pruned!")
 
         # 2. Old room WITH active player heartbeat -> SURVIVES!
         room_live = 'LIVERM'
-        storage.save_lobby('secret', room_live, {'status': 'playing', 'note': 'active players present'})
+        storage.save_lobby('secret_hitler', room_live, {'status': 'playing', 'note': 'active players present'})
         with storage._get_conn() as conn:
             conn.execute("UPDATE game_lobbies SET updated_at = datetime('now', '-600 seconds') WHERE room_code = ?", (room_live,))
 
         # Player is active right now
-        storage.upsert_heartbeat('secret', room_live, 'ActiveAlice', time.time())
+        storage.upsert_heartbeat('secret_hitler', room_live, 'ActiveAlice', time.time())
         storage.cleanup_inactive_lobbies(300)
 
-        loaded_live = storage.load_lobby('secret', room_live)
+        loaded_live = storage.load_lobby('secret_hitler', room_live)
         self.assertIsNotNone(loaded_live, "Room with active heartbeats was wrongly deleted!")
         self.assertEqual(loaded_live['note'], 'active players present')
 
@@ -608,7 +610,7 @@ class GameHubPlatformTests(unittest.TestCase):
 
     def test_20_song_library_memory_cache(self):
         """Verify song data library is cached in memory across calls."""
-        from apps.song.logic import load_songs_library
+        from apps.song_guesser.logic import load_songs_library
         lib1 = load_songs_library()
         lib2 = load_songs_library()
         self.assertIs(lib1, lib2, "Song library is being re-parsed from disk instead of cached!")
@@ -622,12 +624,12 @@ class GameHubPlatformTests(unittest.TestCase):
 
         games = init_games_registry()
         game_ids = [g.id for g in games]
-        for required_id in ['secret', 'song', 'imposter', 'tower', 'survivors', 'nexusdex', 'songseeker']:
+        for required_id in ['secret_hitler', 'song_guesser', 'impostor', 'pokemon_tower', 'gothic_survivors', 'nexus_dex', 'song_seeker', 'geo_bingo']:
             self.assertIn(required_id, game_ids, f"Required game '{required_id}' not found in registry")
 
-        secret_manifest = get_game('secret')
+        secret_manifest = get_game('secret_hitler')
         self.assertEqual(secret_manifest.game_type, 'multiplayer')
-        self.assertEqual(secret_manifest.route_prefix, '/secret')
+        self.assertEqual(secret_manifest.route_prefix, '/secret-hitler')
 
         # Test dynamic game registration
         test_game = GameManifest(
@@ -655,12 +657,12 @@ class GameHubPlatformTests(unittest.TestCase):
         html = res.get_data(as_text=True)
         self.assertIn('Impostor', html)
         self.assertIn('Secret<br>Hitler', html)
-        self.assertIn('card card-imposter', html)
+        self.assertIn('card card-impostor', html)
 
         # 2. Handcrafted custom card override taking precedence
         cards_dir = os.path.join(self.app.template_folder, 'cards')
         os.makedirs(cards_dir, exist_ok=True)
-        test_card_path = os.path.join(cards_dir, 'imposter.html')
+        test_card_path = os.path.join(cards_dir, 'impostor.html')
         custom_snippet = '<div class="custom-handcrafted-card">HANDCRAFTED IMPOSTOR CARD</div>'
         try:
             with open(test_card_path, 'w', encoding='utf-8') as f:
@@ -679,23 +681,15 @@ class GameHubPlatformTests(unittest.TestCase):
         res_restored = self.client.get('/')
         restored_body = res_restored.get_data(as_text=True)
         self.assertNotIn('custom-handcrafted-card', restored_body)
-        self.assertIn('card card-imposter', restored_body)
+        self.assertIn('card card-impostor', restored_body)
 
         print("[OK] 22: Hybrid portal card rendering (handcrafted + fallback) verified")
 
     def test_23_singleplayer_auto_route_and_shell_fallback(self):
-        """Verify dynamic singleplayer route registration, alias routing, and fallback game shell."""
+        """Verify dynamic singleplayer route registration and fallback game shell."""
         from flask import Flask
         from apps.common.registry import GameManifest, register_game
         from apps.common.singleplayer import register_singleplayer_routes
-
-        # Verify backwards-compatibility aliases on main application
-        self.client.post('/api/auth/register', json={'username': 'ShellTester', 'password': 'pass'})
-        self.client.post('/api/auth/login', json={'username': 'ShellTester', 'password': 'pass'})
-        res_s3 = self.client.get('/site3/')
-        self.assertEqual(res_s3.status_code, 200)
-        res_s4 = self.client.get('/site4/')
-        self.assertEqual(res_s4.status_code, 200)
 
         # Create fresh test app to verify runtime registration of a new singleplayer game without a template
         test_app = Flask('test_singleplayer', template_folder=self.app.template_folder)
@@ -730,7 +724,7 @@ class GameHubPlatformTests(unittest.TestCase):
         self.assertIn('🕹️', body)
         self.assertIn('Dies ist die automatische Shell-Ansicht', body)
 
-        print("[OK] 23: Singleplayer auto-routes, aliases, and shell fallback verified")
+        print("[OK] 23: Singleplayer auto-routes and shell fallback verified")
 
     def test_24_multiplayer_blueprint_factory(self):
         """Verify reusable multiplayer Blueprint factory provides room lifecycle endpoints."""
@@ -859,13 +853,13 @@ class GameHubPlatformTests(unittest.TestCase):
         host_client.post('/api/auth/register', json={'username': 'GB_Host', 'password': 'pass'})
         host_client.post('/api/auth/login', json={'username': 'GB_Host', 'password': 'pass'})
 
-        res = host_client.post('/geobingo/create_room')
+        res = host_client.post('/geo-bingo/create_room')
         self.assertEqual(res.status_code, 200)
         code = res.get_json()['room_code']
         self.assertTrue(bool(code))
 
         # Test min 2 players requirement: Host cannot start alone
-        res_solo = host_client.post(f'/geobingo/{code}/start_game')
+        res_solo = host_client.post(f'/geo-bingo/{code}/start_game')
         self.assertEqual(res_solo.status_code, 400)
         self.assertIn('Mindestens 2 Spieler', res_solo.get_json()['error'])
 
@@ -874,7 +868,7 @@ class GameHubPlatformTests(unittest.TestCase):
         p2_client.post('/api/auth/register', json={'username': 'GB_Player2', 'password': 'pass'})
         p2_client.post('/api/auth/login', json={'username': 'GB_Player2', 'password': 'pass'})
 
-        res = p2_client.post(f'/geobingo/{code}/join')
+        res = p2_client.post(f'/geo-bingo/{code}/join')
         self.assertEqual(res.status_code, 200)
         data = res.get_json()
         self.assertIn('GB_Player2', data['players'])
@@ -884,7 +878,7 @@ class GameHubPlatformTests(unittest.TestCase):
             c = self.app.test_client()
             c.post('/api/auth/register', json={'username': f'GB_Player{i}', 'password': 'pass'})
             c.post('/api/auth/login', json={'username': f'GB_Player{i}', 'password': 'pass'})
-            res_p = c.post(f'/geobingo/{code}/join')
+            res_p = c.post(f'/geo-bingo/{code}/join')
             self.assertEqual(res_p.status_code, 200)
             self.assertIn(f'GB_Player{i}', res_p.get_json()['players'])
 
@@ -892,16 +886,16 @@ class GameHubPlatformTests(unittest.TestCase):
         c5 = self.app.test_client()
         c5.post('/api/auth/register', json={'username': 'GB_Player5', 'password': 'pass'})
         c5.post('/api/auth/login', json={'username': 'GB_Player5', 'password': 'pass'})
-        res_p5 = c5.post(f'/geobingo/{code}/join')
+        res_p5 = c5.post(f'/geo-bingo/{code}/join')
         self.assertEqual(res_p5.status_code, 200)
         self.assertIn('GB_Player5', res_p5.get_json()['spectators'])
 
         # 3. Host updates settings
-        res = host_client.post(f'/geobingo/{code}/update_settings', json={'item_count': 5, 'item_preset': 'easy'})
+        res = host_client.post(f'/geo-bingo/{code}/update_settings', json={'item_count': 5, 'item_preset': 'easy'})
         self.assertEqual(res.status_code, 200)
 
         # 4. Host starts game
-        res = host_client.post(f'/geobingo/{code}/start_game')
+        res = host_client.post(f'/geo-bingo/{code}/start_game')
         self.assertEqual(res.status_code, 200)
 
         # 5. Player captures proof with pano_id
@@ -914,16 +908,16 @@ class GameHubPlatformTests(unittest.TestCase):
             'pitch': 5.0,
             'fov': 90.0
         }
-        res_proof = host_client.post(f'/geobingo/{code}/save_proof', json=proof_payload)
+        res_proof = host_client.post(f'/geo-bingo/{code}/save_proof', json=proof_payload)
         self.assertEqual(res_proof.status_code, 200)
         self.assertEqual(res_proof.get_json()['completed_count'], 1)
 
         # 6. Test heartbeat
-        res_hb = host_client.post(f'/geobingo/{code}/heartbeat', json={'room_code': code})
+        res_hb = host_client.post(f'/geo-bingo/{code}/heartbeat', json={'room_code': code})
         self.assertEqual(res_hb.status_code, 200)
 
         # 7. Leave game
-        res_leave = p2_client.post(f'/geobingo/{code}/leave_game')
+        res_leave = p2_client.post(f'/geo-bingo/{code}/leave_game')
         self.assertEqual(res_leave.status_code, 200)
 
         print("[OK] 26: Geo Bingo 1v1 multi-room lifecycle verified")
@@ -940,7 +934,7 @@ class GameHubPlatformTests(unittest.TestCase):
         unauth_client = self.app.test_client()
         res_unauth = unauth_client.post('/api/logs/maps', json={
             'action': 'sdk_init',
-            'page': '/geobingo/'
+            'page': '/geo-bingo/'
         })
         self.assertEqual(res_unauth.status_code, 401)
         self.assertFalse(res_unauth.get_json().get('success', True))
@@ -965,7 +959,7 @@ class GameHubPlatformTests(unittest.TestCase):
             },
             json={
                 'action': 'maps_sdk_init',
-                'page': '/geobingo/',
+                'page': '/geo-bingo/',
                 'details': {'room_code': 'TEST99'}
             }
         )
@@ -974,7 +968,7 @@ class GameHubPlatformTests(unittest.TestCase):
         self.assertTrue(data['success'])
         self.assertEqual(data['username'], username)
         self.assertEqual(data['ip_address'], '198.51.100.42') # First IP extracted
-        self.assertEqual(data['page'], '/geobingo/')
+        self.assertEqual(data['page'], '/geo-bingo/')
         self.assertEqual(data['action'], 'maps_sdk_init')
 
         # 4. Verify record in SQLite database
@@ -983,7 +977,7 @@ class GameHubPlatformTests(unittest.TestCase):
         latest = logs[0]
         self.assertEqual(latest['username'], username)
         self.assertEqual(latest['ip_address'], '198.51.100.42')
-        self.assertEqual(latest['page'], '/geobingo/')
+        self.assertEqual(latest['page'], '/geo-bingo/')
         self.assertEqual(latest['action'], 'maps_sdk_init')
         self.assertIn('details', latest)
         self.assertEqual(latest['details'].get('room_code'), 'TEST99')
@@ -993,14 +987,14 @@ class GameHubPlatformTests(unittest.TestCase):
         with open(MAPS_LOG_FILE, 'r', encoding='utf-8') as f:
             log_contents = f.read()
 
-        expected_pattern = f'USER="{username}" IP="198.51.100.42" PAGE="/geobingo/" ACTION="maps_sdk_init"'
+        expected_pattern = f'USER="{username}" IP="198.51.100.42" PAGE="/geo-bingo/" ACTION="maps_sdk_init"'
         self.assertIn(expected_pattern, log_contents)
 
         # 6. Verify GET /api/logs/maps retrieval
         res_get = self.client.post(
             '/api/logs/maps',
             headers={'X-Auth-Token': token},
-            json={'action': 'picker_map_init', 'page': '/geobingo/'}
+            json={'action': 'picker_map_init', 'page': '/geo-bingo/'}
         )
         self.assertEqual(res_get.status_code, 200)
 
@@ -1030,10 +1024,10 @@ class GameHubPlatformTests(unittest.TestCase):
             conn.execute("DELETE FROM maps_api_logs WHERE username = ? OR ip_address = '198.51.100.88'", (username,))
 
         # 1. Test Smart Gaming: Fast in-game actions in 2 rooms (4 requests: 1 SDK + 3 in-game)
-        self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geobingo/', 'details': {'room': 'R1'}})
-        self.client.post('/api/logs/maps', headers=headers, json={'action': 'picker_map_init', 'page': '/geobingo/', 'details': {'room': 'R1'}})
-        self.client.post('/api/logs/maps', headers=headers, json={'action': 'picker_map_init', 'page': '/geobingo/', 'details': {'room': 'R2'}})
-        self.client.post('/api/logs/maps', headers=headers, json={'action': 'streetview_init', 'page': '/geobingo/', 'details': {'room': 'R2'}})
+        self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geo-bingo/', 'details': {'room': 'R1'}})
+        self.client.post('/api/logs/maps', headers=headers, json={'action': 'picker_map_init', 'page': '/geo-bingo/', 'details': {'room': 'R1'}})
+        self.client.post('/api/logs/maps', headers=headers, json={'action': 'picker_map_init', 'page': '/geo-bingo/', 'details': {'room': 'R2'}})
+        self.client.post('/api/logs/maps', headers=headers, json={'action': 'streetview_init', 'page': '/geo-bingo/', 'details': {'room': 'R2'}})
 
         # Pre-check must ALLOW (200 OK) because user is simply playing games (only 1 SDK init, 4 total < 8)
         res_check = self.client.post('/api/logs/maps/check', headers=headers)
@@ -1041,8 +1035,8 @@ class GameHubPlatformTests(unittest.TestCase):
         self.assertTrue(res_check.get_json()['allowed'])
 
         # 2. Test F5-Reload Spam: Trigger 2 more SDK inits (total 3 sdk_inits in 5 min)
-        self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geobingo/'})
-        self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geobingo/'})
+        self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geo-bingo/'})
+        self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geo-bingo/'})
 
         # Pre-check must trigger STRIKE 1 (60s cooldown, 429)
         res_check_strike1 = self.client.post('/api/logs/maps/check', headers=headers)
@@ -1074,9 +1068,9 @@ class GameHubPlatformTests(unittest.TestCase):
         # 4. Trigger Strike 2: 3 NEW SDK reloads after the first strike
         # Note: we temporarily artificially set timestamp on logs or send 3 new ones
         time.sleep(1.05) # ensure SQLite timestamp > last_strike_at
-        self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geobingo/'})
-        self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geobingo/'})
-        self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geobingo/'})
+        self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geo-bingo/'})
+        self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geo-bingo/'})
+        self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geo-bingo/'})
 
         res_check_strike2 = self.client.post('/api/logs/maps/check', headers=headers)
         self.assertEqual(res_check_strike2.status_code, 429)
@@ -1089,7 +1083,7 @@ class GameHubPlatformTests(unittest.TestCase):
             conn.execute("UPDATE maps_penalties SET blocked_until = ? WHERE identifier LIKE '%ratelimituser%' OR identifier LIKE 'ip:%'", (time.time() - 5.0,))
         time.sleep(1.05)
         for _ in range(3):
-            self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geobingo/'})
+            self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geo-bingo/'})
         res_s3 = self.client.post('/api/logs/maps/check', headers=headers)
         self.assertEqual(res_s3.status_code, 429)
         self.assertEqual(res_s3.get_json()['strike_count'], 3)
@@ -1100,7 +1094,7 @@ class GameHubPlatformTests(unittest.TestCase):
             conn.execute("UPDATE maps_penalties SET blocked_until = ? WHERE identifier LIKE '%ratelimituser%' OR identifier LIKE 'ip:%'", (time.time() - 5.0,))
         time.sleep(1.05)
         for _ in range(3):
-            self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geobingo/'})
+            self.client.post('/api/logs/maps', headers=headers, json={'action': 'maps_sdk_init', 'page': '/geo-bingo/'})
         res_s4 = self.client.post('/api/logs/maps/check', headers=headers)
         self.assertEqual(res_s4.status_code, 429)
         data_s4 = res_s4.get_json()

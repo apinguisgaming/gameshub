@@ -7,14 +7,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800;900&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/nexusdex/styles.css">
+    <link rel="stylesheet" href="/static/nexus_dex/styles.css">
 {% endblock %}
 
 {% from "components/top_bar.html" import render_top_bar with context %}
 
 {% block content %}
     <div style="background: var(--bg-glass-heavy); border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding: 8px 32px;">
-        {{ render_top_bar(extra_class='nexusdex-top-bar') }}
+        {{ render_top_bar(extra_class='nexus_dex-top-bar') }}
     </div>
 
     <!-- ======== GLASSMORPHIC HEADER / COMMAND CENTER ======== -->
@@ -214,5 +214,5 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="/static/nexusdex/app.js"></script>
+    <script src="/static/nexus_dex/app.js"></script>
 {% endblock %}

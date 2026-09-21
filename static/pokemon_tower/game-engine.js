@@ -1510,7 +1510,7 @@ class GameEngine {
 
     getSaveKey() {
         const username = (window.GAMEHUB_USER && window.GAMEHUB_USER.username) ? window.GAMEHUB_USER.username : 'guest';
-        return 'pokemonTDSave_' + username;
+        return 'pokemon_tower_save_' + username;
     }
 
     saveGame(isQuiet = false) {
@@ -1525,7 +1525,7 @@ class GameEngine {
         // Cloud Save Sync
         const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
         try {
-            fetch('/api/save/tower', {
+            fetch('/api/save/pokemon_tower', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -1566,7 +1566,7 @@ class GameEngine {
 
         if (!this._cloudChecked) {
             this._cloudChecked = true;
-            fetch('/api/save/tower', {
+            fetch('/api/save/pokemon_tower', {
                 headers: token ? {'X-Auth-Token': token} : {}
             }).then(r => r.json()).then(cloud => {
                 if (cloud && cloud.state && Object.keys(cloud.state).length > 0) {
@@ -1608,7 +1608,7 @@ class GameEngine {
             localStorage.removeItem(key);
             localStorage.removeItem('pokemonTDSave');
             const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
-            fetch('/api/save/tower', {
+            fetch('/api/save/pokemon_tower', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

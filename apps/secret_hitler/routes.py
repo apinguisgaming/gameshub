@@ -1,4 +1,5 @@
 """Secret Hitler route handlers supporting multi-room lobbies and persistent authentication."""
+import logging
 import uuid
 from flask import Blueprint, jsonify, render_template, request, session
 from config import get_pusher_client
@@ -19,12 +20,15 @@ from apps.common.multiplayer_bp import register_standard_room_routes
 from . import logic as secret_logic
 
 secret_bp = Blueprint('secret_bp', __name__)
+logger = logging.getLogger(__name__)
+GAME_ID = 'secret_hitler'
+
 
 
 def trigger_update(room_code: str, state: dict, force_full: bool = False):
     """Broadcasts current game state or delta update via room-scoped Pusher channel."""
     code = room_code.upper().strip()
-    channel_name = f'secret-{code}'
+    channel_name = f'secret_hitler-{code}'
     state = secret_logic.validate_game_integrity(state)
 
     client = get_pusher_client()
@@ -56,7 +60,7 @@ def trigger_update(room_code: str, state: dict, force_full: bool = False):
     # 5. Save updated state to storage
     storage = get_storage()
     storage.save_lobby(
-        game_id='secret',
+        game_id='secret_hitler',
         room_code=code,
         state=state,
         player_count=len(state.get('players', [])),
@@ -65,7 +69,7 @@ def trigger_update(room_code: str, state: dict, force_full: bool = False):
 
     # 6. Compute Delta vs Full Broadcast
     broadcast_payload, is_delta = broadcast_tracker.get_broadcast_payload(
-        game_id='secret',
+        game_id='secret_hitler',
         room_code=code,
         current_safe_state=payload,
         force_full=force_full
@@ -74,40 +78,31 @@ def trigger_update(room_code: str, state: dict, force_full: bool = False):
     if broadcast_payload is None:
         return
 
-    # 7. Broadcast over room channel
+    event_type = 'delta-state' if is_delta else 'full-state'
     try:
-        client.trigger(channel_name, 'state-update', broadcast_payload)
+        client.trigger(channel_name, event_type, broadcast_payload)
     except Exception as e:
-        import logging
-        logging.error(f"[Pusher Error] Failed to trigger {channel_name}/state-update: {e}", exc_info=True)
+        logger.error(f"[SH] Failed to broadcast state update for {code}: {e}")
 
 
-def record_game_results_if_ended(state: dict):
-    """Records win/loss stats in storage when game reaches game_over."""
-    if state.get('status') != 'game_over':
-        return
-
-    # Only record once
-    if state.get('stats_recorded'):
-        return
-    state['stats_recorded'] = True
-
+def award_secret_stats(state: dict):
+    """Awards wins/losses to registered users in Secret Hitler."""
+    from storage import get_storage
     storage = get_storage()
-    msg = state.get('game_over_msg', '')
-    liberals_won = 'LIBERALS WIN' in msg
-    roles = state.get('roles', {})
+    liberals_won = (state.get('winner') == 'Liberals')
 
-    for player, role in roles.items():
-        user = storage.get_user_by_username(player)
-        if not user:
+    for player_name in state.get('players', []):
+        u = storage.get_user_by_username(player_name)
+        if not u:
             continue
-        uid = user['id']
+        uid = u['id']
+        role = state.get('roles', {}).get(player_name, '')
         is_liberal = (role == 'Liberal')
         won = (is_liberal and liberals_won) or (not is_liberal and not liberals_won)
 
         storage.update_stats(
             user_id=uid,
-            game_id='secret',
+            game_id='secret_hitler',
             games_played=1,
             wins=1 if won else 0,
             losses=0 if won else 1
@@ -121,7 +116,7 @@ def record_game_results_if_ended(state: dict):
 def index():
     user = get_current_user()
     username = user['username'] if user else ''
-    return render_template('secret.html', existing_name=username)
+    return render_template('secret_hitler.html', existing_name=username)
 
 
 def create_new_room():
@@ -136,7 +131,7 @@ def create_new_room():
     initial['card_styles'][user['username']] = pref_style
 
     room_code = create_room(
-        game_id='secret',
+        game_id='secret_hitler',
         host_username=user['username'],
         host_user_id=user['id'],
         initial_state=initial
@@ -144,7 +139,7 @@ def create_new_room():
     return jsonify({'success': True, 'room_code': room_code})
 
 
-register_standard_room_routes(secret_bp, 'secret', custom_create_room_fn=create_new_room)
+register_standard_room_routes(secret_bp, 'secret_hitler', custom_create_room_fn=create_new_room)
 
 
 
@@ -161,7 +156,7 @@ def join_game(room_code: str = None):
     if not code:
         return jsonify({"error": "Kein Raumcode angegeben"}), 400
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state:
         return jsonify({"error": f"Raum '{code}' nicht gefunden"}), 404
 
@@ -199,7 +194,7 @@ def join_game(room_code: str = None):
     if rejoin_only:
         return jsonify({"error": "silent_fail"})
 
-    cap_error = validate_room_capacity('secret', len(state['players']))
+    cap_error = validate_room_capacity(GAME_ID, len(state['players']))
     if cap_error:
         return jsonify({"error": cap_error}), 400
 
@@ -232,12 +227,12 @@ def set_avatar(room_code: str = None):
         return jsonify({"error": "Kein Avatar angegeben"}), 400
 
     if not code:
-        code = get_storage().find_player_room('secret', username)
+        code = get_storage().find_player_room(GAME_ID, username)
 
     if not code:
         return jsonify({"error": "Kein Raumcode angegeben"}), 400
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state:
         return jsonify({"error": "Raum nicht gefunden"}), 404
 
@@ -269,12 +264,12 @@ def set_style(room_code: str = None):
         return jsonify({"error": "Kein Stil angegeben"}), 400
 
     if not code:
-        code = get_storage().find_player_room('secret', username)
+        code = get_storage().find_player_room(GAME_ID, username)
 
     if not code:
         return jsonify({"error": "Kein Raumcode angegeben"}), 400
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state:
         return jsonify({"error": "Raum nicht gefunden"}), 404
 
@@ -315,7 +310,7 @@ def leave(room_code: str = None):
     if not code or not name:
         return jsonify({"success": True})
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state:
         return jsonify({"success": True})
 
@@ -329,7 +324,7 @@ def leave(room_code: str = None):
             del state[k][name]
 
     if len(state.get('players', [])) == 0 and len(state.get('spectators', [])) == 0:
-        get_storage().delete_lobby('secret', code)
+        get_storage().delete_lobby(GAME_ID, code)
         return jsonify({"success": True})
 
     state = secret_logic.validate_game_integrity(state)
@@ -345,7 +340,7 @@ def kick(room_code: str = None):
     code = (room_code or request.form.get('room_code') or '').upper().strip()
     target_name = request.form.get('name')
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state:
         return jsonify({"error": "Raum nicht gefunden"}), 404
 
@@ -366,7 +361,7 @@ def kick(room_code: str = None):
     try:
         client = get_pusher_client()
         if client:
-            client.trigger(f'secret-{code}', 'force-kick', {'name': target_name})
+            client.trigger(f'{GAME_ID}-{code}', 'force-kick', {'name': target_name})
     except Exception:
         pass
     trigger_update(code, state)
@@ -380,14 +375,14 @@ def start(room_code: str = None):
     user = get_current_user()
     code = (room_code or request.form.get('room_code') or '').upper().strip()
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state:
         return jsonify({"error": "Raum nicht gefunden"}), 404
 
     if user['username'] != state.get('host'):
         return jsonify({"error": "Nur der Host kann das Spiel starten"}), 403
 
-    start_error = validate_game_start('secret', len(state['players']))
+    start_error = validate_game_start(GAME_ID, len(state['players']))
     if start_error:
         return jsonify({"error": start_error}), 400
 
@@ -404,7 +399,7 @@ def nominate(room_code: str = None):
     code = (room_code or request.form.get('room_code') or '').upper().strip()
     nominee = request.form.get('nominee')
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state:
         return jsonify({"error": "Raum nicht gefunden"}), 404
 
@@ -446,7 +441,7 @@ def vote(room_code: str = None):
     vote_val = request.form.get('vote') or data.get('vote')
 
     if not code:
-        code = get_storage().find_player_room('secret', voter)
+        code = get_storage().find_player_room(GAME_ID, voter)
 
     if not code:
         return jsonify({"error": "Kein Raumcode angegeben"}), 400
@@ -454,7 +449,7 @@ def vote(room_code: str = None):
     if vote_val not in ('Ja', 'Nein'):
         return jsonify({"error": "Ungültige Stimme"}), 400
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state:
         return jsonify({"error": "Raum nicht gefunden"}), 404
 
@@ -467,7 +462,7 @@ def vote(room_code: str = None):
             secret_logic.process_vote_outcome(s)
             record_game_results_if_ended(s)
 
-    state = update_room_state('secret', code, apply_vote)
+    state = update_room_state(GAME_ID, code, apply_vote)
     trigger_update(code, state)
     return jsonify({"success": True})
 
@@ -484,7 +479,7 @@ def pres_discard(room_code: str = None):
     except (ValueError, TypeError):
         return jsonify({"error": "Ungültiger Kartenindex"}), 400
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state:
         return jsonify({"error": "Raum nicht gefunden"}), 404
 
@@ -516,7 +511,7 @@ def chan_discard(room_code: str = None):
     except (ValueError, TypeError):
         return jsonify({"error": "Ungültiger Kartenindex"}), 400
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state:
         return jsonify({"error": "Raum nicht gefunden"}), 404
 
@@ -566,7 +561,7 @@ def call_veto(room_code: str = None):
     user = get_current_user()
     code = (room_code or request.form.get('room_code') or '').upper().strip()
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state:
         return jsonify({"error": "Raum nicht gefunden"}), 404
 
@@ -590,7 +585,7 @@ def respond_veto(room_code: str = None):
     code = (room_code or request.form.get('room_code') or '').upper().strip()
     consent = (request.form.get('consent') == 'true' or request.form.get('decision') == 'agree')
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state:
         return jsonify({"error": "Raum nicht gefunden"}), 404
 
@@ -625,7 +620,7 @@ def action(room_code: str = None):
     code = (room_code or request.form.get('room_code') or '').upper().strip()
     target = request.form.get('target')
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state:
         return jsonify({"error": "Raum nicht gefunden"}), 404
 
@@ -678,7 +673,7 @@ def change_avatar(room_code: str = None):
     code = (room_code or request.form.get('room_code') or '').upper().strip()
     new_avatar = request.form.get('avatar')
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state or not new_avatar:
         return jsonify({"error": "Ungültige Anfrage"}), 400
 
@@ -695,7 +690,7 @@ def change_style(room_code: str = None):
     code = (room_code or request.form.get('room_code') or '').upper().strip()
     new_style = request.form.get('style')
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state or not new_style:
         return jsonify({"error": "Ungültige Anfrage"}), 400
 
@@ -713,7 +708,7 @@ def toggle_setting(room_code: str = None):
     code = (room_code or request.form.get('room_code') or data.get('room_code') or '').upper().strip()
     setting = request.form.get('setting') or data.get('setting')
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state:
         return jsonify({"error": "Raum nicht gefunden"}), 404
 
@@ -736,7 +731,7 @@ def reset_game(room_code: str = None):
     data = request.get_json(silent=True) or {}
     code = (room_code or request.form.get('room_code') or data.get('room_code') or '').upper().strip()
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state:
         return jsonify({"error": "Raum nicht gefunden"}), 404
 
@@ -756,10 +751,10 @@ def reset_game(room_code: str = None):
     new_state['card_styles'] = saved_styles
     new_state['settings'] = saved_settings
 
-    broadcast_tracker.reset_room('secret', code)
+    broadcast_tracker.reset_room(GAME_ID, code)
     trigger_update(code, new_state, force_full=True)
     try:
-        get_pusher_client().trigger(f'secret-{code}', 'game-reset', {})
+        get_pusher_client().trigger(f'{GAME_ID}-{code}', 'game-reset', {})
     except Exception:
         pass
     return jsonify({"success": True})
@@ -776,7 +771,7 @@ def end_action(room_code: str = None):
     if not code:
         return jsonify({"error": "Kein Raumcode"}), 400
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state:
         return jsonify({"error": "Raum nicht gefunden"}), 404
 
@@ -803,12 +798,12 @@ def get_my_role(room_code: str = None):
 
     # If code not provided in request, attempt to find the user's active game
     if not code:
-        code = get_storage().find_player_room('secret', user['username'])
+        code = get_storage().find_player_room(GAME_ID, user['username'])
 
     if not code:
         return jsonify({"role": None, "info": "Kein Raumcode angegeben."}), 400
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state:
         return jsonify({"role": None, "info": "Raum nicht gefunden."}), 404
 
@@ -851,7 +846,7 @@ def my_hand(room_code: str = None):
     user = get_current_user()
     code = (room_code or request.args.get('room_code') or '').upper().strip()
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state:
         return jsonify({"hand": [], "step": None})
 
@@ -879,7 +874,7 @@ def my_action(room_code: str = None):
     user = get_current_user()
     code = (room_code or request.args.get('room_code') or '').upper().strip()
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state:
         return jsonify({"action": None, "payload": None})
 
@@ -908,11 +903,11 @@ def heartbeat(room_code: str = None):
     if not code:
         return jsonify({"status": "ok"})
 
-    state = get_room_state('secret', code)
+    state = get_room_state(GAME_ID, code)
     if not state:
         return jsonify({"status": "room_closed", "room_closed": True})
 
-    get_storage().touch_lobby('secret', code)
+    get_storage().touch_lobby(GAME_ID, code)
 
     state, offline_players, kicked_players = secret_logic.handle_heartbeat(
         state, code, user['username'], force_offline=force_offline

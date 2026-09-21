@@ -5,7 +5,7 @@
 {% block head %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='song/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='song_guesser/style.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 {% endblock %}
@@ -242,5 +242,5 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="{{ url_for('static', filename='song/game.js') }}"></script>
+    <script src="{{ url_for('static', filename='song_guesser/game.js') }}"></script>
 {% endblock %}

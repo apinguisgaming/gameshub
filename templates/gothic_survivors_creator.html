@@ -3,7 +3,7 @@
 {% block title %}Gothic Survivors - Data Generator{% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='survivors/creator-style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='gothic_survivors/creator-style.css') }}">
 {% endblock %}
 
 {% block body_class %}creator-body{% endblock %}
@@ -20,7 +20,7 @@
 
     <main class="main-content">
         <header style="margin-bottom: 20px;">
-            {{ render_top_bar(back_url='/survivors/', back_text='← SURVIVORS', extra_class='creator-top-bar') }}
+            {{ render_top_bar(back_url='/gothic-survivors/', back_text='← GOTHIC SURVIVORS', extra_class='creator-top-bar') }}
             <h1 style="margin: 12px 0 0 0;">Gothic Survivors Data Generator</h1>
         </header>
 
@@ -209,5 +209,5 @@
 {% endblock %}
 
 {% block scripts %}
-<script src="{{ url_for('static', filename='survivors/creator.js') }}"></script>
+<script src="{{ url_for('static', filename='gothic_survivors/creator.js') }}"></script>
 {% endblock %}

@@ -7,9 +7,9 @@ from storage import get_storage
 from apps.auth.routes import auth_bp
 from apps.auth.decorators import login_required
 from apps.api.routes import api_bp
-from apps.secret.routes import secret_bp
-from apps.song.routes import song_bp
-from apps.geobingo.routes import geobingo_bp
+from apps.secret_hitler.routes import secret_bp
+from apps.song_guesser.routes import song_bp
+from apps.geo_bingo.routes import geobingo_bp
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -34,9 +34,9 @@ with app.app_context():
 # ==========================================
 app.register_blueprint(auth_bp, url_prefix='/api/auth')
 app.register_blueprint(api_bp, url_prefix='/api')
-app.register_blueprint(secret_bp, url_prefix='/secret')
-app.register_blueprint(song_bp, url_prefix='/song')
-app.register_blueprint(geobingo_bp, url_prefix='/geobingo')
+app.register_blueprint(secret_bp, url_prefix='/secret-hitler')
+app.register_blueprint(song_bp, url_prefix='/song-guesser')
+app.register_blueprint(geobingo_bp, url_prefix='/geo-bingo')
 
 # ==========================================
 #       PUSHER CHANNEL AUTHENTICATION
@@ -120,6 +120,15 @@ def inject_global_context():
 def portal():
     """Central GameHub landing portal (public, displays login modal if unauthenticated)."""
     return render_template('landing.html')
+
+
+@app.route('/gothic-survivors/creator')
+@login_required
+def gothic_survivors_creator():
+    from apps.common.registry import get_game
+    manifest = get_game('gothic_survivors')
+    return render_template('gothic_survivors_creator.html', game=manifest)
+
 
 # Initialize game registry and auto-register singleplayer routes
 from apps.games import init_games_registry

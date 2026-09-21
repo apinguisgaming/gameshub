@@ -104,7 +104,7 @@
                 let d = new FormData();
                 d.append('status', 'leaving');
                 d.append('room_code', currentRoomCode);
-                try { navigator.sendBeacon('/song/heartbeat', d); } catch(e) {}
+                try { navigator.sendBeacon('/song-guesser/heartbeat', d); } catch(e) {}
             }
         });
     });
@@ -130,7 +130,7 @@
         if (!silent) {
             $('#song-room-list').html('<div class="room-list-loading">Lade Sessions...</div>');
         }
-        $.get('/song/rooms', function (res) {
+        $.get('/song-guesser/rooms', function (res) {
             if (!res.rooms || res.rooms.length === 0) {
                 $('#song-room-list').html('<div style="text-align:center; padding:16px; color:#94a3b8; border:1.5px dashed rgba(255,255,255,0.2); border-radius:6px; font-size:0.85rem;">Keine aktiven Sessions.<br>Erstelle oben einen neuen Raum!</div>');
                 return;
@@ -161,7 +161,7 @@
     }
 
     function createRoom() {
-        $.post('/song/create_room', function (res) {
+        $.post('/song-guesser/create_room', function (res) {
             if (res.success && res.room_code) {
                 joinRoom(res.room_code);
             } else {
@@ -224,19 +224,19 @@
             });
 
             let fallback = setTimeout(() => {
-                $.post('/song/player_ready');
+                $.post('/song-guesser/player_ready');
             }, 4000);
 
             $(audio).one('canplaythrough', function() {
                 clearTimeout(fallback);
-                $.post('/song/player_ready');
+                $.post('/song-guesser/player_ready');
             });
 
             audio.load();
 
             if (isHost) {
                 setTimeout(() => {
-                    $.post('/song/force_start');
+                    $.post('/song-guesser/force_start');
                 }, 5000);
             }
         });
@@ -323,9 +323,9 @@
             if (isHost) {
                 setTimeout(() => {
                     if (isLastRound) {
-                        $.post('/song/finish_game', { room_code: currentRoomCode });
+                        $.post('/song-guesser/finish_game', { room_code: currentRoomCode });
                     } else {
-                        $.post('/song/start_game', { room_code: currentRoomCode });
+                        $.post('/song-guesser/start_game', { room_code: currentRoomCode });
                     }
                 }, 5000);
             }
@@ -372,7 +372,7 @@
                 $('.vinyl-container').removeClass('spinning');
 
                 if (isHost) {
-                    $.post('/song/end_round', { room_code: currentRoomCode });
+                    $.post('/song-guesser/end_round', { room_code: currentRoomCode });
                 }
             }
 
@@ -398,7 +398,7 @@
         btn.css('border-color', 'var(--c-white)').css('background', 'rgba(255,255,255,0.2)');
         $('.btn-option').prop('disabled', true);
 
-        $.post('/song/submit_guess', { guess_id: id, elapsed: elapsed }, function (res) {
+        $.post('/song-guesser/submit_guess', { guess_id: id, elapsed: elapsed }, function (res) {
             if (res.scores) {
                 renderGameLeaderboard(res.scores);
             }
@@ -441,8 +441,8 @@
             channel.unbind_all();
             pusher.unsubscribe(channel.name);
         }
-        console.log('%c[SongGuesser] Subscribing:', 'color: #ffd43b; font-weight: bold; background: #2a2200; padding: 2px 6px; border-radius: 3px;', 'song-' + code);
-        channel = pusher.subscribe('song-' + code);
+        console.log('%c[SongGuesser] Subscribing:', 'color: #ffd43b; font-weight: bold; background: #2a2200; padding: 2px 6px; border-radius: 3px;', 'song_guesser-' + code);
+        channel = pusher.subscribe('song_guesser-' + code);
         channel.bind('pusher:subscription_succeeded', function () {
             console.log('%c[SongGuesser] Pusher Channel verbunden! ✅', 'color: #51cf66; font-weight: bold; background: #1a2a1a; padding: 2px 6px; border-radius: 3px;');
         });
@@ -457,7 +457,7 @@
             presenceChannel = null;
         }
         try {
-            presenceChannel = pusher.subscribe('presence-song-' + code);
+            presenceChannel = pusher.subscribe('presence-song_guesser-' + code);
             presenceChannel.bind('pusher:subscription_succeeded', function(members) {
                 let online = [];
                 members.each(function(m) {
@@ -477,7 +477,7 @@
             });
         } catch(e) {}
 
-        $.post('/song/join_game', { room_code: code }, function (data) {
+        $.post('/song-guesser/join_game', { room_code: code }, function (data) {
             if (data.error) {
                 alert(data.error);
                 showRoomBrowser();
@@ -511,7 +511,7 @@
             presenceChannel = null;
         }
         if (code) {
-            $.post('/song/leave_game', { room_code: code }).always(function () {
+            $.post('/song-guesser/leave_game', { room_code: code }).always(function () {
                 showRoomBrowser();
             });
         } else {
@@ -581,8 +581,8 @@
             selected.push($(this).data('playlist') || $(this).text().trim());
         });
 
-        $.post('/song/update_settings', { key: 'playlists', value: selected.join(','), room_code: currentRoomCode }, function () {
-            $.post('/song/start_game', { room_code: currentRoomCode }, function (response) {
+        $.post('/song-guesser/update_settings', { key: 'playlists', value: selected.join(','), room_code: currentRoomCode }, function () {
+            $.post('/song-guesser/start_game', { room_code: currentRoomCode }, function (response) {
                 if (response.error) {
                     alert("⚠️ START FAILED: " + response.error);
                 }
@@ -597,9 +597,9 @@
     function resetGame() {
         if (!isHost && !confirm("Möchtest du das Spiel abbrechen und zur Lobby zurückkehren?")) return;
         let code = currentRoomCode;
-        $.post('/song/reset_game', { room_code: code }, function () {
+        $.post('/song-guesser/reset_game', { room_code: code }, function () {
             if (code) {
-                $.post('/song/join_game', { room_code: code }, function (data) {
+                $.post('/song-guesser/join_game', { room_code: code }, function (data) {
                     if (data && !data.error) updateUI(data);
                 });
             }
@@ -616,7 +616,7 @@
         if (key === 'time_per_song') updateControlVisuals('ctrl-time', val);
         if (key === 'total_songs') updateControlVisuals('ctrl-count', val);
         console.log("[updateSetting] Sending update:", key, val, "for room:", currentRoomCode);
-        $.post('/song/update_settings', { key: key, value: val, room_code: currentRoomCode }, function (res) {
+        $.post('/song-guesser/update_settings', { key: key, value: val, room_code: currentRoomCode }, function (res) {
             if (res.error) {
                 console.error("[updateSetting] Server returned error:", res.error);
             } else {
@@ -887,7 +887,7 @@
 
     function sendHeartbeat() {
         if (!myName || !currentRoomCode) return;
-        let hbUrl = currentRoomCode ? ('/song/' + currentRoomCode + '/heartbeat') : '/song/heartbeat';
+        let hbUrl = currentRoomCode ? ('/song-guesser/' + currentRoomCode + '/heartbeat') : '/song-guesser/heartbeat';
         $.post(hbUrl, { status: 'active', room_code: currentRoomCode }, function (res) {
             if (res.room_closed) {
                 showRoomBrowser();
@@ -932,12 +932,12 @@
                 let d = new FormData();
                 d.append('status', 'leaving');
                 d.append('room_code', currentRoomCode);
-                navigator.sendBeacon('/song/heartbeat', d);
+                navigator.sendBeacon('/song-guesser/heartbeat', d);
             }
         } else if (document.visibilityState === 'visible') {
             if (myName && currentRoomCode) {
                 startHeartbeatLoop();
-                $.post('/song/join_game', { room_code: currentRoomCode });
+                $.post('/song-guesser/join_game', { room_code: currentRoomCode });
             }
         }
     });
@@ -947,7 +947,7 @@
             let d = new FormData();
             d.append('status', 'leaving');
             d.append('room_code', currentRoomCode);
-            navigator.sendBeacon('/song/heartbeat', d);
+            navigator.sendBeacon('/song-guesser/heartbeat', d);
         }
     });
 

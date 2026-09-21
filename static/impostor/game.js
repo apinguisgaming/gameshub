@@ -535,7 +535,7 @@ const Game = {
 
     getSaveKey: function() {
         const uname = (window.GAMEHUB_USER && window.GAMEHUB_USER.username) ? window.GAMEHUB_USER.username : 'guest';
-        return 'imposter_state_' + uname;
+        return 'impostor_state_' + uname;
     },
 
     saveState: function() {
@@ -556,7 +556,7 @@ const Game = {
         try {
             localStorage.setItem(this.getSaveKey(), JSON.stringify(state));
             const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
-            fetch('/api/save/imposter', {
+            fetch('/api/save/impostor', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -572,7 +572,7 @@ const Game = {
             let state = null;
             const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
             try {
-                const res = await fetch('/api/save/imposter', {
+                const res = await fetch('/api/save/impostor', {
                     headers: token ? {'X-Auth-Token': token} : {}
                 });
                 if (res.ok) {

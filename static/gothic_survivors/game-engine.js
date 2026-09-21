@@ -1545,7 +1545,7 @@ class Game {
         this.state = 'gameover';
         try {
             const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
-            fetch('/api/save/survivors', {
+            fetch('/api/save/gothic_survivors', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

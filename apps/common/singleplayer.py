@@ -49,9 +49,9 @@ def _register_single_game(app: Flask, manifest: GameManifest) -> None:
     protected_view.__name__ = endpoint_name
 
     # Register primary route
-    app.add_url_rule(route, endpoint=endpoint_name, view_func=protected_view)
+    app.add_url_rule(route, endpoint=endpoint_name, view_func=protected_view, strict_slashes=False)
 
     # Register all aliases
     for idx, alias in enumerate(manifest.aliases):
         alias_endpoint = f"{endpoint_name}_alias_{idx}"
-        app.add_url_rule(alias, endpoint=alias_endpoint, view_func=protected_view)
+        app.add_url_rule(alias, endpoint=alias_endpoint, view_func=protected_view, strict_slashes=False)

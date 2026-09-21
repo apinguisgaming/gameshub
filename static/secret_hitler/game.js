@@ -131,7 +131,7 @@
             if (!silent) {
                 $('#room-list-container').html('<div style="text-align:center; padding:15px; color:#aaa;">Lade Räume...</div>');
             }
-            $.get('/secret/rooms', function (res) {
+            $.get('/secret-hitler/rooms', function (res) {
                 if (!res.rooms || res.rooms.length === 0) {
                     $('#room-list-container').html('<div style="text-align:center; padding:20px; color:#777; background:#111; border:2px dashed #444;">Keine aktiven Räume gefunden.<br><span style="font-size:12px;">Erstelle den ersten Raum oben!</span></div>');
                     return;
@@ -160,7 +160,7 @@
         function createRoom() {
             let savedAvatar = Store.get('avatar_pref');
             let savedStyle = Store.get('style_pref');
-            $.post('/secret/create_room', { avatar_pref: savedAvatar, style_pref: savedStyle }, function (res) {
+            $.post('/secret-hitler/create_room', { avatar_pref: savedAvatar, style_pref: savedStyle }, function (res) {
                 if (res.success && res.room_code) {
                     joinRoom(res.room_code);
                 } else {
@@ -194,8 +194,8 @@
                 channel.unbind_all();
                 pusher.unsubscribe(channel.name);
             }
-            console.log('%c[SecretHitler] Subscribing:', 'color: #ffd43b; font-weight: bold; background: #2a2200; padding: 2px 6px; border-radius: 3px;', 'secret-' + code);
-            channel = pusher.subscribe('secret-' + code);
+            console.log('%c[SecretHitler] Subscribing:', 'color: #ffd43b; font-weight: bold; background: #2a2200; padding: 2px 6px; border-radius: 3px;', 'secret_hitler-' + code);
+            channel = pusher.subscribe('secret_hitler-' + code);
             channel.bind('pusher:subscription_succeeded', function () {
                 console.log('%c[SecretHitler] Pusher Channel verbunden! ✅', 'color: #51cf66; font-weight: bold; background: #1a2a1a; padding: 2px 6px; border-radius: 3px;');
             });
@@ -240,7 +240,7 @@
                 presenceChannel = null;
             }
             try {
-                presenceChannel = pusher.subscribe('presence-secret-' + code);
+                presenceChannel = pusher.subscribe('presence-secret_hitler-' + code);
                 presenceChannel.bind('pusher:subscription_succeeded', function(members) {
                     let online = [];
                     members.each(function(m) {
@@ -270,7 +270,7 @@
             let savedStyle = Store.get('style_pref');
             let storedUUID = Store.getUUID(myName) || '';
 
-            $.post('/secret/join_game', {
+            $.post('/secret-hitler/join_game', {
                 room_code: code,
                 avatar_pref: savedAvatar,
                 style_pref: savedStyle,
@@ -291,7 +291,7 @@
 
         function leaveGame() {
             safeAction("Raum wirklich verlassen?", function () {
-                $.post('/secret/leave_game', function () {
+                $.post('/secret-hitler/leave_game', function () {
                     Store.setSession('manual_leave', 'true');
                     Store.removeSession('active_room');
                     showRoomBrowser();
@@ -462,7 +462,7 @@
                                 box.append(`<button class="btn btn-neutral" style="opacity:0.5; cursor:not-allowed;" onclick="showModal('Invalid', 'Player is term limited.', null, true, 'OK')">${p} <span style='font-size:10px'>${reason}</span></button>`);
                             } else {
                                 // OPTIMISTIC UPDATE
-                                box.append(`<button class="btn btn-neutral" onclick="safeAction('Nominate ${p}?', () => optimisticPost('/secret/nominate_chancellor', {nominee:'${p}'}, this))">${p}</button>`);
+                                box.append(`<button class="btn btn-neutral" onclick="safeAction('Nominate ${p}?', () => optimisticPost('/secret-hitler/nominate_chancellor', {nominee:'${p}'}, this))">${p}</button>`);
                             }
                         }
                     });
@@ -476,8 +476,8 @@
                 else {
                     txt.text("Cast your Vote");
                     // OPTIMISTIC UPDATE
-                    box.append(`<button class="btn btn-ja" onclick="optimisticPost('/secret/submit_vote', {vote:'Ja'}, this)">JA!</button>`);
-                    box.append(`<button class="btn btn-nein" onclick="optimisticPost('/secret/submit_vote', {vote:'Nein'}, this)">NEIN!</button>`);
+                    box.append(`<button class="btn btn-ja" onclick="optimisticPost('/secret-hitler/submit_vote', {vote:'Ja'}, this)">JA!</button>`);
+                    box.append(`<button class="btn btn-nein" onclick="optimisticPost('/secret-hitler/submit_vote', {vote:'Nein'}, this)">NEIN!</button>`);
                 }
             }
             else if (data.phase === 'legislative') {
@@ -485,8 +485,8 @@
                     if (myName === data.president) {
                         txt.text("Chancellor proposes a Veto. Agree?");
                         // OPTIMISTIC UPDATE
-                        box.append(`<button class="btn btn-ja" onclick="safeAction('Agree to discard all cards?', () => optimisticPost('/secret/respond_to_veto', {decision:'agree'}, this))">AGREE (DISCARD ALL)</button>`);
-                        box.append(`<button class="btn btn-nein" onclick="optimisticPost('/secret/respond_to_veto', {decision:'disagree'}, this)">DISAGREE (FORCE ENACT)</button>`);
+                        box.append(`<button class="btn btn-ja" onclick="safeAction('Agree to discard all cards?', () => optimisticPost('/secret-hitler/respond_to_veto', {decision:'agree'}, this))">AGREE (DISCARD ALL)</button>`);
+                        box.append(`<button class="btn btn-nein" onclick="optimisticPost('/secret-hitler/respond_to_veto', {decision:'disagree'}, this)">DISAGREE (FORCE ENACT)</button>`);
                     } else { txt.text("Chancellor has proposed a Veto..."); }
                     return;
                 }
@@ -497,7 +497,7 @@
                 if (myName === activePlayer) {
                     txt.text(isPresStep ? "Select a Policy to DISCARD" : "Select a Policy to ENACT");
                     let handDiv = $('<div class="card-hand"></div>');
-                    let handUrl = currentRoomCode ? ('/secret/' + currentRoomCode + '/my_hand') : '/secret/my_hand';
+                    let handUrl = currentRoomCode ? ('/secret-hitler/' + currentRoomCode + '/my_hand') : '/secret-hitler/my_hand';
                     
                     $.get(handUrl, function (handRes) {
                         let handCards = (handRes && handRes.hand) ? handRes.hand : [];
@@ -512,7 +512,7 @@
                                     let self = this;
                                     safeAction('DISCARD this policy?', function () {
                                         $(self).addClass('discarding'); // Fly away
-                                        let discardUrl = currentRoomCode ? ('/secret/' + currentRoomCode + '/president_discard') : '/secret/president_discard';
+                                        let discardUrl = currentRoomCode ? ('/secret-hitler/' + currentRoomCode + '/president_discard') : '/secret-hitler/president_discard';
                                         $.post(discardUrl, { index: i });
                                     });
                                 });
@@ -521,7 +521,7 @@
                                 btn.click(function () {
                                     let self = this;
                                     safeAction('ENACT this policy?', function () {
-                                        let enactUrl = currentRoomCode ? ('/secret/' + currentRoomCode + '/chancellor_discard') : '/secret/chancellor_discard';
+                                        let enactUrl = currentRoomCode ? ('/secret-hitler/' + currentRoomCode + '/chancellor_discard') : '/secret-hitler/chancellor_discard';
                                         $.post(enactUrl, { index: cardToDiscard });
                                     });
                                 });
@@ -532,7 +532,7 @@
                     box.append(handDiv);
 
                     if (!isPresStep && data.fascist_board === 5 && !data.veto_declined) {
-                        let vetoUrl = currentRoomCode ? ('/secret/' + currentRoomCode + '/call_veto') : '/secret/call_veto';
+                        let vetoUrl = currentRoomCode ? ('/secret-hitler/' + currentRoomCode + '/call_veto') : '/secret-hitler/call_veto';
                         box.append(`<div style="width:100%; margin-top:15px; border-top:1px solid rgba(255,255,255,0.2); padding-top:10px;">
                     <button class="btn btn-gold" style="font-size:14px; padding:10px;" onclick="safeAction('Propose Veto to President?', () => optimisticPost('${vetoUrl}', {}, this))">⚠ PROPOSE VETO</button>
                 </div>`);
@@ -546,8 +546,8 @@
                         txt.text("Action Complete. Review info.");
                         let btn = $(`<button class="btn btn-gold">VIEW RESULT</button>`);
                         btn.click(function () {
-                            let actionUrl = currentRoomCode ? ('/secret/' + currentRoomCode + '/my_action') : '/secret/my_action';
-                            let endUrl = currentRoomCode ? ('/secret/' + currentRoomCode + '/end_action') : '/secret/end_action';
+                            let actionUrl = currentRoomCode ? ('/secret-hitler/' + currentRoomCode + '/my_action') : '/secret-hitler/my_action';
+                            let endUrl = currentRoomCode ? ('/secret-hitler/' + currentRoomCode + '/end_action') : '/secret-hitler/end_action';
                             $.get(actionUrl, function (res) {
                                 let content = res.payload;
                                 if (Array.isArray(content)) {
@@ -564,8 +564,8 @@
                             txt.text("Policy Peek: Review Top 3 Cards");
                             let peekBtn = $(`<button class="btn btn-gold">PEEK TOP 3 POLICIES</button>`);
                             peekBtn.click(function () {
-                                let peekUrl = currentRoomCode ? ('/secret/' + currentRoomCode + '/my_action') : '/secret/my_action';
-                                let endUrl = currentRoomCode ? ('/secret/' + currentRoomCode + '/end_action') : '/secret/end_action';
+                                let peekUrl = currentRoomCode ? ('/secret-hitler/' + currentRoomCode + '/my_action') : '/secret-hitler/my_action';
+                                let endUrl = currentRoomCode ? ('/secret-hitler/' + currentRoomCode + '/end_action') : '/secret-hitler/end_action';
                                 $.get(peekUrl, function (res) {
                                     let cards = Array.isArray(res.payload) ? res.payload.join(', ') : (res.payload || 'No cards');
                                     showModal('POLICY PEEK', cards, () => optimisticPost(endUrl, {}, peekBtn[0]), false, 'ACKNOWLEDGE');
@@ -577,7 +577,7 @@
                             txt.text(`Select a player to ${verb}`);
                             data.players.forEach(p => {
                                 if (p !== myName && !data.dead_players.includes(p)) {
-                                    let actionUrl = currentRoomCode ? ('/secret/' + currentRoomCode + '/perform_action') : '/secret/perform_action';
+                                    let actionUrl = currentRoomCode ? ('/secret-hitler/' + currentRoomCode + '/perform_action') : '/secret-hitler/perform_action';
                                     box.append(`<button class="btn btn-neutral" onclick="safeAction('${verb} ${p}?', () => optimisticPost('${actionUrl}', {target:'${p}'}, this))">${p}</button>`);
                                 }
                             });
@@ -637,7 +637,7 @@
                     let kickBtn = $(`<button class="kick-button" title="Kick Player">✕</button>`);
                     kickBtn.click((e) => {
                         e.stopPropagation(); // Prevent clicking row
-                        safeAction(`Kick ${p}?`, () => $.post('/secret/kick_player', { name: p }));
+                        safeAction(`Kick ${p}?`, () => $.post('/secret-hitler/kick_player', { name: p }));
                     });
 
                     // Assemble
@@ -744,7 +744,7 @@
                         if (currentGameState && currentGameState.settings) {
                             currentGameState.settings[settingId] = willBeActive;
                         }
-                        optimisticPost('/secret/toggle_setting', { setting: settingId });
+                        optimisticPost('/secret-hitler/toggle_setting', { setting: settingId });
                     });
                 } else {
                     btn.addClass('disabled-btn');
@@ -837,7 +837,7 @@
 
         function fetchMyRole() {
             let activeCode = currentRoomCode || (currentGameState && currentGameState.room_code) || Store.getSession('active_room') || (window.location.hash ? window.location.hash.substring(1).toUpperCase().trim() : '');
-            let roleUrl = activeCode ? ('/secret/' + activeCode + '/get_my_role') : '/secret/get_my_role';
+            let roleUrl = activeCode ? ('/secret-hitler/' + activeCode + '/get_my_role') : '/secret-hitler/get_my_role';
             $.get(roleUrl, function (data) {
                 if (!data || !data.role) return;
                 // 1. Set the Name and Info Text
@@ -924,7 +924,7 @@
                     <div class="vote-bubble" style="color:#7f8c8d; bottom: 5px;">...</div>
                 </div>
             `);
-                    card.find('.kick-btn').click((e) => { e.stopPropagation(); safeAction(`Kick ${p}?`, () => $.post('/secret/kick_player', { name: p })); });
+                    card.find('.kick-btn').click((e) => { e.stopPropagation(); safeAction(`Kick ${p}?`, () => $.post('/secret-hitler/kick_player', { name: p })); });
                     container.append(card);
                 }
 
@@ -1035,7 +1035,7 @@
 
                     $('.avatar-option').removeClass('selected');
                     $(this).addClass('selected');
-                    $.post('/secret/set_avatar', { avatar: id }, function (res) {
+                    $.post('/secret-hitler/set_avatar', { avatar: id }, function (res) {
                         if (res.success) Store.set('avatar_pref', id);
                         else showModal("Error", res.error, null, true);
                     });
@@ -1074,7 +1074,7 @@
                     let self = this;
 
                     // Try to set style
-                    $.post('/secret/set_style', { style: s.id }, function (res) {
+                    $.post('/secret-hitler/set_style', { style: s.id }, function (res) {
                         if (res.success) {
                             Store.set('style_pref', s.id);
 
@@ -1184,7 +1184,7 @@
             <div id="winner-banner" class="winner-banner"></div>
             <div id="summary-grid" class="summary-grid"></div>
             <div id="host-newgame-btn" style="display:none; margin-top:30px;">
-                <button class="btn btn-ja" onclick="$.post('/secret/reset_game')">START NEW GAME</button>
+                <button class="btn btn-ja" onclick="$.post('/secret-hitler/reset_game')">START NEW GAME</button>
             </div>
         </div>`);
                 screen = $('#summary-screen');
@@ -1278,7 +1278,7 @@
         function sendHeartbeat() {
             if (!myName || !currentRoomCode) return;
 
-            let hbUrl = currentRoomCode ? ('/secret/' + currentRoomCode + '/heartbeat') : '/secret/heartbeat';
+            let hbUrl = currentRoomCode ? ('/secret-hitler/' + currentRoomCode + '/heartbeat') : '/secret-hitler/heartbeat';
             $.post(hbUrl, { room_code: currentRoomCode }, function (res) {
                 if (res.room_closed) {
                     showRoomBrowser();
@@ -1318,7 +1318,7 @@
                     let data = new FormData();
                     data.append('status', 'leaving');
                     data.append('room_code', currentRoomCode);
-                    navigator.sendBeacon('/secret/heartbeat', data);
+                    navigator.sendBeacon('/secret-hitler/heartbeat', data);
                 }
             } else if (document.visibilityState === 'visible') {
                 if (currentRoomCode) {
@@ -1333,7 +1333,7 @@
                 let data = new FormData();
                 data.append('status', 'leaving');
                 data.append('room_code', currentRoomCode);
-                navigator.sendBeacon('/secret/heartbeat', data);
+                navigator.sendBeacon('/secret-hitler/heartbeat', data);
             }
         });
 

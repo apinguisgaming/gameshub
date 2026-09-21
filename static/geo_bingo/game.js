@@ -221,7 +221,7 @@
     function initPusher(code) {
         if (!pusher) return;
 
-        const channelName = `geobingo-${code}`;
+        const channelName = `geo_bingo-${code}`;
         if (pusherChannel) {
             pusherChannel.unbind_all();
             pusher.unsubscribe(pusherChannel.name);
@@ -274,7 +274,7 @@
         if (heartbeatInterval) clearInterval(heartbeatInterval);
         heartbeatInterval = setInterval(() => {
             if (!currentRoomCode) return;
-            $.post(`/geobingo/${currentRoomCode}/heartbeat`, { room_code: currentRoomCode }, function (res) {
+            $.post(`/geo-bingo/${currentRoomCode}/heartbeat`, { room_code: currentRoomCode }, function (res) {
                 if (res && res.state) {
                     gameState = res.state;
                     renderState(gameState);
@@ -286,7 +286,7 @@
     // --- Global Actions bound to window ---
 
     window.createRoom = function () {
-        $.post('/geobingo/create_room', function (res) {
+        $.post('/geo-bingo/create_room', function (res) {
             if (res && res.success && res.room_code) {
                 enterRoom(res.room_code);
             }
@@ -313,7 +313,7 @@
         currentRoomCode = code.toUpperCase();
         sessionStorage.setItem('geobingo_room', currentRoomCode);
 
-        $.post(`/geobingo/${currentRoomCode}/join`, { room_code: currentRoomCode }, function (state) {
+        $.post(`/geo-bingo/${currentRoomCode}/join`, { room_code: currentRoomCode }, function (state) {
             gameState = state;
             initPusher(currentRoomCode);
             startHeartbeat(currentRoomCode);
@@ -342,7 +342,7 @@
         window.closeMapModal();
         if (!currentRoomCode) return;
         const oldCode = currentRoomCode;
-        $.post(`/geobingo/${currentRoomCode}/leave_game`, { room_code: currentRoomCode }, function () {
+        $.post(`/geo-bingo/${currentRoomCode}/leave_game`, { room_code: currentRoomCode }, function () {
             sessionStorage.removeItem('geobingo_start_' + oldCode);
             currentRoomCode = null;
             sessionStorage.removeItem('geobingo_room');
@@ -382,7 +382,7 @@
         payload[key] = val;
 
         $.ajax({
-            url: `/geobingo/${currentRoomCode}/update_settings`,
+            url: `/geo-bingo/${currentRoomCode}/update_settings`,
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(payload),
@@ -402,7 +402,7 @@
 
     function syncCustomWordsToRoom() {
         if (!currentRoomCode) return;
-        $.post(`/geobingo/${currentRoomCode}/sync_custom_words`, {
+        $.post(`/geo-bingo/${currentRoomCode}/sync_custom_words`, {
             room_code: currentRoomCode,
             custom_items: userCustomItems
         }, function (res) {
@@ -417,7 +417,7 @@
 
     function loadUserCustomItems() {
         const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
-        fetch('/api/save/geobingo', {
+        fetch('/api/save/geo_bingo', {
             headers: token ? { 'X-Auth-Token': token } : {}
         })
         .then(res => res.json())
@@ -452,7 +452,7 @@
     function saveUserCustomItems() {
         localStorage.setItem('geobingo_custom_items', JSON.stringify(userCustomItems));
         const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
-        fetch('/api/save/geobingo', {
+        fetch('/api/save/geo_bingo', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -763,7 +763,7 @@
             showCustomAlert(`Mindestens ${minPlayers} Spieler erforderlich!`, 'NICHT GENUG SPIELER', '👥');
             return;
         }
-        $.post(`/geobingo/${currentRoomCode}/start_game`, { room_code: currentRoomCode }, function () {
+        $.post(`/geo-bingo/${currentRoomCode}/start_game`, { room_code: currentRoomCode }, function () {
             // Screen transition handled via Pusher state-update
         }).fail(function (xhr) {
             showCustomAlert(xhr.responseJSON?.error || 'Start fehlgeschlagen.', 'FEHLER', '⚠️');
@@ -837,7 +837,7 @@
 
     window.resetGame = function () {
         if (!currentRoomCode) return;
-        $.post(`/geobingo/${currentRoomCode}/reset_game`, { room_code: currentRoomCode }, function (res) {
+        $.post(`/geo-bingo/${currentRoomCode}/reset_game`, { room_code: currentRoomCode }, function (res) {
             if (res && res.state) {
                 handleGameReset(res.state);
             }
@@ -847,7 +847,7 @@
     };
 
     window.loadRoomList = function () {
-        $.get('/geobingo/rooms', function (res) {
+        $.get('/geo-bingo/rooms', function (res) {
             const container = document.getElementById('room-list-container');
             if (!container) return;
             container.innerHTML = '';
@@ -940,7 +940,7 @@
             if (tag) tag.textContent = '✓ FOTO GESPEICHERT';
         }
 
-        $.post(`/geobingo/${currentRoomCode}/save_proof`, proof, function (res) {
+        $.post(`/geo-bingo/${currentRoomCode}/save_proof`, proof, function (res) {
             if (res && res.proofs_for_me) {
                 gameState.proofs[currentUser] = res.proofs_for_me;
                 localMyProofs = Object.assign({}, res.proofs_for_me);
@@ -963,7 +963,7 @@
         if (!currentRoomCode || !gameState || !gameState.active_review) return;
 
         const rev = gameState.active_review;
-        $.post(`/geobingo/${currentRoomCode}/submit_judgement`, {
+        $.post(`/geo-bingo/${currentRoomCode}/submit_judgement`, {
             room_code: currentRoomCode,
             target_player: rev.target_player,
             item_idx: rev.item_index,
@@ -983,7 +983,7 @@
         if (!text) return;
 
         input.value = '';
-        $.post(`/geobingo/${currentRoomCode}/send_chat`, {
+        $.post(`/geo-bingo/${currentRoomCode}/send_chat`, {
             room_code: currentRoomCode,
             message: text
         }).fail(function (xhr) {
@@ -1381,7 +1381,7 @@
             if (diff <= 0) {
                 if (timerInterval) clearInterval(timerInterval);
                 if (currentRoomCode) {
-                    $.post('/geobingo/' + currentRoomCode + '/check_timer');
+                    $.post('/geo-bingo/' + currentRoomCode + '/check_timer');
                 }
             }
         }
@@ -1834,8 +1834,8 @@
         const missingCodes = blockedCodes.filter(c => !countryPolygonsCache[c]);
         if (missingCodes.length > 0) {
             const endpoint = currentRoomCode
-                ? `/geobingo/${currentRoomCode}/country_polygons?codes=${missingCodes.join(',')}`
-                : `/geobingo/country_polygons?codes=${missingCodes.join(',')}`;
+                ? `/geo-bingo/${currentRoomCode}/country_polygons?codes=${missingCodes.join(',')}`
+                : `/geo-bingo/country_polygons?codes=${missingCodes.join(',')}`;
 
             $.getJSON(endpoint, function (res) {
                 if (res && res.countries) {
@@ -1896,7 +1896,7 @@
                             const blockedList = (gameState && gameState.settings && gameState.settings.blocked_countries) || [];
                             if (blockedList.length > 0) {
                                 $.ajax({
-                                    url: `/geobingo/${currentRoomCode}/check_location`,
+                                    url: `/geo-bingo/${currentRoomCode}/check_location`,
                                     type: 'POST',
                                     contentType: 'application/json',
                                     data: JSON.stringify({

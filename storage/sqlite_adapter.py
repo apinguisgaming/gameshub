@@ -145,6 +145,26 @@ class SQLiteStorage(BaseStorage):
             except Exception:
                 pass
 
+            # Data migration: Convert legacy game_ids in existing tables to canonical IDs
+            id_migrations = [
+                ('imposter', 'impostor'),
+                ('song', 'song_guesser'),
+                ('secret', 'secret_hitler'),
+                ('tower', 'pokemon_tower'),
+                ('survivors', 'gothic_survivors'),
+                ('survivors_creator', 'gothic_survivors'),
+                ('songseeker', 'song_seeker'),
+                ('nexusdex', 'nexus_dex'),
+                ('geobingo', 'geo_bingo'),
+            ]
+            for old_id, new_id in id_migrations:
+                for tbl in ('game_lobbies', 'user_game_saves', 'game_stats', 'player_heartbeats'):
+                    try:
+                        conn.execute(f"UPDATE OR IGNORE {tbl} SET game_id = ? WHERE game_id = ?", (new_id, old_id))
+                        conn.execute(f"DELETE FROM {tbl} WHERE game_id = ?", (old_id,))
+                    except Exception:
+                        pass
+
     # --- Session Tokens ---
     def create_session_token(self, user_id: int) -> str:
         import secrets
