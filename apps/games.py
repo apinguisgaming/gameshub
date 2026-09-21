@@ -1,5 +1,5 @@
 """Game definitions and registry initialization for GameHub platform."""
-from apps.common.registry import GameManifest, register_game, get_all_games, clear_registry
+from engine.registry import GameManifest, register_game, get_all_games, clear_registry
 
 
 def init_games_registry():

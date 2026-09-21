@@ -1,7 +1,7 @@
 """Geo Bingo game engine logic and state machine."""
 import time
 from typing import Any, Dict, List, Optional, Tuple
-from apps.common.heartbeat import process_heartbeat
+from engine.heartbeat import process_heartbeat
 from .items import generate_items
 
 

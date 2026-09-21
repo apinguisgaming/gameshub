@@ -7,7 +7,7 @@ import os
 from typing import List, Optional, Union
 from flask import Flask, render_template
 from apps.auth.decorators import login_required
-from apps.common.registry import GameManifest, get_all_games
+from engine.registry import GameManifest, get_all_games
 
 
 def register_singleplayer_routes(app: Flask, manifests: Optional[List[GameManifest]] = None) -> None:

@@ -619,7 +619,7 @@ class GameHubPlatformTests(unittest.TestCase):
 
     def test_21_game_registry_manifests(self):
         """Verify centralized game registry and manifest management."""
-        from apps.common.registry import get_all_games, get_game, register_game, GameManifest
+        from engine.registry import get_all_games, get_game, register_game, GameManifest
         from apps.games import init_games_registry
 
         games = init_games_registry()
@@ -688,8 +688,8 @@ class GameHubPlatformTests(unittest.TestCase):
     def test_23_singleplayer_auto_route_and_shell_fallback(self):
         """Verify dynamic singleplayer route registration and fallback game shell."""
         from flask import Flask
-        from apps.common.registry import GameManifest, register_game
-        from apps.common.singleplayer import register_singleplayer_routes
+        from engine.registry import GameManifest, register_game
+        from engine.singleplayer import register_singleplayer_routes
 
         # Create fresh test app to verify runtime registration of a new singleplayer game without a template
         test_app = Flask('test_singleplayer', template_folder=self.app.template_folder)
@@ -729,7 +729,7 @@ class GameHubPlatformTests(unittest.TestCase):
     def test_24_multiplayer_blueprint_factory(self):
         """Verify reusable multiplayer Blueprint factory provides room lifecycle endpoints."""
         from flask import Flask
-        from apps.common.multiplayer_bp import create_multiplayer_blueprint
+        from engine.multiplayer import create_multiplayer_blueprint
 
         test_app = Flask('test_mp', template_folder=self.app.template_folder)
         test_app.secret_key = 'test_secret'
@@ -784,7 +784,7 @@ class GameHubPlatformTests(unittest.TestCase):
 
     def test_25_delta_broadcasting_optimization(self):
         """Verify differential state broadcasting, compact payload diffing, and append-only log optimization."""
-        from apps.common.delta import compute_state_delta, apply_state_delta, BroadcastTracker
+        from engine.delta import compute_state_delta, apply_state_delta, BroadcastTracker
         import copy
 
         prev_state = {
@@ -924,7 +924,7 @@ class GameHubPlatformTests(unittest.TestCase):
 
     def test_27_google_maps_request_logging(self):
         """Verify Google Maps request logging, user identity linking, X-Forwarded-For handling, and logfile creation."""
-        from apps.common.maps_logger import MAPS_LOG_FILE
+        from engine.maps_logger import MAPS_LOG_FILE
 
         with self.storage._get_conn() as conn:
             conn.execute("DELETE FROM maps_penalties")
@@ -1008,7 +1008,7 @@ class GameHubPlatformTests(unittest.TestCase):
 
     def test_28_maps_rate_limiting_and_cascade_protection(self):
         """Verify progressive rate-limiting, cascade protection, strike escalation, and manual DB admin reset."""
-        from apps.common.maps_logger import MAPS_LOG_FILE
+        from engine.maps_logger import MAPS_LOG_FILE
         import time
 
         username = "RateLimitUser"

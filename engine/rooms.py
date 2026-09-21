@@ -55,7 +55,7 @@ def join_room(
 ) -> Dict[str, Any]:
     """Adds a player or spectator to an existing room."""
     if max_players is None:
-        from apps.common.registry import get_game
+        from engine.registry import get_game
         m = get_game(game_id)
         max_players = m.max_players if m else 10
 
@@ -191,7 +191,7 @@ def validate_room_capacity(game_id: str, current_player_count: int) -> Optional[
     
     Returns error message if room is full, None if space is available.
     """
-    from apps.common.registry import get_game
+    from engine.registry import get_game
     manifest = get_game(game_id)
     if not manifest:
         return None
@@ -205,7 +205,7 @@ def validate_game_start(game_id: str, current_player_count: int) -> Optional[str
     
     Returns error message if too few players, None if ready to start.
     """
-    from apps.common.registry import get_game
+    from engine.registry import get_game
     manifest = get_game(game_id)
     if not manifest:
         return None

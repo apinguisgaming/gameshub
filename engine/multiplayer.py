@@ -7,8 +7,8 @@ from typing import Any, Callable, Dict, Optional
 from flask import Blueprint, jsonify, render_template, request
 from config import get_pusher_client
 from apps.auth.decorators import get_current_user, login_required
-from apps.common.heartbeat import record_player_heartbeat
-from apps.common.rooms import create_room, get_room_state, join_room, leave_room, list_rooms
+from engine.heartbeat import record_player_heartbeat
+from engine.rooms import create_room, get_room_state, join_room, leave_room, list_rooms
 
 
 def register_standard_room_routes(

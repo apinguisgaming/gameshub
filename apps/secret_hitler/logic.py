@@ -1,7 +1,7 @@
 """Secret Hitler game engine logic and state machine."""
 import random
 from typing import Any, Dict, List, Optional, Tuple
-from apps.common.heartbeat import process_heartbeat, clear_player
+from engine.heartbeat import process_heartbeat, clear_player
 
 # --- BOARD POWERS CONFIGURATION ---
 # Slots are 0-indexed (Slot 1 on fascist board is index 0)

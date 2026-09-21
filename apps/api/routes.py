@@ -59,7 +59,7 @@ def get_leaderboard(game_id: str):
 @api_bp.route('/logs/maps', methods=['POST'])
 def log_maps():
     """Logs a Google Maps API request with mandatory user attribution."""
-    from apps.common.maps_logger import record_maps_request
+    from engine.maps_logger import record_maps_request
 
     data = request.get_json(silent=True) or {}
     storage = get_storage()
@@ -85,7 +85,7 @@ def log_maps():
             return jsonify({'success': False, 'error': 'Unauthorized: UserName is required'}), 401
 
     # 2. Check if user or IP is actively blocked
-    from apps.common.maps_logger import extract_client_ip, log_maps_penalty
+    from engine.maps_logger import extract_client_ip, log_maps_penalty
     ip_address = extract_client_ip(request)
     penalty = storage.check_maps_penalty(username=username, ip_address=ip_address)
     if penalty['blocked']:
@@ -116,7 +116,7 @@ def log_maps():
 @api_bp.route('/logs/maps/check', methods=['GET', 'POST'])
 def check_maps_access():
     """Pre-check endpoint for Google Maps access with smart rate-limiting and cascade protection."""
-    from apps.common.maps_logger import extract_client_ip, log_maps_penalty
+    from engine.maps_logger import extract_client_ip, log_maps_penalty
     storage = get_storage()
     ip_address = extract_client_ip(request)
 

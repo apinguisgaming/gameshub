@@ -4,7 +4,7 @@ from flask import Blueprint, jsonify, render_template, request, session
 from config import get_pusher_client
 from storage import get_storage
 from apps.auth.decorators import login_required, get_current_user
-from apps.common.rooms import (
+from engine.rooms import (
     create_room,
     join_room,
     leave_room,
@@ -14,8 +14,8 @@ from apps.common.rooms import (
     validate_room_capacity,
     validate_game_start,
 )
-from apps.common.delta import broadcast_tracker
-from apps.common.multiplayer_bp import register_standard_room_routes
+from engine.delta import broadcast_tracker
+from engine.multiplayer import register_standard_room_routes
 from . import logic as song_logic
 
 song_bp = Blueprint('song_bp', __name__)

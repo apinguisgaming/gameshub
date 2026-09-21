@@ -6,7 +6,7 @@ import random
 import time
 from typing import Any, Dict, List, Optional, Tuple
 from config import DATA_DIR
-from apps.common.heartbeat import process_heartbeat
+from engine.heartbeat import process_heartbeat
 
 DATA_FILE = str(DATA_DIR / 'song_data.json')
 

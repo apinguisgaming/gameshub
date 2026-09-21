@@ -98,7 +98,7 @@ def card_template_exists(game_id: str) -> bool:
 def inject_global_context():
     """Injects user authentication profile, active token, Pusher settings, active game manifest, and games registry into all templates."""
     from apps.auth.decorators import get_current_user, get_current_token
-    from apps.common.registry import get_all_games, get_game_by_path
+    from engine.registry import get_all_games, get_game_by_path
     active_manifest = get_game_by_path(request.path)
     return {
         'current_user': get_current_user(),
@@ -125,14 +125,14 @@ def portal():
 @app.route('/gothic-survivors/creator')
 @login_required
 def gothic_survivors_creator():
-    from apps.common.registry import get_game
+    from engine.registry import get_game
     manifest = get_game('gothic_survivors')
     return render_template('gothic_survivors_creator.html', game=manifest)
 
 
 # Initialize game registry and auto-register singleplayer routes
 from apps.games import init_games_registry
-from apps.common.singleplayer import register_singleplayer_routes
+from engine.singleplayer import register_singleplayer_routes
 
 init_games_registry()
 register_singleplayer_routes(app)
