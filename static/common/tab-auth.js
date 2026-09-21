@@ -75,14 +75,19 @@
             applyUserToUI(serverUser);
         }
 
-        // Setup jQuery prefilter if jQuery is loaded on the page
-        if (window.jQuery && window.jQuery.ajaxPrefilter) {
-            window.jQuery.ajaxPrefilter(function (options, originalOptions, jqXHR) {
-                var tok = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
-                if (tok) {
-                    jqXHR.setRequestHeader('X-Auth-Token', tok);
-                }
-            });
+        // Setup jQuery prefilter and timeout if jQuery is loaded on the page
+        if (window.jQuery) {
+            if (window.jQuery.ajaxSetup) {
+                window.jQuery.ajaxSetup({ timeout: 8000 });
+            }
+            if (window.jQuery.ajaxPrefilter) {
+                window.jQuery.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+                    var tok = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
+                    if (tok) {
+                        jqXHR.setRequestHeader('X-Auth-Token', tok);
+                    }
+                });
+            }
         }
 
         // 3. If no token at all, finish

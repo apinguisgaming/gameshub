@@ -10,12 +10,17 @@
     <link rel="stylesheet" href="/static/nexusdex/styles.css">
 {% endblock %}
 
+{% from "components/top_bar.html" import render_top_bar with context %}
+
 {% block content %}
+    <div style="background: var(--bg-glass-heavy); border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding: 8px 32px;">
+        {{ render_top_bar(extra_class='nexusdex-top-bar') }}
+    </div>
+
     <!-- ======== GLASSMORPHIC HEADER / COMMAND CENTER ======== -->
     <header id="app-header" class="glass-header">
         <div class="header-inner">
             <div style="display: flex; align-items: center; gap: 12px;">
-                <a href="/" class="gamehub-back-btn" style="color: #fff; text-decoration: none; font-size: 11px; font-weight: 700; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 20px; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap;">← GAMEHUB</a>
                 <div class="logo" id="logo" title="Back to Gallery">
                     <span class="logo-icon">✦</span>
                     <span class="logo-text">NexusDex</span>
@@ -50,7 +55,6 @@
                 <button class="nav-btn" data-page="typechart" id="nav-typechart">Matchups</button>
                 <button class="nav-btn" data-page="encounters" id="nav-encounters">Encounters</button>
                 <button class="nav-icon-btn" id="btn-settings" title="Settings">⚙️</button>
-                <span class="account-badge-username" style="font-size: 11px; font-weight: 700; color: #a5b4fc; background: rgba(99,102,241,0.18); border: 1px solid rgba(99,102,241,0.4); padding: 4px 10px; border-radius: 20px; white-space: nowrap; display: inline-flex; align-items: center;">👤 {{ current_user.username if current_user else 'Gast' }}</span>
             </nav>
         </div>
         <div class="type-filter-bar" id="type-filter-bar"></div>

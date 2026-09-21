@@ -44,12 +44,11 @@
     var roomListTimer = null;
     var lastLobbySig = "";
 
-    // Inject room_code and X-Auth-Token automatically into all jQuery POST requests
+    // Setup global AJAX timeout (8s)
+    $.ajaxSetup({ timeout: 8000 });
+
+    // Inject room_code automatically into all jQuery POST requests (auth token handled by tab-auth.js)
     $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
-        const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
-        if (token) {
-            jqXHR.setRequestHeader('X-Auth-Token', token);
-        }
         if (currentRoomCode && options.type && options.type.toUpperCase() === 'POST') {
             if (typeof options.data === 'string') {
                 if (options.data.indexOf('room_code=') === -1) {
@@ -336,7 +335,25 @@
             updateUI(data);
         });
 
-        channel.bind('game-reset', () => location.reload());
+        channel.bind('game-reset', function () {
+            console.log('%c[SongGuesser] In-Memory Game Reset', 'color: #51cf66; font-weight: bold;');
+            if (audio) {
+                audio.pause();
+                audio.currentTime = 0;
+            }
+            clearInterval(timerInterval);
+            hasGuessed = false;
+            $('#options-container').empty();
+            $('.vinyl-container').removeClass('spinning');
+            $('#timer-display').text('--:--');
+            if (currentGameState) {
+                currentGameState.status = 'lobby';
+                updateUI(currentGameState);
+            } else {
+                $('.screen').hide();
+                $('#screen-lobby').show();
+            }
+        });
     }
 
     function startLocalTimer(duration) {
@@ -393,6 +410,10 @@
             } else {
                 btn.addClass('wrong');
             }
+        }).fail(function () {
+            $('.btn-option').prop('disabled', false);
+            btn.css('border-color', '').css('background', '');
+            showToast("Antwort konnte nicht übermittelt werden.");
         });
     }
 
@@ -565,7 +586,11 @@
                 if (response.error) {
                     alert("⚠️ START FAILED: " + response.error);
                 }
+            }).fail(function (xhr) {
+                alert("⚠️ Start fehlgeschlagen: " + ((xhr.responseJSON && xhr.responseJSON.error) || xhr.statusText));
             });
+        }).fail(function (xhr) {
+            alert("⚠️ Einstellungen konnten nicht gespeichert werden: " + ((xhr.responseJSON && xhr.responseJSON.error) || xhr.statusText));
         });
     }
 

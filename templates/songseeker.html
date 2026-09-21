@@ -25,14 +25,12 @@
 
 {% block body_class %}songseeker-body{% endblock %}
 
+{% from "components/top_bar.html" import render_top_bar with context %}
+
 {% block content %}
   <!-- Top Auth Status Header -->
-  <div style="width: 100%; max-width: 800px; display: flex; justify-content: space-between; align-items: center; padding: 8px 14px; margin-bottom: 15px; border: var(--border-width) solid var(--black); background: var(--white); box-shadow: 4px 4px 0px var(--black);">
-    <a href="/" class="gamehub-back-btn button" style="padding: 4px 12px; font-size: 0.8rem; text-decoration: none; display: inline-block;">← GAMEHUB</a>
-    <div style="font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; gap: 8px;">
-      <span style="color: #22c55e;">☁️ CLOUD SYNC</span>
-      <span style="background: var(--bg-color); border: 2px solid var(--black); padding: 3px 8px;">ACCOUNT: <strong class="account-badge-username" style="color: var(--black);">👤 {{ current_user.username if current_user else 'Gast' }}</strong></span>
-    </div>
+  <div style="width: 100%; max-width: 800px; padding: 8px 14px; margin-bottom: 15px; border: var(--border-width) solid var(--black); background: var(--white); box-shadow: 4px 4px 0px var(--black);">
+    {{ render_top_bar(extra_class='songseeker-top-bar') }}
   </div>
 
   <h2 id="main-header">SongSeeker</h2>

@@ -100,6 +100,8 @@ class SQLiteStorage(BaseStorage):
                     attempted_at REAL NOT NULL
                 );
                 CREATE INDEX IF NOT EXISTS idx_login_attempts_ip ON login_attempts(ip_address);
+                CREATE INDEX IF NOT EXISTS idx_lobbies_updated ON game_lobbies(updated_at);
+                CREATE INDEX IF NOT EXISTS idx_heartbeats_seen ON player_heartbeats(last_seen);
 
                 CREATE TABLE IF NOT EXISTS maps_api_logs (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -273,29 +275,9 @@ class SQLiteStorage(BaseStorage):
                 """, (game_id, code, serialized, host_user_id, player_count, status))
 
     def load_lobby(self, game_id: str, room_code: str) -> Optional[Dict[str, Any]]:
-        import time
         code = room_code.upper().strip()
         with self._get_conn() as conn:
             cur = conn.cursor()
-            # Presence-aware prune: Only delete if BOTH no state update in 300s AND no active player heartbeats in 300s
-            cur.execute("""
-                DELETE FROM game_lobbies
-                WHERE game_id = ? AND room_code = ?
-                  AND updated_at < datetime('now', '-300 seconds')
-                  AND NOT EXISTS (
-                      SELECT 1 FROM player_heartbeats ph
-                      WHERE ph.game_id = game_lobbies.game_id
-                        AND ph.room_code = game_lobbies.room_code
-                        AND ph.last_seen > ?
-                  )
-            """, (game_id, code, time.time() - 300.0))
-            if cur.rowcount > 0:
-                conn.execute(
-                    "DELETE FROM player_heartbeats WHERE game_id = ? AND room_code = ?",
-                    (game_id, code)
-                )
-                return None
-
             cur.execute(
                 "SELECT state_data FROM game_lobbies WHERE game_id = ? AND room_code = ?",
                 (game_id, code)
@@ -304,6 +286,23 @@ class SQLiteStorage(BaseStorage):
             if row and row['state_data']:
                 return json.loads(row['state_data'])
             return None
+
+    def find_player_room(self, game_id: str, username: str) -> Optional[str]:
+        """Find active room code where username is player or spectator."""
+        with self._get_conn() as conn:
+            cur = conn.cursor()
+            cur.execute(
+                "SELECT room_code, state_data FROM game_lobbies WHERE game_id = ? ORDER BY updated_at DESC",
+                (game_id,)
+            )
+            for row in cur.fetchall():
+                try:
+                    st = json.loads(row['state_data']) if row['state_data'] else {}
+                    if username in st.get('players', []) or username in st.get('spectators', []):
+                        return row['room_code']
+                except Exception:
+                    continue
+        return None
 
     def delete_lobby(self, game_id: str, room_code: str) -> None:
         code = room_code.upper().strip()

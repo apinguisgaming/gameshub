@@ -162,7 +162,6 @@ def leave(room_code: str = None):
     if state:
         if name in state.get('scores', {}):
             del state['scores'][name]
-            get_storage().save_lobby('song', code, state, len(state.get('players', [])), state.get('status', 'lobby'))
         trigger_update(code, state)
     return jsonify({'success': True})
 

@@ -10,14 +10,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='tower/style.css') }}">
 {% endblock %}
 
+{% from "components/top_bar.html" import render_top_bar with context %}
+
 {% block content %}
     <!-- Top Auth Status Header -->
-    <div style="width: 100%; max-width: 1300px; margin: 10px auto 5px; display: flex; justify-content: space-between; align-items: center; padding: 8px 14px; background: #1a1a24; border: 2px solid #333; font-family: 'Press Start 2P', monospace; font-size: 9px; box-sizing: border-box;">
-        <a href="/" class="gamehub-back-btn" style="color: #ffd400; text-decoration: none; border: 1px solid #ffd400; padding: 4px 8px; background: rgba(255,212,0,0.1);">← GAMEHUB</a>
-        <div style="display: flex; align-items: center; gap: 14px;">
-            <span style="color: #22c55e;">☁️ CLOUD SYNC</span>
-            <span style="color: #fff; background: #2a2a38; border: 1px solid #444; padding: 4px 8px;">ACCOUNT: <strong class="account-badge-username" style="color: #ffd400;">👤 {{ current_user.username if current_user else 'Gast' }}</strong></span>
-        </div>
+    <div style="width: 100%; max-width: 1300px; margin: 10px auto 5px; padding: 8px 14px; background: #1a1a24; border: 2px solid #333; font-family: 'Press Start 2P', monospace; font-size: 9px; box-sizing: border-box;">
+        {{ render_top_bar(extra_class='tower-top-bar') }}
     </div>
 
     <div id="game-container">

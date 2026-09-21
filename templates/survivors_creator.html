@@ -8,6 +8,8 @@
 
 {% block body_class %}creator-body{% endblock %}
 
+{% from "components/top_bar.html" import render_top_bar with context %}
+
 {% block content %}
     <aside class="sidebar">
         <h2>Examples</h2>
@@ -17,15 +19,9 @@
     </aside>
 
     <main class="main-content">
-        <header style="display: flex; justify-content: space-between; align-items: center;">
-            <div style="display: flex; align-items: center; gap: 15px;">
-                <a href="/survivors/" class="gamehub-back-btn" style="background: #111; border: 1px solid var(--primary-color); color: var(--primary-color); padding: 6px 12px; text-decoration: none; font-size: 13px; text-transform: uppercase;">← SURVIVORS</a>
-                <a href="/" class="gamehub-back-btn" style="background: #111; border: 1px solid #666; color: #ccc; padding: 6px 12px; text-decoration: none; font-size: 13px; text-transform: uppercase;">← GAMEHUB</a>
-                <h1 style="margin: 0;">Gothic Survivors Data Generator</h1>
-            </div>
-            <div style="font-size: 13px; font-family: monospace; background: #111; border: 1px solid #444; padding: 5px 12px;">
-                ACCOUNT: <strong class="account-badge-username" style="color: var(--primary-color);">👤 {{ current_user.username if current_user else 'Gast' }}</strong>
-            </div>
+        <header style="margin-bottom: 20px;">
+            {{ render_top_bar(back_url='/survivors/', back_text='← SURVIVORS', extra_class='creator-top-bar') }}
+            <h1 style="margin: 12px 0 0 0;">Gothic Survivors Data Generator</h1>
         </header>
 
         <div class="generator-area">

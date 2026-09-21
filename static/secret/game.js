@@ -48,12 +48,11 @@
 
         var roomListTimer = null;
 
-        // Automatically inject currentRoomCode and X-Auth-Token into all requests
+        // Setup global AJAX timeout (8s)
+        $.ajaxSetup({ timeout: 8000 });
+
+        // Automatically inject currentRoomCode into all requests (auth token handled by tab-auth.js)
         $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
-            const token = window.GAMEHUB_TOKEN || sessionStorage.getItem('gamehub_token');
-            if (token) {
-                jqXHR.setRequestHeader('X-Auth-Token', token);
-            }
             let activeCode = currentRoomCode || (currentGameState && currentGameState.room_code) || Store.getSession('active_room') || (window.location.hash ? window.location.hash.substring(1).toUpperCase().trim() : '');
             if (activeCode) {
                 if (!currentRoomCode) currentRoomCode = activeCode;
@@ -205,7 +204,20 @@
                 updateUI(data);
             });
 
-            channel.bind('game-reset', () => { location.reload(); });
+            channel.bind('game-reset', function () {
+                console.log('%c[SecretHitler] In-Memory Game Reset', 'color: #51cf66; font-weight: bold;');
+                $('#log-modal').fadeOut(200);
+                $('#phase-overlay').hide();
+                $('#announcement-overlay').hide();
+                $('#reshuffle-toast').hide();
+                if (currentGameState) {
+                    currentGameState.status = 'lobby';
+                    updateUI(currentGameState);
+                } else {
+                    $('.screen').hide();
+                    $('#lobby-screen').show();
+                }
+            });
             channel.bind('force-kick', data => {
                 if (data.name === myName) {
                     Store.setSession('manual_leave', 'true');
@@ -972,6 +984,10 @@
                     if (btnElement) $(btnElement).removeClass('processing');
                     showModal("Error", res.error, null, true);
                 }
+            }).fail(function (xhr) {
+                if (btnElement) $(btnElement).removeClass('processing');
+                let err = (xhr.responseJSON && xhr.responseJSON.error) || (xhr.statusText === 'timeout' ? 'Zeitüberschreitung (Timeout)' : 'Verbindungsfehler');
+                showModal("Fehler", err, null, true);
             });
         }
         $('#join-btn').click(() => {
@@ -1331,6 +1347,7 @@
         window.openRoleModal = openRoleModal;
         window.switchIdentityTab = switchIdentityTab;
         window.showRoomBrowser = showRoomBrowser;
+        window.optimisticPost = optimisticPost;
         if (typeof openIdentityModal !== 'undefined') window.openIdentityModal = openIdentityModal;
         if (typeof selectAvatar !== 'undefined') window.selectAvatar = selectAvatar;
         if (typeof selectCardStyle !== 'undefined') window.selectCardStyle = selectCardStyle;

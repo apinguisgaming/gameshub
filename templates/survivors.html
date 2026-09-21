@@ -10,11 +10,12 @@
 
 {% block body_class %}survivors-body{% endblock %}
 
+{% from "components/top_bar.html" import render_top_bar with context %}
+
 {% block content %}
 <div id="main-container">
-    <div style="position: absolute; top: 12px; left: 12px; z-index: 250; display: flex; align-items: center; gap: 10px; pointer-events: auto;">
-        <a href="/" class="gamehub-back-btn" style="background: #151010; border: 1px solid var(--ui-border); color: var(--accent); padding: 5px 12px; text-decoration: none; font-family: var(--font-body); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">← GAMEHUB</a>
-        <span style="background: rgba(21, 16, 16, 0.85); border: 1px solid #444; color: #fff; padding: 4px 10px; font-size: 13px; font-family: monospace;">ACCOUNT: <strong class="account-badge-username" style="color: var(--accent);">👤 {{ current_user.username if current_user else 'Gast' }}</strong></span>
+    <div style="position: absolute; top: 12px; left: 12px; right: 12px; z-index: 250; pointer-events: auto;">
+        {{ render_top_bar(extra_class='survivors-top-bar') }}
     </div>
     <canvas id="gameCanvas"></canvas>
     <div id="scanlines"></div>

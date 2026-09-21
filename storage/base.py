@@ -83,6 +83,10 @@ class BaseStorage(ABC):
         """List active lobbies for a game."""
         pass
 
+    def find_player_room(self, game_id: str, username: str) -> Optional[str]:
+        """Find the active room code for a given player in a game."""
+        return None
+
     def touch_lobby(self, game_id: str, room_code: str) -> None:
         """Updates last-active timestamp of a lobby."""
         pass

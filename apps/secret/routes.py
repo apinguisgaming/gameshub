@@ -232,19 +232,7 @@ def set_avatar(room_code: str = None):
         return jsonify({"error": "Kein Avatar angegeben"}), 400
 
     if not code:
-        storage = get_storage()
-        with storage._get_conn() as conn:
-            cur = conn.cursor()
-            cur.execute("SELECT room_code, state_data FROM game_lobbies WHERE game_id = 'secret'")
-            for row in cur.fetchall():
-                try:
-                    import json
-                    st = json.loads(row['state_data']) if row['state_data'] else {}
-                    if username in st.get('players', []) or username in st.get('spectators', []):
-                        code = row['room_code']
-                        break
-                except Exception:
-                    continue
+        code = get_storage().find_player_room('secret', username)
 
     if not code:
         return jsonify({"error": "Kein Raumcode angegeben"}), 400
@@ -281,19 +269,7 @@ def set_style(room_code: str = None):
         return jsonify({"error": "Kein Stil angegeben"}), 400
 
     if not code:
-        storage = get_storage()
-        with storage._get_conn() as conn:
-            cur = conn.cursor()
-            cur.execute("SELECT room_code, state_data FROM game_lobbies WHERE game_id = 'secret'")
-            for row in cur.fetchall():
-                try:
-                    import json
-                    st = json.loads(row['state_data']) if row['state_data'] else {}
-                    if username in st.get('players', []) or username in st.get('spectators', []):
-                        code = row['room_code']
-                        break
-                except Exception:
-                    continue
+        code = get_storage().find_player_room('secret', username)
 
     if not code:
         return jsonify({"error": "Kein Raumcode angegeben"}), 400
@@ -388,7 +364,9 @@ def kick(room_code: str = None):
 
     state = secret_logic.validate_game_integrity(state)
     try:
-        pusher_client.trigger(f'secret-{code}', 'force-kick', {'name': target_name})
+        client = get_pusher_client()
+        if client:
+            client.trigger(f'secret-{code}', 'force-kick', {'name': target_name})
     except Exception:
         pass
     trigger_update(code, state)
@@ -468,19 +446,7 @@ def vote(room_code: str = None):
     vote_val = request.form.get('vote') or data.get('vote')
 
     if not code:
-        storage = get_storage()
-        with storage._get_conn() as conn:
-            cur = conn.cursor()
-            cur.execute("SELECT room_code, state_data FROM game_lobbies WHERE game_id = 'secret'")
-            for row in cur.fetchall():
-                try:
-                    import json
-                    st = json.loads(row['state_data']) if row['state_data'] else {}
-                    if voter in st.get('players', []):
-                        code = row['room_code']
-                        break
-                except Exception:
-                    continue
+        code = get_storage().find_player_room('secret', voter)
 
     if not code:
         return jsonify({"error": "Kein Raumcode angegeben"}), 400
@@ -837,19 +803,7 @@ def get_my_role(room_code: str = None):
 
     # If code not provided in request, attempt to find the user's active game
     if not code:
-        storage = get_storage()
-        with storage._get_conn() as conn:
-            cur = conn.cursor()
-            cur.execute("SELECT room_code, state_data FROM game_lobbies WHERE game_id = 'secret'")
-            for row in cur.fetchall():
-                try:
-                    import json
-                    st = json.loads(row['state_data']) if row['state_data'] else {}
-                    if user['username'] in st.get('players', []):
-                        code = row['room_code']
-                        break
-                except Exception:
-                    continue
+        code = get_storage().find_player_room('secret', user['username'])
 
     if not code:
         return jsonify({"role": None, "info": "Kein Raumcode angegeben."}), 400

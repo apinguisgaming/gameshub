@@ -171,6 +171,7 @@ class GameHubPlatformTests(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
         data = res.get_json()
         self.assertIn('SH_Player2', data['players'])
+        self.assertEqual(self.storage.find_player_room('secret', 'SH_Player2'), code)
 
         # 4. Host attempts to start with only 2 players -> fails (min 5 required)
         res_fail = host_client.post(f'/secret/{code}/start_game')
@@ -585,6 +586,7 @@ class GameHubPlatformTests(unittest.TestCase):
         with storage._get_conn() as conn:
             conn.execute("UPDATE game_lobbies SET updated_at = datetime('now', '-600 seconds') WHERE room_code = ?", (room_dead,))
 
+        storage.cleanup_inactive_lobbies(300)
         loaded_dead = storage.load_lobby('secret', room_dead)
         self.assertIsNone(loaded_dead, "Empty idle room was not pruned!")
 
@@ -596,6 +598,7 @@ class GameHubPlatformTests(unittest.TestCase):
 
         # Player is active right now
         storage.upsert_heartbeat('secret', room_live, 'ActiveAlice', time.time())
+        storage.cleanup_inactive_lobbies(300)
 
         loaded_live = storage.load_lobby('secret', room_live)
         self.assertIsNotNone(loaded_live, "Room with active heartbeats was wrongly deleted!")

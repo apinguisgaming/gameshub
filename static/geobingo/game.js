@@ -7,6 +7,10 @@
 (function () {
     'use strict';
 
+    if (window.jQuery && window.jQuery.ajaxSetup) {
+        window.jQuery.ajaxSetup({ timeout: 8000 });
+    }
+
     // Game State variables
     let currentRoomCode = null;
     let currentUser = (window.GAMEHUB_CONFIG && window.GAMEHUB_CONFIG.user) ? window.GAMEHUB_CONFIG.user.username : 'Spieler';
