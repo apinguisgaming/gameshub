@@ -1138,51 +1138,6 @@ class GameHubPlatformTests(unittest.TestCase):
 
         print("[OK] 28: Maps progressive rate-limiting, cascade protection & admin reset verified")
 
-    def test_29_game_cli_scaffold_and_auto_discovery(self):
-        """Verify CLI game scaffolding generator and dynamic platform auto-discovery."""
-        import shutil
-        from engine.cli import create_game_scaffold
-        from games import init_games_registry, discover_games
-
-        test_id = "test_scaffold_game"
-        test_dir = config.GAMES_DIR / test_id
-
-        try:
-            # 1. Generate scaffolded multiplayer game
-            create_game_scaffold(
-                game_id=test_id,
-                title="CLI Scaffold Game",
-                game_type="multiplayer",
-                icon="🚀",
-                color="#8b5cf6"
-            )
-            self.assertTrue(test_dir.exists())
-            self.assertTrue((test_dir / 'manifest.py').exists())
-            self.assertTrue((test_dir / 'routes.py').exists())
-            self.assertTrue((test_dir / 'logic.py').exists())
-            self.assertTrue((test_dir / 'templates' / f'{test_id}.html').exists())
-            self.assertTrue((test_dir / 'static' / 'style.css').exists())
-            self.assertTrue((test_dir / 'static' / 'game.js').exists())
-
-            # 2. Verify auto-discovery detects the new game
-            games = init_games_registry()
-            found = any(g.id == test_id for g in games)
-            self.assertTrue(found, f"Scaffolded game '{test_id}' not found by auto-discovery")
-
-            # 3. Verify manifest contents
-            manifest = next(g for g in games if g.id == test_id)
-            self.assertEqual(manifest.title, "CLI Scaffold Game")
-            self.assertEqual(manifest.game_type, "multiplayer")
-            self.assertEqual(manifest.route_prefix, f"/{test_id.replace('_', '-')}")
-            self.assertEqual(manifest.icon, "🚀")
-        finally:
-            # Clean up scaffolded game
-            if test_dir.exists():
-                shutil.rmtree(test_dir, ignore_errors=True)
-            init_games_registry()
-
-        print("[OK] 29: Game CLI scaffold & auto-discovery verified")
-
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

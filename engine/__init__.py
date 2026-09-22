@@ -43,9 +43,6 @@ from engine.multiplayer import (
 from engine.broadcasting import broadcast_state_update
 from engine.stats import record_match_outcome
 
-# Compatibility alias for multiplayer blueprint module
-from engine import multiplayer as multiplayer_bp
-
 __all__ = [
     'GameManifest',
     'register_game',
@@ -74,5 +71,4 @@ __all__ = [
     'register_singleplayer_routes',
     'create_multiplayer_blueprint',
     'register_standard_room_routes',
-    'multiplayer_bp',
 ]

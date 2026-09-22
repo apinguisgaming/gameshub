@@ -40,7 +40,7 @@ A unified, modular Flask gaming platform with single sign-on, multi-room multipl
 ```text
 ├── flask_app.py             # Main entrypoint; auto-discovers games and registers platform services
 ├── config.py                # Centralized configuration (Pusher, DB, proxy, secrets)
-├── test_platform.py         # Automated test suite (29/29 tests passing)
+├── test_platform.py         # Automated test suite (28/28 tests passing)
 │
 ├── engine/                  # Core Engine Infrastructure
 │   ├── registry.py          # Central game registry & GameManifest dataclass
@@ -50,8 +50,7 @@ A unified, modular Flask gaming platform with single sign-on, multi-room multipl
 │   ├── broadcasting.py      # Non-blocking Pusher dispatch with thread pool
 │   ├── heartbeat.py         # Player heartbeat and presence tracking
 │   ├── stats.py             # Batch match outcomes & high-score recording
-│   ├── singleplayer.py      # Dynamic singleplayer auto-router & fallback shell
-│   └── cli.py               # Developer CLI for zero-boilerplate game scaffolding
+│   └── singleplayer.py      # Dynamic singleplayer auto-router & fallback shell
 │
 ├── games/                   # Colocated Game Packages
 │   ├── secret_hitler/       # Secret Hitler (Multiplayer, 5-10 players)
@@ -86,22 +85,6 @@ A unified, modular Flask gaming platform with single sign-on, multi-room multipl
 
 ---
 
-## Developer CLI: Scaffolding New Games
-
-Generate a complete, working game module with a single command:
-
-```bash
-# Create a multiplayer game scaffold:
-python -m engine.cli create my_game --title "My New Game" --type multiplayer
-
-# Create a singleplayer game scaffold:
-python -m engine.cli create mini_quest --title "Mini Quest" --type singleplayer
-```
-
-The game is immediately discovered by the platform and available at `/<game-id>/` upon application reload.
-
----
-
 ## Running the Automated Test Suite
 
 Run all platform and game regression tests:
@@ -110,14 +93,14 @@ Run all platform and game regression tests:
 python test_platform.py
 ```
 
-All 29 tests verify:
+All 28 tests verify:
 - Database schema & connection pooling
 - Multi-tab token isolation & session security
 - Cloud save user isolation
 - Multiplayer room lifecycles & authorization
 - Differential Pusher state broadcasts
 - Progressive Google Maps API rate limiting & strike escalation
-- Game scaffolding CLI & dynamic auto-discovery
+- Automatic zero-boilerplate game discovery & mounting
 
 ---
 
