@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PTD Alpha - Pro Balancer & Editor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #0f172a; --panel: #1e293b; --accent: #3b82f6; --text: #f1f5f9; --green: #10b981; }
+        body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+        
+        header { background: #000; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--accent); }
+        h1 { font-family: 'Press Start 2P'; font-size: 14px; margin: 0; color: var(--accent); }
+
+        .main-layout { display: flex; flex: 1; overflow: hidden; width: 100%; }
+
+        /* Sidebar: List of existing items */
+        .sidebar { width: 220px; background: #0f172a; border-right: 1px solid #334155; display: flex; flex-direction: column; flex-shrink: 0; }
+        .sidebar-header { padding: 10px; font-size: 10px; text-transform: uppercase; color: #64748b; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; align-items: center;}
+        .item-list { flex: 1; overflow-y: auto; }
+        .item-link { padding: 10px; font-size: 13px; cursor: pointer; border-bottom: 1px solid #1e293b; transition: 0.2s; }
+        .item-link:hover { background: #1e293b; color: var(--accent); }
+        .item-link.active { background: var(--accent); color: white; }
+
+        /* Middle: Editor Form */
+        .editor-pane { flex: 2; padding: 20px; overflow-y: auto; background: var(--panel); border-right: 1px solid #334155; display: flex; flex-direction: column; }
+        
+        /* Right: Balancing & Code */
+        .preview-pane { flex: 3; display: flex; flex-direction: column; background: #000; min-width: 0; }
+        .pane-section { flex: 1; padding: 15px; overflow: auto; border-bottom: 1px solid #334155; }
+        
+        .tab-bar { display: flex; background: #000; padding: 10px 10px 0 10px; gap: 5px; flex-wrap: wrap; }
+        .tab-btn { background: #334155; border: none; color: white; padding: 8px 15px; cursor: pointer; border-radius: 5px 5px 0 0; font-size: 11px; font-weight: bold; text-transform: uppercase; }
+        .tab-btn.active { background: var(--panel); border: 1px solid #334155; border-bottom: none; color: var(--accent); }
+
+        /* Table Styling */
+        table { width: 100%; border-collapse: collapse; font-size: 11px; color: #cbd5e1; white-space: nowrap; }
+        th { text-align: left; background: #1e293b; color: var(--accent); padding: 8px; position: sticky; top: 0; z-index: 10; cursor: pointer; box-shadow: 0 1px 0 #334155; }
+        td { padding: 8px; border-bottom: 1px solid #334155; }
+        tr:hover td { background: #334155; }
+
+        /* TTK Matrix Specifics */
+        .matrix-container { overflow: auto; flex: 1; margin-top: 15px; border: 1px solid #334155; border-radius: 4px; }
+        .matrix-table th, .matrix-table td { border: 1px solid #334155; text-align: right; }
+        .matrix-table th:first-child, .matrix-table td:first-child { position: sticky; left: 0; background: #0f172a; text-align: left; z-index: 11; font-weight: bold; border-right: 2px solid #3b82f6;}
+        .matrix-table th:first-child { z-index: 12; background: #1e293b; }
+
+        .form-group { margin-bottom: 12px; }
+        label { display: block; font-size: 11px; margin-bottom: 4px; color: #94a3b8; font-weight: bold; text-transform: uppercase; }
+        input, select, textarea { width: 100%; padding: 8px; background: #0f172a; border: 1px solid #334155; color: white; border-radius: 4px; box-sizing: border-box; }
+        input[type="checkbox"] { width: auto; }
+        .row { display: flex; gap: 10px; margin-bottom: 10px; align-items: flex-end; }
+        .row > * { flex: 1; }
+
+        .nested-item { background: #0f172a; padding: 10px; border-left: 3px solid var(--accent); margin-bottom: 8px; position: relative; }
+        .remove-btn { position: absolute; top: 5px; right: 5px; background: #ef4444; border: none; color: white; cursor: pointer; padding: 2px 6px; border-radius: 3px; }
+        .add-btn { width: 100%; padding: 8px; background: var(--green); border: none; color: white; border-radius: 4px; cursor: pointer; font-size: 11px; margin-top: 5px; }
+        
+        pre { margin: 0; color: var(--green); font-size: 12px; white-space: pre-wrap;}
+        .copy-btn { background: var(--accent); color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 11px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>PTD ALPHA CONTENT HUB</h1>
+        <div>
+            <span id="status-msg" style="font-size: 10px; margin-right: 15px; color: #64748b;">LIVE SYNC ENABLED</span>
+            <button class="copy-btn" onclick="copyCode()">COPY JS BLOCK</button>
+        </div>
+    </header>
+
+    <div class="tab-bar">
+        <button class="tab-btn active" onclick="changeCategory('moves')">ATTACKS</button>
+        <button class="tab-btn" onclick="changeCategory('towers')">POKÉMON</button>
+        <button class="tab-btn" onclick="changeCategory('enemies')">ENEMIES</button>
+        <button class="tab-btn" onclick="changeCategory('abilities')">ABILITIES</button>
+        <button class="tab-btn" onclick="changeCategory('items')">ITEMS</button>
+        <button class="tab-btn" onclick="changeCategory('waves')">WAVES</button>
+        <button class="tab-btn" style="background:#0f766e;" onclick="changeCategory('ttk')">TTK MATRIX (BOARD)</button>
+    </div>
+
+    <div class="main-layout">
+        <!-- Selection Sidebar -->
+        <div class="sidebar" id="mainSidebar">
+            <div class="sidebar-header" id="sidebar-label">MOVES</div>
+            <div class="item-link" style="color: var(--green); font-weight: bold;" onclick="createNew()">+ CREATE NEW</div>
+            <div class="item-list" id="itemList"></div>
+        </div>
+
+        <!-- Editor Pane -->
+        <div class="editor-pane" id="editorFields">
+            <!-- Form injected here -->
+        </div>
+
+        <!-- Preview & Balancing Pane -->
+        <div class="preview-pane" id="previewPane">
+            <div class="sidebar-header">
+                <span>Base Balance Sheet</span>
+                <div style="display:flex; gap: 5px; align-items:center;">
+                    <label style="margin:0;">Sim Lvl:</label>
+                    <input type="number" id="preview_sim_lvl" value="1" style="width: 50px; padding: 2px;" onchange="renderBalanceSheet()">
+                </div>
+            </div>
+            <div class="pane-section" style="padding: 0;">
+                <div style="overflow: auto; height: 100%;">
+                    <table id="balanceTable">
+                        <!-- Table generated here -->
+                    </table>
+                </div>
+            </div>
+            <div class="sidebar-header">JS Export Preview</div>
+            <div class="pane-section">
+                <pre id="codePreview"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='pokemon_tower/game-data.js') }}"></script>
+
+    <script>
+        let currentCat = 'moves';
+        let currentId = null;
+        let sortKey = 'cost'; 
+        let sortDir = 1;      
+        // TTK Matrix Sort State
+        let ttkSortEnemyId = null;
+        let ttkSortDir = 1; // 1 = Fastest first, -1 = Slowest first
+
+
+        function changeCategory(cat) {
+            currentCat = cat;
+            currentId = null;
+            
+            // Layout toggles for TTK Matrix vs Normal Mode
+            if (cat === 'ttk') {
+                document.getElementById('mainSidebar').style.display = 'none';
+                document.getElementById('previewPane').style.display = 'none';
+                document.getElementById('editorFields').style.flex = '1';
+                renderTTKBoard();
+            } else {
+                document.getElementById('mainSidebar').style.display = 'flex';
+                document.getElementById('previewPane').style.display = 'flex';
+                document.getElementById('editorFields').style.flex = '2';
+                
+                if (cat === 'towers') sortKey = 'score';
+                else if (cat === 'enemies') sortKey = 'threat';
+                else if (cat === 'waves') sortKey = 'id';
+                else sortKey = 'cost';
+                sortDir = -1; // Default to descending for DPS/EHP
+                
+                refreshSidebar();
+                renderForm();
+                renderBalanceSheet();
+            }
+
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.remove('active');
+                if (b.innerText.toLowerCase().includes(cat.slice(0, 3))) b.classList.add('active');
+            });
+        }
+
+        function refreshSidebar() {
+            const list = document.getElementById('itemList');
+            const data = GameData[currentCat] || {};
+            
+            list.innerHTML = Object.keys(data).map(id => {
+                let label = data[id].name || id;
+                if (currentCat === 'waves') label = `Wave ${data[id].id || (parseInt(id) + 1)}`;
+                return `
+                <div class="item-link ${currentId === id ? 'active' : ''}" onclick="loadItem('${id}')">
+                    ${label}
+                </div>
+            `}).join('');
+            document.getElementById('sidebar-label').innerText = currentCat;
+        }
+
+        function createNew() { currentId = null; renderForm(); refreshSidebar(); }
+        function loadItem(id) { currentId = id; renderForm(GameData[currentCat][id]); refreshSidebar(); }
+
+        function renderForm(data = null) {
+            const fields = document.getElementById('editorFields');
+            if (currentCat === 'moves') fields.innerHTML = moveForm(data);
+            if (currentCat === 'towers') fields.innerHTML = towerForm(data);
+            if (currentCat === 'enemies') fields.innerHTML = enemyForm(data);
+            if (currentCat === 'abilities') fields.innerHTML = abilityForm(data);
+            if (currentCat === 'items') fields.innerHTML = itemForm(data);
+            if (currentCat === 'waves') fields.innerHTML = waveForm(data);
+            update();
+        }
+
+        function handleTTKSort(eId) {
+            if (ttkSortEnemyId === eId) {
+                ttkSortDir *= -1;
+            } else {
+                ttkSortEnemyId = eId;
+                ttkSortDir = 1;
+            }
+            renderTTKBoard();
+        }
+
+        // --- FORM GENERATORS (Collapsed for brevity, identical inputs) ---
+        const moveForm = (d) => `<div class="form-group"><label>Move ID</label><input type="text" id="m_id" value="${currentId||''}" oninput="update()"></div><div class="form-group"><label>Name</label><input type="text" id="m_name" value="${d?.name||''}" oninput="update()"></div><div class="row"><div class="form-group"><label>Category</label><select id="m_cat" onchange="update()"><option value="physical" ${d?.category==='physical'?'selected':''}>Physical</option><option value="special" ${d?.category==='special'?'selected':''}>Special</option></select></div><div class="form-group"><label>Power</label><input type="number" id="m_pow" value="${d?.power||10}" oninput="update()"></div></div><div class="row"><div class="form-group"><label>Attack Type</label><select id="m_type" onchange="update()">${['single','splash','chain','zone','aura'].map(t => `<option value="${t}" ${d?.attackType===t?'selected':''}>${t}</option>`).join('')}</select></div><div class="form-group"><label>Proj Speed</label><input type="number" id="m_proj" value="${d?.projectileSpeed||300}" oninput="update()"></div></div><div class="form-group"><label>Tag (Element)</label><input type="text" id="m_tag" value="${d?.tags?.[0]||''}" oninput="update()"></div>`;
+        const towerForm = (d) => `<div class="form-group"><label>Tower ID</label><input type="text" id="t_id" value="${currentId||''}" oninput="update()"></div><div class="form-group"><label>Name</label><input type="text" id="t_name" value="${d?.name||''}" oninput="update()"></div><div class="row"><div class="form-group"><label>Cost</label><input type="number" id="t_cost" value="${d?.cost||100}" oninput="update()"></div><div class="form-group"><label>Sprite #</label><input type="text" id="t_img" value="${d?.iconPath?.match(/\d+/)?.[0]||'001'}" oninput="update()"></div><div class="form-group" style="flex:0.5"><label>Buyable</label><input type="checkbox" id="t_buy" ${d?.buyable!==false?'checked':''} onchange="update()" style="width:20px; height:20px;"></div></div><div class="row"><div class="form-group"><label>Base Atk</label><input type="number" id="t_atk" value="${d?.baseStats?.atk||15}" oninput="update()"></div><div class="form-group"><label>Base SpAtk</label><input type="number" id="t_spatk" value="${d?.baseStats?.spatk||15}" oninput="update()"></div><div class="form-group"><label>Base Spd</label><input type="number" id="t_spd" value="${d?.baseStats?.spd||1.0}" step="0.1" oninput="update()"></div><div class="form-group"><label>Armor Pen</label><input type="number" id="t_pen" value="${d?.baseStats?.armorPenetration||0}" oninput="update()"></div></div><div class="form-group"><label>Range</label><input type="number" id="t_range" value="${d?.baseStats?.range||120}" oninput="update()"></div><div class="form-group"><label>Abilities (comma sep)</label><input type="text" id="t_abs" value="${d?.possibleAbilities?.join(', ')||''}" oninput="update()"></div><div id="ls_con"><label>Learnset</label>${(d?.learnset||[{level:1,moveId:'tackle'}]).map(l => `<div class="nested-item"><input type="number" class="ls-lvl" value="${l.level}" style="width:20%" oninput="update()"><select class="ls-move" style="width:70%" onchange="update()">${Object.keys(GameData.moves).map(m=>`<option value="${m}" ${l.moveId===m?'selected':''}>${m}</option>`).join('')}</select><button class="remove-btn" onclick="this.parentElement.remove();update()">X</button></div>`).join('')}</div><button class="add-btn" onclick="addLS()">+ Add Move</button>`;
+        const enemyForm = (d) => `<div class="form-group"><label>Enemy ID</label><input type="text" id="e_id" value="${currentId||''}" oninput="update()"></div><div class="form-group"><label>Name</label><input type="text" id="e_name" value="${d?.name||''}" oninput="update()"></div><div class="row"><div class="form-group"><label>HP</label><input type="number" id="e_hp" value="${d?.hp||50}" oninput="update()"></div><div class="form-group"><label>Spd</label><input type="number" id="e_spd" value="${d?.spd||60}" oninput="update()"></div></div><div class="row"><div class="form-group"><label>Def</label><input type="number" id="e_def" value="${d?.def||2}" oninput="update()"></div><div class="form-group"><label>SpDef</label><input type="number" id="e_spdef" value="${d?.spDef||2}" oninput="update()"></div></div>`;
+        const abilityForm = (d) => `<div class="form-group"><label>ID</label><input type="text" id="a_id" value="${currentId||''}" oninput="update()"></div><p style="font-size:11px; color:#64748b">Ability editor is for documentation/text only in this version.</p>`;
+        const itemForm = (d) => `<div class="form-group"><label>Item ID</label><input type="text" id="i_id" value="${currentId||''}" oninput="update()"></div><div class="form-group"><label>Name</label><input type="text" id="i_name" value="${d?.name||''}" oninput="update()"></div><div class="row"><div class="form-group"><label>Type</label><select id="i_type" onchange="update()"><option value="equip" ${d?.type==='equip'?'selected':''}>Equip</option><option value="tm" ${d?.type==='tm'?'selected':''}>TM</option></select></div><div class="form-group"><label>Cost</label><input type="number" id="i_cost" value="${d?.cost||100}" oninput="update()"></div></div><div class="form-group"><label>Description</label><input type="text" id="i_desc" value="${d?.description||''}" oninput="update()"></div>`;
+        const waveForm = (d) => { let groupsHtml = ''; if (d && d.groups) { groupsHtml = d.groups.map(g => waveGroupHtml(g)).join(''); } else { groupsHtml = waveGroupHtml({ enemyId: Object.keys(GameData.enemies)[0], count: 5, interval: 1.0, abilityChance: 0 }); } return `<div class="row"><div class="form-group"><label>Wave ID (Number)</label><input type="number" id="w_id" value="${d?.id || (GameData.waves?.length + 1 || 1)}" oninput="update()"></div><div class="form-group"><label>Total Wave Reward ($)</label><input type="number" id="w_reward" value="${d?.reward||150}" oninput="update()"></div></div><div id="w_groups_con"><label>Enemy Groups</label>${groupsHtml}</div><button class="add-btn" onclick="addWaveGroup()">+ Add Enemy Group</button>`; };
+        const waveGroupHtml = (g) => `<div class="nested-item wave-group"><div class="row" style="margin-bottom: 5px;"><div class="form-group" style="flex: 2;"><label>Enemy</label><select class="wg-enemy" onchange="update()">${Object.keys(GameData.enemies).map(e => `<option value="${e}" ${g.enemyId === e ? 'selected' : ''}>${e}</option>`).join('')}</select></div><div class="form-group"><label>Count</label><input type="number" class="wg-count" value="${g.count}" oninput="update()"></div></div><div class="row" style="margin-bottom: 0;"><div class="form-group"><label>Interval (s)</label><input type="number" step="0.1" class="wg-interval" value="${g.interval}" oninput="update()"></div><div class="form-group"><label>Ability Chance</label><input type="number" step="0.1" max="1" min="0" class="wg-ability" value="${g.abilityChance}" oninput="update()"></div></div><button class="remove-btn" onclick="this.parentElement.remove();update()">X</button></div>`;
+        function addLS() { const div = document.createElement('div'); div.className = 'nested-item'; div.innerHTML = `<input type="number" class="ls-lvl" value="1" style="width:20%" oninput="update()"><select class="ls-move" style="width:70%" onchange="update()">${Object.keys(GameData.moves).map(m=>`<option value="${m}">${m}</option>`).join('')}</select><button class="remove-btn" onclick="this.parentElement.remove();update()">X</button>`; document.getElementById('ls_con').appendChild(div); update(); }
+        function addWaveGroup() { const temp = document.createElement('div'); temp.innerHTML = waveGroupHtml({ enemyId: Object.keys(GameData.enemies)[0], count: 5, interval: 1.0, abilityChance: 0 }); document.getElementById('w_groups_con').appendChild(temp.firstElementChild); update(); }
+
+        // --- MATH / SIMULATION ENGINE ---
+        function getTowerSimStats(towerId, simLevel) {
+            const t = GameData.towers[towerId];
+            if (!t) return null;
+            
+            // Find latest unlocked move
+            let validMoves = t.learnset.filter(m => m.level <= simLevel);
+            let latestMoveId = validMoves.length > 0 ? validMoves[validMoves.length - 1].moveId : t.learnset[0].moveId;
+            const m = GameData.moves[latestMoveId] || { power: 0, category: 'physical', speedModifier: 1.0 };
+            
+            // Scale logic identical to game-engine.js
+            const lvlScale = 1 + ((simLevel - 1) * 0.15);
+            const isSpecial = m.category === 'special';
+            const atkBase = isSpecial ? (t.baseStats.spatk || 1) : (t.baseStats.atk || 1);
+            const scaledAtk = atkBase * lvlScale;
+            
+            const fireRate = (t.baseStats.spd || 1.0) * (m.speedModifier || 1.0);
+            
+            // Calculate average crit multiplier
+            const cChance = t.baseStats.critChance || 0.05;
+            const cMult = t.baseStats.critMultiplier || 1.5;
+            const expectedCrit = 1 + (cChance * (cMult - 1));
+
+            return { t, m, isSpecial, scaledAtk, fireRate, expectedCrit, simLevel };
+        }
+
+        function calcDamageAgainst(simStats, enemyId) {
+            const e = GameData.enemies[enemyId];
+            if (!simStats.m.power) return 0;
+
+            const defBase = simStats.isSpecial ? (e.spDef || 1) : (e.def || 1);
+            const pen = simStats.t.baseStats.armorPenetration || 0;
+            const effArmor = Math.max(1, defBase * (1 - (pen / 100)));
+
+            // Formula: (((2 * L / 5 + 2) * P * (attackStat / effArmor)) / 2)
+            let baseDmg = (((2 * simStats.simLevel / 5 + 2) * simStats.m.power * (simStats.scaledAtk / effArmor)) / 2);
+            
+            return baseDmg * simStats.expectedCrit;
+        }
+
+        function update() {
+            let code = '';
+            const id = document.querySelector('[id$="_id"]')?.value || 'new_item';
+
+            if (currentCat === 'moves') {
+                code = `'${id}': { id: '${id}', name: '${v('m_name')}', category: '${v('m_cat')}', power: ${v('m_pow')}, attackType: '${v('m_type')}', projectileSpeed: ${v('m_proj')}, applyStatus: null, speedModifier: 1.0, tags: ['${v('m_tag')}'] },`;
+            } else if (currentCat === 'towers') {
+                const ls = Array.from(document.querySelectorAll('.nested-item')).map(el => `{ level: ${el.querySelector('.ls-lvl').value}, moveId: '${el.querySelector('.ls-move').value}' }`);
+                const isBuyable = document.getElementById('t_buy').checked;
+                code = `'${id}': {\n    id: '${id}', name: '${v('t_name')}', buyable: ${isBuyable}, cost: ${v('t_cost')}, iconPath: 'pokemon/icon/${v('t_img')}.png', walkingSprite: 'pokemon/walking/${v('t_img')}.png',\n    baseStats: { atk: ${v('t_atk')}, spatk: ${v('t_spatk')}, range: ${v('t_range')}, spd: ${v('t_spd')}, critChance: 0.05, critMultiplier: 1.5, armorPenetration: ${v('t_pen')} },\n    learnset:[${ls.join(', ')}],\n    possibleAbilities:[${v('t_abs').split(',').map(s=>`'${s.trim()}'`).join(', ')}]\n},`;
+                
+                // Live Inject data into memory so changing SpAtk or switching to a Physical Move dynamically changes the Power Score!
+                if (GameData.towers[id]) {
+                    GameData.towers[id].baseStats.atk = parseFloat(v('t_atk')) || 1;
+                    GameData.towers[id].baseStats.spatk = parseFloat(v('t_spatk')) || 1;
+                    GameData.towers[id].baseStats.spd = parseFloat(v('t_spd')) || 1;
+                    GameData.towers[id].baseStats.range = parseFloat(v('t_range')) || 1;
+                    GameData.towers[id].baseStats.armorPenetration = parseFloat(v('t_pen')) || 0;
+                    GameData.towers[id].learnset = Array.from(document.querySelectorAll('.nested-item')).map(el => ({
+                        level: parseInt(el.querySelector('.ls-lvl').value),
+                        moveId: el.querySelector('.ls-move').value
+                    }));
+                }
+            } else if (currentCat === 'enemies') {
+                code = `'${id}': { id: '${id}', name: '${v('e_name')}', hp: ${v('e_hp')}, spd: ${v('e_spd')}, def: ${v('e_def')}, spDef: ${v('e_spdef')} },`;
+                
+                // Live Inject data for enemies
+                if (GameData.enemies[id]) {
+                    GameData.enemies[id].hp = parseFloat(v('e_hp')) || 1;
+                    GameData.enemies[id].spd = parseFloat(v('e_spd')) || 1;
+                    GameData.enemies[id].def = parseFloat(v('e_def')) || 1;
+                    GameData.enemies[id].spDef = parseFloat(v('e_spdef')) || 1;
+                }
+            } else if (currentCat === 'items') {
+                code = `'${id}': { id: '${id}', name: '${v('i_name')}', type: '${v('i_type')}', cost: ${v('i_cost')}, description: '${v('i_desc')}' },`;
+            } else if (currentCat === 'waves') {
+                const groups = Array.from(document.querySelectorAll('.wave-group')).map(el => {
+                    const e = el.querySelector('.wg-enemy').value;
+                    const c = el.querySelector('.wg-count').value;
+                    const i = el.querySelector('.wg-interval').value;
+                    const a = el.querySelector('.wg-ability').value;
+                    return `{ enemyId: '${e}', count: ${c}, interval: ${i}, abilityChance: ${a} }`;
+                });
+                code = `{ id: ${id}, reward: ${v('w_reward')}, groups: [${groups.join(', ')}] },`;
+            }
+
+            if(document.getElementById('codePreview')) document.getElementById('codePreview').innerText = code;
+            renderBalanceSheet();
+        }
+
+        function handleSort(key) {
+            if (sortKey === key) sortDir *= -1;
+            else { sortKey = key; sortDir = -1; }
+            renderBalanceSheet();
+        }
+
+        // --- RENDER STANDARD BALANCE SHEET ---
+        function renderBalanceSheet() {
+            const table = document.getElementById('balanceTable');
+            if (!table) return;
+
+            if (currentCat !== 'towers' && currentCat !== 'enemies' && currentCat !== 'waves') {
+                table.innerHTML = `<tr><td style="text-align: center; padding: 20px;">Balancing sheet is available for Pokémon, Enemies, and Waves.</td></tr>`;
+                return;
+            }
+
+            let dataArr =[];
+            const simLevel = parseInt(document.getElementById('preview_sim_lvl')?.value || 1);
+
+            if (currentCat === 'towers') {
+                dataArr = Object.keys(GameData.towers).map(id => {
+                    const simStats = getTowerSimStats(id, simLevel);
+                    
+                    // Dummy enemy for generic DPS: Def=50, SpDef=50
+                    const dummyArmor = Math.max(1, 50 * (1 - (simStats.t.baseStats.armorPenetration || 0) / 100));
+                    let baseDmg = (((2 * simLevel / 5 + 2) * simStats.m.power * (simStats.scaledAtk / dummyArmor)) / 2);
+                    let finalHitDmg = baseDmg * simStats.expectedCrit;
+                    let dps = finalHitDmg * simStats.fireRate;
+                    
+                    // Power Score Formula
+                    // Combines raw DPS, range capability, and factors in armor penetration
+                    let score = dps * (simStats.t.baseStats.range / 100) * (1 + (simStats.t.baseStats.armorPenetration || 0) / 100);
+                    
+                    let upgradeCost = simStats.t.cost;
+                    for (let i = 1; i < simLevel; i++) upgradeCost += Math.floor(simStats.t.cost * 0.25 * i);
+
+                    return { id, name: simStats.t.name, cost: upgradeCost, move: simStats.m.name, pow: simStats.m.power, dps, eff: dps / upgradeCost, score };
+                });
+
+                dataArr.sort((a, b) => (a[sortKey] > b[sortKey] ? 1 : -1) * sortDir);
+
+                table.innerHTML = `
+                    <tr>
+                        <th onclick="handleSort('name')">Name</th>
+                        <th onclick="handleSort('cost')">Cost</th>
+                        <th onclick="handleSort('move')">Atk (Live)</th>
+                        <th onclick="handleSort('dps')" title="Calculated against 50 Def/SpDef target">Raw DPS</th>
+                        <th onclick="handleSort('score')" title="Score = DPS * (Range/100) * (1+ArmorPen)">Power Score ${sortKey==='score'?(sortDir===1?'▲':'▼'):''}</th>
+                        <th onclick="handleSort('eff')">Efficiency</th>
+                    </tr>`;
+                
+                dataArr.forEach(item => {
+                    let isCurrent = currentId === item.id;
+                    table.innerHTML += `<tr onclick="loadItem('${item.id}')" style="background: ${isCurrent ? '#1e293b' : 'transparent'}; border-left: ${isCurrent ? '3px solid var(--accent)' : 'none'}">
+                        <td>${item.name}</td><td>$${item.cost}</td><td>${item.move} (${item.pow})</td>
+                        <td style="color:var(--green)">${item.dps.toFixed(1)}</td>
+                        <td style="color:#fbbf24; font-weight:bold;">${item.score.toFixed(1)}</td>
+                        <td style="color:var(--accent); font-weight:bold;">${item.eff.toFixed(4)}</td>
+                    </tr>`;
+                });
+            } else if (currentCat === 'enemies') {
+                dataArr = Object.keys(GameData.enemies).map(id => {
+                    const e = GameData.enemies[id];
+                    // Threat Score Formula
+                    // Threat = Effective HP * (Speed / 50)
+                    let avgDef = (e.def + e.spDef) / 2;
+                    let ehpAvg = e.hp * (avgDef / 10); 
+                    let threat = ehpAvg * (e.spd / 50);
+
+                    return { id, name: e.name, hp: e.hp, spd: e.spd, def: e.def, spdef: e.spDef, ehp_phys: e.hp * (e.def/10), ehp_spec: e.hp * (e.spDef/10), threat }; 
+                });
+
+                dataArr.sort((a, b) => (a[sortKey] > b[sortKey] ? 1 : -1) * sortDir);
+
+                table.innerHTML = `
+                    <tr>
+                        <th onclick="handleSort('name')">Name</th>
+                        <th onclick="handleSort('hp')">HP</th>
+                        <th onclick="handleSort('spd')">Spd</th>
+                        <th onclick="handleSort('def')">Def/SpD</th>
+                        <th onclick="handleSort('ehp_phys')">EHP(Phy)</th>
+                        <th onclick="handleSort('ehp_spec')">EHP(Spc)</th>
+                        <th onclick="handleSort('threat')" title="Threat = Average EHP * (Speed/50)">Threat Score ${sortKey==='threat'?(sortDir===1?'▲':'▼'):''}</th>
+                    </tr>`;
+
+                dataArr.forEach(item => {
+                    let isCurrent = currentId === item.id;
+                    table.innerHTML += `<tr onclick="loadItem('${item.id}')" style="background: ${isCurrent ? '#1e293b' : 'transparent'}; border-left: ${isCurrent ? '3px solid var(--accent)' : 'none'}">
+                        <td>${item.name}</td><td>${item.hp}</td><td>${item.spd}</td><td>${item.def} / ${item.spdef}</td>
+                        <td style="color:#fbbf24">${item.ehp_phys.toFixed(0)}</td><td style="color:#c084fc">${item.ehp_spec.toFixed(0)}</td>
+                        <td style="color:#ef4444; font-weight:bold;">${item.threat.toFixed(0)}</td>
+                    </tr>`;
+                });
+            } else if (currentCat === 'waves') {
+                // Wave Analyzer Mode
+                dataArr = GameData.waves.map((w, index) => {
+                    let totalEnemies = 0;
+                    let totalHp = 0;
+                    let totalThreat = 0;
+
+                    w.groups.forEach(g => {
+                        totalEnemies += g.count;
+                        const e = GameData.enemies[g.enemyId];
+                        if (e) {
+                            totalHp += e.hp * g.count;
+                            let avgDef = (e.def + e.spDef) / 2;
+                            let threat = (e.hp * (avgDef / 10)) * (e.spd / 50);
+                            totalThreat += threat * g.count;
+                        }
+                    });
+
+                    return { id: w.id || (index+1), reward: w.reward, totalEnemies, totalHp, totalThreat, threatPerDollar: totalThreat / (w.reward || 1) };
+                });
+
+                dataArr.sort((a, b) => (a[sortKey] > b[sortKey] ? 1 : -1) * sortDir);
+
+                table.innerHTML = `
+                    <tr>
+                        <th onclick="handleSort('id')">Wave ID ${sortKey==='id'?(sortDir===1?'▲':'▼'):''}</th>
+                        <th onclick="handleSort('totalEnemies')">Enemies</th>
+                        <th onclick="handleSort('totalHp')">Total HP</th>
+                        <th onclick="handleSort('totalThreat')">Total Threat ${sortKey==='totalThreat'?(sortDir===1?'▲':'▼'):''}</th>
+                        <th onclick="handleSort('reward')">Reward</th>
+                        <th onclick="handleSort('threatPerDollar')" title="Higher means players get less money per threat unit">Threat/$ Ratio</th>
+                    </tr>`;
+
+                dataArr.forEach(item => {
+                    let isCurrent = currentId == (item.id - 1);
+                    table.innerHTML += `<tr onclick="loadItem('${item.id - 1}')" style="background: ${isCurrent ? '#1e293b' : 'transparent'}; border-left: ${isCurrent ? '3px solid var(--accent)' : 'none'}">
+                        <td>Wave ${item.id}</td>
+                        <td>${item.totalEnemies}</td>
+                        <td style="color:var(--green)">${item.totalHp.toFixed(0)}</td>
+                        <td style="color:#ef4444; font-weight:bold;">${item.totalThreat.toFixed(0)}</td>
+                        <td style="color:#facc15">$${item.reward}</td>
+                        <td style="color:#cbd5e1">${item.threatPerDollar.toFixed(2)}</td>
+                    </tr>`;
+                });
+            }
+        }
+
+        // --- RENDER HUGE TTK MATRIX ---
+        function renderTTKBoard() {
+            const fields = document.getElementById('editorFields');
+            const simLevel = parseInt(document.getElementById('ttk_sim_level')?.value || 1);
+            
+            let html = `
+                <div class="row" style="align-items: center; border-bottom: 1px solid #334155; padding-bottom: 10px; flex-shrink: 0;">
+                    <div>
+                        <h2 style="margin: 0; color: #f1f5f9; font-size: 16px;">Time-To-Kill (TTK) Matrix & Escape Analysis</h2>
+                        <p style="margin: 4px 0 0 0; font-size: 10px; color: #94a3b8;">Click an Enemy Name to sort Towers. <span style="color:#ef4444">⚠️ indicates enemy will likely escape tower range before dying.</span></p>
+                    </div>
+                    <div style="margin-left: auto; display: flex; gap: 10px; align-items: center;">
+                        <label style="margin:0;">Simulated Level:</label>
+                        <input type="number" id="ttk_sim_level" value="${simLevel}" min="1" max="100" style="width: 80px;" onchange="renderTTKBoard()">
+                    </div>
+                </div>
+                <div class="matrix-container">
+                    <table class="matrix-table">
+            `;
+
+            let towerIds = Object.keys(GameData.towers);
+            const enemyIds = Object.keys(GameData.enemies);
+
+            // --- SORTING LOGIC ---
+            if (ttkSortEnemyId) {
+                towerIds.sort((a, b) => {
+                    const statsA = getTowerSimStats(a, simLevel);
+                    const statsB = getTowerSimStats(b, simLevel);
+                    
+                    const dmgA = calcDamageAgainst(statsA, ttkSortEnemyId);
+                    const dmgB = calcDamageAgainst(statsB, ttkSortEnemyId);
+                    
+                    // TTK = HP / (Dmg * Rate)
+                    const hp = GameData.enemies[ttkSortEnemyId].hp;
+                    const ttkA = dmgA > 0 ? (hp / (dmgA * statsA.fireRate)) : Infinity;
+                    const ttkB = dmgB > 0 ? (hp / (dmgB * statsB.fireRate)) : Infinity;
+
+                    return (ttkA - ttkB) * ttkSortDir;
+                });
+            }
+
+            // Header Row (Enemies)
+            html += `<tr><th style="min-width:150px">Tower [Active Move]</th>`;
+            enemyIds.forEach(eId => {
+                const isSorting = ttkSortEnemyId === eId;
+                html += `
+                    <th onclick="handleTTKSort('${eId}')" style="background: ${isSorting ? '#1e293b' : ''}; color: ${isSorting ? 'var(--green)' : ''}">
+                        ${GameData.enemies[eId].name}
+                        ${isSorting ? (ttkSortDir === 1 ? ' ▲' : ' ▼') : ''}
+                    </th>`;
+            });
+            html += `</tr>`;
+
+            // Data Rows (Towers)
+            towerIds.forEach(tId => {
+                const simStats = getTowerSimStats(tId, simLevel);
+                const atkTypeColor = simStats.isSpecial ? '#c084fc' : '#fbbf24';
+                
+                html += `<tr><td>
+                            <div style="color:var(--text); font-weight:bold;">${simStats.t.name}</div>
+                            <div style="font-size:8px; color:${atkTypeColor}">${simStats.m.name.toUpperCase()} (${simStats.isSpecial ? 'SP' : 'PH'})</div>
+                         </td>`;
+                
+                enemyIds.forEach(eId => {
+                    const dmgHit = calcDamageAgainst(simStats, eId);
+                    const enemy = GameData.enemies[eId];
+                    const enemyHp = enemy.hp;
+                    
+                    let ttk = Infinity;
+                    let display = "INF";
+                    let color = "#ef4444"; 
+                    let escapes = false;
+
+                    if (dmgHit > 0) {
+                        const dps = dmgHit * simStats.fireRate;
+                        ttk = enemyHp / dps;
+                        display = ttk.toFixed(1) + "s";
+
+                        // ESCAPE ANALYSIS: Max time in range = (Diameter) / Speed
+                        const timeInRange = (simStats.t.baseStats.range * 2) / enemy.spd;
+                        escapes = ttk > timeInRange;
+
+                        if (ttk <= 1.0) color = "#4ade80";       
+                        else if (ttk <= 3.0) color = "#a3e635";  
+                        else if (ttk <= 8.0) color = "#facc15";  
+                        else if (ttk <= 15.0) color = "#fb923c"; 
+                    }
+
+                    const isSortedCol = ttkSortEnemyId === eId;
+                    const cellBg = isSortedCol ? 'rgba(16, 185, 129, 0.05)' : (escapes ? 'rgba(239, 68, 68, 0.15)' : '');
+                    const warning = escapes ? '<span style="font-size: 10px;"> ⚠️</span>' : '';
+                    
+                    html += `<td style="color: ${color}; font-weight:bold; background: ${cellBg}">${display}${warning}</td>`;
+                });
+                
+                html += `</tr>`;
+            });
+
+            html += `</table></div>`;
+            fields.innerHTML = html;
+        }
+
+        function v(id) { return document.getElementById(id)?.value || ''; }
+        function copyCode() { navigator.clipboard.writeText(document.getElementById('codePreview').innerText); alert("Block copied!"); }
+
+        window.onload = () => changeCategory('towers');
+    </script>
+
+</body>
+</html>

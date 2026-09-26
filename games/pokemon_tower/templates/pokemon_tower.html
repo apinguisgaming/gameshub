@@ -3,30 +3,41 @@
 {% block title %}Pokémon Tower Defense Alpha{% endblock %}
 
 {% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 {% endblock %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='pokemon_tower/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='pokemon_tower/style.css') }}?v=2.5">
 {% endblock %}
 
 {% from "components/top_bar.html" import render_top_bar with context %}
 
 {% block content %}
-    <!-- Top Auth Status Header -->
-    <div style="width: 100%; max-width: 1300px; margin: 10px auto 5px; padding: 8px 14px; background: #1a1a24; border: 2px solid #333; font-family: 'Press Start 2P', monospace; font-size: 9px; box-sizing: border-box;">
-        {{ render_top_bar(extra_class='tower-top-bar') }}
-    </div>
+    <div id="game-wrapper">
+        <!-- Top Auth Status Header with Game Stats (Health, Money, Wave) -->
+        <div id="top-bar-panel">
+            <div class="top-nav-bar gamehub-top-bar tower-top-bar" style="display: flex; justify-content: space-between; align-items: center;">
+                <a href="/" class="gamehub-back-btn geo-btn-back">← GAMEHUB</a>
 
-    <div id="game-container">
-        <!-- Left Panel: Player Stats and Team -->
+                <!-- Game Stats in Top Bar -->
+                <div id="top-stats-bar">
+                    <div class="top-stat-item"><span class="stat-icon-heart">♥</span> HP: <span id="lives-display">20</span></div>
+                    <div class="top-stat-item"><span class="stat-icon-money">$</span> MONEY: $<span id="money-display">100</span></div>
+                    <div class="top-stat-item"><span class="stat-icon-wave">★</span> WAVE: <span id="wave-display">1</span></div>
+                </div>
+
+                <div class="account-badge-wrap geo-account-tag" style="display: flex; align-items: center; gap: 8px;">
+                    <span>ACCOUNT:</span>
+                    <span class="account-badge-username" style="font-weight: 900;">👤 {{ current_user.username if current_user and current_user.is_authenticated else 'Gast' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="game-container">
+        <!-- Left Panel: Team and Inventory -->
         <div id="left-panel" class="panel">
-            <h2>Stats</h2>
-            <div class="stat-box">Health: <span id="lives-display">20</span></div>
-            <div class="stat-box">Money: $<span id="money-display">100</span></div>
-            <div class="stat-box">Wave: <span id="wave-display">1</span></div>
-            
-            <h2 style="margin-top: 24px;">My Team</h2>
+            <h2>My Team</h2>
             <div id="my-team-list" style="margin-bottom: 24px;">
                 <p class="empty-msg">No Pokémon placed.</p>
             </div>
@@ -58,79 +69,101 @@
                     <p style="font-size: 6px; margin-top: 8px;">Click a Pokémon on the field or in the team list.</p>
                 </div>
 
-                <div id="inspection-panel" class="hidden">
-                    <div class="inspection-header">
-                        <!-- Override overflow so item box can break out -->
-                        <div class="portrait-box" style="overflow: visible; position: relative;">
+                <div id="inspection-panel" class="hidden" style="display: flex; flex-direction: column; gap: 10px;">
+                    <!-- 1. Top Profile Section -->
+                    <div style="display: flex; gap: 12px; align-items: center;">
+                        <div class="portrait-box" style="width: 56px; height: 56px; flex-shrink: 0; background: #18181b; border: 2px solid #3f3f46; border-radius: 4px; position: relative;">
                             <img id="inspect-portrait" src="" style="width: 100%; height: 100%; object-fit: contain; transform: scale(0.95);" />
-                            <!-- Item Slot positioned as a mini-button on the portrait -->
-                            <div id="item-slot-display" style="position: absolute; bottom: -4px; right: -4px; width: 24px; height: 24px; background: #222; border: 2px solid #444; display: flex; justify-content: center; align-items: center; z-index: 10;">
-                                <span id="item-abbr-text" style="font-size: 8px; color: #fff;">+</span>
+                            <!-- Item Slot Button -->
+                            <div id="item-slot-display" style="position: absolute; bottom: -6px; right: -6px; width: 20px; height: 20px; background: #27272a; border: 1px solid #52525b; border-radius: 2px; display: flex; justify-content: center; align-items: center; z-index: 10; cursor: pointer; box-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
+                                <span id="item-abbr-text" style="font-size: 6px; color: #fff;">+</span>
                                 <select id="inspect-item-select" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;"></select>
                             </div>
                         </div>
-                        <div>
-                            <h3 id="inspect-name">Name</h3>
-                            <p>Lv.<span id="inspect-level">1</span> <span id="inspect-nature" style="color: #fbbf24; font-size: 6px; text-transform: capitalize;"></span></p>
-                            <div id="inspect-tags" style="display:flex; gap:4px; margin-top:4px;"></div>
+                        <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center; gap: 5px;">
+                            <div style="display: flex; align-items: baseline; gap: 6px;">
+                                <h3 id="inspect-name" style="margin:0; font-size: 10px; color: #f8fafc; text-shadow: 1px 1px 0 #000;">Name</h3>
+                                <span style="color: #60a5fa; font-size: 8px; font-weight: bold;">Lv.<span id="inspect-level">1</span></span>
+                            </div>
+                            <div id="inspect-tags" class="unified-badges"></div>
+                            <!-- Nature & Target -->
+                            <div style="display: flex; gap: 4px; align-items: stretch; height: 18px; margin-top: 2px;">
+                                <div id="nature-tag-btn" style="background: #ca8a04; color: #fff; font-size: 7px; border: 2px solid #0000005e; padding: 0 6px; display: flex; align-items: center; justify-content: center; cursor: pointer; border-radius: 2px; box-shadow: inset -1px -1px 0 rgba(0,0,0,0.2);">
+                                    <span id="inspect-nature-text" style="text-transform: uppercase;">MODEST</span>
+                                    <span style="font-size: 8px; margin-left: 4px;">↺</span>
+                                </div>
+                                <div style="position: relative; flex-grow: 1; background: #ea580c; border: 2px solid #0000005e; display: flex; align-items: center; padding: 0 6px; border-radius: 2px; box-shadow: inset -1px -1px 0 rgba(0,0,0,0.2);">
+                                    <select id="inspect-target" style="position: absolute; top:0; left:0; width:100%; height:100%; opacity:0; cursor:pointer;">
+                                        <option value="first">First</option>
+                                        <option value="last">Last</option>
+                                        <option value="strongest">Strong</option>
+                                        <option value="weakest">Weak</option>
+                                    </select>
+                                    <span id="inspect-target-display" style="font-size: 7px; color: #fff; text-transform: capitalize;">First</span>
+                                    <span style="margin-left: auto; font-size: 7px; color: #fff;">▼</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Core Base Stats (Affected by Nature) -->
-                    <div class="stats-grid core-stats-grid" style="grid-template-columns: 1fr 1fr 1fr;">
-                        <div style="display:flex; flex-direction:column; align-items:center; border-right: 1px solid #444;">
-                            <span style="color: #94a3b8; font-size:6px; margin-bottom:4px;">ATK</span>
+
+                    <!-- 2. Ability Section (Expandable Possible Abilities List) -->
+                    <div id="inspect-abilities-container" style="background: #111; border: 3px solid #0000005e; border-radius: 2px; display: flex; align-items: stretch; font-size: 6px; color: #a1a1aa; position: relative; z-index: 100; overflow: visible;">
+                        <!-- Custom Dropdown Trigger and Active Ability Text -->
+                        <div id="ability-dropdown-trigger" style="flex-grow: 1; display: flex; justify-content: space-between; align-items: center; padding: 5px 8px; cursor: pointer; user-select: none;">
+                            <div id="ability-text-content" style="pointer-events: none; line-height: 1.35; flex-grow: 1;"></div>
+                            <span id="ability-dropdown-arrow" style="display: flex; align-items: center; justify-content: center; pointer-events: none; margin-left: 6px; flex-shrink: 0;">
+                                <svg class="ability-chevron-svg" viewBox="0 0 24 24" width="8" height="8" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="color: #fff;">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </span>
+                        </div>
+
+                        <!-- Custom Themed Ability Dropdown Menu (Other Possible Abilities) -->
+                        <div id="custom-ability-dropdown" class="hidden"></div>
+                    </div>
+
+                    <!-- 3. Base Stats -->
+                    <div class="stats-grid core-stats-grid" style="grid-template-columns: 1fr 1fr 1fr; margin-bottom: 0; background: #111; border: 1px solid #333; border-radius: 2px; padding: 8px 0;">
+                        <div style="display:flex; flex-direction:column; align-items:center; border-right: 1px solid #333;">
+                            <span style="color: #64748b; font-size:6px; margin-bottom:6px;">ATK</span>
                             <span id="inspect-base-atk" style="font-size:8px;">0</span>
                         </div>
-                        <div style="display:flex; flex-direction:column; align-items:center; border-right: 1px solid #444;">
-                            <span style="color: #94a3b8; font-size:6px; margin-bottom:4px;">SpATK</span>
+                        <div style="display:flex; flex-direction:column; align-items:center; border-right: 1px solid #333;">
+                            <span style="color: #64748b; font-size:6px; margin-bottom:6px;">SpATK</span>
                             <span id="inspect-base-spatk" style="font-size:8px;">0</span>
                         </div>
                         <div style="display:flex; flex-direction:column; align-items:center;">
-                            <span style="color: #94a3b8; font-size:6px; margin-bottom:4px;">SPEED</span>
+                            <span style="color: #64748b; font-size:6px; margin-bottom:6px;">SPEED</span>
                             <span id="inspect-base-spd" style="font-size:8px;">0</span>
                         </div>
                     </div>
 
-                    <!-- Combat Output Stats -->
-                    <div class="stats-grid sec-stats-grid">
+                    <!-- 4. Derived Stats -->
+                    <div class="stats-grid sec-stats-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 0; background: #111; border: 3px solid #0000005e; border-radius: 2px; padding: 8px;">
                         <div>Dmg:<span id="inspect-dmg">0</span></div>
-                        <div>Rate:<span id="inspect-rate" title="Attacks per second">0</span></div>
+                        <div>Rate:<span id="inspect-rate">0</span></div>
                         <div>Rng:<span id="inspect-range">0</span></div>
                         <div>Crit:<span id="inspect-crit">0</span></div>
+                        <div id="inspect-status-container" style="display: contents;"></div>
                     </div>
 
-                    <div class="targeting-control">
-                        <label>Target:</label>
-                        <select id="inspect-target">
-                            <option value="first">First</option>
-                            <option value="last">Last</option>
-                            <option value="strongest">Strong</option>
-                            <option value="weakest">Weak</option>
-                        </select>
-                    </div>
-
-                    <!-- Move Card Display -->
-                    <div style="margin-bottom: 12px; background: #111; border: 2px solid #333; padding: 4px;">
-                        <label style="font-size: 6px; color: #64748b; margin-bottom: 4px; display: block;">EQUIPPED MOVE:</label>
-                        <div id="move-card-ui" style="background: #000; border: 1px solid #444; padding: 8px; margin-bottom: 4px;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                                <span id="move-name-display" style="font-size: 8px; color: #fff;">-</span>
-                                <span id="move-type-display" class="type-tag normal" style="font-size: 6px; padding: 2px 4px;">NORMAL</span>
-                            </div>
-                            <div style="font-size: 6px; color: #94a3b8;">
-                                <span id="move-cat-display" style="color: #fff;">-</span> • POW: <span id="move-pow-display" style="color: #fff;">-</span>
-                            </div>
+                    <!-- 5. Move Section -->
+                    <div id="move-container" class="move-bg-normal" style="position: relative; border: 3px solid #0000005e; border-radius: 2px; padding: 8px; display: flex; flex-direction: column; gap: 6px;">
+                        <select id="inspect-move-select" style="position: absolute; top:0; left:0; width:100%; height:100%; opacity:0; cursor:pointer; z-index: 10;"></select>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span id="move-name-display" style="font-size: 10px; color: #fff; text-shadow: 1px 1px 0 #000;">-</span>
+                            <span id="move-type-display" class="type-tag bg-normal" style="font-size: 6px; border: 2px solid #0000005e; box-shadow: 1px 1px 2px rgba(0,0,0,0.3);">NORMAL</span>
                         </div>
-                        <select id="inspect-move-select"></select>
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 6px;">
+                            <span><span id="move-cat-display" style="color:#f87171;">PHYSICAL</span> <span style="color: #94a3b8; margin: 0 4px;">•</span><span style="color:#94a3b8;">POW: </span><span id="move-pow-display" style="color:#fff;">0</span></span>
+                            <span style="color: #fff; font-size: 8px;">▼</span>
+                        </div>
                     </div>
 
-                    <div id="inspect-abilities-container" style="margin-top: 12px; font-size: 7px; color: #fbbf24; line-height: 1.4;">
-                        <!-- Ability info here -->
-                    </div>
+                    <!-- 6. Evolution Section -->
+                    <div id="inspect-evo-warning" class="hidden"></div>
 
-                    <button id="level-up-btn" class="big-btn" style="margin-top: 12px;">Lvl Up ($<span>0</span>)</button>
-                    <button id="sell-btn" class="big-btn" style="background-color: #ef4444; border-color: #991b1b; margin-top: 8px;">Sell ($<span>0</span>)</button>
+
                 </div>
             </div>
 
@@ -214,6 +247,7 @@
             </div>
         </div>
     </div>
+</div>
 
     <!-- Starter Selection Overlay -->
     <div id="starter-modal" class="modal-overlay hidden">
@@ -223,10 +257,36 @@
             <div id="starter-options" class="starter-grid"></div>
         </div>
     </div>
+
+    <!-- Rotate Device Mobile Overlay -->
+    <div id="rotate-device-overlay" class="rotate-overlay">
+        <div class="rotate-box">
+            <div class="rotate-icon-anim">📱 ➔ 🔄</div>
+            <h2>PLEASE ROTATE YOUR DEVICE</h2>
+            <p>Pokémon Tower Defense requires landscape mode for the battlefield.</p>
+            <button id="btn-force-fullscreen" class="rotate-btn">ENTER FULLSCREEN</button>
+        </div>
+    </div>
+
+    <!-- Confirmation Dialog Modal -->
+    <div id="confirm-modal" class="modal-overlay hidden">
+        <div class="modal-content confirm-modal-box">
+            <h2 id="confirm-modal-title" style="color: #ffcb05; margin-bottom: 12px;">CONFIRM ACTION</h2>
+            <p id="confirm-modal-msg" style="margin: 12px 0 16px; font-size: 8px; line-height: 1.6; color: #f8fafc;"></p>
+            <div style="margin-bottom: 18px; font-size: 7px; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <input type="checkbox" id="confirm-modal-dont-show" style="cursor: pointer; width: 14px; height: 14px;">
+                <label for="confirm-modal-dont-show" style="cursor: pointer; font-size: 7px; text-transform: uppercase;">Don't show again</label>
+            </div>
+            <div style="display: flex; gap: 12px; justify-content: center;">
+                <button id="confirm-modal-yes" class="big-btn" style="flex: 1; max-width: 130px; background: #10b981; border-color: #059669; padding: 10px;">YES</button>
+                <button id="confirm-modal-no" class="big-btn" style="flex: 1; max-width: 130px; background: #ef4444; border-color: #b91c1c; padding: 10px;">NO</button>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block scripts %}
-    <script src="{{ url_for('static', filename='pokemon_tower/game-data.js') }}"></script>
-    <script src="{{ url_for('static', filename='pokemon_tower/game-admin.js') }}"></script>
-    <script src="{{ url_for('static', filename='pokemon_tower/game-engine.js') }}"></script>
+    <script src="{{ url_for('static', filename='pokemon_tower/game-data.js') }}?v=2.5"></script>
+    <script src="{{ url_for('static', filename='pokemon_tower/game-admin.js') }}?v=2.5"></script>
+    <script src="{{ url_for('static', filename='pokemon_tower/game-engine.js') }}?v=2.5"></script>
 {% endblock %}
