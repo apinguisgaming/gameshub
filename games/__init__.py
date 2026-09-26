@@ -18,6 +18,8 @@ CANONICAL_GAME_ORDER = [
     'impostor',
     'song_guesser',
     'secret_hitler',
+    'connect_four',
+    'battleship',
     'pokemon_tower',
     'gothic_survivors',
     'song_seeker',

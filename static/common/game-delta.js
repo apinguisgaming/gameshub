@@ -69,4 +69,5 @@
     };
 
     global.GameDelta = GameDelta;
+    global.applyStateDelta = GameDelta.apply;
 })(typeof window !== 'undefined' ? window : this);

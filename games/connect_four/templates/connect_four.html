@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block title %}4-GEWINNT // GAMEHUB{% endblock %}
+
+{% block head %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='connect_four/style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+{% endblock %}
+
+{% block body_class %}c4-body{% endblock %}
+{% from "components/top_bar.html" import render_top_bar with context %}
+
+{% block content %}
+    <div class="c4-container">
+        <!-- 1. ENTRY SCREEN (Create / Join Room) -->
+        <div id="screen-entry" class="screen active">
+            {{ render_top_bar() }}
+
+            <div class="card entry-card">
+                <div class="badge-pill">2 SPIELER DUELL</div>
+                <h1 class="game-title">4-GEWINNT</h1>
+                <p class="game-desc">
+                    Verbinde als Erster vier deiner Spielsteine horizontal, vertikal oder diagonal in einer Reihe!
+                </p>
+
+                <div class="entry-actions">
+                    <button type="button" class="btn-primary" onclick="createRoom()">
+                        <span class="btn-icon">⚡</span> NEUEN RAUM ERSTELLEN
+                    </button>
+
+                    <div class="divider"><span>ODER MIT CODE BEITRETEN</span></div>
+
+                    <form onsubmit="joinRoomSubmit(event)" class="join-form">
+                        <input type="text" id="input-room-code" placeholder="CODE (z.B. AB12)" maxlength="6" autocomplete="off" required>
+                        <button type="submit" class="btn-secondary">BEITRETEN ➜</button>
+                    </form>
+                </div>
+
+                <!-- Open Lobbies List -->
+                <div class="open-lobbies-section">
+                    <div class="open-lobbies-header">
+                        <span class="open-lobbies-title">OFFENE RÄUME</span>
+                        <button type="button" class="btn-refresh-lobbies" onclick="loadRoomList()">↻ AKTUALISIEREN</button>
+                    </div>
+                    <div id="room-list-container" class="room-list-container">
+                        <div class="room-list-empty">Lade offene Räume...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. LOBBY SCREEN -->
+        <div id="screen-lobby" class="screen">
+            <div class="top-nav-bar">
+                <div class="nav-left-group">
+                    <a href="/" class="btn-back-hub" onclick="leaveRoomToHub(event)">← GAMEHUB</a>
+                    <button type="button" class="btn-close-room" onclick="leaveRoom()" title="Raum verlassen">✕ VERLASSEN</button>
+                </div>
+                <div class="room-pill">
+                    RAUM: <span class="active-room-display font-mono">----</span>
+                    <button class="btn-copy" onclick="copyRoomLink()" title="Link kopieren">📋</button>
+                </div>
+                <span class="user-pill">👤 {{ current_user.username if current_user else 'Gast' }}</span>
+            </div>
+
+            <div class="card lobby-card">
+                <h2 class="section-title">WARTEZIMMER</h2>
+                <p class="lobby-hint">Teile den Raumcode mit deinem Mitspieler, um das Duell zu starten.</p>
+
+                <div class="players-slot-grid">
+                    <div class="player-slot slot-red" id="slot-player-1">
+                        <div class="disc-preview red"></div>
+                        <div class="slot-info">
+                            <span class="slot-role">SPIELER 1 (ROT)</span>
+                            <span class="slot-name" id="name-player-1">Wartet...</span>
+                        </div>
+                    </div>
+
+                    <div class="vs-badge">VS</div>
+
+                    <div class="player-slot slot-yellow" id="slot-player-2">
+                        <div class="disc-preview yellow"></div>
+                        <div class="slot-info">
+                            <span class="slot-role">SPIELER 2 (GELB)</span>
+                            <span class="slot-name" id="name-player-2">Wartet auf Beitritt...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="spectator-notice" class="spectator-notice" style="display:none;">
+                    Du bist Zuschauer in diesem Raum.
+                </div>
+
+                <div class="lobby-action-row">
+                    <button type="button" id="btn-start-game" class="btn-primary btn-large host-only-btn" onclick="startGame()" disabled>
+                        SPIEL STARTEN (2/2)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. GAME SCREEN -->
+        <div id="screen-game" class="screen">
+            <div class="top-nav-bar">
+                <div class="nav-left-group">
+                    <a href="/" class="btn-back-hub" onclick="leaveRoomToHub(event)">← GAMEHUB</a>
+                    <button type="button" class="btn-close-room" onclick="leaveRoom()" title="Spiel verlassen">✕ VERLASSEN</button>
+                </div>
+                <div class="room-pill">
+                    RAUM: <span class="active-room-display font-mono">----</span>
+                </div>
+                <div class="score-pill">
+                    <span id="score-p1" class="font-mono">0</span> : <span id="score-p2" class="font-mono">0</span>
+                </div>
+                <span class="user-pill">👤 {{ current_user.username if current_user else 'Gast' }}</span>
+            </div>
+
+            <!-- Turn Banner -->
+            <div id="turn-banner" class="turn-banner">
+                <span class="turn-indicator-disc" id="turn-indicator-disc"></span>
+                <span id="turn-text">Spieler am Zug</span>
+            </div>
+
+            <!-- Connect 4 Board Stage -->
+            <div class="c4-stage-wrap">
+                <!-- Column hover drop triggers -->
+                <div class="c4-drop-triggers" id="c4-drop-triggers">
+                    {% for c in range(7) %}
+                    <button type="button" class="col-trigger" data-col="{{ c }}" onclick="handleColClick({{ c }})" title="Spalte {{ c + 1 }} einwerfen">
+                        <div class="ghost-disc"></div>
+                    </button>
+                    {% endfor %}
+                </div>
+
+                <!-- Connect 4 Grid Frame -->
+                <div class="c4-board" id="c4-board">
+                    {% for r in range(6) %}
+                        {% for c in range(7) %}
+                        <div class="c4-cell" data-row="{{ r }}" data-col="{{ c }}">
+                            <div class="c4-slot">
+                                <div class="c4-disc empty" id="disc-{{ r }}-{{ c }}"></div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- In-Game Controls & Spectator Banner -->
+            <div class="game-hud-footer">
+                <div id="game-status-msg" class="hud-status-msg"></div>
+            </div>
+        </div>
+
+        <!-- 4. MODAL / OVERLAY FOR GAME OVER -->
+        <div id="game-over-modal" class="c4-modal-overlay">
+            <div class="c4-modal-content card">
+                <div class="modal-icon" id="modal-icon">🏆</div>
+                <h2 id="modal-headline">GEWONNEN!</h2>
+                <p id="modal-subtext">Spieler 1 hat 4 in einer Reihe verbunden!</p>
+
+                <div class="modal-score-box">
+                    <div class="modal-score-col" id="m-score-p1-col">
+                        <span class="m-score-name" id="m-score-p1-name">Spieler 1</span>
+                        <span class="m-score-val font-mono" id="m-score-p1-val">0</span>
+                    </div>
+                    <div class="modal-score-vs">:</div>
+                    <div class="modal-score-col" id="m-score-p2-col">
+                        <span class="m-score-name" id="m-score-p2-name">Spieler 2</span>
+                        <span class="m-score-val font-mono" id="m-score-p2-val">0</span>
+                    </div>
+                </div>
+
+                <div class="modal-btn-row">
+                    <button type="button" class="btn-primary" onclick="restartGame()">NOCHMAL SPIELEN ↺</button>
+                    <button type="button" class="btn-secondary" onclick="leaveRoom()">RAUM VERLASSEN</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='connect_four/game.js') }}"></script>
+{% endblock %}

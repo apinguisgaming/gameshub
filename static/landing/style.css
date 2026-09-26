@@ -222,6 +222,8 @@ h1 span {
 .card-song-seeker { border-left: 10px solid #ff8fbd; }
 .card-nexus-dex { border-left: 10px solid #8A2BE2; }
 .card-geo-bingo { border-left: 10px solid #2d6a4f; }
+.card-connect-four { border-left: 10px solid #e63946; }
+.card-battleship { border-left: 10px solid #1d3557; }
 
 /* Modal Backdrop */
 .modal-backdrop {
