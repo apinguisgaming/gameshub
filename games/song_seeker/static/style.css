@@ -568,3 +568,75 @@ body.is-card-dragging .dropzone.active-dz {
   color: #fff !important;
   animation: pulse 0.5s infinite alternate;
 }
+
+/* =========================================================================
+   TOP AUTH & NAVIGATION BAR (SONG SEEKER NEO-BRUTALIST THEME)
+   ========================================================================= */
+.songseeker-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+}
+
+.songseeker-top-bar .gamehub-back-btn {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 800;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--surface-color);
+  color: var(--text-primary) !important;
+  border: 2px solid var(--border-color);
+  border-radius: 0;
+  padding: 5px 12px;
+  cursor: pointer;
+  box-shadow: 3px 3px 0px var(--border-color);
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none !important;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.08s ease, color 0.08s ease;
+}
+
+.songseeker-top-bar .gamehub-back-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px var(--border-color);
+  background: var(--black) !important;
+  color: var(--white) !important;
+}
+
+.songseeker-top-bar .gamehub-back-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--border-color);
+}
+
+.songseeker-top-bar .account-badge-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.songseeker-top-bar .account-badge-username {
+  background: var(--team2-blue);
+  color: var(--black);
+  border: 2px solid var(--border-color);
+  box-shadow: 2px 2px 0px var(--border-color);
+  padding: 3px 8px;
+  font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+}
+
+.songseeker-top-bar .room-badge {
+  background: var(--team1-pink);
+  color: var(--black);
+  border: 2px solid var(--border-color);
+  box-shadow: 2px 2px 0px var(--border-color);
+  padding: 3px 8px;
+  font-weight: 900;
+}

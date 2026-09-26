@@ -1,5 +1,22 @@
 {# templates/components/top_bar.html - Single Source of Truth for top navigation and user status #}
 {% macro render_top_bar(back_url='/', back_text='← GAMEHUB', room_code=None, extra_class='', custom_back_onclick=None, user=None) %}
+<style>
+.gamehub-top-bar {
+    width: 100%;
+    box-sizing: border-box;
+}
+.gamehub-top-bar .gamehub-back-btn {
+    text-decoration: none;
+    color: inherit;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: inherit;
+}
+.gamehub-top-bar .gamehub-back-btn:visited {
+    color: inherit;
+}
+</style>
 {% set active_user = user or current_user %}
 <div class="top-nav-bar gamehub-top-bar {{ extra_class }}" style="display: flex; justify-content: space-between; align-items: center;">
     {% if custom_back_onclick %}
