@@ -19,7 +19,10 @@ const Game = {
 
     init: async function() {
         try {
-            const response = await fetch('/static/imposter/words.json');
+            const response = await fetch('/static/impostor/words.json');
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: Failed to load words`);
+            }
             this.data = await response.json();
             
             const grid = document.getElementById('category-grid');

@@ -416,7 +416,7 @@ def handle_heartbeat(
 ) -> Tuple[Dict[str, Any], List[str], List[str]]:
     """Tracks heartbeat and handles timed out players."""
     hb_result = process_heartbeat(
-        game_id='geobingo',
+        game_id='geo_bingo',
         room_code=room_code,
         username=player_name,
         force_offline=force_offline,

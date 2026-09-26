@@ -98,7 +98,7 @@ def log_maps():
             'message': 'Kartenaufrufe temporär oder dauerhaft gesperrt.'
         }), 429
 
-    page = data.get('page') or request.referrer or '/geobingo/'
+    page = data.get('page') or request.referrer or '/geo-bingo/'
     action = data.get('action') or 'map_load'
     details = data.get('details') if isinstance(data.get('details'), dict) else {}
 

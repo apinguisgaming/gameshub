@@ -58,7 +58,7 @@ def record_maps_request(
     ts_formatted = now_utc.strftime('%Y-%m-%d %H:%M:%S UTC')
     ip_address = extract_client_ip(req)
     user_agent = req.headers.get('User-Agent', 'unknown')
-    clean_page = (page or req.path or '/geobingo/').strip()
+    clean_page = (page or req.path or '/geo-bingo/').strip()
     clean_action = (action or 'map_load').strip()
 
     # 1. Structured File Logging

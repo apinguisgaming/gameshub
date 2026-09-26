@@ -13,7 +13,7 @@
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
-body, body.imposter-body {
+body, body.impostor-body {
     background-color: var(--c-white);
     color: var(--c-black);
     font-family: 'Jost', sans-serif;

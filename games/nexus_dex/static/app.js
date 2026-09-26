@@ -180,13 +180,12 @@ let activeGameTab = 'encounters', walkthroughCache = {}, tabScrollY = { encounte
         loadingIndicator.classList.add('visible');
         try {
             const [p, t, m, e, tr, lo] = await Promise.all([
-                fetch('/static/nexusdex/PokemonData.json').then(r => r.json()),
-                fetch('/static/nexusdex/TypeData.json').then(r => r.json()),
-                fetch('/static/nexusdex/MovesData.json').then(r => r.json()),
-                fetch('/static/nexusdex/EncounterData.json').then(r => r.json()),
-                fetch('/static/nexusdex/Translations.json').then(r => r.json()),
-                fetch('/static/nexusdex/LocationOrder.json').then(r => r.json())
-
+                fetch('/static/nexus_dex/PokemonData.json').then(r => r.json()),
+                fetch('/static/nexus_dex/TypeData.json').then(r => r.json()),
+                fetch('/static/nexus_dex/MovesData.json').then(r => r.json()),
+                fetch('/static/nexus_dex/EncounterData.json').then(r => r.json()),
+                fetch('/static/nexus_dex/Translations.json').then(r => r.json()),
+                fetch('/static/nexus_dex/LocationOrder.json').then(r => r.json())
             ]);
             generationMeta = p[0].generation; allPokemon = p.slice(1).filter(x => x.name && x.number); typeData = t; translations = tr; locationOrderData = lo;
             let rm = (m.moves && m.moves.length) ? m.moves[0] : m; movesData = {};
@@ -812,7 +811,7 @@ let activeGameTab = 'encounters', walkthroughCache = {}, tabScrollY = { encounte
 
         try {
             if (!walkthroughCache[prefix]) {
-                const res = await fetch(`/static/nexusdex/walkthrough/${prefix}_walkthrough_text_only.json`);
+                const res = await fetch(`/static/nexus_dex/walkthrough/${prefix}_walkthrough_text_only.json`);
                 if (!res.ok) throw new Error('Not found');
                 walkthroughCache[prefix] = await res.json();
             }
@@ -930,7 +929,9 @@ let activeGameTab = 'encounters', walkthroughCache = {}, tabScrollY = { encounte
 
     // ---- Type Chart Page ----
     function renderTypeChart() {
+        if (!typeData || typeData.length === 0) return;
         const cd = typeData.find(t => t.type === activeTypeChart) || typeData[typeData.length - 1];
+        if (!cd || !cd.defensive) return;
         const types = Object.keys(cd.defensive);
 
         let h = `<div class="typechart-meta">${trUi("Active Ruleset:") || "Active Ruleset:"} <span id="tc-cycle-trigger" style="cursor:pointer; user-select:none;" title="Click to cycle rulesets">${cd.name}</span></div>`;

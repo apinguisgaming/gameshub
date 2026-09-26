@@ -232,8 +232,8 @@ class GameHubPlatformTests(unittest.TestCase):
 
         print("[OK] 07: Song Guesser multi-room lifecycle verified")
 
-    def test_08_imposter_static_words(self):
-        """Verify imposter static words file exists in colocated package and is served via static route."""
+    def test_08_impostor_static_words(self):
+        """Verify impostor static words file exists in colocated package and is served via static route."""
         words_path = config.GAMES_DIR / 'impostor' / 'static' / 'words.json'
         self.assertTrue(words_path.exists(), f"Colocated words file does not exist at {words_path}")
         with open(words_path, 'r', encoding='utf-8') as f:

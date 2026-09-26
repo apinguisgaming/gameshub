@@ -1,6 +1,6 @@
 import QrScanner from "https://unpkg.com/qr-scanner/qr-scanner.min.js";
 
-window.staticBaseUrl = window.staticBaseUrl || "/static/songseeker/";
+window.staticBaseUrl = window.staticBaseUrl || "/static/song_seeker/";
 
 let player; 
 let playbackTimer; 

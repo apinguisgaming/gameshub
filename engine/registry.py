@@ -10,7 +10,7 @@ from typing import Any, Dict, List, Optional
 
 @dataclass
 class GameManifest:
-    id: str                                # Unique slug (e.g. 'secret', 'song', 'imposter')
+    id: str                                # Unique slug (e.g. 'secret', 'song', 'impostor')
     title: str                             # Display title (can include HTML e.g. 'Secret<br>Hitler')
     subtitle: str                          # Tagline / description
     tag: str = 'Game'                      # Badge tag on card (e.g. 'Multiplayer', 'Action RPG')
