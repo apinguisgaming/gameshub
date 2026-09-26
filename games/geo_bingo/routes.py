@@ -126,7 +126,7 @@ geobingo_bp = create_multiplayer_blueprint(
 )
 
 
-def trigger_update(room_code: str, state: dict, force_full: bool = False):
+def trigger_update(room_code: str, state: dict, force_full: bool = False, extra_events: list = None):
     """Broadcasts sanitized state via non-blocking Pusher dispatch and saves to storage."""
     code = room_code.upper().strip()
     state = geobingo_logic.validate_game_integrity(state)
@@ -137,6 +137,7 @@ def trigger_update(room_code: str, state: dict, force_full: bool = False):
         state=state,
         event_name='state-update',
         force_full=force_full,
+        extra_events=extra_events or [],
         custom_payload=payload
     )
 
@@ -408,12 +409,7 @@ def send_chat(room_code: str = None):
     if len(state['chat_messages']) > 50:
         state['chat_messages'] = state['chat_messages'][-50:]
 
-    try:
-        get_pusher_client().trigger(f'{GAME_ID}-{code}', 'chat-message', msg_obj)
-    except Exception:
-        pass
-
-    trigger_update(code, state)
+    trigger_update(code, state, extra_events=[('chat-message', msg_obj)])
     return jsonify({'success': True, 'message': msg_obj})
 
 
@@ -443,12 +439,7 @@ def reset_game(room_code: str = None):
     new_state['host'] = host
 
     broadcast_tracker.reset_room(GAME_ID, code)
-    trigger_update(code, new_state, force_full=True)
-
-    try:
-        get_pusher_client().trigger(f'{GAME_ID}-{code}', 'game-reset', {'state': new_state})
-    except Exception:
-        pass
+    trigger_update(code, new_state, force_full=True, extra_events=[('game-reset', {'state': new_state})])
 
     return jsonify({'success': True, 'state': new_state})
 

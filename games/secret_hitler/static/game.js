@@ -199,10 +199,13 @@
             channel.bind('pusher:subscription_succeeded', function () {
                 console.log('%c[SecretHitler] Pusher Channel verbunden! ✅', 'color: #51cf66; font-weight: bold; background: #1a2a1a; padding: 2px 6px; border-radius: 3px;');
             });
-            channel.bind('state-update', data => {
+            const handleStateBroadcast = data => {
                 if (window.GameDelta) window.GameDelta.logUpdate('SecretHitler', data);
                 updateUI(data);
-            });
+            };
+            channel.bind('state-update', handleStateBroadcast);
+            channel.bind('delta-state', handleStateBroadcast);
+            channel.bind('full-state', handleStateBroadcast);
 
             channel.bind('game-reset', function () {
                 console.log('%c[SecretHitler] In-Memory Game Reset', 'color: #51cf66; font-weight: bold;');
@@ -476,8 +479,8 @@
                 else {
                     txt.text("Cast your Vote");
                     // OPTIMISTIC UPDATE
-                    box.append(`<button class="btn btn-ja" onclick="optimisticPost('/secret-hitler/submit_vote', {vote:'Ja'}, this)">JA!</button>`);
-                    box.append(`<button class="btn btn-nein" onclick="optimisticPost('/secret-hitler/submit_vote', {vote:'Nein'}, this)">NEIN!</button>`);
+                    box.append(`<button class="btn btn-ja" onclick="castVote('Ja', this)">JA!</button>`);
+                    box.append(`<button class="btn btn-nein" onclick="castVote('Nein', this)">NEIN!</button>`);
                 }
             }
             else if (data.phase === 'legislative') {
@@ -972,8 +975,22 @@
         }
 
         // 3. HELPER: Optimistic Click (Instant Feedback)
+        function castVote(vote, btn) {
+            const box = $('#action-box');
+            const txt = $('#status-text');
+            box.find('button').prop('disabled', true);
+            if (btn && btn !== window) $(btn).addClass('processing');
+            txt.text("Vote Registered. Waiting...");
+            if (currentGameState && currentGameState.votes) {
+                currentGameState.votes[myName] = vote;
+            }
+            optimisticPost('/secret-hitler/submit_vote', { vote: vote }, btn);
+        }
+        window.castVote = castVote;
+
         function optimisticPost(url, data, btnElement) {
-            if (btnElement) $(btnElement).addClass('processing'); // Visual feedback
+            const isValidBtn = btnElement && btnElement !== window && (btnElement.nodeType || btnElement.jquery);
+            if (isValidBtn) $(btnElement).addClass('processing').prop('disabled', true);
             if (!data) data = {};
             let activeCode = currentRoomCode || (currentGameState && currentGameState.room_code) || Store.getSession('active_room') || '';
             if (activeCode && typeof data === 'object' && !data.room_code) {
@@ -981,11 +998,11 @@
             }
             $.post(url, data, function (res) {
                 if (res.error) {
-                    if (btnElement) $(btnElement).removeClass('processing');
+                    if (isValidBtn) $(btnElement).removeClass('processing').prop('disabled', false);
                     showModal("Error", res.error, null, true);
                 }
             }).fail(function (xhr) {
-                if (btnElement) $(btnElement).removeClass('processing');
+                if (isValidBtn) $(btnElement).removeClass('processing').prop('disabled', false);
                 let err = (xhr.responseJSON && xhr.responseJSON.error) || (xhr.statusText === 'timeout' ? 'Zeitüberschreitung (Timeout)' : 'Verbindungsfehler');
                 showModal("Fehler", err, null, true);
             });

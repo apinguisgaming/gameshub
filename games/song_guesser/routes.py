@@ -93,7 +93,7 @@ song_bp = create_multiplayer_blueprint(
 )
 
 
-def trigger_update(room_code: str, state: dict, event_name: str = 'state-update', custom_payload: dict = None, force_full: bool = False):
+def trigger_update(room_code: str, state: dict, event_name: str = 'state-update', custom_payload: dict = None, force_full: bool = False, extra_events: list = None):
     """Broadcasts sanitized state or delta update via non-blocking Pusher dispatch and persists to storage."""
     code = room_code.upper().strip()
     payload = custom_payload if custom_payload is not None else song_logic.get_client_safe_state(state)
@@ -102,6 +102,7 @@ def trigger_update(room_code: str, state: dict, event_name: str = 'state-update'
         state=state,
         event_name=event_name,
         force_full=force_full,
+        extra_events=extra_events or [],
         custom_payload=payload
     )
 
@@ -375,9 +376,5 @@ def reset_game(room_code: str = None):
     new_state['host'] = host
     new_state['scores'] = {p: 0 for p in saved_players}
 
-    trigger_update(code, new_state)
-    try:
-        get_pusher_client().trigger(f'{GAME_ID}-{code}', 'game-reset', {})
-    except Exception:
-        pass
+    trigger_update(code, new_state, extra_events=[('game-reset', {})])
     return jsonify({'success': True})

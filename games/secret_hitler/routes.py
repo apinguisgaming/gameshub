@@ -155,20 +155,20 @@ secret_bp = create_multiplayer_blueprint(
 )
 
 
-def trigger_update(room_code: str, state: dict, force_full: bool = False):
+def trigger_update(room_code: str, state: dict, force_full: bool = False, extra_events: list = None):
     """Broadcasts current game state or delta update via non-blocking Pusher dispatch."""
     code = room_code.upper().strip()
     state = secret_logic.validate_game_integrity(state)
 
-    extra_events = []
+    events_to_send = list(extra_events) if extra_events else []
     # 1. Policy Enacted Notification
     if 'last_enacted' in state:
-        extra_events.append(('policy-enacted', {'type': state['last_enacted']}))
+        events_to_send.append(('policy-enacted', {'type': state['last_enacted']}))
         del state['last_enacted']
 
     # 2. Reshuffle Notification
     if state.get('deck_reshuffled'):
-        extra_events.append(('reshuffle-notification', {}))
+        events_to_send.append(('reshuffle-notification', {}))
         state['deck_reshuffled'] = False
 
     # 3. Safe State Payload
@@ -184,7 +184,7 @@ def trigger_update(room_code: str, state: dict, force_full: bool = False):
         state=state,
         event_name='auto',
         force_full=force_full,
-        extra_events=extra_events,
+        extra_events=events_to_send,
         custom_payload=payload
     )
 
@@ -417,13 +417,7 @@ def kick(room_code: str = None):
             del state[k][target_name]
 
     state = secret_logic.validate_game_integrity(state)
-    try:
-        client = get_pusher_client()
-        if client:
-            client.trigger(f'{GAME_ID}-{code}', 'force-kick', {'name': target_name})
-    except Exception:
-        pass
-    trigger_update(code, state)
+    trigger_update(code, state, extra_events=[('force-kick', {'name': target_name})])
     return jsonify({"success": True})
 
 
@@ -790,11 +784,7 @@ def reset_game(room_code: str = None):
     new_state['settings'] = saved_settings
 
     broadcast_tracker.reset_room(GAME_ID, code)
-    trigger_update(code, new_state, force_full=True)
-    try:
-        get_pusher_client().trigger(f'{GAME_ID}-{code}', 'game-reset', {})
-    except Exception:
-        pass
+    trigger_update(code, new_state, force_full=True, extra_events=[('game-reset', {})])
     return jsonify({"success": True})
 
 

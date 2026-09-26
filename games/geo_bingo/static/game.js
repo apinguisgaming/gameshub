@@ -378,6 +378,14 @@
 
     window.updateSetting = function (key, val) {
         if (!currentRoomCode) return;
+
+        // Optimistic immediate visual feedback
+        if (gameState) {
+            if (!gameState.settings) gameState.settings = {};
+            gameState.settings[key] = val;
+            renderLobbySettings(gameState.settings, key);
+        }
+
         const payload = { room_code: currentRoomCode };
         payload[key] = val;
 
@@ -389,7 +397,7 @@
             success: function (res) {
                 if (res && res.settings && gameState) {
                     gameState.settings = res.settings;
-                    renderLobbySettings(gameState.settings);
+                    renderLobbySettings(gameState.settings, key);
                 }
             }
         });
@@ -763,9 +771,22 @@
             showCustomAlert(`Mindestens ${minPlayers} Spieler erforderlich!`, 'NICHT GENUG SPIELER', '👥');
             return;
         }
+
+        const startBtn = document.getElementById('btn-lobby-start');
+        if (startBtn) {
+            startBtn.disabled = true;
+            startBtn.textContent = 'SPIEL STARTET...';
+            startBtn.style.opacity = '0.7';
+        }
+
         $.post(`/geo-bingo/${currentRoomCode}/start_game`, { room_code: currentRoomCode }, function () {
             // Screen transition handled via Pusher state-update
         }).fail(function (xhr) {
+            if (startBtn) {
+                startBtn.disabled = false;
+                startBtn.textContent = 'SPIEL STARTEN';
+                startBtn.style.opacity = '1';
+            }
             showCustomAlert(xhr.responseJSON?.error || 'Start fehlgeschlagen.', 'FEHLER', '⚠️');
         });
     };
@@ -962,6 +983,19 @@
     window.castVote = function (approved) {
         if (!currentRoomCode || !gameState || !gameState.active_review) return;
 
+        // Instant optimistic button highlight
+        const btnYes = document.getElementById('btn-judge-yes');
+        const btnNo = document.getElementById('btn-judge-no');
+        if (approved && btnYes) {
+            btnYes.style.opacity = '1';
+            btnYes.style.transform = 'scale(1.05)';
+            if (btnNo) { btnNo.style.opacity = '0.4'; btnNo.style.transform = 'scale(1)'; }
+        } else if (!approved && btnNo) {
+            btnNo.style.opacity = '1';
+            btnNo.style.transform = 'scale(1.05)';
+            if (btnYes) { btnYes.style.opacity = '0.4'; btnYes.style.transform = 'scale(1)'; }
+        }
+
         const rev = gameState.active_review;
         $.post(`/geo-bingo/${currentRoomCode}/submit_judgement`, {
             room_code: currentRoomCode,
@@ -969,6 +1003,8 @@
             item_idx: rev.item_index,
             approved: approved
         }).fail(function (xhr) {
+            if (btnYes) { btnYes.style.opacity = '1'; btnYes.style.transform = 'none'; }
+            if (btnNo) { btnNo.style.opacity = '1'; btnNo.style.transform = 'none'; }
             showCustomAlert(xhr.responseJSON?.error || 'Abstimmung fehlgeschlagen.', 'FEHLER', '⚠️');
         });
     };
@@ -1279,24 +1315,37 @@
         });
     }
 
-    function renderLobbySettings(settings) {
-        // Render Word Pool
-        renderLobbyWordPool(settings);
+    function renderLobbySettings(settings, changedKey) {
+        // Render Word Pool only when relevant keys change or on full render
+        if (!changedKey || changedKey === 'selected_items' || changedKey === 'item_preset' || changedKey === 'custom_items' || changedKey === 'host_custom_items' || changedKey === 'item_count') {
+            renderLobbyWordPool(settings);
+        }
 
-        // Render Blocked Countries
-        renderBlockedCountries(settings);
+        // Render Blocked Countries only when relevant
+        if (!changedKey || changedKey === 'blocked_countries') {
+            renderBlockedCountries(settings);
+        }
 
-        // Count
-        const count = String(settings.item_count || 7);
-        document.querySelectorAll('#ctrl-count .geo-selector-opt').forEach(el => {
-            el.classList.toggle('active', el.getAttribute('data-val') === count);
-        });
+        // Count selector
+        if (!changedKey || changedKey === 'item_count') {
+            const count = String(settings.item_count || 7);
+            document.querySelectorAll('#ctrl-count .geo-selector-opt').forEach(el => {
+                el.classList.toggle('active', el.getAttribute('data-val') === count);
+            });
+            const selectedItems = settings.selected_items || [];
+            const counterBadge = document.getElementById('pool-selected-counter');
+            if (counterBadge) {
+                counterBadge.textContent = `${selectedItems.length} / ${count} GEWÄHLT`;
+            }
+        }
 
-        // Time
-        const timeVal = String(settings.time_limit !== undefined ? settings.time_limit : 600);
-        document.querySelectorAll('#ctrl-time .geo-selector-opt').forEach(el => {
-            el.classList.toggle('active', el.getAttribute('data-val') === timeVal);
-        });
+        // Time selector
+        if (!changedKey || changedKey === 'time_limit') {
+            const timeVal = String(settings.time_limit !== undefined ? settings.time_limit : 600);
+            document.querySelectorAll('#ctrl-time .geo-selector-opt').forEach(el => {
+                el.classList.toggle('active', el.getAttribute('data-val') === timeVal);
+            });
+        }
     }
 
     function renderExploration(state) {
