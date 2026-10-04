@@ -61,7 +61,7 @@ COMMANDER_ABILITIES: Dict[str, List[Dict[str, Any]]] = {
             'name': 'U-Boot-Sonar',
             'icon': '📡',
             'cost': 3,
-            'desc': 'Scannt 3x3 Felder und zählt verborgene Schiffssegmente.',
+            'desc': 'Platziere auf beschossenem Feld: Scannt 3x3 Umfeld & setzt Fahne mit Anzahl benachbarter Schiffsteile.',
             'type': 'sonar'
         },
         {
@@ -99,7 +99,7 @@ COMMANDER_ABILITIES: Dict[str, List[Dict[str, Any]]] = {
             'name': 'Radar-Scan',
             'icon': '📡',
             'cost': 3,
-            'desc': 'Scannt 3x3 Felder und zählt verborgene Schiffssegmente.',
+            'desc': 'Platziere auf beschossenem Feld: Scannt 3x3 Umfeld & setzt Fahne mit Anzahl benachbarter Schiffsteile.',
             'type': 'sonar'
         },
         {
@@ -137,7 +137,7 @@ COMMANDER_ABILITIES: Dict[str, List[Dict[str, Any]]] = {
             'name': 'Horchposten',
             'icon': '📡',
             'cost': 3,
-            'desc': 'Scannt 3x3 Felder und zählt verborgene Schiffssegmente.',
+            'desc': 'Platziere auf beschossenem Feld: Scannt 3x3 Umfeld & setzt Fahne mit Anzahl benachbarter Schiffsteile.',
             'type': 'sonar'
         },
         {
@@ -175,7 +175,7 @@ COMMANDER_ABILITIES: Dict[str, List[Dict[str, Any]]] = {
             'name': 'Aufklärungs-Sonar',
             'icon': '📡',
             'cost': 3,
-            'desc': 'Scannt 3x3 Felder und zählt verborgene Schiffssegmente.',
+            'desc': 'Platziere auf beschossenem Feld: Scannt 3x3 Umfeld & setzt Fahne mit Anzahl benachbarter Schiffsteile.',
             'type': 'sonar'
         },
         {
@@ -415,12 +415,20 @@ def get_client_safe_state(state: Dict[str, Any], for_player: Optional[str] = Non
             safe_last['ship_name'] = None
         safe['last_shot'] = safe_last
 
-    # Sonar results are private to the scanning player
+    # Sonar results & flags
     sonar_res = state.get('sonar_result', {})
     if for_player and for_player in sonar_res:
         safe['sonar_result'] = {for_player: sonar_res[for_player]}
     else:
         safe['sonar_result'] = {}
+
+    sonar_flags = state.get('sonar_flags', {})
+    if for_player and for_player in sonar_flags:
+        safe['sonar_flags'] = sonar_flags[for_player]
+    elif not for_player:
+        safe['sonar_flags'] = sonar_flags
+    else:
+        safe['sonar_flags'] = {}
 
     return safe
 
@@ -447,6 +455,7 @@ def start_placement(state: Dict[str, Any]) -> Tuple[bool, str]:
             state['commanders'][p] = 'schmidt'
         state['energy'][p] = 2
     state['sonar_result'] = {}
+    state['sonar_flags'] = {}
 
     return True, "Platzierungsphase gestartet"
 
@@ -515,11 +524,21 @@ def _resolve_single_shot(
     shot_record = {'row': row, 'col': col}
     if hit_ship:
         hit_ship['hits'] = hit_ship.get('hits', 0) + 1
-        if hit_ship['hits'] >= hit_ship['size']:
+        ship_size = hit_ship.get('size', len(hit_ship.get('coords', [])))
+        ship_coords = set((r, c) for r, c in hit_ship.get('coords', []))
+        hit_coords = set((s['row'], s['col']) for s in target_shots if s.get('result') in ('hit', 'sunk'))
+        hit_coords.add((row, col))
+
+        is_fully_sunk = ship_coords.issubset(hit_coords) or (hit_ship['hits'] >= ship_size)
+        if is_fully_sunk:
             hit_ship['sunk'] = True
             shot_record['result'] = 'sunk'
-            shot_record['ship_name'] = hit_ship['name']
-            shot_record['sunk_coords'] = hit_ship['coords']
+            shot_record['ship_name'] = hit_ship.get('name', 'Schiff')
+            shot_record['sunk_coords'] = hit_ship.get('coords', [])
+            # Retroactively update all previous shots for this ship to 'sunk'
+            for s in target_shots:
+                if (s['row'], s['col']) in ship_coords:
+                    s['result'] = 'sunk'
         else:
             shot_record['result'] = 'hit'
     else:
@@ -636,37 +655,52 @@ def execute_ability(
     target_shots = state.setdefault('shots', {}).setdefault(target, [])
     target_fleet = state.setdefault('fleets', {}).get(target, [])
 
+    # Sonar validation: MUST be placed on an already targeted / shot cell (hit, sunk, or miss)
+    if ability.get('type') == 'sonar':
+        is_targeted_cell = any(
+            s['row'] == row and s['col'] == col
+            for s in target_shots
+        )
+        if not is_targeted_cell:
+            return False, "Sonar kann nur auf einem bereits beschossenen Feld platziert werden!", {}
+
     # Deduct ability cost
     energy[player] -= cost
     result_data = {'ability': ability['id'], 'shots': []}
     ability_type = ability.get('type')
 
-    # 1. SONAR / RADAR (3x3 Sensor Sweep - count unsunk segments)
+    # 1. SONAR / RADAR (3x3 Sensor Sweep on hit cell - counts neighboring ship parts)
     if ability_type == 'sonar':
         r_min, r_max = max(0, row - 1), min(GRID_SIZE - 1, row + 1)
         c_min, c_max = max(0, col - 1), min(GRID_SIZE - 1, col + 1)
         sonar_cells = []
-        count = 0
-        occupied_target = set()
-        for ship in target_fleet:
-            if not ship.get('sunk'):
-                for sr, sc in ship['coords']:
-                    occupied_target.add((sr, sc))
-
         for r in range(r_min, r_max + 1):
             for c in range(c_min, c_max + 1):
                 sonar_cells.append([r, c])
-                if (r, c) in occupied_target:
-                    count += 1
 
+        all_target_ship_coords = {
+            (cr, cc)
+            for ship in target_fleet
+            for cr, cc in ship.get('coords', [])
+        }
+
+        # Count adjacent ship parts in 3x3 (excluding the center hit cell)
+        neighbor_count = 0
+        for r, c in sonar_cells:
+            if r == row and c == col:
+                continue
+            if (r, c) in all_target_ship_coords:
+                neighbor_count += 1
+
+        state.setdefault('sonar_flags', {}).setdefault(player, {})[f"{row},{col}"] = neighbor_count
         state.setdefault('sonar_result', {})[player] = {
             'row': row,
             'col': col,
             'cells': sonar_cells,
-            'count': count
+            'count': neighbor_count
         }
-        result_data['sonar'] = {'count': count, 'cells': sonar_cells}
-        msg = f"SONAR-SCAN: {count} Schiffs-Segmente in Sektor geortet!"
+        result_data['sonar'] = {'count': neighbor_count, 'cells': sonar_cells, 'row': row, 'col': col}
+        msg = f"SONAR-SCAN: {neighbor_count} benachbarte(s) Schiffsteil(e) geortet!"
         # Sonar is pure intel, shooter keeps turn!
 
     # 2. TORPEDO (Line search until first hit)

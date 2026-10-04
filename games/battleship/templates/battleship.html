@@ -54,16 +54,26 @@
 
         <!-- 2. LOBBY SCREEN -->
         <div id="screen-lobby" class="screen">
-            <div class="top-nav-bar">
+            <div class="top-nav-bar lobby-top-bar">
                 <div class="nav-left-group">
-                    <a href="/" class="btn-back-hub" onclick="leaveRoomToHub(event)">← GAMEHUB</a>
-                    <button type="button" class="btn-close-room" onclick="leaveRoom()">✕ VERLASSEN</button>
+                    <a href="/" class="top-icon-btn btn-hub-icon" onclick="leaveRoomToHub(event)" title="Zurück zum GameHub">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    </a>
+                    <button type="button" class="top-icon-btn btn-leave-icon" onclick="leaveRoom()" title="Raum verlassen">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
                 </div>
-                <div class="room-pill">
-                    RAUM: <span class="active-room-display font-mono">----</span>
-                    <button class="btn-copy" onclick="copyRoomLink()" title="Link kopieren">📋</button>
+                <div class="room-pill" onclick="copyRoomLink()" title="Code kopieren">
+                    <span class="room-label">RAUM:</span>
+                    <strong class="active-room-display font-mono">----</strong>
+                    <span class="copy-hint-icon">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </span>
                 </div>
-                <span class="user-pill">👤 {{ current_user.username if current_user else 'Gast' }}</span>
+                <div class="user-pill">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <span class="user-pill-name">{{ current_user.username if current_user else 'Gast' }}</span>
+                </div>
             </div>
 
             <div class="card lobby-card">
@@ -72,7 +82,9 @@
 
                 <div class="players-slot-grid">
                     <div class="player-slot" id="slot-p1">
-                        <div class="slot-avatar">⚓</div>
+                        <div class="slot-avatar">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"></circle><line x1="12" y1="22" x2="12" y2="8"></line><path d="M5 12H2a10 10 0 0 0 20 0h-3"></path></svg>
+                        </div>
                         <div class="slot-info">
                             <span class="slot-role">KOMMANDANT 1</span>
                             <span class="slot-name" id="name-p1">Wartet...</span>
@@ -82,7 +94,9 @@
                     <div class="vs-badge">VS</div>
 
                     <div class="player-slot" id="slot-p2">
-                        <div class="slot-avatar">⚓</div>
+                        <div class="slot-avatar">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"></circle><line x1="12" y1="22" x2="12" y2="8"></line><path d="M5 12H2a10 10 0 0 0 20 0h-3"></path></svg>
+                        </div>
                         <div class="slot-info">
                             <span class="slot-role">KOMMANDANT 2</span>
                             <span class="slot-name" id="name-p2">Wartet auf Beitritt...</span>
@@ -99,20 +113,43 @@
                     <span class="lobby-mode-label">SPIELMODUS:</span>
                     <div class="lobby-mode-toggles">
                         <button type="button" id="btn-mode-commanders" class="btn-mode-opt active" onclick="setGameMode('commanders')">
-                            ⚡ KOMMANDANTEN-MODUS
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                            <span>KOMMANDANTEN-MODUS</span>
                         </button>
                         <button type="button" id="btn-mode-classic" class="btn-mode-opt" onclick="setGameMode('classic')">
-                            🚢 KLASSISCH
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17l2 3h16l2-3-4-8H6L2 17z"></path><line x1="12" y1="9" x2="12" y2="3"></line></svg>
+                            <span>KLASSISCH</span>
                         </button>
                     </div>
                 </div>
 
-                <!-- Commander Selector Grid -->
+                <!-- Commander Selector Carousel -->
                 <div class="commanders-select-section" id="commanders-select-section">
                     <h3 class="commander-select-title">WÄHLE DEINEN KOMMANDANTEN</h3>
-                    <p class="commander-select-sub">Jeder Kommandant verfügt über einzigartige Spezialschläge und Taktiken:</p>
-                    <div class="commander-cards-grid" id="commander-cards-grid">
-                        <!-- Loaded dynamically via JS -->
+
+                    <div class="commander-carousel-wrapper">
+                        <div class="commander-carousel-container" id="commander-carousel-container">
+                            <div class="commander-carousel-track" id="commander-carousel-track">
+                                <!-- Loaded dynamically via JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Controls: Arrow Left, Dots, Arrow Right -->
+                    <div class="commander-carousel-controls">
+                        <button type="button" class="carousel-arrow-btn" onclick="prevCommanderSlide()" aria-label="Vorheriger Kommandant">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <div class="commander-carousel-dots" id="commander-carousel-dots">
+                            <!-- Dots generated dynamically via JS -->
+                        </div>
+                        <button type="button" class="carousel-arrow-btn" onclick="nextCommanderSlide()" aria-label="Nächster Kommandant">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
@@ -126,16 +163,27 @@
 
         <!-- 3. PLACEMENT SCREEN -->
         <div id="screen-placement" class="screen">
-            <div class="top-nav-bar">
+            <div class="top-nav-bar placement-top-bar">
                 <div class="nav-left-group">
-                    <a href="/" class="btn-back-hub" onclick="leaveRoomToHub(event)">← GAMEHUB</a>
-                    <button type="button" class="btn-close-room" onclick="leaveRoom()">✕ VERLASSEN</button>
+                    <a href="/" class="top-icon-btn btn-hub-icon" onclick="leaveRoomToHub(event)" title="Zurück zum GameHub">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    </a>
+                    <button type="button" class="top-icon-btn btn-leave-icon" onclick="leaveRoom()" title="Raum verlassen">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
                 </div>
-                <div class="room-pill">
-                    RAUM: <span class="active-room-display font-mono">----</span>
+                <div class="room-pill" onclick="copyRoomLink()" title="Code kopieren">
+                    <span class="room-label">RAUM:</span>
+                    <strong class="active-room-display font-mono">----</strong>
+                    <span class="copy-hint-icon">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </span>
                 </div>
-                <span class="phase-pill">PHASE: AUFSTELLUNG</span>
-                <span class="user-pill">👤 {{ current_user.username if current_user else 'Gast' }}</span>
+                <div class="phase-pill">AUFSTELLUNG</div>
+                <div class="user-pill">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <span class="user-pill-name">{{ current_user.username if current_user else 'Gast' }}</span>
+                </div>
             </div>
 
             <div class="placement-layout">
@@ -158,32 +206,33 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Randomize directly under the map -->
+                    <div class="placement-randomize-wrap">
+                        <button type="button" class="btn-tool btn-randomize-full" onclick="randomizePlacement()" title="Schiffe zufällig anordnen">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="4"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"></circle>
+                                <circle cx="15.5" cy="8.5" r="1.5" fill="currentColor"></circle>
+                                <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
+                                <circle cx="8.5" cy="15.5" r="1.5" fill="currentColor"></circle>
+                                <circle cx="15.5" cy="15.5" r="1.5" fill="currentColor"></circle>
+                            </svg>
+                            <span>ZUFÄLLIG ANORDNEN</span>
+                        </button>
+                    </div>
                 </div>
 
-                <div class="card placement-controls-card">
-                    <h3 class="panel-title">FLOTTEN-KOMMANDO</h3>
-                    <p class="panel-desc">Nutze den Schnell-Generator oder positioniere deine Schiffe manuell:</p>
-
-                    <div class="placement-tools">
-                        <button type="button" class="btn-tool" onclick="randomizePlacement()">
-                            🎲 ZUFÄLLIG ANORDNEN
-                        </button>
-                        <button type="button" class="btn-tool" id="btn-toggle-orient" onclick="toggleOrientation()">
-                            🔄 AUSRICHTUNG: <span id="label-orient">HORIZONTAL</span>
-                        </button>
-                    </div>
-
-                    <div class="fleet-ship-list" id="fleet-ship-list">
-                        <!-- Ship list items with size badges -->
-                    </div>
-
-                    <div class="placement-ready-box">
-                        <button type="button" id="btn-confirm-fleet" class="btn-primary btn-large" onclick="confirmFleetPlacement()">
-                            BEREIT MELDEN ⚓
-                        </button>
-                        <div id="placement-status-msg" class="placement-status-msg">
-                            Platziere alle Schiffe, um fortzufahren.
-                        </div>
+                <!-- Ready button as its own dedicated row below the sector card -->
+                <div class="placement-ready-row">
+                    <button type="button" id="btn-confirm-fleet" class="btn-primary btn-large btn-ready-full" onclick="confirmFleetPlacement()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>BEREIT MELDEN</span>
+                    </button>
+                    <div id="placement-status-msg" class="placement-status-msg">
+                        Platziere alle Schiffe oder nutze „Zufällig anordnen“.
                     </div>
                 </div>
             </div>
@@ -191,78 +240,42 @@
 
         <!-- 4. BATTLE SCREEN -->
         <div id="screen-battle" class="screen">
-            <div class="top-nav-bar">
+            <div class="top-nav-bar battle-top-bar">
                 <div class="nav-left-group">
-                    <a href="/" class="btn-back-hub" onclick="leaveRoomToHub(event)">← GAMEHUB</a>
-                    <button type="button" class="btn-close-room" onclick="leaveRoom()">✕ VERLASSEN</button>
+                    <a href="/" class="top-icon-btn btn-hub-icon" onclick="leaveRoomToHub(event)" title="Zurück zum GameHub">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    </a>
+                    <button type="button" class="top-icon-btn btn-leave-icon" onclick="leaveRoom()" title="Raum verlassen">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
                 </div>
-                <div class="room-pill">
-                    RAUM: <span class="active-room-display font-mono">----</span>
+                <div class="room-pill" onclick="copyRoomLink()" title="Code kopieren">
+                    <span class="room-label">RAUM:</span>
+                    <strong class="active-room-display font-mono">----</strong>
+                    <span class="copy-hint-icon">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </span>
                 </div>
                 <div class="score-pill">
                     <span id="score-display">0 : 0</span>
                 </div>
-                <span class="user-pill">👤 {{ current_user.username if current_user else 'Gast' }}</span>
+                <div class="user-pill">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <span class="user-pill-name">{{ current_user.username if current_user else 'Gast' }}</span>
+                </div>
             </div>
 
-            <!-- Tactical Top Command Bar (Mini-Map + Turn Banner + Opponent Avatar) -->
-            <div class="battle-tactical-header">
-                <!-- Left: Player Profile & Compact "DEINE FLOTTE" Mini-Map -->
-                <div class="tactical-player-side">
-                    <div class="commander-badge-box">
-                        <div class="commander-avatar-circle" id="my-commander-avatar">
-                            <span class="avatar-icon" id="my-commander-icon">⚓</span>
-                            <div class="energy-pendant" id="my-energy-pendant">⚡ 2</div>
-                        </div>
-                        <div class="commander-text-info">
-                            <strong class="commander-name-txt" id="my-commander-name">Johannes Schmidt</strong>
-                            <span class="commander-user-txt" id="my-player-username">{{ current_user.username if current_user else 'Du' }}</span>
-                        </div>
-                    </div>
-
-                    <!-- Mini-Map "DEINE FLOTTE" -->
-                    <div class="minimap-ocean-card card">
-                        <div class="minimap-header-row">
-                            <span class="minimap-title-label">DEINE FLOTTE</span>
-                            <span class="minimap-count-label" id="own-fleet-counter">5/5</span>
-                        </div>
-                        <div class="minimap-grid-container">
-                            <div class="radar-grid defense-grid minimap-grid" id="own-battle-grid">
-                                <!-- 100 compact cells generated via JS -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Center: Battle Turn & Sonar Banners -->
-                <div class="tactical-center-side">
+            <!-- Main Battle Stage: Target Radar Ocean Grid directly under Top Bar -->
+            <div class="battle-main-stage">
+                <!-- Compact Battle Turn Row -->
+                <div class="tactical-turn-row">
                     <div id="battle-turn-banner" class="battle-turn-banner">
                         <div class="radar-ping"></div>
                         <span id="battle-turn-text">DU BIST DRAN</span>
                     </div>
-                    <div id="sonar-notification" class="sonar-alert-banner" style="display:none;"></div>
                 </div>
 
-                <!-- Right: Opponent Fleet Silhouettes & Opponent Profile -->
-                <div class="tactical-opponent-side">
-                    <div class="enemy-fleet-silhouettes" id="enemy-fleet-status-bar">
-                        <!-- Dynamic ship icons/silhouettes -->
-                    </div>
-                    <div class="commander-badge-box opponent-box">
-                        <div class="commander-text-info text-right">
-                            <strong class="commander-name-txt" id="enemy-commander-name">Gegner</strong>
-                            <span class="commander-user-txt" id="enemy-player-username">Wartet...</span>
-                        </div>
-                        <div class="commander-avatar-circle opponent-circle" id="enemy-commander-avatar">
-                            <span class="avatar-icon" id="enemy-commander-icon">🎖️</span>
-                            <div class="energy-pendant enemy-pendant" id="enemy-energy-pendant">⚡ 2</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Main Battle Stage: Target Radar Ocean Grid -->
-            <div class="battle-main-stage">
+                <!-- 1. FEINDLICHER SEKTOR (Target Radar Ocean Grid) -->
                 <div class="card radar-card target-ocean-card">
                     <div class="ocean-header">
                         <div class="ocean-title-row">
@@ -285,31 +298,83 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ocean-footer-hint" id="enemy-grid-hint">Klicke auf ein Feld, um das Feuer zu eröffnen!</div>
                 </div>
 
-                <!-- Bottom Tactical Diamond Console (Screenshot 2 Match) -->
+                <!-- 2. Kurzes längliches Display der feindlichen Schiffs-Formen (Rot wenn gekentert) -->
+                <div class="enemy-fleet-shapes-strip" id="enemy-fleet-status-bar">
+                    <!-- Dynamic mini poly-shape previews rendered via JS -->
+                </div>
+
+                <!-- 3. Tactical Command Strip (Mini-Map "DEINE FLOTTE" + Avatare) -->
+                <div class="battle-tactical-header">
+                    <!-- Left: Player Profile & Compact "DEINE FLOTTE" Mini-Map -->
+                    <div class="tactical-player-side">
+                        <div class="commander-badge-box">
+                            <div class="commander-avatar-circle" id="my-commander-avatar">
+                                <span class="avatar-icon" id="my-commander-icon">⚓</span>
+                                <div class="energy-pendant" id="my-energy-pendant">⚡ 2</div>
+                            </div>
+                            <div class="commander-text-info">
+                                <strong class="commander-name-txt" id="my-commander-name">Johannes Schmidt</strong>
+                                <span class="commander-user-txt" id="my-player-username">{{ current_user.username if current_user else 'Du' }}</span>
+                            </div>
+                        </div>
+
+                        <!-- Mini-Map "DEINE FLOTTE" -->
+                        <div class="minimap-ocean-card card">
+                            <div class="minimap-header-row">
+                                <span class="minimap-title-label">DEINE FLOTTE</span>
+                                <span class="minimap-count-label" id="own-fleet-counter">5/5</span>
+                            </div>
+                            <div class="minimap-grid-container">
+                                <div class="radar-grid defense-grid minimap-grid" id="own-battle-grid">
+                                    <!-- 100 compact cells generated via JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Opponent Profile -->
+                    <div class="tactical-opponent-side">
+                        <div class="commander-badge-box opponent-box">
+                            <div class="commander-text-info text-right">
+                                <strong class="commander-name-txt" id="enemy-commander-name">Gegner</strong>
+                                <span class="commander-user-txt" id="enemy-player-username">Wartet...</span>
+                            </div>
+                            <div class="commander-avatar-circle opponent-circle" id="enemy-commander-avatar">
+                                <span class="avatar-icon" id="enemy-commander-icon">🎖️</span>
+                                <div class="energy-pendant enemy-pendant" id="enemy-energy-pendant">⚡ 2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Bottom Tactical Diamond Console -->
                 <div id="commander-tactical-console" class="commander-diamond-console">
                     <div class="diamond-and-controls">
                         <!-- Diamond Ability Cluster -->
                         <div class="abilities-diamond-cluster" id="abilities-diamond-cluster">
                             <!-- 4 diamond buttons: top (3⚡), left (2⚡), right (4/5⚡), bottom (10⚡) -->
                         </div>
-
-                        <!-- Direction Toggle for directional abilities (e.g. Torpedo / Airstrike) -->
-                        <button type="button" id="btn-ability-dir" class="btn-tool btn-ability-dir" onclick="toggleAbilityDir()" title="Ausrichtung wechseln" style="display:none;">
-                            ↔ <span id="ability-dir-text">HORIZONT</span>
-                        </button>
                     </div>
 
-                    <!-- Selected Ability Tooltip Banner with Cancel Button -->
-                    <div class="ability-tooltip-box" id="ability-tooltip-box" style="display:none;">
-                        <div class="ability-tooltip-text">
-                            <strong id="tooltip-ability-name">Sonderfähigkeit</strong>: 
-                            <span id="tooltip-ability-desc">Beschreibung</span>
-                            <span class="tooltip-cost-tag">(<span id="tooltip-ability-cost">0</span>⚡)</span>
+                    <!-- Selected Ability Active Drawer with clear description, direction toggle, and cancel button -->
+                    <div class="ability-active-drawer" id="ability-active-drawer" style="display:none;">
+                        <div class="ability-drawer-header">
+                            <div class="ability-drawer-title-row">
+                                <span class="ability-drawer-icon" id="drawer-ability-icon"></span>
+                                <strong class="ability-drawer-name" id="drawer-ability-name"></strong>
+                                <span class="ability-drawer-cost" id="drawer-ability-cost"></span>
+                            </div>
+                            <button type="button" class="btn-cancel-ability-drawer" onclick="cancelAbilityMode()" title="Fähigkeit abbrechen">✕</button>
                         </div>
-                        <button type="button" class="btn-cancel-ability" onclick="cancelAbilityMode()" title="Fähigkeit abbrechen">✕</button>
+                        <div class="ability-drawer-desc" id="drawer-ability-desc"></div>
+                        <div class="ability-drawer-controls" id="drawer-dir-controls" style="display:none;">
+                            <button type="button" class="btn-drawer-dir" onclick="toggleAbilityDir()" title="Richtung wechseln">
+                                <span>Ausrichtung:</span>
+                                <strong id="drawer-dir-text">WAAGERECHT ↔</strong>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -328,6 +393,9 @@
                 </div>
             </div>
         </div>
+
+        <!-- Floating In-Game Toast Container -->
+        <div id="bs-toast-container" class="bs-toast-container"></div>
     </div>
 {% endblock %}
 

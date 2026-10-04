@@ -405,19 +405,31 @@
 
     // --- User Custom Items & Account Storage ---
     let userCustomItems = [];
+    try {
+        const _stored = localStorage.getItem('geobingo_custom_items');
+        if (_stored) userCustomItems = JSON.parse(_stored) || [];
+    } catch (e) {
+        userCustomItems = [];
+    }
     let currentPoolFilter = 'all';
     const collapsedPoolSections = new Set();
 
     function syncCustomWordsToRoom() {
         if (!currentRoomCode) return;
-        $.post(`/geo-bingo/${currentRoomCode}/sync_custom_words`, {
-            room_code: currentRoomCode,
-            custom_items: userCustomItems
-        }, function (res) {
-            if (res && res.player_custom_items && gameState) {
-                gameState.player_custom_items = res.player_custom_items;
-                if (gameState.status === 'lobby') {
-                    renderLobbyWordPool(gameState.settings || {});
+        $.ajax({
+            url: `/geo-bingo/${currentRoomCode}/sync_custom_words`,
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                room_code: currentRoomCode,
+                custom_items: userCustomItems
+            }),
+            success: function (res) {
+                if (res && res.player_custom_items && gameState) {
+                    gameState.player_custom_items = res.player_custom_items;
+                    if (gameState.status === 'lobby') {
+                        renderLobbyWordPool(gameState.settings || {});
+                    }
                 }
             }
         });

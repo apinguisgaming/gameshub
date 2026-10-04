@@ -267,7 +267,19 @@ def update_settings(room_code: str = None):
 @geobingo_bp.action('sync_custom_words')
 def sync_custom_words(room_code: str = None):
     user = get_current_user()
-    data = request.get_json(silent=True) or request.form.to_dict()
+
+    # Unterstützt sowohl echtes JSON als auch Form-Data (getlist für custom_items[] / custom_items)
+    if request.is_json:
+        data = request.get_json(silent=True) or {}
+        items = data.get('custom_items', [])
+    else:
+        data = request.form.to_dict()
+        items = (
+            request.form.getlist('custom_items[]') or 
+            request.form.getlist('custom_items') or 
+            data.get('custom_items', [])
+        )
+
     code = (room_code or data.get('room_code') or '').upper().strip()
     username = user['username']
 
@@ -275,11 +287,12 @@ def sync_custom_words(room_code: str = None):
     if not state:
         return jsonify({'error': 'Raum nicht gefunden'}), 404
 
-    items = data.get('custom_items', [])
     if isinstance(items, str):
         items = [i.strip() for i in items.split(',') if i.strip()]
     elif isinstance(items, list):
         items = [str(i).strip() for i in items if str(i).strip()]
+    else:
+        items = []
 
     player_custom = state.setdefault('player_custom_items', {})
     player_custom[username] = items

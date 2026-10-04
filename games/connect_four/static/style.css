@@ -130,6 +130,7 @@
 
 .join-form input {
     flex: 1;
+    min-width: 0;
     border: var(--border-c4);
     font-family: 'Space Mono', monospace;
     font-size: 1.2rem;
@@ -138,6 +139,11 @@
     padding: 10px 14px;
     outline: none;
     box-shadow: 3px 3px 0px #111;
+}
+
+.join-form .btn-secondary {
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 /* Open Lobbies Section */
@@ -771,5 +777,34 @@
     .col-trigger .ghost-disc {
         width: 26px;
         height: 26px;
+    }
+}
+
+@media (max-width: 520px) {
+    .c4-container {
+        padding: 16px 12px 40px;
+    }
+    .entry-card {
+        padding: 20px 16px;
+        margin: 20px auto;
+    }
+    .join-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .join-form input {
+        width: 100%;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+    .join-form .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .game-title {
+        font-size: 2rem;
     }
 }
