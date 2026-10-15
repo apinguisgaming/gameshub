@@ -29,3 +29,6 @@ data/logs/
 *.log
 *.sqlite
 *.sqlite3
+
+# UltraSong: hochgeladene Songs (werden nach 48 h geloescht)
+data/ultrasong/

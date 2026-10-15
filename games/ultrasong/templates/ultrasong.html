@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}UltraSong{% endblock %}
+
+{% block head %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='ultrasong/ultrasong.css') }}">
+{% endblock %}
+
+{% block body_class %}us-body{% endblock %}
+
+{% from "components/top_bar.html" import render_top_bar with context %}
+
+{% block content %}
+<div class="us-wrap">
+  <div class="us-box us-top">{{ render_top_bar(extra_class='us-top-bar') }}</div>
+
+  <header class="us-head">
+    <h1>🎤 UltraSong</h1>
+    <div class="us-pc" id="pc"><span class="us-dot"></span><span id="pcText">Verbinde…</span></div>
+  </header>
+
+  <section class="us-box us-off hidden" id="offBox">
+    <h2>Der PC zu Hause ist gerade aus</h2>
+    <p>Bestellen geht nur, wenn am PC der UltraSong-Hub läuft und <b>„Spielabend“</b> eingeschaltet ist.
+       Schon fertige Songs kannst du unten trotzdem herunterladen.</p>
+  </section>
+
+  <section class="us-box" id="orderBox">
+    <form id="searchForm" class="us-search">
+      <input id="q" type="search" autocomplete="off" placeholder="Wunschsong suchen – oder YouTube-Link einfügen">
+      <button type="submit" id="btnSearch">Suchen</button>
+    </form>
+    <div class="us-hint" id="hint"></div>
+    <div class="us-results" id="results"></div>
+    <button class="us-btn us-more hidden" id="btnMore">Mehr laden</button>
+  </section>
+
+  <section class="us-box hidden" id="queueBox">
+    <h2>Warteschlange</h2>
+    <div id="jobs"></div>
+  </section>
+
+  <section class="us-box">
+    <div class="us-row">
+      <h2>Fertig zum Herunterladen</h2>
+      <button class="us-btn" id="btnAll" hidden>↓ Alle neuen</button>
+    </div>
+    <div id="songs"></div>
+    <details class="us-help">
+      <summary>So kommt ein Song in UltraStar</summary>
+      <ol>
+        <li><b>Herunterladen</b> – du bekommst eine ZIP.</li>
+        <li>ZIP mit Rechtsklick → <b>„Alle extrahieren…“</b> in den UltraStar-Ordner <code>songs</code>
+            (meist <code>C:\Program Files (x86)\UltraStar Deluxe\songs</code>).</li>
+        <li><b>UltraStar neu starten</b> – neue Songs liest es nur beim Start ein. Tipp: ein paar Wünsche
+            sammeln, „Alle neuen“ laden, einmal entpacken, einmal neu starten.</li>
+      </ol>
+    </details>
+  </section>
+
+  <div class="us-foot"><button class="us-link" id="btnStop" hidden>Spielabend beenden</button></div>
+</div>
+<div class="us-toast" id="toast"></div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='ultrasong/ultrasong.js') }}"></script>
+{% endblock %}
