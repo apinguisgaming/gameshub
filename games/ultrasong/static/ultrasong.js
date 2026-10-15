@@ -39,7 +39,7 @@
   }
 
   // ---------- Stand (PC, Warteschlange, fertige Songs) ----------
-  let st = { pc: { online: false }, jobs: [], songs: [] }, firstState = true;
+  let st = { pc: { online: false }, jobs: [], songs: [], admin: false }, firstState = true;
 
   async function refresh() {
     try {
@@ -56,7 +56,7 @@
     $("#pcText").textContent = on ? "PC zu Hause: bereit" : "PC zu Hause: aus";
     $("#offBox").classList.toggle("hidden", on);
     $("#orderBox").classList.toggle("hidden", !on);
-    $("#btnStop").hidden = !on;
+    $("#btnStop").hidden = !on || !st.admin;
     renderJobs();
     renderSongs();
     if (firstState) { firstState = false; if (on) $("#q").focus(); }
@@ -64,12 +64,12 @@
 
   const STEPS = [["download", "Download"], ["video", "Video"], ["cover", "Cover"], ["songtext", "Songtext"],
     ["trennung", "Trennung"], ["tempo", "Tempo"], ["alignment", "Alignment"], ["noten", "Noten"]];
-  const STATUS = { wartet: "wartet", laeuft: "läuft", fertig: "fertig – wird hochgeladen", fehler: "Fehler", abgebrochen: "abgebrochen" };
+  const STATUS = { wartet: "wartet", laeuft: "läuft", fertig: "fertig", fehler: "Fehler", abgebrochen: "abgebrochen" };
 
   function renderJobs() {
     const jobs = st.jobs.slice().reverse();
     $("#queueBox").classList.toggle("hidden", !jobs.length);
-    const uploaded = new Set(st.songs.map(s => s.name.toLowerCase()));
+    const ready = new Set(st.songs.map(s => s.name.toLowerCase()));
     $("#jobs").innerHTML = jobs.map(j => {
       const cur = STEPS.findIndex(s => s[0] === j.stage);
       const steps = STEPS.map((s, k) => {
@@ -80,7 +80,7 @@
       let state = STATUS[j.status] || j.status;
       if (j.status === "laeuft") state = `${(STEPS[cur] || [, j.stage])[1]} ${esc(j.detail || "")}`;
       if (j.status === "fehler") state = "Fehler: " + esc(j.error || "");
-      if (j.status === "fertig" && uploaded.has(`${j.artist} - ${j.title}`.toLowerCase())) state = "fertig ✓ unten herunterladen";
+      if (j.status === "fertig" && ready.has(`${j.artist} - ${j.title}`.toLowerCase())) state = "fertig ✓ unten herunterladen";
       if (dur) state += ` · ${fmtDur(dur)}`;
       const btn = ["wartet", "laeuft"].includes(j.status) && st.pc.online
         ? `<button class="us-btn ghost small" data-cancel="${esc(j.key)}">Abbrechen</button>` : "";
@@ -91,26 +91,36 @@
 
   function renderSongs() {
     const songs = st.songs;
-    const since = st.pc.since || 0;
-    const fresh = songs.filter(s => s.created >= since - 60);
     const btnAll = $("#btnAll");
-    btnAll.hidden = fresh.length < 2;
-    btnAll.textContent = `↓ Alle neuen (${fresh.length})`;
-    if (!songs.length) { $("#songs").innerHTML = `<div class="us-empty">Noch nichts da. Fertige Songs erscheinen hier automatisch.</div>`; return; }
+    if (!btnAll.disabled) {
+      btnAll.hidden = songs.length < 2;
+      btnAll.textContent = `↓ Alle (${songs.length})`;
+    }
+    if (!songs.length) {
+      $("#songs").innerHTML = `<div class="us-empty">${st.pc.online ? "Noch nichts da. Fertige Songs erscheinen hier automatisch."
+        : "Wenn der PC an ist, stehen hier die Songs des Spielabends."}</div>`;
+      return;
+    }
+    const busy = new Set([...$("#songs").querySelectorAll("[data-dl]:disabled")].map(b => b.dataset.dl));
+    if (busy.size) return;   // laufenden Download nicht wegrendern
     $("#songs").innerHTML = songs.map(s => `
       <div class="us-song">
         ${s.cover ? `<img src="/ultrasong/cover/${esc(s.key)}" alt="" loading="lazy">` : `<div class="ph"></div>`}
         <div><div class="n">${esc(s.name)}</div>
-          <div class="m">${fmtMB(s.size)} · ${new Date(s.created * 1000).toLocaleTimeString("de", { hour: "2-digit", minute: "2-digit" })} Uhr</div></div>
-        <button class="us-btn small" data-dl="${esc(s.key)}" data-name="${esc(s.name)}">↓ Herunterladen</button>
+          <div class="m">ca. ${fmtMB(s.size)} · ${new Date(s.created * 1000).toLocaleTimeString("de", { hour: "2-digit", minute: "2-digit" })} Uhr</div></div>
+        <button class="us-btn small" data-dl="${esc(s.key)}" data-name="${esc(s.name)}"${st.pc.online ? "" : " disabled"}>↓ Herunterladen</button>
       </div>`).join("");
   }
 
-  // Download ueber fetch (nimmt das Tab-Login mit), dann als Datei speichern
-  async function download(url, filename, btn) {
+  // Erst den PC die Songs hochladen lassen, dann ueber fetch laden (nimmt das Tab-Login mit) und speichern.
+  // Die Seite loescht die ZIP, sobald sie komplett angekommen ist.
+  async function download(songs, filename, btn) {
     const label = btn.textContent;
     btn.disabled = true;
     try {
+      btn.textContent = "PC schickt…";
+      await order("fetch", { names: songs.map(s => s.name) }, 600);
+      const url = songs.length === 1 ? `/ultrasong/dl/${songs[0].key}` : `/ultrasong/dl-all?keys=${songs.map(s => s.key).join(",")}`;
       const r = await authFetch(url);
       if (!r.ok) throw new Error(r.status === 404 ? "Nicht (mehr) vorhanden" : r.statusText);
       const total = +r.headers.get("Content-Length") || 0;
@@ -136,11 +146,11 @@
 
   $("#songs").addEventListener("click", e => {
     const b = e.target.closest("[data-dl]");
-    if (b) download(`/ultrasong/dl/${b.dataset.dl}`, `${b.dataset.name}.zip`, b);
+    if (b) download(st.songs.filter(s => s.key === b.dataset.dl), `${b.dataset.name}.zip`, b);
   });
   $("#btnAll").addEventListener("click", e => {
     const d = new Date().toLocaleDateString("de");
-    download(`/ultrasong/dl-all?seit=${(st.pc.since || 0) - 60}`, `UltraSong ${d}.zip`, e.target);
+    download(st.songs.slice(), `UltraSong ${d} (${st.songs.length} Songs).zip`, e.target);
   });
   $("#jobs").addEventListener("click", async e => {
     const k = e.target.dataset.cancel;

@@ -158,6 +158,12 @@ class SQLiteStorage(BaseStorage):
             except Exception:
                 pass
 
+            # Schema migration: user roles ('user' | 'admin'); only settable directly in the DB (see set_role.py)
+            try:
+                conn.execute("ALTER TABLE users ADD COLUMN role TEXT NOT NULL DEFAULT 'user'")
+            except Exception:
+                pass
+
             # Schema migration: add losses and stats_meta columns to game_stats if not present
             try:
                 conn.execute("ALTER TABLE game_stats ADD COLUMN losses INTEGER DEFAULT 0")

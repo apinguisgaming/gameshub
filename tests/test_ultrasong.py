@@ -84,25 +84,67 @@ class UltraSongTests(unittest.TestCase):
         self.assertEqual(r, {'done': True, 'ok': True, 'data': [{'id': 'abcdefghijk', 'title': 'T'}], 'error': None})
         self.assertEqual(self.get('/ultrasong/api/state').get_json()['jobs'][0]['stage'], 'noten')
 
-    def test_upload_and_download(self):
-        data = _song_zip()
-        name = 'A - B'
+    def upload(self, name, data):
         url = '/ultrasong/pc/upload?name=' + name.replace(' ', '%20')
         half = len(data) // 2
         self.assertEqual(self.pc.post(f'{url}&offset=0&last=0', data=data[:half], headers=PC).status_code, 200)
         self.assertEqual(self.pc.post(f'{url}&offset=5&last=0', data=b'x', headers=PC).status_code, 409)
         self.assertEqual(self.pc.post(f'{url}&offset={half}&last=1', data=data[half:], headers=PC).status_code, 200)
-        self.assertIn(name, self.sync()['have'])
 
-        songs = self.get('/ultrasong/api/state').get_json()['songs']
-        song = next(s for s in songs if s['name'] == name)
-        self.assertEqual(song['cover'], 1)
-        self.assertEqual(self.get(f"/ultrasong/dl/{song['key']}").data, data)
+    def test_fetch_download_then_gone(self):
+        """Songliste vom PC, ZIP erst auf Bestellung, nach komplettem Download wieder weg."""
+        from games.ultrasong.routes import FILES
+        name, data = 'A - B', _song_zip()
+        self.sync(songs=[{'name': name, 'created': 5.0, 'size': len(data)}])
+        self.assertEqual(self.pc.post('/ultrasong/pc/cover?name=A%20-%20B', data=b'\xff\xd8jpeg', headers=PC).status_code, 200)
+        self.assertEqual(self.sync(songs=[{'name': name, 'created': 5.0, 'size': len(data)}])['covers'], [name])
+        song = self.get('/ultrasong/api/state').get_json()['songs'][0]
+        self.assertEqual((song['name'], song['cover']), (name, 1))
         self.assertEqual(self.get(f"/ultrasong/cover/{song['key']}").data, b'\xff\xd8jpeg')
-        allz = zipfile.ZipFile(io.BytesIO(self.get('/ultrasong/dl-all?seit=0').data))
+
+        self.assertEqual(self.get(f"/ultrasong/dl/{song['key']}").status_code, 404)   # noch nicht hochgeladen
+        self.assertEqual(self.post('/ultrasong/api/order', {'kind': 'fetch', 'data': {'names': ['X - Y']}}).status_code, 404)
+        oid = self.post('/ultrasong/api/order', {'kind': 'fetch', 'data': {'names': [name]}}).get_json()['id']
+        self.assertEqual(self.sync()['commands'][0]['data'], {'names': [name]})
+        self.upload(name, data)
+        self.sync(results=[{'id': oid, 'ok': True, 'data': {'ok': True}}])
+        self.assertTrue(self.get(f'/ultrasong/api/order/{oid}').get_json()['ok'])
+
+        r = self.get(f"/ultrasong/dl/{song['key']}")
+        self.assertEqual(r.data, data)
+        r.close()
+        self.assertFalse((FILES / (song['key'] + '.zip')).exists())                   # nach dem Download geloescht
+        self.assertEqual(self.get(f"/ultrasong/dl/{song['key']}").status_code, 404)
+
+        self.upload(name, data)                                                         # mehrere auf einmal
+        self.upload('C - D', data)
+        from games.ultrasong.routes import _file_key
+        keys = f"{song['key']},{_file_key('C - D')}"
+        allz = zipfile.ZipFile(io.BytesIO(self.get(f'/ultrasong/dl-all?keys={keys}').data))
         self.assertIn('A - B/A - B.mp3', allz.namelist())
         self.assertIsNone(allz.testzip())
+        self.assertEqual(self.get(f'/ultrasong/dl-all?keys={keys}').status_code, 404)  # auch weg
         self.assertEqual(self.pc.post('/ultrasong/pc/upload?name=..&offset=0&last=1', data=b'x', headers=PC).status_code, 400)
+
+        self.sync(bye=True)                                                             # PC aus: nichts bleibt liegen
+        self.assertFalse((FILES / (song['key'] + '.jpg')).exists())
+        self.sync()
+        self.assertEqual(self.get('/ultrasong/api/state').get_json()['songs'], [])
+
+    def test_stop_only_admin(self):
+        from storage import get_storage
+        self.sync()
+        self.assertFalse(self.get('/ultrasong/api/state').get_json()['admin'])
+        self.assertEqual(self.post('/ultrasong/api/order', {'kind': 'stop', 'data': {}}).status_code, 403)
+        with get_storage()._get_conn() as conn:
+            conn.execute("UPDATE users SET role='admin' WHERE username='SingTester'")
+        from apps.auth.decorators import invalidate_auth_cache
+        invalidate_auth_cache()
+        self.assertTrue(self.get('/ultrasong/api/state').get_json()['admin'])
+        self.assertEqual(self.post('/ultrasong/api/order', {'kind': 'stop', 'data': {}}).status_code, 200)
+        with get_storage()._get_conn() as conn:
+            conn.execute("UPDATE users SET role='user' WHERE username='SingTester'")
+        invalidate_auth_cache()
 
     def test_user_allowlist(self):
         os.environ['ULTRASONG_USERS'] = 'jemand_anders'

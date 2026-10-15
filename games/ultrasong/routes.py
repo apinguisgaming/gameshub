@@ -2,7 +2,10 @@
 
 Die Seite ist ein Briefkasten. Browser legen Bestellungen ab (Suche, Songtext-Check, Erstellen, Abbrechen).
 Der UltraSong-Hub auf dem PC holt sie im Spielabend-Modus im Sekundentakt ab (/ultrasong/pc/sync, mit
-PC-Schluessel), liefert die Antworten beim naechsten Abholen zurueck und laedt fertige Songs als ZIP hoch.
+PC-Schluessel), liefert die Antworten beim naechsten Abholen zurueck und meldet seine fertigen Songs (nur
+Name, Groesse, kleines Cover). Die ZIP laedt er erst hoch, wenn jemand "Herunterladen" drueckt ("fetch");
+nach dem vollstaendigen Download wird sie hier sofort geloescht. Platz belegen also nur Songs, die gerade
+unterwegs sind. "Spielabend beenden" duerfen nur Admins (users.role, siehe set_role.py).
 Der PC ist von aussen nie erreichbar; ohne laufenden Spielabend zeigt die Seite "PC ist aus".
 
 .env: ULTRASONG_PC_KEY (Pflicht, derselbe Schluessel wie in den Hub-Einstellungen),
@@ -19,10 +22,11 @@ import time
 import zipfile
 from contextlib import contextmanager
 from pathlib import Path
+from urllib.parse import quote
 
 from flask import Blueprint, Response, abort, jsonify, redirect, request, send_file, stream_with_context
 
-from apps.auth.decorators import get_current_user
+from apps.auth.decorators import get_current_user, is_admin
 from config import DATA_DIR
 
 ultrasong_bp = Blueprint('ultrasong_bp', __name__)
@@ -31,9 +35,9 @@ FILES = Path(DATA_DIR) / 'ultrasong'
 DB = Path(DATA_DIR) / 'ultrasong.db'
 ONLINE_S = 10            # so lange nach dem letzten Abholen gilt der PC als online
 ORDER_TTL = 60           # nicht abgeholte Bestellungen verfallen danach
-KEEP_S = 48 * 3600       # Songs bleiben so lange zum Herunterladen liegen
-MAX_BYTES = 300 << 20    # hoechstens so viel Platz fuer Songs (aelteste fliegen zuerst)
+UPLOAD_KEEP_S = 3600     # abgebrochene Downloads: hochgeladene ZIP spaetestens dann weg
 MAX_CHUNK = 8 << 20
+MAX_COVER = 2 << 20
 YT_ID = re.compile(r'[\w-]{6,20}')
 _lock = threading.Lock()
 
@@ -49,7 +53,9 @@ def _db():
         CREATE TABLE IF NOT EXISTS orders (id INTEGER PRIMARY KEY AUTOINCREMENT, user TEXT, kind TEXT, data TEXT,
             created REAL, taken REAL, done REAL, ok INTEGER, result TEXT);
         CREATE TABLE IF NOT EXISTS kv (k TEXT PRIMARY KEY, v TEXT);
-        CREATE TABLE IF NOT EXISTS songs (name TEXT PRIMARY KEY, file TEXT, size INTEGER, created REAL, cover INTEGER);
+        CREATE TABLE IF NOT EXISTS pc_songs (name TEXT PRIMARY KEY, size INTEGER, created REAL);
+        CREATE TABLE IF NOT EXISTS uploads (name TEXT PRIMARY KEY, size INTEGER, at REAL);
+        DROP TABLE IF EXISTS songs;
     ''')
     try:
         with con:
@@ -82,14 +88,19 @@ def _cleanup(con):
     con.execute('UPDATE orders SET done=?, ok=0, result=? WHERE done IS NULL AND taken IS NULL AND created<?',
                 (now, json.dumps('Der PC zu Hause hat nicht reagiert.'), now - ORDER_TTL))
     con.execute('DELETE FROM orders WHERE created<?', (now - 3600,))
-    rows = con.execute('SELECT name, file, size, created FROM songs ORDER BY created DESC').fetchall()
-    total = 0
-    for r in rows:
-        total += r['size'] or 0
-        if r['created'] < now - KEEP_S or total > MAX_BYTES:
-            for suffix in ('.zip', '.jpg'):
-                (FILES / (r['file'] + suffix)).unlink(missing_ok=True)
-            con.execute('DELETE FROM songs WHERE name=?', (r['name'],))
+    for r in con.execute('SELECT name FROM uploads WHERE at<?', (now - UPLOAD_KEEP_S,)).fetchall():
+        _drop_upload(con, r['name'])
+    if FILES.is_dir():   # Reste (Covers geloeschter Songs, abgebrochene Uploads) nach einer Stunde weg
+        keep = {_file_key(r['name']) + '.zip' for r in con.execute('SELECT name FROM uploads')}
+        keep |= {_file_key(r['name']) + '.jpg' for r in con.execute('SELECT name FROM pc_songs')}
+        for f in FILES.iterdir():
+            if f.name not in keep and f.stat().st_mtime < now - 3600:
+                f.unlink(missing_ok=True)
+
+
+def _drop_upload(con, name: str):
+    (FILES / (_file_key(name) + '.zip')).unlink(missing_ok=True)
+    con.execute('DELETE FROM uploads WHERE name=?', (name,))
 
 
 # --- Zugriff -------------------------------------------------------------------------------------------
@@ -154,6 +165,11 @@ def _validate(kind: str, d: dict) -> dict:
         if not re.fullmatch(r'\w+', key):
             raise ValueError('key')
         return {'key': key}
+    if kind == 'fetch':
+        names = d.get('names')
+        if not isinstance(names, list) or not 1 <= len(names) <= 30 or not all(isinstance(n, str) and n for n in names):
+            raise ValueError('names')
+        return {'names': names}
     if kind == 'stop':
         return {}
     raise ValueError('kind')
@@ -165,10 +181,12 @@ def state():
     with _lock, _db() as con:
         _cleanup(con)
         pc = _pc_state(con)
-        songs = [dict(r) for r in con.execute('SELECT name, size, created, cover FROM songs ORDER BY created DESC')]
+        songs = [dict(r) for r in con.execute('SELECT name, size, created FROM pc_songs ORDER BY created DESC')]
     for s in songs:
         s['key'] = _file_key(s['name'])
-    return jsonify({'pc': {'online': pc['online'], 'since': pc['since']}, 'jobs': pc['jobs'], 'songs': songs})
+        s['cover'] = int((FILES / (s['key'] + '.jpg')).is_file())
+    return jsonify({'pc': {'online': pc['online'], 'since': pc['since']}, 'jobs': pc['jobs'], 'songs': songs,
+                    'admin': is_admin()})
 
 
 @ultrasong_bp.route('/api/order', methods=['POST'])
@@ -180,11 +198,17 @@ def order():
         data = _validate(kind, body.get('data') or {})
     except (ValueError, TypeError):
         return jsonify({'message': 'Ungültige Bestellung'}), 400
+    if kind == 'stop' and not is_admin():
+        return jsonify({'message': 'Nur Admins können den Spielabend beenden.'}), 403
     user = str((get_current_user() or {}).get('username', '?'))
     now = time.time()
     with _lock, _db() as con:
         if not _pc_state(con)['online']:
             return jsonify({'message': 'Der PC zu Hause ist gerade aus.'}), 503
+        if kind == 'fetch':
+            known = {r['name'] for r in con.execute('SELECT name FROM pc_songs')}
+            if not set(data['names']) <= known:
+                return jsonify({'message': 'Diesen Song gibt es am PC nicht (mehr).'}), 404
         recent = con.execute('SELECT COUNT(*) FROM orders WHERE user=? AND created>?', (user, now - 300)).fetchone()[0]
         if recent > 150:
             return jsonify({'message': 'Zu viele Bestellungen – kurz durchatmen.'}), 429
@@ -208,28 +232,49 @@ def order_result(oid: int):
                     'error': None if r['ok'] else res})
 
 
-def _song(key: str):
+def _uploaded(keys: list) -> list:
+    """(Name, ZIP-Pfad) der hochgeladenen Songs zu den Schluesseln, in dieser Reihenfolge."""
     with _lock, _db() as con:
-        for r in con.execute('SELECT name, file FROM songs'):
-            if _file_key(r['name']) == key:
-                return r['name'], FILES / (r['file'] + '.zip'), FILES / (r['file'] + '.jpg')
-    abort(404)
+        by_key = {_file_key(r['name']): r['name'] for r in con.execute('SELECT name FROM uploads')}
+    out = [(by_key[k], FILES / (k + '.zip')) for k in keys if k in by_key]
+    if len(out) != len(keys) or not all(z.is_file() for _, z in out):
+        abort(404)
+    return out
+
+
+def _then_delete(chunks, names: list):
+    """Reicht die Daten durch und loescht die ZIPs, sobald alles beim Browser angekommen ist."""
+    complete = False
+    try:
+        yield from chunks
+        complete = True
+    finally:
+        if complete:   # abgebrochen: liegen lassen fuer einen neuen Versuch (_cleanup raeumt nach 1 h)
+            with _lock, _db() as con:
+                for n in names:
+                    _drop_upload(con, n)
+
+
+def _read(path: Path):
+    with open(path, 'rb') as f:
+        while chunk := f.read(256 * 1024):
+            yield chunk
 
 
 @ultrasong_bp.route('/dl/<key>')
 @_member
 def download(key: str):
-    name, z, _ = _song(key)
-    if not z.is_file():
-        abort(404)
-    return send_file(z, mimetype='application/zip', as_attachment=True, download_name=f'{name}.zip')
+    [(name, z)] = _uploaded([key])
+    return Response(_then_delete(_read(z), [name]), mimetype='application/zip', headers={
+        'Content-Length': str(z.stat().st_size),
+        'Content-Disposition': f"attachment; filename*=UTF-8''{quote(name)}.zip"})
 
 
 @ultrasong_bp.route('/cover/<key>')
 @_member
 def cover(key: str):
-    _, _, jpg = _song(key)
-    if not jpg.is_file():
+    jpg = FILES / (key + '.jpg')
+    if not re.fullmatch(r'[0-9a-f]{20}', key) or not jpg.is_file():
         abort(404)
     return send_file(jpg, mimetype='image/jpeg', max_age=3600)
 
@@ -253,14 +298,12 @@ class _Pipe:
 @ultrasong_bp.route('/dl-all')
 @_member
 def download_all():
-    """Alle Songs seit ?seit=<unix-zeit> in einer ZIP (Song-Ordner nebeneinander), beim Senden erzeugt."""
-    seit = request.args.get('seit', type=float) or 0
-    with _lock, _db() as con:
-        files = [FILES / (r['file'] + '.zip') for r in
-                 con.execute('SELECT file FROM songs WHERE created>=? ORDER BY created', (seit,))]
-    files = [f for f in files if f.is_file()]
-    if not files:
+    """Mehrere hochgeladene Songs (?keys=a,b,...) in einer ZIP (Song-Ordner nebeneinander), beim Senden erzeugt."""
+    keys = [k for k in request.args.get('keys', '').split(',') if k]
+    if not keys:
         abort(404)
+    songs = _uploaded(keys)
+    files = [z for _, z in songs]
 
     def gen():
         pipe = _Pipe()
@@ -275,7 +318,7 @@ def download_all():
         yield pipe.take()
 
     stamp = time.strftime('%d.%m.%Y')
-    return Response(stream_with_context(gen()), mimetype='application/zip', headers={
+    return Response(stream_with_context(_then_delete(gen(), [n for n, _ in songs])), mimetype='application/zip', headers={
         'Content-Disposition': f'attachment; filename="UltraSong {stamp} ({len(files)} Songs).zip"'})
 
 
@@ -293,14 +336,39 @@ def pc_sync():
                          json.dumps(res.get('data') if res.get('ok') else res.get('error')), res.get('id')))
         jobs = body.get('jobs') if isinstance(body.get('jobs'), list) else []
         _put(con, 'pc', {'seen': now, 'since': body.get('since'), 'bye': bool(body.get('bye')), 'jobs': jobs[-20:]})
-        if body.get('bye'):
+        if body.get('bye'):   # PC aus: Songliste und Covers weg, hier bleibt nichts liegen
+            for r in con.execute('SELECT name FROM pc_songs').fetchall():
+                (FILES / (_file_key(r['name']) + '.jpg')).unlink(missing_ok=True)
+            con.execute('DELETE FROM pc_songs')
             return jsonify({'ok': True})
+        if isinstance(body.get('songs'), list):
+            con.execute('DELETE FROM pc_songs')
+            con.executemany('INSERT OR REPLACE INTO pc_songs (name, size, created) VALUES (?, ?, ?)',
+                            [(s['name'], int(s.get('size') or 0), float(s.get('created') or 0))
+                             for s in body['songs'][:200] if isinstance(s, dict) and _valid_name(s.get('name'))])
         _cleanup(con)
         rows = con.execute('SELECT id, kind, data FROM orders WHERE taken IS NULL AND done IS NULL ORDER BY id').fetchall()
         con.executemany('UPDATE orders SET taken=? WHERE id=?', [(now, r['id']) for r in rows])
-        have = [r['name'] for r in con.execute('SELECT name FROM songs')]
+        covers = [r['name'] for r in con.execute('SELECT name FROM pc_songs')
+                  if (FILES / (_file_key(r['name']) + '.jpg')).is_file()]
     return jsonify({'commands': [{'id': r['id'], 'kind': r['kind'], 'data': json.loads(r['data'])} for r in rows],
-                    'have': have})
+                    'covers': covers})
+
+
+def _valid_name(name) -> bool:
+    return isinstance(name, str) and 0 < len(name) <= 200 and not any(c in name for c in '/\\\0') and name.strip('.') != ''
+
+
+@ultrasong_bp.route('/pc/cover', methods=['POST'])
+@_pc
+def pc_cover():
+    name = request.args.get('name', '')
+    data = request.get_data(cache=False)
+    if not _valid_name(name) or not data or len(data) > MAX_COVER:
+        abort(400)
+    FILES.mkdir(parents=True, exist_ok=True)
+    (FILES / (_file_key(name) + '.jpg')).write_bytes(data)
+    return jsonify({'ok': True})
 
 
 @ultrasong_bp.route('/pc/upload', methods=['POST'])
@@ -309,7 +377,7 @@ def pc_upload():
     name = request.args.get('name', '')
     offset = request.args.get('offset', type=int)
     last = request.args.get('last') == '1'
-    if not name or len(name) > 200 or any(c in name for c in '/\\\0') or name.strip('.') == '' or offset is None:
+    if not _valid_name(name) or offset is None:
         abort(400)
     data = request.get_data(cache=False)
     if len(data) > MAX_CHUNK:
@@ -329,20 +397,12 @@ def pc_upload():
         if not last:
             return jsonify({'ok': True})
         z = FILES / (key + '.zip')
-        os.replace(part, z)
-        has_cover = False
-        try:
-            with zipfile.ZipFile(z) as zf:
-                imgs = [i for i in zf.namelist() if i.lower().endswith(('.jpg', '.jpeg'))]
-                imgs.sort(key=lambda i: '[co]' not in i.lower())
-                if imgs:
-                    (FILES / (key + '.jpg')).write_bytes(zf.read(imgs[0]))
-                    has_cover = True
-        except zipfile.BadZipFile:
-            z.unlink(missing_ok=True)
+        if not zipfile.is_zipfile(part):
+            part.unlink(missing_ok=True)
             return jsonify({'message': 'ZIP kaputt'}), 400
+        os.replace(part, z)
         with _db() as con:
-            con.execute('INSERT OR REPLACE INTO songs (name, file, size, created, cover) VALUES (?, ?, ?, ?, ?)',
-                        (name, key, z.stat().st_size, time.time(), int(has_cover)))
+            con.execute('INSERT OR REPLACE INTO uploads (name, size, at) VALUES (?, ?, ?)',
+                        (name, z.stat().st_size, time.time()))
             _cleanup(con)
     return jsonify({'ok': True})

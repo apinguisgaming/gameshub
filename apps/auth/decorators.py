@@ -109,6 +109,12 @@ def get_current_token():
     return getattr(request, 'auth_token', None)
 
 
+def is_admin(user=None):
+    """True if the user has role 'admin' in the users table (set with set_role.py)."""
+    user = user or get_current_user()
+    return bool(user) and user.get('role') == 'admin'
+
+
 def login_required(f):
     """Ensures user is authenticated before accessing a route.
     
