@@ -19,6 +19,9 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from flask_app import app  # noqa: E402
 
+for _k in ('BUCKET', 'ENDPOINT', 'KEY_ID', 'KEY'):   # die lokale .env darf kein echtes B2 einschalten
+    os.environ.pop('ULTRASONG_B2_' + _k, None)
+
 PC = {'X-PC-Key': 'test-pc-key'}
 CLIENT = {'X-Client-Key': 'test-client-key'}
 
@@ -107,7 +110,7 @@ class UltraSongTests(unittest.TestCase):
         self.assertEqual(self.get(f"/ultrasong/dl/{song['key']}").status_code, 404)   # noch nicht hochgeladen
         self.assertEqual(self.post('/ultrasong/api/order', {'kind': 'fetch', 'data': {'names': ['X - Y']}}).status_code, 404)
         oid = self.post('/ultrasong/api/order', {'kind': 'fetch', 'data': {'names': [name]}}).get_json()['id']
-        self.assertEqual(self.sync()['commands'][0]['data'], {'names': [name]})
+        self.assertEqual(self.sync()['commands'][0]['data'], {'names': [name], 'compat': False})
         self.upload(name, data)
         self.sync(results=[{'id': oid, 'ok': True, 'data': {'ok': True}}])
         self.assertTrue(self.get(f'/ultrasong/api/order/{oid}').get_json()['ok'])

@@ -224,7 +224,8 @@ def _validate(kind: str, d: dict) -> dict:
         names = d.get('names')
         if not isinstance(names, list) or not 1 <= len(names) <= 30 or not all(isinstance(n, str) and n for n in names):
             raise ValueError('names')
-        return {'names': names}
+        # compat: Originale (MP3/H.264) statt der kleinen Fassung (Opus/AV1) fuer aeltere UltraStar-Versionen
+        return {'names': names, 'compat': bool(d.get('compat'))}
     if kind == 'stop':
         return {}
     raise ValueError('kind')
