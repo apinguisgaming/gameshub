@@ -193,7 +193,8 @@
     $("#btnMore").textContent = `Mehr laden (${results.length - shown} weitere)`;
     const queue = [...Array(shown - from).keys()].map(k => from + k);   // Songtext nur fuer sichtbare Treffer
     const worker = async () => { while (queue.length) await checkLyrics(queue.shift()); };
-    await Promise.all([worker(), worker()]);  // lrclib mag nicht mehr gleichzeitig
+    // zwei unterwegs, damit der naechste schon am PC wartet - der PC prueft sie trotzdem einzeln nacheinander
+    await Promise.all([worker(), worker()]);
   }
   $("#btnMore").addEventListener("click", () => showMore());
 
