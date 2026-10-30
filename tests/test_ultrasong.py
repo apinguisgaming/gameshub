@@ -178,3 +178,37 @@ class UltraSongTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class B2Tests(UltraSongTests):
+    def test_signature_matches_aws_example(self):
+        import calendar
+        from games.ultrasong.routes import _sign_url
+        url = _sign_url('GET', 'examplebucket.s3.amazonaws.com', '/test.txt', 'us-east-1', 'AKIAIOSFODNN7EXAMPLE',
+                        'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY', 86400, now=calendar.timegm((2013, 5, 24, 0, 0, 0)))
+        self.assertTrue(url.endswith('X-Amz-Signature=aeeed9bbccd4d02ee5c0109b86d86835f995330da4c265957d157751f604d404'))
+
+    def test_b2_links(self):
+        self.assertEqual(self.pc.post('/ultrasong/pc/b2?name=A%20-%20B', headers=PC).status_code, 404)   # ohne B2
+        env = {'ULTRASONG_B2_BUCKET': 'b', 'ULTRASONG_B2_ENDPOINT': 's3.eu-central-003.backblazeb2.com',
+               'ULTRASONG_B2_KEY_ID': 'id', 'ULTRASONG_B2_KEY': 'secret'}
+        os.environ.update(env)
+        try:
+            r = self.pc.post('/ultrasong/pc/b2?name=A%20-%20B', headers=PC)
+            self.assertEqual(r.status_code, 200)
+            link = r.get_json()
+            self.assertIn('https://s3.eu-central-003.backblazeb2.com/b/songs/', link['url'])
+            self.assertIn('eu-central-003', link['url'])
+            r = self.pc.post('/ultrasong/pc/b2-done', query_string={'name': 'A - B', 'obj': link['obj'], 'size': 123},
+                             headers=PC)
+            self.assertEqual(r.status_code, 200)
+            from games.ultrasong.routes import _file_key
+            files = self.user.get(f"/ultrasong/links?keys={_file_key('A - B')}", headers=CLIENT).get_json()['files']
+            self.assertEqual(len(files), 1)
+            self.assertIn(link['obj'], files[0]['url'])
+            self.assertIn('response-content-disposition', files[0]['url'])
+            self.assertEqual(self.pc.post('/ultrasong/pc/b2-done', query_string={'name': 'A - B', 'obj': '../x', 'size': 1},
+                                          headers=PC).status_code, 400)
+        finally:
+            for k in env:
+                os.environ.pop(k, None)

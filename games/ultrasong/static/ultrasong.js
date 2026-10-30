@@ -120,7 +120,22 @@
     try {
       btn.textContent = "PC schickt…";
       await order("fetch", { names: songs.map(s => s.name) }, 600);
-      const url = songs.length === 1 ? `/ultrasong/dl/${songs[0].key}` : `/ultrasong/dl-all?keys=${songs.map(s => s.key).join(",")}`;
+      // liegen die ZIPs in B2, laedt der Browser sie direkt von dort (einzeln, mit eigenem Dateinamen)
+      const lr = await authFetch(`/ultrasong/links?keys=${songs.map(s => s.key).join(",")}`);
+      const ln = lr.ok ? await lr.json() : {};
+      if (ln.files) {
+        for (const f of ln.files) {
+          const a = document.createElement("a");
+          a.href = f.url;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          await sleep(400);
+        }
+        toast("Download läuft – danach in den UltraStar-Ordner „songs“ entpacken.");
+        return;
+      }
+      const url =songs.length === 1 ? `/ultrasong/dl/${songs[0].key}` : `/ultrasong/dl-all?keys=${songs.map(s => s.key).join(",")}`;
       const r = await authFetch(url);
       if (!r.ok) throw new Error(r.status === 404 ? "Nicht (mehr) vorhanden" : r.statusText);
       const total = +r.headers.get("Content-Length") || 0;
