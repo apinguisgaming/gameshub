@@ -119,7 +119,7 @@
     btn.disabled = true;
     try {
       btn.textContent = "PC schickt…";
-      await order("fetch", { names: songs.map(s => s.name) }, 600);
+      await order("fetch", { names: songs.map(s => s.name), compat: $("#optCompat").checked }, 600);
       // liegen die ZIPs in B2, laedt der Browser sie direkt von dort (einzeln, mit eigenem Dateinamen)
       const lr = await authFetch(`/ultrasong/links?keys=${songs.map(s => s.key).join(",")}`);
       const ln = lr.ok ? await lr.json() : {};
@@ -159,6 +159,11 @@
     finally { btn.disabled = false; btn.textContent = label; }
   }
 
+  // die Wahl fuer aeltere UltraStar-Versionen merkt sich der Browser
+  try { $("#optCompat").checked = localStorage.getItem("ultrasong.compat") === "1"; } catch (e) {}
+  $("#optCompat").addEventListener("change", e => {
+    try { localStorage.setItem("ultrasong.compat", e.target.checked ? "1" : "0"); } catch (err) {}
+  });
   $("#songs").addEventListener("click", e => {
     const b = e.target.closest("[data-dl]");
     if (b) download(st.songs.filter(s => s.key === b.dataset.dl), `${b.dataset.name}.zip`, b);

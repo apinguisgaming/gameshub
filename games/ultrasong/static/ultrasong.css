@@ -61,6 +61,8 @@ h2 { font: 900 19px/1.2 Archivo, sans-serif; margin: 0 0 10px; }
 .us-song .m { font-size: 13px; color: var(--us-muted); }
 .us-empty { color: var(--us-muted); font-size: 14px; }
 .us-help { margin-top: 12px; font-size: 14px; }
+.us-compat { display: flex; gap: 8px; align-items: flex-start; margin-top: 10px; font-size: 13px; color: var(--us-muted); cursor: pointer; }
+.us-compat input { margin-top: 2px; }
 .us-help summary { cursor: pointer; font-weight: 700; }
 .us-help code { background: #f1ede4; padding: 0 4px; }
 .us-foot { text-align: center; }
