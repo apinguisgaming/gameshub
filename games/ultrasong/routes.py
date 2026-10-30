@@ -9,7 +9,9 @@ unterwegs sind. "Spielabend beenden" duerfen nur Admins (users.role, siehe set_r
 Der PC ist von aussen nie erreichbar; ohne laufenden Spielabend zeigt die Seite "PC ist aus".
 
 .env: ULTRASONG_PC_KEY (Pflicht, derselbe Schluessel wie in den Hub-Einstellungen),
-      ULTRASONG_USERS (optional, kommagetrennte Benutzernamen; leer = alle eingeloggten).
+      ULTRASONG_USERS (optional, kommagetrennte Benutzernamen; leer = alle eingeloggten),
+      ULTRASONG_CLIENT_KEY (optional, Schluessel fuer UltraStar Deluxe: Header X-Client-Key statt Login;
+      darf suchen, Songtexte pruefen, erstellen, abbrechen und herunterladen - aber nicht beenden).
 """
 import hashlib
 import hmac
@@ -111,8 +113,20 @@ def _allowed_user() -> bool:
     return bool(user) and (not users or str(user.get('username', '')).lower() in users)
 
 
+CLIENT_USER = 'ultrastar'
+
+
+def _client() -> bool:
+    """Anfrage von UltraStar Deluxe (X-Client-Key) statt aus dem Browser."""
+    key = os.environ.get('ULTRASONG_CLIENT_KEY', '')
+    given = request.headers.get('X-Client-Key', '')
+    return bool(key and given) and hmac.compare_digest(given.encode(), key.encode())
+
+
 def _member(f):
     def wrapped(*a, **kw):
+        if _client():
+            return f(*a, **kw)
         if not get_current_user():
             if '/api/' in request.path:  # fetch() soll 401 sehen, keine Umleitung auf die Startseite
                 return jsonify({'error': 'unauthorized', 'message': 'Bitte einloggen'}), 401
@@ -186,7 +200,7 @@ def state():
         s['key'] = _file_key(s['name'])
         s['cover'] = int((FILES / (s['key'] + '.jpg')).is_file())
     return jsonify({'pc': {'online': pc['online'], 'since': pc['since']}, 'jobs': pc['jobs'], 'songs': songs,
-                    'admin': is_admin()})
+                    'admin': not _client() and is_admin()})
 
 
 @ultrasong_bp.route('/api/order', methods=['POST'])
@@ -198,19 +212,24 @@ def order():
         data = _validate(kind, body.get('data') or {})
     except (ValueError, TypeError):
         return jsonify({'message': 'Ungültige Bestellung'}), 400
-    if kind == 'stop' and not is_admin():
+    if kind == 'stop' and (_client() or not is_admin()):
         return jsonify({'message': 'Nur Admins können den Spielabend beenden.'}), 403
-    user = str((get_current_user() or {}).get('username', '?'))
+    user = CLIENT_USER if _client() else str((get_current_user() or {}).get('username', '?'))
     now = time.time()
     with _lock, _db() as con:
         if not _pc_state(con)['online']:
             return jsonify({'message': 'Der PC zu Hause ist gerade aus.'}), 503
-        if kind == 'fetch':
+        if kind == 'fetch' and _client():
+            # das Spiel darf jeden Song der Bibliothek holen (auch aeltere, die die Suche als vorhanden meldet)
+            if not all(_valid_name(n) for n in data['names']):
+                return jsonify({'message': 'Ungültige Bestellung'}), 400
+            data['any'] = True
+        elif kind == 'fetch':
             known = {r['name'] for r in con.execute('SELECT name FROM pc_songs')}
             if not set(data['names']) <= known:
                 return jsonify({'message': 'Diesen Song gibt es am PC nicht (mehr).'}), 404
         recent = con.execute('SELECT COUNT(*) FROM orders WHERE user=? AND created>?', (user, now - 300)).fetchone()[0]
-        if recent > 150:
+        if recent > (600 if _client() else 150):   # das Spiel prueft pro Suche ~20 Songtexte
             return jsonify({'message': 'Zu viele Bestellungen – kurz durchatmen.'}), 429
         cur = con.execute('INSERT INTO orders (user, kind, data, created) VALUES (?, ?, ?, ?)',
                           (user, kind, json.dumps(data), now))
@@ -225,11 +244,31 @@ def order_result(oid: int):
         r = con.execute('SELECT done, ok, result FROM orders WHERE id=?', (oid,)).fetchone()
     if r is None:
         return jsonify({'message': 'Unbekannte Bestellung'}), 404
+    return jsonify(_result(r))
+
+
+@ultrasong_bp.route('/api/orders')
+@_member
+def order_results():
+    """Mehrere Bestellungen auf einmal (?ids=1,2,3): eine Anfrage statt einer pro Songtext-Check."""
+    try:
+        ids = [int(i) for i in request.args.get('ids', '').split(',') if i.strip()][:50]
+    except ValueError:
+        return jsonify({'message': 'Ungültige ids'}), 400
+    if not ids:
+        return jsonify({})
+    with _lock, _db() as con:
+        _cleanup(con)
+        rows = con.execute(f"SELECT id, done, ok, result FROM orders WHERE id IN ({','.join('?' * len(ids))})",
+                           ids).fetchall()
+    return jsonify({str(r['id']): _result(r) for r in rows})
+
+
+def _result(r) -> dict:
     if r['done'] is None:
-        return jsonify({'done': False})
+        return {'done': False}
     res = json.loads(r['result']) if r['result'] else None
-    return jsonify({'done': True, 'ok': bool(r['ok']), 'data': res if r['ok'] else None,
-                    'error': None if r['ok'] else res})
+    return {'done': True, 'ok': bool(r['ok']), 'data': res if r['ok'] else None, 'error': None if r['ok'] else res}
 
 
 def _uploaded(keys: list) -> list:

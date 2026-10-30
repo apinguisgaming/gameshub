@@ -13,12 +13,14 @@ import zipfile
 _TMP = tempfile.mkdtemp(prefix='ultrasong-test-')
 os.environ['DATA_DIR'] = _TMP
 os.environ['ULTRASONG_PC_KEY'] = 'test-pc-key'
+os.environ['ULTRASONG_CLIENT_KEY'] = 'test-client-key'
 os.environ.pop('ULTRASONG_USERS', None)
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from flask_app import app  # noqa: E402
 
 PC = {'X-PC-Key': 'test-pc-key'}
+CLIENT = {'X-Client-Key': 'test-client-key'}
 
 
 def _song_zip() -> bytes:
@@ -152,6 +154,26 @@ class UltraSongTests(unittest.TestCase):
             self.assertEqual(self.get('/ultrasong/api/state').status_code, 403)
         finally:
             os.environ.pop('ULTRASONG_USERS')
+
+    def test_client_key(self):
+        """UltraStar Deluxe bestellt mit X-Client-Key statt Login, mehrere Ergebnisse in einer Anfrage."""
+        game = app.test_client()
+        self.sync()
+        self.assertEqual(game.get('/ultrasong/api/state', headers={'X-Client-Key': 'falsch'}).status_code, 401)
+        st = game.get('/ultrasong/api/state', headers=CLIENT).get_json()
+        self.assertTrue(st['pc']['online'])
+        self.assertFalse(st['admin'])
+        ids = [game.post('/ultrasong/api/order', headers=CLIENT, json={
+            'kind': 'lyrics', 'data': {'artist': 'Tream', 'title': t}}).get_json()['id']
+            for t in ('Drago Augustino', 'Drago Augustino (Acoustic)')]
+        self.assertEqual(game.post('/ultrasong/api/order', headers=CLIENT, json={'kind': 'stop', 'data': {}}).status_code, 403)
+        self.assertEqual(len(self.sync()['commands']), 2)
+        self.sync(results=[{'id': ids[0], 'ok': True, 'data': {'found': True}}])
+        r = game.get(f'/ultrasong/api/orders?ids={ids[0]},{ids[1]}', headers=CLIENT).get_json()
+        self.assertEqual(r[str(ids[0])], {'done': True, 'ok': True, 'data': {'found': True}, 'error': None})
+        self.assertEqual(r[str(ids[1])], {'done': False})
+        self.assertEqual(game.get('/ultrasong/api/orders?ids=x', headers=CLIENT).status_code, 400)
+        self.sync(results=[{'id': ids[1], 'ok': True, 'data': {'found': False}}])
 
 
 if __name__ == '__main__':
