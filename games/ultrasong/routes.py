@@ -11,7 +11,10 @@ Der PC ist von aussen nie erreichbar; ohne laufenden Spielabend zeigt die Seite 
 .env: ULTRASONG_PC_KEY (Pflicht, derselbe Schluessel wie in den Hub-Einstellungen),
       ULTRASONG_USERS (optional, kommagetrennte Benutzernamen; leer = alle eingeloggten),
       ULTRASONG_CLIENT_KEY (optional, Schluessel fuer UltraStar Deluxe: Header X-Client-Key statt Login;
-      darf suchen, Songtexte pruefen, erstellen, abbrechen und herunterladen - aber nicht beenden).
+      darf suchen, Songtexte pruefen, erstellen, abbrechen und herunterladen - aber nicht beenden),
+      ULTRASONG_B2_BUCKET, _ENDPOINT, _KEY_ID, _KEY (optional, Backblaze B2): dann laedt der PC die ZIPs
+      direkt dorthin hoch und Browser/Spiel laden sie von dort - die Seite stellt nur kurz gueltige Links
+      aus (hier signiert, ohne Verbindung zu B2). Aufraeumen per Lifecycle-Regel im Bucket (Praefix songs/).
 """
 import hashlib
 import hmac
@@ -59,6 +62,8 @@ def _db():
         CREATE TABLE IF NOT EXISTS uploads (name TEXT PRIMARY KEY, size INTEGER, at REAL);
         DROP TABLE IF EXISTS songs;
     ''')
+    if 'obj' not in [c[1] for c in con.execute('PRAGMA table_info(uploads)')]:
+        con.execute('ALTER TABLE uploads ADD COLUMN obj TEXT')   # Objekt in B2, sonst liegt die ZIP hier
     try:
         with con:
             yield con
@@ -103,6 +108,42 @@ def _cleanup(con):
 def _drop_upload(con, name: str):
     (FILES / (_file_key(name) + '.zip')).unlink(missing_ok=True)
     con.execute('DELETE FROM uploads WHERE name=?', (name,))
+
+
+# --- Backblaze B2 (S3-Schnittstelle, vorsignierte Links) -----------------------------------------------
+
+LINK_S = 3600            # so lange gelten Upload- und Download-Links
+
+
+def _b2():
+    cfg = {k: os.environ.get('ULTRASONG_B2_' + k.upper(), '').strip() for k in ('bucket', 'endpoint', 'key_id', 'key')}
+    cfg['endpoint'] = re.sub(r'^https?://', '', cfg['endpoint']).rstrip('/')
+    return cfg if all(cfg.values()) else None
+
+
+def _sign_url(method: str, host: str, path: str, region: str, key_id: str, secret: str, expires: int,
+              extra: dict = None, now: float = None) -> str:
+    """AWS-Signatur V4 als Query-Parameter (UNSIGNED-PAYLOAD), wie sie S3 und B2 verstehen."""
+    stamp = time.strftime('%Y%m%dT%H%M%SZ', time.gmtime(time.time() if now is None else now))
+    scope = f'{stamp[:8]}/{region}/s3/aws4_request'
+    q = {'X-Amz-Algorithm': 'AWS4-HMAC-SHA256', 'X-Amz-Credential': f'{key_id}/{scope}', 'X-Amz-Date': stamp,
+         'X-Amz-Expires': str(expires), 'X-Amz-SignedHeaders': 'host', **(extra or {})}
+    qs = '&'.join(f"{quote(k, safe='-_.~')}={quote(v, safe='-_.~')}" for k, v in sorted(q.items()))
+    uri = quote(path, safe='/-_.~')
+    canon = '\n'.join([method, uri, qs, f'host:{host}\n', 'host', 'UNSIGNED-PAYLOAD'])
+    to_sign = '\n'.join(['AWS4-HMAC-SHA256', stamp, scope, hashlib.sha256(canon.encode()).hexdigest()])
+    k = ('AWS4' + secret).encode()
+    for part in (stamp[:8], region, 's3', 'aws4_request'):
+        k = hmac.new(k, part.encode(), hashlib.sha256).digest()
+    sig = hmac.new(k, to_sign.encode(), hashlib.sha256).hexdigest()
+    return f'https://{host}{uri}?{qs}&X-Amz-Signature={sig}'
+
+
+def _b2_url(method: str, obj: str, filename: str = None) -> str:
+    b = _b2()
+    region = b['endpoint'].split('.')[1] if b['endpoint'].count('.') >= 2 else 'us-east-1'
+    extra = {'response-content-disposition': "attachment; filename*=UTF-8''" + quote(filename)} if filename else None
+    return _sign_url(method, b['endpoint'], f"/{b['bucket']}/{obj}", region, b['key_id'], b['key'], LINK_S, extra)
 
 
 # --- Zugriff -------------------------------------------------------------------------------------------
@@ -271,10 +312,25 @@ def _result(r) -> dict:
     return {'done': True, 'ok': bool(r['ok']), 'data': res if r['ok'] else None, 'error': None if r['ok'] else res}
 
 
-def _uploaded(keys: list) -> list:
-    """(Name, ZIP-Pfad) der hochgeladenen Songs zu den Schluesseln, in dieser Reihenfolge."""
+@ultrasong_bp.route('/links')
+@_member
+def links():
+    """Download-Links direkt zu B2 (?keys=a,b); {'files': null}, wenn die ZIPs hier liegen (dann /dl, /dl-all)."""
+    keys = [k for k in request.args.get('keys', '').split(',') if k][:50]
     with _lock, _db() as con:
-        by_key = {_file_key(r['name']): r['name'] for r in con.execute('SELECT name FROM uploads')}
+        by_key = {_file_key(r['name']): dict(r) for r in con.execute('SELECT name, size, obj FROM uploads')}
+    if not keys or not all(k in by_key for k in keys):
+        abort(404)
+    if not _b2() or not all(by_key[k]['obj'] for k in keys):
+        return jsonify({'files': None})
+    return jsonify({'files': [{'name': by_key[k]['name'], 'size': by_key[k]['size'],
+                               'url': _b2_url('GET', by_key[k]['obj'], by_key[k]['name'] + '.zip')} for k in keys]})
+
+
+def _uploaded(keys: list) -> list:
+    """(Name, ZIP-Pfad) der hier hochgeladenen Songs zu den Schluesseln, in dieser Reihenfolge."""
+    with _lock, _db() as con:
+        by_key = {_file_key(r['name']): r['name'] for r in con.execute('SELECT name FROM uploads WHERE obj IS NULL')}
     out = [(by_key[k], FILES / (k + '.zip')) for k in keys if k in by_key]
     if len(out) != len(keys) or not all(z.is_file() for _, z in out):
         abort(404)
@@ -441,7 +497,34 @@ def pc_upload():
             return jsonify({'message': 'ZIP kaputt'}), 400
         os.replace(part, z)
         with _db() as con:
-            con.execute('INSERT OR REPLACE INTO uploads (name, size, at) VALUES (?, ?, ?)',
+            con.execute('INSERT OR REPLACE INTO uploads (name, size, at, obj) VALUES (?, ?, ?, NULL)',
                         (name, z.stat().st_size, time.time()))
             _cleanup(con)
+    return jsonify({'ok': True})
+
+
+@ultrasong_bp.route('/pc/b2', methods=['POST'])
+@_pc
+def pc_b2():
+    """Upload-Link fuer eine ZIP (?name=), 404 ohne B2 - dann laedt der PC wie bisher stueckweise hierher."""
+    name = request.args.get('name', '')
+    if not _valid_name(name):
+        abort(400)
+    if not _b2():
+        abort(404)
+    obj = f'songs/{_file_key(name)}-{int(time.time() * 1000)}.zip'
+    return jsonify({'obj': obj, 'url': _b2_url('PUT', obj)})
+
+
+@ultrasong_bp.route('/pc/b2-done', methods=['POST'])
+@_pc
+def pc_b2_done():
+    """Der PC hat die ZIP nach B2 hochgeladen (?name=&obj=&size=)."""
+    name, obj = request.args.get('name', ''), request.args.get('obj', '')
+    size = request.args.get('size', type=int)
+    if not _valid_name(name) or not re.fullmatch(r'songs/[0-9a-f]{20}-\d+\.zip', obj) or not size:
+        abort(400)
+    with _lock, _db() as con:
+        _drop_upload(con, name)   # aeltere Fassung hier, falls vorhanden
+        con.execute('INSERT INTO uploads (name, size, at, obj) VALUES (?, ?, ?, ?)', (name, size, time.time(), obj))
     return jsonify({'ok': True})
