@@ -1,0 +1,19 @@
+{
+  "name": "Tiefenfeuer",
+  "short_name": "Tiefenfeuer",
+  "lang": "de",
+  "start_url": "/tiefenfeuer/",
+  "scope": "/tiefenfeuer/",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#0b0806",
+  "theme_color": "#0b0806",
+  "icons": [
+    {
+      "src": "/tiefenfeuer/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
